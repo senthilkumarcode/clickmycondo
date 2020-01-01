@@ -1,0 +1,438 @@
+{
+	"unitList" : [
+		{	
+			"name":"Alok Thakurdesai",
+			"id":1,
+			"phone":"9850913777",
+			"isccode":"011",
+			"email":"alok@thakurdesai.com",
+			"notes":"Added by Admin",
+			"blockno":"A",
+			"unitno": "301",
+			"type": "Owner",
+			"joined": "01/01/19",
+			"status":"Clicked"
+		},
+		{	"name":"Rupesh Abkolekar",
+			"id":2,
+			"phone":"9850913777",
+			"isccode":"011",
+			"email":"rupesh@ankolekar.com",
+			"notes":"Added by Admin",
+			"blockno":"A",
+			"unitno": "301",
+			"type": "Tenant",
+			"joined": "01/01/19",
+			"status":"Clicked"
+		},
+		{	
+			"name":"Alok Thakurdesai",
+			"id":3,
+			"phone":"9850913777",
+			"isccode":"011",
+			"email":"alok@thakurdesai.com",
+			"notes":"Added by Admin",
+			"blockno":"A",
+			"unitno": "301",
+			"type": "Owner",
+			"joined": "01/01/19",
+			"status":"Clicked"
+		},
+		{	"name":"Rupesh Abkolekar",
+			"id":4,
+			"phone":"9850913777",
+			"isccode":"011",
+			"email":"rupesh@ankolekar.com",
+			"notes":"Added by Admin",
+			"blockno":"A",
+			"unitno": "301",
+			"type": "Owner",
+			"joined": "01/01/19",
+			"status":"Clicked"
+		}
+	],
+	"allottedSlotList" : [
+		{	
+			"name":"Alok Thakurdesai",
+			"id":1,
+			"slotno":1,
+			"flatno":48,
+			"slottype":"Member",
+			"notes":"Added by Admin",
+			"vehicleno":"KA01M1234",
+			"vehicletype":4,
+			"stickerno":"-",
+			"rfidno": 4,
+			"type": "Owner",
+			"fromdate": "01/01/19",
+			"todate": "01/01/21"
+		},
+		{	"name":"Rupesh Abkolekar",
+			"id":2,
+			"slotno":1,
+			"flatno":48,
+			"slottype":"Member",
+			"notes":"Added by Admin",
+			"vehicleno":"KA01M1234",
+			"vehicletype":4,
+			"stickerno":"-",
+			"rfidno": 4,
+			"type": "Owner",
+			"fromdate": "01/01/19",
+			"todate": "01/01/21"
+		},
+		{	
+			"name":"Alok Thakurdesai",
+			"id":3,
+			"slotno":1,
+			"flatno":48,
+			"slottype":"Member",
+			"notes":"Added by Admin",
+			"vehicleno":"KA01M1234",
+			"vehicletype":4,
+			"stickerno":"-",
+			"rfidno": 4,
+			"type": "Owner",
+			"fromdate": "01/01/19",
+			"todate": "01/01/21"
+		},
+		{	"name":"Rupesh Abkolekar",
+			"id":4,
+			"slotno":1,
+			"flatno":48,
+			"slottype":"Member",
+			"notes":"Added by Admin",
+			"vehicleno":"KA01M1234",
+			"vehicletype":4,
+			"stickerno":"-",
+			"rfidno": 4,
+			"type": "Owner",
+			"fromdate": "01/01/19",
+			"todate": "01/01/21"
+		}
+	],
+	"approvedUsersData" : [
+		{
+			"blockno":"A",
+			"unitno": "002",
+			"users" : [{
+				"name" : "Manohara SN"
+			}]
+		},
+		{
+			"blockno":"B",
+			"unitno": "5",
+			"users" : [{
+				"name" : "Harish kannan"
+			}]
+		},
+		{
+			"blockno":"B",
+			"unitno": "01",
+			"users" : [{
+				"name" : "Akash Mathew"
+			}]
+		},
+		{
+			"blockno":"A",
+			"unitno": "002",
+			"users" : [{
+				"name" : "Veena Warrier"
+			},
+			{
+				"name" : "Saurabh Kumar"
+			}
+			]
+		},
+		{
+			"blockno":"B",
+			"unitno": "01",
+			"users" : [{
+				"name" : "Akash Mathew"
+			}]
+		},
+		{
+			"blockno":"B",
+			"unitno": "01",
+			"users" : [{
+				"name" : "Akash Mathew"
+			}]
+		}
+	],
+	"logsData": [
+		{	
+			"date":"01/01/19",
+			"by":"Veena Warrier",
+			"comment":" ",
+			"before":"Lorem ipsum",
+			"after":"Deleted"
+		},
+		{	
+			"date":"01/01/19",
+			"by":"Veena Warrier",
+			"comment":" ",
+			"before":"Lorem ipsum",
+			"after":"Deleted"
+		},
+		{	
+			"date":"01/01/19",
+			"by":"Veena Warrier",
+			"comment":" ",
+			"before":"Lorem ipsum",
+			"after":"Deleted"
+		}
+	],
+	"unitBlock": [
+		{
+			"id":1,
+			"name":"A"
+		},
+		{
+			"id":2,
+			"name":"B"
+		},
+		{
+			"id":3,
+			"name":"C"
+		},
+		{
+			"id":4,
+			"name":"D"
+		},
+		{
+			"id":5,
+			"name":"E"
+		},
+		{
+			"id":6,
+			"name":"F"
+		}
+	],
+	"unitReport": [
+
+		{
+		"name" : "Info",
+		"data": [
+			{
+				"id":1,
+				"name":"Current management Committee",
+				"status":"Scheduled"
+			},
+			{
+				"id":2,
+				"name":"Data Collection Template",
+				"status":"Scheduled"
+			},
+			{
+				"id":3,
+				"name":"Deactivated Members",
+				"status":"Scheduled"
+			},
+			{
+				"id":4,
+				"name":"Family Information",
+				"status":"Scheduled"
+			}
+		]
+		
+		},
+		{
+			"name" : "Data Cleanup",
+			"data": [
+				{
+					"id":1,
+					"name":"Parking Manager Comprehensive Report",
+					"status":"Scheduled"
+				},
+				{
+					"id":2,
+					"name":"Users without valid email",
+					"status":"Scheduled"
+				}
+			]
+		},
+		{
+			"name" : "Address Related",
+			"data": [
+				{
+					"id":1,
+					"name":"Address label - Owners",
+					"status":"Scheduled"
+				},
+				{
+					"id":2,
+					"name":"Allotted Parking Slots",
+					"status":"Scheduled"
+				}
+			]
+		},
+		{
+			"name" : "Signature",
+			"data": [
+				{
+					"id":1,
+					"name":"Signature List - All Owners",
+					"status":"Scheduled"
+				},
+				{
+					"id":2,
+					"name":"Signature List - All Owners who live there",
+					"status":"Scheduled"
+				}
+			]
+		},
+		{
+			"name" : "Logs",
+			"data": [
+				{
+					"id":1,
+					"name":"Admin Edits",
+					"status":""
+				},
+				{
+					"id":2,
+					"name":"Search User History",
+					"status":""
+				}
+			]
+		}
+
+	],
+	"deActivatedList" : [
+		{	
+			"name":"Aamir Ahmed",
+			"intercom":"",
+			"unitno": "F-213",
+			"type": "Owner",
+			"joined": "01/01/19"
+		},
+		{	
+			"name":"Amit",
+			"intercom":"",
+			"unitno": "D-150",
+			"type": "Owner",
+			"joined": "01/01/19"
+		},
+		{	
+			"name":"Ankit Singh",
+			"intercom":"",
+			"unitno": "D-55",
+			"type": "Owner",
+			"joined": "01/01/19"
+		}
+	],
+	"apartmentType": [
+		{
+			"id":1,
+			"name":"1 BHK"
+		},
+		{
+			"id":2,
+			"name":"2 BHK"
+		},
+		{
+			"id":3,
+			"name":"3 BHK"
+		}
+	],
+	"slotList": [
+		{
+			"id":1,
+			"slotno":"A-1",
+			"type":"Members",
+			"status":"Slot is Assigned"
+		},
+		{
+			"id":2,
+			"slotno":"A-1A",
+			"type":"Members",
+			"status":"Slot is Assigned"
+		},
+		{
+			"id":3,
+			"slotno":"B-24",
+			"type":"Members",
+			"status":"Slot is Assigned"
+		},
+		{
+			"id":4,
+			"slotno":"B-12",
+			"type":"Members",
+			"status":"Slot is Assigned"
+		},
+		{
+			"id":5,
+			"slotno":"E-12",
+			"type":"Members",
+			"status":"Slot is Assigned"
+		},
+		{
+			"id":6,
+			"slotno":"J-202",
+			"type":"Members",
+			"status":"Slot is Assigned"
+		}
+	],
+	"alertList": [
+		{
+			"id":1,
+			"date":"01/01/19",
+			"type":"Tenant",
+			"status":"Resolved"
+		},
+		{
+			"id":2,
+			"date":"10/05/19",
+			"type":"Tenant",
+			"status":"Resolved"
+		},
+		{
+			"id":3,
+			"date":"22/06/19",
+			"type":"Tenant",
+			"status":"Resolved"
+		},
+		{
+			"id":4,
+			"date":"11/07/19",
+			"type":"Tenant",
+			"status":"Resolved"
+		},
+		{
+			"id":5,
+			"date":"29/07/19",
+			"type":"Tenant",
+			"status":"Resolved"
+		},
+		{
+			"id":6,
+			"date":"12/08/19",
+			"type":"Tenant",
+			"status":"Resolved"
+		}
+	],
+	"emergencyList":[
+		{
+			"name" : "Manohara SN",
+			"phoneno":"9850913777"
+		},
+		{
+			"name" : "Harish kannan",
+			"phoneno":"9850913777"
+		},
+		{
+			"name" : "Akash Mathew",
+			"phoneno":"9850913777"
+		},
+		{
+			"name" : "Veena Warrier",
+			"phoneno":"9850913777"
+		}
+	],
+	"jobPositionTypeList": ["C2C"],
+	"jobTypeList": ["Onsite (Mon-Friday)","Full Remote","Onsite (Mon-Thur) & Remote-Friday","Remote possible in future"],
+	"jobProjectStartList" : ["Immediate","1 week","2 Weeks","2-4 Weeks","1 Month"],
+	"visaPostJobList": ["H1B", "OPT/CPT", "GCEAD", "GC", "USC", "L2EAD", "H4EAD"]
+
+
+}
