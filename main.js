@@ -451,8 +451,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_property_configuration_property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./components/property-configuration/property-profile/property-profile.component */ "./src/app/ams/components/property-configuration/property-profile/property-profile.component.ts");
 /* harmony import */ var _components_property_configuration_property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./components/property-configuration/property-facility/property-facility.component */ "./src/app/ams/components/property-configuration/property-facility/property-facility.component.ts");
 /* harmony import */ var _components_property_configuration_property_elevator_property_elevator_component__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./components/property-configuration/property-elevator/property-elevator.component */ "./src/app/ams/components/property-configuration/property-elevator/property-elevator.component.ts");
-/* harmony import */ var _shared_components_full_calendar_full_calendar_component__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ../shared/components/full-calendar/full-calendar.component */ "./src/app/shared/components/full-calendar/full-calendar.component.ts");
-/* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! .././auth.guard */ "./src/app/auth.guard.ts");
+/* harmony import */ var _components_property_configuration_property_alarm_property_alarm_component__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./components/property-configuration/property-alarm/property-alarm.component */ "./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.ts");
+/* harmony import */ var _components_property_configuration_property_aircon_property_aircon_component__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./components/property-configuration/property-aircon/property-aircon.component */ "./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.ts");
+/* harmony import */ var _components_property_configuration_property_surveillance_property_surveillance_component__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./components/property-configuration/property-surveillance/property-surveillance.component */ "./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.ts");
+/* harmony import */ var _shared_components_full_calendar_full_calendar_component__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ../shared/components/full-calendar/full-calendar.component */ "./src/app/shared/components/full-calendar/full-calendar.component.ts");
+/* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! .././auth.guard */ "./src/app/auth.guard.ts");
+
+
+
 
 
 
@@ -590,7 +596,7 @@ var routes = [
     { path: 'ams', component: _ams_component__WEBPACK_IMPORTED_MODULE_3__["AmsComponent"],
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-            { path: 'property-configuration', component: _components_property_configuration_property_configuration_component__WEBPACK_IMPORTED_MODULE_126__["PropertyConfigurationComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'property-configuration', component: _components_property_configuration_property_configuration_component__WEBPACK_IMPORTED_MODULE_126__["PropertyConfigurationComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Property',
                     icon: 'home'
@@ -601,16 +607,19 @@ var routes = [
                     { path: 'details', component: _components_property_configuration_property_details_property_details_component__WEBPACK_IMPORTED_MODULE_127__["PropertyDetailsComponent"] },
                     { path: 'facility', component: _components_property_configuration_property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_129__["PropertyFacilityComponent"] },
                     { path: 'elevator', component: _components_property_configuration_property_elevator_property_elevator_component__WEBPACK_IMPORTED_MODULE_130__["PropertyElevatorComponent"] },
+                    { path: 'alarm', component: _components_property_configuration_property_alarm_property_alarm_component__WEBPACK_IMPORTED_MODULE_131__["PropertyAlarmComponent"] },
+                    { path: 'aircon', component: _components_property_configuration_property_aircon_property_aircon_component__WEBPACK_IMPORTED_MODULE_132__["PropertyAirconComponent"] },
+                    { path: 'surveillance', component: _components_property_configuration_property_surveillance_property_surveillance_component__WEBPACK_IMPORTED_MODULE_133__["PropertySurveillanceComponent"] },
                     { path: '**', redirectTo: 'profile', pathMatch: 'full' }
                 ]
             },
-            { path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Dashboard',
                     icon: 'home'
                 }
             },
-            { path: 'inbox', component: _components_ams_inbox_ams_inbox_component__WEBPACK_IMPORTED_MODULE_84__["AmsInboxComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'inbox', component: _components_ams_inbox_ams_inbox_component__WEBPACK_IMPORTED_MODULE_84__["AmsInboxComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Units & Users',
                     icon: 'user'
@@ -624,7 +633,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ],
             },
-            { path: 'unit&users', component: _components_unit_info_unit_info_component__WEBPACK_IMPORTED_MODULE_5__["UnitInfoComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'unit&users', component: _components_unit_info_unit_info_component__WEBPACK_IMPORTED_MODULE_5__["UnitInfoComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Units & Users',
                     icon: 'user'
@@ -643,7 +652,7 @@ var routes = [
                     { path: '**', redirectTo: 'unapproved', pathMatch: 'full' }
                 ],
             },
-            { path: 'helpdesk', component: _components_helpdesk_helpdesk_component__WEBPACK_IMPORTED_MODULE_27__["HelpdeskComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'helpdesk', component: _components_helpdesk_helpdesk_component__WEBPACK_IMPORTED_MODULE_27__["HelpdeskComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Help Desk Tracker',
                     icon: 'helpdesk'
@@ -660,7 +669,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'income', component: _components_income_tracker_income_tracker_component__WEBPACK_IMPORTED_MODULE_91__["IncomeTrackerComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'income', component: _components_income_tracker_income_tracker_component__WEBPACK_IMPORTED_MODULE_91__["IncomeTrackerComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Income Tracker',
                     icon: 'income'
@@ -682,7 +691,7 @@ var routes = [
                     { path: '**', redirectTo: 'subledger', pathMatch: 'full' }
                 ]
             },
-            { path: 'expense', component: _components_expense_tracker_expense_tracker_component__WEBPACK_IMPORTED_MODULE_102__["ExpenseTrackerComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'expense', component: _components_expense_tracker_expense_tracker_component__WEBPACK_IMPORTED_MODULE_102__["ExpenseTrackerComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Expense Tracker',
                     icon: 'expense'
@@ -699,14 +708,14 @@ var routes = [
                     { path: '**', redirectTo: 'subledger', pathMatch: 'full' }
                 ]
             },
-            { path: 'general-ledger', component: _components_general_ledger_general_ledger_component__WEBPACK_IMPORTED_MODULE_109__["GeneralLedgerComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'general-ledger', component: _components_general_ledger_general_ledger_component__WEBPACK_IMPORTED_MODULE_109__["GeneralLedgerComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'General Ledger',
                     icon: 'book'
                 },
                 children: [
                     { path: '', redirectTo: 'settings', pathMatch: 'full' },
-                    { path: 'settings', component: _components_general_ledger_gl_settings_gl_settings_component__WEBPACK_IMPORTED_MODULE_117__["GlSettingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+                    { path: 'settings', component: _components_general_ledger_gl_settings_gl_settings_component__WEBPACK_IMPORTED_MODULE_117__["GlSettingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                         children: [
                             { path: '', redirectTo: 'assets', pathMatch: 'full' },
                             { path: 'groups', component: _components_general_ledger_gl_groups_wrapper_gl_groups_wrapper_component__WEBPACK_IMPORTED_MODULE_114__["GlGroupsWrapperComponent"] },
@@ -718,7 +727,7 @@ var routes = [
                             { path: '**', redirectTo: 'assets', pathMatch: 'full' }
                         ]
                     },
-                    { path: 'journals', component: _components_general_ledger_gl_journals_gl_journals_component__WEBPACK_IMPORTED_MODULE_119__["GlJournalsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+                    { path: 'journals', component: _components_general_ledger_gl_journals_gl_journals_component__WEBPACK_IMPORTED_MODULE_119__["GlJournalsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                         children: [
                             { path: '', redirectTo: 'add-journal', pathMatch: 'full' },
                             { path: 'add-journal', component: _components_general_ledger_gl_journals_gl_create_journal_gl_create_journal_component__WEBPACK_IMPORTED_MODULE_120__["GlCreateJournalComponent"] },
@@ -736,7 +745,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'utility', component: _components_utility_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_83__["UtilitySetupComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'utility', component: _components_utility_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_83__["UtilitySetupComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Utility',
                     icon: 'utility'
@@ -748,7 +757,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'security', component: _components_security_security_component__WEBPACK_IMPORTED_MODULE_22__["SecurityComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'security', component: _components_security_security_component__WEBPACK_IMPORTED_MODULE_22__["SecurityComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Security',
                     icon: 'security'
@@ -762,7 +771,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'visitor', component: _components_visitor_visitor_component__WEBPACK_IMPORTED_MODULE_51__["VisitorComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'visitor', component: _components_visitor_visitor_component__WEBPACK_IMPORTED_MODULE_51__["VisitorComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Visitor Management',
                     icon: 'visitor'
@@ -779,7 +788,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'staff', component: _components_staff_manager_staff_manager_component__WEBPACK_IMPORTED_MODULE_35__["StaffManagerComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'staff', component: _components_staff_manager_staff_manager_component__WEBPACK_IMPORTED_MODULE_35__["StaffManagerComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Staff Management',
                     icon: 'staff2'
@@ -800,7 +809,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'movein', component: _components_movein_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_43__["MoveinSetupComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'movein', component: _components_movein_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_43__["MoveinSetupComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Move In/Out Tracker',
                     icon: 'check'
@@ -818,7 +827,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'parking-management', component: _components_parking_management_parking_management_component__WEBPACK_IMPORTED_MODULE_11__["ParkingManagementComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'parking-management', component: _components_parking_management_parking_management_component__WEBPACK_IMPORTED_MODULE_11__["ParkingManagementComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Parking Management',
                     icon: 'car'
@@ -837,7 +846,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'profile-settings', component: _components_profile_settings_profile_settings_component__WEBPACK_IMPORTED_MODULE_17__["ProfileSettingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'profile-settings', component: _components_profile_settings_profile_settings_component__WEBPACK_IMPORTED_MODULE_17__["ProfileSettingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Settings',
                     icon: 'settings'
@@ -849,7 +858,7 @@ var routes = [
                     { path: '**', redirectTo: 'add-block', pathMatch: 'full' }
                 ]
             },
-            { path: 'facility', component: _components_facility_facility_component__WEBPACK_IMPORTED_MODULE_57__["FacilityComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'facility', component: _components_facility_facility_component__WEBPACK_IMPORTED_MODULE_57__["FacilityComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Facility Management',
                     icon: 'gym'
@@ -859,13 +868,13 @@ var routes = [
                     { path: 'settings', component: _components_facility_facility_setup_facility_setup_component__WEBPACK_IMPORTED_MODULE_58__["FacilitySetupComponent"] },
                     { path: 'create-booking', component: _components_facility_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_59__["FacilityCreateBookingComponent"] },
                     { path: 'edit-booking/:id', component: _components_facility_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_59__["FacilityCreateBookingComponent"] },
-                    { path: 'calendar', component: _shared_components_full_calendar_full_calendar_component__WEBPACK_IMPORTED_MODULE_131__["FullCalendarComponent"] },
+                    { path: 'calendar', component: _shared_components_full_calendar_full_calendar_component__WEBPACK_IMPORTED_MODULE_134__["FullCalendarComponent"] },
                     { path: 'booking-actions', component: _components_facility_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_60__["FacilityBookingActionsComponent"] },
                     { path: 'reports', component: _components_facility_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_61__["FacilityReportsComponent"] },
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'meetings', component: _components_meetings_meetings_component__WEBPACK_IMPORTED_MODULE_62__["MeetingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'meetings', component: _components_meetings_meetings_component__WEBPACK_IMPORTED_MODULE_62__["MeetingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Meetings',
                     icon: 'calendar'
@@ -878,7 +887,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'assets', component: _components_assets_assets_component__WEBPACK_IMPORTED_MODULE_71__["AssetsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'assets', component: _components_assets_assets_component__WEBPACK_IMPORTED_MODULE_71__["AssetsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Assets',
                     icon: 'boxes'
@@ -894,7 +903,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'inventory', component: _components_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_66__["InventoryComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'inventory', component: _components_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_66__["InventoryComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Inventory',
                     icon: 'cube'
@@ -910,7 +919,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'notice', component: _components_meetings_meetings_component__WEBPACK_IMPORTED_MODULE_62__["MeetingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'notice', component: _components_meetings_meetings_component__WEBPACK_IMPORTED_MODULE_62__["MeetingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Notice Manager',
                     icon: 'bell'
@@ -922,7 +931,7 @@ var routes = [
                     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
                 ]
             },
-            { path: 'vendor', component: _components_meetings_meetings_component__WEBPACK_IMPORTED_MODULE_62__["MeetingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_132__["AuthGuard"]],
+            { path: 'vendor', component: _components_meetings_meetings_component__WEBPACK_IMPORTED_MODULE_62__["MeetingsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_135__["AuthGuard"]],
                 data: {
                     title: 'Vendor Management',
                     icon: 'vendor'
@@ -1240,6 +1249,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_property_configuration_property_unit_parking_property_unit_parking_component__WEBPACK_IMPORTED_MODULE_186__ = __webpack_require__(/*! ./components/property-configuration/property-unit-parking/property-unit-parking.component */ "./src/app/ams/components/property-configuration/property-unit-parking/property-unit-parking.component.ts");
 /* harmony import */ var _components_property_configuration_property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_187__ = __webpack_require__(/*! ./components/property-configuration/property-facility/property-facility.component */ "./src/app/ams/components/property-configuration/property-facility/property-facility.component.ts");
 /* harmony import */ var _components_property_configuration_property_elevator_property_elevator_component__WEBPACK_IMPORTED_MODULE_188__ = __webpack_require__(/*! ./components/property-configuration/property-elevator/property-elevator.component */ "./src/app/ams/components/property-configuration/property-elevator/property-elevator.component.ts");
+/* harmony import */ var _components_property_configuration_property_alarm_property_alarm_component__WEBPACK_IMPORTED_MODULE_189__ = __webpack_require__(/*! ./components/property-configuration/property-alarm/property-alarm.component */ "./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.ts");
+/* harmony import */ var _components_property_configuration_property_aircon_property_aircon_component__WEBPACK_IMPORTED_MODULE_190__ = __webpack_require__(/*! ./components/property-configuration/property-aircon/property-aircon.component */ "./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.ts");
+/* harmony import */ var _components_property_configuration_property_surveillance_property_surveillance_component__WEBPACK_IMPORTED_MODULE_191__ = __webpack_require__(/*! ./components/property-configuration/property-surveillance/property-surveillance.component */ "./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.ts");
+
+
+
 
 
 
@@ -1607,7 +1622,10 @@ var AmsModule = /** @class */ (function () {
                 _components_property_configuration_property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_185__["PropertyProfileComponent"],
                 _components_property_configuration_property_unit_parking_property_unit_parking_component__WEBPACK_IMPORTED_MODULE_186__["PropertyUnitParkingComponent"],
                 _components_property_configuration_property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_187__["PropertyFacilityComponent"],
-                _components_property_configuration_property_elevator_property_elevator_component__WEBPACK_IMPORTED_MODULE_188__["PropertyElevatorComponent"]
+                _components_property_configuration_property_elevator_property_elevator_component__WEBPACK_IMPORTED_MODULE_188__["PropertyElevatorComponent"],
+                _components_property_configuration_property_alarm_property_alarm_component__WEBPACK_IMPORTED_MODULE_189__["PropertyAlarmComponent"],
+                _components_property_configuration_property_aircon_property_aircon_component__WEBPACK_IMPORTED_MODULE_190__["PropertyAirconComponent"],
+                _components_property_configuration_property_surveillance_property_surveillance_component__WEBPACK_IMPORTED_MODULE_191__["PropertySurveillanceComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -7658,7 +7676,7 @@ var GlAllJournalsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"add-journal-fields-wrapper\">\n\t\n\t<form #addJournalFieldsForm =\"ngForm\" name=\"addJournalFieldsForm\">\n\t\t\n\t\t<div class=\"journal-fields\">\n\t\t\t\n\t\t\t<div class=\"float-close-wrapper\" *ngIf=\"!isEditJournal\">\n\t\t\t\n\t\t\t\t<div class=\"float-close mb-3\" [ngClass]=\"isArrayOne() ? 'delete' : 'disabled'\" (click)=\"deleteBlock()\">\n\t    \t\t\t<i-feather class=\"icon rotate\" name=\"x\" width=\"18\"></i-feather>\n\t    \t\t</div>\n\n\t\t    \t<div class=\"float-close\" [ngClass]=\"this.journalForm.valid ? 'valid' : 'disabled'\">\n\t\t    \t\t<i-feather class=\"icon rotate\" name=\"check\" width=\"18\"></i-feather>\n\t\t    \t</div>\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t               <label>Account*</label>\n\t\t               <select \n\t\t\t\t\t        name=\"accountType\" \n\t\t\t\t\t        id=\"accountType\" \n\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t        [(ngModel)]=\"journal.glaccountId\"  \n\t\t\t\t\t        (ngModelChange)=\"onAccountChange(journal.glaccountId)\"\n\t\t\t\t\t        required>\n\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t        <option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">{{ item.glaccountName }}</option>\n\t\t\t\t\t    </select>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t                <label>Document Number*</label>\n\t\t                <input type=\"number\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentNumber\" \n\t\t                [(ngModel)]=\"journal.documentNumber\" \n\t\t                (ngModelChange)=\"onDocumentNumberChange(journal.documentNumber)\"\n\t\t                required>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t                <label>Debit Amount*</label>\n\t\t                <input type=\"number\" class=\"form-control\" placeholder=\"Enter text\" name=\"debitAmount\" \n\t\t                [(ngModel)]=\"journal.debitAmount\" \n\t\t                (ngModelChange)=\"onDebitAmountChange(journal.debitAmount)\"\n\t\t                required>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t                <label>Credit Amount*</label>\n\t\t                <input type=\"number\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" \n\t\t                [(ngModel)]=\"journal.creditAmount\" \n\t\t                (ngModelChange)=\"onCreditAmountChange(journal.creditAmount)\"\n\t\t                required>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n\n</div>"
+module.exports = "<div class=\"add-journal-fields-wrapper\">\n\t\n\t<form #addJournalFieldsForm =\"ngForm\" name=\"addJournalFieldsForm\">\n\t\t\n\t\t<div class=\"journal-fields\">\n\t\t\t\n\t\t\t<div class=\"float-close-wrapper\" *ngIf=\"!isEditJournal\">\n\t\t\t\n\t\t\t\t<div class=\"float-close mb-3\" [ngClass]=\"isArrayTwo() ? 'delete' : 'disabled'\" (click)=\"deleteBlock()\">\n\t    \t\t\t<i-feather class=\"icon rotate\" name=\"x\" width=\"18\"></i-feather>\n\t    \t\t</div>\n\n\t\t    \t<div class=\"float-close\" [ngClass]=\"this.journalForm.valid ? 'valid' : 'disabled'\">\n\t\t    \t\t<i-feather class=\"icon rotate\" name=\"check\" width=\"18\"></i-feather>\n\t\t    \t</div>\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t               <label>Account*</label>\n\t\t               <select \n\t\t\t\t\t        name=\"accountType\" \n\t\t\t\t\t        id=\"accountType\" \n\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t        [(ngModel)]=\"journal.glaccountId\"  \n\t\t\t\t\t        (ngModelChange)=\"onAccountChange(journal.glaccountId)\"\n\t\t\t\t\t        required>\n\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t        <option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">{{ item.glaccountName }}</option>\n\t\t\t\t\t    </select>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t                <label>Document Number*</label>\n\t\t                <input type=\"number\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentNumber\" \n\t\t                [(ngModel)]=\"journal.documentNumber\" \n\t\t                (ngModelChange)=\"onDocumentNumberChange(journal.documentNumber)\"\n\t\t                required>\n\t\t    \t\t</div>\n\t\t\t\t</div> -->\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t                <label>Debit Amount*</label>\n\t\t                <input type=\"number\" class=\"form-control\" placeholder=\"Enter text\" name=\"debitAmount\" \n\t\t                [(ngModel)]=\"journal.debitAmount\" \n\t\t                (ngModelChange)=\"onDebitAmountChange(journal.debitAmount)\"\n\t\t                required>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t                <label>Credit Amount*</label>\n\t\t                <input type=\"number\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" \n\t\t                [(ngModel)]=\"journal.creditAmount\" \n\t\t                (ngModelChange)=\"onCreditAmountChange(journal.creditAmount)\"\n\t\t                required>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n\n</div>"
 
 /***/ }),
 
@@ -7714,8 +7732,8 @@ var GlCreateJournalFieldsComponent = /** @class */ (function () {
         this.journalsArray.splice(this.index, 1);
         this.fieldParams.emit(this.journalsArray);
     };
-    GlCreateJournalFieldsComponent.prototype.isArrayOne = function () {
-        return this.journalsArray.length > 1 ? true : false;
+    GlCreateJournalFieldsComponent.prototype.isArrayTwo = function () {
+        return this.journalsArray.length > 2 ? true : false;
     };
     GlCreateJournalFieldsComponent.prototype.onAccountChange = function (id) {
         this.journalsArray[this.index].glaccountId = parseInt(id);
@@ -7730,11 +7748,25 @@ var GlCreateJournalFieldsComponent = /** @class */ (function () {
     GlCreateJournalFieldsComponent.prototype.onDebitAmountChange = function (value) {
         this.journalsArray[this.index].debitAmount = parseInt(value);
         this.journalsArray[this.index].form = this.journalForm.valid;
+        if (value != "" && this.journalsArray[this.index].creditAmount == 0) {
+            this.journalsArray[this.index].creditAmount = 0;
+        }
+        if (value == null) {
+            this.journalsArray[this.index].creditAmount = 0;
+            this.journalsArray[this.index].debitAmount = 0;
+        }
         this.fieldParams.emit(this.journalsArray);
     };
     GlCreateJournalFieldsComponent.prototype.onCreditAmountChange = function (value) {
         this.journalsArray[this.index].creditAmount = parseInt(value);
         this.journalsArray[this.index].form = this.journalForm.valid;
+        if (value != "" && this.journalsArray[this.index].debitAmount == 0) {
+            this.journalsArray[this.index].debitAmount = 0;
+        }
+        if (value == null) {
+            this.journalsArray[this.index].debitAmount = 0;
+            this.journalsArray[this.index].creditAmount = 0;
+        }
         this.fieldParams.emit(this.journalsArray);
     };
     GlCreateJournalFieldsComponent.prototype.ngOnInit = function () {
@@ -7797,7 +7829,7 @@ var GlCreateJournalFieldsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"gl-journal-wrapper\">\n\t\n\t<div class=\"card clear\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 *ngIf=\"!isEditJournal\">Add Jorunal</h5>\n    \t\t\t<h5 *ngIf=\"isEditJournal\">Edit Jorunal</h5>\n    \t\t</div>\n\t\t</div>\n\n\n\t\t<form #addJournalForm = \"ngForm\" name=\"addJournalForm\" (ngSubmit)=\"submitAddJournalForm(addJournalForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isJournalSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isJournalSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<app-gl-create-journal-fields \n\t\t\t\t\t\t*ngFor=\"let journal of journalsArray; let i = index\"\n\t\t\t\t\t\t[index]=\"i\"\n\t\t\t\t\t\t[journalsArray]=\"journalsArray\"\n\t\t\t\t\t\t(fieldParams) = getFieldParams($event)\n\t\t\t\t\t\t>\t\n\t\t\t\t\t</app-gl-create-journal-fields>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                    <label>Journal Date*</label>\n\t\t\t\t                    <input class=\"form-control\" name=\"invoiceDueDate\" [owlDateTime]=\"JournalDate\" [owlDateTimeTrigger]=\"JournalDate\" placeholder=\"Date\" [(ngModel)]=\"journal.documentDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #JournalDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t  \t\t\t\t\t\t\t\t</div>\n\t\t                \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                <label>Notes</label>\n\t\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" \n\t\t\t\t\t                [(ngModel)]=\"journal.comment\" \n\t\t\t\t\t                required>\n\t\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue trans-border\" [disabled]=\"addJournalForm.invalid || isFormInValid\">Submit</button>\n\t\t\t\t    \t\t\t<div class=\"btn trans-red ml-3\" (click)=\"addJournal()\" *ngIf=\"!isEditJournal\">Add Another Journal</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>"
+module.exports = "<div class=\"gl-journal-wrapper\">\n\t\n\t<div class=\"card clear\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 *ngIf=\"!isEditJournal\">Add Journal</h5>\n    \t\t\t<h5 *ngIf=\"isEditJournal\">Edit Journal</h5>\n    \t\t</div>\n\t\t</div>\n\n\n\t\t<form #addJournalForm = \"ngForm\" name=\"addJournalForm\" (ngSubmit)=\"submitAddJournalForm(addJournalForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isJournalSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isJournalSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<app-gl-create-journal-fields \n\t\t\t\t\t\t*ngFor=\"let journal of journalsArray; let i = index\"\n\t\t\t\t\t\t[index]=\"i\"\n\t\t\t\t\t\t[journalsArray]=\"journalsArray\"\n\t\t\t\t\t\t(fieldParams) = getFieldParams($event)\n\t\t\t\t\t\t>\t\n\t\t\t\t\t</app-gl-create-journal-fields>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                    <label>Journal Date*</label>\n\t\t\t\t                    <input class=\"form-control\" name=\"invoiceDueDate\" [owlDateTime]=\"JournalDate\" [owlDateTimeTrigger]=\"JournalDate\" placeholder=\"Date\" [(ngModel)]=\"journal.documentDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #JournalDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t  \t\t\t\t\t\t\t\t</div>\n\t\t                \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                <label>Notes</label>\n\t\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" \n\t\t\t\t\t                [(ngModel)]=\"journal.comment\" \n\t\t\t\t\t                required>\n\t\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue trans-border\" [disabled]=\"addJournalForm.invalid || isFormInValid\">Submit</button>\n\t\t\t\t    \t\t\t<div class=\"btn trans-red ml-3\" (click)=\"addJournal()\" *ngIf=\"!isEditJournal\">Add Another Journal</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>"
 
 /***/ }),
 
@@ -7859,7 +7891,7 @@ var GlCreateJournalComponent = /** @class */ (function () {
             "glaccountId": this.journal.glaccountId,
             "fiscalYear": this.journal.fiscalYear,
             "gldocumentTypeId": this.journal.gldocumentTypeId,
-            "documentNumber": this.journal.documentNumber,
+            "documentNumber": 1,
             "documentDate": "2020-01-21T11:38:00.932Z",
             "comment": this.journal.comment,
             "reference1": "string",
@@ -7902,27 +7934,42 @@ var GlCreateJournalComponent = /** @class */ (function () {
             delete item.form;
             return item;
         });
-        this.isJournalSubmitted = false;
-        this.journalService.addJournals(this.journalsArray).subscribe(function (res) {
-            if (res.message) {
-                _this.isJournalSubmitted = true;
-                _this.sharedService.setAlertMessage("Journals added successfully");
-            }
-            else {
+        var creditAmount = 0;
+        var debitAmount = 0;
+        underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.journalsArray, function (item) {
+            creditAmount = creditAmount + item.creditAmount;
+            debitAmount = debitAmount + item.debitAmount;
+        });
+        //checking total credit and total debit are same
+        if (creditAmount == debitAmount) {
+            this.isJournalSubmitted = false;
+            this.isError = false;
+            this.journalService.addJournals(this.journalsArray).subscribe(function (res) {
+                if (res.message) {
+                    _this.isJournalSubmitted = true;
+                    _this.sharedService.setAlertMessage("Journals added successfully");
+                }
+                else {
+                    _this.isJournalSubmitted = true;
+                    _this.isError = true;
+                    _this.alertMessage = res.errorMessage;
+                }
+            }, function (error) {
                 _this.isJournalSubmitted = true;
                 _this.isError = true;
-                _this.alertMessage = res.errorMessage;
-            }
-        }, function (error) {
-            _this.isJournalSubmitted = true;
-            _this.isError = true;
-            _this.alertMessage = "Some error occured";
-        });
+                _this.alertMessage = "Some error occured";
+            });
+        }
+        else {
+            this.isJournalSubmitted = true;
+            this.isError = true;
+            this.alertMessage = "Total Credit not equal to Debit ";
+        }
     };
     GlCreateJournalComponent.prototype.ngOnInit = function () {
         this.journal = {};
-        this.journal.debitAmount = "";
-        this.journal.creditAmount = "";
+        this.journal.debitAmount = 0;
+        this.journal.creditAmount = 0;
         this.journal.documentNumber = "";
         this.journal.comment = "";
         this.journal.glaccountId = "";
@@ -7932,6 +7979,24 @@ var GlCreateJournalComponent = /** @class */ (function () {
             this.isEditJournal = true;
         }
         this.journalsArray = [
+            {
+                "glaccountId": this.journal.glaccountId,
+                "fiscalYear": this.journal.fiscalYear,
+                "gldocumentTypeId": this.journal.gldocumentTypeId,
+                "documentNumber": this.journal.documentNumber,
+                "documentDate": "2020-01-21T11:38:00.932Z",
+                "comment": this.journal.comment,
+                "reference1": "string",
+                "reference2": "string",
+                "debitAmount": this.journal.debitAmount,
+                "creditAmount": this.journal.creditAmount,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedOn": new Date().toISOString(),
+                "active": true,
+                "apartmentId": parseInt(this.cookieService.get('apartmentId'))
+            },
             {
                 "glaccountId": this.journal.glaccountId,
                 "fiscalYear": this.journal.fiscalYear,
@@ -8376,7 +8441,7 @@ var GlOtherReportsComponent = /** @class */ (function () {
     }
     GlOtherReportsComponent.prototype.ngOnInit = function () {
         this.reportsDataList = [
-            { name: 'Drill Sown GL Group and Gl Account' },
+            { name: 'Drill down report - GL Group and GL Account' },
             { name: 'test report' }
         ];
     };
@@ -11147,7 +11212,7 @@ var IncomePostCollectionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"income-post-invoice-wrapper\">\n\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear mb-30\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 *ngIf=\"!isEditInvoice && isNewInvoice\">Post Single Invoice</h5>\n    \t\t\t<h5 *ngIf=\"isEditInvoice && !isNewInvoice\">Edit Single Invoice</h5>\n    \t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-header at-header\" *ngIf=\"isAccountDataLoaded\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t\t<form #postIncomeInvoiceForm = \"ngForm\" name=\"postIncomeInvoiceForm\" (ngSubmit)=\"submitIncomeInvoiceForm(postIncomeInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Invoice Amount*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"invoiceAmount\" [(ngModel)]=\"invoice.custInvoiceAmount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                   <label>Account*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"accountType\" \n\t\t\t\t\t\t\t        id=\"accountType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"invoice.glaccountId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">{{ item.glaccountName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Invoice Date*</label>\n\t\t\t                    <input class=\"form-control\" name=\"invoiceDueDate\" [owlDateTime]=\"invoiceDueDate\" [owlDateTimeTrigger]=\"invoiceDueDate\" placeholder=\"Date\" [(ngModel)]=\"invoice.dueDate\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Comments</label>\n\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"invoice.comments\" required>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" #TAXInvoiceChecked class=\"form-check-input\" id=\"TAXInvoiceChecked\" name=\"TAXInvoiceChecked\" (ngModel)=\"invoice.isTax\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"TAXInvoiceChecked\">TAX</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh ml-5\">\n\t\t\t\t\t\t\t\t<div class=\"d-none d-md-block h-35\"></div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" #recurInvoiceChecked class=\"form-check-input\" id=\"recurInvoiceChecked\" name=\"recurInvoiceChecked\" (ngModel)=\"invoice.isRecurCustInvoice\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"recurInvoiceChecked\">Recur Invoice*</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"postIncomeInvoiceForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>"
+module.exports = "<div class=\"income-post-invoice-wrapper\">\n\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear mb-30\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 *ngIf=\"!isEditInvoice && isNewInvoice\">Post Single Invoice</h5>\n    \t\t\t<h5 *ngIf=\"isEditInvoice && !isNewInvoice\">Edit Single Invoice</h5>\n    \t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-header at-header\" *ngIf=\"isAccountDataLoaded\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t\t<form #postIncomeInvoiceForm = \"ngForm\" name=\"postIncomeInvoiceForm\" (ngSubmit)=\"submitIncomeInvoiceForm(postIncomeInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Invoice Amount*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"invoiceAmount\" [(ngModel)]=\"invoice.custInvoiceAmount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                   <label>Account*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"accountType\" \n\t\t\t\t\t\t\t        id=\"accountType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"invoice.glaccountId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">{{ item.glaccountName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Invoice Date*</label>\n\t\t\t                    <input class=\"form-control\" name=\"invoiceDueDate\" [owlDateTime]=\"invoiceDueDate\" [owlDateTimeTrigger]=\"invoiceDueDate\" placeholder=\"Date\" [(ngModel)]=\"invoice.dueDate\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Comments</label>\n\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"invoice.comments\" required>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" #TAXInvoiceChecked class=\"form-check-input\" id=\"TAXInvoiceChecked\" name=\"TAXInvoiceChecked\" [(ngModel)]=\"invoice.isTax\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"TAXInvoiceChecked\">TAX</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh ml-5\">\n\t\t\t\t\t\t\t\t<div class=\"d-none d-md-block h-35\"></div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" #recurInvoiceChecked class=\"form-check-input\" id=\"recurInvoiceChecked\" name=\"recurInvoiceChecked\" [(ngModel)]=\"invoice.isRecurCustInvoice\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"recurInvoiceChecked\">Recur Invoice*</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"postIncomeInvoiceForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>"
 
 /***/ }),
 
@@ -11339,6 +11404,8 @@ var IncomePostInvoiceComponent = /** @class */ (function () {
         this.invoice = {};
         this.invoice.primaryContact = "";
         this.invoice.glaccountId = "";
+        this.invoice.isRecurCustInvoice = true;
+        this.invoice.isTax = false;
         if (this.route.params['value'].id != undefined && this.route.params['value'].type == undefined) {
             this.isEditInvoice = true;
             var params = {
@@ -11560,7 +11627,7 @@ var IncomePostMultiInvoiceFieldsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"income-post-invoice-wrapper\">\n\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear mb-30\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 *ngIf=\"!isEditInvoice\">Post Multi Invoice</h5>\n    \t\t\t<h5 *ngIf=\"isEditInvoice\">Edit Multi Invoice</h5>\n    \t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-header at-header\" *ngIf=\"isAccountDataLoaded\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t\t<app-income-post-multi-invoice-fields \n\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\"\n\t\t\t\t\t\t[index]=\"i\"\n\t\t\t\t\t\t[invoiceGLAccountsArray]=\"invoiceGLAccountsArray\"\n\t\t\t\t\t\t(fieldParams) = getFieldParams($event)\n\t\t\t\t\t\t>\t\n\t\t\t\t\t\t</app-income-post-multi-invoice-fields>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                    <label>Due Date*</label>\n\t\t\t\t                    <input class=\"form-control\" name=\"invoiceDueDate\" [owlDateTime]=\"invoiceDueDate\" [owlDateTimeTrigger]=\"invoiceDueDate\" placeholder=\"Date\" [(ngModel)]=\"invoice.dueDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t  \t\t\t\t\t\t\t\t</div>\n\t\t                \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group mt-sm-35\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" #GSTInvoiceChecked class=\"form-check-input\" id=\"GSTInvoiceChecked\" name=\"GSTInvoiceChecked\" (ngModel)=\"invoice.isTax\">\n\t\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"GSTInvoiceChecked\">GST</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh ml-5\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group mt-sm-35\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" #recurInvoiceChecked class=\"form-check-input\" id=\"recurInvoiceChecked\" name=\"recurInvoiceChecked\" (ngModel)=\"invoice.isRecurCustInvoice\" >\n\t\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"recurInvoiceChecked\">Recur Invoice</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue trans-border\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\">Submit</button>\n\t\t\t\t    \t\t\t<div class=\"btn trans-red ml-3\" (click)=\"addInvoice()\">Add Another Invoice</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>"
+module.exports = "<div class=\"income-post-invoice-wrapper\">\n\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear mb-30\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 *ngIf=\"!isEditInvoice\">Post Multi Invoice</h5>\n    \t\t\t<h5 *ngIf=\"isEditInvoice\">Edit Multi Invoice</h5>\n    \t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-header at-header\" *ngIf=\"isAccountDataLoaded\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t\t<app-income-post-multi-invoice-fields \n\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\"\n\t\t\t\t\t\t[index]=\"i\"\n\t\t\t\t\t\t[invoiceGLAccountsArray]=\"invoiceGLAccountsArray\"\n\t\t\t\t\t\t(fieldParams) = getFieldParams($event)\n\t\t\t\t\t\t>\t\n\t\t\t\t\t\t</app-income-post-multi-invoice-fields>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                    <label>Due Date*</label>\n\t\t\t\t                    <input class=\"form-control\" name=\"invoiceDueDate\" [owlDateTime]=\"invoiceDueDate\" [owlDateTimeTrigger]=\"invoiceDueDate\" placeholder=\"Date\" [(ngModel)]=\"invoice.dueDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t  \t\t\t\t\t\t\t\t</div>\n\t\t                \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group mt-sm-35\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" #GSTInvoiceChecked class=\"form-check-input\" id=\"GSTInvoiceChecked\" name=\"GSTInvoiceChecked\" [(ngModel)]=\"invoice.isTax\">\n\t\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"GSTInvoiceChecked\">VAT</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh ml-5\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group mt-sm-35\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" #recurInvoiceChecked class=\"form-check-input\" id=\"recurInvoiceChecked\" name=\"recurInvoiceChecked\" [(ngModel)]=\"invoice.isRecurCustInvoice\">\n\t\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"recurInvoiceChecked\">Recur Invoice</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue trans-border\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\">Submit</button>\n\t\t\t\t    \t\t\t<div class=\"btn trans-red ml-3\" (click)=\"addInvoice()\">Add Another Invoice</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>"
 
 /***/ }),
 
@@ -11712,6 +11779,8 @@ var IncomePostMultiInvoiceComponent = /** @class */ (function () {
         var _this = this;
         this.invoice = {};
         this.invoice.custInvoiceAmount = 0;
+        this.invoice.isRecurCustInvoice = true;
+        this.invoice.isTax = false;
         this.invoiceGLAccountsData = {};
         this.invoiceGLAccountsData.glaccountId = "";
         this.invoiceGLAccountsData.amount = "";
@@ -16080,6 +16149,118 @@ var ProfileSettingsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.html ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  property-aircon works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.scss":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.scss ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9jb21wb25lbnRzL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24vcHJvcGVydHktYWlyY29uL3Byb3BlcnR5LWFpcmNvbi5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.ts":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.ts ***!
+  \****************************************************************************************************/
+/*! exports provided: PropertyAirconComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyAirconComponent", function() { return PropertyAirconComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var PropertyAirconComponent = /** @class */ (function () {
+    function PropertyAirconComponent() {
+    }
+    PropertyAirconComponent.prototype.ngOnInit = function () {
+    };
+    PropertyAirconComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-property-aircon',
+            template: __webpack_require__(/*! ./property-aircon.component.html */ "./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.html"),
+            styles: [__webpack_require__(/*! ./property-aircon.component.scss */ "./src/app/ams/components/property-configuration/property-aircon/property-aircon.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], PropertyAirconComponent);
+    return PropertyAirconComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.html ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  property-alarm works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.scss":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.scss ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9jb21wb25lbnRzL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24vcHJvcGVydHktYWxhcm0vcHJvcGVydHktYWxhcm0uY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.ts":
+/*!**************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.ts ***!
+  \**************************************************************************************************/
+/*! exports provided: PropertyAlarmComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyAlarmComponent", function() { return PropertyAlarmComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var PropertyAlarmComponent = /** @class */ (function () {
+    function PropertyAlarmComponent() {
+    }
+    PropertyAlarmComponent.prototype.ngOnInit = function () {
+    };
+    PropertyAlarmComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-property-alarm',
+            template: __webpack_require__(/*! ./property-alarm.component.html */ "./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.html"),
+            styles: [__webpack_require__(/*! ./property-alarm.component.scss */ "./src/app/ams/components/property-configuration/property-alarm/property-alarm.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], PropertyAlarmComponent);
+    return PropertyAlarmComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/components/property-configuration/property-configuration.component.html":
 /*!*********************************************************************************************!*\
   !*** ./src/app/ams/components/property-configuration/property-configuration.component.html ***!
@@ -16087,7 +16268,7 @@ var ProfileSettingsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"property-configuration-wrapper\">\n\t<div class=\"card\">\n\t\t<div class=\"card-body p-0 ov\">\n\t\t\t<nav class=\"nav nav-pills\">\n\t\t\t\t<a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"profile\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Property Profile</a>\n\t\t\t\t<a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"details\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Property Details</a>\n\t\t\t\t<a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"facility\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Unit Facility Details</a>\n\t\t\t\t<a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"elevator\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Elevator Details</a>\n\n\t\t\t\t<a class=\"nav-item nav-link more ml-auto\" href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"PropertyConfigDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\">More</a>\n\t\t\t\t<div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"PropertyConfigDropDown\" (click)=\"stopPropagation($event)\">\n\t\t\t  \t\t<a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"elevator\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Elevator Details</a>\n\t\t\t\t\t<a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"elevator\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Alarm Systems</a>\n\t\t\t\t\t<a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"elevator\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">AirCon maintenance</a>\n\t\t\t\t\t<a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"elevator\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Surveillance Systems</a>\n\t\t\t\t</div>\n\t\t\t</nav>\n\t\t</div>\n\t\t<div class=\"card-body ov content\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>"
+module.exports = "<div class=\"property-configuration-wrapper\">\n\t<div class=\"card\">\n\t\t<div class=\"card-body p-0 ov\">\n\t\t\t<nav class=\"nav nav-pills\" id=\"property-wrapper\">\n\t\t\t\t<ul class=\"tabs mr-auto\" id=\"property-tabs\">\n\t\t\t\t\t<li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"profile\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Property Profile</a></li>\n\t\t\t\t\t<li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"details\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Property Details</a></li>\n\t\t\t\t\t<li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"facility\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Unit Facility Details</a></li>\n\t\t\t\t\t<li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"elevator\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Elevator Details</a></li>\n\t\t\t\t\t<li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"alarm\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Alarm Systems</a></li>\n\t\t\t\t\t<li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"aircon\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">AirCon maintenance</a></li>\n\t\t\t\t\t<li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"surveillance\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Surveillance Systems</a></li>\n\t\t\t\t</ul>\n\t\t\t\t<div class=\"buttons ml-auto\">\n\t\t\t\t\t<a class=\"nav-item nav-link prev\" (click)=\"moveTabLeft()\"href=\"javascript:void(0)\">\n\t\t\t\t\t\t<i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</a>\n\t\t\t\t\t<a class=\"nav-item nav-link next\" (click)=\"moveTabRight()\" href=\"javascript:void(0)\">\n\t\t\t\t\t\t<i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</a>\n\t\t\t\t</div>\n\t\t\t</nav>\n\t\t</div>\n\t\t<div class=\"card-body ov content\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>"
 
 /***/ }),
 
@@ -16098,7 +16279,7 @@ module.exports = "<div class=\"property-configuration-wrapper\">\n\t<div class=\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".property-configuration-wrapper .card-body {\n  border-bottom: 1px solid #dee0e4; }\n  .property-configuration-wrapper .card-body .nav-pills > a {\n    padding: 12px 0 !important;\n    font-family: 'Maven Pro';\n    font-weight: 500;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    text-rendering: optimizeLegibility;\n    font-size: 1.6rem;\n    color: #8391a1;\n    margin: 0 16px;\n    position: relative;\n    background-color: #ffffff !important; }\n  .property-configuration-wrapper .card-body .nav-pills > a.active {\n      color: #3f51b5; }\n  .property-configuration-wrapper .card-body .nav-pills > a.active:after {\n        content: \"\";\n        position: absolute;\n        width: 100% !important;\n        height: 3px;\n        bottom: -1px;\n        left: 0;\n        background-color: #3f51b5; }\n  .property-configuration-wrapper .card-body .nav-pills > a.more {\n      padding: 12px 20px 0 0 !important;\n      color: #424856; }\n  .property-configuration-wrapper .card-body .nav-pills > a.more:after {\n        content: '\\f107';\n        font-family: FontAwesome;\n        font-size: 1.6rem;\n        color: #424856;\n        position: absolute;\n        right: 0;\n        top: 12px; }\n  .property-configuration-wrapper .card-body .nav-pills .dropdown-menu {\n    top: -12px !important;\n    padding: 0;\n    margin: 0 !important;\n    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.14);\n    -moz-box-shadow: 0 12px 18px rgba(0, 0, 0, 0.14);\n    -webkit-box-shadow: 0 12px 18px rgba(0, 0, 0, 0.14);\n    border-radius: 0 !important;\n    border: 1px solid #dee0e4; }\n  .property-configuration-wrapper .card-body .nav-pills .dropdown-menu a {\n      background-color: #ffffff !important;\n      color: #8391a1;\n      padding: 8px 12px; }\n  .property-configuration-wrapper .card-body .nav-pills .dropdown-menu a:hover {\n        background-color: #3f51b5 !important;\n        color: #ffffff; }\n  .property-configuration-wrapper .card-body .nav-pills .dropdown-menu a:not(:last-child) {\n        border-bottom: 1px solid #dee0e4; }\n  .property-configuration-wrapper .card-body.content {\n    min-height: 200px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9BZG1pbi9Eb2N1bWVudHMvd29ya3Mvdml2ZWsvOTktYXBhcnRtZW50L2FwcC1uZzgvc3JjL2FwcC9hbXMvY29tcG9uZW50cy9wcm9wZXJ0eS1jb25maWd1cmF0aW9uL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24uY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvQWRtaW4vRG9jdW1lbnRzL3dvcmtzL3ZpdmVrLzk5LWFwYXJ0bWVudC9hcHAtbmc4L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL0FkbWluL0RvY3VtZW50cy93b3Jrcy92aXZlay85OS1hcGFydG1lbnQvYXBwLW5nOC9zcmMvc2Nzcy9mb250cy5zY3NzIiwiL1VzZXJzL0FkbWluL0RvY3VtZW50cy93b3Jrcy92aXZlay85OS1hcGFydG1lbnQvYXBwLW5nOC9zcmMvc2Nzcy9taXhpbnMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFJQTtFQUVFLGdDQzZFZ0IsRUFBQTtFRC9FbEI7SUFLSSwwQkFBMEI7SUVHNUIsd0JBQXdCO0lBQ3hCLGdCQUFnQjtJQUNoQixtQ0FBbUM7SUFDbkMsa0NBQWtDO0lBQ2xDLGtDQUFrQztJQWdEbEMsaUJBQXVDO0lGcEQ1QixjQ0FPO0lEQ1AsY0FBYztJQUNkLGtCQ1JBO0lEU0Esb0NBQW1DLEVBQUE7RUFYaEQ7TUFhYyxjQzZCRSxFQUFBO0VEMUNoQjtRQWVlLFdBQVc7UUFDWCxrQkNmRjtRRGdCRSxzQkNnR007UUQvRk4sV0FBVztRQUNYLFlBQVk7UUFDWixPQUFPO1FBQ1AseUJDcUJDLEVBQUE7RUQxQ2hCO01BeUJjLGlDQUFpQztNQUNqQyxjQzhDSSxFQUFBO0VEeEVsQjtRQTRCTSxnQkFBZ0I7UUFDVix3QkMvQks7UUM4RGYsaUJBQXVDO1FGN0I3QixjQ3lDTTtRRHhDTixrQkMvQkM7UURnQ0QsUUFBUTtRQUNSLFNBQVMsRUFBQTtFQWxDckI7SUF1Q0kscUJBQXFCO0lBQ3JCLFVBQVU7SUFDVixvQkFBb0I7SUd0QnRCLDJDRnFFYTtJRXBFYixnREZvRWE7SUVuRWIsbURGbUVhO0lFckZkLDJCQUFpQztJSHlDOUIseUJDbUNjLEVBQUE7RUQvRWxCO01BOENLLG9DQUFtQztNQUNuQyxjQ3ZDZTtNRHdDZixpQkFBaUIsRUFBQTtFQWhEdEI7UUFrRE0sb0NBQW9DO1FBQ3BDLGNDb0NTLEVBQUE7RUR2RmY7UUFzRE0sZ0NDeUJZLEVBQUE7RUQvRWxCO0lBNERHLGlCQUFpQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvYW1zL2NvbXBvbmVudHMvcHJvcGVydHktY29uZmlndXJhdGlvbi9wcm9wZXJ0eS1jb25maWd1cmF0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIge1xuXHQuY2FyZC1ib2R5IHtcblx0XHRib3JkZXItYm90dG9tOiAxcHggc29saWQgJGdyZXktNDUwO1xuXHRcdC5uYXYtcGlsbHMge1xuXHRcdFx0PiBhIHtcblx0XHRcdFx0cGFkZGluZzogMTJweCAwICFpbXBvcnRhbnQ7XG5cdFx0XHRcdEBpbmNsdWRlIG1hdmVucHJvLW1lZGl1bTtcbiAgICAgICAgICAgIFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1ub3JtYWwpO1xuICAgICAgICAgICAgXHRjb2xvcjogJGxpZ2h0LWJsdWU7XG4gICAgICAgICAgICBcdG1hcmdpbjogMCAxNnB4O1xuICAgICAgICAgICAgXHRwb3NpdGlvbjogJHJlbDtcbiAgICAgICAgICAgIFx0YmFja2dyb3VuZC1jb2xvcjogJHdoaXRlICFpbXBvcnRhbnQ7XG4gICAgICAgICAgICBcdCYuYWN0aXZlIHtcbiAgICAgICAgICAgIFx0XHRjb2xvcjogJG0tYmx1ZTtcbiAgICAgICAgICAgIFx0XHQmOmFmdGVyIHtcbiAgICAgICAgICAgIFx0XHRcdGNvbnRlbnQ6IFwiXCI7XG4gICAgICAgICAgICBcdFx0XHRwb3NpdGlvbjogJGFicztcbiAgICAgICAgICAgIFx0XHRcdHdpZHRoOiAkZnVsbDtcbiAgICAgICAgICAgIFx0XHRcdGhlaWdodDogM3B4O1xuICAgICAgICAgICAgXHRcdFx0Ym90dG9tOiAtMXB4O1xuICAgICAgICAgICAgXHRcdFx0bGVmdDogMDtcbiAgICAgICAgICAgIFx0XHRcdGJhY2tncm91bmQtY29sb3I6ICRtLWJsdWU7XG4gICAgICAgICAgICBcdFx0fVxuICAgICAgICAgICAgXHR9XG4gICAgICAgICAgICBcdCYubW9yZSB7XG4gICAgICAgICAgICBcdFx0cGFkZGluZzogMTJweCAyMHB4IDAgMCAhaW1wb3J0YW50O1xuICAgICAgICAgICAgXHRcdGNvbG9yOiAkZ3JleS04MDA7XG4gICAgICAgICAgICBcdFx0JjphZnRlciB7XG5cdFx0XHRcdFx0XHRjb250ZW50OiAnXFxmMTA3Jztcblx0XHRcdFx0ICAgICAgICBmb250LWZhbWlseTogJGZ0YTtcblx0XHRcdFx0ICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW5vcm1hbCk7XG5cdFx0XHRcdCAgICAgICAgY29sb3I6ICRncmV5LTgwMDtcblx0XHRcdFx0ICAgICAgICBwb3NpdGlvbjogJGFicztcblx0XHRcdFx0ICAgICAgICByaWdodDogMDtcblx0XHRcdFx0ICAgICAgICB0b3A6IDEycHg7XG5cdFx0XHRcdFx0fVxuICAgICAgICAgICAgXHR9XG5cdFx0XHR9XG5cdFx0XHQuZHJvcGRvd24tbWVudSB7XG5cdFx0XHRcdHRvcDogLTEycHggIWltcG9ydGFudDtcblx0XHRcdFx0cGFkZGluZzogMDtcblx0XHRcdFx0bWFyZ2luOiAwICFpbXBvcnRhbnQ7XG5cdFx0XHRcdEBpbmNsdWRlIGJveC1zaGFkb3coMCAxMnB4IDE4cHggcmdiYSgkYmxhY2ssIDAuMTQpKTtcblx0XHRcdFx0QGluY2x1ZGUgYm9yZGVyLXJhZGl1cygwKTtcblx0XHRcdFx0Ym9yZGVyOiAxcHggc29saWQgJGdyZXktNDUwO1xuXHRcdFx0XHRhIHtcblx0XHRcdFx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkd2hpdGUgIWltcG9ydGFudDtcblx0XHRcdFx0XHRjb2xvcjogJGxpZ2h0LWJsdWU7XG5cdFx0XHRcdFx0cGFkZGluZzogOHB4IDEycHg7XG5cdFx0XHRcdFx0Jjpob3ZlciB7XG5cdFx0XHRcdFx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkbS1ibHVlICFpbXBvcnRhbnQ7XG5cdFx0XHRcdFx0XHRjb2xvcjogJHdoaXRlO1xuXHRcdFx0XHRcdH1cblx0XHRcdFx0XHQmOm5vdCg6bGFzdC1jaGlsZCl7XG5cdFx0XHRcdFx0XHRib3JkZXItYm90dG9tOiAxcHggc29saWQgJGdyZXktNDUwO1xuXHRcdFx0XHRcdH1cblx0XHRcdFx0fVxuXHRcdFx0fVxuXHRcdH1cblx0XHQmLmNvbnRlbnQge1xuXHRcdFx0bWluLWhlaWdodDogMjAwcHg7XG5cdFx0fVxuXHR9XG59IiwiXG4kZGVmYXVsdC1mb250OiAnTXVsaScsIHNhbnMtc2VyaWY7XG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuLy8kbGltZS1ncmVlbjogIzUyY2M4ZTsgXG4vLyRsaW1lLWdyZWVuOiAjODhkZDYzO1xuLy8kbGltZS1ncmVlbjogIzdjZDI1NztcbiRsaW1lLWdyZWVuOiAjNWJjYzczO1xuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNGM0YzRjO1xuJGdyZXktODAwOiAjNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGNlMGU2O1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDUwOiAjZGVlMGU0O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjNmM2YzO1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7IiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cblxuQG1peGluIG1hdmVucHJvLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01hdmVuIFBybyc7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gbWF2ZW5wcm8tbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNYXZlbiBQcm8nO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIG11bGktbGlnaHQge1xuICBmb250LWZhbWlseTogJ011bGknO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIG11bGktcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTXVsaSc7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gbXVsaS1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ011bGknO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIG51bml0by1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTnVuaXRvIFNhbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIG51bml0by1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdOdW5pdG8gU2FucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gbnVuaXRvLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTnVuaXRvIFNhbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuXG5AbWl4aW4gYm9yZGVyLXJhZGl1cyAoJHJhZGl1cykge1xuXHQtd2Via2l0LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0LW1vei1ib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG5cdGJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXMgKCRyYWRpdXMpIHtcbiAgLXdlYmtpdC1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBvcGFjaXR5ICgkdmFsdWUpIHtcbiAgb3BhY2l0eTogJHZhbHVlO1xuICAtbW96LW9wYWNpdHk6ICR2YWx1ZTtcbiAgLXdlYmtpdC1vcGFjaXR5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2hhZG93ICgkcnVsZXMuLi4pIHtcbiAgYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtbW96LWJveC1zaGFkb3c6ICRydWxlcztcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0ZXh0LXNoYWRvdyAoJHJ1bGVzKSB7XG4gIHRleHQtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLXdlYmtpdC10ZXh0LXNoYWRvdzogJHJ1bGVzO1xufVxuXG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO1xuICBhbGlnbi1pdGVtczpjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICRiZztcbiAgY29sb3I6ICR0YztcbiAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cygkcik7XG59XG5cbkBtaXhpbiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzLi4uKSB7XG4gIC8vIERpcmVjdGlvbiBoYXMgYmVlbiBvbWl0dGVkIGFuZCBoYXBwZW5zIHRvIGJlIGEgY29sb3Itc3RvcFxuICBAaWYgaXMtZGlyZWN0aW9uKCRkaXJlY3Rpb24pID09IGZhbHNlIHtcbiAgICAkY29sb3Itc3RvcHM6ICRkaXJlY3Rpb24sICRjb2xvci1zdG9wcztcbiAgICAkZGlyZWN0aW9uOiAxODBkZWc7XG4gIH1cblxuICBiYWNrZ3JvdW5kOiBudGgobnRoKCRjb2xvci1zdG9wcywgMSksIDEpO1xuICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChsZWdhY3ktZGlyZWN0aW9uKCRkaXJlY3Rpb24pLCAkY29sb3Itc3RvcHMpO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzKTtcbn1cblxuQG1peGluIHBsYWNlaG9sZGVyIHtcbiAgJjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7QGNvbnRlbnR9XG4gICY6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICAge0Bjb250ZW50fVxuICAmOjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgIHtAY29udGVudH1cbiAgJjotbXMtaW5wdXQtcGxhY2Vob2xkZXIgICAgICB7QGNvbnRlbnR9ICBcbn1cblxuXG4iXX0= */"
+module.exports = ".property-configuration-wrapper .card-body {\n  border-bottom: 1px solid #dee0e4; }\n  .property-configuration-wrapper .card-body .nav-pills {\n    height: 48px;\n    margin: 0 auto;\n    overflow: hidden;\n    position: relative;\n    padding: 0 5px; }\n  .property-configuration-wrapper .card-body .nav-pills .tabs {\n      position: absolute;\n      left: 0px;\n      top: 0px;\n      min-width: 3000px;\n      margin: 0 0 0 12px;\n      -webkit-transition: all 0.3s ease;\n      transition: all 0.3s ease; }\n  .property-configuration-wrapper .card-body .nav-pills .tabs li {\n        display: table-cell;\n        position: relative;\n        text-align: center;\n        cursor: grab;\n        cursor: -webkit-grab;\n        vertical-align: middle;\n        padding: 0;\n        border: 0;\n        background-color: #ffffff; }\n  .property-configuration-wrapper .card-body .nav-pills .tabs li a {\n          padding: 12px 15px !important;\n          font-family: 'Maven Pro';\n          font-weight: 500;\n          -webkit-font-smoothing: antialiased;\n          -moz-osx-font-smoothing: grayscale;\n          text-rendering: optimizeLegibility;\n          font-size: 1.6rem;\n          color: #8391a1;\n          position: relative;\n          background-color: #ffffff !important;\n          display: inline-block; }\n  .property-configuration-wrapper .card-body .nav-pills .tabs li a.active {\n            color: #3f51b5; }\n  .property-configuration-wrapper .card-body .nav-pills .tabs li a.active:after {\n              content: \"\";\n              position: absolute;\n              width: 100% !important;\n              height: 3px;\n              bottom: 0;\n              left: 0;\n              background-color: #3f51b5; }\n  .property-configuration-wrapper .card-body .nav-pills .tabs li:after {\n          content: none; }\n  .property-configuration-wrapper .card-body .nav-pills .buttons {\n      border-left: 1px solid #dee0e4;\n      border-bottom: 1px solid #dee0e4;\n      position: absolute;\n      right: 0;\n      z-index: 2;\n      top: 0;\n      background-color: #ffffff;\n      width: 60px;\n      height: 49px; }\n  .property-configuration-wrapper .card-body .nav-pills .buttons a {\n        display: inline-block;\n        height: 100% !important; }\n  .property-configuration-wrapper .card-body .nav-pills .buttons a i {\n          font-size: 2.4rem;\n          color: #8391a1;\n          margin: 0 10px;\n          position: relative;\n          top: 2px; }\n  .property-configuration-wrapper .card-body .nav-pills .buttons a:hover i {\n          color: #191c1e; }\n  .property-configuration-wrapper .card-body.content {\n    min-height: 200px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9BZG1pbi9Eb2N1bWVudHMvd29ya3Mvdml2ZWsvOTktYXBhcnRtZW50L2FwcC1uZzgvc3JjL2FwcC9hbXMvY29tcG9uZW50cy9wcm9wZXJ0eS1jb25maWd1cmF0aW9uL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24uY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvQWRtaW4vRG9jdW1lbnRzL3dvcmtzL3ZpdmVrLzk5LWFwYXJ0bWVudC9hcHAtbmc4L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL0FkbWluL0RvY3VtZW50cy93b3Jrcy92aXZlay85OS1hcGFydG1lbnQvYXBwLW5nOC9zcmMvc2Nzcy9taXhpbnMuc2NzcyIsIi9Vc2Vycy9BZG1pbi9Eb2N1bWVudHMvd29ya3Mvdml2ZWsvOTktYXBhcnRtZW50L2FwcC1uZzgvc3JjL3Njc3MvZm9udHMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFJQTtFQUVFLGdDQzZFZ0IsRUFBQTtFRC9FbEI7SUFJRyxZQUFZO0lBQ1osY0FBYTtJQUNWLGdCQUFlO0lBQ2xCLGtCQ0xVO0lETVYsY0FBYyxFQUFBO0VBUmpCO01BVUksa0JDVFM7TURVTixTQUFRO01BQ1IsUUFBTztNQUNSLGlCQUFnQjtNQUNmLGtCQUFrQjtNRXdCeEIsaUNGdkJ1QztNRXlCdkMseUJGekJ1QyxFQUFBO0VBZnhDO1FBaUJRLG1CQUFrQjtRQUNsQixrQkNoQks7UURpQkwsa0JBQWlCO1FBQ2pCLFlBQVc7UUFDWCxvQkFBbUI7UUFDbkIsc0JBQXFCO1FBQ3JCLFVBQVU7UUFDVixTQUFTO1FBQ1QseUJDOERPLEVBQUE7RUR2RmY7VUEyQk0sNkJBQTZCO1VHbkJqQyx3QkFBd0I7VUFDeEIsZ0JBQWdCO1VBQ2hCLG1DQUFtQztVQUNuQyxrQ0FBa0M7VUFDbEMsa0NBQWtDO1VBZ0RsQyxpQkFBdUM7VUg5QjFCLGNDdEJLO1VEdUJMLGtCQzdCRjtVRDhCRSxvQ0FBbUM7VUFDbkMscUJBQXFCLEVBQUE7RUFqQ3BDO1lBbUNnQixjQ09BLEVBQUE7RUQxQ2hCO2NBcUNpQixXQUFXO2NBQ1gsa0JDckNKO2NEc0NJLHNCQzBFSTtjRHpFSixXQUFXO2NBQ1gsU0FBUztjQUNULE9BQU87Y0FDUCx5QkNERCxFQUFBO0VEMUNoQjtVQWdEZSxhQUFhLEVBQUE7RUFoRDVCO01BcURJLDhCQzBCYztNRHpCZCxnQ0N5QmM7TUR4QmQsa0JDdERTO01EdUROLFFBQVE7TUFDUixVQUFVO01BQ1YsTUFBTTtNQUNOLHlCQzRCUTtNRDNCUixXQUFXO01BQ1gsWUFBWSxFQUFBO0VBN0RuQjtRQStEYSxxQkFBcUI7UUFDckIsdUJDaURRLEVBQUE7RURqSHJCO1VHNERFLGlCQUF1QztVSE8zQixjQzNETTtVRDRETixjQUFjO1VBQ2Qsa0JDbkVEO1VEb0VMLFFBQVEsRUFBQTtFQXRFaEI7VUEwRWUsY0NKRyxFQUFBO0VEdEVsQjtJQWlGRyxpQkFBaUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2Ftcy9jb21wb25lbnRzL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24vcHJvcGVydHktY29uZmlndXJhdGlvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIHtcblx0LmNhcmQtYm9keSB7XG5cdFx0Ym9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRncmV5LTQ1MDtcblx0XHQubmF2LXBpbGxzIHtcblx0XHRcdGhlaWdodDogNDhweDtcblx0XHRcdG1hcmdpbjowIGF1dG87XG4gICAgXHRcdG92ZXJmbG93OmhpZGRlbjtcblx0XHRcdHBvc2l0aW9uOiAkcmVsO1xuXHRcdFx0cGFkZGluZzogMCA1cHg7XG5cdFx0XHQudGFicyB7XG5cdFx0XHRcdHBvc2l0aW9uOiAkYWJzO1xuICAgIFx0XHRcdGxlZnQ6MHB4O1xuXHRcdFx0ICAgIHRvcDowcHg7XG5cdFx0XHQgIFx0bWluLXdpZHRoOjMwMDBweDtcblx0XHRcdCAgICBtYXJnaW46IDAgMCAwIDEycHg7XG4gICAgXHRcdFx0QGluY2x1ZGUgdHJhbnNpdGlvbihhbGwgMC4zcyBlYXNlKTtcbiAgICBcdFx0XHRsaSB7XG4gICAgXHRcdFx0XHRkaXNwbGF5OnRhYmxlLWNlbGw7XG5cdFx0XHRcdCAgICBwb3NpdGlvbjogJHJlbDtcblx0XHRcdFx0ICAgIHRleHQtYWxpZ246Y2VudGVyO1xuXHRcdFx0XHQgICAgY3Vyc29yOmdyYWI7XG5cdFx0XHRcdCAgICBjdXJzb3I6LXdlYmtpdC1ncmFiO1xuXHRcdFx0XHQgICAgdmVydGljYWwtYWxpZ246bWlkZGxlO1xuXHRcdFx0XHQgICAgcGFkZGluZzogMDtcblx0XHRcdFx0ICAgIGJvcmRlcjogMDtcblx0XHRcdFx0ICAgIGJhY2tncm91bmQtY29sb3I6ICR3aGl0ZTtcblx0XHRcdFx0ICAgIGEge1xuXHRcdFx0XHRcdFx0cGFkZGluZzogMTJweCAxNXB4ICFpbXBvcnRhbnQ7XG5cdFx0XHRcdFx0XHRAaW5jbHVkZSBtYXZlbnByby1tZWRpdW07XG5cdFx0ICAgICAgICAgICAgXHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LW5vcm1hbCk7XG5cdFx0ICAgICAgICAgICAgXHRjb2xvcjogJGxpZ2h0LWJsdWU7XG5cdFx0ICAgICAgICAgICAgXHRwb3NpdGlvbjogJHJlbDtcblx0XHQgICAgICAgICAgICBcdGJhY2tncm91bmQtY29sb3I6ICR3aGl0ZSAhaW1wb3J0YW50O1xuXHRcdCAgICAgICAgICAgIFx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xuXHRcdCAgICAgICAgICAgIFx0Ji5hY3RpdmUge1xuXHRcdCAgICAgICAgICAgIFx0XHRjb2xvcjogJG0tYmx1ZTtcblx0XHQgICAgICAgICAgICBcdFx0JjphZnRlciB7XG5cdFx0ICAgICAgICAgICAgXHRcdFx0Y29udGVudDogXCJcIjtcblx0XHQgICAgICAgICAgICBcdFx0XHRwb3NpdGlvbjogJGFicztcblx0XHQgICAgICAgICAgICBcdFx0XHR3aWR0aDogJGZ1bGw7XG5cdFx0ICAgICAgICAgICAgXHRcdFx0aGVpZ2h0OiAzcHg7XG5cdFx0ICAgICAgICAgICAgXHRcdFx0Ym90dG9tOiAwO1xuXHRcdCAgICAgICAgICAgIFx0XHRcdGxlZnQ6IDA7XG5cdFx0ICAgICAgICAgICAgXHRcdFx0YmFja2dyb3VuZC1jb2xvcjogJG0tYmx1ZTtcblx0XHQgICAgICAgICAgICBcdFx0fVxuXHRcdCAgICAgICAgICAgIFx0fVxuXHRcdFx0XHRcdH1cblx0XHRcdFx0XHQmOmFmdGVyIHtcblx0XHQgICAgICAgICAgICBcdGNvbnRlbnQ6IG5vbmU7XG5cdFx0ICAgICAgICAgICAgfVxuICAgIFx0XHRcdH1cblx0XHRcdH1cblx0XHRcdC5idXR0b25ze1xuXHRcdFx0XHRib3JkZXItbGVmdDogMXB4IHNvbGlkICRncmV5LTQ1MDtcblx0XHRcdFx0Ym9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRncmV5LTQ1MDtcblx0XHRcdFx0cG9zaXRpb246ICRhYnM7XG5cdFx0XHQgICAgcmlnaHQ6IDA7XG5cdFx0XHQgICAgei1pbmRleDogMjtcblx0XHRcdCAgICB0b3A6IDA7XG5cdFx0XHQgICAgYmFja2dyb3VuZC1jb2xvcjogJHdoaXRlO1xuXHRcdFx0ICAgIHdpZHRoOiA2MHB4O1xuXHRcdFx0ICAgIGhlaWdodDogNDlweDtcblx0ICAgICAgICAgICBhIHtcblx0ICAgICAgICAgICBcdGRpc3BsYXk6IGlubGluZS1ibG9jaztcblx0ICAgICAgICAgICBcdGhlaWdodDogJGZ1bGw7XG5cdCAgICAgICAgICAgXHRpIHtcblx0ICAgICAgICAgICBcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1tZWRpdW0tMDIpO1xuXHQgICAgICAgICAgIFx0XHRjb2xvcjogJGxpZ2h0LWJsdWU7XG5cdCAgICAgICAgICAgXHRcdG1hcmdpbjogMCAxMHB4O1x0XG5cdCAgICAgICAgICAgXHRcdHBvc2l0aW9uOiAkcmVsO1xuICAgIFx0XHRcdFx0dG9wOiAycHg7XG5cdCAgICAgICAgICAgXHR9XG5cdCAgICAgICAgICAgXHQmOmhvdmVyIHtcblx0ICAgICAgICAgICBcdFx0aSB7XG5cdCAgICAgICAgICAgXHRcdFx0Y29sb3I6ICRncmV5LTkwMDtcblx0ICAgICAgICAgICBcdFx0fVxuXHQgICAgICAgICAgIFx0fVxuXHQgICAgICAgICAgIH0gXHRcdFxuXHQgICAgICAgIH1cblx0XHR9XG5cdFx0Ji5jb250ZW50IHtcblx0XHRcdG1pbi1oZWlnaHQ6IDIwMHB4O1xuXHRcdH1cblx0fVxufSIsIlxuJGRlZmF1bHQtZm9udDogJ011bGknLCBzYW5zLXNlcmlmO1xuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJHMteWVsbG93OiAjZmZlYjNiO1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcbi8vJGxpbWUtZ3JlZW46ICM1MmNjOGU7IFxuLy8kbGltZS1ncmVlbjogIzg4ZGQ2Mztcbi8vJGxpbWUtZ3JlZW46ICM3Y2QyNTc7XG4kbGltZS1ncmVlbjogIzViY2M3MztcbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzRjNGM0YztcbiRncmV5LTgwMDogIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RjZTBlNjtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ1MDogI2RlZTBlNDtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2YzZjNmMztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4OyIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cblxuQG1peGluIHRyYW5zZm9ybSAoJHJ1bGVzKSB7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0LW1vei10cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xuXHR0cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gdHJhbnNpdGlvbiAoJHJ1bGVzLi4uKSB7XG5cdC13ZWJraXQtdHJhbnNpdGlvbjogJHJ1bGVzO1xuXHQtbW96LXRyYW5zaXRpb246ICRydWxlcztcblx0dHJhbnNpdGlvbjogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYW5pbWF0aW9uLWRlbGF5ICgkdmFsdWUpIHtcbiAgLXdlYmtpdC1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgLW1vei1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2l6aW5nICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1ib3gtc2l6aW5nOiAkcnVsZXM7XG4gIC1tb3otYm94LXNpemluZzogJHJ1bGVzO1xuICBib3gtc2l6aW5nOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBhcHBlYXJhbmNlICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiAkcnVsZXM7XG4gIC1tb3otYXBwZWFyYW5jZTogJHJ1bGVzO1xufVxuXG5AbWl4aW4gdmlzaWJpbGl0eSAoJHJ1bGVzKSB7XG4gIHZpc2liaWxpdHk6ICRydWxlcztcbn1cblxuQG1peGluIG5vLW1wICgpIHtcbiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGNpcmNsZXMoJHIsICRiZzpudWxsLCAkdGM6bnVsbCkge1xuICB3aWR0aDogJHI7XG4gIGhlaWdodDogJHI7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDpjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOmNlbnRlcjtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGJnO1xuICBjb2xvcjogJHRjO1xuICBAaW5jbHVkZSBib3JkZXItcmFkaXVzKCRyKTtcbn1cblxuQG1peGluIGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMuLi4pIHtcbiAgLy8gRGlyZWN0aW9uIGhhcyBiZWVuIG9taXR0ZWQgYW5kIGhhcHBlbnMgdG8gYmUgYSBjb2xvci1zdG9wXG4gIEBpZiBpcy1kaXJlY3Rpb24oJGRpcmVjdGlvbikgPT0gZmFsc2Uge1xuICAgICRjb2xvci1zdG9wczogJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzO1xuICAgICRkaXJlY3Rpb246IDE4MGRlZztcbiAgfVxuXG4gIGJhY2tncm91bmQ6IG50aChudGgoJGNvbG9yLXN0b3BzLCAxKSwgMSk7XG4gIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGxlZ2FjeS1kaXJlY3Rpb24oJGRpcmVjdGlvbiksICRjb2xvci1zdG9wcyk7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMpO1xufVxuXG5AbWl4aW4gcGxhY2Vob2xkZXIge1xuICAmOjotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHtAY29udGVudH1cbiAgJjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6Oi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAge0Bjb250ZW50fVxuICAmOi1tcy1pbnB1dC1wbGFjZWhvbGRlciAgICAgIHtAY29udGVudH0gIFxufVxuXG5cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBtYXZlbnByby1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNYXZlbiBQcm8nO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIG1hdmVucHJvLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTWF2ZW4gUHJvJztcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBtdWxpLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNdWxpJztcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBtdWxpLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ011bGknO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIG11bGktbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNdWxpJztcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBudW5pdG8tbGlnaHQge1xuICBmb250LWZhbWlseTogJ051bml0byBTYW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBudW5pdG8tcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTnVuaXRvIFNhbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIG51bml0by1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ051bml0byBTYW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */"
 
 /***/ }),
 
@@ -16114,16 +16295,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyConfigurationComponent", function() { return PropertyConfigurationComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/underscore.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(underscore__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 var PropertyConfigurationComponent = /** @class */ (function () {
     function PropertyConfigurationComponent() {
+        this.itemPositions = [];
+        this.currentPosition = 0;
     }
-    PropertyConfigurationComponent.prototype.stopPropagation = function (event) {
-        event.stopPropagation();
+    PropertyConfigurationComponent.prototype.moveTabRight = function () {
+        if (this.currentPosition + 1 < this.itemPositions.length) {
+            document.getElementById("property-tabs").style.left = "-" + this.itemPositions[++this.currentPosition] + "px";
+        }
+    };
+    PropertyConfigurationComponent.prototype.moveTabLeft = function () {
+        if (this.currentPosition - 1 >= 0) {
+            document.getElementById("property-tabs").style.left = "-" + this.itemPositions[--this.currentPosition] + "px";
+        }
+    };
+    PropertyConfigurationComponent.prototype.widthOfList = function () {
+        var _this = this;
+        this.itemPositions = [];
+        var marginWidth = 60;
+        var wrapperWidth = document.querySelector('#property-wrapper').clientWidth - marginWidth;
+        var itemsWidth = 0;
+        this.itemPositions.push(0);
+        underscore__WEBPACK_IMPORTED_MODULE_2__["each"](this.tabItems, function (item) {
+            var itemWidth = item.offsetWidth + 24;
+            itemsWidth += itemWidth;
+            if (itemsWidth > wrapperWidth) {
+                _this.itemPositions.push(itemsWidth - wrapperWidth);
+            }
+        });
+        return itemsWidth;
+    };
+    PropertyConfigurationComponent.prototype.isMobileView = function () {
+        return window.innerWidth <= 576 ? true : false;
+    };
+    PropertyConfigurationComponent.prototype.onWindowResize = function (event) {
+        this.widthOfList();
+        if (this.isMobileView()) {
+            document.getElementById("property-tabs").style.left = 0 + 'px';
+            this.currentPosition = 0;
+        }
     };
     PropertyConfigurationComponent.prototype.ngOnInit = function () {
     };
+    PropertyConfigurationComponent.prototype.ngAfterViewInit = function () {
+        this.tab = document.querySelector('#property-tabs');
+        this.tabItems = this.tab.querySelectorAll(":scope > li");
+        this.totalTabItems = this.tabItems.length;
+        this.widthOfList();
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:resize', ['$event']),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Object]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
+    ], PropertyConfigurationComponent.prototype, "onWindowResize", null);
     PropertyConfigurationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-property-configuration',
@@ -16357,6 +16588,62 @@ var PropertyProfileComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], PropertyProfileComponent);
     return PropertyProfileComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.html":
+/*!******************************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.html ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  property-surveillance works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.scss":
+/*!******************************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.scss ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9jb21wb25lbnRzL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24vcHJvcGVydHktc3VydmVpbGxhbmNlL3Byb3BlcnR5LXN1cnZlaWxsYW5jZS5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.ts":
+/*!****************************************************************************************************************!*\
+  !*** ./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.ts ***!
+  \****************************************************************************************************************/
+/*! exports provided: PropertySurveillanceComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertySurveillanceComponent", function() { return PropertySurveillanceComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var PropertySurveillanceComponent = /** @class */ (function () {
+    function PropertySurveillanceComponent() {
+    }
+    PropertySurveillanceComponent.prototype.ngOnInit = function () {
+    };
+    PropertySurveillanceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-property-surveillance',
+            template: __webpack_require__(/*! ./property-surveillance.component.html */ "./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.html"),
+            styles: [__webpack_require__(/*! ./property-surveillance.component.scss */ "./src/app/ams/components/property-configuration/property-surveillance/property-surveillance.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], PropertySurveillanceComponent);
+    return PropertySurveillanceComponent;
 }());
 
 
