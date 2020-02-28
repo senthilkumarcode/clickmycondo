@@ -1,438 +1,498 @@
-{
-	"unitList" : [
-		{	
-			"name":"Alok Thakurdesai",
-			"id":1,
-			"phone":"9850913777",
-			"isccode":"011",
-			"email":"alok@thakurdesai.com",
-			"notes":"Added by Admin",
-			"blockno":"A",
-			"unitno": "301",
-			"type": "Owner",
-			"joined": "01/01/19",
-			"status":"Clicked"
-		},
-		{	"name":"Rupesh Abkolekar",
-			"id":2,
-			"phone":"9850913777",
-			"isccode":"011",
-			"email":"rupesh@ankolekar.com",
-			"notes":"Added by Admin",
-			"blockno":"A",
-			"unitno": "301",
-			"type": "Tenant",
-			"joined": "01/01/19",
-			"status":"Clicked"
-		},
-		{	
-			"name":"Alok Thakurdesai",
-			"id":3,
-			"phone":"9850913777",
-			"isccode":"011",
-			"email":"alok@thakurdesai.com",
-			"notes":"Added by Admin",
-			"blockno":"A",
-			"unitno": "301",
-			"type": "Owner",
-			"joined": "01/01/19",
-			"status":"Clicked"
-		},
-		{	"name":"Rupesh Abkolekar",
-			"id":4,
-			"phone":"9850913777",
-			"isccode":"011",
-			"email":"rupesh@ankolekar.com",
-			"notes":"Added by Admin",
-			"blockno":"A",
-			"unitno": "301",
-			"type": "Owner",
-			"joined": "01/01/19",
-			"status":"Clicked"
-		}
-	],
-	"allottedSlotList" : [
-		{	
-			"name":"Alok Thakurdesai",
-			"id":1,
-			"slotno":1,
-			"flatno":48,
-			"slottype":"Member",
-			"notes":"Added by Admin",
-			"vehicleno":"KA01M1234",
-			"vehicletype":4,
-			"stickerno":"-",
-			"rfidno": 4,
-			"type": "Owner",
-			"fromdate": "01/01/19",
-			"todate": "01/01/21"
-		},
-		{	"name":"Rupesh Abkolekar",
-			"id":2,
-			"slotno":1,
-			"flatno":48,
-			"slottype":"Member",
-			"notes":"Added by Admin",
-			"vehicleno":"KA01M1234",
-			"vehicletype":4,
-			"stickerno":"-",
-			"rfidno": 4,
-			"type": "Owner",
-			"fromdate": "01/01/19",
-			"todate": "01/01/21"
-		},
-		{	
-			"name":"Alok Thakurdesai",
-			"id":3,
-			"slotno":1,
-			"flatno":48,
-			"slottype":"Member",
-			"notes":"Added by Admin",
-			"vehicleno":"KA01M1234",
-			"vehicletype":4,
-			"stickerno":"-",
-			"rfidno": 4,
-			"type": "Owner",
-			"fromdate": "01/01/19",
-			"todate": "01/01/21"
-		},
-		{	"name":"Rupesh Abkolekar",
-			"id":4,
-			"slotno":1,
-			"flatno":48,
-			"slottype":"Member",
-			"notes":"Added by Admin",
-			"vehicleno":"KA01M1234",
-			"vehicletype":4,
-			"stickerno":"-",
-			"rfidno": 4,
-			"type": "Owner",
-			"fromdate": "01/01/19",
-			"todate": "01/01/21"
-		}
-	],
-	"approvedUsersData" : [
-		{
-			"blockno":"A",
-			"unitno": "002",
-			"users" : [{
-				"name" : "Manohara SN"
-			}]
-		},
-		{
-			"blockno":"B",
-			"unitno": "5",
-			"users" : [{
-				"name" : "Harish kannan"
-			}]
-		},
-		{
-			"blockno":"B",
-			"unitno": "01",
-			"users" : [{
-				"name" : "Akash Mathew"
-			}]
-		},
-		{
-			"blockno":"A",
-			"unitno": "002",
-			"users" : [{
-				"name" : "Veena Warrier"
-			},
-			{
-				"name" : "Saurabh Kumar"
-			}
-			]
-		},
-		{
-			"blockno":"B",
-			"unitno": "01",
-			"users" : [{
-				"name" : "Akash Mathew"
-			}]
-		},
-		{
-			"blockno":"B",
-			"unitno": "01",
-			"users" : [{
-				"name" : "Akash Mathew"
-			}]
-		}
-	],
-	"logsData": [
-		{	
-			"date":"01/01/19",
-			"by":"Veena Warrier",
-			"comment":" ",
-			"before":"Lorem ipsum",
-			"after":"Deleted"
-		},
-		{	
-			"date":"01/01/19",
-			"by":"Veena Warrier",
-			"comment":" ",
-			"before":"Lorem ipsum",
-			"after":"Deleted"
-		},
-		{	
-			"date":"01/01/19",
-			"by":"Veena Warrier",
-			"comment":" ",
-			"before":"Lorem ipsum",
-			"after":"Deleted"
-		}
-	],
-	"unitBlock": [
-		{
-			"id":1,
-			"name":"A"
-		},
-		{
-			"id":2,
-			"name":"B"
-		},
-		{
-			"id":3,
-			"name":"C"
-		},
-		{
-			"id":4,
-			"name":"D"
-		},
-		{
-			"id":5,
-			"name":"E"
-		},
-		{
-			"id":6,
-			"name":"F"
-		}
-	],
-	"unitReport": [
+{	
 
+	"adminMenus" : [
 		{
-		"name" : "Info",
-		"data": [
-			{
-				"id":1,
-				"name":"Current management Committee",
-				"status":"Scheduled"
-			},
-			{
-				"id":2,
-				"name":"Data Collection Template",
-				"status":"Scheduled"
-			},
-			{
-				"id":3,
-				"name":"Deactivated Members",
-				"status":"Scheduled"
-			},
-			{
-				"id":4,
-				"name":"Family Information",
-				"status":"Scheduled"
-			}
-		]
-		
-		},
-		{
-			"name" : "Data Cleanup",
-			"data": [
+			"name" : "Admin_Main_MyProperty",
+			"label": "My Property",
+			"icon":"home",
+			"submenus" : [
 				{
-					"id":1,
-					"name":"Parking Manager Comprehensive Report",
-					"status":"Scheduled"
+					"label":"Configuration",
+					"link":"my-property/property-configuration"
 				},
 				{
-					"id":2,
-					"name":"Users without valid email",
-					"status":"Scheduled"
+					"label":"Alerts",
+					"link":"my-property/property-alerts"
 				}
 			]
-		},
-		{
-			"name" : "Address Related",
-			"data": [
-				{
-					"id":1,
-					"name":"Address label - Owners",
-					"status":"Scheduled"
-				},
-				{
-					"id":2,
-					"name":"Allotted Parking Slots",
-					"status":"Scheduled"
-				}
-			]
-		},
-		{
-			"name" : "Signature",
-			"data": [
-				{
-					"id":1,
-					"name":"Signature List - All Owners",
-					"status":"Scheduled"
-				},
-				{
-					"id":2,
-					"name":"Signature List - All Owners who live there",
-					"status":"Scheduled"
-				}
-			]
-		},
-		{
-			"name" : "Logs",
-			"data": [
-				{
-					"id":1,
-					"name":"Admin Edits",
-					"status":""
-				},
-				{
-					"id":2,
-					"name":"Search User History",
-					"status":""
-				}
-			]
-		}
 
-	],
-	"deActivatedList" : [
-		{	
-			"name":"Aamir Ahmed",
-			"intercom":"",
-			"unitno": "F-213",
-			"type": "Owner",
-			"joined": "01/01/19"
-		},
-		{	
-			"name":"Amit",
-			"intercom":"",
-			"unitno": "D-150",
-			"type": "Owner",
-			"joined": "01/01/19"
-		},
-		{	
-			"name":"Ankit Singh",
-			"intercom":"",
-			"unitno": "D-55",
-			"type": "Owner",
-			"joined": "01/01/19"
-		}
-	],
-	"apartmentType": [
-		{
-			"id":1,
-			"name":"1 BHK"
 		},
 		{
-			"id":2,
-			"name":"2 BHK"
-		},
-		{
-			"id":3,
-			"name":"3 BHK"
-		}
-	],
-	"slotList": [
-		{
-			"id":1,
-			"slotno":"A-1",
-			"type":"Members",
-			"status":"Slot is Assigned"
-		},
-		{
-			"id":2,
-			"slotno":"A-1A",
-			"type":"Members",
-			"status":"Slot is Assigned"
-		},
-		{
-			"id":3,
-			"slotno":"B-24",
-			"type":"Members",
-			"status":"Slot is Assigned"
-		},
-		{
-			"id":4,
-			"slotno":"B-12",
-			"type":"Members",
-			"status":"Slot is Assigned"
-		},
-		{
-			"id":5,
-			"slotno":"E-12",
-			"type":"Members",
-			"status":"Slot is Assigned"
-		},
-		{
-			"id":6,
-			"slotno":"J-202",
-			"type":"Members",
-			"status":"Slot is Assigned"
-		}
-	],
-	"alertList": [
-		{
-			"id":1,
-			"date":"01/01/19",
-			"type":"Tenant",
-			"status":"Resolved"
-		},
-		{
-			"id":2,
-			"date":"10/05/19",
-			"type":"Tenant",
-			"status":"Resolved"
-		},
-		{
-			"id":3,
-			"date":"22/06/19",
-			"type":"Tenant",
-			"status":"Resolved"
-		},
-		{
-			"id":4,
-			"date":"11/07/19",
-			"type":"Tenant",
-			"status":"Resolved"
-		},
-		{
-			"id":5,
-			"date":"29/07/19",
-			"type":"Tenant",
-			"status":"Resolved"
-		},
-		{
-			"id":6,
-			"date":"12/08/19",
-			"type":"Tenant",
-			"status":"Resolved"
-		}
-	],
-	"emergencyList":[
-		{
-			"name" : "Manohara SN",
-			"phoneno":"9850913777"
-		},
-		{
-			"name" : "Harish kannan",
-			"phoneno":"9850913777"
-		},
-		{
-			"name" : "Akash Mathew",
-			"phoneno":"9850913777"
-		},
-		{
-			"name" : "Veena Warrier",
-			"phoneno":"9850913777"
-		}
-	],
-	"jobPositionTypeList": ["C2C"],
-	"jobTypeList": ["Onsite (Mon-Friday)","Full Remote","Onsite (Mon-Thur) & Remote-Friday","Remote possible in future"],
-	"jobProjectStartList" : ["Immediate","1 week","2 Weeks","2-4 Weeks","1 Month"],
-	"visaPostJobList": ["H1B", "OPT/CPT", "GCEAD", "GC", "USC", "L2EAD", "H4EAD"]
+			"name" : "Admin_Main_Dashboard",
+			"label": "Dashboard",
+			"icon":"home",
+			"link":"dashboard"
 
+		},
+		{
+			"name" : "Admin_Main_InBox",
+			"label": "Inbox",
+			"icon":"inbox",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"inbox/settings"
+				},
+				{
+					"label":"Compose Notification",
+					"link":"inbox/notify"
+				},
+				{
+					"label":"History",
+					"link":"inbox/history"
+				},
+				{
+					"label":"Reports",
+					"link":"inbox/reports"
+				}
+			]
+
+		},
+		{
+			"name" : "Admin_Main_UnitsandUsers",
+			"label": "Unit & Users",
+			"icon":"user",
+			"submenus" : [
+				{
+					"label":"Unapproved",
+					"link":"unit&users/unapproved"
+				},
+				{
+					"label":"Add Users",
+					"link":"unit&users/add-users"
+				},
+				{
+					"label":"Approved",
+					"link":"unit&users/approved"
+				},
+				{
+					"label":"Access Control",
+					"link":"unit&users/access-control"
+				},
+				{
+					"label":"De-Activated",
+					"link":"unit&users/de-activated"
+				},
+				{
+					"label":"Reports",
+					"link":"unit&users/reports"
+				}
+			]
+
+		},
+		{
+			"name" : "Admin_Main_HelpDeskTracker",
+			"label": "Help Desk Tracker",
+			"icon":"helpdesk",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"helpdesk/settings"
+				},
+				{
+					"label":"Create Ticket",
+					"link":"helpdesk/add-ticket"
+				},
+				{
+					"label":"Unassigned",
+					"link":"helpdesk/unassigned"
+				},
+				{
+					"label":"Reports",
+					"link":"helpdesk/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_IncomeTracker",
+			"label": "Income Tracker",
+			"icon":"income",
+			"submenus" : [
+				{
+					"label":"Sub Ledger",
+					"link":"income/subledger"
+				},
+				{
+					"label":"All Invoices",
+					"link":"income/all-invoices"
+				},
+				{
+					"label":"View Receipts",
+					"link":"income/receipts"
+				},
+				{
+					"label":"View Credit Note",
+					"link":"income/creditnote"
+				},
+				{
+					"label":"View Defaulters",
+					"link":"income/defaulters"
+				},
+				{
+					"label":"Reports",
+					"link":"income/ageing"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_ExpensesTracker",
+			"label": "Expense Tracker",
+			"icon":"income",
+			"submenus" : [
+				{
+					"label":"Sub Ledger",
+					"link":"expense/subledger"
+				},
+				{
+					"label":"All Invoices",
+					"link":"expense/all-invoices"
+				},
+				{
+					"label":"Reports",
+					"link":"expense/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_GeneralLedger",
+			"label": "General Ledger",
+			"icon":"book",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"general-ledger/settings"
+				},
+				{
+					"label":"Journals",
+					"link":"general-ledger/journals"
+				},
+				{
+					"label":"Trial Balances",
+					"link":"general-ledger/trial-balances"
+				},
+				{
+					"label":"Reports",
+					"link":"general-ledger/all-reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_BankandCash",
+			"label": "Bank & cash",
+			"link":"dashboard",
+			"icon":"bank"
+		},
+		{
+			"name" : "Admin_Main_UtilityTracker",
+			"label": "Utility Tracker",
+			"icon":"utility",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"utility/settings"
+				},
+				{
+					"label":"Reports",
+					"link":"utility/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_SecurityManagement",
+			"label": "Security Management",
+			"icon":"security",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"security/settings"
+				},
+				{
+					"label":"Active Alerts",
+					"link":"security/active-alerts"
+				},
+				{
+					"label":"History",
+					"link":"security/history"
+				},
+				{
+					"label":"Reports",
+					"link":"security/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_VisitorManagement",
+			"label": "Visitor Management",
+			"icon":"visitor",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"visitor/settings"
+				},
+				{
+					"label":"Checkin",
+					"link":"visitor/checkin"
+				},
+				{
+					"label":"Expected Visitor",
+					"link":"visitor/expected-visitor"
+				},
+				{
+					"label":"Checkout",
+					"link":"visitor/checkout"
+				},
+				{
+					"label":"Reports",
+					"link":"visitor/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_StaffManager",
+			"label": "Staff Manager",
+			"icon":"staff2",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"staff/settings"
+				},
+				{
+					"label":"Maintain Staff",
+					"link":"staff/maintain-staff"
+				},
+				{
+					"label":"Inactive Staff",
+					"link":"staff/inactive-staff"
+				},
+				{
+					"label":"Overtime",
+					"link":"staff/overtime"
+				},
+				{
+					"label":"Attendance",
+					"link":"staff/attendance"
+				},
+				{
+					"label":"Payroll",
+					"link":"staff/payroll"
+				},
+				{
+					"label":"Reports",
+					"link":"staff/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_MoveinoutTracker",
+			"label": "Move In/Out Tracker",
+			"icon":"check",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"moveinout-tracker/settings"
+				},
+				{
+					"label":"Maintain Movein",
+					"link":"moveinout-tracker/movein"
+				},
+				{
+					"label":"Maintain Moveout",
+					"link":"moveinout-tracker/moveout"
+				},
+				{
+					"label":"Reports",
+					"link":"moveinout-tracker/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_ParkingManagement",
+			"label": "Parking Management",
+			"icon":"car",
+			"submenus" : [
+				{
+					"label":"Settings",
+					"link":"parking-management/setup"
+				},
+				{
+					"label":"Manage Parking Slots",
+					"link":"parking-management/manage-parking-slots"
+				},
+				{
+					"label":"Manage Allocated Slots",
+					"link":"parking-management/Manage Allocated Slots"
+				},
+				{
+					"label":"Manage Allocate Availability",
+					"link":"parking-management/manage-allocate-availability-list"
+				},
+				{
+					"label":"View Available Slots",
+					"link":"parking-management/view-available-slots"
+				},
+				{
+					"label":"Manage Booking",
+					"link":"parking-management/manage-booking-slots"
+				},
+				{
+					"label":"View Booking",
+					"link":"parking-management/view-booking"
+				},
+				{
+					"label":"Allotted",
+					"link":"parking-management/allotted"
+				},
+				{
+					"label":"Unallotted",
+					"link":"parking-management/unallotted"
+				},
+				{
+					"label":"Reports",
+					"link":"parking-management/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_ProfileSettings",
+			"label": "Profile Settings",
+			"icon":"settings",
+			"submenus" : [
+				{
+					"label":"Add Block",
+					"link":"profile-settings/add-block"
+				},
+				{
+					"label":"Add Unit",
+					"link":"profile-settings/add-unit"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_FacilityManagement",
+			"label": "Facility Management",
+			"icon":"gym",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"facility/settings"
+				},
+				{
+					"label":"Create Booking",
+					"link":"facility/create-booking"
+				},
+				{
+					"label":"Booking Actions",
+					"link":"facility/booking-actions"
+				},
+				{
+					"label":"Reports",
+					"link":"facility/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_Meetings",
+			"label": "Meetings",
+			"icon":"calendar",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"meetings/settings"
+				},
+				{
+					"label":"Reports",
+					"link":"meetings/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_Assets",
+			"label": "Assets",
+			"icon":"boxes",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"assets/settings"
+				},
+				{
+					"label":"Create",
+					"link":"assets/create-asset"
+				},
+				{
+					"label":"View",
+					"link":"assets/view"
+				},
+				{
+					"label":"Reports",
+					"link":"assets/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_Inventory",
+			"label": "Inventory",
+			"icon":"cube",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"inventory/settings"
+				},
+				{
+					"label":"Create",
+					"link":"inventory/create-inventory"
+				},
+				{
+					"label":"Update",
+					"link":"inventory/update-inventory"
+				},
+				{
+					"label":"View",
+					"link":"inventory/view"
+				},
+				{
+					"label":"Reports",
+					"link":"inventory/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_NoticeManager",
+			"label": "Notice Manager",
+			"icon":"bell",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"notice/settings"
+				},
+				{
+					"label":"Reports",
+					"link":"notice/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_VendorManagement",
+			"label": "Vendor Management",
+			"icon":"vendor",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"vendor/settings"
+				},
+				{
+					"label":"Create",
+					"link":"vendor/create-vendor"
+				},
+				{
+					"label":"All Vendors",
+					"link":"vendor/all-vendors"
+				},
+				{
+					"label":"Reports",
+					"link":"vendor/reports"
+				}
+			]
+		}
+	]
 
 }
