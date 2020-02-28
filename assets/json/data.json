@@ -21,8 +21,8 @@
 			"name" : "Admin_Main_Dashboard",
 			"label": "Dashboard",
 			"icon":"home",
-			"link":"dashboard"
-
+			"link":"dashboard",
+			"submenus": []
 		},
 		{
 			"name" : "Admin_Main_InBox",
@@ -180,7 +180,8 @@
 			"name" : "Admin_Main_BankandCash",
 			"label": "Bank & cash",
 			"link":"dashboard",
-			"icon":"bank"
+			"icon":"bank",
+			"submenus": []
 		},
 		{
 			"name" : "Admin_Main_UtilityTracker",
