@@ -129,8 +129,12 @@
 					"link":"income/defaulters"
 				},
 				{
-					"label":"Reports",
+					"label":"Ageing Reports",
 					"link":"income/ageing"
+				},
+				{
+					"label":"Reports",
+					"link":"income/reports"
 				}
 			]
 		},
@@ -179,7 +183,7 @@
 		{
 			"name" : "Admin_Main_BankandCash",
 			"label": "Bank & cash",
-			"link":"dashboard",
+			"link":"bank",
 			"icon":"bank",
 			"submenus": []
 		},
@@ -491,6 +495,29 @@
 				{
 					"label":"Reports",
 					"link":"vendor/reports"
+				}
+			]
+		},
+		{
+			"name" : "Admin_Main_Documents",
+			"label": "Documents",
+			"icon":"file",
+			"submenus" : [
+				{
+					"label":"Setup",
+					"link":"documents/settings"
+				},
+				{
+					"label":"Common Documents",
+					"link":"documents/common"
+				},
+				{
+					"label":"User Document",
+					"link":"documents/user"
+				},
+				{
+					"label":"Reports",
+					"link":"documents/reports"
 				}
 			]
 		}
