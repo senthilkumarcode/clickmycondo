@@ -112,6 +112,10 @@
 					"link":"helpdesk/settings"
 				},
 				{
+					"label":"All Tickets",
+					"link":"helpdesk/all-tickets"
+				},
+				{
 					"label":"Create Ticket",
 					"link":"helpdesk/add-ticket"
 				},
