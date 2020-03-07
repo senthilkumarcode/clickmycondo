@@ -135,6 +135,10 @@
 			"icon":"income",
 			"submenus" : [
 				{
+					"label":"Setup",
+					"link":"income/settings"
+				},
+				{
 					"label":"Sub Ledger",
 					"link":"income/subledger"
 				},
