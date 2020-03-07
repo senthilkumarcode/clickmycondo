@@ -546,6 +546,13 @@
 					"link":"documents/reports"
 				}
 			]
+		},
+		{
+			"name" : "Admin_Main_WorkPermit",
+			"label": "Work Permit",
+			"icon":"home",
+			"link":"workpermit",
+			"submenus": []
 		}
 	]
 
