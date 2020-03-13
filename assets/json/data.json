@@ -215,7 +215,12 @@
 			"label": "Bank & cash",
 			"link":"bank",
 			"icon":"bank",
-			"submenus": []
+			"submenus": [
+				{
+					"label":"Setup",
+					"link":"bank/settings"
+				}
+			]
 		},
 		{
 			"name" : "Admin_Main_UtilityTracker",
