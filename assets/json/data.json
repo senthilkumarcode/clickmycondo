@@ -88,10 +88,6 @@
 					"link":"unit&users/approved"
 				},
 				{
-					"label":"Access Control",
-					"link":"unit&users/access-control"
-				},
-				{
 					"label":"De-Activated",
 					"link":"unit&users/de-activated"
 				},
