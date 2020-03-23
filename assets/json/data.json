@@ -301,16 +301,8 @@
 					"link":"staff/inactive-staff"
 				},
 				{
-					"label":"Overtime",
-					"link":"staff/overtime"
-				},
-				{
 					"label":"Attendance",
 					"link":"staff/attendance"
-				},
-				{
-					"label":"Payroll",
-					"link":"staff/payroll"
 				},
 				{
 					"label":"Reports",
