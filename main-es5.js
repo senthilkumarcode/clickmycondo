@@ -807,7 +807,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"helpdesk-all-tickets-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\n\t<ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span><span>High</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots medium\"></span>Medium</li>\n\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots low\"></span>Low</li>\n\t</ul>\n\t\n\n\t<div class=\"card clear table-card\" *ngIf=\"isTicketDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Tickets <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/helpdesk/add-ticket\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Ticket</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<!--  <jqxGrid \n\t\t\t\t[source]=\"ticketListData\" \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[autoheight]=\"true\" \n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[altrows]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[columns]=\"columnsData\" \n\t\t\t#grid>\n\t\t\t</jqxGrid> -->\n  \t\t\t\n  \t\t\t <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tTicket ID <span (click)=\"sortUnitData('ticketId')\" [ngClass]=\"getFieldOrderBy('ticketId')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['ticketId']\" (ngModelChange)=\"selectColInput('ticketId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Status <span (click)=\"sortUnitData('ticketStatus')\" [ngClass]=\"getFieldOrderBy('ticketStatus')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"ticketStatus\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"ticketStatusId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"ticketStatusData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'ticketStatus', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Type \n\t\t\t\t      \t<span (click)=\"sortUnitData('type')\" [ngClass]=\"getFieldOrderBy('type')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"ticketType\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"ticketTypeId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"ticketTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'ticketType', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" *ngIf=\"!isAdmin()\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('category')\" [ngClass]=\"getFieldOrderBy('category')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"ticketCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"ticketCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"ticketPrivateCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'ticketCategory', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Subject \n\t\t\t\t      \t<span (click)=\"sortUnitData('title')\" [ngClass]=\"getFieldOrderBy('title')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Subjet\" [(ngModel)]=\"columnField['title']\" (ngModelChange)=\"selectColInput('title')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" *ngIf=\"isAdmin()\">Assigned to \n\t\t\t\t      \t<span (click)=\"sortUnitData('assignedToUser')\" [ngClass]=\"getFieldOrderBy('assignedToUser')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['assignedToUser']\" (ngModelChange)=\"selectColInput('assignedToUser')\" >\n\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" *ngIf=\"isAdmin()\">Requested By \n\t\t\t\t      \t<span (click)=\"sortUnitData('raisedByUser')\" [ngClass]=\"getFieldOrderBy('raisedByUser')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['raisedByUser']\" (ngModelChange)=\"selectColInput('raisedByUser')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Priority \n\t\t\t\t      \t<span (click)=\"sortUnitData('ticketPriority')\" [ngClass]=\"getFieldOrderBy('ticketPriority')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"ticketPriority\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"ticketPriorityId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"ticketPriorityData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'ticketPriority', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let ticket of ticketListData | columnSearch: columnField:selectedInput | simpleSearch: ticketData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"ticket.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td>{{ticket.ticketId}}</td>\n\t\t\t\t      <td><span class=\"badge small min text-capitalize\" [ngClass]=\"getTicketStatus(ticket, ticket.ticketStatusId)\">{{getTicketStatus(ticket, ticket.ticketStatusId)}}</span></td>\n\t\t\t\t      <td class=\"grey\">{{getTicketType(ticket, ticket.ticketTypeId)}}</td>\n\t\t\t\t      <td class=\"grey\" *ngIf=\"!isAdmin()\">{{getTicketCategory(ticket.ticketCategoryId)}}</td>\n\t\t\t\t      <td>{{ticket.title}}</td>\n\t\t\t\t      <td class=\"grey\" *ngIf=\"isAdmin()\">{{getTicketAssigned(ticket, ticket.assignedTo)}}</td>\n\t\t\t\t      <td class=\"grey\" *ngIf=\"isAdmin()\">{{getTicketRequested(ticket, ticket.raisedBy)}}</td>\n\t\t\t\t      <td class=\"text-center\"><span class=\"dots rt-3\" [ngClass]=\"getTicketPriority(ticket, ticket.ticketPriorityId)\"></span></td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-ticket/{{ticket.ticketId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(ticket.ticketId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> \n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"helpdesk-all-tickets-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\n\t<ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span><span>High</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots medium\"></span>Medium</li>\n\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots low\"></span>Low</li>\n\t</ul>\n\t\n\n\t<div class=\"card clear table-card\" *ngIf=\"isTicketDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Tickets <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/helpdesk/add-ticket\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Ticket</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid \n\t\t\t\t[source]=\"ticketListData\" \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[autoheight]=\"true\" \n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[altrows]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[columns]=\"columnsData\"\n\t\t\t\t[enabletooltips]=\"true\"\n\t\t\t\t[selectionmode]=\"'multiplecellsadvanced'\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t#grid>\n\t\t\t</jqxGrid> \n  \t\t\t\n  \t\t\t <!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tTicket ID <span (click)=\"sortUnitData('ticketId')\" [ngClass]=\"getFieldOrderBy('ticketId')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['ticketId']\" (ngModelChange)=\"selectColInput('ticketId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Status <span (click)=\"sortUnitData('ticketStatus')\" [ngClass]=\"getFieldOrderBy('ticketStatus')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"ticketStatus\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"ticketStatusId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"ticketStatusData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'ticketStatus', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Type \n\t\t\t\t      \t<span (click)=\"sortUnitData('type')\" [ngClass]=\"getFieldOrderBy('type')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"ticketType\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"ticketTypeId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"ticketTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'ticketType', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" *ngIf=\"!isAdmin()\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('category')\" [ngClass]=\"getFieldOrderBy('category')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"ticketCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"ticketCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"ticketPrivateCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'ticketCategory', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Subject \n\t\t\t\t      \t<span (click)=\"sortUnitData('title')\" [ngClass]=\"getFieldOrderBy('title')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Subjet\" [(ngModel)]=\"columnField['title']\" (ngModelChange)=\"selectColInput('title')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" *ngIf=\"isAdmin()\">Assigned to \n\t\t\t\t      \t<span (click)=\"sortUnitData('assignedToUser')\" [ngClass]=\"getFieldOrderBy('assignedToUser')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['assignedToUser']\" (ngModelChange)=\"selectColInput('assignedToUser')\" >\n\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" *ngIf=\"isAdmin()\">Requested By \n\t\t\t\t      \t<span (click)=\"sortUnitData('raisedByUser')\" [ngClass]=\"getFieldOrderBy('raisedByUser')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['raisedByUser']\" (ngModelChange)=\"selectColInput('raisedByUser')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Priority \n\t\t\t\t      \t<span (click)=\"sortUnitData('ticketPriority')\" [ngClass]=\"getFieldOrderBy('ticketPriority')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"ticketPriority\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"ticketPriorityId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"ticketPriorityData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'ticketPriority', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let ticket of ticketListData | columnSearch: columnField:selectedInput | simpleSearch: ticketData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"ticket.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td>{{ticket.ticketId}}</td>\n\t\t\t\t      <td><span class=\"badge small min text-capitalize\" [ngClass]=\"getTicketStatus(ticket, ticket.ticketStatusId)\">{{getTicketStatus(ticket, ticket.ticketStatusId)}}</span></td>\n\t\t\t\t      <td class=\"grey\">{{getTicketType(ticket, ticket.ticketTypeId)}}</td>\n\t\t\t\t      <td class=\"grey\" *ngIf=\"!isAdmin()\">{{getTicketCategory(ticket.ticketCategoryId)}}</td>\n\t\t\t\t      <td>{{ticket.title}}</td>\n\t\t\t\t      <td class=\"grey\" *ngIf=\"isAdmin()\">{{getTicketAssigned(ticket, ticket.assignedTo)}}</td>\n\t\t\t\t      <td class=\"grey\" *ngIf=\"isAdmin()\">{{getTicketRequested(ticket, ticket.raisedBy)}}</td>\n\t\t\t\t      <td class=\"text-center\"><span class=\"dots rt-3\" [ngClass]=\"getTicketPriority(ticket, ticket.ticketPriorityId)\"></span></td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-ticket/{{ticket.ticketId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(ticket.ticketId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -62458,54 +62458,357 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var jqwidgets_ng_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! jqwidgets-ng/jqxgrid */
+    "./node_modules/jqwidgets-ng/__ivy_ngcc__/fesm2015/jqwidgets-ng-jqxgrid.js");
+    /* harmony import */
+
+
+    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../../../api/services/user.service */
     "./src/app/api/services/user.service.ts");
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../api/services/staff.service */
     "./src/app/api/services/staff.service.ts");
     /* harmony import */
 
 
-    var _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../api/services/ticket.service */
     "./src/app/api/services/ticket.service.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../api/services/lookup.service */
     "./src/app/api/services/lookup.service.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
-    /* import { Component, OnInit, Injector, ViewChild, HostListener } from '@angular/core';
-    
-    import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+
+    var HelpdeskAllTicketsComponent =
+    /*#__PURE__*/
+    function () {
+      function HelpdeskAllTicketsComponent(injector, userService, staffService, ticketService, lookupService, sharedService, cookieService) {
+        _classCallCheck(this, HelpdeskAllTicketsComponent);
+
+        this.injector = injector;
+        this.userService = userService;
+        this.staffService = staffService;
+        this.ticketService = ticketService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.ticketData = "";
+        this.isTicketDataLoaded = false;
+        this.slotData = false;
+        this.ticketStatusData = {};
+        this.ticketTypeData = {};
+        this.ticketPrivateCategoryData = {};
+        this.ticketCommonCategoryData = {};
+        this.ticketAssignedToData = {};
+        this.ticketPriorityData = {};
+        this.ticketType = "";
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+      }
+
+      _createClass(HelpdeskAllTicketsComponent, [{
+        key: "getTicketStatus",
+        value: function getTicketStatus(ticket, statusId) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.ticketStatusData, function (item) {
+            if (item.lookupValueId === statusId) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            this.ticketListData.map(function (obj) {
+              if (obj.ticketId == ticket.ticketId) {
+                obj.ticketStatus = data[0].lookupValueName.toLowerCase();
+              }
+            });
+            return data[0].lookupValueName.toLowerCase();
+          }
+        }
+      }, {
+        key: "getTicketCategory",
+        value: function getTicketCategory(categoryId) {
+          if (this.ticketType == "16") {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.ticketPrivateCategoryData, function (item) {
+              if (item.lookupValueId === categoryId) return item;
+            });
+
+            if (data === undefined || data.length == 0) {
+              return '';
+            } else {
+              return data[0].lookupValueName;
+            }
+          } else {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.ticketCommonCategoryData, function (item) {
+              if (item.lookupValueId === categoryId) return item;
+            });
+
+            if (data === undefined || data.length == 0) {
+              return '';
+            } else {
+              return data[0].lookupValueName;
+            }
+          }
+        }
+      }, {
+        key: "getTicketType",
+        value: function getTicketType(ticket, typeId) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.ticketTypeData, function (item) {
+            if (item.lookupValueId === typeId) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            this.ticketListData.map(function (obj) {
+              if (obj.ticketId == ticket.ticketId) {
+                obj.ticketType = data[0].lookupValueName;
+              }
+            });
+            return data[0].lookupValueName;
+          }
+        }
+      }, {
+        key: "getTicketAssigned",
+        value: function getTicketAssigned(ticket, assignedId) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.assignedToData, function (item) {
+            if (item.staffId === assignedId) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            this.ticketListData.map(function (obj) {
+              if (obj.ticketId == ticket.ticketId) {
+                obj.assignedToUser = data[0].firstName;
+              }
+            });
+            return data[0].firstName;
+          }
+        }
+      }, {
+        key: "getTicketRequested",
+        value: function getTicketRequested(ticket, raisedById) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.raisedByData, function (item) {
+            if (item.userId === raisedById) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            this.ticketListData.map(function (obj) {
+              if (obj.ticketId == ticket.ticketId) {
+                obj.raisedByUser = data[0].firstName;
+              }
+            });
+            return data[0].firstName;
+          }
+        }
+      }, {
+        key: "getTicketPriority",
+        value: function getTicketPriority(ticket, priorityId) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.ticketPriorityData, function (item) {
+            if (item.lookupValueId === priorityId) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            this.ticketListData.map(function (obj) {
+              if (obj.ticketId == ticket.ticketId) {
+                obj.ticketPriority = data[0].lookupValueName.toLowerCase();
+              }
+            });
+            return data[0].lookupValueName.toLowerCase();
+          }
+        }
+      }, {
+        key: "showConfirmModal",
+        value: function showConfirmModal(id) {
+          this.modalService.showConfirmModal(id);
+        }
+      }, {
+        key: "isAdmin",
+        value: function isAdmin() {
+          return this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff' ? true : false;
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this28 = this;
+
+          var editColumn = {
+            text: '',
+            datafield: 'Edit',
+            sortable: false,
+            search: false,
+            cellsrenderer: function cellsrenderer() {
+              return '<a href="javascript:void(0)" class="mr-2"><i-feather class="icon edit" name="edit"></i-feather></a>';
+            }
+          };
+          var deleteColumn = {
+            text: '',
+            datafield: 'Delete',
+            sortable: false,
+            search: false,
+            cellsrenderer: function cellsrenderer() {
+              return '<a href="javascript:void(0)" class="mr-2"><i-feather class="icon delete" name="trash"></i-feather></a>';
+            }
+          };
+
+          if (this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff') {
+            this.ticketService.getAllTicketsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+              //filter active true items
+              var ticketListData = res.filter(function (data) {
+                return data.isActive;
+              });
+              _this28.ticketListData = new jqx.dataAdapter({
+                localData: ticketListData
+              }); //this.columnsData.push(editColumn);
+              //this.columnsData.push(deleteColumn);
+              //this.columnsData.unshift(res[0].tableColumn);
+
+              _this28.isTicketDataLoaded = true;
+            }, function (error) {});
+          }
+
+          if (this.cookieService.get('userRole') == 'Tenant' || this.cookieService.get('userRole') == 'Owner') {
+            this.ticketService.getTicketsByRaisedUserId(parseInt(this.cookieService.get('userId'))).subscribe(function (res) {
+              //filter active true items
+              var ticketListData = res.filter(function (data) {
+                return data.isActive;
+              });
+              _this28.ticketListData = new jqx.dataAdapter({
+                localData: ticketListData
+              });
+              _this28.columnsData = res[0].tableColumn;
+              _this28.isTicketDataLoaded = true;
+            }, function (error) {});
+          } //get type
+
+
+          this.lookupService.getLookupValueByLookupTypeId(7).subscribe(function (res) {
+            _this28.ticketTypeData = res;
+          }, function (error) {}); //get private category
+
+          this.lookupService.getLookupValueByLookupTypeId(16).subscribe(function (res) {
+            _this28.ticketPrivateCategoryData = res;
+          }, function (error) {}); //get common category
+
+          this.lookupService.getLookupValueByLookupTypeId(17).subscribe(function (res) {
+            _this28.ticketCommonCategoryData = res;
+          }, function (error) {}); //get status
+
+          this.lookupService.getLookupValueByLookupTypeId(9).subscribe(function (res) {
+            _this28.ticketStatusData = res;
+          }, function (error) {}); //get priority
+
+          this.lookupService.getLookupValueByLookupTypeId(14).subscribe(function (res) {
+            _this28.ticketPriorityData = res;
+          }, function (error) {}); //get staffs
+
+          this.staffService.getAllStaffs().subscribe(function (res) {
+            _this28.assignedToData = res;
+          }, function (error) {}); //get all users
+
+          this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+            _this28.raisedByData = res;
+          }, function (error) {}); // delete item
+
+          this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            if (id != null) {
+              var params = {
+                ticketId: id,
+                deleteBy: parseInt(_this28.cookieService.get('userId'))
+              };
+
+              _this28.ticketService.deleteTicket(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this28.ticketListData, function (type) {
+                  if (type.ticketId == id) {
+                    type.isActive = false;
+                  }
+                });
+                setTimeout(function () {
+                  _this28.ticketListData = _this28.ticketListData.filter(function (type) {
+                    return type.ticketId !== id;
+                  });
+                  _this28.totalItems = _this28.ticketListData.length;
+
+                  _this28.sharedService.setAlertMessage("Ticket deleted");
+
+                  _this28.sharedService.setUnitListDeleteIndex(null);
+                }, 500);
+              }, function (error) {
+                console.log(error);
+              });
+            }
+          });
+        }
+      }]);
+
+      return HelpdeskAllTicketsComponent;
+    }();
+
+    HelpdeskAllTicketsComponent.ctorParameters = function () {
+      return [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
+        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+      }, {
+        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__["StaffService"]
+      }, {
+        type: _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_5__["TicketService"]
+      }, {
+        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+      }, {
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('grid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", jqwidgets_ng_jqxgrid__WEBPACK_IMPORTED_MODULE_2__["jqxGridComponent"])], HelpdeskAllTicketsComponent.prototype, "grid", void 0);
+    HelpdeskAllTicketsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-helpdesk-all-tickets',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./helpdesk-all-tickets.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/helpdesk-all-tickets/helpdesk-all-tickets.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./helpdesk-all-tickets.component.scss */
+      "./src/app/shared/components/helpdesk-all-tickets/helpdesk-all-tickets.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__["StaffService"], _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_5__["TicketService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]])], HelpdeskAllTicketsComponent);
+    /* import { Component, OnInit, Injector, HostListener } from '@angular/core';
     
     import { UserService } from '../../../api/services/user.service';
     import { StaffService } from '../../../api/services/staff.service';
@@ -62527,13 +62830,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     
       ticketData:string = "";
       ticketListData:any;
-      
-      columnsData:any;
     
       isTicketDataLoaded:boolean = false;
-      totalItems:any;
     
+      slotFieldType:string = "unitno";
       slotData:boolean = false;
+    
+      ItemStartIndex:any = 0;
+      ItemEndIndex:any;
+      totalItems:any;
+      itemLimit:any = 10;
     
       ticketStatusData:any = {};
       ticketTypeData:any = {};
@@ -62551,8 +62857,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       assignedToData:any;
       raisedByData:any;
     
-    
-      @ViewChild('grid', { static: false }) grid: jqxGridComponent;
+      selectedInput:string = "";
+      columnField: any = {}
     
       constructor(
         private injector: Injector,
@@ -62720,10 +63026,55 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     
       }
     
+      getIndexParams(event){
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
+      }
+    
+      sortUnitData(type){
+        this.slotFieldType = type;
+        this.slotData = !this.slotData;
+      }
+    
+      getFieldOrderBy(type) {
+        if(this.slotFieldType == type){
+          return this.slotData ? 'desc' : 'asc';
+        }
+        else return '';
+      }
+    
+      selectColInput(value){
+        this.selectedInput = value;
+      }
+    
+      onSelectChange(event, type, name){
+    
+        if(!_.isEmpty(event)){
+          this.selectedInput = type;
+          this.columnField[type] = event[name];
+        }
+        else {
+           this.columnField = {};
+        }
+        
+      }
+    
+      isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+      }
+    
       showConfirmModal(id) {
         this.modalService.showConfirmModal(id);
       }
     
+      isItemsAvailable(){
+        return this.totalItems > 0 ? true : false;
+      }
+    
+      isNoItemsAvailable(){
+        return this.totalItems == 0 ? true : false;
+      }
     
       isAdmin(){
         return ( this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff') ? true : false;
@@ -62734,21 +63085,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         if(this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff') {
     
             this.ticketService.getAllTicketsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
-              
                 
+              var ticketListData = res;
+    
               //filter active true items
-              var ticketListData = res.filter(data => {
+              this.ticketListData = ticketListData.filter(data => {
                 return data.isActive
               })
     
-              this.ticketListData = new jqx.dataAdapter({
-                localData: ticketListData
-              });
+              console.log(this.ticketListData);
     
-              this.columnsData = res[0].tableColumn;
+              this.totalItems = this.ticketListData.length;
+    
+              if(this.totalItems>this.itemLimit){
+                this.ItemEndIndex = this.itemLimit;
+              }
+              else {
+                this.ItemEndIndex = this.totalItems;
+              }
     
               this.isTicketDataLoaded = true;
-              
     
           },
           error => {
@@ -62762,19 +63118,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     
           this.ticketService.getTicketsByRaisedUserId(parseInt(this.cookieService.get('userId'))).subscribe((res:any) => {
                 
+              var ticketListData = res;
+    
               //filter active true items
-              var ticketListData = res.filter(data => {
+              this.ticketListData = ticketListData.filter(data => {
                 return data.isActive
               })
     
-              this.ticketListData = new jqx.dataAdapter({
-                localData: ticketListData
-              });
+              this.totalItems = this.ticketListData.length;
     
-              this.columnsData = res[0].tableColumn;
+              if(this.totalItems>this.itemLimit){
+                this.ItemEndIndex = this.itemLimit;
+              }
+              else {
+                this.ItemEndIndex = this.totalItems;
+              }
     
               this.isTicketDataLoaded = true;
-    
     
           },
           error => {
@@ -62900,347 +63260,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     
     } */
 
-
-    var HelpdeskAllTicketsComponent =
-    /*#__PURE__*/
-    function () {
-      function HelpdeskAllTicketsComponent(injector, userService, staffService, ticketService, lookupService, sharedService, cookieService) {
-        _classCallCheck(this, HelpdeskAllTicketsComponent);
-
-        this.injector = injector;
-        this.userService = userService;
-        this.staffService = staffService;
-        this.ticketService = ticketService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
-        this.ticketData = "";
-        this.isTicketDataLoaded = false;
-        this.slotFieldType = "unitno";
-        this.slotData = false;
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
-        this.ticketStatusData = {};
-        this.ticketTypeData = {};
-        this.ticketPrivateCategoryData = {};
-        this.ticketCommonCategoryData = {};
-        this.ticketAssignedToData = {};
-        this.ticketPriorityData = {};
-        this.ticketType = "";
-        this.selectedInput = "";
-        this.columnField = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
-      }
-
-      _createClass(HelpdeskAllTicketsComponent, [{
-        key: "getTicketStatus",
-        value: function getTicketStatus(ticket, statusId) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.ticketStatusData, function (item) {
-            if (item.lookupValueId === statusId) return item;
-          });
-
-          if (data === undefined || data.length == 0) {
-            return '';
-          } else {
-            this.ticketListData.map(function (obj) {
-              if (obj.ticketId == ticket.ticketId) {
-                obj.ticketStatus = data[0].lookupValueName.toLowerCase();
-              }
-            });
-            return data[0].lookupValueName.toLowerCase();
-          }
-        }
-      }, {
-        key: "getTicketCategory",
-        value: function getTicketCategory(categoryId) {
-          if (this.ticketType == "16") {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.ticketPrivateCategoryData, function (item) {
-              if (item.lookupValueId === categoryId) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName;
-            }
-          } else {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.ticketCommonCategoryData, function (item) {
-              if (item.lookupValueId === categoryId) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName;
-            }
-          }
-        }
-      }, {
-        key: "getTicketType",
-        value: function getTicketType(ticket, typeId) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.ticketTypeData, function (item) {
-            if (item.lookupValueId === typeId) return item;
-          });
-
-          if (data === undefined || data.length == 0) {
-            return '';
-          } else {
-            this.ticketListData.map(function (obj) {
-              if (obj.ticketId == ticket.ticketId) {
-                obj.ticketType = data[0].lookupValueName;
-              }
-            });
-            return data[0].lookupValueName;
-          }
-        }
-      }, {
-        key: "getTicketAssigned",
-        value: function getTicketAssigned(ticket, assignedId) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.assignedToData, function (item) {
-            if (item.staffId === assignedId) return item;
-          });
-
-          if (data === undefined || data.length == 0) {
-            return '';
-          } else {
-            this.ticketListData.map(function (obj) {
-              if (obj.ticketId == ticket.ticketId) {
-                obj.assignedToUser = data[0].firstName;
-              }
-            });
-            return data[0].firstName;
-          }
-        }
-      }, {
-        key: "getTicketRequested",
-        value: function getTicketRequested(ticket, raisedById) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.raisedByData, function (item) {
-            if (item.userId === raisedById) return item;
-          });
-
-          if (data === undefined || data.length == 0) {
-            return '';
-          } else {
-            this.ticketListData.map(function (obj) {
-              if (obj.ticketId == ticket.ticketId) {
-                obj.raisedByUser = data[0].firstName;
-              }
-            });
-            return data[0].firstName;
-          }
-        }
-      }, {
-        key: "getTicketPriority",
-        value: function getTicketPriority(ticket, priorityId) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.ticketPriorityData, function (item) {
-            if (item.lookupValueId === priorityId) return item;
-          });
-
-          if (data === undefined || data.length == 0) {
-            return '';
-          } else {
-            this.ticketListData.map(function (obj) {
-              if (obj.ticketId == ticket.ticketId) {
-                obj.ticketPriority = data[0].lookupValueName.toLowerCase();
-              }
-            });
-            return data[0].lookupValueName.toLowerCase();
-          }
-        }
-      }, {
-        key: "getIndexParams",
-        value: function getIndexParams(event) {
-          this.ItemStartIndex = event.ItemStartIndex;
-          this.ItemEndIndex = event.ItemEndIndex;
-          this.itemLimit = event.itemLimit;
-        }
-      }, {
-        key: "sortUnitData",
-        value: function sortUnitData(type) {
-          this.slotFieldType = type;
-          this.slotData = !this.slotData;
-        }
-      }, {
-        key: "getFieldOrderBy",
-        value: function getFieldOrderBy(type) {
-          if (this.slotFieldType == type) {
-            return this.slotData ? 'desc' : 'asc';
-          } else return '';
-        }
-      }, {
-        key: "selectColInput",
-        value: function selectColInput(value) {
-          this.selectedInput = value;
-        }
-      }, {
-        key: "onSelectChange",
-        value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_9__["isEmpty"](event)) {
-            this.selectedInput = type;
-            this.columnField[type] = event[name];
-          } else {
-            this.columnField = {};
-          }
-        }
-      }, {
-        key: "isMobileView",
-        value: function isMobileView() {
-          return window.innerWidth <= 767 ? 'table-responsive' : '';
-        }
-      }, {
-        key: "showConfirmModal",
-        value: function showConfirmModal(id) {
-          this.modalService.showConfirmModal(id);
-        }
-      }, {
-        key: "isItemsAvailable",
-        value: function isItemsAvailable() {
-          return this.totalItems > 0 ? true : false;
-        }
-      }, {
-        key: "isNoItemsAvailable",
-        value: function isNoItemsAvailable() {
-          return this.totalItems == 0 ? true : false;
-        }
-      }, {
-        key: "isAdmin",
-        value: function isAdmin() {
-          return this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff' ? true : false;
-        }
-      }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          var _this28 = this;
-
-          if (this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff') {
-            this.ticketService.getAllTicketsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
-              var ticketListData = res; //filter active true items
-
-              _this28.ticketListData = ticketListData.filter(function (data) {
-                return data.isActive;
-              });
-              console.log(_this28.ticketListData);
-              _this28.totalItems = _this28.ticketListData.length;
-
-              if (_this28.totalItems > _this28.itemLimit) {
-                _this28.ItemEndIndex = _this28.itemLimit;
-              } else {
-                _this28.ItemEndIndex = _this28.totalItems;
-              }
-
-              _this28.isTicketDataLoaded = true;
-            }, function (error) {});
-          }
-
-          if (this.cookieService.get('userRole') == 'Tenant' || this.cookieService.get('userRole') == 'Owner') {
-            this.ticketService.getTicketsByRaisedUserId(parseInt(this.cookieService.get('userId'))).subscribe(function (res) {
-              var ticketListData = res; //filter active true items
-
-              _this28.ticketListData = ticketListData.filter(function (data) {
-                return data.isActive;
-              });
-              _this28.totalItems = _this28.ticketListData.length;
-
-              if (_this28.totalItems > _this28.itemLimit) {
-                _this28.ItemEndIndex = _this28.itemLimit;
-              } else {
-                _this28.ItemEndIndex = _this28.totalItems;
-              }
-
-              _this28.isTicketDataLoaded = true;
-            }, function (error) {});
-          } //get type
-
-
-          this.lookupService.getLookupValueByLookupTypeId(7).subscribe(function (res) {
-            _this28.ticketTypeData = res;
-          }, function (error) {}); //get private category
-
-          this.lookupService.getLookupValueByLookupTypeId(16).subscribe(function (res) {
-            _this28.ticketPrivateCategoryData = res;
-          }, function (error) {}); //get common category
-
-          this.lookupService.getLookupValueByLookupTypeId(17).subscribe(function (res) {
-            _this28.ticketCommonCategoryData = res;
-          }, function (error) {}); //get status
-
-          this.lookupService.getLookupValueByLookupTypeId(9).subscribe(function (res) {
-            _this28.ticketStatusData = res;
-          }, function (error) {}); //get priority
-
-          this.lookupService.getLookupValueByLookupTypeId(14).subscribe(function (res) {
-            _this28.ticketPriorityData = res;
-          }, function (error) {}); //get staffs
-
-          this.staffService.getAllStaffs().subscribe(function (res) {
-            _this28.assignedToData = res;
-          }, function (error) {}); //get all users
-
-          this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
-            _this28.raisedByData = res;
-          }, function (error) {}); // delete item
-
-          this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-            if (id != null) {
-              var params = {
-                ticketId: id,
-                deleteBy: parseInt(_this28.cookieService.get('userId'))
-              };
-
-              _this28.ticketService.deleteTicket(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this28.ticketListData, function (type) {
-                  if (type.ticketId == id) {
-                    type.isActive = false;
-                  }
-                });
-                setTimeout(function () {
-                  _this28.ticketListData = _this28.ticketListData.filter(function (type) {
-                    return type.ticketId !== id;
-                  });
-                  _this28.totalItems = _this28.ticketListData.length;
-
-                  _this28.sharedService.setAlertMessage("Ticket deleted");
-
-                  _this28.sharedService.setUnitListDeleteIndex(null);
-                }, 500);
-              }, function (error) {
-                console.log(error);
-              });
-            }
-          });
-        }
-      }]);
-
-      return HelpdeskAllTicketsComponent;
-    }();
-
-    HelpdeskAllTicketsComponent.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
-      }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
-      }, {
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
-      }, {
-        type: _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_4__["TicketService"]
-      }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
-      }];
-    };
-
-    HelpdeskAllTicketsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-helpdesk-all-tickets',
-      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-      /*! raw-loader!./helpdesk-all-tickets.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/helpdesk-all-tickets/helpdesk-all-tickets.component.html"))["default"],
-      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-      /*! ./helpdesk-all-tickets.component.scss */
-      "./src/app/shared/components/helpdesk-all-tickets/helpdesk-all-tickets.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_4__["TicketService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], HelpdeskAllTicketsComponent);
     /***/
   },
 
