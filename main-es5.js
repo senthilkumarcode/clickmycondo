@@ -62693,7 +62693,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               });
               _this28.ticketListData = new jqx.dataAdapter({
                 localData: ticketListData
-              }); //this.columnsData.push(editColumn);
+              });
+              _this28.columnsData = res[0].tableColumn; //this.columnsData.push(editColumn);
               //this.columnsData.push(deleteColumn);
               //this.columnsData.unshift(res[0].tableColumn);
 

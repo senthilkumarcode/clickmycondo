@@ -44795,6 +44795,7 @@ let HelpdeskAllTicketsComponent = class HelpdeskAllTicketsComponent {
                 this.ticketListData = new jqx.dataAdapter({
                     localData: ticketListData
                 });
+                this.columnsData = res[0].tableColumn;
                 //this.columnsData.push(editColumn);
                 //this.columnsData.push(deleteColumn);
                 //this.columnsData.unshift(res[0].tableColumn);
