@@ -21,7 +21,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"vendors-view-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVendorCategoryLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorCategoryLoaded\">\n\n\t\t<form #viewVendorForm = \"ngForm\" name=\"viewVendorForm\" novalidate>\n\n\t\t\t<div class=\"card mb-30\">\n\t\t\t\t\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t    \t\t\t<h5>Select Category</h5>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Category Type*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"vendorCategoryId\" \n\t\t\t\t\t\t\t        id=\"vendorCategoryId\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"vendorCategoryId\" (ngModelChange) = \"getVendorCategoryName(vendorCategoryId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option value=\"All\">All</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isVendorLoaded && isVendorCategorySelected && isVendorCategoryLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All {{categoryName}} Vendors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"VendorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/vendor/create-vendor\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Vendor</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Vendor Id \n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorId')\" [ngClass]=\"getFieldOrderBy('vendorId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['vendorId']\" (ngModelChange)=\"selectColInput('vendorId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Vendor Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorName')\" [ngClass]=\"getFieldOrderBy('vendorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Vendor Name\" [(ngModel)]=\"columnField['vendorName']\" (ngModelChange)=\"selectColInput('vendorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Contact Person  \n\t\t\t\t       \t<span (click)=\"sortUnitData('contactPerson')\" [ngClass]=\"getFieldOrderBy('contactPerson')\"></span>\n\t\t\t\t       \t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" [(ngModel)]=\"columnField['contactPerson']\" (ngModelChange)=\"selectColInput('contactPerson')\" >\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Email \n\t\t\t\t      \t<span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Phone No \n\t\t\t\t      \t<span (click)=\"sortUnitData('phone1')\" [ngClass]=\"getFieldOrderBy('phone1')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['phone1']\" (ngModelChange)=\"selectColInput('phone1')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let vendor of vendorListData | simpleSearch: vendorData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"vendor.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td class=\"name\">{{vendor.vendorId}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.vendorName}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.contactPerson}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.phone1}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"showVendorInfo(vendor)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/vendor/edit-vendor/{{vendor.vendorId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showConfirmModal(vendor.vendorId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\t<ng-template #viewVendorRef let-vendor>\n    \t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Vendor Info</h5>\n\t\t\t</div>\n\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{vendor.email}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor ID</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vendorId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Contact Person</h6>\n\t\t\t\t\t\t\t<p>{{vendor.contactPerson}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.phone1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">VAT No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vatorTin}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax1 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax2 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax2}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax3 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax3}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax4 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax4}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t</div>\n\t</ng-template>\n\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"vendors-view-wrapper\">\n\n\t<app-loader *ngIf=\"!isVendorCategoryLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorCategoryLoaded\">\n\n\t\t<form #viewVendorForm = \"ngForm\" name=\"viewVendorForm\" novalidate>\n\n\t\t\t<div class=\"card mb-30\">\n\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t    \t\t\t<h5>Select Category</h5>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Category Type*</label>\n\t\t\t                    <select\n\t\t\t\t\t\t\t        name=\"vendorCategoryId\"\n\t\t\t\t\t\t\t        id=\"vendorCategoryId\"\n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"vendorCategoryId\" (ngModelChange) = \"getVendorCategoryName(vendorCategoryId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option value=\"All\">All</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isVendorLoaded && isVendorCategorySelected && isVendorCategoryLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All {{categoryName}} Vendors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"VendorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a (click)=\"vendorPrint(vendor)\"class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/vendor/create-vendor\"\n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Vendor</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Vendor Id\n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorId')\" [ngClass]=\"getFieldOrderBy('vendorId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['vendorId']\" (ngModelChange)=\"selectColInput('vendorId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Vendor Name\n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorName')\" [ngClass]=\"getFieldOrderBy('vendorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Vendor Name\" [(ngModel)]=\"columnField['vendorName']\" (ngModelChange)=\"selectColInput('vendorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Contact Person\n\t\t\t\t       \t<span (click)=\"sortUnitData('contactPerson')\" [ngClass]=\"getFieldOrderBy('contactPerson')\"></span>\n\t\t\t\t       \t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" [(ngModel)]=\"columnField['contactPerson']\" (ngModelChange)=\"selectColInput('contactPerson')\" >\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Email\n\t\t\t\t      \t<span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Phone No\n\t\t\t\t      \t<span (click)=\"sortUnitData('phone1')\" [ngClass]=\"getFieldOrderBy('phone1')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['phone1']\" (ngModelChange)=\"selectColInput('phone1')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let vendor of vendorListData | simpleSearch: vendorData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"vendor.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td class=\"name\">{{vendor.vendorId}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.vendorName}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.contactPerson}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.phone1}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" #v (click)=\"showVendorInfo(vendor)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/vendor/edit-vendor/{{vendor.vendorId}}\"\n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showDeleteConfirmModal(vendor.vendorId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination\n\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\t<ng-template #viewVendorRef let-vendor>\n    \t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Vendor Info</h5>\n\t\t\t</div>\n\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{vendor.email}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor ID</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vendorId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Contact Person</h6>\n\t\t\t\t\t\t\t<p>{{vendor.contactPerson}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.phone1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">VAT No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vatorTin}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax1 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax2 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax2}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax3 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax3}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax4 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax4}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t</div>\n\t</ng-template>\n\n\n</div>\n";
     /***/
   },
 
@@ -41,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"vendor-create-wrapper\">\n\t\n\t<form #addVendorForm = \"ngForm\" name=\"addVendorForm\" (ngSubmit)=\"submitAddVendorForm(addVendorForm)\"  novalidate>\n\n\t\t<div class=\"card mb-30\" id=\"accordion\">\n\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"float-left\">\n\t    \t\t\t<h5>\n\t    \t\t\t\t<span *ngIf=\"!isEditVendor\">Create Vendor</span>\n    \t\t\t\t\t<span *ngIf=\"isEditVendor\">Update Vendor</span>\n\t    \t\t\t</h5>\n\t    \t\t</div>\n\t    \t\t<div class=\"float-right\">\n\t    \t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/vendor/all-vendors\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t\t</a>\n    \t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"card-body pb-0\" [ngClass]=\"isError ? 'h-39' : 'h-0 pt-0'\">\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\t\t\t</div>\n\n\t\t\t<div class=\"card-body p-0\">\t\n\n\t\t\t\t<app-loader *ngIf=\"isVendorSubmitted\"></app-loader>\n\n\t\t\t\t<ng-container *ngIf=\"!isVendorSubmitted\">\n\n\t\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#vendorCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li>\n\t\t\t\t\t\t<div id=\"vendorCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor name*</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorName\" [(ngModel)]=\"vendor.vendorName\" required>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Contact Person</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"contactPerson\" [(ngModel)]=\"vendor.contactPerson\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Phone Number*</label>\n\t\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"contactNumber\" [(ngModel)]=\"vendor.phone1\" required>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>vendor Fax Number</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"faxNumber\" [(ngModel)]=\"vendor.fax\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Address</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\" [(ngModel)]=\"vendor.address1\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Email</label>\n\t\t\t\t\t\t                    <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"vendor.email\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Alternate Contact Number</label>\n\t\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"alternateContact\" [(ngModel)]=\"vendor.phone2\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>vendor Category*</label>\n\t\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t\t        name=\"vendorCategory\" \n\t\t\t\t\t\t\t\t\t\t        id=\"vendorCategory\" \n\t\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"vendor.vendorCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorCategoryList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>vendor Legal Type*</label>\n\t\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t\t        name=\"vendorType\" \n\t\t\t\t\t\t\t\t\t\t        id=\"vendorType\" \n\t\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"vendor.legalTypeId\" required>\n\t\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorTypeList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vendor Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t                            <input name=\"legalType\" id=\"goods\" [(ngModel)]=\"vendorTypeId\"  value=\"225\" type=\"radio\" required>\n\t\t\t\t\t                            <label class=\"radio-inline\" for=\"goods\">Goods</label>\n\t\t\t\t                     \t\t</div>\n\t\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t\t                            <input name=\"legalType\" id=\"services\" [(ngModel)]=\"vendorTypeId\" value=\"226\" type=\"radio\" required>\n\t\t\t\t\t                            <label class=\"radio-inline\" for=\"services\">Services</label>\n\t\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vendor Status*</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t                            <input name=\"vendorStatus\" id=\"active\" [(ngModel)]=\"vendorStatus\"  [value]=\"true\" type=\"radio\">\n\t\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t                     \t\t</div>\n\t\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t\t                            <input name=\"vendorStatus\" id=\"inactive\" [(ngModel)]=\"vendorStatus\" [value]=\"false\" type=\"radio\">\n\t\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#vendorCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Payment Details</li>\n\t\t\t\t\t\t<div id=\"vendorCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>VAT/TIN*</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vatorTin\" [(ngModel)]=\"vendor.vatorTin\" required>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Tax1</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax1\" [(ngModel)]=\"vendor.tax1\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Tax2</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax2\" [(ngModel)]=\"vendor.tax2\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Tax3</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax3\" [(ngModel)]=\"vendor.tax3\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Tax4</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax4\" [(ngModel)]=\"vendor.tax4\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t                   <label>GL Account Type*</label>\n\t\t\t\t\t\t                   <select \n\t\t\t\t\t\t\t\t\t\t        name=\"accountType\" \n\t\t\t\t\t\t\t\t\t\t        id=\"accountType\" \n\t\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"vendor.glaccountTypeId\" required>\n\t\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">{{ item.glaccountName }}</option>\n\t\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Notes1</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorNotes1\" [(ngModel)]=\"vendor.notes1\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Notes2</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorNotes2\" [(ngModel)]=\"vendor.notes2\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#vendorCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Bank Details</li>\n\t\t\t\t\t\t<div id=\"vendorCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Payee Name</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorPayeeName\" [(ngModel)]=\"vendor.payeeName\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Bank Account No</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankAccNo\" [(ngModel)]=\"vendor.assetNotes\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Bank Name</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankName\" [(ngModel)]=\"vendor.assetNotes\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Bank Branch</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankBranch\" [(ngModel)]=\"vendor.bankBranch\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Bank Code</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankCode\" [(ngModel)]=\"vendor.bankCode\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</ul>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVendorForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"vendor-create-wrapper\">\n\n\t<form #addVendorForm = \"ngForm\" name=\"addVendorForm\" (ngSubmit)=\"addOrUpdateVendor(addVendorForm)\"  novalidate>\n\n\t\t<div class=\"card mb-30\" id=\"accordion\">\n\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"float-left\">\n\t    \t\t\t<h5>\n\t    \t\t\t\t<span *ngIf=\"!isEditVendor\">Create Vendor</span>\n    \t\t\t\t\t<span *ngIf=\"isEditVendor\">Update Vendor</span>\n\t    \t\t\t</h5>\n\t    \t\t</div>\n\t    \t\t<div class=\"float-right\">\n\t    \t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/vendor/all-vendors\"\n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t\t</a>\n    \t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"card-body pb-0\" [ngClass]=\"isError ? 'h-39' : 'h-0 pt-0'\">\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\t\t\t</div>\n\n\t\t\t<div class=\"card-body p-0\">\n\n\t\t\t\t<app-loader *ngIf=\"isVendorSubmitted\"></app-loader>\n\n\t\t\t\t<ng-container *ngIf=\"!isVendorSubmitted\">\n\n\t\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#vendorCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li>\n\t\t\t\t\t\t<div id=\"vendorCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor name<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorName\" [(ngModel)]=\"vendor.vendorName\" required>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Contact Person</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"contactPerson\" [(ngModel)]=\"vendor.contactPerson\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Phone Number<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"contactNumber\" [(ngModel)]=\"vendor.phone1\" required>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>vendor Fax Number</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"faxNumber\" [(ngModel)]=\"vendor.fax\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Address</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\" [(ngModel)]=\"vendor.address1\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Email</label>\n\t\t\t\t\t\t                    <input type=\"email\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$\" class=\"form-control\" #emailId=\"ngModel\" [ngClass]=\"{'invalid-border' : emailId.invalid}\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"vendor.email\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Alternate Contact Number</label>\n\t\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"alternateContact\" [(ngModel)]=\"vendor.phone2\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>vendor Category<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t                    <select\n\t\t\t\t\t\t\t\t\t\t        name=\"vendorCategory\"\n\t\t\t\t\t\t\t\t\t\t        id=\"vendorCategory\"\n\t\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"vendor.vendorCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorCategoryList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>vendor Legal Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t                    <select\n\t\t\t\t\t\t\t\t\t\t        name=\"vendorType\"\n\t\t\t\t\t\t\t\t\t\t        id=\"vendorType\"\n\t\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"vendor.legalTypeId\" required>\n\t\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorTypeList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vendor Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t                            <input name=\"legalType\" id=\"goods\" [(ngModel)]=\"vendorTypeId\"  value=\"225\" type=\"radio\" required>\n\t\t\t\t\t                            <label class=\"radio-inline\" for=\"goods\">Goods</label>\n\t\t\t\t                     \t\t</div>\n\t\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t\t                            <input name=\"legalType\" id=\"services\" [(ngModel)]=\"vendorTypeId\" value=\"226\" type=\"radio\" required>\n\t\t\t\t\t                            <label class=\"radio-inline\" for=\"services\">Services</label>\n\t\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vendor Status<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t                            <input name=\"vendorStatus\" id=\"active\" [(ngModel)]=\"vendorStatus\"  [value]=\"true\" type=\"radio\">\n\t\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t                     \t\t</div>\n\t\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t\t                            <input name=\"vendorStatus\" id=\"inactive\" [(ngModel)]=\"vendorStatus\" [value]=\"false\" type=\"radio\">\n\t\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#vendorCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Payment Details</li>\n\t\t\t\t\t\t<div id=\"vendorCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>VAT/TIN<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vatorTin\" [(ngModel)]=\"vendor.vatorTin\" required>\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Tax1</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax1\" [(ngModel)]=\"vendor.tax1\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Tax2</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax2\" [(ngModel)]=\"vendor.tax2\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Tax3</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax3\" [(ngModel)]=\"vendor.tax3\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Tax4</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax4\" [(ngModel)]=\"vendor.tax4\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t                   <label>GL Account Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t                   <select\n\t\t\t\t\t\t\t\t\t\t        name=\"accountType\"\n\t\t\t\t\t\t\t\t\t\t        id=\"accountType\"\n\t\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"vendor.glaccountTypeId\" required>\n\t\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">{{ item.glaccountName }}</option>\n\t\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Notes1</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorNotes1\" [(ngModel)]=\"vendor.notes1\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Notes2</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorNotes2\" [(ngModel)]=\"vendor.notes2\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#vendorCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Bank Details</li>\n\t\t\t\t\t\t<div id=\"vendorCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Payee Name</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorPayeeName\" [(ngModel)]=\"vendor.payeeName\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Bank Account No</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankAccNo\" [(ngModel)]=\"vendor.accountNumber\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Bank Name</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankName\" [(ngModel)]=\"vendor.bankName\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Bank Branch</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankBranch\" [(ngModel)]=\"vendor.bankBranch\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Vendor Bank Code</label>\n\t\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankCode\" [(ngModel)]=\"vendor.bankCode\">\n\t\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</ul>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVendorForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n";
     /***/
   },
 
@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>\n  vendor-reports works!\n</p>\n";
+    __webpack_exports__["default"] = "<div *ngIf=\"!selected_report_type \"class=\"gl-other-reports-wrapper\">\n\n\t<h4 class=\"main-title-mini\">Select the reports</h4>\n\t<div class=\"card\">\n\t\t<div class=\"card-body p-0\">\n\t\t\t<div class=\"simple-lists\">\n\t\t\t\t<ng-container *ngFor=\"let report of reportsTypes; let i = index\">\n\t\t\t\t\t<a (click)=\"selectReport(report.type)\">{{report.name}}</a>\n\t\t\t\t</ng-container>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n\n<div class=\"vendors-view-wrapper\">\n\n\t<app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isVendorLoaded && selected_report_type \">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>{{selected_report_type}} Vendors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"VendorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Vendor Id\n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorId')\" [ngClass]=\"getFieldOrderBy('vendorId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['vendorId']\" (ngModelChange)=\"selectColInput('vendorId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Vendor Name\n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorName')\" [ngClass]=\"getFieldOrderBy('vendorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Vendor Name\" [(ngModel)]=\"columnField['vendorName']\" (ngModelChange)=\"selectColInput('vendorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Contact Person\n\t\t\t\t       \t<span (click)=\"sortUnitData('contactPerson')\" [ngClass]=\"getFieldOrderBy('contactPerson')\"></span>\n\t\t\t\t       \t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" [(ngModel)]=\"columnField['contactPerson']\" (ngModelChange)=\"selectColInput('contactPerson')\" >\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Email\n\t\t\t\t      \t<span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Phone No\n\t\t\t\t      \t<span (click)=\"sortUnitData('phone1')\" [ngClass]=\"getFieldOrderBy('phone1')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['phone1']\" (ngModelChange)=\"selectColInput('phone1')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let vendor of vendorList | simpleSearch: vendorData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" >\n\t\t\t\t      <td class=\"name\">{{vendor.vendorId}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.vendorName}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.contactPerson}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.phone1}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"showVendorInfo(vendor)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t\t\t<!-- <a href=\"javascript:void(0)\" (click)=\"showConfirmModal(vendor.vendorId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a> -->\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination\n\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\t<ng-template #viewVendorRef let-vendor>\n    \t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Vendor Info</h5>\n\t\t\t</div>\n\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{vendor.email}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor ID</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vendorId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Contact Person</h6>\n\t\t\t\t\t\t\t<p>{{vendor.contactPerson}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.phone1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">VAT No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vatorTin}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax1 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax2 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax2}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax3 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax3}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax4 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax4}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t</div>\n\t</ng-template>\n\n\n</div>\n";
     /***/
   },
 
@@ -81,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"vendors-setup-wrapper\">\n\n\t<app-loader *ngIf=\"!isVendorCategoryLoaded\"></app-loader>\n\n\t<div class=\"category-list list-boxes\" *ngIf=\"isVendorCategoryLoaded\">\n\t\t<h4 class=\"main-title-mini\">Vendor Categories</h4>\n\t\t<ng-container *ngFor=\"let item of vendorCategoryData; let i = index\">\n\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-body nohover\">\n\t\t\t\t\t\t<div class=\"icons\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/vendor/all-vendors/{{item.lookupValueId}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"updateVendorCategory(item, i)\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"d-none\"><i-feather class=\"icon del\" name=\"x\" (click)=\"deleteVendorCategory(item)\"></i-feather></a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<h6>{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t<p class=\"float-left\">{{getVendorsCount(item.lookupValueId)}} Vendor(s)</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t</ng-container>\n\t\t<li class=\"list-inline-item\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body new text-center\">\n\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"rounded-btn green\" (click)=\"addNewVendorCategory()\">\n\t\t\t\t\t\t<div class=\"icon\">+</div>\n\t\t\t\t\t</a>\n\t\t\t\t\t<h6 class=\"tc-green\">Add New Category</h6>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t</div>\n\n\t<div class=\"card mt-30\" *ngIf=\"isVendorCategoryNew || isVendorCategoryUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isVendorCategoryNew\">Add Vendor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isVendorCategoryNew\">Update Vendor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isVendorCategorySubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isVendorCategorySubmitted\">\n\t\t\t\t\n\t\t\t\t<form #addVendorCategoryForm = \"ngForm\" name=\"addVendorCategoryForm\" (ngSubmit)=\"submitVendorCategoryForm(addVendorCategoryForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Category Type*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"VendorCategory\" [(ngModel)]=\"VendorCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVendorCategoryForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"vendors-setup-wrapper\">\n\n\t<app-loader *ngIf=\"!isVendorCategoryLoaded\"></app-loader>\n\n\t<div class=\"category-list list-boxes\" *ngIf=\"isVendorCategoryLoaded\">\n\t\t<h4 class=\"main-title-mini\">Vendor Categories</h4>\n\t\t<ng-container *ngFor=\"let item of vendorCategoryData; let i = index\">\n\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-body nohover\">\n\t\t\t\t\t\t<div class=\"icons\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/vendor/all-vendors/{{item.lookupValueId}}\"\n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"updateVendorCategory(item, i)\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"><i-feather class=\"icon del\" name=\"x\" (click)=\"showRemoveCategoryConfirmModal(item)\"></i-feather></a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<h6>{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t<p class=\"float-left\">{{getVendorsCount(item.lookupValueId)}} Vendor(s)</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t</ng-container>\n\t\t<li class=\"list-inline-item\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body new text-center\">\n\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"rounded-btn green\" (click)=\"addNewVendorCategory()\">\n\t\t\t\t\t\t<div class=\"icon\">+</div>\n\t\t\t\t\t</a>\n\t\t\t\t\t<h6 class=\"tc-green\">Add New Category</h6>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t</div>\n\n\t<div class=\"card mt-30\" *ngIf=\"isVendorCategoryNew || isVendorCategoryUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isVendorCategoryNew\">Add Vendor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isVendorCategoryNew\">Update Vendor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\n\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isVendorCategorySubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isVendorCategorySubmitted\">\n\n\t\t\t\t<form #addVendorCategoryForm = \"ngForm\" name=\"addVendorCategoryForm\" (ngSubmit)=\"showConfirmModal(addVendorCategoryForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Category Type<span class=\"mandatory\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"VendorCategory\" [(ngModel)]=\"VendorCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVendorCategoryForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\t</div>\n\n</div>\n";
     /***/
   },
 
@@ -235,6 +235,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       _createClass(AllVendorsComponent, [{
+        key: "vendorPrint",
+        value: function vendorPrint(vendor) {
+          this.dialog.open(this.viewVendorRef, {
+            panelClass: 'material',
+            disableClose: true,
+            data: vendor
+          });
+        }
+      }, {
         key: "getIndexParams",
         value: function getIndexParams(event) {
           this.ItemStartIndex = event.ItemStartIndex;
@@ -294,10 +303,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
             if (id != "All") {
               _this.vendorListData = res.filter(function (item) {
-                return item.vendorCategoryId == parseInt(id);
+                return item.isActive && item.vendorCategoryId == parseInt(id);
               });
             } else {
-              _this.vendorListData = res;
+              _this.vendorListData = res.filter(function (item) {
+                return item.isActive;
+              });
             }
 
             _this.isVendorLoaded = true;
@@ -311,8 +322,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }, function (error) {});
         }
       }, {
-        key: "showConfirmModal",
-        value: function showConfirmModal(id) {
+        key: "showDeleteConfirmModal",
+        value: function showDeleteConfirmModal(id) {
           this.modalService.showConfirmModal(id);
         }
       }, {
@@ -437,7 +448,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy92ZW5kb3IvY29tcG9uZW50cy9jcmVhdGUtdmVuZG9yL2NyZWF0ZS12ZW5kb3IuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".invalid-border {\n  border: 1px solid #e2385e !important;\n}\n\n.mandatory {\n  color: red;\n  font-size: 16px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9BZG1pbi9Eb2N1bWVudHMvd29ya3Mvdml2ZWsvOTktYXBhcnRtZW50L2FwcC1uZzgvc3JjL2FwcC9hbXMvdmVuZG9yL2NvbXBvbmVudHMvY3JlYXRlLXZlbmRvci9jcmVhdGUtdmVuZG9yLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvdmVuZG9yL2NvbXBvbmVudHMvY3JlYXRlLXZlbmRvci9jcmVhdGUtdmVuZG9yLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0csb0NBQUE7QUNDSDs7QURFQTtFQUNFLFVBQUE7RUFDQSxlQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvdmVuZG9yL2NvbXBvbmVudHMvY3JlYXRlLXZlbmRvci9jcmVhdGUtdmVuZG9yLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmludmFsaWQtYm9yZGVye1xuICAgYm9yZGVyOiAxcHggc29saWQgI2UyMzg1ZSAhaW1wb3J0YW50O1xufVxuXG4ubWFuZGF0b3J5e1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE2cHg7XG59XG4iLCIuaW52YWxpZC1ib3JkZXIge1xuICBib3JkZXI6IDFweCBzb2xpZCAjZTIzODVlICFpbXBvcnRhbnQ7XG59XG5cbi5tYW5kYXRvcnkge1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE2cHg7XG59Il19 */";
     /***/
   },
 
@@ -487,44 +498,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../../api/services/bank-account.service */
+    "./src/app/api/services/bank-account.service.ts");
+    /* harmony import */
+
+
+    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../.././api/services/vendor.service */
     "./src/app/api/services/vendor.service.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../api/services/apartment.service */
     "./src/app/api/services/apartment.service.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ../../../../api/services/lookup.service */
     "./src/app/api/services/lookup.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ../../../../shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var CreateVendorComponent =
     /*#__PURE__*/
     function () {
-      function CreateVendorComponent(router, route, accountsService, vendorService, apartmentService, lookupService, sharedService, cookieService) {
+      function CreateVendorComponent(router, route, injector, accountsService, vendorService, bankAccountService, apartmentService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, CreateVendorComponent);
 
         this.router = router;
         this.route = route;
+        this.injector = injector;
         this.accountsService = accountsService;
         this.vendorService = vendorService;
+        this.bankAccountService = bankAccountService;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -537,11 +562,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isVendorAdded = false;
         this.isError = false;
         this.alertMessage = "";
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
       }
 
       _createClass(CreateVendorComponent, [{
         key: "getCategoryName",
         value: function getCategoryName() {}
+      }, {
+        key: "showUpdateConfirmModal",
+        value: function showUpdateConfirmModal(id) {
+          this.modalService.showVendorUpdateModal(id);
+        }
+      }, {
+        key: "addOrUpdateVendor",
+        value: function addOrUpdateVendor(form) {
+          if (this.isEditVendor) {
+            this.showUpdateConfirmModal(form);
+          } else {
+            this.submitAddVendorForm(form);
+          }
+        }
       }, {
         key: "submitAddVendorForm",
         value: function submitAddVendorForm(form) {
@@ -551,6 +591,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isError = false;
 
           if (!this.isEditVendor) {
+            var bank_details = {
+              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "bankName": this.vendor.bankName,
+              "branchName": this.vendor.bankBranch,
+              "accountNumber": this.vendor.accountNumber,
+              "accountHolderName": this.vendor.payeeName,
+              "ifsc": this.vendor.bankCode,
+              "isPrimary": true,
+              "isActive": true,
+              "insertedBy": 0,
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": 0,
+              "updatedOn": new Date().toISOString()
+            };
+            this.bankAccountService.addBankAccountDetails(bank_details).subscribe(function (bank_res) {
+              if (bank_res) {//map vendor bankAccountDetailsId from resp
+              }
+            }, function (error) {});
             var details = {
               "vendorTypeId": parseInt(this.vendorTypeId),
               "vendorName": this.vendor.vendorName,
@@ -579,9 +637,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "bankAccountDetailsId": null,
               "isActive": this.vendorStatus,
               "insertedBy": parseInt(this.cookieService.get('userId')),
-              "insertedOn": "2019-11-08T07:28:27.787",
+              "insertedOn": new Date().toISOString(),
               "updatedBy": null,
-              "updatedOn": null
+              "updatedOn": new Date().toISOString()
             };
             this.vendorService.addVendor(details).subscribe(function (res) {
               if (res.message) {
@@ -601,6 +659,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this3.alertMessage = "Some error occured";
             });
           } else {
+            var _bank_details = {
+              "bankAccountDetailsId": this.vendor.bankAccountDetailsId,
+              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "bankName": this.vendor.bankName,
+              "branchName": this.vendor.bankBranch,
+              "accountNumber": this.vendor.accountNumber,
+              "accountHolderName": this.vendor.payeeName,
+              "ifsc": this.vendor.bankCode,
+              "isPrimary": true,
+              "isActive": true,
+              "insertedBy": 0,
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": 0,
+              "updatedOn": new Date().toISOString()
+            };
+            this.bankAccountService.updateBankAccountDetails(_bank_details).subscribe(function (bank_res) {
+              if (bank_res) {}
+            }, function (error) {});
             var _details = {
               "vendorId": parseInt(this.vendor.vendorId),
               "vendorTypeId": parseInt(this.vendorTypeId),
@@ -630,9 +706,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "bankAccountDetailsId": null,
               "isActive": this.vendorStatus,
               "insertedBy": parseInt(this.cookieService.get('userId')),
-              "insertedOn": "2019-11-08T07:28:27.787",
+              "insertedOn": new Date().toISOString(),
               "updatedBy": parseInt(this.cookieService.get('userId')),
-              "updatedOn": null
+              "updatedOn": new Date().toISOString()
             };
             this.vendorService.updateVendor(_details).subscribe(function (res) {
               if (res.message) {
@@ -667,11 +743,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.route.params['value'].id != undefined) {
             this.isEditVendor = true;
             this.isVendorSubmitted = true;
+            this.sharedService.vendorupdate.subscribe(function (id) {
+              if (id) {
+                _this4.submitAddVendorForm(id);
+              }
+            });
             this.vendorService.getVendorById(this.route.params['value'].id).subscribe(function (res) {
               _this4.vendor = res[0];
               _this4.vendorTypeId = "" + _this4.vendor.vendorTypeId;
+
+              if (_this4.vendor.email == " ") {
+                _this4.vendor.email = undefined;
+              }
+
               _this4.isVendorSubmitted = false;
             }, function (error) {});
+
+            if (this.vendor.bankAccountDetailsId) {
+              this.bankAccountService.getBankAccountDetailsByBankAccountDetailsId(this.vendor.bankAccountDetailsId).subscribe(function (bank_res) {// need to map response in vendor bank
+              }, function (error) {});
+            }
           }
 
           var accountParams = {
@@ -680,13 +771,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getGLAccountsByGroupId(accountParams).subscribe(function (res) {
             _this4.glAccountListData = res;
-          }); //vendor Category 
+          }); //vendor Category
 
           this.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
             _this4.vendorCategoryList = res.filter(function (item) {
               return item.isActive;
             });
-          }, function (error) {}); //vendor type 
+          }, function (error) {}); //vendor type
 
           this.lookupService.getLookupValueByLookupTypeId(59).subscribe(function (res) {
             _this4.vendorTypeList = res.filter(function (item) {
@@ -705,17 +796,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
         type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"]
+        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__["VendorService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_4__["BankAccountService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]
       }];
     };
 
@@ -727,7 +822,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./create-vendor.component.scss */
       "./src/app/ams/vendor/components/create-vendor/create-vendor.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], CreateVendorComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__["VendorService"], _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_4__["BankAccountService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], CreateVendorComponent);
     /***/
   },
 
@@ -782,22 +877,208 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../../api/services/apartment.service */
+    "./src/app/api/services/apartment.service.ts");
+    /* harmony import */
+
+
+    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../../api/services/accounts.service */
+    "./src/app/api/services/accounts.service.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../../.././api/services/vendor.service */
+    "./src/app/api/services/vendor.service.ts");
+    /* harmony import */
+
+
+    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../../../api/services/lookup.service */
+    "./src/app/api/services/lookup.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! underscore */
+    "./node_modules/underscore/modules/index-all.js");
 
     var VendorReportsComponent =
     /*#__PURE__*/
     function () {
-      function VendorReportsComponent() {
+      function VendorReportsComponent(apartmentService, accountsService, dialog, vendorService, sharedService, lookupService, cookieService) {
         _classCallCheck(this, VendorReportsComponent);
+
+        this.apartmentService = apartmentService;
+        this.accountsService = accountsService;
+        this.dialog = dialog;
+        this.vendorService = vendorService;
+        this.sharedService = sharedService;
+        this.lookupService = lookupService;
+        this.cookieService = cookieService;
+        this.vendorCategoryId = "";
+        this.vendorData = "";
+        this.unitFieldType = "unitno";
+        this.unitOrder = true;
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.categoryName = "";
+        this.selectedInput = "";
+        this.columnField = {};
+        this.isVendorLoaded = false;
       }
 
       _createClass(VendorReportsComponent, [{
+        key: "getIndexParams",
+        value: function getIndexParams(event) {
+          this.ItemStartIndex = event.ItemStartIndex;
+          this.ItemEndIndex = event.ItemEndIndex;
+        }
+      }, {
+        key: "sortUnitData",
+        value: function sortUnitData(type) {
+          this.unitFieldType = type;
+          this.unitOrder = !this.unitOrder;
+        }
+      }, {
+        key: "getFieldOrderBy",
+        value: function getFieldOrderBy(type) {
+          if (this.unitFieldType == type) {
+            return this.unitOrder ? 'asc' : 'desc';
+          } else return '';
+        }
+      }, {
+        key: "selectColInput",
+        value: function selectColInput(value) {
+          this.selectedInput = value;
+        }
+      }, {
+        key: "onSelectChange",
+        value: function onSelectChange(event, type, name) {
+          if (!underscore__WEBPACK_IMPORTED_MODULE_9__["isEmpty"](event)) {
+            this.selectedInput = type;
+            this.columnField[type] = event[name];
+          } else {
+            this.columnField = {};
+          }
+        }
+      }, {
+        key: "isMobileView",
+        value: function isMobileView() {
+          return window.innerWidth <= 767 ? 'table-responsive' : '';
+        }
+      }, {
+        key: "showVendorInfo",
+        value: function showVendorInfo(vendor) {
+          this.dialog.open(this.viewVendorRef, {
+            panelClass: 'material',
+            disableClose: true,
+            data: vendor
+          });
+        }
+      }, {
+        key: "isNoItemsAvailable",
+        value: function isNoItemsAvailable() {
+          return this.totalItems == 0 ? true : false;
+        }
+      }, {
+        key: "selectReport",
+        value: function selectReport(type) {
+          this.vendorList = [];
+          this.selected_report_type = type;
+
+          if (type == 'Active') {
+            this.vendorList = this.allVendorListData.filter(function (item) {
+              return item.isActive;
+            });
+          } else {
+            this.vendorList = this.allVendorListData.filter(function (item) {
+              return item.isActive == false;
+            });
+          }
+
+          this.totalItems = this.vendorList.length;
+
+          if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+          } else {
+            this.ItemEndIndex = this.totalItems;
+          }
+        }
+      }, {
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this5 = this;
+
+          this.vendor = {};
+          this.vendorCategoryId = "All";
+          this.vendor.categoryName = "";
+          this.reportsTypes = [{
+            name: 'Active Vendors',
+            type: 'Active'
+          }, {
+            name: 'Inactive Vendors',
+            type: 'Inactive'
+          }];
+          this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+            _this5.allVendorListData = res;
+            _this5.isVendorLoaded = true;
+          }, function (error) {});
+          this.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+            _this5.vendorCategoryData = res.filter(function (item) {
+              return item.isActive;
+            });
+          });
+        }
       }]);
 
       return VendorReportsComponent;
     }();
 
+    VendorReportsComponent.ctorParameters = function () {
+      return [{
+        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+      }, {
+        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
+      }, {
+        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
+      }, {
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+      }, {
+        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("viewVendorRef", {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])], VendorReportsComponent.prototype, "viewVendorRef", void 0);
     VendorReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-vendor-reports',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -806,7 +1087,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./vendor-reports.component.scss */
       "./src/app/ams/vendor/components/vendor-reports/vendor-reports.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], VendorReportsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], VendorReportsComponent);
     /***/
   },
 
@@ -826,7 +1107,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy92ZW5kb3IvY29tcG9uZW50cy92ZW5kb3Itc2V0dXAvdmVuZG9yLXNldHVwLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = ".mandatory {\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9BZG1pbi9Eb2N1bWVudHMvd29ya3Mvdml2ZWsvOTktYXBhcnRtZW50L2FwcC1uZzgvc3JjL2FwcC9hbXMvdmVuZG9yL2NvbXBvbmVudHMvdmVuZG9yLXNldHVwL3ZlbmRvci1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL3ZlbmRvci9jb21wb25lbnRzL3ZlbmRvci1zZXR1cC92ZW5kb3Itc2V0dXAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvdmVuZG9yL2NvbXBvbmVudHMvdmVuZG9yLXNldHVwL3ZlbmRvci1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYW5kYXRvcnl7XG4gIGNvbG9yOiByZWQ7XG59XG4iLCIubWFuZGF0b3J5IHtcbiAgY29sb3I6IHJlZDtcbn0iXX0= */";
     /***/
   },
 
@@ -885,13 +1166,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../../../shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
 
     var VendorSetupComponent =
     /*#__PURE__*/
     function () {
-      function VendorSetupComponent(vendorService, lookupService, sharedService, cookieService) {
+      function VendorSetupComponent(injector, vendorService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, VendorSetupComponent);
 
+        this.injector = injector;
         this.vendorService = vendorService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -904,11 +1192,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.VendorCategoryUpdateId = 0;
         this.alertMessage = "";
         this.isError = false;
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(VendorSetupComponent, [{
         key: "addNewVendorCategory",
         value: function addNewVendorCategory() {
+          this.VendorCategory = "";
           this.isVendorCategoryNew = true;
           this.isVendorCategoryUpdate = false;
         }
@@ -922,8 +1212,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "deleteVendorCategory",
-        value: function deleteVendorCategory(item, index) {
-          var _this5 = this;
+        value: function deleteVendorCategory(item) {
+          var _this6 = this;
 
           this.isVendorCategoryLoaded = false;
           console.log(item);
@@ -932,10 +1222,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             updateUserId: parseInt(this.cookieService.get('userId'))
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-            _this5.vendorCategoryData.splice(index, 1);
-
-            _this5.isVendorCategoryLoaded = true;
+            //this.vendorCategoryData.splice(index, 1);
+            _this6.loadVendorCategory();
           });
+        }
+      }, {
+        key: "showConfirmModal",
+        value: function showConfirmModal(form) {
+          if (this.isVendorCategoryNew) {
+            this.modalService.showCategoryModal(form);
+          } else {
+            this.submitVendorCategoryForm(form);
+          }
+        }
+      }, {
+        key: "showRemoveCategoryConfirmModal",
+        value: function showRemoveCategoryConfirmModal(item) {
+          console.log("item", item);
+          this.modalService.showConfirmModal(item);
         }
       }, {
         key: "removeCategoryBox",
@@ -960,9 +1264,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitVendorCategoryForm",
         value: function submitVendorCategoryForm(form) {
-          var _this6 = this;
+          var _this7 = this;
 
           this.isVendorCategorySubmitted = false;
+          this.isError = false;
 
           if (this.isVendorCategoryNew) {
             var details = {
@@ -977,19 +1282,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.addLookupValue(details).subscribe(function (res) {
               if (res.message) {
-                _this6.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
-                  _this6.isVendorCategorySubmitted = true;
+                _this7.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+                  _this7.isVendorCategorySubmitted = true;
 
-                  _this6.sharedService.setAlertMessage("Category added Successfully!");
+                  _this7.sharedService.setAlertMessage("Category added Successfully!");
 
-                  _this6.vendorCategoryData = res.filter(function (item) {
+                  _this7.vendorCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
               } else {
-                _this6.isVendorCategorySubmitted = true;
-                _this6.isError = true;
-                _this6.alertMessage = res.errorMessage;
+                _this7.isVendorCategorySubmitted = true;
+                _this7.isError = true;
+                _this7.alertMessage = res.errorMessage;
               }
             });
           } else {
@@ -1006,39 +1311,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.updateLookupValue(_details2).subscribe(function (res) {
               if (res.message) {
-                _this6.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
-                  _this6.isVendorCategorySubmitted = true;
+                _this7.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+                  _this7.isVendorCategorySubmitted = true;
 
-                  _this6.sharedService.setAlertMessage("Category updated Successfully!");
+                  _this7.sharedService.setAlertMessage("Category updated Successfully!");
 
-                  _this6.vendorCategoryData = res.filter(function (item) {
+                  _this7.vendorCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
               } else {
-                _this6.isVendorCategorySubmitted = true;
-                _this6.isError = true;
-                _this6.alertMessage = res.errorMessage;
+                _this7.isVendorCategorySubmitted = true;
+                _this7.isError = true;
+                _this7.alertMessage = res.errorMessage;
               }
             });
           }
+
+          this.VendorCategory = "";
+        }
+      }, {
+        key: "loadVendorCategory",
+        value: function loadVendorCategory() {
+          var _this8 = this;
+
+          this.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+            console.log("vendor category resp", res);
+            _this8.vendorCategoryData = res.filter(function (item) {
+              return item.isActive;
+            });
+
+            _this8.vendorService.getVendorByApartmentId(parseInt(_this8.cookieService.get('apartmentId'))).subscribe(function (res) {
+              _this8.vendorListData = res;
+              _this8.isVendorCategoryLoaded = true;
+            }, function (error) {});
+          });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this7 = this;
+          var _this9 = this;
 
-          //vendor category
-          this.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
-            _this7.vendorCategoryData = res.filter(function (item) {
-              return item.isActive;
-            });
-
-            _this7.vendorService.getVendorByApartmentId(parseInt(_this7.cookieService.get('apartmentId'))).subscribe(function (res) {
-              _this7.vendorListData = res;
-              _this7.isVendorCategoryLoaded = true;
-            }, function (error) {});
+          this.loadVendorCategory();
+          this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
+            if (is_category_form) {
+              _this9.submitVendorCategoryForm(is_category_form);
+            }
           });
+          this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
+            if (item_id) {
+              _this9.deleteVendorCategory(item_id);
+            }
+          }); //vendor category
         }
       }]);
 
@@ -1047,6 +1371,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     VendorSetupComponent.ctorParameters = function () {
       return [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
         type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_2__["VendorService"]
       }, {
         type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
@@ -1065,7 +1391,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./vendor-setup.component.scss */
       "./src/app/ams/vendor/components/vendor-setup/vendor-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_vendor_service__WEBPACK_IMPORTED_MODULE_2__["VendorService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], VendorSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_2__["VendorService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], VendorSetupComponent);
     /***/
   },
 
