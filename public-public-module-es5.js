@@ -5415,9 +5415,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               if (user.resetPassword) {
                 _this12.router.navigateByUrl('/profile/resetpassword/' + user.userId);
-              } else if (user.roleName == 'Admin' || user.roleName == 'Staff' || user.roleName == 'Security') {
-                console.log('/ams');
-
+              } else if (user.roleName == 'Admin' || user.roleName == 'SuperAdmin' || user.roleName == 'Staff' || user.roleName == 'Security') {
                 _this12.router.navigateByUrl('/ams');
               } else if (user.roleName == 'Owner' || user.roleName == 'Tenant') {
                 _this12.router.navigateByUrl('/user');

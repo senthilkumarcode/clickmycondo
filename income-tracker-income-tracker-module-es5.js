@@ -161,7 +161,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"income-sub-ledger-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t<div class=\"card clear ov mb-3\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t<div class=\"card-body no-border filter-box\">\n  \t\t\t<h6><i-feather class=\"icon mr-2\" name=\"filter\"></i-feather>Filter By</h6>\n  \t\t\t<div class=\"dropdown\">\n\t\t\t\t<a class=\"dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" id=\"AllBlockDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\" (click)=\"getAllBlockData('all')\" [ngClass]=\"getSelected('all')\">\n\t  \t\t\t\t<span>All Towers</span>\n\t\t        </a>\n\t\t\t</div>\n  \t\t\t<div class=\"dropdown\">\n\t\t\t\t<a class=\"dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" id=\"singleBlockDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\" [ngClass]=\"getSelected('single')\">\n\t  \t\t\t\t<span>{{singleBlock}}</span>\n\t  \t\t\t\t<div class=\"arrow\"><i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i></div>\n\t\t        </a>\n\t\t        <div class=\"dropdown-menu\" aria-labelledby = \"singleBlockDropDown\">\n\t\t         \t<a href=\"javascript:void(0)\" *ngFor=\"let block of blockListData\" (click)=\"getSingleBlock(block)\">{{block.apartmentBlockNumber}}</a>\n\t\t        </div>\n\t\t\t</div>\n  \t\t</div>\n\t</div>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\n\t\t\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Sub Ledgers <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p>\n    \t\t\t\t<span *ngIf=\"filterSelected == 'all'\">All Towers</span>\n    \t\t\t\t<span *ngIf=\"filterSelected != 'all'\">Residents under {{singleBlock}}</span>\n    \t\t\t</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t<div class=\"button-wrapper\" *ngIf=\"isItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">Total Amount Due : <span class=\"ml-1\">{{totalDueAmount}}</span></p>\n    \t\t\t<p class=\"snippet\">Total Excess Payments & Incentives Due : <span class=\"ml-1\">{{totalDueAmount - netDueAmount}}</span></p>\n    \t\t\t<p class=\"snippet\">Net Amount : <span class=\"ml-1\">{{netDueAmount}}</span></p>\n\t\t\t</div>\n\n\t\t</div>\n\n  \t</div>\n\n  \t<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n  \t\t<div class=\"menu-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Select Invoice Types</h5>\n\t\t\t</div>\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body p-0 lists other\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/single\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Single Line</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/multi\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Multi Line</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" \n\t\t\t\t\t\t\t[ngClass]=\"ledger.isInvoiceAvailable ? '' : 'disabled'\"\n\t\t\t\t\t\t\trouterLink=\"/ams/income/add-credit/{{ledger.apartmentBlockUnitId}}/new\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Credit Note</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<!-- <li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\">Refund Note</a>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n  \t</ng-template>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"income-sub-ledger-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t<div class=\"card clear ov mb-3\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t<div class=\"card-body no-border filter-box\">\n  \t\t\t<h6><i-feather class=\"icon mr-2\" name=\"filter\"></i-feather>Filter By</h6>\n  \t\t\t<div class=\"dropdown\">\n\t\t\t\t<a class=\"dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" id=\"AllBlockDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\" (click)=\"getAllBlockData('all')\" [ngClass]=\"getSelected('all')\">\n\t  \t\t\t\t<span>All Towers</span>\n\t\t        </a>\n\t\t\t</div>\n  \t\t\t<div class=\"dropdown\">\n\t\t\t\t<a class=\"dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" id=\"singleBlockDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\" [ngClass]=\"getSelected('single')\">\n\t  \t\t\t\t<span>{{singleBlock}}</span>\n\t  \t\t\t\t<div class=\"arrow\"><i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i></div>\n\t\t        </a>\n\t\t        <div class=\"dropdown-menu\" aria-labelledby = \"singleBlockDropDown\">\n\t\t         \t<a href=\"javascript:void(0)\" *ngFor=\"let block of blockListData\" (click)=\"getSingleBlock(block)\">{{block.apartmentBlockNumber}}</a>\n\t\t        </div>\n\t\t\t</div>\n  \t\t</div>\n\t</div>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\n\t\t\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Sub Ledgers <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p>\n    \t\t\t\t<span *ngIf=\"filterSelected == 'all'\">All Towers</span>\n    \t\t\t\t<span *ngIf=\"filterSelected != 'all'\">Residents under {{singleBlock}}</span>\n    \t\t\t</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t<div class=\"button-wrapper\" *ngIf=\"isItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">Total Amount Due : <span class=\"ml-1\">{{totalDueAmount}}</span></p>\n    \t\t\t<p class=\"snippet\">Total Excess Payments & Incentives Due : <span class=\"ml-1\">{{totalDueAmount - netDueAmount}}</span></p>\n    \t\t\t<p class=\"snippet\">Net Amount : <span class=\"ml-1\">{{netDueAmount}}</span></p>\n\t\t\t</div>\n\n\t\t</div>\n\n  \t</div>\n\n  \t<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n  \t\t<div class=\"menu-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Select Invoice Types</h5>\n\t\t\t</div>\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body p-0 lists other\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/single\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Single Line</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/multi\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Multi Line</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" \n\t\t\t\t\t\t\t[ngClass]=\"ledger.isInvoiceAvailable ? '' : 'disabled'\"\n\t\t\t\t\t\t\trouterLink=\"/ams/income/add-credit/{{ledger.apartmentBlockUnitId}}/new\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Credit Note</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<!-- <li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\">Refund Note</a>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n  \t</ng-template>\n\n</div>";
     /***/
   },
 
@@ -361,7 +361,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"income-view-invoice-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ul class=\"legends list-inline\" *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>Pending</li>\n\t\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Nill</li>\n\t\t</ul>\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>All Invoices <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t  \t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t  \t\t\t\n\t  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tInvoice Id\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('custInvoiceId')\" [ngClass]=\"getFieldOrderBy('custInvoiceId')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['custInvoiceId']\" (ngModelChange)=\"selectColInput('custInvoiceId')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Invoice Date\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('postedOn')\" [ngClass]=\"getFieldOrderBy('postedOn')\"></span>\n\t\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"postedOn\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'postedOn')\"\n\t\t\t\t\t      \t></app-simple-date-box>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tPosted By\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('postedByName')\" [ngClass]=\"getFieldOrderBy('postedByName')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Posted By\" [(ngModel)]=\"columnField['postedByName']\" (ngModelChange)=\"selectColInput('postedByName')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tTower Unit \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Tower Unit\" [(ngModel)]=\"columnField['block_Unit']\" (ngModelChange)=\"selectColInput('block_Unit')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t      <th scope=\"col\">Account\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('glaccountId')\" [ngClass]=\"getFieldOrderBy('glaccountId')\"></span>\n\t\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\t\tfieldName = \"glaccountName\" \n\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\tfieldItemName=\"glaccountName\"\n\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t[fieldModel] = \"glaccountId\"\n\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t\t[fieldList] = \"glAccountListData\"\n\t\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'glaccountName', 'glaccountName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t      </th> \n\t\t\t\t\t      <th scope=\"col\">Due\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('custInvoiceAmount')\" [ngClass]=\"getFieldOrderBy('custInvoiceAmount')\"></span>\n\t\t\t\t\t      \t <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['custInvoiceAmount']\"(ngModelChange)=\"selectColInput('custInvoiceAmount')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      Sent Email\n\t\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isSmssent']\"(ngModelChange)=\"selectColInput('isSmssent')\" >\n\t\t\t\t\t  \t</th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      SMS/Email\n\t\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isEmailSent']\"(ngModelChange)=\"selectColInput('isEmailSent')\" >\n\t\t\t\t\t  \t</th>\n\t\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t\t      Actions\n\t\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t     <tbody>\n\t\t\t\t     \t<tr *ngFor=\"let invoice of invoiceDataList | simpleSearch: invoiceData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t     \t  <td class=\"grey\"> <a href=\"javascript:void(0)\">{{invoice.custInvoiceId}}</a></td>\n\t\t\t\t     \t  <td class=\"grey\">{{getInvoiceDate(invoice.custInvoiceDate)}}</td>\n\t\t\t\t\t      <td class=\"grey\">\n\t\t\t\t\t      <a href=\"javascript:void(0)\" class=\"t-decor\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t\t      \t{{getUserName(invoice, invoice.postedBy)}}</a>\n\t\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<h6>Comments</h6>\n\t\t\t\t\t\t\t    \t\t\t<p>{{invoice.comments}}</p>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t</ul>\n\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      </td>\n\t\t\t\t\t\t  <td class=\"grey\">{{invoice.block_Unit}}</td>\n\t\t\t\t\t     <td class=\"grey\">{{getAccountName(invoice, invoice.invoiceGLAccounts)}}</td> \n\t\t\t\t\t      <td class=\"grey\">{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"invoice.isEmailSent\" >\n\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"updateInvoiceItem(invoice)\"></span>\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"invoice.isSmssent\" >\n\t\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"updateInvoiceItem(invoice)\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      \t</div>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"name text-center\">\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-3\" role=\"button\" data-toggle=\"dropdown\" id=\"reverseIncomeInvoiceDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t      \t\t<i-feather class=\"icon send ot\" name=\"activity\"></i-feather>\n\t\t\t\t\t      \t</a>\n\t\t\t\t\t      \t<div class=\"dropdown-menu page-menu icon-menu dropdown-menu-right\" aria-labelledby=\"reverseIncomeInvoiceDropDown\" (click)=\"stopPropagation($event)\">\n\t\t\t\t\t\t      \t<app-income-invoice-reverse [invoice]=\"invoice\"></app-income-invoice-reverse>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t\t      \trouterLink=\"/ams/income/edit-invoice/{{invoice.custInvoiceId}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t      \t</a>\n\t    \t\t\t\t  </td>\n\t\t\t\t\t    </tr>\n\n\t\t\t\t     </tbody>\n\t\t\t\t</table>\n\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination> -->\n\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"income-view-invoice-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<!-- <ul class=\"legends list-inline\">\n\t\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>Pending</li>\n\t\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Nill</li>\n\t\t</ul> -->\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>All Invoices <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t  \t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t\n\t\t\t\t\n\t\t\t\t<jqxPopover \n\t\t\t\t#reversePopOver \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[showCloseButton]=\"true\" \n\t\t\t\t[selector]=\"reversePopOverSelector\"\n\t\t\t\t[position]=\"'left'\"\n\t\t\t\t>\n\t\t\t\t\t<app-income-invoice-reverse [invoice]=\"invoice\"></app-income-invoice-reverse>\n\t\t\t\t</jqxPopover>\n\n\t  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tInvoice Id\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('custInvoiceId')\" [ngClass]=\"getFieldOrderBy('custInvoiceId')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['custInvoiceId']\" (ngModelChange)=\"selectColInput('custInvoiceId')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Invoice Date\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('postedOn')\" [ngClass]=\"getFieldOrderBy('postedOn')\"></span>\n\t\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"postedOn\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'postedOn')\"\n\t\t\t\t\t      \t></app-simple-date-box>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tPosted By\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('postedByName')\" [ngClass]=\"getFieldOrderBy('postedByName')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Posted By\" [(ngModel)]=\"columnField['postedByName']\" (ngModelChange)=\"selectColInput('postedByName')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tTower Unit \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Tower Unit\" [(ngModel)]=\"columnField['block_Unit']\" (ngModelChange)=\"selectColInput('block_Unit')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t      <th scope=\"col\">Account\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('glaccountId')\" [ngClass]=\"getFieldOrderBy('glaccountId')\"></span>\n\t\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\t\tfieldName = \"glaccountName\" \n\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\tfieldItemName=\"glaccountName\"\n\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t[fieldModel] = \"glaccountId\"\n\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t\t[fieldList] = \"glAccountListData\"\n\t\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'glaccountName', 'glaccountName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t      </th> \n\t\t\t\t\t      <th scope=\"col\">Due\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('custInvoiceAmount')\" [ngClass]=\"getFieldOrderBy('custInvoiceAmount')\"></span>\n\t\t\t\t\t      \t <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['custInvoiceAmount']\"(ngModelChange)=\"selectColInput('custInvoiceAmount')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      Sent Email\n\t\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isSmssent']\"(ngModelChange)=\"selectColInput('isSmssent')\" >\n\t\t\t\t\t  \t</th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      SMS/Email\n\t\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isEmailSent']\"(ngModelChange)=\"selectColInput('isEmailSent')\" >\n\t\t\t\t\t  \t</th>\n\t\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t\t      Actions\n\t\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t     <tbody>\n\t\t\t\t     \t<tr *ngFor=\"let invoice of invoiceDataList | simpleSearch: invoiceData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t     \t  <td class=\"grey\"> <a href=\"javascript:void(0)\">{{invoice.custInvoiceId}}</a></td>\n\t\t\t\t     \t  <td class=\"grey\">{{getInvoiceDate(invoice.custInvoiceDate)}}</td>\n\t\t\t\t\t      <td class=\"grey\">\n\t\t\t\t\t      <a href=\"javascript:void(0)\" class=\"t-decor\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t\t      \t{{getUserName(invoice, invoice.postedBy)}}</a>\n\t\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<h6>Comments</h6>\n\t\t\t\t\t\t\t    \t\t\t<p>{{invoice.comments}}</p>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t</ul>\n\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      </td>\n\t\t\t\t\t\t  <td class=\"grey\">{{invoice.block_Unit}}</td>\n\t\t\t\t\t     <td class=\"grey\">{{getAccountName(invoice, invoice.invoiceGLAccounts)}}</td> \n\t\t\t\t\t      <td class=\"grey\">{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"invoice.isEmailSent\" >\n\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"updateInvoiceItem(invoice)\"></span>\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"invoice.isSmssent\" >\n\t\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"updateInvoiceItem(invoice)\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      \t</div>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"name text-center\">\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-3\" role=\"button\" data-toggle=\"dropdown\" id=\"reverseIncomeInvoiceDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t      \t\t<i-feather class=\"icon send ot\" name=\"activity\"></i-feather>\n\t\t\t\t\t      \t</a>\n\t\t\t\t\t      \t<div class=\"dropdown-menu page-menu icon-menu dropdown-menu-right\" aria-labelledby=\"reverseIncomeInvoiceDropDown\" (click)=\"stopPropagation($event)\">\n\t\t\t\t\t\t      \t<app-income-invoice-reverse [invoice]=\"invoice\"></app-income-invoice-reverse>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t\t      \trouterLink=\"/ams/income/edit-invoice/{{invoice.custInvoiceId}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t      \t</a>\n\t    \t\t\t\t  </td>\n\t\t\t\t\t    </tr>\n\n\t\t\t\t     </tbody>\n\t\t\t\t</table>\n\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination> -->\n\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>";
     /***/
   },
 
@@ -2820,9 +2820,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var jqwidgets_ng_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! jqwidgets-ng/jqxgrid */
-    "./node_modules/jqwidgets-ng/__ivy_ngcc__/fesm2015/jqwidgets-ng-jqxgrid.js");
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
     /* harmony import */
 
 
@@ -3056,7 +3056,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Status',
             datafield: 'due_Indicator',
             minwidth: 150,
-            cellsrenderer: cellsrenderer,
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell"><span class="dots rt-1 ' + getClassName(value) + '"></span>' + value + '</div>';
+            },
             renderer: columnrenderer
           }, {
             text: 'Actions',
@@ -3123,7 +3125,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])], IncomeSubLedgerComponent.prototype, "viewInvoiceTypeRef", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", jqwidgets_ng_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])], IncomeSubLedgerComponent.prototype, "datagrid", void 0);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])], IncomeSubLedgerComponent.prototype, "datagrid", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onViewHistory', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeSubLedgerComponent.prototype, "onViewHistory", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onShowInvoices', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeSubLedgerComponent.prototype, "onShowInvoices", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onViewPostCollection', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeSubLedgerComponent.prototype, "onViewPostCollection", null);
@@ -3136,6 +3138,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./income-sub-ledger.component.scss */
       "./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_6__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], IncomeSubLedgerComponent);
+
+    function getClassName(value) {
+      return value != 'Due' ? 'high' : 'low';
+    }
+
+    window.getClassName = getClassName;
 
     function viewHistoryEvent(row) {
       var event = new CustomEvent('onViewHistory', {
@@ -5670,57 +5678,69 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var jqwidgets_ng_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! jqwidgets-ng/jqxgrid */
-    "./node_modules/jqwidgets-ng/__ivy_ngcc__/fesm2015/jqwidgets-ng-jqxgrid.js");
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxwindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow.ts");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover.ts");
+    /* harmony import */
+
+
+    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../api/services/user.service */
     "./src/app/api/services/user.service.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../.././api/services/accounts.service */
     "./src/app/api/services/accounts.service.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ../../../../shared/services/constants.service */
     "./src/app/shared/services/constants.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_10___default =
+    var moment__WEBPACK_IMPORTED_MODULE_12___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_12__);
 
     var IncomeViewInvoiceComponent =
     /*#__PURE__*/
@@ -5790,87 +5810,91 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "onEditReverse",
-        value: function onEditReverse(detail) {}
+        value: function onEditReverse(detail) {
+          var _this43 = this;
+
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          this.invoice = dataRecord;
+          this.reversePopOverSelector = '#' + this.invoice.custInvoiceId;
+          setTimeout(function () {
+            _this43.reversePopOver.createComponent();
+
+            _this43.reversePopOver.open();
+          }, 100);
+        }
       }, {
         key: "onUpdateInvoice",
         value: function onUpdateInvoice(detail) {
           var invoice = this.datagrid.getrowdata(detail.rowId);
-          this.updateInvoiceItem(invoice, detail.type);
+          this.updateInvoiceItem(invoice, detail.column);
         }
       }, {
         key: "updateInvoiceItem",
         value: function updateInvoiceItem(invoice, type) {
-          var _this43 = this;
+          var _this44 = this;
 
-          setTimeout(function () {
-            _this43.isInvoiceDataLoaded = false;
+          if (type == 'email') {
+            if (invoice.isEmailSent) invoice.isEmailSent = false;else invoice.isEmailSent = true;
+          } else {
+            if (invoice.isSmssent) invoice.isSmssent = false;else invoice.isSmssent = true;
+          }
 
-            if (type == 'email') {
-              invoice.isEmailSent = !invoice.isEmailSent;
-            } else {
-              invoice.isSmssent = !invoice.isSmssent;
-            }
-
-            var details = {
-              "custInvoiceId": invoice.custInvoiceId,
-              "apartmentId": parseInt(_this43.cookieService.get('apartmentId')),
-              "apartmentBlockUnitId": invoice.apartmentBlockUnitId,
-              "custInvoiceAmount": parseInt(invoice.custInvoiceAmount),
-              "custInvoiceDate": new Date().toISOString(),
-              "dueDate": invoice.dueDate,
-              "tax1": 0,
-              "tax2": 0,
-              "tax3": 0,
-              "isTax": invoice.isTax,
-              "isRecurCustInvoice": invoice.isRecurCustInvoice,
-              "isEmailSent": invoice.isEmailSent,
-              "isSmssent": invoice.isSmssent,
-              "custInvoiceStatusId": 1,
-              "postedBy": parseInt(_this43.cookieService.get('userId')),
-              "postedOn": new Date().toISOString(),
-              "billToPay": "string",
-              "comments": invoice.comments || "",
-              "penaltyAmount": 0,
-              "penaltyComment": "string",
+          var details = {
+            "custInvoiceId": invoice.custInvoiceId,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentBlockUnitId": invoice.apartmentBlockUnitId,
+            "custInvoiceAmount": parseInt(invoice.custInvoiceAmount),
+            "custInvoiceDate": new Date().toISOString(),
+            "dueDate": invoice.dueDate,
+            "tax1": 0,
+            "tax2": 0,
+            "tax3": 0,
+            "isTax": invoice.isTax,
+            "isRecurCustInvoice": invoice.isRecurCustInvoice,
+            "isEmailSent": invoice.isEmailSent,
+            "isSmssent": invoice.isSmssent,
+            "custInvoiceStatusId": 1,
+            "postedBy": parseInt(this.cookieService.get('userId')),
+            "postedOn": new Date().toISOString(),
+            "billToPay": "string",
+            "comments": invoice.comments || "",
+            "penaltyAmount": 0,
+            "penaltyComment": "string",
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString(),
+            "transReference1": "string",
+            "transReference2": "string",
+            "invoiceGLAccounts": [{
+              "invoiceGlaccountId": invoice.invoiceGLAccounts[0].invoiceGlaccountId,
+              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "invoiceId": 0,
+              "glaccountId": invoice.invoiceGLAccounts[0].glaccountId,
+              "comments": "string",
               "isActive": true,
-              "insertedBy": parseInt(_this43.cookieService.get('userId')),
+              "insertedBy": parseInt(this.cookieService.get('userId')),
               "insertedOn": new Date().toISOString(),
-              "updatedBy": parseInt(_this43.cookieService.get('userId')),
+              "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString(),
-              "transReference1": "string",
-              "transReference2": "string",
-              "invoiceGLAccounts": [{
-                "invoiceGlaccountId": invoice.invoiceGLAccounts[0].invoiceGlaccountId,
-                "apartmentId": parseInt(_this43.cookieService.get('apartmentId')),
-                "invoiceId": 0,
-                "glaccountId": invoice.invoiceGLAccounts[0].glaccountId,
-                "comments": "string",
-                "isActive": true,
-                "insertedBy": parseInt(_this43.cookieService.get('userId')),
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(_this43.cookieService.get('userId')),
-                "updatedOn": new Date().toISOString(),
-                "amount": invoice.custInvoiceAmount
-              }]
-            };
-
-            _this43.accountsService.updateCustInvoice(details).subscribe(function (res) {
-              if (res.message) {
-                _this43.isInvoiceDataLoaded = true;
-
-                _this43.sharedService.setAlertMessage("Invoice updated successfully");
-              } else {
-                _this43.isInvoiceDataLoaded = true;
-              }
-            }, function (error) {
-              _this43.isInvoiceDataLoaded = true;
-            });
-          }, 1000);
+              "amount": invoice.custInvoiceAmount
+            }]
+          };
+          this.accountsService.updateCustInvoice(details).subscribe(function (res) {
+            if (res.message) {
+              _this44.sharedService.setAlertMessage("Invoice updated successfully");
+            } else {
+              _this44.isInvoiceDataLoaded = true;
+            }
+          }, function (error) {
+            _this44.isInvoiceDataLoaded = true;
+          });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this44 = this;
+          var _this45 = this;
 
           var accountParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -5885,68 +5909,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return '<div style="padding: 14px">' + value + '</div>';
           };
 
-          this.columnData = [{
-            text: 'Invoice Id',
-            datafield: 'custInvoiceId',
-            width: 120,
-            pinned: true,
-            cellsrenderer: cellsrenderer,
-            renderer: columnrenderer
-          }, {
-            text: 'Invoice Date',
-            datafield: 'postedOn',
-            minwidth: 120,
-            cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this44.constantsService.dateFormat) + '</div>';
-            },
-            renderer: columnrenderer
-          }, {
-            text: 'Posted By',
-            datafield: 'postedByName',
-            minwidth: 120,
-            cellsrenderer: cellsrenderer,
-            renderer: columnrenderer
-          }, {
-            text: 'Tower Unit',
-            datafield: 'block_Unit',
-            minwidth: 120,
-            cellsrenderer: cellsrenderer,
-            renderer: columnrenderer
-          }, {
-            text: 'Due',
-            datafield: 'custInvoiceAmount',
-            minwidth: 150,
-            cellsrenderer: cellsrenderer,
-            renderer: columnrenderer
-          }, {
-            text: 'Sent Email',
-            datafield: 'isEmailSent',
-            minwidth: 120,
-            cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + '<label class="switch float-left">' + '<input type="checkbox" id="isEmail" name="isEmail">' + '<span class="slider round" onClick="updateInvoiceEvent(' + row + ', "email")"></span>' + '</label>' + '</div>';
-            },
-            renderer: columnrenderer
-          }, {
-            text: 'SMS/Email',
-            datafield: 'isSmssent',
-            minwidth: 120,
-            cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + '<label class="switch float-left">' + '<input type="checkbox" id="isSms" name="isSms">' + '<span class="slider round" onClick="updateInvoiceEvent(' + row + ', "sms")"></span>' + '</label>' + '</div>';
-            },
-            renderer: columnrenderer
-          }, {
-            text: 'Actions',
-            cellsalign: 'center',
-            align: 'center',
-            width: 120,
-            cellsrenderer: function cellsrenderer(row) {
-              return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="editReverseEvent(' + row + ')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>';
-            },
-            renderer: columnrenderer
-          }];
           this.accountsService.getAllGLAccounts().subscribe(function (res) {
-            _this44.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this44.cookieService.get('apartmentId')) && item.indicator == _this44.glAccountIndicator;
+            _this45.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this45.cookieService.get('apartmentId')) && item.indicator == _this45.glAccountIndicator;
             });
           });
           var params = {
@@ -5955,22 +5920,108 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getCustInvoicesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
             var invoiceDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_9__["each"](invoiceDataList, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_11__["each"](invoiceDataList, function (item) {
               item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
-            _this44.gridSourceData = {
+            _this45.invoice = invoiceDataList[0];
+            _this45.reversePopOverSelector = '#' + _this45.invoice.custInvoiceId;
+            _this45.gridSourceData = {
               localdata: invoiceDataList,
               datatype: "array"
             };
-            _this44.invoiceDataList = new jqx.dataAdapter(_this44.gridSourceData);
-            _this44.totalItems = _this44.invoiceDataList.length;
+            _this45.invoiceDataList = new jqx.dataAdapter(_this45.gridSourceData);
+            /*this.getSourceDataAdapter = (datafield: string): any => {
+              let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
+              return dataAdapter;
+            }*/
 
-            _this44.userService.getAllUsersByApartmentId(parseInt(_this44.cookieService.get('apartmentId'))).subscribe(function (res) {
-              _this44.userDataList = res;
-              _this44.isInvoiceDataLoaded = true;
+            _this45.totalItems = _this45.invoiceDataList.length;
+            _this45.columnData = [{
+              text: 'Invoice Id',
+              datafield: 'custInvoiceId',
+              width: 120,
+              pinned: true,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Invoice Date',
+              datafield: 'postedOn',
+              minwidth: 120,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__(value).format(_this45.constantsService.dateFormat) + '</div>';
+              },
+              renderer: columnrenderer
+            }, {
+              text: 'Posted By',
+              datafield: 'postedByName',
+              minwidth: 120,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Tower Unit',
+              datafield: 'block_Unit',
+              minwidth: 120,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Due',
+              datafield: 'custInvoiceAmount',
+              minwidth: 150,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Sent Email',
+              datafield: 'isEmailSent',
+              minwidth: 120,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var chkedProperty;
+
+                if (value) {
+                  chkedProperty = 'checked="true"';
+                } else {
+                  chkedProperty = '';
+                }
+
+                return '<div class="jqx-custom-inner-cell">' + '<label class="switch float-left">' + '<input type="checkbox" id="invoiceEmail" name="invoiceEmail"' + chkedProperty + '>' + '<div class="slider round" onClick="updateInvoiceEvent(' + row + ', \'email\')"></div>' + '</label>' + '</div>';
+              },
+              renderer: columnrenderer
+            }, {
+              text: 'SMS/Email',
+              datafield: 'isSmssent',
+              minwidth: 120,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var chkedProperty;
+
+                if (value) {
+                  chkedProperty = 'checked="true"';
+                } else {
+                  chkedProperty = '';
+                }
+
+                return '<div class="jqx-custom-inner-cell">' + '<label class="switch float-left">' + '<input type="checkbox" id="invoiceSMS" name="invoiceSMS"' + chkedProperty + '>' + '<div class="slider round" onClick="updateInvoiceEvent(' + row + ', \'sms\')"></div>' + '</label>' + '</div>';
+              },
+              renderer: columnrenderer
+            }, {
+              text: 'Actions',
+              cellsalign: 'center',
+              align: 'center',
+              width: 120,
+              cellsrenderer: function cellsrenderer(row) {
+                var elemId = invoiceDataList[row].custInvoiceId;
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editReverseEvent(' + row + ')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>';
+              },
+              renderer: columnrenderer
+            }];
+
+            _this45.userService.getAllUsersByApartmentId(parseInt(_this45.cookieService.get('apartmentId'))).subscribe(function (res) {
+              _this45.userDataList = res;
+              _this45.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {}
       }]);
 
       return IncomeViewInvoiceComponent;
@@ -5982,21 +6033,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_6__["UserService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
+        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_7__["AccountsService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
       }, {
-        type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"]
+        type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]
       }];
     };
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", jqwidgets_ng_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])], IncomeViewInvoiceComponent.prototype, "datagrid", void 0);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])], IncomeViewInvoiceComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('reversePopWindow', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxwindow__WEBPACK_IMPORTED_MODULE_4__["jqxWindowComponent"])], IncomeViewInvoiceComponent.prototype, "reversePopWindow", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('reversePopOver', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_5__["jqxPopoverComponent"])], IncomeViewInvoiceComponent.prototype, "reversePopOver", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditInvoice', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeViewInvoiceComponent.prototype, "onEditInvoice", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditReverse', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeViewInvoiceComponent.prototype, "onEditReverse", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onUpdateInvoice', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeViewInvoiceComponent.prototype, "onUpdateInvoice", null);
@@ -6008,7 +6065,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./income-view-invoice.component.scss */
       "./src/app/ams/income-tracker/components/income-view-invoice/income-view-invoice.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], IncomeViewInvoiceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_6__["UserService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_7__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], IncomeViewInvoiceComponent);
 
     function editInvoiceEvent(row) {
       var event = new CustomEvent('onEditInvoice', {
@@ -6036,7 +6093,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       var event = new CustomEvent('onUpdateInvoice', {
         detail: {
           rowId: row,
-          type: type
+          column: type
         }
       });
       window.dispatchEvent(event);
@@ -6256,20 +6313,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this45 = this;
+          var _this46 = this;
 
           this.accountsService.GetIncomeTrackerReceiptsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
-            _this45.receiptsDataList = res;
+            _this46.receiptsDataList = res;
             console.log(res);
-            _this45.totalItems = _this45.receiptsDataList.length;
+            _this46.totalItems = _this46.receiptsDataList.length;
 
-            if (_this45.totalItems > _this45.itemLimit) {
-              _this45.ItemEndIndex = _this45.itemLimit;
+            if (_this46.totalItems > _this46.itemLimit) {
+              _this46.ItemEndIndex = _this46.itemLimit;
             } else {
-              _this45.ItemEndIndex = _this45.totalItems;
+              _this46.ItemEndIndex = _this46.totalItems;
             }
 
-            _this45.isReceiptsLoaded = true;
+            _this46.isReceiptsLoaded = true;
           }, function (error) {
             console.log(error);
           });

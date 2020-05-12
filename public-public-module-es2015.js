@@ -3546,8 +3546,7 @@ let LoginComponent = class LoginComponent {
                 if (user.resetPassword) {
                     this.router.navigateByUrl('/profile/resetpassword/' + user.userId);
                 }
-                else if (user.roleName == 'Admin' || user.roleName == 'Staff' || user.roleName == 'Security') {
-                    console.log('/ams');
+                else if (user.roleName == 'Admin' || user.roleName == 'SuperAdmin' || user.roleName == 'Staff' || user.roleName == 'Security') {
                     this.router.navigateByUrl('/ams');
                 }
                 else if (user.roleName == 'Owner' || user.roleName == 'Tenant') {

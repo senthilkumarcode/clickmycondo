@@ -13188,4 +13188,1618 @@ module.exports = __webpack_require__(63);
 		},
 	})
 
+;/*! Hammer.JS - v2.0.7 - 2016-04-22
+ * http://hammerjs.github.io/
+ *
+ * Copyright (c) 2016 Jorik Tangelder;
+ * Licensed under the MIT license */
+!function(a,b,c,d){"use strict";function e(a,b,c){return setTimeout(j(a,c),b)}function f(a,b,c){return Array.isArray(a)?(g(a,c[b],c),!0):!1}function g(a,b,c){var e;if(a)if(a.forEach)a.forEach(b,c);else if(a.length!==d)for(e=0;e<a.length;)b.call(c,a[e],e,a),e++;else for(e in a)a.hasOwnProperty(e)&&b.call(c,a[e],e,a)}function h(b,c,d){var e="DEPRECATED METHOD: "+c+"\n"+d+" AT \n";return function(){var c=new Error("get-stack-trace"),d=c&&c.stack?c.stack.replace(/^[^\(]+?[\n$]/gm,"").replace(/^\s+at\s+/gm,"").replace(/^Object.<anonymous>\s*\(/gm,"{anonymous}()@"):"Unknown Stack Trace",f=a.console&&(a.console.warn||a.console.log);return f&&f.call(a.console,e,d),b.apply(this,arguments)}}function i(a,b,c){var d,e=b.prototype;d=a.prototype=Object.create(e),d.constructor=a,d._super=e,c&&la(d,c)}function j(a,b){return function(){return a.apply(b,arguments)}}function k(a,b){return typeof a==oa?a.apply(b?b[0]||d:d,b):a}function l(a,b){return a===d?b:a}function m(a,b,c){g(q(b),function(b){a.addEventListener(b,c,!1)})}function n(a,b,c){g(q(b),function(b){a.removeEventListener(b,c,!1)})}function o(a,b){for(;a;){if(a==b)return!0;a=a.parentNode}return!1}function p(a,b){return a.indexOf(b)>-1}function q(a){return a.trim().split(/\s+/g)}function r(a,b,c){if(a.indexOf&&!c)return a.indexOf(b);for(var d=0;d<a.length;){if(c&&a[d][c]==b||!c&&a[d]===b)return d;d++}return-1}function s(a){return Array.prototype.slice.call(a,0)}function t(a,b,c){for(var d=[],e=[],f=0;f<a.length;){var g=b?a[f][b]:a[f];r(e,g)<0&&d.push(a[f]),e[f]=g,f++}return c&&(d=b?d.sort(function(a,c){return a[b]>c[b]}):d.sort()),d}function u(a,b){for(var c,e,f=b[0].toUpperCase()+b.slice(1),g=0;g<ma.length;){if(c=ma[g],e=c?c+f:b,e in a)return e;g++}return d}function v(){return ua++}function w(b){var c=b.ownerDocument||b;return c.defaultView||c.parentWindow||a}function x(a,b){var c=this;this.manager=a,this.callback=b,this.element=a.element,this.target=a.options.inputTarget,this.domHandler=function(b){k(a.options.enable,[a])&&c.handler(b)},this.init()}function y(a){var b,c=a.options.inputClass;return new(b=c?c:xa?M:ya?P:wa?R:L)(a,z)}function z(a,b,c){var d=c.pointers.length,e=c.changedPointers.length,f=b&Ea&&d-e===0,g=b&(Ga|Ha)&&d-e===0;c.isFirst=!!f,c.isFinal=!!g,f&&(a.session={}),c.eventType=b,A(a,c),a.emit("hammer.input",c),a.recognize(c),a.session.prevInput=c}function A(a,b){var c=a.session,d=b.pointers,e=d.length;c.firstInput||(c.firstInput=D(b)),e>1&&!c.firstMultiple?c.firstMultiple=D(b):1===e&&(c.firstMultiple=!1);var f=c.firstInput,g=c.firstMultiple,h=g?g.center:f.center,i=b.center=E(d);b.timeStamp=ra(),b.deltaTime=b.timeStamp-f.timeStamp,b.angle=I(h,i),b.distance=H(h,i),B(c,b),b.offsetDirection=G(b.deltaX,b.deltaY);var j=F(b.deltaTime,b.deltaX,b.deltaY);b.overallVelocityX=j.x,b.overallVelocityY=j.y,b.overallVelocity=qa(j.x)>qa(j.y)?j.x:j.y,b.scale=g?K(g.pointers,d):1,b.rotation=g?J(g.pointers,d):0,b.maxPointers=c.prevInput?b.pointers.length>c.prevInput.maxPointers?b.pointers.length:c.prevInput.maxPointers:b.pointers.length,C(c,b);var k=a.element;o(b.srcEvent.target,k)&&(k=b.srcEvent.target),b.target=k}function B(a,b){var c=b.center,d=a.offsetDelta||{},e=a.prevDelta||{},f=a.prevInput||{};b.eventType!==Ea&&f.eventType!==Ga||(e=a.prevDelta={x:f.deltaX||0,y:f.deltaY||0},d=a.offsetDelta={x:c.x,y:c.y}),b.deltaX=e.x+(c.x-d.x),b.deltaY=e.y+(c.y-d.y)}function C(a,b){var c,e,f,g,h=a.lastInterval||b,i=b.timeStamp-h.timeStamp;if(b.eventType!=Ha&&(i>Da||h.velocity===d)){var j=b.deltaX-h.deltaX,k=b.deltaY-h.deltaY,l=F(i,j,k);e=l.x,f=l.y,c=qa(l.x)>qa(l.y)?l.x:l.y,g=G(j,k),a.lastInterval=b}else c=h.velocity,e=h.velocityX,f=h.velocityY,g=h.direction;b.velocity=c,b.velocityX=e,b.velocityY=f,b.direction=g}function D(a){for(var b=[],c=0;c<a.pointers.length;)b[c]={clientX:pa(a.pointers[c].clientX),clientY:pa(a.pointers[c].clientY)},c++;return{timeStamp:ra(),pointers:b,center:E(b),deltaX:a.deltaX,deltaY:a.deltaY}}function E(a){var b=a.length;if(1===b)return{x:pa(a[0].clientX),y:pa(a[0].clientY)};for(var c=0,d=0,e=0;b>e;)c+=a[e].clientX,d+=a[e].clientY,e++;return{x:pa(c/b),y:pa(d/b)}}function F(a,b,c){return{x:b/a||0,y:c/a||0}}function G(a,b){return a===b?Ia:qa(a)>=qa(b)?0>a?Ja:Ka:0>b?La:Ma}function H(a,b,c){c||(c=Qa);var d=b[c[0]]-a[c[0]],e=b[c[1]]-a[c[1]];return Math.sqrt(d*d+e*e)}function I(a,b,c){c||(c=Qa);var d=b[c[0]]-a[c[0]],e=b[c[1]]-a[c[1]];return 180*Math.atan2(e,d)/Math.PI}function J(a,b){return I(b[1],b[0],Ra)+I(a[1],a[0],Ra)}function K(a,b){return H(b[0],b[1],Ra)/H(a[0],a[1],Ra)}function L(){this.evEl=Ta,this.evWin=Ua,this.pressed=!1,x.apply(this,arguments)}function M(){this.evEl=Xa,this.evWin=Ya,x.apply(this,arguments),this.store=this.manager.session.pointerEvents=[]}function N(){this.evTarget=$a,this.evWin=_a,this.started=!1,x.apply(this,arguments)}function O(a,b){var c=s(a.touches),d=s(a.changedTouches);return b&(Ga|Ha)&&(c=t(c.concat(d),"identifier",!0)),[c,d]}function P(){this.evTarget=bb,this.targetIds={},x.apply(this,arguments)}function Q(a,b){var c=s(a.touches),d=this.targetIds;if(b&(Ea|Fa)&&1===c.length)return d[c[0].identifier]=!0,[c,c];var e,f,g=s(a.changedTouches),h=[],i=this.target;if(f=c.filter(function(a){return o(a.target,i)}),b===Ea)for(e=0;e<f.length;)d[f[e].identifier]=!0,e++;for(e=0;e<g.length;)d[g[e].identifier]&&h.push(g[e]),b&(Ga|Ha)&&delete d[g[e].identifier],e++;return h.length?[t(f.concat(h),"identifier",!0),h]:void 0}function R(){x.apply(this,arguments);var a=j(this.handler,this);this.touch=new P(this.manager,a),this.mouse=new L(this.manager,a),this.primaryTouch=null,this.lastTouches=[]}function S(a,b){a&Ea?(this.primaryTouch=b.changedPointers[0].identifier,T.call(this,b)):a&(Ga|Ha)&&T.call(this,b)}function T(a){var b=a.changedPointers[0];if(b.identifier===this.primaryTouch){var c={x:b.clientX,y:b.clientY};this.lastTouches.push(c);var d=this.lastTouches,e=function(){var a=d.indexOf(c);a>-1&&d.splice(a,1)};setTimeout(e,cb)}}function U(a){for(var b=a.srcEvent.clientX,c=a.srcEvent.clientY,d=0;d<this.lastTouches.length;d++){var e=this.lastTouches[d],f=Math.abs(b-e.x),g=Math.abs(c-e.y);if(db>=f&&db>=g)return!0}return!1}function V(a,b){this.manager=a,this.set(b)}function W(a){if(p(a,jb))return jb;var b=p(a,kb),c=p(a,lb);return b&&c?jb:b||c?b?kb:lb:p(a,ib)?ib:hb}function X(){if(!fb)return!1;var b={},c=a.CSS&&a.CSS.supports;return["auto","manipulation","pan-y","pan-x","pan-x pan-y","none"].forEach(function(d){b[d]=c?a.CSS.supports("touch-action",d):!0}),b}function Y(a){this.options=la({},this.defaults,a||{}),this.id=v(),this.manager=null,this.options.enable=l(this.options.enable,!0),this.state=nb,this.simultaneous={},this.requireFail=[]}function Z(a){return a&sb?"cancel":a&qb?"end":a&pb?"move":a&ob?"start":""}function $(a){return a==Ma?"down":a==La?"up":a==Ja?"left":a==Ka?"right":""}function _(a,b){var c=b.manager;return c?c.get(a):a}function aa(){Y.apply(this,arguments)}function ba(){aa.apply(this,arguments),this.pX=null,this.pY=null}function ca(){aa.apply(this,arguments)}function da(){Y.apply(this,arguments),this._timer=null,this._input=null}function ea(){aa.apply(this,arguments)}function fa(){aa.apply(this,arguments)}function ga(){Y.apply(this,arguments),this.pTime=!1,this.pCenter=!1,this._timer=null,this._input=null,this.count=0}function ha(a,b){return b=b||{},b.recognizers=l(b.recognizers,ha.defaults.preset),new ia(a,b)}function ia(a,b){this.options=la({},ha.defaults,b||{}),this.options.inputTarget=this.options.inputTarget||a,this.handlers={},this.session={},this.recognizers=[],this.oldCssProps={},this.element=a,this.input=y(this),this.touchAction=new V(this,this.options.touchAction),ja(this,!0),g(this.options.recognizers,function(a){var b=this.add(new a[0](a[1]));a[2]&&b.recognizeWith(a[2]),a[3]&&b.requireFailure(a[3])},this)}function ja(a,b){var c=a.element;if(c.style){var d;g(a.options.cssProps,function(e,f){d=u(c.style,f),b?(a.oldCssProps[d]=c.style[d],c.style[d]=e):c.style[d]=a.oldCssProps[d]||""}),b||(a.oldCssProps={})}}function ka(a,c){var d=b.createEvent("Event");d.initEvent(a,!0,!0),d.gesture=c,c.target.dispatchEvent(d)}var la,ma=["","webkit","Moz","MS","ms","o"],na=b.createElement("div"),oa="function",pa=Math.round,qa=Math.abs,ra=Date.now;la="function"!=typeof Object.assign?function(a){if(a===d||null===a)throw new TypeError("Cannot convert undefined or null to object");for(var b=Object(a),c=1;c<arguments.length;c++){var e=arguments[c];if(e!==d&&null!==e)for(var f in e)e.hasOwnProperty(f)&&(b[f]=e[f])}return b}:Object.assign;var sa=h(function(a,b,c){for(var e=Object.keys(b),f=0;f<e.length;)(!c||c&&a[e[f]]===d)&&(a[e[f]]=b[e[f]]),f++;return a},"extend","Use `assign`."),ta=h(function(a,b){return sa(a,b,!0)},"merge","Use `assign`."),ua=1,va=/mobile|tablet|ip(ad|hone|od)|android/i,wa="ontouchstart"in a,xa=u(a,"PointerEvent")!==d,ya=wa&&va.test(navigator.userAgent),za="touch",Aa="pen",Ba="mouse",Ca="kinect",Da=25,Ea=1,Fa=2,Ga=4,Ha=8,Ia=1,Ja=2,Ka=4,La=8,Ma=16,Na=Ja|Ka,Oa=La|Ma,Pa=Na|Oa,Qa=["x","y"],Ra=["clientX","clientY"];x.prototype={handler:function(){},init:function(){this.evEl&&m(this.element,this.evEl,this.domHandler),this.evTarget&&m(this.target,this.evTarget,this.domHandler),this.evWin&&m(w(this.element),this.evWin,this.domHandler)},destroy:function(){this.evEl&&n(this.element,this.evEl,this.domHandler),this.evTarget&&n(this.target,this.evTarget,this.domHandler),this.evWin&&n(w(this.element),this.evWin,this.domHandler)}};var Sa={mousedown:Ea,mousemove:Fa,mouseup:Ga},Ta="mousedown",Ua="mousemove mouseup";i(L,x,{handler:function(a){var b=Sa[a.type];b&Ea&&0===a.button&&(this.pressed=!0),b&Fa&&1!==a.which&&(b=Ga),this.pressed&&(b&Ga&&(this.pressed=!1),this.callback(this.manager,b,{pointers:[a],changedPointers:[a],pointerType:Ba,srcEvent:a}))}});var Va={pointerdown:Ea,pointermove:Fa,pointerup:Ga,pointercancel:Ha,pointerout:Ha},Wa={2:za,3:Aa,4:Ba,5:Ca},Xa="pointerdown",Ya="pointermove pointerup pointercancel";a.MSPointerEvent&&!a.PointerEvent&&(Xa="MSPointerDown",Ya="MSPointerMove MSPointerUp MSPointerCancel"),i(M,x,{handler:function(a){var b=this.store,c=!1,d=a.type.toLowerCase().replace("ms",""),e=Va[d],f=Wa[a.pointerType]||a.pointerType,g=f==za,h=r(b,a.pointerId,"pointerId");e&Ea&&(0===a.button||g)?0>h&&(b.push(a),h=b.length-1):e&(Ga|Ha)&&(c=!0),0>h||(b[h]=a,this.callback(this.manager,e,{pointers:b,changedPointers:[a],pointerType:f,srcEvent:a}),c&&b.splice(h,1))}});var Za={touchstart:Ea,touchmove:Fa,touchend:Ga,touchcancel:Ha},$a="touchstart",_a="touchstart touchmove touchend touchcancel";i(N,x,{handler:function(a){var b=Za[a.type];if(b===Ea&&(this.started=!0),this.started){var c=O.call(this,a,b);b&(Ga|Ha)&&c[0].length-c[1].length===0&&(this.started=!1),this.callback(this.manager,b,{pointers:c[0],changedPointers:c[1],pointerType:za,srcEvent:a})}}});var ab={touchstart:Ea,touchmove:Fa,touchend:Ga,touchcancel:Ha},bb="touchstart touchmove touchend touchcancel";i(P,x,{handler:function(a){var b=ab[a.type],c=Q.call(this,a,b);c&&this.callback(this.manager,b,{pointers:c[0],changedPointers:c[1],pointerType:za,srcEvent:a})}});var cb=2500,db=25;i(R,x,{handler:function(a,b,c){var d=c.pointerType==za,e=c.pointerType==Ba;if(!(e&&c.sourceCapabilities&&c.sourceCapabilities.firesTouchEvents)){if(d)S.call(this,b,c);else if(e&&U.call(this,c))return;this.callback(a,b,c)}},destroy:function(){this.touch.destroy(),this.mouse.destroy()}});var eb=u(na.style,"touchAction"),fb=eb!==d,gb="compute",hb="auto",ib="manipulation",jb="none",kb="pan-x",lb="pan-y",mb=X();V.prototype={set:function(a){a==gb&&(a=this.compute()),fb&&this.manager.element.style&&mb[a]&&(this.manager.element.style[eb]=a),this.actions=a.toLowerCase().trim()},update:function(){this.set(this.manager.options.touchAction)},compute:function(){var a=[];return g(this.manager.recognizers,function(b){k(b.options.enable,[b])&&(a=a.concat(b.getTouchAction()))}),W(a.join(" "))},preventDefaults:function(a){var b=a.srcEvent,c=a.offsetDirection;if(this.manager.session.prevented)return void b.preventDefault();var d=this.actions,e=p(d,jb)&&!mb[jb],f=p(d,lb)&&!mb[lb],g=p(d,kb)&&!mb[kb];if(e){var h=1===a.pointers.length,i=a.distance<2,j=a.deltaTime<250;if(h&&i&&j)return}return g&&f?void 0:e||f&&c&Na||g&&c&Oa?this.preventSrc(b):void 0},preventSrc:function(a){this.manager.session.prevented=!0,a.preventDefault()}};var nb=1,ob=2,pb=4,qb=8,rb=qb,sb=16,tb=32;Y.prototype={defaults:{},set:function(a){return la(this.options,a),this.manager&&this.manager.touchAction.update(),this},recognizeWith:function(a){if(f(a,"recognizeWith",this))return this;var b=this.simultaneous;return a=_(a,this),b[a.id]||(b[a.id]=a,a.recognizeWith(this)),this},dropRecognizeWith:function(a){return f(a,"dropRecognizeWith",this)?this:(a=_(a,this),delete this.simultaneous[a.id],this)},requireFailure:function(a){if(f(a,"requireFailure",this))return this;var b=this.requireFail;return a=_(a,this),-1===r(b,a)&&(b.push(a),a.requireFailure(this)),this},dropRequireFailure:function(a){if(f(a,"dropRequireFailure",this))return this;a=_(a,this);var b=r(this.requireFail,a);return b>-1&&this.requireFail.splice(b,1),this},hasRequireFailures:function(){return this.requireFail.length>0},canRecognizeWith:function(a){return!!this.simultaneous[a.id]},emit:function(a){function b(b){c.manager.emit(b,a)}var c=this,d=this.state;qb>d&&b(c.options.event+Z(d)),b(c.options.event),a.additionalEvent&&b(a.additionalEvent),d>=qb&&b(c.options.event+Z(d))},tryEmit:function(a){return this.canEmit()?this.emit(a):void(this.state=tb)},canEmit:function(){for(var a=0;a<this.requireFail.length;){if(!(this.requireFail[a].state&(tb|nb)))return!1;a++}return!0},recognize:function(a){var b=la({},a);return k(this.options.enable,[this,b])?(this.state&(rb|sb|tb)&&(this.state=nb),this.state=this.process(b),void(this.state&(ob|pb|qb|sb)&&this.tryEmit(b))):(this.reset(),void(this.state=tb))},process:function(a){},getTouchAction:function(){},reset:function(){}},i(aa,Y,{defaults:{pointers:1},attrTest:function(a){var b=this.options.pointers;return 0===b||a.pointers.length===b},process:function(a){var b=this.state,c=a.eventType,d=b&(ob|pb),e=this.attrTest(a);return d&&(c&Ha||!e)?b|sb:d||e?c&Ga?b|qb:b&ob?b|pb:ob:tb}}),i(ba,aa,{defaults:{event:"pan",threshold:10,pointers:1,direction:Pa},getTouchAction:function(){var a=this.options.direction,b=[];return a&Na&&b.push(lb),a&Oa&&b.push(kb),b},directionTest:function(a){var b=this.options,c=!0,d=a.distance,e=a.direction,f=a.deltaX,g=a.deltaY;return e&b.direction||(b.direction&Na?(e=0===f?Ia:0>f?Ja:Ka,c=f!=this.pX,d=Math.abs(a.deltaX)):(e=0===g?Ia:0>g?La:Ma,c=g!=this.pY,d=Math.abs(a.deltaY))),a.direction=e,c&&d>b.threshold&&e&b.direction},attrTest:function(a){return aa.prototype.attrTest.call(this,a)&&(this.state&ob||!(this.state&ob)&&this.directionTest(a))},emit:function(a){this.pX=a.deltaX,this.pY=a.deltaY;var b=$(a.direction);b&&(a.additionalEvent=this.options.event+b),this._super.emit.call(this,a)}}),i(ca,aa,{defaults:{event:"pinch",threshold:0,pointers:2},getTouchAction:function(){return[jb]},attrTest:function(a){return this._super.attrTest.call(this,a)&&(Math.abs(a.scale-1)>this.options.threshold||this.state&ob)},emit:function(a){if(1!==a.scale){var b=a.scale<1?"in":"out";a.additionalEvent=this.options.event+b}this._super.emit.call(this,a)}}),i(da,Y,{defaults:{event:"press",pointers:1,time:251,threshold:9},getTouchAction:function(){return[hb]},process:function(a){var b=this.options,c=a.pointers.length===b.pointers,d=a.distance<b.threshold,f=a.deltaTime>b.time;if(this._input=a,!d||!c||a.eventType&(Ga|Ha)&&!f)this.reset();else if(a.eventType&Ea)this.reset(),this._timer=e(function(){this.state=rb,this.tryEmit()},b.time,this);else if(a.eventType&Ga)return rb;return tb},reset:function(){clearTimeout(this._timer)},emit:function(a){this.state===rb&&(a&&a.eventType&Ga?this.manager.emit(this.options.event+"up",a):(this._input.timeStamp=ra(),this.manager.emit(this.options.event,this._input)))}}),i(ea,aa,{defaults:{event:"rotate",threshold:0,pointers:2},getTouchAction:function(){return[jb]},attrTest:function(a){return this._super.attrTest.call(this,a)&&(Math.abs(a.rotation)>this.options.threshold||this.state&ob)}}),i(fa,aa,{defaults:{event:"swipe",threshold:10,velocity:.3,direction:Na|Oa,pointers:1},getTouchAction:function(){return ba.prototype.getTouchAction.call(this)},attrTest:function(a){var b,c=this.options.direction;return c&(Na|Oa)?b=a.overallVelocity:c&Na?b=a.overallVelocityX:c&Oa&&(b=a.overallVelocityY),this._super.attrTest.call(this,a)&&c&a.offsetDirection&&a.distance>this.options.threshold&&a.maxPointers==this.options.pointers&&qa(b)>this.options.velocity&&a.eventType&Ga},emit:function(a){var b=$(a.offsetDirection);b&&this.manager.emit(this.options.event+b,a),this.manager.emit(this.options.event,a)}}),i(ga,Y,{defaults:{event:"tap",pointers:1,taps:1,interval:300,time:250,threshold:9,posThreshold:10},getTouchAction:function(){return[ib]},process:function(a){var b=this.options,c=a.pointers.length===b.pointers,d=a.distance<b.threshold,f=a.deltaTime<b.time;if(this.reset(),a.eventType&Ea&&0===this.count)return this.failTimeout();if(d&&f&&c){if(a.eventType!=Ga)return this.failTimeout();var g=this.pTime?a.timeStamp-this.pTime<b.interval:!0,h=!this.pCenter||H(this.pCenter,a.center)<b.posThreshold;this.pTime=a.timeStamp,this.pCenter=a.center,h&&g?this.count+=1:this.count=1,this._input=a;var i=this.count%b.taps;if(0===i)return this.hasRequireFailures()?(this._timer=e(function(){this.state=rb,this.tryEmit()},b.interval,this),ob):rb}return tb},failTimeout:function(){return this._timer=e(function(){this.state=tb},this.options.interval,this),tb},reset:function(){clearTimeout(this._timer)},emit:function(){this.state==rb&&(this._input.tapCount=this.count,this.manager.emit(this.options.event,this._input))}}),ha.VERSION="2.0.7",ha.defaults={domEvents:!1,touchAction:gb,enable:!0,inputTarget:null,inputClass:null,preset:[[ea,{enable:!1}],[ca,{enable:!1},["rotate"]],[fa,{direction:Na}],[ba,{direction:Na},["swipe"]],[ga],[ga,{event:"doubletap",taps:2},["tap"]],[da]],cssProps:{userSelect:"none",touchSelect:"none",touchCallout:"none",contentZooming:"none",userDrag:"none",tapHighlightColor:"rgba(0,0,0,0)"}};var ub=1,vb=2;ia.prototype={set:function(a){return la(this.options,a),a.touchAction&&this.touchAction.update(),a.inputTarget&&(this.input.destroy(),this.input.target=a.inputTarget,this.input.init()),this},stop:function(a){this.session.stopped=a?vb:ub},recognize:function(a){var b=this.session;if(!b.stopped){this.touchAction.preventDefaults(a);var c,d=this.recognizers,e=b.curRecognizer;(!e||e&&e.state&rb)&&(e=b.curRecognizer=null);for(var f=0;f<d.length;)c=d[f],b.stopped===vb||e&&c!=e&&!c.canRecognizeWith(e)?c.reset():c.recognize(a),!e&&c.state&(ob|pb|qb)&&(e=b.curRecognizer=c),f++}},get:function(a){if(a instanceof Y)return a;for(var b=this.recognizers,c=0;c<b.length;c++)if(b[c].options.event==a)return b[c];return null},add:function(a){if(f(a,"add",this))return this;var b=this.get(a.options.event);return b&&this.remove(b),this.recognizers.push(a),a.manager=this,this.touchAction.update(),a},remove:function(a){if(f(a,"remove",this))return this;if(a=this.get(a)){var b=this.recognizers,c=r(b,a);-1!==c&&(b.splice(c,1),this.touchAction.update())}return this},on:function(a,b){if(a!==d&&b!==d){var c=this.handlers;return g(q(a),function(a){c[a]=c[a]||[],c[a].push(b)}),this}},off:function(a,b){if(a!==d){var c=this.handlers;return g(q(a),function(a){b?c[a]&&c[a].splice(r(c[a],b),1):delete c[a]}),this}},emit:function(a,b){this.options.domEvents&&ka(a,b);var c=this.handlers[a]&&this.handlers[a].slice();if(c&&c.length){b.type=a,b.preventDefault=function(){b.srcEvent.preventDefault()};for(var d=0;d<c.length;)c[d](b),d++}},destroy:function(){this.element&&ja(this,!1),this.handlers={},this.session={},this.input.destroy(),this.element=null}},la(ha,{INPUT_START:Ea,INPUT_MOVE:Fa,INPUT_END:Ga,INPUT_CANCEL:Ha,STATE_POSSIBLE:nb,STATE_BEGAN:ob,STATE_CHANGED:pb,STATE_ENDED:qb,STATE_RECOGNIZED:rb,STATE_CANCELLED:sb,STATE_FAILED:tb,DIRECTION_NONE:Ia,DIRECTION_LEFT:Ja,DIRECTION_RIGHT:Ka,DIRECTION_UP:La,DIRECTION_DOWN:Ma,DIRECTION_HORIZONTAL:Na,DIRECTION_VERTICAL:Oa,DIRECTION_ALL:Pa,Manager:ia,Input:x,TouchAction:V,TouchInput:P,MouseInput:L,PointerEventInput:M,TouchMouseInput:R,SingleTouchInput:N,Recognizer:Y,AttrRecognizer:aa,Tap:ga,Pan:ba,Swipe:fa,Pinch:ca,Rotate:ea,Press:da,on:m,off:n,each:g,merge:ta,extend:sa,assign:la,inherit:i,bindFn:j,prefixed:u});var wb="undefined"!=typeof a?a:"undefined"!=typeof self?self:{};wb.Hammer=ha,"function"==typeof define&&define.amd?define(function(){return ha}):"undefined"!=typeof module&&module.exports?module.exports=ha:a[c]=ha}(window,document,"Hammer");
+//# sourceMappingURL=hammer.min.js.map
+;/* tslint:disable */
+/* eslint-disable */
+/*!
+ * Globalize
+ *
+ * http://github.com/jquery/globalize
+ *
+ * Copyright Software Freedom Conservancy, Inc.
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ */
+
+(function( window, undefined ) {
+if (document.Globalize) {
+    return;
+}
+
+var Globalize,
+	// private variables
+	regexHex,
+	regexInfinity,
+	regexParseFloat,
+	regexTrim,
+	// private JavaScript utility functions
+	arrayIndexOf,
+	endsWith,
+	extend,
+	isArray,
+	isFunction,
+	isObject,
+	startsWith,
+	trim,
+	truncate,
+	zeroPad,
+	// private Globalization utility functions
+	appendPreOrPostMatch,
+	expandFormat,
+	formatDate,
+	formatNumber,
+	getTokenRegExp,
+	getEra,
+	getEraYear,
+	parseExact,
+	parseNegativePattern;
+
+// Global variable (Globalize) or CommonJS module (globalize)
+Globalize = function( cultureSelector ) {
+	return new Globalize.prototype.init( cultureSelector );
+};
+
+if ( typeof require !== "undefined" &&
+	typeof exports !== "undefined" &&
+	typeof module !== "undefined" ) {
+	// Assume CommonJS
+	module.exports = Globalize;
+} else {
+	// Export as global variable
+	window.Globalize = Globalize;
+}
+
+Globalize.cultures = {};
+
+Globalize.prototype = {
+	constructor: Globalize,
+	init: function( cultureSelector ) {
+		this.cultures = Globalize.cultures;
+		this.cultureSelector = cultureSelector;
+
+		return this;
+	}
+};
+Globalize.prototype.init.prototype = Globalize.prototype;
+
+// 1. When defining a culture, all fields are required except the ones stated as optional.
+// 2. Each culture should have a ".calendars" object with at least one calendar named "standard"
+//    which serves as the default calendar in use by that culture.
+// 3. Each culture should have a ".calendar" object which is the current calendar being used,
+//    it may be dynamically changed at any time to one of the calendars in ".calendars".
+Globalize.cultures[ "default" ] = {
+	// A unique name for the culture in the form <language code>-<country/region code>
+	name: "en",
+	// the name of the culture in the english language
+	englishName: "English",
+	// the name of the culture in its own language
+	nativeName: "English",
+	// whether the culture uses right-to-left text
+	isRTL: false,
+	// "language" is used for so-called "specific" cultures.
+	// For example, the culture "es-CL" means "Spanish, in Chili".
+	// It represents the Spanish-speaking culture as it is in Chili,
+	// which might have different formatting rules or even translations
+	// than Spanish in Spain. A "neutral" culture is one that is not
+	// specific to a region. For example, the culture "es" is the generic
+	// Spanish culture, which may be a more generalized version of the language
+	// that may or may not be what a specific culture expects.
+	// For a specific culture like "es-CL", the "language" field refers to the
+	// neutral, generic culture information for the language it is using.
+	// This is not always a simple matter of the string before the dash.
+	// For example, the "zh-Hans" culture is netural (Simplified Chinese).
+	// And the "zh-SG" culture is Simplified Chinese in Singapore, whose lanugage
+	// field is "zh-CHS", not "zh".
+	// This field should be used to navigate from a specific culture to it's
+	// more general, neutral culture. If a culture is already as general as it
+	// can get, the language may refer to itself.
+	language: "en",
+	// numberFormat defines general number formatting rules, like the digits in
+	// each grouping, the group separator, and how negative numbers are displayed.
+	numberFormat: {
+		// [negativePattern]
+		// Note, numberFormat.pattern has no "positivePattern" unlike percent and currency,
+		// but is still defined as an array for consistency with them.
+		//   negativePattern: one of "(n)|-n|- n|n-|n -"
+		pattern: [ "-n" ],
+		// number of decimal places normally shown
+		decimals: 2,
+		// string that separates number groups, as in 1,000,000
+		",": ",",
+		// string that separates a number from the fractional portion, as in 1.99
+		".": ".",
+		// array of numbers indicating the size of each number group.
+		// TODO: more detailed description and example
+		groupSizes: [ 3 ],
+		// symbol used for positive numbers
+		"+": "+",
+		// symbol used for negative numbers
+		"-": "-",
+		// symbol used for NaN (Not-A-Number)
+		"NaN": "NaN",
+		// symbol used for Negative Infinity
+		negativeInfinity: "-Infinity",
+		// symbol used for Positive Infinity
+		positiveInfinity: "Infinity",
+		percent: {
+			// [negativePattern, positivePattern]
+			//   negativePattern: one of "-n %|-n%|-%n|%-n|%n-|n-%|n%-|-% n|n %-|% n-|% -n|n- %"
+			//   positivePattern: one of "n %|n%|%n|% n"
+			pattern: [ "-n %", "n %" ],
+			// number of decimal places normally shown
+			decimals: 2,
+			// array of numbers indicating the size of each number group.
+			// TODO: more detailed description and example
+			groupSizes: [ 3 ],
+			// string that separates number groups, as in 1,000,000
+			",": ",",
+			// string that separates a number from the fractional portion, as in 1.99
+			".": ".",
+			// symbol used to represent a percentage
+			symbol: "%"
+		},
+		currency: {
+			// [negativePattern, positivePattern]
+			//   negativePattern: one of "($n)|-$n|$-n|$n-|(n$)|-n$|n-$|n$-|-n $|-$ n|n $-|$ n-|$ -n|n- $|($ n)|(n $)"
+			//   positivePattern: one of "$n|n$|$ n|n $"
+			pattern: [ "($n)", "$n" ],
+			// number of decimal places normally shown
+			decimals: 2,
+			// array of numbers indicating the size of each number group.
+			// TODO: more detailed description and example
+			groupSizes: [ 3 ],
+			// string that separates number groups, as in 1,000,000
+			",": ",",
+			// string that separates a number from the fractional portion, as in 1.99
+			".": ".",
+			// symbol used to represent currency
+			symbol: "$"
+		}
+	},
+	// calendars defines all the possible calendars used by this culture.
+	// There should be at least one defined with name "standard", and is the default
+	// calendar used by the culture.
+	// A calendar contains information about how dates are formatted, information about
+	// the calendar's eras, a standard set of the date formats,
+	// translations for day and month names, and if the calendar is not based on the Gregorian
+	// calendar, conversion functions to and from the Gregorian calendar.
+	calendars: {
+		standard: {
+			// name that identifies the type of calendar this is
+			name: "Gregorian_USEnglish",
+			// separator of parts of a date (e.g. "/" in 11/05/1955)
+			"/": "/",
+			// separator of parts of a time (e.g. ":" in 05:44 PM)
+			":": ":",
+			// the first day of the week (0 = Sunday, 1 = Monday, etc)
+			firstDay: 0,
+			days: {
+				// full day names
+				names: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
+				// abbreviated day names
+				namesAbbr: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+				// shortest day names
+				namesShort: [ "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" ]
+			},
+			months: {
+				// full month names (13 months for lunar calendards -- 13th month should be "" if not lunar)
+				names: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "" ],
+				// abbreviated month names
+				namesAbbr: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "" ]
+			},
+			// AM and PM designators in one of these forms:
+			// The usual view, and the upper and lower case versions
+			//   [ standard, lowercase, uppercase ]
+			// The culture does not use AM or PM (likely all standard date formats use 24 hour time)
+			//   null
+			AM: [ "AM", "am", "AM" ],
+			PM: [ "PM", "pm", "PM" ],
+			eras: [
+				// eras in reverse chronological order.
+				// name: the name of the era in this culture (e.g. A.D., C.E.)
+				// start: when the era starts in ticks (gregorian, gmt), null if it is the earliest supported era.
+				// offset: offset in years from gregorian calendar
+				{
+					"name": "A.D.",
+					"start": null,
+					"offset": 0
+				}
+			],
+			// when a two digit year is given, it will never be parsed as a four digit
+			// year greater than this year (in the appropriate era for the culture)
+			// Set it as a full year (e.g. 2029) or use an offset format starting from
+			// the current year: "+19" would correspond to 2029 if the current year 2010.
+			twoDigitYearMax: 2029,
+			// set of predefined date and time patterns used by the culture
+			// these represent the format someone in this culture would expect
+			// to see given the portions of the date that are shown.
+			patterns: {
+				// short date pattern
+				d: "M/d/yyyy",
+				// long date pattern
+				D: "dddd, MMMM dd, yyyy",
+				// short time pattern
+				t: "h:mm tt",
+				// long time pattern
+				T: "h:mm:ss tt",
+				// long date, short time pattern
+				f: "dddd, MMMM dd, yyyy h:mm tt",
+				// long date, long time pattern
+				F: "dddd, MMMM dd, yyyy h:mm:ss tt",
+				// month/day pattern
+				M: "MMMM dd",
+				// month/year pattern
+				Y: "yyyy MMMM",
+				// S is a sortable format that does not vary by culture
+				S: "yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss"
+			}
+			// optional fields for each calendar:
+			/*
+			monthsGenitive:
+				Same as months but used when the day preceeds the month.
+				Omit if the culture has no genitive distinction in month names.
+				For an explaination of genitive months, see http://blogs.msdn.com/michkap/archive/2004/12/25/332259.aspx
+			convert:
+				Allows for the support of non-gregorian based calendars. This convert object is used to
+				to convert a date to and from a gregorian calendar date to handle parsing and formatting.
+				The two functions:
+					fromGregorian( date )
+						Given the date as a parameter, return an array with parts [ year, month, day ]
+						corresponding to the non-gregorian based year, month, and day for the calendar.
+					toGregorian( year, month, day )
+						Given the non-gregorian year, month, and day, return a new Date() object
+						set to the corresponding date in the gregorian calendar.
+			*/
+		}
+	},
+	// For localized strings
+	messages: {}
+};
+
+Globalize.cultures[ "default" ].calendar = Globalize.cultures[ "default" ].calendars.standard;
+
+Globalize.cultures.en = Globalize.cultures[ "default" ];
+
+Globalize.cultureSelector = "en";
+
+//
+// private variables
+//
+
+regexHex = /^0x[a-f0-9]+$/i;
+regexInfinity = /^[+\-]?infinity$/i;
+regexParseFloat = /^[+\-]?\d*\.?\d*(e[+\-]?\d+)?$/;
+regexTrim = /^\s+|\s+$/g;
+
+//
+// private JavaScript utility functions
+//
+
+arrayIndexOf = function( array, item ) {
+	if ( array.indexOf ) {
+		return array.indexOf( item );
+	}
+	for ( var i = 0, length = array.length; i < length; i++ ) {
+		if ( array[i] === item ) {
+			return i;
+		}
+	}
+	return -1;
+};
+
+endsWith = function( value, pattern ) {
+	return value.substr( value.length - pattern.length ) === pattern;
+};
+
+extend = function() {
+	var options, name, src, copy, copyIsArray, clone,
+		target = arguments[0] || {},
+		i = 1,
+		length = arguments.length,
+		deep = false;
+
+	// Handle a deep copy situation
+	if ( typeof target === "boolean" ) {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	}
+
+	// Handle case when target is a string or something (possible in deep copy)
+	if ( typeof target !== "object" && !isFunction(target) ) {
+		target = {};
+	}
+
+	for ( ; i < length; i++ ) {
+		// Only deal with non-null/undefined values
+		if ( (options = arguments[ i ]) != null ) {
+			// Extend the base object
+			for ( name in options ) {
+				src = target[ name ];
+				copy = options[ name ];
+
+				// Prevent never-ending loop
+				if ( target === copy ) {
+					continue;
+				}
+
+				// Recurse if we're merging plain objects or arrays
+				if ( deep && copy && ( isObject(copy) || (copyIsArray = isArray(copy)) ) ) {
+					if ( copyIsArray ) {
+						copyIsArray = false;
+						clone = src && isArray(src) ? src : [];
+
+					} else {
+						clone = src && isObject(src) ? src : {};
+					}
+
+					// Never move original objects, clone them
+					target[ name ] = extend( deep, clone, copy );
+
+				// Don't bring in undefined values
+				} else if ( copy !== undefined ) {
+					target[ name ] = copy;
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+isArray = Array.isArray || function( obj ) {
+	return Object.prototype.toString.call( obj ) === "[object Array]";
+};
+
+isFunction = function( obj ) {
+	return Object.prototype.toString.call( obj ) === "[object Function]";
+};
+
+isObject = function( obj ) {
+	return Object.prototype.toString.call( obj ) === "[object Object]";
+};
+
+startsWith = function( value, pattern ) {
+	return value.indexOf( pattern ) === 0;
+};
+
+trim = function( value ) {
+	return ( value + "" ).replace( regexTrim, "" );
+};
+
+truncate = function( value ) {
+	if ( isNaN( value ) ) {
+		return NaN;
+	}
+	return Math[ value < 0 ? "ceil" : "floor" ]( value );
+};
+
+zeroPad = function( str, count, left ) {
+	var l;
+	for ( l = str.length; l < count; l += 1 ) {
+		str = ( left ? ("0" + str) : (str + "0") );
+	}
+	return str;
+};
+
+//
+// private Globalization utility functions
+//
+
+appendPreOrPostMatch = function( preMatch, strings ) {
+	// appends pre- and post- token match strings while removing escaped characters.
+	// Returns a single quote count which is used to determine if the token occurs
+	// in a string literal.
+	var quoteCount = 0,
+		escaped = false;
+	for ( var i = 0, il = preMatch.length; i < il; i++ ) {
+		var c = preMatch.charAt( i );
+		switch ( c ) {
+			case "\'":
+				if ( escaped ) {
+					strings.push( "\'" );
+				}
+				else {
+					quoteCount++;
+				}
+				escaped = false;
+				break;
+			case "\\":
+				if ( escaped ) {
+					strings.push( "\\" );
+				}
+				escaped = !escaped;
+				break;
+			default:
+				strings.push( c );
+				escaped = false;
+				break;
+		}
+	}
+	return quoteCount;
+};
+
+expandFormat = function( cal, format ) {
+	// expands unspecified or single character date formats into the full pattern.
+	format = format || "F";
+	var pattern,
+		patterns = cal.patterns,
+		len = format.length;
+	if ( len === 1 ) {
+		pattern = patterns[ format ];
+		if ( !pattern ) {
+			throw "Invalid date format string \'" + format + "\'.";
+		}
+		format = pattern;
+	}
+	else if ( len === 2 && format.charAt(0) === "%" ) {
+		// %X escape format -- intended as a custom format string that is only one character, not a built-in format.
+		format = format.charAt( 1 );
+	}
+	return format;
+};
+
+formatDate = function( value, format, culture ) {
+	var cal = culture.calendar,
+		convert = cal.convert,
+		ret;
+
+	if ( !format || !format.length || format === "i" ) {
+		if ( culture && culture.name.length ) {
+			if ( convert ) {
+				// non-gregorian calendar, so we cannot use built-in toLocaleString()
+				ret = formatDate( value, cal.patterns.F, culture );
+			}
+			else {
+				var eraDate = new Date( value.getTime() ),
+					era = getEra( value, cal.eras );
+				eraDate.setFullYear( getEraYear(value, cal, era) );
+				ret = eraDate.toLocaleString();
+			}
+		}
+		else {
+			ret = value.toString();
+		}
+		return ret;
+	}
+
+	var eras = cal.eras,
+		sortable = format === "s";
+	format = expandFormat( cal, format );
+
+	// Start with an empty string
+	ret = [];
+	var hour,
+		zeros = [ "0", "00", "000" ],
+		foundDay,
+		checkedDay,
+		dayPartRegExp = /([^d]|^)(d|dd)([^d]|$)/g,
+		quoteCount = 0,
+		tokenRegExp = getTokenRegExp(),
+		converted;
+
+	//function padZeros( num, c ) {
+	//	var r, s = num + "";
+	//	if ( c > 1 && s.length < c ) {
+	//		r = ( zeros[c - 2] + s);
+	//		return r.substr( r.length - c, c );
+	//	}
+	//	else {
+	//		r = s;
+	//	}
+	//	return r;
+	//}
+
+	function padZeros(num, c) {
+	    if (num < 0) {
+	        return "-" + padZeros(-num, c);
+	    }
+	    var r, s = num + "";
+	    if (c > 1 && s.length < c) {
+	        r = (zeros[c - 2] + s);
+	        return r.substr(r.length - c, c);
+	    }
+	    else {
+	        r = s;
+	    }
+	    return r;
+	}
+
+	function hasDay() {
+		if ( foundDay || checkedDay ) {
+			return foundDay;
+		}
+		foundDay = dayPartRegExp.test( format );
+		checkedDay = true;
+		return foundDay;
+	}
+
+	function getPart( date, part ) {
+		if ( converted ) {
+			return converted[ part ];
+		}
+		switch ( part ) {
+			case 0:
+				return date.getFullYear();
+			case 1:
+				return date.getMonth();
+			case 2:
+				return date.getDate();
+			default:
+				throw "Invalid part value " + part;
+		}
+	}
+
+	if ( !sortable && convert ) {
+		converted = convert.fromGregorian( value );
+	}
+
+	for ( ; ; ) {
+		// Save the current index
+		var index = tokenRegExp.lastIndex,
+			// Look for the next pattern
+			ar = tokenRegExp.exec( format );
+
+		// Append the text before the pattern (or the end of the string if not found)
+		var preMatch = format.slice( index, ar ? ar.index : format.length );
+		quoteCount += appendPreOrPostMatch( preMatch, ret );
+
+		if ( !ar ) {
+			break;
+		}
+
+		// do not replace any matches that occur inside a string literal.
+		if ( quoteCount % 2 ) {
+			ret.push( ar[0] );
+			continue;
+		}
+
+		var current = ar[ 0 ],
+			clength = current.length;
+
+		switch ( current ) {
+			case "ddd":
+				//Day of the week, as a three-letter abbreviation
+			case "dddd":
+				// Day of the week, using the full name
+				var names = ( clength === 3 ) ? cal.days.namesAbbr : cal.days.names;
+				ret.push( names[value.getDay()] );
+				break;
+			case "d":
+				// Day of month, without leading zero for single-digit days
+			case "dd":
+				// Day of month, with leading zero for single-digit days
+				foundDay = true;
+				ret.push(
+					padZeros( getPart(value, 2), clength )
+				);
+				break;
+			case "MMM":
+				// Month, as a three-letter abbreviation
+			case "MMMM":
+				// Month, using the full name
+				var part = getPart( value, 1 );
+				ret.push(
+					( cal.monthsGenitive && hasDay() ) ?
+					( cal.monthsGenitive[ clength === 3 ? "namesAbbr" : "names" ][ part ] ) :
+					( cal.months[ clength === 3 ? "namesAbbr" : "names" ][ part ] )
+				);
+				break;
+			case "M":
+				// Month, as digits, with no leading zero for single-digit months
+			case "MM":
+				// Month, as digits, with leading zero for single-digit months
+				ret.push(
+					padZeros( getPart(value, 1) + 1, clength )
+				);
+				break;
+			case "y":
+				// Year, as two digits, but with no leading zero for years less than 10
+			case "yy":
+				// Year, as two digits, with leading zero for years less than 10
+			case "yyyy":
+				// Year represented by four full digits
+				part = converted ? converted[ 0 ] : getEraYear( value, cal, getEra(value, eras), sortable );
+				if ( clength < 4 ) {
+					part = part % 100;
+				}
+				ret.push(
+					padZeros( part, clength )
+				);
+				break;
+			case "h":
+				// Hours with no leading zero for single-digit hours, using 12-hour clock
+			case "hh":
+				// Hours with leading zero for single-digit hours, using 12-hour clock
+				hour = value.getHours() % 12;
+				if ( hour === 0 ) hour = 12;
+				ret.push(
+					padZeros( hour, clength )
+				);
+				break;
+			case "H":
+				// Hours with no leading zero for single-digit hours, using 24-hour clock
+			case "HH":
+				// Hours with leading zero for single-digit hours, using 24-hour clock
+				ret.push(
+					padZeros( value.getHours(), clength )
+				);
+				break;
+			case "m":
+				// Minutes with no leading zero for single-digit minutes
+			case "mm":
+				// Minutes with leading zero for single-digit minutes
+				ret.push(
+					padZeros( value.getMinutes(), clength )
+				);
+				break;
+			case "s":
+				// Seconds with no leading zero for single-digit seconds
+			case "ss":
+				// Seconds with leading zero for single-digit seconds
+				ret.push(
+					padZeros( value.getSeconds(), clength )
+				);
+				break;
+			case "t":
+				// One character am/pm indicator ("a" or "p")
+			case "tt":
+				// Multicharacter am/pm indicator
+				part = value.getHours() < 12 ? ( cal.AM ? cal.AM[0] : " " ) : ( cal.PM ? cal.PM[0] : " " );
+				ret.push( clength === 1 ? part.charAt(0) : part );
+				break;
+			case "f":
+				// Deciseconds
+			case "ff":
+				// Centiseconds
+			case "fff":
+				// Milliseconds
+				ret.push(
+					padZeros( value.getMilliseconds(), 3 ).substr( 0, clength )
+				);
+				break;
+			case "z":
+				// Time zone offset, no leading zero
+			case "zz":
+				// Time zone offset with leading zero
+				hour = value.getTimezoneOffset() / 60;
+				ret.push(
+					( hour <= 0 ? "+" : "-" ) + padZeros( Math.floor(Math.abs(hour)), clength )
+				);
+				break;
+			case "zzz":
+				// Time zone offset with leading zero
+				hour = value.getTimezoneOffset() / 60;
+				ret.push(
+					( hour <= 0 ? "+" : "-" ) + padZeros( Math.floor(Math.abs(hour)), 2 ) +
+					// Hard coded ":" separator, rather than using cal.TimeSeparator
+					// Repeated here for consistency, plus ":" was already assumed in date parsing.
+					":" + padZeros( Math.abs(value.getTimezoneOffset() % 60), 2 )
+				);
+				break;
+			case "g":
+			case "gg":
+				if ( cal.eras ) {
+					ret.push(
+						cal.eras[ getEra(value, eras) ].name
+					);
+				}
+				break;
+		case "/":
+			ret.push( cal["/"] );
+			break;
+		default:
+			throw "Invalid date format pattern \'" + current + "\'.";
+		}
+	}
+	return ret.join( "" );
+};
+
+// formatNumber
+(function() {
+	var expandNumber;
+
+	expandNumber = function( number, precision, formatInfo ) {
+		var groupSizes = formatInfo.groupSizes,
+			curSize = groupSizes[ 0 ],
+			curGroupIndex = 1,
+			factor = Math.pow( 10, precision ),
+			rounded = Math.round( number * factor ) / factor;
+
+		if ( !isFinite(rounded) ) {
+			rounded = number;
+		}
+		number = rounded;
+
+		var numberString = number+"",
+			right = "",
+			split = numberString.split( /e/i ),
+			exponent = split.length > 1 ? parseInt( split[1], 10 ) : 0;
+		numberString = split[ 0 ];
+		split = numberString.split( "." );
+		numberString = split[ 0 ];
+		right = split.length > 1 ? split[ 1 ] : "";
+
+		var l;
+		if ( exponent > 0 ) {
+			right = zeroPad( right, exponent, false );
+			numberString += right.slice( 0, exponent );
+			right = right.substr( exponent );
+		}
+		else if ( exponent < 0 ) {
+			exponent = -exponent;
+			numberString = zeroPad( numberString, exponent + 1, true );
+			right = numberString.slice( -exponent, numberString.length ) + right;
+			numberString = numberString.slice( 0, -exponent );
+		}
+
+		if ( precision > 0 ) {
+			right = formatInfo[ "." ] +
+				( (right.length > precision) ? right.slice(0, precision) : zeroPad(right, precision) );
+		}
+		else {
+			right = "";
+		}
+
+		var stringIndex = numberString.length - 1,
+			sep = formatInfo[ "," ],
+			ret = "";
+
+		while ( stringIndex >= 0 ) {
+			if ( curSize === 0 || curSize > stringIndex ) {
+				return numberString.slice( 0, stringIndex + 1 ) + ( ret.length ? (sep + ret + right) : right );
+			}
+			ret = numberString.slice( stringIndex - curSize + 1, stringIndex + 1 ) + ( ret.length ? (sep + ret) : "" );
+
+			stringIndex -= curSize;
+
+			if ( curGroupIndex < groupSizes.length ) {
+				curSize = groupSizes[ curGroupIndex ];
+				curGroupIndex++;
+			}
+		}
+
+		return numberString.slice( 0, stringIndex + 1 ) + sep + ret + right;
+	};
+
+	formatNumber = function( value, format, culture ) {
+		if ( !isFinite(value) ) {
+			if ( value === Infinity ) {
+				return culture.numberFormat.positiveInfinity;
+			}
+			if ( value === -Infinity ) {
+				return culture.numberFormat.negativeInfinity;
+			}
+			return culture.numberFormat.NaN;
+		}
+		if ( !format || format === "i" ) {
+			return culture.name.length ? value.toLocaleString() : value.toString();
+		}
+		format = format || "D";
+
+		var nf = culture.numberFormat,
+			number = Math.abs( value ),
+			precision = -1,
+			pattern;
+		if ( format.length > 1 ) precision = parseInt( format.slice(1), 10 );
+
+		var current = format.charAt( 0 ).toUpperCase(),
+			formatInfo;
+
+		switch ( current ) {
+			case "D":
+				pattern = "n";
+				number = truncate( number );
+				if ( precision !== -1 ) {
+					number = zeroPad( "" + number, precision, true );
+				}
+				if ( value < 0 ) number = "-" + number;
+				break;
+			case "N":
+				formatInfo = nf;
+				/* falls through */
+			case "C":
+				formatInfo = formatInfo || nf.currency;
+				/* falls through */
+			case "P":
+				formatInfo = formatInfo || nf.percent;
+				pattern = value < 0 ? formatInfo.pattern[ 0 ] : ( formatInfo.pattern[1] || "n" );
+				if ( precision === -1 ) precision = formatInfo.decimals;
+				number = expandNumber( number * (current === "P" ? 100 : 1), precision, formatInfo );
+				break;
+			default:
+				throw "Bad number format specifier: " + current;
+		}
+
+		var patternParts = /n|\$|-|%/g,
+			ret = "";
+		for ( ; ; ) {
+			var index = patternParts.lastIndex,
+				ar = patternParts.exec( pattern );
+
+			ret += pattern.slice( index, ar ? ar.index : pattern.length );
+
+			if ( !ar ) {
+				break;
+			}
+
+			switch ( ar[0] ) {
+				case "n":
+					ret += number;
+					break;
+				case "$":
+					ret += nf.currency.symbol;
+					break;
+				case "-":
+					// don't make 0 negative
+					if ( /[1-9]/.test(number) ) {
+						ret += nf[ "-" ];
+					}
+					break;
+				case "%":
+					ret += nf.percent.symbol;
+					break;
+			}
+		}
+
+		return ret;
+	};
+
+}());
+
+getTokenRegExp = function() {
+	// regular expression for matching date and time tokens in format strings.
+	return (/\/|dddd|ddd|dd|d|MMMM|MMM|MM|M|yyyy|yy|y|hh|h|HH|H|mm|m|ss|s|tt|t|fff|ff|f|zzz|zz|z|gg|g/g);
+};
+
+getEra = function( date, eras ) {
+	if ( !eras ) return 0;
+	var start, ticks = date.getTime();
+	for ( var i = 0, l = eras.length; i < l; i++ ) {
+		start = eras[ i ].start;
+		if ( start === null || ticks >= start ) {
+			return i;
+		}
+	}
+	return 0;
+};
+
+getEraYear = function( date, cal, era, sortable ) {
+	var year = date.getFullYear();
+	if ( !sortable && cal.eras ) {
+		// convert normal gregorian year to era-shifted gregorian
+		// year by subtracting the era offset
+		year -= cal.eras[ era ].offset;
+	}
+	return year;
+};
+
+// parseExact
+(function() {
+	var expandYear,
+		getDayIndex,
+		getMonthIndex,
+		getParseRegExp,
+		outOfRange,
+		toUpper,
+		toUpperArray;
+
+	expandYear = function( cal, year ) {
+		// expands 2-digit year into 4 digits.
+		if ( year < 100 ) {
+			var now = new Date(),
+				era = getEra( now ),
+				curr = getEraYear( now, cal, era ),
+				twoDigitYearMax = cal.twoDigitYearMax;
+			twoDigitYearMax = typeof twoDigitYearMax === "string" ? new Date().getFullYear() % 100 + parseInt( twoDigitYearMax, 10 ) : twoDigitYearMax;
+			year += curr - ( curr % 100 );
+			if ( year > twoDigitYearMax ) {
+				year -= 100;
+			}
+		}
+		return year;
+	};
+
+	getDayIndex = function	( cal, value, abbr ) {
+		var ret,
+			days = cal.days,
+			upperDays = cal._upperDays;
+		if ( !upperDays ) {
+			cal._upperDays = upperDays = [
+				toUpperArray( days.names ),
+				toUpperArray( days.namesAbbr ),
+				toUpperArray( days.namesShort )
+			];
+		}
+		value = toUpper( value );
+		if ( abbr ) {
+			ret = arrayIndexOf( upperDays[1], value );
+			if ( ret === -1 ) {
+				ret = arrayIndexOf( upperDays[2], value );
+			}
+		}
+		else {
+			ret = arrayIndexOf( upperDays[0], value );
+		}
+		return ret;
+	};
+
+	getMonthIndex = function( cal, value, abbr ) {
+		var months = cal.months,
+			monthsGen = cal.monthsGenitive || cal.months,
+			upperMonths = cal._upperMonths,
+			upperMonthsGen = cal._upperMonthsGen;
+		if ( !upperMonths ) {
+			cal._upperMonths = upperMonths = [
+				toUpperArray( months.names ),
+				toUpperArray( months.namesAbbr )
+			];
+			cal._upperMonthsGen = upperMonthsGen = [
+				toUpperArray( monthsGen.names ),
+				toUpperArray( monthsGen.namesAbbr )
+			];
+		}
+		value = toUpper( value );
+		var i = arrayIndexOf( abbr ? upperMonths[1] : upperMonths[0], value );
+		if ( i < 0 ) {
+			i = arrayIndexOf( abbr ? upperMonthsGen[1] : upperMonthsGen[0], value );
+		}
+		return i;
+	};
+
+	getParseRegExp = function( cal, format ) {
+		// converts a format string into a regular expression with groups that
+		// can be used to extract date fields from a date string.
+		// check for a cached parse regex.
+		var re = cal._parseRegExp;
+		if ( !re ) {
+			cal._parseRegExp = re = {};
+		}
+		else {
+			var reFormat = re[ format ];
+			if ( reFormat ) {
+				return reFormat;
+			}
+		}
+
+		// expand single digit formats, then escape regular expression characters.
+		var expFormat = expandFormat( cal, format ).replace( /([\^\$\.\*\+\?\|\[\]\(\)\{\}])/g, "\\\\$1" ),
+			regexp = [ "^" ],
+			groups = [],
+			index = 0,
+			quoteCount = 0,
+			tokenRegExp = getTokenRegExp(),
+			match;
+
+		// iterate through each date token found.
+		while ( (match = tokenRegExp.exec(expFormat)) !== null ) {
+			var preMatch = expFormat.slice( index, match.index );
+			index = tokenRegExp.lastIndex;
+
+			// don't replace any matches that occur inside a string literal.
+			quoteCount += appendPreOrPostMatch( preMatch, regexp );
+			if ( quoteCount % 2 ) {
+				regexp.push( match[0] );
+				continue;
+			}
+
+			// add a regex group for the token.
+			var m = match[ 0 ],
+				len = m.length,
+				add;
+			switch ( m ) {
+				case "dddd": case "ddd":
+				case "MMMM": case "MMM":
+				case "gg": case "g":
+					add = "(\\D+)";
+					break;
+				case "tt": case "t":
+					add = "(\\D*)";
+					break;
+				case "yyyy":
+				case "fff":
+				case "ff":
+				case "f":
+					add = "(\\d{" + len + "})";
+					break;
+				case "dd": case "d":
+				case "MM": case "M":
+				case "yy": case "y":
+				case "HH": case "H":
+				case "hh": case "h":
+				case "mm": case "m":
+				case "ss": case "s":
+					add = "(\\d\\d?)";
+					break;
+				case "zzz":
+					add = "([+-]?\\d\\d?:\\d{2})";
+					break;
+				case "zz": case "z":
+					add = "([+-]?\\d\\d?)";
+					break;
+				case "/":
+					add = "(\\/)";
+					break;
+				default:
+					throw "Invalid date format pattern \'" + m + "\'.";
+			}
+			if ( add ) {
+				regexp.push( add );
+			}
+			groups.push( match[0] );
+		}
+		appendPreOrPostMatch( expFormat.slice(index), regexp );
+		regexp.push( "$" );
+
+		// allow whitespace to differ when matching formats.
+		var regexpStr = regexp.join( "" ).replace( /\s+/g, "\\s+" ),
+			parseRegExp = { "regExp": regexpStr, "groups": groups };
+
+		// cache the regex for this format.
+		return re[ format ] = parseRegExp;
+	};
+
+	outOfRange = function( value, low, high ) {
+		return value < low || value > high;
+	};
+
+	toUpper = function( value ) {
+		// "he-IL" has non-breaking space in weekday names.
+		return value.split( "\u00A0" ).join( " " ).toUpperCase();
+	};
+
+	toUpperArray = function( arr ) {
+		var results = [];
+		for ( var i = 0, l = arr.length; i < l; i++ ) {
+			results[ i ] = toUpper( arr[i] );
+		}
+		return results;
+	};
+
+	parseExact = function( value, format, culture ) {
+		// try to parse the date string by matching against the format string
+		// while using the specified culture for date field names.
+		value = trim( value );
+		var cal = culture.calendar,
+			// convert date formats into regular expressions with groupings.
+			// use the regexp to determine the input format and extract the date fields.
+			parseInfo = getParseRegExp( cal, format ),
+			match = new RegExp( parseInfo.regExp ).exec( value );
+		if ( match === null ) {
+			return null;
+		}
+		// found a date format that matches the input.
+		var groups = parseInfo.groups,
+			era = null, year = null, month = null, date = null, weekDay = null,
+			hour = 0, hourOffset, min = 0, sec = 0, msec = 0, tzMinOffset = null,
+			pmHour = false;
+		// iterate the format groups to extract and set the date fields.
+		for ( var j = 0, jl = groups.length; j < jl; j++ ) {
+			var matchGroup = match[ j + 1 ];
+			if ( matchGroup ) {
+				var current = groups[ j ],
+					clength = current.length,
+					matchInt = parseInt( matchGroup, 10 );
+				switch ( current ) {
+					case "dd": case "d":
+						// Day of month.
+						date = matchInt;
+						// check that date is generally in valid range, also checking overflow below.
+						if ( outOfRange(date, 1, 31) ) return null;
+						break;
+					case "MMM": case "MMMM":
+						month = getMonthIndex( cal, matchGroup, clength === 3 );
+						if ( outOfRange(month, 0, 11) ) return null;
+						break;
+					case "M": case "MM":
+						// Month.
+						month = matchInt - 1;
+						if ( outOfRange(month, 0, 11) ) return null;
+						break;
+					case "y": case "yy":
+					case "yyyy":
+						year = clength < 4 ? expandYear( cal, matchInt ) : matchInt;
+						if ( outOfRange(year, 0, 9999) ) return null;
+						break;
+					case "h": case "hh":
+						// Hours (12-hour clock).
+						hour = matchInt;
+						if ( hour === 12 ) hour = 0;
+						if ( outOfRange(hour, 0, 11) ) return null;
+						break;
+					case "H": case "HH":
+						// Hours (24-hour clock).
+						hour = matchInt;
+						if ( outOfRange(hour, 0, 23) ) return null;
+						break;
+					case "m": case "mm":
+						// Minutes.
+						min = matchInt;
+						if ( outOfRange(min, 0, 59) ) return null;
+						break;
+					case "s": case "ss":
+						// Seconds.
+						sec = matchInt;
+						if ( outOfRange(sec, 0, 59) ) return null;
+						break;
+					case "tt": case "t":
+						// AM/PM designator.
+						// see if it is standard, upper, or lower case PM. If not, ensure it is at least one of
+						// the AM tokens. If not, fail the parse for this format.
+						pmHour = cal.PM && ( matchGroup === cal.PM[0] || matchGroup === cal.PM[1] || matchGroup === cal.PM[2] );
+						if (
+							!pmHour && (
+								!cal.AM || ( matchGroup !== cal.AM[0] && matchGroup !== cal.AM[1] && matchGroup !== cal.AM[2] )
+							)
+						) return null;
+						break;
+					case "f":
+						// Deciseconds.
+					case "ff":
+						// Centiseconds.
+					case "fff":
+						// Milliseconds.
+						msec = matchInt * Math.pow( 10, 3 - clength );
+						if ( outOfRange(msec, 0, 999) ) return null;
+						break;
+					case "ddd":
+						// Day of week.
+					case "dddd":
+						// Day of week.
+						weekDay = getDayIndex( cal, matchGroup, clength === 3 );
+						if ( outOfRange(weekDay, 0, 6) ) return null;
+						break;
+					case "zzz":
+						// Time zone offset in +/- hours:min.
+						var offsets = matchGroup.split( /:/ );
+						if ( offsets.length !== 2 ) return null;
+						hourOffset = parseInt( offsets[0], 10 );
+						if ( outOfRange(hourOffset, -12, 13) ) return null;
+						var minOffset = parseInt( offsets[1], 10 );
+						if ( outOfRange(minOffset, 0, 59) ) return null;
+						tzMinOffset = ( hourOffset * 60 ) + ( startsWith(matchGroup, "-") ? -minOffset : minOffset );
+						break;
+					case "z": case "zz":
+						// Time zone offset in +/- hours.
+						hourOffset = matchInt;
+						if ( outOfRange(hourOffset, -12, 13) ) return null;
+						tzMinOffset = hourOffset * 60;
+						break;
+					case "g": case "gg":
+						var eraName = matchGroup;
+						if ( !eraName || !cal.eras ) return null;
+						eraName = trim( eraName.toLowerCase() );
+						for ( var i = 0, l = cal.eras.length; i < l; i++ ) {
+							if ( eraName === cal.eras[i].name.toLowerCase() ) {
+								era = i;
+								break;
+							}
+						}
+						// could not find an era with that name
+						if ( era === null ) return null;
+						break;
+				}
+			}
+		}
+		var result = new Date(), defaultYear, convert = cal.convert;
+		defaultYear = convert ? convert.fromGregorian( result )[ 0 ] : result.getFullYear();
+		if ( year === null ) {
+			year = defaultYear;
+		}
+		else if ( cal.eras ) {
+			// year must be shifted to normal gregorian year
+			// but not if year was not specified, its already normal gregorian
+			// per the main if clause above.
+			year += cal.eras[( era || 0 )].offset;
+		}
+		// set default day and month to 1 and January, so if unspecified, these are the defaults
+		// instead of the current day/month.
+		if ( month === null ) {
+			month = 0;
+		}
+		if ( date === null ) {
+			date = 1;
+		}
+		// now have year, month, and date, but in the culture's calendar.
+		// convert to gregorian if necessary
+		if ( convert ) {
+			result = convert.toGregorian( year, month, date );
+			// conversion failed, must be an invalid match
+			if ( result === null ) return null;
+		}
+		else {
+			// have to set year, month and date together to avoid overflow based on current date.
+			result.setFullYear( year, month, date );
+			// check to see if date overflowed for specified month (only checked 1-31 above).
+			if ( result.getDate() !== date ) return null;
+			// invalid day of week.
+			if ( weekDay !== null && result.getDay() !== weekDay ) {
+				return null;
+			}
+		}
+		// if pm designator token was found make sure the hours fit the 24-hour clock.
+		if ( pmHour && hour < 12 ) {
+			hour += 12;
+		}
+		result.setHours( hour, min, sec, msec );
+		if ( tzMinOffset !== null ) {
+			// adjust timezone to utc before applying local offset.
+			var adjustedMin = result.getMinutes() - ( tzMinOffset + result.getTimezoneOffset() );
+			// Safari limits hours and minutes to the range of -127 to 127.  We need to use setHours
+			// to ensure both these fields will not exceed this range.	adjustedMin will range
+			// somewhere between -1440 and 1500, so we only need to split this into hours.
+			result.setHours( result.getHours() + parseInt(adjustedMin / 60, 10), adjustedMin % 60 );
+		}
+		return result;
+	};
+}());
+
+parseNegativePattern = function( value, nf, negativePattern ) {
+	var neg = nf[ "-" ],
+		pos = nf[ "+" ],
+		ret;
+	switch ( negativePattern ) {
+		case "n -":
+			neg = " " + neg;
+			pos = " " + pos;
+			/* falls through */
+		case "n-":
+			if ( endsWith(value, neg) ) {
+				ret = [ "-", value.substr(0, value.length - neg.length) ];
+			}
+			else if ( endsWith(value, pos) ) {
+				ret = [ "+", value.substr(0, value.length - pos.length) ];
+			}
+			break;
+		case "- n":
+			neg += " ";
+			pos += " ";
+			/* falls through */
+		case "-n":
+			if ( startsWith(value, neg) ) {
+				ret = [ "-", value.substr(neg.length) ];
+			}
+			else if ( startsWith(value, pos) ) {
+				ret = [ "+", value.substr(pos.length) ];
+			}
+			break;
+		case "(n)":
+			if ( startsWith(value, "(") && endsWith(value, ")") ) {
+				ret = [ "-", value.substr(1, value.length - 2) ];
+			}
+			break;
+	}
+	return ret || [ "", value ];
+};
+
+//
+// public instance functions
+//
+
+Globalize.prototype.findClosestCulture = function( cultureSelector ) {
+	return Globalize.findClosestCulture.call( this, cultureSelector );
+};
+
+Globalize.prototype.format = function( value, format, cultureSelector ) {
+	return Globalize.format.call( this, value, format, cultureSelector );
+};
+
+Globalize.prototype.localize = function( key, cultureSelector ) {
+	return Globalize.localize.call( this, key, cultureSelector );
+};
+
+Globalize.prototype.parseInt = function( value, radix, cultureSelector ) {
+	return Globalize.parseInt.call( this, value, radix, cultureSelector );
+};
+
+Globalize.prototype.parseFloat = function( value, radix, cultureSelector ) {
+	return Globalize.parseFloat.call( this, value, radix, cultureSelector );
+};
+
+Globalize.prototype.culture = function( cultureSelector ) {
+	return Globalize.culture.call( this, cultureSelector );
+};
+
+//
+// public singleton functions
+//
+
+Globalize.addCultureInfo = function( cultureName, baseCultureName, info ) {
+
+	var base = {},
+		isNew = false;
+
+	if ( typeof cultureName !== "string" ) {
+		// cultureName argument is optional string. If not specified, assume info is first
+		// and only argument. Specified info deep-extends current culture.
+		info = cultureName;
+		cultureName = this.culture().name;
+		base = this.cultures[ cultureName ];
+	} else if ( typeof baseCultureName !== "string" ) {
+		// baseCultureName argument is optional string. If not specified, assume info is second
+		// argument. Specified info deep-extends specified culture.
+		// If specified culture does not exist, create by deep-extending default
+		info = baseCultureName;
+		isNew = ( this.cultures[ cultureName ] == null );
+		base = this.cultures[ cultureName ] || this.cultures[ "default" ];
+	} else {
+		// cultureName and baseCultureName specified. Assume a new culture is being created
+		// by deep-extending an specified base culture
+		isNew = true;
+		base = this.cultures[ baseCultureName ];
+	}
+
+	this.cultures[ cultureName ] = extend(true, {},
+		base,
+		info
+	);
+	// Make the standard calendar the current culture if it's a new culture
+	if ( isNew ) {
+		this.cultures[ cultureName ].calendar = this.cultures[ cultureName ].calendars.standard;
+	}
+};
+
+Globalize.findClosestCulture = function( name ) {
+	var match;
+	if ( !name ) {
+		return this.findClosestCulture( this.cultureSelector ) || this.cultures[ "default" ];
+	}
+	if ( typeof name === "string" ) {
+		name = name.split( "," );
+	}
+	if ( isArray(name) ) {
+		var lang,
+			cultures = this.cultures,
+			list = name,
+			i, l = list.length,
+			prioritized = [];
+		for ( i = 0; i < l; i++ ) {
+			name = trim( list[i] );
+			var pri, parts = name.split( ";" );
+			lang = trim( parts[0] );
+			if ( parts.length === 1 ) {
+				pri = 1;
+			}
+			else {
+				name = trim( parts[1] );
+				if ( name.indexOf("q=") === 0 ) {
+					name = name.substr( 2 );
+					pri = parseFloat( name );
+					pri = isNaN( pri ) ? 0 : pri;
+				}
+				else {
+					pri = 1;
+				}
+			}
+			prioritized.push({ lang: lang, pri: pri });
+		}
+		prioritized.sort(function( a, b ) {
+			if ( a.pri < b.pri ) {
+				return 1;
+			} else if ( a.pri > b.pri ) {
+				return -1;
+			}
+			return 0;
+		});
+		// exact match
+		for ( i = 0; i < l; i++ ) {
+			lang = prioritized[ i ].lang;
+			match = cultures[ lang ];
+			if ( match ) {
+				return match;
+			}
+		}
+
+		// neutral language match
+		for ( i = 0; i < l; i++ ) {
+			lang = prioritized[ i ].lang;
+			do {
+				var index = lang.lastIndexOf( "-" );
+				if ( index === -1 ) {
+					break;
+				}
+				// strip off the last part. e.g. en-US => en
+				lang = lang.substr( 0, index );
+				match = cultures[ lang ];
+				if ( match ) {
+					return match;
+				}
+			}
+			while ( 1 );
+		}
+
+		// last resort: match first culture using that language
+		for ( i = 0; i < l; i++ ) {
+			lang = prioritized[ i ].lang;
+			for ( var cultureKey in cultures ) {
+				var culture = cultures[ cultureKey ];
+				if ( culture.language == lang ) {
+					return culture;
+				}
+			}
+		}
+	}
+	else if ( typeof name === "object" ) {
+		return name;
+	}
+	return match || null;
+};
+
+Globalize.format = function( value, format, cultureSelector ) {
+	var culture = this.findClosestCulture( cultureSelector );
+	if ( value instanceof Date ) {
+		value = formatDate( value, format, culture );
+	}
+	else if ( typeof value === "number" ) {
+		value = formatNumber( value, format, culture );
+	}
+	return value;
+};
+
+Globalize.localize = function( key, cultureSelector ) {
+	return this.findClosestCulture( cultureSelector ).messages[ key ] ||
+		this.cultures[ "default" ].messages[ key ];
+};
+
+Globalize.parseDate = function( value, formats, culture ) {
+	culture = this.findClosestCulture( culture );
+
+	var date, prop, patterns;
+	if ( formats ) {
+		if ( typeof formats === "string" ) {
+			formats = [ formats ];
+		}
+		if ( formats.length ) {
+			for ( var i = 0, l = formats.length; i < l; i++ ) {
+				var format = formats[ i ];
+				if ( format ) {
+					date = parseExact( value, format, culture );
+					if ( date ) {
+						break;
+					}
+				}
+			}
+		}
+	} else {
+		patterns = culture.calendar.patterns;
+		for ( prop in patterns ) {
+			date = parseExact( value, patterns[prop], culture );
+			if ( date ) {
+				break;
+			}
+		}
+	}
+
+	return date || null;
+};
+
+Globalize.parseInt = function( value, radix, cultureSelector ) {
+	return truncate( Globalize.parseFloat(value, radix, cultureSelector) );
+};
+
+Globalize.parseFloat = function( value, radix, cultureSelector ) {
+	// radix argument is optional
+	if ( typeof radix !== "number" ) {
+		cultureSelector = radix;
+		radix = 10;
+	}
+
+	var culture = this.findClosestCulture( cultureSelector );
+	var ret = NaN,
+		nf = culture.numberFormat;
+
+	if ( value.indexOf(culture.numberFormat.currency.symbol) > -1 ) {
+		// remove currency symbol
+		value = value.replace( culture.numberFormat.currency.symbol, "" );
+		// replace decimal seperator
+		value = value.replace( culture.numberFormat.currency["."], culture.numberFormat["."] );
+	}
+
+	//Remove percentage character from number string before parsing
+	if ( value.indexOf(culture.numberFormat.percent.symbol) > -1){
+		value = value.replace( culture.numberFormat.percent.symbol, "" );
+	}
+
+	// remove spaces: leading, trailing and between - and number. Used for negative currency pt-BR
+	value = value.replace( / /g, "" );
+
+	// allow infinity or hexidecimal
+	if ( regexInfinity.test(value) ) {
+		ret = parseFloat( value );
+	}
+	else if ( !radix && regexHex.test(value) ) {
+		ret = parseInt( value, 16 );
+	}
+	else {
+
+		// determine sign and number
+		var signInfo = parseNegativePattern( value, nf, nf.pattern[0] ),
+			sign = signInfo[ 0 ],
+			num = signInfo[ 1 ];
+
+		// #44 - try parsing as "(n)"
+		if ( sign === "" && nf.pattern[0] !== "(n)" ) {
+			signInfo = parseNegativePattern( value, nf, "(n)" );
+			sign = signInfo[ 0 ];
+			num = signInfo[ 1 ];
+		}
+
+		// try parsing as "-n"
+		if ( sign === "" && nf.pattern[0] !== "-n" ) {
+			signInfo = parseNegativePattern( value, nf, "-n" );
+			sign = signInfo[ 0 ];
+			num = signInfo[ 1 ];
+		}
+
+		sign = sign || "+";
+
+		// determine exponent and number
+		var exponent,
+			intAndFraction,
+			exponentPos = num.indexOf( "e" );
+		if ( exponentPos < 0 ) exponentPos = num.indexOf( "E" );
+		if ( exponentPos < 0 ) {
+			intAndFraction = num;
+			exponent = null;
+		}
+		else {
+			intAndFraction = num.substr( 0, exponentPos );
+			exponent = num.substr( exponentPos + 1 );
+		}
+		// determine decimal position
+		var integer,
+			fraction,
+			decSep = nf[ "." ],
+			decimalPos = intAndFraction.indexOf( decSep );
+		if ( decimalPos < 0 ) {
+			integer = intAndFraction;
+			fraction = null;
+		}
+		else {
+			integer = intAndFraction.substr( 0, decimalPos );
+			fraction = intAndFraction.substr( decimalPos + decSep.length );
+		}
+		// handle groups (e.g. 1,000,000)
+		var groupSep = nf[ "," ];
+		integer = integer.split( groupSep ).join( "" );
+		var altGroupSep = groupSep.replace( /\u00A0/g, " " );
+		if ( groupSep !== altGroupSep ) {
+			integer = integer.split( altGroupSep ).join( "" );
+		}
+		// build a natively parsable number string
+		var p = sign + integer;
+		if ( fraction !== null ) {
+			p += "." + fraction;
+		}
+		if ( exponent !== null ) {
+			// exponent itself may have a number patternd
+			var expSignInfo = parseNegativePattern( exponent, nf, "-n" );
+			p += "e" + ( expSignInfo[0] || "+" ) + expSignInfo[ 1 ];
+		}
+		if ( regexParseFloat.test(p) ) {
+			ret = parseFloat( p );
+		}
+	}
+	return ret;
+};
+
+Globalize.culture = function( cultureSelector ) {
+	// setter
+	if ( typeof cultureSelector !== "undefined" ) {
+		this.cultureSelector = cultureSelector;
+	}
+	// getter
+	return this.findClosestCulture( cultureSelector ) || this.cultures[ "default" ];
+};
+
+document.Globalize = Globalize;
+}(this));
 ;
