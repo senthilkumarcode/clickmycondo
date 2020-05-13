@@ -74,6 +74,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../shared/components/user-moveout/user-moveout.component */
     "./src/app/shared/components/user-moveout/user-moveout.component.ts");
+    /* harmony import */
+
+
+    var src_app_shared_components_movein_history_movein_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/components/movein-history/movein-history.component */
+    "./src/app/shared/components/movein-history/movein-history.component.ts");
 
     var routes = [{
       path: '',
@@ -85,6 +91,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       path: 'moveout',
       component: _shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_4__["UserMoveoutComponent"]
+    }, {
+      path: 'history',
+      component: src_app_shared_components_movein_history_movein_history_component__WEBPACK_IMPORTED_MODULE_5__["MoveinHistoryComponent"]
     }, {
       path: '**',
       redirectTo: 'movein',

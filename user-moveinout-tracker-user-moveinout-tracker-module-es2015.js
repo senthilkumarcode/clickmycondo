@@ -28,6 +28,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/components/user-movein/user-movein.component */ "./src/app/shared/components/user-movein/user-movein.component.ts");
 /* harmony import */ var _shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/components/user-moveout/user-moveout.component */ "./src/app/shared/components/user-moveout/user-moveout.component.ts");
+/* harmony import */ var src_app_shared_components_movein_history_movein_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/components/movein-history/movein-history.component */ "./src/app/shared/components/movein-history/movein-history.component.ts");
+
 
 
 
@@ -37,6 +39,7 @@ const routes = [
     { path: '', redirectTo: 'movein', pathMatch: 'full' },
     { path: 'movein', component: _shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_3__["UserMoveinComponent"] },
     { path: 'moveout', component: _shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_4__["UserMoveoutComponent"] },
+    { path: 'history', component: src_app_shared_components_movein_history_movein_history_component__WEBPACK_IMPORTED_MODULE_5__["MoveinHistoryComponent"] },
     { path: '**', redirectTo: 'movein', pathMatch: 'full' }
 ];
 let UserMoveinoutTrackerRoutingModule = class UserMoveinoutTrackerRoutingModule {
