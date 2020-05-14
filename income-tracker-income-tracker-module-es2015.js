@@ -204,7 +204,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-view-defaulters-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDefaultersDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDefaultersDataLoaded\">\n\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>View Defaulters <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"defaultData\" >\n\t    \t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\t  \t\t\t\n\t  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\" class=\"select\">\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t\t    id=\"selectAllDefaulters\" \n\t\t\t\t\t\t\t\t    name=\"selectAllDefaulters\" \n\t\t\t\t\t\t\t\t    [(ngModel)]=\"selectAllDefaulters\"\n\t                            \t(ngModelChange)=\"getAllDefaulters()\" >\n\t\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"selectAllDefaulters\"></label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t      \t</div>\n\t\t\t\t     \t  </th>\n\t\t\t\t\t      <th scope=\"col\">Type\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('type')\" [ngClass]=\"getFieldOrderBy('type')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" [(ngModel)]=\"columnField['type']\" (ngModelChange)=\"selectColInput('type')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Unit\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('unit')\" [ngClass]=\"getFieldOrderBy('unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Unit\" [(ngModel)]=\"columnField['Unit']\" (ngModelChange)=\"selectColInput('Unit')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Primary Contact \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('primaryContact')\" [ngClass]=\"getFieldOrderBy('primaryContact')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Primary Contact\" [(ngModel)]=\"columnField['primaryContact']\" (ngModelChange)=\"selectColInput('primaryContact')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Phone\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('phone')\" [ngClass]=\"getFieldOrderBy('phone')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phone']\" (ngModelChange)=\"selectColInput('phone')\" >\n\t\t\t\t\t      \t</th>\n\t\t\t\t\t      <th scope=\"col\">Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('due')\" [ngClass]=\"getFieldOrderBy('due')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"columnField['due']\" (ngModelChange)=\"selectColInput('due')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Email\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('emailSetting')\" [ngClass]=\"getFieldOrderBy('emailSetting')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['emailSetting']\" (ngModelChange)=\"selectColInput('emailSetting')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let default of defaultDataList | simpleSearch: defaultData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex  ; let i = index\" [ngClass]=\"default.checked ? 'selected' : ''\">\n\t\t\t\t\t      <td class=\"select\">\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t\t    id=\"{{default.invoiceNumber}}\" \n\t\t                            name=\"{{default.invoiceNumber}}\"\n\t\t                            [(ngModel)]=\"default.checked\"\n\t\t                            (ngModelChange)=\"getSelectedAllDefaulters(default)\"\n\t\t\t\t\t\t\t\t    >\n\t\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"{{default.invoiceNumber}}\"></label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t      \t</div>\n\t\t\t\t      \t  </td>\n\t\t\t\t\t      <td class=\"name\">{{default.type}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.unit}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.primaryContact}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.phone}}</td>\n\t\t\t\t\t      <td class=\"name\">{{default.due}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.emailSetting}}</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper\">\n\t\t\t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendEmail()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send Email</span>\n\t    \t\t\t</a>\n\t    \t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendSMS()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send SMS</span>\n\t    \t\t\t</a>\n\t    \t\t\t<!-- <form name=\"sendMessage\" novalidate>\n\t\t    \t\t\t<div class=\"input-box radio-box\">\n\t\t\t    \t\t\t<div class=\"form-group\">\n\t\t                        <input name=\"sendMessage\" id=\"email\" [(ngModel)]=\"sendEmail\"  value=\"email\" type=\"radio\"required>\n\t\t                        <label class=\"radio-inline\" for=\"email\">Email</label>\n\t\t             \t\t</div>\n\t\t\t\t            <div class=\"form-group\">\n\t\t\t                    <input name=\"sendMessage\" id=\"sendSms\" [(ngModel)]=\"sendSms\" value=\"2\" type=\"radio\"required>\n\t\t\t                    <label class=\"radio-inline\" for=\"sendSms\">SMS</label>\n\t\t\t\t            </div>\n\t\t\t            </div>\n\t\t        \t</form> -->\n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-view-defaulters-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDefaultersDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDefaultersDataLoaded\">\n\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>View Defaulters <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"defaultData\" (ngModelChange)=\"onSearchFilter()\">\n\t\t\t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"defaultDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t[selectionmode]=\"'none'\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t\t<div class=\"button-wrapper\">\n\t\t\t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendEmail()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send Email</span>\n\t    \t\t\t</a>\n\t    \t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendSMS()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send SMS</span>\n\t    \t\t\t</a>\n\t\t\t\t</div>  \n\t  \t\t\t\n\t  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\" class=\"select\">\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t\t    id=\"selectAllDefaulters\" \n\t\t\t\t\t\t\t\t    name=\"selectAllDefaulters\" \n\t\t\t\t\t\t\t\t    [(ngModel)]=\"selectAllDefaulters\"\n\t                            \t(ngModelChange)=\"getAllDefaulters()\" >\n\t\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"selectAllDefaulters\"></label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t      \t</div>\n\t\t\t\t     \t  </th>\n\t\t\t\t\t      <th scope=\"col\">Type\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('type')\" [ngClass]=\"getFieldOrderBy('type')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" [(ngModel)]=\"columnField['type']\" (ngModelChange)=\"selectColInput('type')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Unit\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('unit')\" [ngClass]=\"getFieldOrderBy('unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Unit\" [(ngModel)]=\"columnField['Unit']\" (ngModelChange)=\"selectColInput('Unit')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Primary Contact \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('primaryContact')\" [ngClass]=\"getFieldOrderBy('primaryContact')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Primary Contact\" [(ngModel)]=\"columnField['primaryContact']\" (ngModelChange)=\"selectColInput('primaryContact')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Phone\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('phone')\" [ngClass]=\"getFieldOrderBy('phone')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phone']\" (ngModelChange)=\"selectColInput('phone')\" >\n\t\t\t\t\t      \t</th>\n\t\t\t\t\t      <th scope=\"col\">Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('due')\" [ngClass]=\"getFieldOrderBy('due')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"columnField['due']\" (ngModelChange)=\"selectColInput('due')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Email\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('emailSetting')\" [ngClass]=\"getFieldOrderBy('emailSetting')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['emailSetting']\" (ngModelChange)=\"selectColInput('emailSetting')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let default of defaultDataList | simpleSearch: defaultData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex  ; let i = index\" [ngClass]=\"default.checked ? 'selected' : ''\">\n\t\t\t\t\t      <td class=\"select\">\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t\t    id=\"{{default.invoiceNumber}}\" \n\t\t                            name=\"{{default.invoiceNumber}}\"\n\t\t                            [(ngModel)]=\"default.checked\"\n\t\t                            (ngModelChange)=\"getSelectedAllDefaulters(default)\"\n\t\t\t\t\t\t\t\t    >\n\t\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"{{default.invoiceNumber}}\"></label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t      \t</div>\n\t\t\t\t      \t  </td>\n\t\t\t\t\t      <td class=\"name\">{{default.type}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.unit}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.primaryContact}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.phone}}</td>\n\t\t\t\t\t      <td class=\"name\">{{default.due}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.emailSetting}}</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper\">\n\t\t\t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendEmail()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send Email</span>\n\t    \t\t\t</a>\n\t    \t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendSMS()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send SMS</span>\n\t    \t\t\t</a>\n\t    \t\t\t<form name=\"sendMessage\" novalidate>\n\t\t    \t\t\t<div class=\"input-box radio-box\">\n\t\t\t    \t\t\t<div class=\"form-group\">\n\t\t                        <input name=\"sendMessage\" id=\"email\" [(ngModel)]=\"sendEmail\"  value=\"email\" type=\"radio\"required>\n\t\t                        <label class=\"radio-inline\" for=\"email\">Email</label>\n\t\t             \t\t</div>\n\t\t\t\t            <div class=\"form-group\">\n\t\t\t                    <input name=\"sendMessage\" id=\"sendSms\" [(ngModel)]=\"sendSms\" value=\"2\" type=\"radio\"required>\n\t\t\t                    <label class=\"radio-inline\" for=\"sendSms\">SMS</label>\n\t\t\t\t            </div>\n\t\t\t            </div>\n\t\t        \t</form> \n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination> -->\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n");
 
 /***/ }),
 
@@ -3637,11 +3637,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+
 
 
 
@@ -3660,50 +3662,63 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
         this.cookieService = cookieService;
         this.isDefaultersDataLoaded = false;
         this.defaultData = "";
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
-        this.unitFieldType = "type";
-        this.unitOrder = true;
-        this.isMobile = false;
         this.isDefaultSelected = false;
         this.selectAllDefaulters = false;
         this.sendMessage = null;
-        this.selectedInput = "";
-        this.columnField = {};
     }
-    getIndexParams(event) {
-        this.ItemStartIndex = event.ItemStartIndex;
-        this.ItemEndIndex = event.ItemEndIndex;
-        this.itemLimit = event.itemLimit;
-    }
-    sortUnitData(type) {
-        this.unitFieldType = type;
-        this.unitOrder = !this.unitOrder;
-    }
-    getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
+    onSearchFilter() {
+        if (this.defaultData != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.defaultData;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
         }
-        else
-            return '';
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'helpdeskData');
+    }
+    onCheckDefaulterHeader(detail) {
+    }
+    onCheckDefaulterRow(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        if (this.gridDefaultDataList[detail.rowId].checked) {
+            this.gridDefaultDataList[detail.rowId].checked = false;
+        }
+        else {
+            this.gridDefaultDataList[detail.rowId].checked = true;
+        }
+        this.getSelectedDefaulters();
     }
     getAllDefaulters() {
         if (this.selectAllDefaulters) {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, (item) => {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.defaultDataList, (item) => {
                 item.checked = true;
             });
             this.isDefaultSelected = true;
         }
         else {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, (item) => {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.defaultDataList, (item) => {
                 item.checked = false;
             });
             this.isDefaultSelected = false;
         }
     }
-    getSelectedAllDefaulters(unit) {
+    getSelectedDefaulters() {
         var length = 0;
-        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, (item) => {
+        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.gridDefaultDataList, (item) => {
             if (item.checked) {
                 length++;
             }
@@ -3717,44 +3732,13 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
         if (length == 0) {
             this.selectAllDefaulters = false;
         }
-        if (length == this.defaultDataList.length) {
+        if (length == this.gridDefaultDataList.length) {
             this.selectAllDefaulters = true;
         }
     }
     sendEmail() {
-        this.isDefaultersDataLoaded = true;
-        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, (item, index) => {
-            if (item.checked) {
-            }
-        });
     }
     sendSMS() {
-        this.isDefaultersDataLoaded = true;
-        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, (item, index) => {
-            if (item.checked) {
-            }
-        });
-    }
-    selectColInput(value) {
-        this.selectedInput = value;
-    }
-    onSelectChange(event, type, name) {
-        if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
-            this.selectedInput = type;
-            this.columnField[type] = event[name];
-        }
-        else {
-            this.columnField = {};
-        }
-    }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    onResize(event) {
-        if (event.target.innerWidth <= 991)
-            this.isMobile = true;
-        else
-            this.isMobile = false;
     }
     isItemsAvailable() {
         return this.totalItems > 0 ? true : false;
@@ -3762,16 +3746,107 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
     isNoItemsAvailable() {
         return this.totalItems == 0 ? true : false;
     }
+    renderColumns() {
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.columnData = [{
+                text: '',
+                datafield: 'checked',
+                width: 80,
+                pinned: true,
+                sortable: false,
+                menu: false,
+                cellsrenderer: (row, column, value) => {
+                    var chkedProperty;
+                    if (value) {
+                        chkedProperty = 'checked="true"';
+                    }
+                    else {
+                        chkedProperty = '';
+                    }
+                    return '<div class="jqx-custom-inner-cell">'
+                        + '<div class="form-group mb-0 w-100">'
+                        + '<div class="form-check text-center">'
+                        + '<input type="checkbox" class="form-check-input" id="defaultChecker' + row + '" name="defaultChecker' + row + '" ' + chkedProperty + '>'
+                        + '<label class="form-check-label" onClick="checkDefaulterRowEvent(' + row + ')" for="defaultChecker' + row + '"></label>'
+                        + '</div>'
+                        + '</div>'
+                        + '</div>';
+                },
+                renderer: (value) => {
+                    return '<div style="padding: 10px">'
+                        + '<div class="form-group mb-0 w-100">'
+                        + '<div class="form-check text-center">'
+                        + '<input type="checkbox" id="selectAllDefaulters" name="selectAllDefaulters" onClick="stopPropagation(event)" >'
+                        + '<label class="form-check-label" for="selectAllDefaulters"></label>'
+                        + '</div>'
+                        + '</div>'
+                        + '</div>';
+                }
+            },
+            {
+                text: 'Type',
+                datafield: 'type',
+                minwidth: 180,
+                sortable: false,
+                filterable: false,
+                menu: false,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Tower Unit',
+                datafield: 'unit',
+                minwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Primary Contact',
+                datafield: 'primaryContact',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Phone',
+                datafield: 'phone',
+                minwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Amount',
+                datafield: 'due',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Email',
+                datafield: 'emailSetting',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }];
+    }
     ngOnInit() {
         this.accountsService.GetIncomeTrackerDefaulterByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
-            this.defaultDataList = res;
+            this.gridDefaultDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.gridDefaultDataList, item => {
+                item.checked = false;
+            });
+            this.gridSourceData = {
+                localdata: this.gridDefaultDataList,
+                datatype: "array"
+            };
+            this.defaultDataList = new jqx.dataAdapter(this.gridSourceData);
+            this.renderColumns();
             this.totalItems = this.defaultDataList.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
             this.isDefaultersDataLoaded = true;
         }, error => {
             console.log(error);
@@ -3781,17 +3856,27 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
 IncomeViewDefaultersComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:resize', ['$event']),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])
+], IncomeViewDefaultersComponent.prototype, "datagrid", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckDefaulterHeader', ['$event.detail']),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], IncomeViewDefaultersComponent.prototype, "onResize", null);
+], IncomeViewDefaultersComponent.prototype, "onCheckDefaulterHeader", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckDefaulterRow', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeViewDefaultersComponent.prototype, "onCheckDefaulterRow", null);
 IncomeViewDefaultersComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-view-defaulters',
@@ -3800,12 +3885,29 @@ IncomeViewDefaultersComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], IncomeViewDefaultersComponent);
 
+function stopPropagation(event) {
+    event.stopPropagation();
+}
+window.stopPropagation = stopPropagation;
+function checkDefaulterHeaderEvent(event) {
+    window.dispatchEvent(event);
+}
+window.checkDefaulterHeaderEvent = checkDefaulterHeaderEvent;
+function checkDefaulterRowEvent(row) {
+    var event = new CustomEvent('onCheckDefaulterRow', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.checkDefaulterRowEvent = checkDefaulterRowEvent;
 
 
 /***/ }),

@@ -321,7 +321,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"income-view-defaulters-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDefaultersDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDefaultersDataLoaded\">\n\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>View Defaulters <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"defaultData\" >\n\t    \t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\t  \t\t\t\n\t  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\" class=\"select\">\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t\t    id=\"selectAllDefaulters\" \n\t\t\t\t\t\t\t\t    name=\"selectAllDefaulters\" \n\t\t\t\t\t\t\t\t    [(ngModel)]=\"selectAllDefaulters\"\n\t                            \t(ngModelChange)=\"getAllDefaulters()\" >\n\t\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"selectAllDefaulters\"></label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t      \t</div>\n\t\t\t\t     \t  </th>\n\t\t\t\t\t      <th scope=\"col\">Type\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('type')\" [ngClass]=\"getFieldOrderBy('type')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" [(ngModel)]=\"columnField['type']\" (ngModelChange)=\"selectColInput('type')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Unit\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('unit')\" [ngClass]=\"getFieldOrderBy('unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Unit\" [(ngModel)]=\"columnField['Unit']\" (ngModelChange)=\"selectColInput('Unit')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Primary Contact \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('primaryContact')\" [ngClass]=\"getFieldOrderBy('primaryContact')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Primary Contact\" [(ngModel)]=\"columnField['primaryContact']\" (ngModelChange)=\"selectColInput('primaryContact')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Phone\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('phone')\" [ngClass]=\"getFieldOrderBy('phone')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phone']\" (ngModelChange)=\"selectColInput('phone')\" >\n\t\t\t\t\t      \t</th>\n\t\t\t\t\t      <th scope=\"col\">Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('due')\" [ngClass]=\"getFieldOrderBy('due')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"columnField['due']\" (ngModelChange)=\"selectColInput('due')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Email\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('emailSetting')\" [ngClass]=\"getFieldOrderBy('emailSetting')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['emailSetting']\" (ngModelChange)=\"selectColInput('emailSetting')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let default of defaultDataList | simpleSearch: defaultData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex  ; let i = index\" [ngClass]=\"default.checked ? 'selected' : ''\">\n\t\t\t\t\t      <td class=\"select\">\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t\t    id=\"{{default.invoiceNumber}}\" \n\t\t                            name=\"{{default.invoiceNumber}}\"\n\t\t                            [(ngModel)]=\"default.checked\"\n\t\t                            (ngModelChange)=\"getSelectedAllDefaulters(default)\"\n\t\t\t\t\t\t\t\t    >\n\t\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"{{default.invoiceNumber}}\"></label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t      \t</div>\n\t\t\t\t      \t  </td>\n\t\t\t\t\t      <td class=\"name\">{{default.type}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.unit}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.primaryContact}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.phone}}</td>\n\t\t\t\t\t      <td class=\"name\">{{default.due}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.emailSetting}}</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper\">\n\t\t\t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendEmail()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send Email</span>\n\t    \t\t\t</a>\n\t    \t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendSMS()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send SMS</span>\n\t    \t\t\t</a>\n\t    \t\t\t<!-- <form name=\"sendMessage\" novalidate>\n\t\t    \t\t\t<div class=\"input-box radio-box\">\n\t\t\t    \t\t\t<div class=\"form-group\">\n\t\t                        <input name=\"sendMessage\" id=\"email\" [(ngModel)]=\"sendEmail\"  value=\"email\" type=\"radio\"required>\n\t\t                        <label class=\"radio-inline\" for=\"email\">Email</label>\n\t\t             \t\t</div>\n\t\t\t\t            <div class=\"form-group\">\n\t\t\t                    <input name=\"sendMessage\" id=\"sendSms\" [(ngModel)]=\"sendSms\" value=\"2\" type=\"radio\"required>\n\t\t\t                    <label class=\"radio-inline\" for=\"sendSms\">SMS</label>\n\t\t\t\t            </div>\n\t\t\t            </div>\n\t\t        \t</form> -->\n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"income-view-defaulters-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDefaultersDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDefaultersDataLoaded\">\n\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>View Defaulters <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"defaultData\" (ngModelChange)=\"onSearchFilter()\">\n\t\t\t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"defaultDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t[selectionmode]=\"'none'\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t\t<div class=\"button-wrapper\">\n\t\t\t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendEmail()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send Email</span>\n\t    \t\t\t</a>\n\t    \t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendSMS()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send SMS</span>\n\t    \t\t\t</a>\n\t\t\t\t</div>  \n\t  \t\t\t\n\t  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\" class=\"select\">\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t\t    id=\"selectAllDefaulters\" \n\t\t\t\t\t\t\t\t    name=\"selectAllDefaulters\" \n\t\t\t\t\t\t\t\t    [(ngModel)]=\"selectAllDefaulters\"\n\t                            \t(ngModelChange)=\"getAllDefaulters()\" >\n\t\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"selectAllDefaulters\"></label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t      \t</div>\n\t\t\t\t     \t  </th>\n\t\t\t\t\t      <th scope=\"col\">Type\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('type')\" [ngClass]=\"getFieldOrderBy('type')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" [(ngModel)]=\"columnField['type']\" (ngModelChange)=\"selectColInput('type')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Unit\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('unit')\" [ngClass]=\"getFieldOrderBy('unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Unit\" [(ngModel)]=\"columnField['Unit']\" (ngModelChange)=\"selectColInput('Unit')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Primary Contact \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('primaryContact')\" [ngClass]=\"getFieldOrderBy('primaryContact')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Primary Contact\" [(ngModel)]=\"columnField['primaryContact']\" (ngModelChange)=\"selectColInput('primaryContact')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Phone\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('phone')\" [ngClass]=\"getFieldOrderBy('phone')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phone']\" (ngModelChange)=\"selectColInput('phone')\" >\n\t\t\t\t\t      \t</th>\n\t\t\t\t\t      <th scope=\"col\">Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('due')\" [ngClass]=\"getFieldOrderBy('due')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"columnField['due']\" (ngModelChange)=\"selectColInput('due')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Email\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('emailSetting')\" [ngClass]=\"getFieldOrderBy('emailSetting')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['emailSetting']\" (ngModelChange)=\"selectColInput('emailSetting')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let default of defaultDataList | simpleSearch: defaultData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex  ; let i = index\" [ngClass]=\"default.checked ? 'selected' : ''\">\n\t\t\t\t\t      <td class=\"select\">\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t\t    id=\"{{default.invoiceNumber}}\" \n\t\t                            name=\"{{default.invoiceNumber}}\"\n\t\t                            [(ngModel)]=\"default.checked\"\n\t\t                            (ngModelChange)=\"getSelectedAllDefaulters(default)\"\n\t\t\t\t\t\t\t\t    >\n\t\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"{{default.invoiceNumber}}\"></label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t      \t</div>\n\t\t\t\t      \t  </td>\n\t\t\t\t\t      <td class=\"name\">{{default.type}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.unit}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.primaryContact}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.phone}}</td>\n\t\t\t\t\t      <td class=\"name\">{{default.due}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{default.emailSetting}}</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper\">\n\t\t\t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendEmail()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send Email</span>\n\t    \t\t\t</a>\n\t    \t\t\t<a class=\"btn lime-green sf\"\n\t    \t\t\t\t(click)=\"sendSMS()\"\n\t\t\t\t\t\t[ngClass]=\"!isDefaultSelected ? 'disabled' : ''\">\n\t\t\t\t\t\t<span>Send SMS</span>\n\t    \t\t\t</a>\n\t    \t\t\t<form name=\"sendMessage\" novalidate>\n\t\t    \t\t\t<div class=\"input-box radio-box\">\n\t\t\t    \t\t\t<div class=\"form-group\">\n\t\t                        <input name=\"sendMessage\" id=\"email\" [(ngModel)]=\"sendEmail\"  value=\"email\" type=\"radio\"required>\n\t\t                        <label class=\"radio-inline\" for=\"email\">Email</label>\n\t\t             \t\t</div>\n\t\t\t\t            <div class=\"form-group\">\n\t\t\t                    <input name=\"sendMessage\" id=\"sendSms\" [(ngModel)]=\"sendSms\" value=\"2\" type=\"radio\"required>\n\t\t\t                    <label class=\"radio-inline\" for=\"sendSms\">SMS</label>\n\t\t\t\t            </div>\n\t\t\t            </div>\n\t\t        \t</form> \n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination> -->\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n";
     /***/
   },
 
@@ -5032,31 +5032,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../api/services/user.service */
     "./src/app/api/services/user.service.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../.././api/services/accounts.service */
     "./src/app/api/services/accounts.service.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
@@ -5074,58 +5080,76 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.cookieService = cookieService;
         this.isDefaultersDataLoaded = false;
         this.defaultData = "";
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
-        this.unitFieldType = "type";
-        this.unitOrder = true;
-        this.isMobile = false;
         this.isDefaultSelected = false;
         this.selectAllDefaulters = false;
         this.sendMessage = null;
-        this.selectedInput = "";
-        this.columnField = {};
       }
 
       _createClass(IncomeViewDefaultersComponent, [{
-        key: "getIndexParams",
-        value: function getIndexParams(event) {
-          this.ItemStartIndex = event.ItemStartIndex;
-          this.ItemEndIndex = event.ItemEndIndex;
-          this.itemLimit = event.itemLimit;
+        key: "onSearchFilter",
+        value: function onSearchFilter() {
+          var _this38 = this;
+
+          if (this.defaultData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.defaultData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this38.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
         }
       }, {
-        key: "sortUnitData",
-        value: function sortUnitData(type) {
-          this.unitFieldType = type;
-          this.unitOrder = !this.unitOrder;
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'helpdeskData');
         }
       }, {
-        key: "getFieldOrderBy",
-        value: function getFieldOrderBy(type) {
-          if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-          } else return '';
+        key: "onCheckDefaulterHeader",
+        value: function onCheckDefaulterHeader(detail) {}
+      }, {
+        key: "onCheckDefaulterRow",
+        value: function onCheckDefaulterRow(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+
+          if (this.gridDefaultDataList[detail.rowId].checked) {
+            this.gridDefaultDataList[detail.rowId].checked = false;
+          } else {
+            this.gridDefaultDataList[detail.rowId].checked = true;
+          }
+
+          this.getSelectedDefaulters();
         }
       }, {
         key: "getAllDefaulters",
         value: function getAllDefaulters() {
           if (this.selectAllDefaulters) {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.defaultDataList, function (item) {
               item.checked = true;
             });
             this.isDefaultSelected = true;
           } else {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.defaultDataList, function (item) {
               item.checked = false;
             });
             this.isDefaultSelected = false;
           }
         }
       }, {
-        key: "getSelectedAllDefaulters",
-        value: function getSelectedAllDefaulters(unit) {
+        key: "getSelectedDefaulters",
+        value: function getSelectedDefaulters() {
           var length = 0;
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, function (item) {
+          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.gridDefaultDataList, function (item) {
             if (item.checked) {
               length++;
             }
@@ -5141,51 +5165,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.selectAllDefaulters = false;
           }
 
-          if (length == this.defaultDataList.length) {
+          if (length == this.gridDefaultDataList.length) {
             this.selectAllDefaulters = true;
           }
         }
       }, {
         key: "sendEmail",
-        value: function sendEmail() {
-          this.isDefaultersDataLoaded = true;
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, function (item, index) {
-            if (item.checked) {}
-          });
-        }
+        value: function sendEmail() {}
       }, {
         key: "sendSMS",
-        value: function sendSMS() {
-          this.isDefaultersDataLoaded = true;
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.defaultDataList, function (item, index) {
-            if (item.checked) {}
-          });
-        }
-      }, {
-        key: "selectColInput",
-        value: function selectColInput(value) {
-          this.selectedInput = value;
-        }
-      }, {
-        key: "onSelectChange",
-        value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
-            this.selectedInput = type;
-            this.columnField[type] = event[name];
-          } else {
-            this.columnField = {};
-          }
-        }
-      }, {
-        key: "isMobileView",
-        value: function isMobileView() {
-          return window.innerWidth <= 767 ? 'table-responsive' : '';
-        }
-      }, {
-        key: "onResize",
-        value: function onResize(event) {
-          if (event.target.innerWidth <= 991) this.isMobile = true;else this.isMobile = false;
-        }
+        value: function sendSMS() {}
       }, {
         key: "isItemsAvailable",
         value: function isItemsAvailable() {
@@ -5197,21 +5186,98 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.totalItems == 0 ? true : false;
         }
       }, {
+        key: "renderColumns",
+        value: function renderColumns() {
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: '',
+            datafield: 'checked',
+            width: 80,
+            pinned: true,
+            sortable: false,
+            menu: false,
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              var chkedProperty;
+
+              if (value) {
+                chkedProperty = 'checked="true"';
+              } else {
+                chkedProperty = '';
+              }
+
+              return '<div class="jqx-custom-inner-cell">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check text-center">' + '<input type="checkbox" class="form-check-input" id="defaultChecker' + row + '" name="defaultChecker' + row + '" ' + chkedProperty + '>' + '<label class="form-check-label" onClick="checkDefaulterRowEvent(' + row + ')" for="defaultChecker' + row + '"></label>' + '</div>' + '</div>' + '</div>';
+            },
+            renderer: function renderer(value) {
+              return '<div style="padding: 10px">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check text-center">' + '<input type="checkbox" id="selectAllDefaulters" name="selectAllDefaulters" onClick="stopPropagation(event)" >' + '<label class="form-check-label" for="selectAllDefaulters"></label>' + '</div>' + '</div>' + '</div>';
+            }
+          }, {
+            text: 'Type',
+            datafield: 'type',
+            minwidth: 180,
+            sortable: false,
+            filterable: false,
+            menu: false,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Tower Unit',
+            datafield: 'unit',
+            minwidth: 120,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Primary Contact',
+            datafield: 'primaryContact',
+            minwidth: 150,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Phone',
+            datafield: 'phone',
+            minwidth: 180,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Amount',
+            datafield: 'due',
+            minwidth: 150,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Email',
+            datafield: 'emailSetting',
+            width: 200,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }];
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this38 = this;
+          var _this39 = this;
 
           this.accountsService.GetIncomeTrackerDefaulterByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
-            _this38.defaultDataList = res;
-            _this38.totalItems = _this38.defaultDataList.length;
+            _this39.gridDefaultDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this39.gridDefaultDataList, function (item) {
+              item.checked = false;
+            });
+            _this39.gridSourceData = {
+              localdata: _this39.gridDefaultDataList,
+              datatype: "array"
+            };
+            _this39.defaultDataList = new jqx.dataAdapter(_this39.gridSourceData);
 
-            if (_this38.totalItems > _this38.itemLimit) {
-              _this38.ItemEndIndex = _this38.itemLimit;
-            } else {
-              _this38.ItemEndIndex = _this38.totalItems;
-            }
+            _this39.renderColumns();
 
-            _this38.isDefaultersDataLoaded = true;
+            _this39.totalItems = _this39.defaultDataList.length;
+            _this39.isDefaultersDataLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -5227,17 +5293,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }];
     };
 
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:resize', ['$event']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeViewDefaultersComponent.prototype, "onResize", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])], IncomeViewDefaultersComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckDefaulterHeader', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeViewDefaultersComponent.prototype, "onCheckDefaulterHeader", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckDefaulterRow', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], IncomeViewDefaultersComponent.prototype, "onCheckDefaulterRow", null);
     IncomeViewDefaultersComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-income-view-defaulters',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -5246,7 +5316,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./income-view-defaulters.component.scss */
       "./src/app/ams/income-tracker/components/income-view-defaulters/income-view-defaulters.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], IncomeViewDefaultersComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], IncomeViewDefaultersComponent);
+
+    function stopPropagation(event) {
+      event.stopPropagation();
+    }
+
+    window.stopPropagation = stopPropagation;
+
+    function checkDefaulterHeaderEvent(event) {
+      window.dispatchEvent(event);
+    }
+
+    window.checkDefaulterHeaderEvent = checkDefaulterHeaderEvent;
+
+    function checkDefaulterRowEvent(row) {
+      var event = new CustomEvent('onCheckDefaulterRow', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.checkDefaulterRowEvent = checkDefaulterRowEvent;
     /***/
   },
 
@@ -5480,7 +5573,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getFieldParams",
         value: function getFieldParams(event) {
-          var _this39 = this;
+          var _this40 = this;
 
           this.isInvoiceDataTableLoaded = false;
           var postStartDate = moment__WEBPACK_IMPORTED_MODULE_8__(event.PostStartDate).format('MM-DD-YYYY');
@@ -5491,58 +5584,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             PostEndDate: postEndDate
           };
           this.accountsService.GetAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this39.invoiceDataList = res;
+            _this40.invoiceDataList = res;
             console.log(res); //filter items
 
             if (event.isReversed != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this40.invoiceDataList = _this40.invoiceDataList.filter(function (item) {
                 return item.isReversed == event.isReversed;
               });
             }
 
             if (event.isCreditNote != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this40.invoiceDataList = _this40.invoiceDataList.filter(function (item) {
                 return item.isCreditNote == event.isCreditNote;
               });
             }
 
             if (event.postedDate != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this40.invoiceDataList = _this40.invoiceDataList.filter(function (item) {
                 return moment__WEBPACK_IMPORTED_MODULE_8__(item.postedDate).format("MM-DD-YYYY") == moment__WEBPACK_IMPORTED_MODULE_8__(event.postedDate).format("MM-DD-YYYY");
               });
             }
 
             if (event.billNo != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this40.invoiceDataList = _this40.invoiceDataList.filter(function (item) {
                 return item.billNo == event.billNo;
               });
             }
 
             if (event.receiptNo != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this40.invoiceDataList = _this40.invoiceDataList.filter(function (item) {
                 return item.receiptNo == event.receiptNo;
               });
             }
 
-            _this39.invoiceDataList.sort(function (a, b) {
+            _this40.invoiceDataList.sort(function (a, b) {
               return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
             });
 
-            _this39.totalItems = _this39.invoiceDataList.length;
+            _this40.totalItems = _this40.invoiceDataList.length;
 
-            if (_this39.totalItems > _this39.itemLimit) {
-              _this39.ItemEndIndex = _this39.itemLimit;
+            if (_this40.totalItems > _this40.itemLimit) {
+              _this40.ItemEndIndex = _this40.itemLimit;
             } else {
-              _this39.ItemEndIndex = _this39.totalItems;
+              _this40.ItemEndIndex = _this40.totalItems;
             }
 
-            _this39.isInvoiceDataTableLoaded = true;
+            _this40.isInvoiceDataTableLoaded = true;
           }, function (error) {});
         }
       }, {
         key: "reverseItem",
         value: function reverseItem(item) {
-          var _this40 = this;
+          var _this41 = this;
 
           this.isReverseSubmitted = false;
           var details = {
@@ -5564,30 +5657,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.addCustTransReversal(details).subscribe(function (res) {
             if (res.message) {
-              _this40.reverse.comment = "";
+              _this41.reverse.comment = "";
 
-              _this40.sharedService.setAlertMessage("Invoice Reversed");
+              _this41.sharedService.setAlertMessage("Invoice Reversed");
 
               var params = {
-                ApartmentBlockUnitID: _this40.route.params['value'].id
+                ApartmentBlockUnitID: _this41.route.params['value'].id
               };
 
-              _this40.accountsService.GetAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-                _this40.invoiceDataList = res;
+              _this41.accountsService.GetAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
+                _this41.invoiceDataList = res;
 
-                _this40.invoiceDataList.sort(function (a, b) {
+                _this41.invoiceDataList.sort(function (a, b) {
                   return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
                 });
 
-                _this40.totalItems = _this40.invoiceDataList.length;
+                _this41.totalItems = _this41.invoiceDataList.length;
 
-                if (_this40.totalItems > _this40.itemLimit) {
-                  _this40.ItemEndIndex = _this40.itemLimit;
+                if (_this41.totalItems > _this41.itemLimit) {
+                  _this41.ItemEndIndex = _this41.itemLimit;
                 } else {
-                  _this40.ItemEndIndex = _this40.totalItems;
+                  _this41.ItemEndIndex = _this41.totalItems;
                 }
 
-                _this40.isReverseSubmitted = true;
+                _this41.isReverseSubmitted = true;
               });
             } else {}
           }, function (error) {});
@@ -5595,43 +5688,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this41 = this;
+          var _this42 = this;
 
           this.reverse = {};
           this.accountsService.getAllGLAccounts().subscribe(function (res) {
             var glAccountListData = res.filter(function (item) {
-              return item.apartmentId == parseInt(_this41.cookieService.get('apartmentId'));
+              return item.apartmentId == parseInt(_this42.cookieService.get('apartmentId'));
             });
-            _this41.glAccountListData = glAccountListData;
+            _this42.glAccountListData = glAccountListData;
           });
           var params = {
             ApartmentBlockUnitID: this.route.params['value'].id
           };
           this.accountsService.GetAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this41.invoiceDataList = res; //sorting by date ( new to old )
+            _this42.invoiceDataList = res; //sorting by date ( new to old )
 
-            _this41.invoiceDataList.sort(function (a, b) {
+            _this42.invoiceDataList.sort(function (a, b) {
               return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
             });
 
-            _this41.totalItems = _this41.invoiceDataList.length;
+            _this42.totalItems = _this42.invoiceDataList.length;
 
-            if (_this41.totalItems > _this41.itemLimit) {
-              _this41.ItemEndIndex = _this41.itemLimit;
+            if (_this42.totalItems > _this42.itemLimit) {
+              _this42.ItemEndIndex = _this42.itemLimit;
             } else {
-              _this41.ItemEndIndex = _this41.totalItems;
+              _this42.ItemEndIndex = _this42.totalItems;
             }
 
-            _this41.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(_this41.cookieService.get('apartmentId'))).subscribe(function (res) {
-              _this41.accountDataList = res.filter(function (item) {
-                return item.apartmentBlockUnitId == _this41.route.params['value'].id;
+            _this42.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(_this42.cookieService.get('apartmentId'))).subscribe(function (res) {
+              _this42.accountDataList = res.filter(function (item) {
+                return item.apartmentBlockUnitId == _this42.route.params['value'].id;
               });
-              _this41.isAccountDataLoaded = true;
+              _this42.isAccountDataLoaded = true;
             });
 
-            _this41.userService.getAllUsersByApartmentId(parseInt(_this41.cookieService.get('apartmentId'))).subscribe(function (res) {
-              _this41.userDataList = res;
-              _this41.isInvoiceDataLoaded = true;
+            _this42.userService.getAllUsersByApartmentId(parseInt(_this42.cookieService.get('apartmentId'))).subscribe(function (res) {
+              _this42.userDataList = res;
+              _this42.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
@@ -5837,7 +5930,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this42 = this;
+          var _this43 = this;
 
           if (this.invoiceData != "") {
             var filtergroup = new jqx.filter();
@@ -5850,7 +5943,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this42.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this43.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -5880,15 +5973,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditReverse",
         value: function onEditReverse(detail) {
-          var _this43 = this;
+          var _this44 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           this.invoice = dataRecord;
           this.reversePopOverSelector = '#' + this.invoice.custInvoiceId;
           setTimeout(function () {
-            _this43.reversePopOver.createComponent();
+            _this44.reversePopOver.createComponent();
 
-            _this43.reversePopOver.open();
+            _this44.reversePopOver.open();
           }, 100);
         }
       }, {
@@ -5900,7 +5993,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateInvoiceItem",
         value: function updateInvoiceItem(invoice, type) {
-          var _this44 = this;
+          var _this45 = this;
 
           if (type == 'email') {
             if (invoice.isEmailSent) invoice.isEmailSent = false;else invoice.isEmailSent = true;
@@ -5952,18 +6045,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.updateCustInvoice(details).subscribe(function (res) {
             if (res.message) {
-              _this44.sharedService.setAlertMessage("Invoice updated successfully");
+              _this45.sharedService.setAlertMessage("Invoice updated successfully");
             } else {
-              _this44.isInvoiceDataLoaded = true;
+              _this45.isInvoiceDataLoaded = true;
             }
           }, function (error) {
-            _this44.isInvoiceDataLoaded = true;
+            _this45.isInvoiceDataLoaded = true;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this45 = this;
+          var _this46 = this;
 
           var accountParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -5979,8 +6072,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           this.accountsService.getAllGLAccounts().subscribe(function (res) {
-            _this45.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this45.cookieService.get('apartmentId')) && item.indicator == _this45.glAccountIndicator;
+            _this46.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this46.cookieService.get('apartmentId')) && item.indicator == _this46.glAccountIndicator;
             });
           });
           var params = {
@@ -5992,20 +6085,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             underscore__WEBPACK_IMPORTED_MODULE_12__["each"](invoiceDataList, function (item) {
               item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
-            _this45.invoice = invoiceDataList[0];
-            _this45.reversePopOverSelector = '#' + _this45.invoice.custInvoiceId;
-            _this45.gridSourceData = {
+            _this46.invoice = invoiceDataList[0];
+            _this46.reversePopOverSelector = '#' + _this46.invoice.custInvoiceId;
+            _this46.gridSourceData = {
               localdata: invoiceDataList,
               datatype: "array"
             };
-            _this45.invoiceDataList = new jqx.dataAdapter(_this45.gridSourceData);
+            _this46.invoiceDataList = new jqx.dataAdapter(_this46.gridSourceData);
             /*this.getSourceDataAdapter = (datafield: string): any => {
               let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
               return dataAdapter;
             }*/
 
-            _this45.totalItems = _this45.invoiceDataList.length;
-            _this45.columnData = [{
+            _this46.totalItems = _this46.invoiceDataList.length;
+            _this46.columnData = [{
               text: 'Invoice Id',
               datafield: 'custInvoiceId',
               width: 120,
@@ -6019,7 +6112,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datafield: 'postedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_13__(value).format(_this45.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_13__(value).format(_this46.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -6084,9 +6177,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               renderer: columnrenderer
             }];
 
-            _this45.userService.getAllUsersByApartmentId(parseInt(_this45.cookieService.get('apartmentId'))).subscribe(function (res) {
-              _this45.userDataList = res;
-              _this45.isInvoiceDataLoaded = true;
+            _this46.userService.getAllUsersByApartmentId(parseInt(_this46.cookieService.get('apartmentId'))).subscribe(function (res) {
+              _this46.userDataList = res;
+              _this46.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
@@ -6401,20 +6494,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this46 = this;
+          var _this47 = this;
 
           this.accountsService.GetIncomeTrackerReceiptsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
-            _this46.receiptsDataList = res;
+            _this47.receiptsDataList = res;
             console.log(res);
-            _this46.totalItems = _this46.receiptsDataList.length;
+            _this47.totalItems = _this47.receiptsDataList.length;
 
-            if (_this46.totalItems > _this46.itemLimit) {
-              _this46.ItemEndIndex = _this46.itemLimit;
+            if (_this47.totalItems > _this47.itemLimit) {
+              _this47.ItemEndIndex = _this47.itemLimit;
             } else {
-              _this46.ItemEndIndex = _this46.totalItems;
+              _this47.ItemEndIndex = _this47.totalItems;
             }
 
-            _this46.isReceiptsLoaded = true;
+            _this47.isReceiptsLoaded = true;
           }, function (error) {
             console.log(error);
           });
