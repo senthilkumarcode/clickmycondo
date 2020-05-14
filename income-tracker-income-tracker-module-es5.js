@@ -5116,58 +5116,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "onCheckDefaulterHeader",
-        value: function onCheckDefaulterHeader(detail) {}
+        value: function onCheckDefaulterHeader(detail) {
+          var allDataRecords = this.datagrid.getrows();
+          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](allDataRecords, function (item) {
+            item.checked = detail.checked;
+          });
+          this.isDefaultSelected = allDataRecords.some(function (item) {
+            return item.checked;
+          });
+          this.datagrid.refresh();
+        }
       }, {
         key: "onCheckDefaulterRow",
         value: function onCheckDefaulterRow(detail) {
+          var allDataRecords = this.datagrid.getrows();
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
-
-          if (this.gridDefaultDataList[detail.rowId].checked) {
-            this.gridDefaultDataList[detail.rowId].checked = false;
-          } else {
-            this.gridDefaultDataList[detail.rowId].checked = true;
-          }
-
-          this.getSelectedDefaulters();
-        }
-      }, {
-        key: "getAllDefaulters",
-        value: function getAllDefaulters() {
-          if (this.selectAllDefaulters) {
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.defaultDataList, function (item) {
-              item.checked = true;
-            });
-            this.isDefaultSelected = true;
-          } else {
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.defaultDataList, function (item) {
-              item.checked = false;
-            });
-            this.isDefaultSelected = false;
-          }
-        }
-      }, {
-        key: "getSelectedDefaulters",
-        value: function getSelectedDefaulters() {
-          var length = 0;
-          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.gridDefaultDataList, function (item) {
-            if (item.checked) {
-              length++;
-            }
+          dataRecord.checked = detail.checked;
+          this.isDefaultSelected = allDataRecords.some(function (item) {
+            return item.checked;
           });
-
-          if (length > 0) {
-            this.isDefaultSelected = true;
-          } else {
-            this.isDefaultSelected = false;
-          }
-
-          if (length == 0) {
-            this.selectAllDefaulters = false;
-          }
-
-          if (length == this.gridDefaultDataList.length) {
-            this.selectAllDefaulters = true;
-          }
         }
       }, {
         key: "sendEmail",
@@ -5212,18 +5179,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 chkedProperty = '';
               }
 
-              return '<div class="jqx-custom-inner-cell">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check text-center">' + '<input type="checkbox" class="form-check-input" id="defaultChecker' + row + '" name="defaultChecker' + row + '" ' + chkedProperty + '>' + '<label class="form-check-label" onClick="checkDefaulterRowEvent(' + row + ')" for="defaultChecker' + row + '"></label>' + '</div>' + '</div>' + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check text-center">' + '<input type="checkbox" class="form-check-input" onClick="checkDefaulterRowEvent(' + row + ', this.checked)" id="defaultChecker' + row + '" name="defaultChecker' + row + '" ' + chkedProperty + '>' + '<label class="form-check-label" for="defaultChecker' + row + '"></label>' + '</div>' + '</div>' + '</div>';
             },
             renderer: function renderer(value) {
-              return '<div style="padding: 10px">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check text-center">' + '<input type="checkbox" id="selectAllDefaulters" name="selectAllDefaulters" onClick="stopPropagation(event)" >' + '<label class="form-check-label" for="selectAllDefaulters"></label>' + '</div>' + '</div>' + '</div>';
+              return '<div style="padding: 10px">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check check-header text-center">' + '<input type="checkbox" id="selectAllDefaulters" name="selectAllDefaulters" onClick="checkDefaulterHeaderEvent(event, this.checked)" >' + '<label class="form-check-label" for="selectAllDefaulters"></label>' + '</div>' + '</div>' + '</div>';
             }
           }, {
             text: 'Type',
             datafield: 'type',
             minwidth: 180,
-            sortable: false,
-            filterable: false,
-            menu: false,
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
           }, {
@@ -5318,22 +5282,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       "./src/app/ams/income-tracker/components/income-view-defaulters/income-view-defaulters.component.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], IncomeViewDefaultersComponent);
 
-    function stopPropagation(event) {
+    function checkDefaulterHeaderEvent(event, isChecked) {
       event.stopPropagation();
-    }
-
-    window.stopPropagation = stopPropagation;
-
-    function checkDefaulterHeaderEvent(event) {
-      window.dispatchEvent(event);
+      var newEvent = new CustomEvent('onCheckDefaulterHeader', {
+        detail: {
+          checked: isChecked
+        }
+      });
+      window.dispatchEvent(newEvent);
     }
 
     window.checkDefaulterHeaderEvent = checkDefaulterHeaderEvent;
 
-    function checkDefaulterRowEvent(row) {
+    function checkDefaulterRowEvent(row, isChecked) {
       var event = new CustomEvent('onCheckDefaulterRow', {
         detail: {
-          rowId: row
+          rowId: row,
+          checked: isChecked
         }
       });
       window.dispatchEvent(event);
