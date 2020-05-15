@@ -7354,7 +7354,7 @@ var Pt=function(){function t(){this.pos=0,this.bufferLength=0,this.eof=!1,this.b
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-approvalview-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"text-right\" *ngIf=\"isDataLoaded\">\n\t\t<i-feather class=\"icon success-indicator\" name=\"check-circle\"></i-feather>&nbsp; Approve\n\t</div>\n\t<div class=\"card card-table\">\n\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>WorkPermit Approval List <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"wpData\" >\n    \t\t\t</li>\n    \t\t\t<!-- <li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> -->\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/work-permit/create\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Work Permit</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th (click)=\"sortUnitData('workPermitId')\">WP ID<span [ngClass]=\"getFieldOrderBy('workPermitId')\"></span></th>\n\t\t\t\t      <th (click)=\"sortUnitData('apartmentBlockNumber')\">Block <span [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span></th>\n\t\t\t\t      <th (click)=\"sortUnitData('apartmentBlockUnitNumber')\">Unit <span [ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span></th>\n\t\t\t\t      <th (click)=\"sortUnitData('endorsedBy')\">Endorsed By<span [ngClass]=\"getFieldOrderBy('endorsedBy')\"></span></th>\n\t\t\t\t      <th (click)=\"sortUnitData('workPermitType')\">WP Type <span [ngClass]=\"getFieldOrderBy('workPermitType')\"></span></th>\n\t\t\t\t      <th (click)=\"sortUnitData('natureOfWork')\">Nature of Work <span [ngClass]=\"getFieldOrderBy('natureOfWork')\"></span></th>\n\t\t\t\t      <th (click)=\"sortUnitData('startDate')\">Start Date <span [ngClass]=\"getFieldOrderBy('startDate')\"></span></th>\n\t\t\t\t      <th (click)=\"sortUnitData('endDate')\">End Date <span [ngClass]=\"getFieldOrderBy('endDate')\"></span></th>\n\t\t\t\t      <th (click)=\"sortUnitData('noOfPersonnels')\">Personnels <span [ngClass]=\"getFieldOrderBy('noOfPersonnels')\"></span></th>\n\t\t\t\t      <th>Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let wp of workPermitListData | sort : unitFieldType: unitOrder \n\t\t\t\t    | simpleSearch: wpData | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{wp.workPermitId}}</td>\n\t\t\t\t      <td class=\"grey\">{{wp.apartmentBlockNumber}}</td>\n\t\t\t\t      <td class=\"grey\">{{wp.apartmentBlockUnitNumber}}</td>\n\t\t\t\t      <td class=\"grey\">{{wp.endorsedBy}}</td>\n\t\t\t\t      <td class=\"grey\">{{wp.workPermitType}}</td>\n\t\t\t\t      <td class=\"grey\">{{wp.natureOfWork}}</td>\n\t\t\t\t      <td class=\"grey\">{{wp.startDate | date:'dd-MM-yy'}}</td>\n\t\t\t\t      <td class=\"grey\">{{wp.endDate | date:'dd-MM-yy'}}</td>\n\t\t\t\t      <td class=\"grey\">{{wp.noOfPersonnels}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a><i-feather class=\"icon view\" name=\"eye\"(click)=\"view()\"></i-feather>\n\t\t\t\t\t\t</a>&nbsp;\n\t\t\t\t\t\t<a>\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>&nbsp;\n\t\t\t\t\t\t<a>\n\t\t\t\t\t\t\t<i-feather class=\"icon approve\" (click)=\"openDialog()\" name=\"check-circle\"></i-feather>\n\t\t\t\t\t\t</a>&nbsp;\n\t\t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-approvalview-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"text-right\" *ngIf=\"isDataLoaded\">\n\t\t<i-feather class=\"icon success-indicator\" name=\"check-circle\"></i-feather>&nbsp; Approve\n\t</div>\n\t<div class=\"card card-table\">\n\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>WorkPermit Approval List <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"wpData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item create-btn-permit\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\" routerLink=\"/ams/work-permit/create\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Work Permit</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item add-icon-permit\">\n\t\t\t\t\t<a class=\"lime-green mt_5\" routerLink=\"/ams/work-permit/create\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t</a>\n\t\t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n  \t\t<app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"workPermitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid> \n\t\t</div>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -7367,7 +7367,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-Create-wrapper\" id=\"my-canvas\">\n  <div class=\"card clear\">\n    <div class=\"card-header\">\n      <div class=\"float-left\">\n        <h5>\n          <span>Create WorkPermit</span>\n        </h5>\n      </div>\n      <div class=\"float-right\">\n        <ul class=\"list-inline\">\n          <li class=\"list-inline-item\">\n            <a class=\"btn l-blue mt_5\" (click)=\"print()\">\n              <i-feather class=\"icon print\" name=\"printer\"></i-feather>\n              <span>Print</span>\n            </a>\n          </li>\n        </ul>\n      </div>\n    </div>\n    <div class=\"card-body\">\n      <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n      <app-loader *ngIf=\"isWorkpermitSubmitted\"></app-loader>\n      <ng-container *ngIf=\"!isWorkpermitSubmitted\">\n        <form #createWorkPermitForm=\"ngForm\" name=\"createWorkPermitForm\" (ngSubmit)=\"submitCreateWorkPermitForm(addWorkPermitForm)\" novalidate>\n          <div class=\"row\">\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n              <div class=\"input-box\">\n                <label>Select Tower*</label>\n                <select name=\"WPTower\" id=\"Tower\" class=\"form-control\" [(ngModel)]=\"workpermit.WPTower\" required>\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let tower of allTowers;\" [value]=\"tower.apartmentBlockUnitId\">\n                    {{tower.apartmentBlockNumber}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n              <div class=\"select-box\">\n                <label>Unit No*</label>\n                <select name=\"WPApartment\" id=\"Apartment\" class=\"form-control\" [(ngModel)]=\"workpermit.WPUnitNo\"\n                  required>\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let tower of allTowers;\" [value]=\"tower.apartmentBlockUnitNumber\">\n                    {{tower.apartmentBlockUnitNumber}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n              <div class=\"input-box\">\n                <label>Primary Contact*</label>\n                <select name=\"WPUnitUser\" id=\"UnitUser\" class=\"form-control\" [(ngModel)]=\"workpermit.WPUnitUser\"\n                  required>\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let user of allUsers;\" [value]=\"user.userId\">{{user.firstName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>WorkPermit Type*</label>\n                <!-- <angular2-multiselect \n              name=\"WPNatureWork\"\n              [data]=\"itemList\" \n              [(ngModel)]=\"selectedItems\" \n              [settings]=\"settings\" \n              (onSelect)=\"onItemSelect($event)\"\n              (onDeSelect)=\"OnItemDeSelect($event)\" \n              (onSelectAll)=\"onSelectAll($event)\" \n              (onDeSelectAll)=\"onDeSelectAll($event)\">\n            </angular2-multiselect> -->\n                <select name=\"WPPermitType\" id=\"PermitType\" class=\"form-control\" [(ngModel)]=\"workpermit.WPPermitType\"\n                  required>\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let worktype of allWorkType;\" [value]=\"worktype.lookupValueId\">\n                    {{worktype.lookupValueName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Nature of work*</label>\n                <select name=\"WPNatureWork\" id=\"NatureWork\" class=\"form-control\" [(ngModel)]=\"workpermit.WPNatureWork\"\n                  required>\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let natureworktype of allNatureWorkType;\" [value]=\"natureworktype.lookupValueId\">\n                    {{natureworktype.lookupValueName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Contact Number*</label>\n                <input type=\"number\" class=\"form-control\" placeholder=\"Enter\" name=\"WPContact\"\n                  [(ngModel)]=\"workpermit.WPContact\" required>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Name of Vendor/Contractor*</label>\n                <select name=\"WPVendor\" id=\"vendor\" class=\"form-control\" [(ngModel)]=\"workpermit.WPVendor\" required>\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let vendor of allVendors;\" [value]=\"vendor.vendorId\">{{vendor.vendorName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Name of Person In Charge*</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"WPIncharge\"\n                  [(ngModel)]=\"workpermit.WPIncharge\" required>\n              </div>\n            </div>\n            <div class=\"col-sm-4\"></div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Start Date</label>\n                <input class=\"form-control\" name=\"WPStartdate\" [owlDateTime]=\"WPStartdate\"\n                  [owlDateTimeTrigger]=\"WPStartdate\" placeholder=\"Date\" [(ngModel)]=\"workpermit.WPStartdate\" required>\n                <owl-date-time #WPStartdate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>End Date</label>\n                <input class=\"form-control\" name=\"WPEnddate\" [owlDateTime]=\"WPEnddate\" [owlDateTimeTrigger]=\"WPEnddate\"\n                  placeholder=\"Date\" [(ngModel)]=\"workpermit.WPEnddate\" required>\n                <owl-date-time #WPEnddate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>Start Time</label>\n                <input class=\"form-control\" name=\"WPStarttime\" [owlDateTime]=\"WPStarttime\"\n                  [owlDateTimeTrigger]=\"WPStarttime\" placeholder=\"Time\" [(ngModel)]=\"workpermit.WPStarttime\" required>\n                <owl-date-time #WPStarttime [pickerType]=\"'timer'\" [hour12Timer]=\"true\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"clock\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>End Time</label>\n                <input class=\"form-control\" name=\"WPEndtime\" [owlDateTime]=\"WPEndtime\" [owlDateTimeTrigger]=\"WPEndtime\"\n                  placeholder=\"Time\" [(ngModel)]=\"workpermit.WPEndtime\" required>\n                <owl-date-time #WPEndtime [pickerType]=\"'timer'\" [hour12Timer]=\"true\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"clock\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <!-- <div class=\"col-sm-6 mb-30\">\n              <h5><b>List of Workers/Personnels</b></h5>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th width=\"35%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"WorkerName\"\n                        [(ngModel)]=\"Workers.WorkerName\">\n                    </th>\n                    <th width=\"60%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"WorkerDescription\"\n                        [(ngModel)]=\"Workers.WorkerDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addWorkers()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <div class=\"card clear\" id=\"accordion\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#workersCollapseOne\"\n                      aria-expanded=\"true\" aria-controls=\"collapseOne\">\n                      Added Workers List &nbsp;<span *ngIf=\"listWorkers.length!==0\">({{listWorkers.length}})</span>\n                    </li>\n                    <div id=\"workersCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                      <div class=\"details\">\n                        <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th width=\"40%\">Name</th>\n                              <th width=\"55%\">Description</th>\n                              <th align=\"right\" width=\"5%\">Action</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listWorkers.length!=0\">\n                            <tr *ngFor=\"let worker of listWorkers;index as i;\">\n                              <td class=\"grey\">{{worker.name}}</td>\n                              <td class=\"grey\">{{worker.description}}</td>\n                              <td align=\"right\">\n                                <a (click)=\"deletelistItems(i, 'listofWorker')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6 mb-30\">\n              <h5><b>List of Materials</b></h5>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"MaterialName\"\n                        [(ngModel)]=\"Materials.MaterialName\">\n                    </th>\n                    <th width=\"15%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"MaterialQuantity\"\n                        [(ngModel)]=\"Materials.MaterialQuantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"MaterialDescription\"\n                        [(ngModel)]=\"Materials.MaterialDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addMaterials()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n\n              <div class=\"card clear\" id=\"accordion\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#materialCollapseOne\"\n                      aria-expanded=\"true\" aria-controls=\"collapseOne\">\n                      Added Material List &nbsp;<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>\n                    </li>\n                    <div id=\"materialCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\"\n                      data-parent=\"#accordion\">\n                      <div class=\"details\">\n                        <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th width=\"35%\">Name</th>\n                              <th width=\"15%\">Qty</th>\n                              <th width=\"45%\">Description</th>\n                              <th width=\"5%\">Action</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listMaterials.length!=0\">\n                            <tr *ngFor=\"let material of listMaterials;index as i;\">\n                              <td class=\"grey\">{{material.name}}</td>\n                              <td class=\"grey\">{{material.qty}}</td>\n                              <td class=\"grey\">{{material.description}}</td>\n                              <td align=\"right\">\n                                <a class=\"\" (click)=\"deletelistItems(i, 'materialList')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6 mb-30\">\n              <h5><b>List of Tools</b></h5>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"ToolName\"\n                        [(ngModel)]=\"Tools.ToolName\">\n                    </th>\n                    <th width=\"15%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"ToolQuantity\"\n                        [(ngModel)]=\"Tools.ToolQuantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"ToolDescription\"\n                        [(ngModel)]=\"Tools.ToolDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addTools()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n\n              <div class=\"card clear\" id=\"accordion\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#toolCollapseOne\"\n                      aria-expanded=\"true\" aria-controls=\"collapseOne\">\n                      Added Tools List &nbsp;<span *ngIf=\"listTools.length!=0\">({{listTools.length}})</span>\n                    </li>\n                    <div id=\"toolCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                      <div class=\"details\">\n                        <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th width=\"35%\">Name</th>\n                              <th width=\"15%\">Qty</th>\n                              <th width=\"45%\">Description</th>\n                              <th align=\"right\" width=\"5%\">#</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listTools.length!=0\">\n                            <tr *ngFor=\"let tool of listTools;index as i;\">\n                              <td class=\"grey\">{{tool.name}}</td>\n                              <td class=\"grey\">{{tool.qty}}</td>\n                              <td class=\"grey\">{{tool.description}}</td>\n                              <td align=\"right\">\n                                <a class=\"\" (click)=\"deletelistItems(i, 'toolList')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6\"></div> -->\n            <div class=\"col-sm-4 mb-5\">\n              <p class=\"font-med\">List of Workers/Personnels</p>\n              <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th class=\"name\"> \n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"WorkerName\"\n                        [(ngModel)]=\"Workers.WorkerName\">\n                    </th>\n                    <th class=\"desc\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"WorkerDescription\"\n                        [(ngModel)]=\"Workers.WorkerDescription\">\n                    </th>\n                    <th class=\"add\">\n                      <i-feather class=\"icon plus lime-green\" (click)=\"addWorkers()\" name=\"plus\"></i-feather>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <table class=\"mini-table-2 mt-4\" [ngClass]=\"isMobileView()\" *ngIf=\"listWorkers.length!=0\">\n                <thead>\n                  <tr>\n                    <th>Name</th>\n                    <th>Description</th>\n                    <th class=\"action\">Action</th>\n                  </tr>\n                </thead>\n                <tbody *ngIf=\"listWorkers.length!=0\">\n                  <tr *ngFor=\"let worker of listWorkers;index as i;\">\n                    <td>{{worker.name}}</td>\n                    <td>{{worker.description}}</td>\n                    <td>\n                      <a (click)=\"deletelistItems(i, 'listofWorker')\">\n                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                      </a>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n            <div class=\"col-sm-4 mb-5\">\n              <p class=\"font-med\">List of Materials</p>\n              <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th class=\"name\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"MaterialName\"\n                        [(ngModel)]=\"Materials.MaterialName\">\n                    </th>\n                    <th class=\"qty\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"MaterialQuantity\"\n                        [(ngModel)]=\"Materials.MaterialQuantity\">\n                    </th>\n                    <th>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"MaterialDescription\"\n                        [(ngModel)]=\"Materials.MaterialDescription\">\n                    </th>\n                    <th class=\"action\">\n                      <i-feather class=\"icon plus lime-green\" (click)=\"addMaterials()\" name=\"plus\"></i-feather>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <table class=\"mini-table-2 mt-4\" [ngClass]=\"isMobileView()\" *ngIf=\"listMaterials.length!=0\">\n                <thead>\n                  <tr>\n                    <th>Name</th>\n                    <th class=\"qty\">Qty</th>\n                    <th>Description</th>\n                    <th class=\"action\">Action</th>\n                  </tr>\n                </thead>\n                <tbody *ngIf=\"listMaterials.length!=0\">\n                  <tr *ngFor=\"let material of listMaterials;index as i;\">\n                    <td>{{material.name}}</td>\n                    <td>{{material.qty}}</td>\n                    <td>{{material.description}}</td>\n                    <td>\n                      <a class=\"\" (click)=\"deletelistItems(i, 'materialList')\">\n                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                      </a>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n            <div class=\"col-sm-4 mb-5\">\n                <p class=\"font-med\">List of Tools</p>\n                <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                      <tr>\n                        <th class=\"name\">\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"ToolName\"\n                            [(ngModel)]=\"Tools.ToolName\">\n                        </th>\n                        <th class=\"qty\">\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"ToolQuantity\"\n                            [(ngModel)]=\"Tools.ToolQuantity\">\n                        </th>\n                        <th>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"ToolDescription\"\n                            [(ngModel)]=\"Tools.ToolDescription\">\n                        </th>\n                        <th class=\"action\">\n                          <i-feather class=\"icon plus lime-green\" (click)=\"addTools()\" name=\"plus\"></i-feather>\n                        </th>\n                      </tr>\n                    </thead>\n                </table>\n                <table class=\"mini-table-2 mt-4\" [ngClass]=\"isMobileView()\" *ngIf=\"listTools.length!=0\">\n                  <thead>\n                    <tr>\n                      <th>Name</th>\n                      <th class=\"qty\">Qty</th>\n                      <th>Description</th>\n                      <th class=\"action\">Action</th>\n                    </tr>\n                  </thead>\n                  <tbody *ngIf=\"listTools.length!=0\">\n                    <tr *ngFor=\"let tool of listTools;index as i;\">\n                      <td>{{tool.name}}</td>\n                      <td>{{tool.qty}}</td>\n                      <td>{{tool.description}}</td>\n                      <td>\n                        <a class=\"\" (click)=\"deletelistItems(i, 'toolList')\">\n                          <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                        </a>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n            </div>\n          </div>\n          <div class=\"row mt-5\">\n            <div class=\"col-sm-6\">\n              <p class=\"font-med\">Terms and Condition</p>\n              <p class=\"text-muted\">This permit is valid only on the dates and time mentioned.</p>\n              <p class=\"text-muted\">Noisy works - 10 AM to 12 PM. Monday to Friday only.</p>\n            </div>\n            <div class=\"col-sm-6 text-right\">\n              <button class=\"btn blue\" [disabled]=\"createWorkPermitForm.invalid\">Submit</button>\n            </div>\n          </div>\n        </form>\n      </ng-container>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-Create-wrapper\" id=\"my-canvas\">\n  <div class=\"card clear\">\n    <div class=\"card-header\">\n      <div class=\"row header\">\n        <div class=\"col-sm-4 col-12\">\n          <h6>\n            <span *ngIf=\"pageType=='create'\">Create WorkPermit</span>\n            <span *ngIf=\"pageType=='edit'\">Edit WorkPermit</span>\n          </h6>\n        </div>\n        <div class=\"col-sm-4 col-12\" *ngIf=\"pageType=='view' && apartmentInfo\">\n          <h6>{{apartmentInfo.apartmentName}} Apartments</h6>\n          <p>{{apartmentInfo.address1}},{{apartmentInfo.city}}</p>\n          <p>WorkPermit No: {{workpermit.workPermitId}}</p>\n        </div>\n        <div class=\"col-sm-4 col-12 text-right\" *ngIf=\"pageType =='view'\">\n            <i-feather class=\"icon print link\" (click)=\"print()\" name=\"printer\"></i-feather>\n        </div>\n      </div>\n    </div>\n    <div class=\"card-body\">\n      <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n      <app-loader *ngIf=\"isWorkpermitSubmitted\"></app-loader>\n      <ng-container *ngIf=\"!isWorkpermitSubmitted\">\n        <form #createWorkPermitForm=\"ngForm\" name=\"createWorkPermitForm\" (ngSubmit)=\"submitCreateWorkPermitForm(addWorkPermitForm)\" novalidate>\n          <div class=\"row\">\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n              <div class=\"input-box\">\n                <label>Tower*</label>\n                <select name=\"WPTower\" id=\"Tower\" class=\"form-control\" [(ngModel)]=\"workpermit.WPTower\" (ngModelChange)=\"getUnits('')\" required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let tower of allTowers;\" [value]=\"tower.apartmentBlockId\">\n                    {{tower.apartmentBlockNumber}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin() && workpermit.WPTower\">\n              <div class=\"select-box\">\n                <label>Unit No*</label>\n                <select name=\"WPApartment\" id=\"Apartment\" class=\"form-control\" [(ngModel)]=\"selectedUnit\" required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let unit of unitData;\" [value]=\"unit.apartmentBlockUnitId\">\n                    {{unit.apartmentBlockUnitNumber}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n              <div class=\"input-box\">\n                <label>Primary Contact*</label>\n                <select name=\"WPUnitUser\" id=\"UnitUser\" class=\"form-control\" [(ngModel)]=\"workpermit.WPUnitUser\" required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let user of allUsers;\" [value]=\"user.userId\">{{user.firstName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>WorkPermit Type*</label>\n                <!-- <angular2-multiselect \n              name=\"WPNatureWork\"\n              [data]=\"itemList\" \n              [(ngModel)]=\"selectedItems\" \n              [settings]=\"settings\" \n              (onSelect)=\"onItemSelect($event)\"\n              (onDeSelect)=\"OnItemDeSelect($event)\" \n              (onSelectAll)=\"onSelectAll($event)\" \n              (onDeSelectAll)=\"onDeSelectAll($event)\">\n            </angular2-multiselect> -->\n                <select name=\"WPPermitType\" id=\"PermitType\" class=\"form-control\" [(ngModel)]=\"workpermit.WPPermitType\"\n                  required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let worktype of allWorkType;\" [value]=\"worktype.lookupValueId\">\n                    {{worktype.lookupValueName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Nature of work*</label>\n                <select name=\"WPNatureWork\" id=\"NatureWork\" class=\"form-control\" [(ngModel)]=\"workpermit.WPNatureWork\"\n                  required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let natureworktype of allNatureWorkType;\" [value]=\"natureworktype.lookupValueId\">\n                    {{natureworktype.lookupValueName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Contact Number*</label>\n                <input type=\"number\" class=\"form-control\" placeholder=\"Enter\" name=\"WPContact\"\n                  [(ngModel)]=\"workpermit.WPContact\" required [disabled]=\"pageType=='view' ? true : false\">\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Name of Vendor/Contractor*</label>\n                <select name=\"WPVendor\" id=\"vendor\" class=\"form-control\" [(ngModel)]=\"workpermit.WPVendor\" required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let vendor of allVendors;\" [value]=\"vendor.vendorId\">{{vendor.vendorName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Name of Person In Charge*</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"WPIncharge\"\n                  [(ngModel)]=\"workpermit.WPIncharge\" required [disabled]=\"pageType=='view' ? true : false\">\n              </div>\n            </div>\n            <div class=\"col-sm-4\"></div>\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin() && !workpermit.WPTower\"></div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Start Date</label>\n                <input class=\"form-control\" name=\"WPStartdate\" [owlDateTime]=\"WPStartdate\"\n                  [owlDateTimeTrigger]=\"WPStartdate\" placeholder=\"Date\" [(ngModel)]=\"workpermit.WPStartdate\" required [disabled]=\"pageType=='view' ? true : false\">\n                <owl-date-time #WPStartdate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>End Date</label>\n                <input class=\"form-control\" name=\"WPEnddate\" [owlDateTime]=\"WPEnddate\" [owlDateTimeTrigger]=\"WPEnddate\"\n                  placeholder=\"Date\" [(ngModel)]=\"workpermit.WPEnddate\" required [disabled]=\"pageType=='view' ? true : false\">\n                <owl-date-time #WPEnddate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>Start Time</label>\n                <input class=\"form-control\" name=\"WPStarttime\" [owlDateTime]=\"WPStarttime\"\n                  [owlDateTimeTrigger]=\"WPStarttime\" placeholder=\"Time\" [(ngModel)]=\"workpermit.WPStarttime\" required [disabled]=\"pageType=='view' ? true : false\">\n                <owl-date-time #WPStarttime [pickerType]=\"'timer'\" [hour12Timer]=\"true\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"clock\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>End Time</label>\n                <input class=\"form-control\" name=\"WPEndtime\" [owlDateTime]=\"WPEndtime\" [owlDateTimeTrigger]=\"WPEndtime\"\n                  placeholder=\"Time\" [(ngModel)]=\"workpermit.WPEndtime\" required [disabled]=\"pageType=='view' ? true : false\">\n                <owl-date-time #WPEndtime [pickerType]=\"'timer'\" [hour12Timer]=\"true\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"clock\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6 mb-30\">\n              <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Workers/Personnels</b></p>\n              <table *ngIf=\"pageType!='view'\" class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th width=\"35%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"WorkerName\"\n                        [(ngModel)]=\"Workers.WorkerName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"60%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"WorkerDescription\"\n                        [(ngModel)]=\"Workers.WorkerDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addWorkers()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <div class=\"card clear\" id=\"accordion1\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item\" #accordion1 data-toggle=\"collapse\" data-target=\"#workersCollapseOne\"\n                      aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                      <span class=\"font-med\">Workers List</span>&nbsp;<span *ngIf=\"listWorkers.length!==0\">({{listWorkers.length}})</span>\n                    </li>\n                    <div id=\"workersCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion1\">\n                      <div class=\"details\">\n                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th class=\"name\">Name</th>\n                              <th class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">Description</th>\n                              <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listWorkers.length!=0\">\n                            <tr *ngFor=\"let worker of listWorkers;index as i;\">\n                              <td class=\"name\">{{worker.name}}</td>\n                              <td class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">{{worker.description}}</td>\n                              <td class=\"action\" *ngIf=\"pageType!='view'\">\n                                <a class=\"pr-2\" (click)=\"editlistItems(i, 'listofWorker',worker)\">\n                                  <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                </a>\n                                <a (click)=\"deletelistItems(i, 'listofWorker')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6 mb-30\">\n              <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Materials</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"MaterialName\"\n                        [(ngModel)]=\"Materials.MaterialName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"MaterialQuantity\"\n                        [(ngModel)]=\"Materials.MaterialQuantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"MaterialDescription\"\n                        [(ngModel)]=\"Materials.MaterialDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addMaterials()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n\n              <div class=\"card clear\" id=\"accordion2\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item font-med\" #accordion2 data-toggle=\"collapse\" data-target=\"#materialCollapseTwo\"\n                      aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                      <span class=\"font-med\">Material List</span> &nbsp;<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>\n                    </li>\n                    <div id=\"materialCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion2\">\n                      <div class=\"details\">\n                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th class=\"name\">Name</th>\n                              <th class=\"action\">Qty</th>\n                              <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                              <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listMaterials.length!=0\">\n                            <tr *ngFor=\"let material of listMaterials;index as i;\">\n                              <td class=\"name\">{{material.name}}</td>\n                              <td class=\"action\">{{material.qty}}</td>\n                              <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{material.description}}</td>\n                              <td class=\"action\" *ngIf=\"pageType!='view'\">\n                                <a class=\"pr-2\" (click)=\"editlistItems(i, 'materialList',material)\">\n                                  <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                </a>\n                                <a class=\"\" (click)=\"deletelistItems(i, 'materialList')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6 mb-30\">\n              <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Tools</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"ToolName\"\n                        [(ngModel)]=\"Tools.ToolName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"ToolQuantity\"\n                        [(ngModel)]=\"Tools.ToolQuantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"ToolDescription\"\n                        [(ngModel)]=\"Tools.ToolDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addTools()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n\n              <div class=\"card clear\" id=\"accordion3\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item font-med\" #accordion3 data-toggle=\"collapse\" data-target=\"#toolCollapseOne\"\n                      aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                      <span class=\"font-med\">Tools List</span> &nbsp;<span *ngIf=\"listTools.length!=0\">({{listTools.length}})</span>\n                    </li>\n                    <div id=\"toolCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion3\">\n                      <div class=\"details\">\n                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th class=\"name\">Name</th>\n                              <th class=\"action\">Qty</th>\n                              <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                              <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listTools.length!=0\">\n                            <tr *ngFor=\"let tool of listTools;index as i;\">\n                              <td class=\"name\">{{tool.name}}</td>\n                              <td class=\"action\">{{tool.qty}}</td>\n                              <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{tool.description}}</td>\n                              <td class=\"action\" *ngIf=\"pageType!='view'\">\n                                <a class=\"pr-2\" (click)=\"editlistItems(i, 'toolList',tool)\">\n                                  <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                </a>\n                                <a class=\"\" (click)=\"deletelistItems(i, 'toolList')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"row mt-5\">\n            <div class=\"col-sm-6\" *ngIf=\"termsAndCon\">\n              <p class=\"font-med\" *ngIf=\"termsAndCon.termsTitle || termsAndCon.description\">Terms and Condition</p>\n              <p class=\"text-muted\">{{termsAndCon.termsTitle}}</p>\n              <p class=\"text-muted\">{{termsAndCon.description}}</p>\n            </div>\n            <div class=\"col-sm-6 text-right\" *ngIf=\"pageType!='view'\">\n              <button class=\"btn blue\" [disabled]=\"createWorkPermitForm.invalid\">Submit</button>\n            </div>\n          </div>\n        </form>\n      </ng-container>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -7432,7 +7432,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy93b3JrLXBlcm1pdC9jb21wb25lbnRzL3dvcmtwZXJtaXQtYXBwcm92YWwvd29ya3Blcm1pdC1hcHByb3ZhbC5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("@media (max-width: 767px) {\n  .create-btn-permit {\n    display: none;\n  }\n}\n\n@media (min-width: 767px) {\n  .add-icon-permit {\n    display: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWFwcHJvdmFsL3dvcmtwZXJtaXQtYXBwcm92YWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy93b3JrLXBlcm1pdC9jb21wb25lbnRzL3dvcmtwZXJtaXQtYXBwcm92YWwvd29ya3Blcm1pdC1hcHByb3ZhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDSTtFQURKO0lBRU8sYUFBQTtFQ0NMO0FBQ0Y7O0FER0k7RUFESjtJQUVRLGFBQUE7RUNDTjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1hcHByb3ZhbC93b3JrcGVybWl0LWFwcHJvdmFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNyZWF0ZS1idG4tcGVybWl0IHtcbiAgICBAbWVkaWEgKG1heC13aWR0aDogIDc2N3B4KSB7XG4gICAgICAgZGlzcGxheTogbm9uZTtcbiAgICB9XG59XG5cbi5hZGQtaWNvbi1wZXJtaXQge1xuICAgIEBtZWRpYSAobWluLXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgZGlzcGxheTogbm9uZTtcbiAgICAgfVxufSIsIkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuY3JlYXRlLWJ0bi1wZXJtaXQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cbn1cblxuQG1lZGlhIChtaW4td2lkdGg6IDc2N3B4KSB7XG4gIC5hZGQtaWNvbi1wZXJtaXQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cbn0iXX0= */");
 
 /***/ }),
 
@@ -7450,9 +7450,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/work-permit.service */ "./src/app/api/services/work-permit.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var _workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../workpermit-status/workpermit-status.component */ "./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.ts");
 
@@ -7465,55 +7466,131 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
-    constructor(router, route, lookupService, sharedService, cookieService, workPermit, dialog) {
+    constructor(router, route, cookieService, workPermit, dialog) {
         this.router = router;
         this.route = route;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.workPermit = workPermit;
         this.dialog = dialog;
-        this.isDataLoaded = false;
         this.wpData = "";
-        this.unitFieldType = "unitno";
-        this.unitOrder = true;
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
-    }
-    getIndexParams(event) {
-        this.ItemStartIndex = event.ItemStartIndex;
-        this.ItemEndIndex = event.ItemEndIndex;
-    }
-    sortUnitData(type) {
-        this.unitFieldType = type;
-        this.unitOrder = !this.unitOrder;
-    }
-    getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-        }
-        else
-            return '';
-    }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
+        this.isDataLoaded = false;
     }
     ngOnInit() {
         this.getWorkPermit();
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.columnData = [{
+                text: 'WP ID',
+                datafield: 'workPermitId',
+                width: 80,
+                pinned: true,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'BLOCK',
+                datafield: 'apartmentBlockNumber',
+                minwidth: 130,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer,
+            }, {
+                text: 'UNIT',
+                datafield: 'apartmentBlockUnitNumber',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'ENDORSED BY',
+                datafield: 'endorsedBy',
+                cellsrenderer: cellsrenderer,
+                minwidth: 140,
+                renderer: columnrenderer
+            }, {
+                text: 'WP TYPE',
+                datafield: 'workPermitType',
+                cellsrenderer: cellsrenderer,
+                minwidth: 150,
+                renderer: columnrenderer
+            }, {
+                text: 'NATURE OF WORK',
+                datafield: 'natureOfWork',
+                cellsrenderer: cellsrenderer,
+                minwidth: 150,
+                renderer: columnrenderer
+            }, {
+                text: '	START DATE',
+                datafield: 'startDate',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
+                },
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'END DATE',
+                datafield: 'endDate',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
+                },
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'PERSONNELS',
+                datafield: 'noOfPersonnels',
+                cellsalign: 'center',
+                align: 'center',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer,
+            }, {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                width: 120,
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions">'
+                        + '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>'
+                        + '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
+                        + '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a></div>';
+                },
+                renderer: columnrenderer
+            }];
     }
     getWorkPermit() {
         let apartMentID = parseInt(this.cookieService.get('apartmentId'));
         this.workPermit.getWorkPermitsByApartmentId(apartMentID).subscribe((res) => {
             this.workPermitListData = res;
+            this.gridSourceData = {
+                localdata: this.workPermitListData,
+                datatype: "array"
+            };
+            this.workPermitListData = new jqx.dataAdapter(this.gridSourceData);
             this.isDataLoaded = true;
             this.totalItems = this.workPermitListData.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
         });
+    }
+    onGlSearchFilter() {
+        if (this.wpData != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.wpData;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
     }
     openDialog() {
         const dialogRef = this.dialog.open(_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_8__["WorkpermitStatusComponent"], {
@@ -7524,16 +7601,51 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
             console.log(result);
         });
     }
+    onEditTicket(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let permitId = dataRecord.workPermitId;
+        this.router.navigate(['/ams/work-permit/create'], { queryParams: { id: permitId, type: 'edit' } });
+    }
+    onViewTicket(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let permitId = dataRecord.workPermitId;
+        this.router.navigate(['/ams/work-permit/create'], { queryParams: { id: permitId, type: 'view' } });
+    }
+    onstatusPermit(detail) {
+        // let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        // let permitId = dataRecord.ticketId
+        this.openDialog();
+    }
 };
 WorkpermitApprovalComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
     { type: _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
 ];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__["jqxGridComponent"])
+], WorkpermitApprovalComponent.prototype, "datagrid", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:oneditPermit', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], WorkpermitApprovalComponent.prototype, "onEditTicket", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onviewPermit', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], WorkpermitApprovalComponent.prototype, "onViewTicket", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onstatusPermit', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], WorkpermitApprovalComponent.prototype, "onstatusPermit", null);
 WorkpermitApprovalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-workpermit-approval',
@@ -7542,13 +7654,38 @@ WorkpermitApprovalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
         _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
 ], WorkpermitApprovalComponent);
 
+function statusPermitEvent(row) {
+    var event = new CustomEvent('onstatusPermit', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.statusPermitEvent = statusPermitEvent;
+function editPermitEvent(row) {
+    var event = new CustomEvent('oneditPermit', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.editPermitEvent = editPermitEvent;
+function viewPermitEvent(row) {
+    var event = new CustomEvent('onviewPermit', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.viewPermitEvent = viewPermitEvent;
 
 
 /***/ }),
@@ -7562,7 +7699,7 @@ WorkpermitApprovalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".font-med {\n  font-size: 1.4rem;\n}\n\n.lime-green {\n  color: #5cd694;\n}\n\n.mini-table-1 .name {\n  width: 35%;\n}\n\n.mini-table-1 .qty {\n  width: 20%;\n}\n\n.mini-table-1 .add {\n  width: 8%;\n}\n\n.mini-table-2 {\n  width: 100%;\n}\n\n.mini-table-2 th {\n  font-size: 1.3rem;\n}\n\n.mini-table-2 td {\n  font-size: 1.3rem;\n}\n\n.mini-table-2 .action {\n  width: 5%;\n}\n\n.mini-table-2 .qty {\n  width: 15%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWNyZWF0ZS93b3JrcGVybWl0LWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyIsInNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1jcmVhdGUvd29ya3Blcm1pdC1jcmVhdGUuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlBO0VDMEVFLGlCQUFBO0FDNUVGOztBRk1BO0VBQ0ksY0d5Q1M7QUQ1Q2I7O0FGT0k7RUFDSSxVQUFBO0FFSlI7O0FGTUk7RUFDSSxVQUFBO0FFSlI7O0FGTUk7RUFDSSxTQUFBO0FFSlI7O0FGUUE7RUFDSSxXQUFBO0FFTEo7O0FGTUk7RUNvREYsaUJBQUE7QUN2REY7O0FGTUk7RUNpREYsaUJBQUE7QUNwREY7O0FGTUk7RUFDSSxTQUFBO0FFSlI7O0FGTUk7RUFDSSxVQUFBO0FFSlIiLCJmaWxlIjoic3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWNyZWF0ZS93b3JrcGVybWl0LWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4uZm9udC1tZWQge1xuICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xufVxuXG4ubGltZS1ncmVlbiB7XG4gICAgY29sb3I6JGxpbWUtZ3JlZW5cbn1cblxuLm1pbmktdGFibGUtMSB7XG4gICAgLm5hbWUge1xuICAgICAgICB3aWR0aDogMzUlO1xuICAgIH1cbiAgICAucXR5IHtcbiAgICAgICAgd2lkdGg6MjAlXG4gICAgfVxuICAgIC5hZGQge1xuICAgICAgICB3aWR0aDogOCU7XG4gICAgfVxufVxuXG4ubWluaS10YWJsZS0yIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICB0aCB7XG4gICAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGxlcik7XG4gICAgfVxuICAgIHRkIHtcbiAgICAgICAgQGluY2x1ZGUgZnQtY2FsYygkZm9udC1zbWFsbGVyKTsgXG4gICAgfVxuICAgIC5hY3Rpb24ge1xuICAgICAgICB3aWR0aDogNSU7XG4gICAgfVxuICAgIC5xdHkge1xuICAgICAgICB3aWR0aDoxNSVcbiAgICB9XG59XG5cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIiwiLmZvbnQtbWVkIHtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG5cbi5saW1lLWdyZWVuIHtcbiAgY29sb3I6ICM1Y2Q2OTQ7XG59XG5cbi5taW5pLXRhYmxlLTEgLm5hbWUge1xuICB3aWR0aDogMzUlO1xufVxuLm1pbmktdGFibGUtMSAucXR5IHtcbiAgd2lkdGg6IDIwJTtcbn1cbi5taW5pLXRhYmxlLTEgLmFkZCB7XG4gIHdpZHRoOiA4JTtcbn1cblxuLm1pbmktdGFibGUtMiB7XG4gIHdpZHRoOiAxMDAlO1xufVxuLm1pbmktdGFibGUtMiB0aCB7XG4gIGZvbnQtc2l6ZTogMS4zcmVtO1xufVxuLm1pbmktdGFibGUtMiB0ZCB7XG4gIGZvbnQtc2l6ZTogMS4zcmVtO1xufVxuLm1pbmktdGFibGUtMiAuYWN0aW9uIHtcbiAgd2lkdGg6IDUlO1xufVxuLm1pbmktdGFibGUtMiAucXR5IHtcbiAgd2lkdGg6IDE1JTtcbn0iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".font-med {\n  font-size: 1.4rem;\n}\n\n.lime-green {\n  color: #5cd694;\n}\n\n.header p {\n  padding-top: 0 !important;\n}\n\n@media (max-width: 767px) {\n  .header div:nth-of-type(2) {\n    padding-top: 10px !important;\n  }\n}\n\n.mini-table-1 {\n  width: 100%;\n}\n\n.mini-table-1 th {\n  font-size: 1.3rem;\n}\n\n.mini-table-1 td {\n  font-size: 1.3rem;\n}\n\n.mini-table-1 .name {\n  width: 30%;\n  max-width: 30%;\n  min-width: 30%;\n}\n\n.mini-table-1 .action {\n  width: 10%;\n  max-width: 10%;\n  min-width: 10%;\n}\n\n.mini-table-1 .desc {\n  width: 50%;\n  max-width: 50%;\n  min-width: 50%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .desc {\n    display: none !important;\n  }\n}\n\n.mini-table-1 .inc-desc {\n  width: 60%;\n  max-width: 60%;\n  min-width: 60%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .inc-desc {\n    display: none !important;\n  }\n}\n\n.mini-table-1 .inc-wdesc {\n  width: 70%;\n  max-width: 70%;\n  min-width: 70%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .inc-wdesc {\n    display: none !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWNyZWF0ZS93b3JrcGVybWl0LWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyIsInNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1jcmVhdGUvd29ya3Blcm1pdC1jcmVhdGUuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlBO0VDMEVFLGlCQUFBO0FDNUVGOztBRk1BO0VBQ0ksY0d5Q1M7QUQ1Q2I7O0FGUUk7RUFDSSx5QkFBQTtBRUxSOztBRlFRO0VBREo7SUFFUSw0QkFBQTtFRUxWO0FBQ0Y7O0FGVUE7RUFDSSxXQUFBO0FFUEo7O0FGUUk7RUNtREYsaUJBQUE7QUN4REY7O0FGUUk7RUNnREYsaUJBQUE7QUNyREY7O0FGUUk7RUFDSSxVQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7QUVOUjs7QUZRSTtFQUNJLFVBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBRU5SOztBRlFJO0VBQ0ksVUFBQTtFQUNBLGNBQUE7RUFDQSxjQUFBO0FFTlI7O0FGT1E7RUFKSjtJQUtRLHdCQUFBO0VFSlY7QUFDRjs7QUZNSTtFQUNJLFVBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBRUpSOztBRktRO0VBSko7SUFLUSx3QkFBQTtFRUZWO0FBQ0Y7O0FGSUk7RUFDSSxVQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7QUVGUjs7QUZHUTtFQUpKO0lBS1Esd0JBQUE7RUVBVjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1jcmVhdGUvd29ya3Blcm1pdC1jcmVhdGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLmZvbnQtbWVkIHtcbiAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcbn1cblxuLmxpbWUtZ3JlZW4ge1xuICAgIGNvbG9yOiRsaW1lLWdyZWVuXG59XG5cblxuLmhlYWRlciB7XG4gICAgcCB7XG4gICAgICAgIHBhZGRpbmctdG9wOiAwICFpbXBvcnRhbnQ7XG4gICAgfVxuICAgIGRpdjpudGgtb2YtdHlwZSgyKSB7XG4gICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgICAgIHBhZGRpbmctdG9wOiAxMHB4ICFpbXBvcnRhbnQ7XG4gICAgICAgIH1cbiAgICB9XG59XG5cblxuLm1pbmktdGFibGUtMSB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgdGgge1xuICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsZXIpO1xuICAgIH1cbiAgICB0ZCB7XG4gICAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGxlcik7IFxuICAgIH1cbiAgICAubmFtZSB7XG4gICAgICAgIHdpZHRoOjMwJTtcbiAgICAgICAgbWF4LXdpZHRoOjMwJTtcbiAgICAgICAgbWluLXdpZHRoOjMwJTtcbiAgICB9XG4gICAgLmFjdGlvbiB7XG4gICAgICAgIHdpZHRoOiAxMCU7XG4gICAgICAgIG1heC13aWR0aDoxMCU7XG4gICAgICAgIG1pbi13aWR0aDoxMCU7XG4gICAgfVxuICAgIC5kZXNjIHtcbiAgICAgICAgd2lkdGg6NTAlO1xuICAgICAgICBtYXgtd2lkdGg6NTAlO1xuICAgICAgICBtaW4td2lkdGg6NTAlO1xuICAgICAgICBAbWVkaWEgKG1heC13aWR0aDogIDc2N3B4KSB7XG4gICAgICAgICAgICBkaXNwbGF5IDogbm9uZSAhaW1wb3J0YW50O1xuICAgICAgICB9XG4gICAgfVxuICAgIC5pbmMtZGVzYyB7XG4gICAgICAgIHdpZHRoOjYwJTtcbiAgICAgICAgbWF4LXdpZHRoOjYwJTtcbiAgICAgICAgbWluLXdpZHRoOjYwJTsgXG4gICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgICAgIGRpc3BsYXkgOiBub25lICFpbXBvcnRhbnQ7XG4gICAgICAgIH1cbiAgICB9XG4gICAgLmluYy13ZGVzYyB7XG4gICAgICAgIHdpZHRoOjcwJTtcbiAgICAgICAgbWF4LXdpZHRoOjcwJTtcbiAgICAgICAgbWluLXdpZHRoOjcwJTtcbiAgICAgICAgQG1lZGlhIChtYXgtd2lkdGg6ICA3NjdweCkge1xuICAgICAgICAgICAgZGlzcGxheSA6IG5vbmUgIWltcG9ydGFudDtcbiAgICAgICAgfVxuICAgIH1cbn1cblxuIiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iLCIuZm9udC1tZWQge1xuICBmb250LXNpemU6IDEuNHJlbTtcbn1cblxuLmxpbWUtZ3JlZW4ge1xuICBjb2xvcjogIzVjZDY5NDtcbn1cblxuLmhlYWRlciBwIHtcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuaGVhZGVyIGRpdjpudGgtb2YtdHlwZSgyKSB7XG4gICAgcGFkZGluZy10b3A6IDEwcHggIWltcG9ydGFudDtcbiAgfVxufVxuXG4ubWluaS10YWJsZS0xIHtcbiAgd2lkdGg6IDEwMCU7XG59XG4ubWluaS10YWJsZS0xIHRoIHtcbiAgZm9udC1zaXplOiAxLjNyZW07XG59XG4ubWluaS10YWJsZS0xIHRkIHtcbiAgZm9udC1zaXplOiAxLjNyZW07XG59XG4ubWluaS10YWJsZS0xIC5uYW1lIHtcbiAgd2lkdGg6IDMwJTtcbiAgbWF4LXdpZHRoOiAzMCU7XG4gIG1pbi13aWR0aDogMzAlO1xufVxuLm1pbmktdGFibGUtMSAuYWN0aW9uIHtcbiAgd2lkdGg6IDEwJTtcbiAgbWF4LXdpZHRoOiAxMCU7XG4gIG1pbi13aWR0aDogMTAlO1xufVxuLm1pbmktdGFibGUtMSAuZGVzYyB7XG4gIHdpZHRoOiA1MCU7XG4gIG1heC13aWR0aDogNTAlO1xuICBtaW4td2lkdGg6IDUwJTtcbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAubWluaS10YWJsZS0xIC5kZXNjIHtcbiAgICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7XG4gIH1cbn1cbi5taW5pLXRhYmxlLTEgLmluYy1kZXNjIHtcbiAgd2lkdGg6IDYwJTtcbiAgbWF4LXdpZHRoOiA2MCU7XG4gIG1pbi13aWR0aDogNjAlO1xufVxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5taW5pLXRhYmxlLTEgLmluYy1kZXNjIHtcbiAgICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7XG4gIH1cbn1cbi5taW5pLXRhYmxlLTEgLmluYy13ZGVzYyB7XG4gIHdpZHRoOiA3MCU7XG4gIG1heC13aWR0aDogNzAlO1xuICBtaW4td2lkdGg6IDcwJTtcbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAubWluaS10YWJsZS0xIC5pbmMtd2Rlc2Mge1xuICAgIGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDtcbiAgfVxufSIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIl19 */");
 
 /***/ }),
 
@@ -7616,6 +7753,8 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
+        this.pageType = 'create';
+        this.selectedUnit = '';
         //Sub Form
         this.Workers = {
             WorkerName: '',
@@ -7644,53 +7783,80 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         this.isError = false;
         this.errorMessage = "";
     }
-    print() {
-        var data = document.getElementById('my-canvas');
-        html2canvas__WEBPACK_IMPORTED_MODULE_11___default()(data).then(canvas => {
-            // Few necessary setting options  
-            var imgWidth = 208;
-            var pageHeight = 295;
-            var imgHeight = canvas.height * imgWidth / canvas.width;
-            var heightLeft = imgHeight;
-            const contentDataURL = canvas.toDataURL('image/png');
-            let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_12__('p', 'mm', 'a4'); // A4 size page of PDF  
-            var position = 0;
-            pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
-            pdf.save('work-permit.pdf');
-        });
-    }
     ngOnInit() {
         this.workpermit = {};
-        //   this.itemList = [
-        //     { "id": 1, "itemName": "Painting" },
-        //     { "id": 2, "itemName": "Delivery" },
-        //     { "id": 3, "itemName": "Pickup" },
-        //     { "id": 4, "itemName": "Civil" },
-        //     { "id": 5, "itemName": "Mechanical" },
-        //     { "id": 6, "itemName": "Air-Conditioning" },
-        //     { "id": 7, "itemName": "Cleaning" },
-        //     { "id": 8, "itemName": "Others" },
-        // ];
-        // this.selectedItems = [
-        //     { "id": 1, "itemName": "Painting" },
-        //     { "id": 2, "itemName": "Delivery" },
-        //     { "id": 3, "itemName": "Pickup" },
-        //     { "id": 4, "itemName": "Civil" },
-        // ];
-        // this.settings = {
-        //     text: "Select Work",
-        //     selectAllText: 'Select All',
-        //     unSelectAllText: 'UnSelect All',
-        //     classes: "myclass custom-class"
-        // };
-        // this.getVendors();
-        this.getApartments();
         this.getTowers();
         this.getUnitUsers();
         this.getWorktype();
         this.getNatureWorktype();
-        this.getStatus();
         this.getAllWorkPermitVendors();
+        this.termsAndCondition();
+        this.route.queryParams.subscribe((params) => {
+            if (params.id && params.type) {
+                let entity = {
+                    workPermitId: parseInt(params.id),
+                    apartmentId: Number(this.cookieService.get('apartmentId'))
+                };
+                this.pageType = params.type;
+                this.getApartmentDetails(params.type);
+                this.workPermitService.getWorkPermitById(entity).subscribe((res) => {
+                    this.workpermit.workPermitId = parseInt(params.id);
+                    this.workpermit.WPUnitUser = res[0].userId;
+                    this.workpermit.WPPermitType = res[0].workPermitTypeId;
+                    this.workpermit.WPNatureWork = res[0].workNatureId;
+                    this.workpermit.WPVendor = res[0].vendorId;
+                    this.workpermit.WPIncharge = res[0].inChargePerson;
+                    this.workpermit.WPContact = res[0].contactNumber;
+                    this.workpermit.WPStartdate = res[0].startDate;
+                    this.workpermit.WPEnddate = res[0].endDate;
+                    this.workpermit.WPStarttime = res[0].startTime;
+                    this.workpermit.WPEndtime = res[0].endTime;
+                    this.workpermit.serialNo = res[0].serialNo;
+                    this.apartmentService.getApartmentBlockUnitById(res[0].apartmentUnitId).subscribe((data) => {
+                        this.workpermit.WPTower = data[0].apartmentBlockId;
+                        this.getUnits(res[0].apartmentUnitId);
+                    });
+                });
+                this.workPermitService.getWorkPermitWorkersByWorkPermitId(entity).subscribe((res) => {
+                    if (res.length > 0) {
+                        res.forEach((data) => {
+                            let entity = {
+                                "id": data.workPermitWorkersId,
+                                "name": data.workerName,
+                                "description": data.workDescription,
+                            };
+                            this.listWorkers.push(entity);
+                        });
+                    }
+                });
+                this.workPermitService.getWorkPermitMaterialsByWorkPermitId(entity).subscribe((res) => {
+                    if (res.length > 0) {
+                        res.forEach((data) => {
+                            let entity = {
+                                "id": data.workPermitMaterialsId,
+                                "name": data.material,
+                                "qty": data.quantity,
+                                "description": data.description,
+                            };
+                            this.listMaterials.push(entity);
+                        });
+                    }
+                });
+                this.workPermitService.getWorkPermitToolsByWorkPermitId(entity).subscribe((res) => {
+                    if (res.length > 0) {
+                        res.forEach((data) => {
+                            let entity = {
+                                "id": data.workPermitToolsId,
+                                "name": data.tool,
+                                "qty": data.quantity,
+                                "description": data.description,
+                            };
+                            this.listTools.push(entity);
+                        });
+                    }
+                });
+            }
+        });
     }
     isAdmin() {
         return this.cookieService.get('userRole') == "Admin";
@@ -7698,21 +7864,18 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
-    //For Multiselect
-    // onItemSelect(item: any) {
-    //   console.log(item);
-    //   console.log(this.selectedItems);
-    // }
-    // OnItemDeSelect(item: any) {
-    //   console.log(item);
-    //   console.log(this.selectedItems);
-    // }
-    // onSelectAll(items: any) {
-    //   console.log(items);
-    // }
-    // onDeSelectAll(items: any) {
-    //   console.log(items);
-    // }
+    // Apartment Info for View Mode 
+    getApartmentDetails(mode) {
+        if (mode == 'view') {
+            let apartment = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                active: 1
+            };
+            this.apartmentService.getApartmentByApartmentId(apartment).subscribe((apart) => {
+                this.apartmentInfo = apart[0];
+            });
+        }
+    }
     //Get All workpermit vendors list
     getAllWorkPermitVendors() {
         const apartmentId = Number(this.cookieService.get('apartmentId'));
@@ -7720,30 +7883,16 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
             this.allVendors = res;
         });
     }
-    //Get Vendors List
-    // getVendors(){
-    //   this.vendor.getAllVendors().subscribe((res:any) => {
-    //       this.allVendors = res;
-    //      // console.log('Vendors:' +  this.allVendors[0]);
-    //   })
-    // }
-    //Get work permit status
-    getStatus() {
-        this.lookupService.getLookupValueByLookupTypeId(91).subscribe((res) => {
-            // this.WpStatus = res;
-            this.defaultWpStatus = res.filter(x => x.lookupValueId === 354)[0];
-        });
-    }
-    //Get Apartments List
-    getApartments() {
-        this.apartmentService.getAllApartments().subscribe((res) => {
-            this.allApartments = res;
-        });
-    }
     //Get Towers List
     getTowers() {
-        this.apartmentService.getAllApartmentBlockUnits().subscribe((res) => {
+        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
             this.allTowers = res;
+        });
+    }
+    getUnits(id) {
+        this.selectedUnit = id;
+        this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.workpermit.WPTower)).subscribe((res) => {
+            this.unitData = res;
         });
     }
     //Get Apartments List
@@ -7769,29 +7918,35 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
     addWorkers() {
         let name = this.Workers.WorkerName;
         let description = this.Workers.WorkerDescription;
-        this.listWorkers.push({ name: name, description: description });
-        this.Workers.WorkerName = "";
-        this.Workers.WorkerDescription = "";
+        if (name.length > 0) {
+            this.listWorkers.push({ name: name, description: description });
+            this.Workers.WorkerName = "";
+            this.Workers.WorkerDescription = "";
+        }
     }
     //Materials
     addMaterials() {
         let name = this.Materials.MaterialName;
         let qty = this.Materials.MaterialQuantity;
         let description = this.Materials.MaterialDescription;
-        this.listMaterials.push({ name: name, qty: qty, description: description });
-        this.Materials.MaterialName = "";
-        this.Materials.MaterialQuantity = "";
-        this.Materials.MaterialDescription = "";
+        if (name.length > 0) {
+            this.listMaterials.push({ name: name, qty: qty, description: description });
+            this.Materials.MaterialName = "";
+            this.Materials.MaterialQuantity = "";
+            this.Materials.MaterialDescription = "";
+        }
     }
     //Tools
     addTools() {
         let name = this.Tools.ToolName;
         let qty = this.Tools.ToolQuantity;
         let description = this.Tools.ToolDescription;
-        this.listTools.push({ name: name, qty: qty, description: description });
-        this.Tools.ToolName = "";
-        this.Tools.ToolQuantity = "";
-        this.Tools.ToolDescription = "";
+        if (name.length > 0) {
+            this.listTools.push({ name: name, qty: qty, description: description });
+            this.Tools.ToolName = "";
+            this.Tools.ToolQuantity = "";
+            this.Tools.ToolDescription = "";
+        }
     }
     // delete listWorkers
     deletelistItems(index, listName) {
@@ -7805,14 +7960,39 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
             this.listTools.splice(index, 1);
         }
     }
+    //edit listWorkers 
+    editlistItems(index, listName, data) {
+        if (listName === 'listofWorker') {
+            this.Workers.WorkerName = data.name;
+            this.Workers.WorkerDescription = data.description;
+            this.listWorkers.splice(index, 1);
+        }
+        else if (listName === 'materialList') {
+            this.Materials.MaterialName = data.name;
+            this.Materials.MaterialQuantity = data.qty;
+            this.Materials.MaterialDescription = data.description;
+            this.listMaterials.splice(index, 1);
+        }
+        else {
+            this.Tools.ToolName = data.name;
+            this.Tools.ToolQuantity = data.qty;
+            this.Tools.ToolDescription = data.description;
+            this.listTools.splice(index, 1);
+        }
+    }
+    termsAndCondition() {
+        this.apartmentService.getAllTermsConditionsByApartmentIdTermsNo({ ApartmentId: parseInt(this.cookieService.get('apartmentId')), TermsNo: "1" }).subscribe((res) => {
+            this.termsAndCon = res[0];
+        });
+    }
     //create work permit
     submitCreateWorkPermitForm(form) {
         this.isWorkpermitSubmitted = true;
         this.isError = false;
-        //add user
         let workPermitDetails = {
-            "apartmentId": Number(this.workpermit.WPUnitNo),
-            "apartmentUnitId": Number(this.workpermit.WPTower),
+            'workpermitId': this.pageType == 'edit' ? this.workpermit.workPermitId : 0,
+            "apartmentId": Number(this.cookieService.get('apartmentId')),
+            "apartmentUnitId": Number(this.selectedUnit),
             "userId": Number(this.workpermit.WPUnitUser),
             "workPermitTypeId": Number(this.workpermit.WPPermitType),
             "workNatureId": Number(this.workpermit.WPNatureWork),
@@ -7834,22 +8014,19 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
             "insertedOn": new Date().toISOString(),
             "updatedBy": null,
             "updatedOn": null,
-            "statusId": this.defaultWpStatus.lookupValueId,
-            "status": this.defaultWpStatus.lookupValueName
+            "serialNo": this.pageType == 'edit' ? this.workpermit.serialNo : 0,
         };
-        // add attachment
-        // this.workPermitService.addWorkPermitAttachment().subscribe((res) => {
-        // })
-        //add user 
-        this.workPermitService.addWorkPermit(workPermitDetails).subscribe((res) => {
+        let parentMethod = this.pageType == 'edit' ? 'updateWorkPermit' : 'addWorkPermit';
+        this.workPermitService[parentMethod](workPermitDetails).subscribe((res) => {
             if (res.message) {
                 var workPermitId = res.message;
                 if (this.listWorkers.length != 0) {
+                    let childWork = this.pageType == 'edit' ? 'updateWorkPermitWorkers' : 'addWorkPermitWorkers';
                     for (var i = 0; i < this.listWorkers.length; i++) {
                         var workpermitworkers = {
-                            "workPermitWorkersId": 0,
-                            "apartmentId": this.workpermit.WPUnitNo,
-                            "workPermitId": workPermitId,
+                            "workPermitWorkersId": this.pageType == 'edit' ? this.listWorkers[i].id ? this.listWorkers[i].id : 0 : 0,
+                            "apartmentId": Number(this.cookieService.get('apartmentId')),
+                            "workPermitId": this.pageType == 'edit' ? this.workpermit.workPermitId : workPermitId,
                             "workerName": this.listWorkers[i].name,
                             "workDescription": this.listWorkers[i].description,
                             "isActive": true,
@@ -7858,16 +8035,17 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
                             "updatedBy": null,
                             "updatedOn": null
                         };
-                        this.workPermitService.addWorkPermitWorkers(workpermitworkers).subscribe((res) => {
+                        this.workPermitService[childWork](workpermitworkers).subscribe((res) => {
                         });
                     }
                 }
                 if (this.listMaterials.length != 0) {
+                    let childMaterial = this.pageType == 'edit' ? 'updateWorkPermitMaterials' : 'addWorkPermitMaterials';
                     for (var i = 0; i < this.listMaterials.length; i++) {
                         var workpermitmaterials = {
-                            "workPermitMaterialsId": 0,
-                            "apartmentId": this.workpermit.WPUnitNo,
-                            "workPermitId": workPermitId,
+                            "workPermitMaterialsId": this.pageType == 'edit' ? this.listMaterials[i].id ? this.listMaterials[i].id : 0 : 0,
+                            "apartmentId": Number(this.cookieService.get('apartmentId')),
+                            "workPermitId": this.pageType == 'edit' ? this.workpermit.workPermitId : workPermitId,
                             "material": this.listMaterials[i].name,
                             "quantity": this.listMaterials[i].qty,
                             "description": this.listMaterials[i].description,
@@ -7877,16 +8055,17 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
                             "updatedBy": null,
                             "updatedOn": null
                         };
-                        this.workPermitService.addWorkPermitMaterials(workpermitmaterials).subscribe((res) => {
+                        this.workPermitService[childMaterial](workpermitmaterials).subscribe((res) => {
                         });
                     }
                 }
                 if (this.listTools.length != 0) {
+                    let childTool = this.pageType == 'edit' ? 'updateWorkPermitTools' : 'addWorkPermitTools';
                     for (var i = 0; i < this.listTools.length; i++) {
                         var workpermittools = {
-                            "workPermitToolsId": 0,
-                            "apartmentId": this.workpermit.WPUnitNo,
-                            "workPermitId": workPermitId,
+                            "workPermitToolsId": this.pageType == 'edit' ? this.listTools[i].id ? this.listTools[i].id : 0 : 0,
+                            "apartmentId": Number(this.cookieService.get('apartmentId')),
+                            "workPermitId": this.pageType == 'edit' ? this.workpermit.workPermitId : workPermitId,
                             "tool": this.listTools[i].name,
                             "quantity": this.listTools[i].qty,
                             "description": this.listTools[i].description,
@@ -7896,13 +8075,13 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
                             "updatedBy": null,
                             "updatedOn": null
                         };
-                        this.workPermitService.addWorkPermitTools(workpermittools).subscribe((res) => {
+                        this.workPermitService[childTool](workpermittools).subscribe((res) => {
                         });
                     }
                 }
                 if (res.message) {
                     this.sharedService.setAlertMessage("Work Permit added successfully");
-                    this.router.navigate(['/ams/work-permit/settings/approval']);
+                    this.router.navigate(['/ams/work-permit/approval']);
                 }
             }
             else {
@@ -7912,6 +8091,32 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
             }
         }, error => {
         });
+    }
+    print() {
+        if (this.accordion1.nativeElement.getAttribute('aria-expanded') == 'false') {
+            this.accordion1.nativeElement.click();
+        }
+        if (this.accordion2.nativeElement.getAttribute('aria-expanded') == 'false') {
+            this.accordion2.nativeElement.click();
+        }
+        if (this.accordion3.nativeElement.getAttribute('aria-expanded') == 'false') {
+            this.accordion3.nativeElement.click();
+        }
+        setTimeout(() => {
+            var data = document.getElementById('my-canvas');
+            html2canvas__WEBPACK_IMPORTED_MODULE_11___default()(data).then(canvas => {
+                // Few necessary setting options  
+                var imgWidth = 208;
+                var pageHeight = 295;
+                var imgHeight = canvas.height * imgWidth / canvas.width;
+                var heightLeft = imgHeight;
+                const contentDataURL = canvas.toDataURL('image/png');
+                let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_12__('p', 'mm', 'a4'); // A4 size page of PDF  
+                var position = 0;
+                pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+                pdf.save('work-permit.pdf');
+            });
+        }, 1000);
     }
 };
 WorkpermitCreateComponent.ctorParameters = () => [
@@ -7925,6 +8130,18 @@ WorkpermitCreateComponent.ctorParameters = () => [
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] }
 ];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('accordion1'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+], WorkpermitCreateComponent.prototype, "accordion1", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('accordion2'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+], WorkpermitCreateComponent.prototype, "accordion2", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('accordion3'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+], WorkpermitCreateComponent.prototype, "accordion3", void 0);
 WorkpermitCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-workpermit-create',
@@ -8005,7 +8222,7 @@ WorkpermitSettingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".icon-tabs {\n  display: flex;\n  justify-content: center;\n}\n.icon-tabs li {\n  width: 100%;\n  text-align: center;\n  margin-bottom: 20px;\n  padding: 0;\n  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  border-radius: 6px !important;\n}\n.icon-tabs li a {\n  color: #585858;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  font-size: 1.6rem;\n  padding: 10px 25px;\n  position: relative;\n  background-color: #ffffff;\n}\n.icon-tabs li a.active {\n  background-color: #3f51b5;\n  color: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LXNldHVwL3dvcmtwZXJtaXQtc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy93b3JrLXBlcm1pdC9jb21wb25lbnRzL3dvcmtwZXJtaXQtc2V0dXAvd29ya3Blcm1pdC1zZXR1cC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvbWl4aW5zLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlBO0VBQ0ksYUFBQTtFQUNBLHVCQUFBO0FDSEo7QURJSTtFQUNJLFdBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsVUFBQTtFRVlOLDZDRlhNO0VFWU4sa0RGWk07RUVhTixxREZiTTtFRUxQLDZCQUFBO0FEUUQ7QUREUTtFQUNJLGNHZ0ZEO0VDaERULHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQTZCQSxpQkFBQTtFSjVEVSxrQkFBQTtFQUNBLGtCR2RQO0VIZU8seUJHZ0dKO0FGM0ZSO0FESlk7RUFDSSx5QkdxQ1A7RUhwQ08sY0c2RlI7QUZ2RlIiLCJmaWxlIjoic3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LXNldHVwL3dvcmtwZXJtaXQtc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuLmljb24tdGFic3tcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGxpIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgQGluY2x1ZGUgYm94LXNoYWRvdygwIDJweCAzcHggLTFweCByZ2JhKCRibGFjaywgMC4xKSk7XG4gICAgICAgIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoNnB4KTtcbiAgICAgICAgYSB7XG4gICAgICAgICAgICBjb2xvcjogJGdyZXktNzAwO1xuICAgICAgICAgICAgQGluY2x1ZGUgaGVhZC1tZWRpdW07XG4gICAgICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW5vcm1hbCk7XG4gICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDI1cHg7ICAgICAgICAgICAgICBcbiAgICAgICAgICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJHdoaXRlO1xuICAgICAgICAgICAgJi5hY3RpdmUge1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICRtLWJsdWU7XG4gICAgICAgICAgICAgICAgY29sb3I6ICR3aGl0ZTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgXG4gICAgICAgIH1cbiAgICB9XG59IiwiLmljb24tdGFicyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuLmljb24tdGFicyBsaSB7XG4gIHdpZHRoOiAxMDAlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIHBhZGRpbmc6IDA7XG4gIGJveC1zaGFkb3c6IDAgMnB4IDNweCAtMXB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgLW1vei1ib3gtc2hhZG93OiAwIDJweCAzcHggLTFweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogMCAycHggM3B4IC0xcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xuICBib3JkZXItcmFkaXVzOiA2cHggIWltcG9ydGFudDtcbn1cbi5pY29uLXRhYnMgbGkgYSB7XG4gIGNvbG9yOiAjNTg1ODU4O1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbiAgZm9udC1zaXplOiAxLjZyZW07XG4gIHBhZGRpbmc6IDEwcHggMjVweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xufVxuLmljb24tdGFicyBsaSBhLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzZjUxYjU7XG4gIGNvbG9yOiAjZmZmZmZmO1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIGRlc2VsZWN0ICgpIHtcbiAgLW1vei11c2VyLXNlbGVjdDogLW1vei1ub25lO1xuXHQta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1vLXVzZXItc2VsZWN0OiBub25lO1xuXHR1c2VyLXNlbGVjdDogbm9uZTtcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO1xuICBhbGlnbi1pdGVtczpjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICRiZztcbiAgY29sb3I6ICR0YztcbiAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cygkcik7XG59XG5cbkBtaXhpbiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzLi4uKSB7XG4gIC8vIERpcmVjdGlvbiBoYXMgYmVlbiBvbWl0dGVkIGFuZCBoYXBwZW5zIHRvIGJlIGEgY29sb3Itc3RvcFxuICBAaWYgaXMtZGlyZWN0aW9uKCRkaXJlY3Rpb24pID09IGZhbHNlIHtcbiAgICAkY29sb3Itc3RvcHM6ICRkaXJlY3Rpb24sICRjb2xvci1zdG9wcztcbiAgICAkZGlyZWN0aW9uOiAxODBkZWc7XG4gIH1cblxuICBiYWNrZ3JvdW5kOiBudGgobnRoKCRjb2xvci1zdG9wcywgMSksIDEpO1xuICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChsZWdhY3ktZGlyZWN0aW9uKCRkaXJlY3Rpb24pLCAkY29sb3Itc3RvcHMpO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzKTtcbn1cblxuQG1peGluIHBsYWNlaG9sZGVyIHtcbiAgJjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7QGNvbnRlbnR9XG4gICY6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICAge0Bjb250ZW50fVxuICAmOjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgIHtAY29udGVudH1cbiAgJjotbXMtaW5wdXQtcGxhY2Vob2xkZXIgICAgICB7QGNvbnRlbnR9ICBcbn1cblxuXG4iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7IiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".icon-tabs {\n  display: flex;\n  justify-content: center;\n}\n.icon-tabs li {\n  width: 100%;\n  text-align: center;\n  margin-bottom: 20px;\n  padding: 0;\n  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  border-radius: 6px !important;\n}\n.icon-tabs li a {\n  color: #585858;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  font-size: 1.6rem;\n  padding: 10px 25px;\n  position: relative;\n  background-color: #ffffff;\n}\n.icon-tabs li a.active {\n  background-color: #3f51b5;\n  color: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LXNldHVwL3dvcmtwZXJtaXQtc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy93b3JrLXBlcm1pdC9jb21wb25lbnRzL3dvcmtwZXJtaXQtc2V0dXAvd29ya3Blcm1pdC1zZXR1cC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvbWl4aW5zLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlBO0VBQ0ksYUFBQTtFQUNBLHVCQUFBO0FDSEo7QURJSTtFQUNJLFdBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsVUFBQTtFRVlOLDZDRlhNO0VFWU4sa0RGWk07RUVhTixxREZiTTtFRUxQLDZCQUFBO0FEUUQ7QUREUTtFQUNJLGNHZ0ZEO0VDaERULHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQTZCQSxpQkFBQTtFSjVEVSxrQkFBQTtFQUNBLGtCR2RQO0VIZU8seUJHZ0dKO0FGM0ZSO0FESlk7RUFDSSx5QkdxQ1A7RUhwQ08sY0c2RlI7QUZ2RlIiLCJmaWxlIjoic3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LXNldHVwL3dvcmtwZXJtaXQtc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuLmljb24tdGFic3tcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGxpIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgQGluY2x1ZGUgYm94LXNoYWRvdygwIDJweCAzcHggLTFweCByZ2JhKCRibGFjaywgMC4xKSk7XG4gICAgICAgIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoNnB4KTtcbiAgICAgICAgYSB7XG4gICAgICAgICAgICBjb2xvcjogJGdyZXktNzAwO1xuICAgICAgICAgICAgQGluY2x1ZGUgaGVhZC1tZWRpdW07XG4gICAgICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW5vcm1hbCk7XG4gICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDI1cHg7ICAgICAgICAgICAgICBcbiAgICAgICAgICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJHdoaXRlO1xuICAgICAgICAgICAgJi5hY3RpdmUge1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICRtLWJsdWU7XG4gICAgICAgICAgICAgICAgY29sb3I6ICR3aGl0ZTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgXG4gICAgICAgIH1cbiAgICB9XG59IiwiLmljb24tdGFicyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuLmljb24tdGFicyBsaSB7XG4gIHdpZHRoOiAxMDAlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIHBhZGRpbmc6IDA7XG4gIGJveC1zaGFkb3c6IDAgMnB4IDNweCAtMXB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgLW1vei1ib3gtc2hhZG93OiAwIDJweCAzcHggLTFweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogMCAycHggM3B4IC0xcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xuICBib3JkZXItcmFkaXVzOiA2cHggIWltcG9ydGFudDtcbn1cbi5pY29uLXRhYnMgbGkgYSB7XG4gIGNvbG9yOiAjNTg1ODU4O1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbiAgZm9udC1zaXplOiAxLjZyZW07XG4gIHBhZGRpbmc6IDEwcHggMjVweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xufVxuLmljb24tdGFicyBsaSBhLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzZjUxYjU7XG4gIGNvbG9yOiAjZmZmZmZmO1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIGRlc2VsZWN0ICgpIHtcbiAgLW1vei11c2VyLXNlbGVjdDogLW1vei1ub25lO1xuXHQta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1vLXVzZXItc2VsZWN0OiBub25lO1xuXHR1c2VyLXNlbGVjdDogbm9uZTtcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO1xuICBhbGlnbi1pdGVtczpjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICRiZztcbiAgY29sb3I6ICR0YztcbiAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cygkcik7XG59XG5cbkBtaXhpbiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzLi4uKSB7XG4gIC8vIERpcmVjdGlvbiBoYXMgYmVlbiBvbWl0dGVkIGFuZCBoYXBwZW5zIHRvIGJlIGEgY29sb3Itc3RvcFxuICBAaWYgaXMtZGlyZWN0aW9uKCRkaXJlY3Rpb24pID09IGZhbHNlIHtcbiAgICAkY29sb3Itc3RvcHM6ICRkaXJlY3Rpb24sICRjb2xvci1zdG9wcztcbiAgICAkZGlyZWN0aW9uOiAxODBkZWc7XG4gIH1cblxuICBiYWNrZ3JvdW5kOiBudGgobnRoKCRjb2xvci1zdG9wcywgMSksIDEpO1xuICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChsZWdhY3ktZGlyZWN0aW9uKCRkaXJlY3Rpb24pLCAkY29sb3Itc3RvcHMpO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzKTtcbn1cblxuQG1peGluIHBsYWNlaG9sZGVyIHtcbiAgJjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7QGNvbnRlbnR9XG4gICY6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICAge0Bjb250ZW50fVxuICAmOjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgIHtAY29udGVudH1cbiAgJjotbXMtaW5wdXQtcGxhY2Vob2xkZXIgICAgICB7QGNvbnRlbnR9ICBcbn1cblxuXG4iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */");
 
 /***/ }),
 

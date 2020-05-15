@@ -46,6 +46,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.html":
+  /*!************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.html ***!
+    \************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsProfileSettingsComponentsAddFloorUnitAddFloorUnitComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>add-floor-unit works!</p>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.html":
   /*!****************************************************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.html ***!
@@ -394,6 +414,85 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./add-block.component.scss */
       "./src/app/ams/profile-settings/components/add-block-wrapper/add-block/add-block.component.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], AddBlockComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.scss":
+  /*!**********************************************************************************************!*\
+    !*** ./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.scss ***!
+    \**********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsProfileSettingsComponentsAddFloorUnitAddFloorUnitComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9wcm9maWxlLXNldHRpbmdzL2NvbXBvbmVudHMvYWRkLWZsb29yLXVuaXQvYWRkLWZsb29yLXVuaXQuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts":
+  /*!********************************************************************************************!*\
+    !*** ./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts ***!
+    \********************************************************************************************/
+
+  /*! exports provided: AddFloorUnitComponent */
+
+  /***/
+  function srcAppAmsProfileSettingsComponentsAddFloorUnitAddFloorUnitComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AddFloorUnitComponent", function () {
+      return AddFloorUnitComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var AddFloorUnitComponent =
+    /*#__PURE__*/
+    function () {
+      function AddFloorUnitComponent() {
+        _classCallCheck(this, AddFloorUnitComponent);
+      }
+
+      _createClass(AddFloorUnitComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return AddFloorUnitComponent;
+    }();
+
+    AddFloorUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-add-floor-unit',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./add-floor-unit.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./add-floor-unit.component.scss */
+      "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], AddFloorUnitComponent);
     /***/
   },
 
@@ -762,6 +861,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./components/add-unit-wrapper/add-unit-wrapper.component */
     "./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts");
+    /* harmony import */
+
+
+    var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./components/add-floor-unit/add-floor-unit.component */
+    "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
 
     var routes = [{
       path: '',
@@ -773,6 +878,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'add-unit',
       component: _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_4__["AddUnitWrapperComponent"]
+    }, {
+      path: 'add-floor-unit',
+      component: _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_5__["AddFloorUnitComponent"]
     }, {
       path: '**',
       redirectTo: 'add-block',
@@ -948,13 +1056,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./components/add-unit-wrapper/add-unit/add-unit.component */
     "./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.ts");
+    /* harmony import */
+
+
+    var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./components/add-floor-unit/add-floor-unit.component */
+    "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
 
     var ProfileSettingsModule = function ProfileSettingsModule() {
       _classCallCheck(this, ProfileSettingsModule);
     };
 
     ProfileSettingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_9__["AddUnitComponent"], _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_6__["AddBlockWrapperComponent"], _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_7__["AddUnitWrapperComponent"], _profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"], _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_8__["AddBlockComponent"]],
+      declarations: [_components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_9__["AddUnitComponent"], _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_6__["AddBlockWrapperComponent"], _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_7__["AddUnitWrapperComponent"], _profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"], _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_8__["AddBlockComponent"], _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__["AddFloorUnitComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _profile_settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileSettingsRoutingModule"]],
       bootstrap: [_profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"]]
     })], ProfileSettingsModule);
