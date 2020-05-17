@@ -5847,17 +5847,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
 
     var PublicHeaderComponent =
     /*#__PURE__*/
     function () {
-      function PublicHeaderComponent(router, document) {
+      function PublicHeaderComponent(router, document, sharedService) {
         var _this14 = this;
 
         _classCallCheck(this, PublicHeaderComponent);
 
         this.router = router;
         this.document = document;
+        this.sharedService = sharedService;
         this.isMobile = false;
         this.isHeaderFixed = false;
         this.isHeaderAwake = false;
@@ -5915,11 +5922,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "showNav",
         value: function showNav() {
           this.isNavActive = !this.isNavActive;
+          this.sharedService.setPublicMenu(this.isNavActive);
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
           var _this16 = this;
+
+          this.sharedService.publicmenucast.subscribe(function (isNavActive) {
+            return _this16.isNavActive = isNavActive;
+          });
 
           window.onresize = function () {
             _this16.isMobile = window.innerWidth <= 991;
@@ -5953,6 +5965,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
           args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
         }]
+      }, {
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }];
     };
 
@@ -5965,7 +5979,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./public-header.component.scss */
       "./src/app/public/components/public-header/public-header.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], Object])], PublicHeaderComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], Object, _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])], PublicHeaderComponent);
     /***/
   },
 

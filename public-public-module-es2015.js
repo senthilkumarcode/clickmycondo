@@ -3820,14 +3820,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
 
 
 
 
 let PublicHeaderComponent = class PublicHeaderComponent {
-    constructor(router, document) {
+    constructor(router, document, sharedService) {
         this.router = router;
         this.document = document;
+        this.sharedService = sharedService;
         this.isMobile = false;
         this.isHeaderFixed = false;
         this.isHeaderAwake = false;
@@ -3879,8 +3882,10 @@ let PublicHeaderComponent = class PublicHeaderComponent {
     }
     showNav() {
         this.isNavActive = !this.isNavActive;
+        this.sharedService.setPublicMenu(this.isNavActive);
     }
     ngOnInit() {
+        this.sharedService.publicmenucast.subscribe(isNavActive => this.isNavActive = isNavActive);
         window.onresize = () => {
             this.isMobile = window.innerWidth <= 991;
             if (!this.isMobile && this.isHome) {
@@ -3901,7 +3906,8 @@ let PublicHeaderComponent = class PublicHeaderComponent {
 };
 PublicHeaderComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"],] }] }
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"],] }] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:scroll', ['$event']),
@@ -3916,7 +3922,7 @@ PublicHeaderComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./public-header.component.scss */ "./src/app/public/components/public-header/public-header.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], Object])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], Object, _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
 ], PublicHeaderComponent);
 
 
