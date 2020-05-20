@@ -329,15 +329,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/bank-account.service */
-    "./src/app/api/services/bank-account.service.ts");
+    var src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/bankAccount */
+    "./src/app/api/controllers/bankAccount.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -430,7 +430,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "updatedBy": 0,
               "updatedOn": "2020-03-13T09:38:46.772Z"
             };
-            this.bankAccountService.addBankAccountDetails(details).subscribe(function (res) {
+            var bankAccountDetails = {
+              bankAccountDetails: details
+            };
+            this.bankAccountService.addBankAccountDetails(bankAccountDetails).subscribe(function (res) {
               if (res.message) {
                 _this.bankAccountService.getAllBankAccountDetails().subscribe(function (res) {
                   _this.isBankSubmitted = true;
@@ -466,7 +469,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
             };
-            this.bankAccountService.updateBankAccountDetails(_details).subscribe(function (res) {
+            var _bankAccountDetails = {
+              bankAccountDetails: _details
+            };
+            this.bankAccountService.updateBankAccountDetails(_bankAccountDetails).subscribe(function (res) {
               if (res.message) {
                 _this.bankAccountService.getAllBankAccountDetails().subscribe(function (res) {
                   _this.isBankSubmitted = true;
@@ -502,8 +508,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }); // delete account
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-            console.log(id);
-
             if (id != null) {
               _this2.isBankLoaded = false;
               var params = {
@@ -537,9 +541,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"]
+        type: src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -555,7 +559,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./bank-settings.component.scss */
       "./src/app/ams/bank-cash/components/bank-settings/bank-settings.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], BankSettingsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], BankSettingsComponent);
     /***/
   }
 }]);

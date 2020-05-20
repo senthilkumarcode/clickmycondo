@@ -286,14 +286,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
-
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
@@ -302,14 +298,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddCreditComponent = class IncomeAddCreditComponent {
-    constructor(router, route, userService, apartmentService, accountsService, sharedService, lookupService, cookieService) {
+    constructor(router, route, apartmentService, accountsService, sharedService, cookieService) {
         this.router = router;
         this.route = route;
-        this.userService = userService;
         this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
-        this.lookupService = lookupService;
         this.cookieService = cookieService;
         this.isEditCredit = false;
         this.isCreditSubmitted = true;
@@ -402,7 +396,10 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                 "glAcctIndicator": "Income",
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id)
             };
-            this.accountsService.addCreditNote(details).subscribe((res) => {
+            let params = {
+                creditNote: details
+            };
+            this.accountsService.addCreditNote(params).subscribe((res) => {
                 if (res.message) {
                     this.isCreditSubmitted = true;
                     this.sharedService.setAlertMessage("Credit Note added successfully");
@@ -439,7 +436,10 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                 "glAcctIndicator": "Income",
                 "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId)
             };
-            this.accountsService.updateCreditNote(details).subscribe((res) => {
+            let params = {
+                creditNote: details
+            };
+            this.accountsService.updateCreditNote(params).subscribe((res) => {
                 if (res.message) {
                     this.isCreditSubmitted = true;
                     this.sharedService.setAlertMessage("Credit Note updated successfully");
@@ -485,7 +485,10 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                     this.invoiceData = res;
                 });
                 this.isEditCredit = true;
-                this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+                let acountListParams = {
+                    apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                };
+                this.accountsService.getIncomeTrackerSubLedgersByApartmentId(acountListParams).subscribe((res) => {
                     this.accountDataList = res.filter(item => {
                         return item.apartmentBlockUnitId == this.credit.apartmentBlockUnitId;
                     });
@@ -495,7 +498,10 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             });
         }
         else {
-            this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let accountListParams = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe((res) => {
                 this.accountDataList = res.filter(item => {
                     return item.apartmentBlockUnitId == this.route.params['value'].id;
                 });
@@ -513,7 +519,10 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             });
             this.isBlockSelected = true;
         }
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let blockListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(blockListParams).subscribe((res) => {
             this.blockData = res;
         });
     }
@@ -521,12 +530,10 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
 IncomeAddCreditComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 IncomeAddCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -536,12 +543,10 @@ IncomeAddCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomeAddCreditComponent);
 
 
@@ -573,25 +578,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeInvoiceReverseComponent", function() { return IncomeInvoiceReverseComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
 
 
 let IncomeInvoiceReverseComponent = class IncomeInvoiceReverseComponent {
-    constructor(router, route, accountsService, sharedService, lookupService, cookieService) {
-        this.router = router;
-        this.route = route;
+    constructor(accountsService, sharedService, cookieService) {
         this.accountsService = accountsService;
         this.sharedService = sharedService;
-        this.lookupService = lookupService;
         this.cookieService = cookieService;
         this.isInvoiceSubmitted = true;
         this.isError = false;
@@ -616,7 +614,10 @@ let IncomeInvoiceReverseComponent = class IncomeInvoiceReverseComponent {
             "transReference2": "string",
             "glAcctIndicator": "Income"
         };
-        this.accountsService.addCustTransReversal(details).subscribe((res) => {
+        let params = {
+            custTransReversal: details
+        };
+        this.accountsService.addCustTransReversal(params).subscribe((res) => {
             if (res.message) {
                 this.isInvoiceSubmitted = true;
                 this.sharedService.setAlertMessage("Invoice reversed successfully");
@@ -636,12 +637,9 @@ let IncomeInvoiceReverseComponent = class IncomeInvoiceReverseComponent {
     }
 };
 IncomeInvoiceReverseComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -653,12 +651,9 @@ IncomeInvoiceReverseComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-invoice-reverse.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-invoice-reverse/income-invoice-reverse.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-invoice-reverse.component.scss */ "./src/app/ams/income-tracker/components/income-invoice-reverse/income-invoice-reverse.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], IncomeInvoiceReverseComponent);
 
 
@@ -691,8 +686,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -840,7 +835,10 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         }
     }
     getCustInvoices() {
-        this.accountsService.GetARBalancewithDueByAptBlkUnitId(this.route.params['value'].id).subscribe((res) => {
+        let params = {
+            ApartmentBlockUnitID: this.route.params['value'].id
+        };
+        this.accountsService.getArBalancewithDueByAptBlkUnitId(params).subscribe((res) => {
             this.invoiceDataList = res;
             console.log(res);
             this.totalItems = this.invoiceDataList.length;
@@ -850,7 +848,10 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
             else {
                 this.ItemEndIndex = this.totalItems;
             }
-            this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.userService.getAllUsersByApartmentId(params).subscribe((res) => {
                 this.userDataList = res;
                 this.isInvoiceDataLoaded = true;
             }, error => {
@@ -859,7 +860,10 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
     }
     ngOnInit() {
         this.getCustInvoices();
-        this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe((res) => {
             this.accountDataList = res.filter(item => {
                 return item.apartmentBlockUnitId == this.route.params['value'].id;
             });
@@ -869,7 +873,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
         };
-        this.accountsService.getGLAccountsByGroupId(accountParams).subscribe((res) => {
+        this.accountsService.getGlAccountsByGroupId(accountParams).subscribe((res) => {
             this.glAccountListData = res;
         });
     }
@@ -877,8 +881,8 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
 IncomePayInvoiceComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -890,8 +894,8 @@ IncomePayInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomePayInvoiceComponent);
@@ -925,13 +929,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomePostCollectionComponent", function() { return IncomePostCollectionComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -940,9 +942,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomePostCollectionComponent = class IncomePostCollectionComponent {
-    constructor(router, route, accountsService, lookupService, sharedService, cookieService) {
-        this.router = router;
-        this.route = route;
+    constructor(accountsService, lookupService, sharedService, cookieService) {
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -959,7 +959,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
     submitIncomePostCollectionForm(form) {
         var custInvoiceObjArray = [];
         if (this.invoiceIdArray.length == 1) {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, (item, index) => {
                 var details = {
                     "apartmentId": parseInt(this.cookieService.get('apartmentId')),
                     "collectionId": 0,
@@ -976,7 +976,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             });
         }
         else {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, (item, index) => {
                 var details = {
                     "apartmentId": parseInt(this.cookieService.get('apartmentId')),
                     "collectionId": 0,
@@ -1019,7 +1019,10 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             "glAcctIndicator": "Asset",
             "collectionInvoice": custInvoiceObjArray
         };
-        this.accountsService.addCollection(collectionDetails).subscribe((res) => {
+        let params = {
+            collection: collectionDetails
+        };
+        this.accountsService.addCollection(params).subscribe((res) => {
             if (res.message) {
                 this.isCollectionSubmitted = true;
                 this.sharedService.setAlertMessage("Collection done successfully");
@@ -1043,15 +1046,21 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         //if only one entry of collection data is added
         this.collection.amount = this.totalAmountArray[0];
         this.maxCollectionAmount = this.totalAmountArray[0];
+        let paymentListParams = {
+            LookupTypeId: 34
+        };
         //payment status
-        this.lookupService.getLookupValueByLookupTypeId(34).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(paymentListParams).subscribe((res) => {
             this.paymentStatusListData = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
+        let insListParams = {
+            LookupTypeId: 33
+        };
         //payment mode
-        this.lookupService.getLookupValueByLookupTypeId(33).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(insListParams).subscribe((res) => {
             this.instrumentTypeListData = res.filter(item => {
                 return item.isActive;
             });
@@ -1061,7 +1070,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
         };
-        this.accountsService.getGLAccountsByGroupId(accountParams).subscribe((res) => {
+        this.accountsService.getGlAccountsByGroupId(accountParams).subscribe((res) => {
             this.glAccountListData = res;
         });
         this.depositSlipLisData = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
@@ -1083,12 +1092,10 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
     }
 };
 IncomePostCollectionComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -1108,12 +1115,10 @@ IncomePostCollectionComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-post-collection.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-post-collection/income-post-collection.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-post-collection.component.scss */ "./src/app/ams/income-tracker/components/income-post-collection/income-post-collection.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], IncomePostCollectionComponent);
 
 
@@ -1146,11 +1151,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
@@ -1227,7 +1232,10 @@ let IncomePostInvoiceComponent = class IncomePostInvoiceComponent {
                     }
                 ]
             };
-            this.accountsService.addCustInvoice(details).subscribe((res) => {
+            let params = {
+                invoice: details
+            };
+            this.accountsService.addCustInvoice(params).subscribe((res) => {
                 if (res.message) {
                     this.isInvoiceSubmitted = true;
                     this.sharedService.setAlertMessage("Invoice added successfully");
@@ -1289,7 +1297,10 @@ let IncomePostInvoiceComponent = class IncomePostInvoiceComponent {
                     }
                 ]
             };
-            this.accountsService.updateCustInvoice(details).subscribe((res) => {
+            let params = {
+                invoice: details
+            };
+            this.accountsService.updateCustInvoice(params).subscribe((res) => {
                 if (res.message) {
                     this.isInvoiceSubmitted = true;
                     this.sharedService.setAlertMessage("Invoice updated successfully");
@@ -1334,18 +1345,26 @@ let IncomePostInvoiceComponent = class IncomePostInvoiceComponent {
             };
             this.accountsService.getCustInvoiceById(params).subscribe((res) => {
                 this.invoice = res[0];
+                console.log(this.invoice);
                 this.invoice.invoiceGlaccountId = this.invoice.invoiceGLAccounts[0].invoiceGlaccountId;
                 this.invoice.glaccountId = this.invoice.invoiceGLAccounts[0].glaccountId;
                 this.apartmentBlockUnitId = this.invoice.apartmentBlockUnitId;
-                this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
-                    this.accountDataList = res.filter(item => {
-                        return item.apartmentBlockUnitId == this.apartmentBlockUnitId;
-                    });
-                    this.isAccountDataLoaded = true;
-                });
+                /*this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
+        
+                  this.accountDataList = res.filter(item => {
+                    return item.apartmentBlockUnitId == this.apartmentBlockUnitId;
+                  });
+        
+                  this.isAccountDataLoaded = true;
+        
+        
+                });*/
             }, error => {
             });
-            this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let userListParams = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.userService.getAllUsersByApartmentId(userListParams).subscribe((res) => {
                 this.userDataList = res.filter(item => {
                     return item.isActive;
                 });
@@ -1359,13 +1378,19 @@ let IncomePostInvoiceComponent = class IncomePostInvoiceComponent {
         }
         else {
             this.isNewInvoice = true;
-            this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let accountListParams = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe((res) => {
                 this.accountDataList = res.filter(item => {
                     return item.apartmentBlockUnitId == this.route.params['value'].id;
                 });
                 this.isAccountDataLoaded = true;
             });
-            this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let userListParams = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.userService.getAllUsersByApartmentId(userListParams).subscribe((res) => {
                 this.userDataList = res.filter(item => {
                     return item.isActive;
                 });
@@ -1377,18 +1402,24 @@ let IncomePostInvoiceComponent = class IncomePostInvoiceComponent {
                 });
             });
         }
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountListData = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
         });
+        let vatListParams = {
+            LookupTypeId: 77
+        };
         //VAT types
-        this.lookupService.getLookupValueByLookupTypeId(77).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
             this.vatTypeDataList = res;
             this.invoice.vatPercent = parseFloat(this.vatTypeDataList[0].lookupValueName);
         });
+        let disListParams = {
+            LookupTypeId: 75
+        };
         //discount types
-        this.lookupService.getLookupValueByLookupTypeId(75).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe((res) => {
             this.discountTypeDataList = res;
             this.invoice.discount = parseFloat(this.discountTypeDataList[0].lookupValueName);
         });
@@ -1397,11 +1428,11 @@ let IncomePostInvoiceComponent = class IncomePostInvoiceComponent {
 IncomePostInvoiceComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
 ];
 IncomePostInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1412,11 +1443,11 @@ IncomePostInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
 ], IncomePostInvoiceComponent);
 
@@ -1451,11 +1482,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
@@ -1464,12 +1493,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsComponent {
-    constructor(cd, router, route, accountsService, sharedService, lookupService, cookieService) {
-        this.cd = cd;
-        this.router = router;
+    constructor(route, accountsService, lookupService, cookieService) {
         this.route = route;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.lookupService = lookupService;
         this.cookieService = cookieService;
         this.invoiceId = "";
@@ -1647,29 +1673,32 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
         if (this.isEditInvoice) {
             this.invoiceGLAccountsData.form = true;
         }
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountListData = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
         });
+        let vatListParams = {
+            LookupTypeId: 77
+        };
         //VAT types
-        this.lookupService.getLookupValueByLookupTypeId(77).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
             this.vatTypeDataList = res;
         });
+        let disListParams = {
+            LookupTypeId: 88
+        };
         //discount types
-        this.lookupService.getLookupValueByLookupTypeId(88).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe((res) => {
             this.discountTypeDataList = res;
         });
     }
 };
 IncomePostMultiInvoiceFieldsComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -1705,13 +1734,10 @@ IncomePostMultiInvoiceFieldsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0_
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-post-multi-invoice-fields.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-post-multi-invoice-fields/income-post-multi-invoice-fields.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-post-multi-invoice-fields.component.scss */ "./src/app/ams/income-tracker/components/income-post-multi-invoice-fields/income-post-multi-invoice-fields.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomePostMultiInvoiceFieldsComponent);
 
 
@@ -1744,9 +1770,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -1761,8 +1787,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
-    constructor(cd, router, route, accountsService, lookupService, sharedService, cookieService) {
-        this.cd = cd;
+    constructor(router, route, accountsService, lookupService, sharedService, cookieService) {
         this.router = router;
         this.route = route;
         this.accountsService = accountsService;
@@ -1960,7 +1985,10 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 "invoiceGLAccounts": this.invoiceGLAccountsArray,
                 "custinvoiceTax": this.custInvoiceTaxArray
             };
-            this.accountsService.addCustInvoice(details).subscribe((res) => {
+            let params = {
+                invoice: details
+            };
+            this.accountsService.addCustInvoice(params).subscribe((res) => {
                 if (res.message) {
                     this.isInvoiceSubmitted = true;
                     this.sharedService.setAlertMessage("All Invoices added successfully");
@@ -2019,7 +2047,10 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 "invoiceGLAccounts": this.invoiceGLAccountsArray,
                 "custinvoiceTax": this.custInvoiceTaxArray
             };
-            this.accountsService.updateCustInvoice(details).subscribe((res) => {
+            let params = {
+                invoice: details
+            };
+            this.accountsService.updateCustInvoice(params).subscribe((res) => {
                 if (res.message) {
                     this.isInvoiceSubmitted = true;
                     this.sharedService.setAlertMessage("All Invoices updated successfully");
@@ -2129,18 +2160,27 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 "discountDirectAmt": parseFloat(this.invoiceGLAccountsData.discountDirectAmt)
             }
         ];
-        this.lookupService.getLookupValueByLookupTypeId(74).subscribe((res) => {
+        let dateParams = {
+            LookupTypeId: 74
+        };
+        this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe((res) => {
             this.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_8__().add(parseInt(res[0].lookupValueName), 'days');
         });
+        let vatListParams = {
+            LookupTypeId: 77
+        };
         //VAT types
-        this.lookupService.getLookupValueByLookupTypeId(77).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
             this.vatTypeDataList = res;
             underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, item => {
                 item.custVatTypeAmount = 0;
             });
         });
+        let disListParams = {
+            LookupTypeId: 88
+        };
         //discount types
-        this.lookupService.getLookupValueByLookupTypeId(88).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe((res) => {
             this.discountFinalTypeDataList = res;
         });
         //for post single invoice
@@ -2180,7 +2220,10 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 this.isInvoiceSubmitted = true;
             });
         }
-        this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let accountListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe((res) => {
             this.accountDataList = res.filter(item => {
                 return item.apartmentBlockUnitId == this.route.params['value'].id;
             });
@@ -2189,11 +2232,10 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
     }
 };
 IncomePostMultiInvoiceComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -2203,11 +2245,10 @@ IncomePostMultiInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-post-multi-invoice.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-post-multi-invoice/income-post-multi-invoice.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-post-multi-invoice.component.scss */ "./src/app/ams/income-tracker/components/income-post-multi-invoice/income-post-multi-invoice.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomePostMultiInvoiceComponent);
@@ -2244,12 +2285,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -2260,13 +2299,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
-    constructor(router, injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+    constructor(router, dialog, apartmentService, accountsService, cookieService) {
         this.router = router;
-        this.injector = injector;
         this.dialog = dialog;
         this.apartmentService = apartmentService;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isSubLedgerDataLoaded = false;
         this.subLedgerData = "";
@@ -2290,8 +2327,12 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
     getAllBlockData() {
         this.filterSelected = 'all';
         this.singleBlock = "Select Block";
-        this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe((res) => {
             var subLedgerDataList = res;
+            console.log(res);
             this.gridSourceData.localdata = subLedgerDataList;
             this.datagrid.updatebounddata('cells');
             this.calculateTotalAmount(subLedgerDataList);
@@ -2301,20 +2342,25 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
         this.filterSelected = 'single';
         this.singleBlock = block.apartmentBlockNumber;
         this.selectedBlockId = block.apartmentBlockId;
-        this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
-            var subLedgerDataList = res.filter(item => {
-                return item.apartmentBlockNumber == this.singleBlock;
-            });
-            this.gridSourceData.localdata = subLedgerDataList;
-            this.datagrid.updatebounddata('cells');
-            this.calculateTotalAmount(subLedgerDataList);
-        });
+        /*this.accountsService.getIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
+    
+          var subLedgerDataList = res.filter(item => {
+            return item.apartmentBlockNumber == this.singleBlock;
+          })
+    
+          this.gridSourceData.localdata = subLedgerDataList;
+          this.datagrid.updatebounddata('cells');
+    
+          this.calculateTotalAmount(subLedgerDataList);
+    
+    
+        });*/
     }
     calculateTotalAmount(subLedgerDataList) {
         this.totalItems = subLedgerDataList.length;
         this.netDueAmount = 0;
         this.totalDueAmount = 0;
-        underscore__WEBPACK_IMPORTED_MODULE_9__["each"](subLedgerDataList, (item, index) => {
+        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](subLedgerDataList, (item, index) => {
             this.netDueAmount = this.netDueAmount + item.due;
             if (item.due >= 0)
                 this.totalDueAmount = this.totalDueAmount + item.due;
@@ -2444,9 +2490,15 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
             }];
     }
     ngOnInit() {
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.blockListData = res;
-            this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            var params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe((res) => {
                 this.isSubLedgerDataLoaded = true;
                 this.filterSelected = 'all';
                 this.singleBlock = "Select Block";
@@ -2464,12 +2516,10 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
 };
 IncomeSubLedgerComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_6__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("viewInvoiceTypeRef", { static: false }),
@@ -2501,15 +2551,14 @@ IncomeSubLedgerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-sub-ledger',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-sub-ledger.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.html")).default,
+        providers: [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"]],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-sub-ledger.component.scss */ "./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_6__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], IncomeSubLedgerComponent);
 
 function getClassName(value) {
@@ -2572,15 +2621,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerAgeingComponent", function() { return IncomeTrackerAgeingComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -2589,9 +2636,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeTrackerAgeingComponent = class IncomeTrackerAgeingComponent {
-    constructor(accountsService, sharedService, cookieService) {
+    constructor(accountsService, cookieService) {
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
         this.isChartLoaded = false;
@@ -2621,7 +2667,7 @@ let IncomeTrackerAgeingComponent = class IncomeTrackerAgeingComponent {
             return '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -2664,7 +2710,7 @@ let IncomeTrackerAgeingComponent = class IncomeTrackerAgeingComponent {
                     }
                 ]
             };
-            this.chart = new chart_js__WEBPACK_IMPORTED_MODULE_5__["Chart"](this.chartRef.nativeElement, {
+            this.chart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"](this.chartRef.nativeElement, {
                 type: 'doughnut',
                 data: data,
                 options: {
@@ -2693,7 +2739,7 @@ let IncomeTrackerAgeingComponent = class IncomeTrackerAgeingComponent {
         this.totalAmountItem4Percent = 0;
         this.totalAmountItem5Percent = 0;
         this.totalInvoices = 0;
-        this.asOfDate = moment__WEBPACK_IMPORTED_MODULE_7__().format('MM-DD-YYYY'); // todays date
+        this.asOfDate = moment__WEBPACK_IMPORTED_MODULE_6__().format('MM-DD-YYYY'); // todays date
         var ageingParams = {
             ApartmentID: parseInt(this.cookieService.get('apartmentId')),
             asOfDate: this.asOfDate,
@@ -2711,10 +2757,10 @@ let IncomeTrackerAgeingComponent = class IncomeTrackerAgeingComponent {
         };
         this.isDataLoaded = false;
         this.isChartLoaded = false;
-        this.accountsService.GetARAgingCollectionDueSummary(ageingParams).subscribe((res) => {
+        this.accountsService.getArAgingCollectionDueSummary(ageingParams).subscribe((res) => {
             this.isDataLoaded = true;
             this.ageingDataDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.ageingDataDataList, item => {
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](this.ageingDataDataList, item => {
                 item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
             this.totalItems = this.ageingDataDataList.length;
@@ -2724,7 +2770,7 @@ let IncomeTrackerAgeingComponent = class IncomeTrackerAgeingComponent {
             else {
                 this.ItemEndIndex = this.totalItems;
             }
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.ageingDataDataList, (item, index) => {
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](this.ageingDataDataList, (item, index) => {
                 this.totalInvoices = this.totalInvoices + item.bucketCount1 + item.bucketCount2 + item.bucketCount3 + item.bucketCount4 + item.bucketCount5;
                 this.totalAmountItem1 = this.totalAmountItem1 + item.bucketAmt1 + item.bucketAmt2;
                 this.totalAmountItem3 = this.totalAmountItem3 + item.bucketAmt3;
@@ -2743,7 +2789,7 @@ let IncomeTrackerAgeingComponent = class IncomeTrackerAgeingComponent {
                     asOfDate: this.asOfDate,
                     unitId: item.unitID
                 };
-                this.accountsService.GetARAgingCollectionDueByUnitId(unitParams).subscribe((res) => {
+                this.accountsService.getArAgingCollectionDueByUnitId(unitParams).subscribe((res) => {
                     item.invoiceDetails = res;
                 }, error => {
                 });
@@ -2757,9 +2803,8 @@ let IncomeTrackerAgeingComponent = class IncomeTrackerAgeingComponent {
     }
 };
 IncomeTrackerAgeingComponent.ctorParameters = () => [
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('incomePieChart', { static: false }),
@@ -2771,9 +2816,8 @@ IncomeTrackerAgeingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-ageing.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-ageing/income-tracker-ageing.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-ageing.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-ageing/income-tracker-ageing.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
 ], IncomeTrackerAgeingComponent);
 
 
@@ -2805,22 +2849,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerFilterComponent", function() { return IncomeTrackerFilterComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 let IncomeTrackerFilterComponent = class IncomeTrackerFilterComponent {
-    constructor(accountsService, sharedService, cookieService) {
-        this.accountsService = accountsService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
+    constructor() {
         this.Object = Object;
         this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
@@ -2870,7 +2905,7 @@ let IncomeTrackerFilterComponent = class IncomeTrackerFilterComponent {
         return true;
     }
     getInvoiceDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_2__(date).format("MM-DD-YYYY");
     }
     clearFilterItems() {
         this.resetFilter();
@@ -2895,11 +2930,6 @@ let IncomeTrackerFilterComponent = class IncomeTrackerFilterComponent {
         this.resetFilter();
     }
 };
-IncomeTrackerFilterComponent.ctorParameters = () => [
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
-];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
@@ -2910,9 +2940,7 @@ IncomeTrackerFilterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-filter.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-filter/income-tracker-filter.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-filter.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-filter/income-tracker-filter.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
 ], IncomeTrackerFilterComponent);
 
 
@@ -2944,10 +2972,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerReportsCustomerComponent", function() { return IncomeTrackerReportsCustomerComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
@@ -2993,7 +3021,10 @@ let IncomeTrackerReportsCustomerComponent = class IncomeTrackerReportsCustomerCo
             return '';
     }
     getUnits(id) {
-        this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(id)).subscribe((res) => {
+        let params = {
+            apartmentBlockId: parseInt(id)
+        };
+        this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
             this.blockUnitData = res;
             this.isBlockSelected = true;
         });
@@ -3050,26 +3081,32 @@ let IncomeTrackerReportsCustomerComponent = class IncomeTrackerReportsCustomerCo
         this.report.apartmentBlockUnitId = "";
         this.report.GLaccountID = "";
         this.report.GLDocumentTypeID = "";
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe((res) => {
             this.blockData = res;
         });
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
         });
+        let glDocParams = {
+            LookupTypeId: 31
+        };
         //Gl Document 
-        this.lookupService.getLookupValueByLookupTypeId(31).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe((res) => {
             this.glDocumentTypeDataList = res;
         }, error => {
         });
     }
 };
 IncomeTrackerReportsCustomerComponent.ctorParameters = () => [
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 IncomeTrackerReportsCustomerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -3078,10 +3115,10 @@ IncomeTrackerReportsCustomerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0_
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-reports-customer.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-reports-customer.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomeTrackerReportsCustomerComponent);
 
@@ -3114,11 +3151,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerReportsVendorComponent", function() { return IncomeTrackerReportsVendorComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
@@ -3202,7 +3239,6 @@ let IncomeTrackerReportsVendorComponent = class IncomeTrackerReportsVendorCompon
         };
         this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe((res) => {
             this.reportsDataList = res;
-            console.log(this.reportsDataList);
             this.totalItems = this.reportsDataList.length;
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;
@@ -3221,30 +3257,39 @@ let IncomeTrackerReportsVendorComponent = class IncomeTrackerReportsVendorCompon
         this.report.vendorId = "";
         this.report.GLaccountID = "";
         this.report.GLDocumentTypeID = "";
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe((res) => {
             this.blockData = res;
         });
-        this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let vendorParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vendorService.getVendorByApartmentId(vendorParams).subscribe((res) => {
             this.vendorData = res;
         });
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
         });
+        let glDocParams = {
+            LookupTypeId: 31
+        };
         //Gl Document 
-        this.lookupService.getLookupValueByLookupTypeId(31).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe((res) => {
             this.glDocumentTypeDataList = res;
         }, error => {
         });
     }
 };
 IncomeTrackerReportsVendorComponent.ctorParameters = () => [
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__["VendorService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
 IncomeTrackerReportsVendorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -3253,11 +3298,11 @@ IncomeTrackerReportsVendorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-reports-vendor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-reports-vendor.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__["VendorService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], IncomeTrackerReportsVendorComponent);
 
@@ -3290,48 +3335,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerReportsComponent", function() { return IncomeTrackerReportsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
-
-
 
 
 let IncomeTrackerReportsComponent = class IncomeTrackerReportsComponent {
-    constructor(sharedService, cookieService, lookupService) {
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
-        this.lookupService = lookupService;
+    constructor() {
         this.isDataLoaded = true;
     }
     ngOnInit() {
-        //     this.lookupService.getLookupValueByLookupTypeId(88).subscribe((res:any) => {
-        //   		this.reportsDataList = res.filter(item => {
-        //   			return item.isActive;
-        //   		});
-        // console.log('this.reportsDataList', this.reportsDataList)
-        //     });
         this.reportsDataList = [
             { lookupValueName: 'Customer Journal Report', description: 'Gives the overall residents in the condo', type: 'customer' },
             { lookupValueName: 'Vendor Journal Entires', description: 'List of users approved by the admin and relevant details submitted by the Use', type: 'vendor' },
         ];
     }
 };
-IncomeTrackerReportsComponent.ctorParameters = () => [
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"] }
-];
 IncomeTrackerReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-tracker-reports',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-reports.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
 ], IncomeTrackerReportsComponent);
 
 
@@ -3363,8 +3386,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerSetupComponent", function() { return IncomeTrackerSetupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -3414,49 +3437,70 @@ let IncomeTrackerSetupComponent = class IncomeTrackerSetupComponent {
         this.penalty.latePaymentId = "124";
         this.penalty.penaltyPercentage = "10";
         this.penalty.gracePeriodInvoiceId = "50";
+        let params = {
+            LookupTypeId: 88
+        };
         //currency type
-        this.lookupService.getLookupValueByLookupTypeId(88).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.currencyTypeDataList = res.filter(item => {
                 return item.isActive;
             });
         });
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountListData = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
         });
+        let invoiceListParams = {
+            LookupTypeId: 88
+        };
         //payment term
-        this.lookupService.getLookupValueByLookupTypeId(74).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(invoiceListParams).subscribe((res) => {
             this.paymentInvoiceDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let vatListParams = {
+            LookupTypeId: 77
+        };
         //VAT
-        this.lookupService.getLookupValueByLookupTypeId(77).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
             this.vatPecentageDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let penalityListParams = {
+            LookupTypeId: 80
+        };
         //penalty
-        this.lookupService.getLookupValueByLookupTypeId(80).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(penalityListParams).subscribe((res) => {
             this.penaltyDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let lateListParams = {
+            LookupTypeId: 81
+        };
         //late payment
-        this.lookupService.getLookupValueByLookupTypeId(81).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(lateListParams).subscribe((res) => {
             this.lastPaymentDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let penalityParams = {
+            LookupTypeId: 82
+        };
         //% Penalty percentage
-        this.lookupService.getLookupValueByLookupTypeId(82).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(penalityParams).subscribe((res) => {
             this.penaltyPercentageDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let graceListParams = {
+            LookupTypeId: 83
+        };
         //% grace period for invoice
-        this.lookupService.getLookupValueByLookupTypeId(83).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(graceListParams).subscribe((res) => {
             this.gracePeriodInvoiceDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -3470,8 +3514,8 @@ let IncomeTrackerSetupComponent = class IncomeTrackerSetupComponent {
     }
 };
 IncomeTrackerSetupComponent.ctorParameters = () => [
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
@@ -3481,8 +3525,8 @@ IncomeTrackerSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-setup.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], IncomeTrackerSetupComponent);
@@ -3517,9 +3561,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -3536,8 +3580,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeViewCreditComponent = class IncomeViewCreditComponent {
-    constructor(injector, dialog, userService, apartmentService, accountsService, sharedService, cookieService) {
-        this.injector = injector;
+    constructor(dialog, userService, apartmentService, accountsService, sharedService, cookieService) {
         this.dialog = dialog;
         this.userService = userService;
         this.apartmentService = apartmentService;
@@ -3667,7 +3710,10 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
                 "glAcctIndicator": "Income",
                 "apartmentBlockUnitId": parseInt(credit.apartmentBlockUnitId)
             };
-            this.accountsService.updateCreditNote(details).subscribe((res) => {
+            let params = {
+                creditNote: details
+            };
+            this.accountsService.updateCreditNote(params).subscribe((res) => {
                 if (res.message) {
                     this.isCreditNoteLoaded = true;
                     this.sharedService.setAlertMessage("Credit Note updated successfully");
@@ -3685,7 +3731,10 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
         this.userService.getAllUsers().subscribe((res) => {
             this.userDataList = res;
         });
-        this.accountsService.getCreditNotesByApartmentIdStatus(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.accountsService.getCreditNotesByApartmentIdStatus(params).subscribe((res) => {
             this.creditNoteDataList = res;
             this.totalItems = this.creditNoteDataList.length;
             if (this.totalItems > this.itemLimit) {
@@ -3695,7 +3744,10 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
                 this.ItemEndIndex = this.totalItems;
             }
             this.isCreditNoteLoaded = true;
-            this.accountsService.getCustInvoicesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.accountsService.getCustInvoicesByApartmentId(params).subscribe((res) => {
                 this.custInvoiceDataList = res.filter(item => {
                     return item.isActive;
                 });
@@ -3711,11 +3763,10 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
     }
 };
 IncomeViewCreditComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -3725,11 +3776,10 @@ IncomeViewCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-view-credit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-view-credit/income-view-credit.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-view-credit.component.scss */ "./src/app/ams/income-tracker/components/income-view-credit/income-view-credit.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], IncomeViewCreditComponent);
@@ -3763,16 +3813,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeViewDefaultersComponent", function() { return IncomeViewDefaultersComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
-
-
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -3780,12 +3824,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
-    constructor(router, route, userService, accountsService, sharedService, cookieService) {
-        this.router = router;
-        this.route = route;
-        this.userService = userService;
+    constructor(accountsService, cookieService) {
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDefaultersDataLoaded = false;
         this.defaultData = "";
@@ -3819,7 +3859,7 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
     }
     onCheckDefaulterHeader(detail) {
         let allDataRecords = this.datagrid.getrows();
-        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](allDataRecords, item => {
+        underscore__WEBPACK_IMPORTED_MODULE_5__["each"](allDataRecords, item => {
             item.checked = detail.checked;
         });
         this.isDefaultSelected = allDataRecords.some(item => {
@@ -3930,9 +3970,12 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
             }];
     }
     ngOnInit() {
-        this.accountsService.GetIncomeTrackerDefaulterByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.accountsService.getIncomeTrackerDefaulterByApartmentId(params).subscribe((res) => {
             this.gridDefaultDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.gridDefaultDataList, item => {
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](this.gridDefaultDataList, item => {
                 item.checked = false;
             });
             this.gridSourceData = {
@@ -3949,16 +3992,12 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
     }
 };
 IncomeViewDefaultersComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__["jqxGridComponent"])
 ], IncomeViewDefaultersComponent.prototype, "datagrid", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckDefaulterHeader', ['$event.detail']),
@@ -3978,12 +4017,8 @@ IncomeViewDefaultersComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-view-defaulters.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-view-defaulters/income-view-defaulters.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-view-defaulters.component.scss */ "./src/app/ams/income-tracker/components/income-view-defaulters/income-view-defaulters.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], IncomeViewDefaultersComponent);
 
 function checkDefaulterHeaderEvent(event, isChecked) {
@@ -4036,8 +4071,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -4053,8 +4088,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent {
-    constructor(router, route, userService, accountsService, sharedService, cookieService) {
-        this.router = router;
+    constructor(route, userService, accountsService, sharedService, cookieService) {
         this.route = route;
         this.userService = userService;
         this.accountsService = accountsService;
@@ -4162,9 +4196,8 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
             PostStartDate: postStartDate,
             PostEndDate: postEndDate,
         };
-        this.accountsService.GetAccountHistoryByApartmentUnitId(params).subscribe((res) => {
+        this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe((res) => {
             this.invoiceDataList = res;
-            console.log(res);
             //filter items
             if (event.isReversed != null) {
                 this.invoiceDataList = this.invoiceDataList.filter(item => { return item.isReversed == event.isReversed; });
@@ -4214,14 +4247,17 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
             "transReference2": "string",
             "glAcctIndicator": "string"
         };
-        this.accountsService.addCustTransReversal(details).subscribe((res) => {
+        let params = {
+            custTransReversal: details
+        };
+        this.accountsService.addCustTransReversal(params).subscribe((res) => {
             if (res.message) {
                 this.reverse.comment = "";
                 this.sharedService.setAlertMessage("Invoice Reversed");
                 var params = {
                     ApartmentBlockUnitID: this.route.params['value'].id
                 };
-                this.accountsService.GetAccountHistoryByApartmentUnitId(params).subscribe((res) => {
+                this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe((res) => {
                     this.invoiceDataList = res;
                     this.invoiceDataList.sort((a, b) => {
                         return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
@@ -4243,7 +4279,7 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
     }
     ngOnInit() {
         this.reverse = {};
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             var glAccountListData = res.filter(item => {
                 return item.apartmentId == parseInt(this.cookieService.get('apartmentId'));
             });
@@ -4252,7 +4288,7 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
         var params = {
             ApartmentBlockUnitID: this.route.params['value'].id
         };
-        this.accountsService.GetAccountHistoryByApartmentUnitId(params).subscribe((res) => {
+        this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe((res) => {
             this.invoiceDataList = res;
             //sorting by date ( new to old )
             this.invoiceDataList.sort((a, b) => {
@@ -4265,13 +4301,19 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
             else {
                 this.ItemEndIndex = this.totalItems;
             }
-            this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let accountListParams = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe((res) => {
                 this.accountDataList = res.filter(item => {
                     return item.apartmentBlockUnitId == this.route.params['value'].id;
                 });
                 this.isAccountDataLoaded = true;
             });
-            this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let userListParams = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.userService.getAllUsersByApartmentId(userListParams).subscribe((res) => {
                 this.userDataList = res;
                 this.isInvoiceDataLoaded = true;
             }, error => {
@@ -4280,10 +4322,9 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
     }
 };
 IncomeViewInvoiceHistoryComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -4293,10 +4334,9 @@ IncomeViewInvoiceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-view-invoice-history.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-view-invoice-history/income-view-invoice-history.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-view-invoice-history.component.scss */ "./src/app/ams/income-tracker/components/income-view-invoice-history/income-view-invoice-history.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomeViewInvoiceHistoryComponent);
@@ -4335,8 +4375,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxwindow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -4490,7 +4530,10 @@ let IncomeViewInvoiceComponent = class IncomeViewInvoiceComponent {
                 }
             ]
         };
-        this.accountsService.updateCustInvoice(details).subscribe((res) => {
+        let params = {
+            invoice: details
+        };
+        this.accountsService.updateCustInvoice(params).subscribe((res) => {
             if (res.message) {
                 this.sharedService.setAlertMessage("Invoice updated successfully");
             }
@@ -4512,16 +4555,15 @@ let IncomeViewInvoiceComponent = class IncomeViewInvoiceComponent {
         var columnrenderer = (value) => {
             return '<div style="padding: 14px">' + value + '</div>';
         };
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountListData = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
         });
-        var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            apartmentBlockUnitId: this.route.params['value'].id
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
-        this.accountsService.getCustInvoicesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        this.accountsService.getCustInvoicesByApartmentId(params).subscribe((res) => {
             var invoiceDataList = res;
             underscore__WEBPACK_IMPORTED_MODULE_12__["each"](invoiceDataList, item => {
                 item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
@@ -4631,7 +4673,10 @@ let IncomeViewInvoiceComponent = class IncomeViewInvoiceComponent {
                     },
                     renderer: columnrenderer
                 }];
-            this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.userService.getAllUsersByApartmentId(params).subscribe((res) => {
                 this.userDataList = res;
                 this.isInvoiceDataLoaded = true;
             }, error => {
@@ -4645,8 +4690,8 @@ IncomeViewInvoiceComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_8__["AccountsService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_7__["UserService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_8__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
     { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"] }
@@ -4700,8 +4745,8 @@ IncomeViewInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_8__["AccountsService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_7__["UserService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_8__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
         _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"]])
@@ -4774,15 +4819,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -4791,12 +4832,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
-    constructor(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
-        this.injector = injector;
+    constructor(dialog, accountsService, cookieService) {
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isReceiptsLoaded = false;
         this.receiptsData = "";
@@ -4835,10 +4873,10 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
     getDate(receipt, date) {
         this.receiptsDataList.map(obj => {
             if (obj.receiptNumber == receipt.receiptNumber) {
-                obj.paymentDateFormat = moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD/MM/YYYY");
+                obj.paymentDateFormat = moment__WEBPACK_IMPORTED_MODULE_6__(date).format("DD/MM/YYYY");
             }
         });
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD/MM/YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("DD/MM/YYYY");
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -4856,7 +4894,7 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
         this.selectedInput = value;
     }
     onSelectChange(event, type, name) {
-        if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
+        if (!underscore__WEBPACK_IMPORTED_MODULE_5__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
         }
@@ -4867,16 +4905,18 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
     onDateChange(event, type) {
         if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_8__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_6__(event).format("DD/MM/YYYY");
         }
         else {
             this.columnField = {};
         }
     }
     ngOnInit() {
-        this.accountsService.GetIncomeTrackerReceiptsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.accountsService.getIncomeTrackerReceiptsByApartmentId(params).subscribe((res) => {
             this.receiptsDataList = res;
-            console.log(res);
             this.totalItems = this.receiptsDataList.length;
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;
@@ -4891,12 +4931,9 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
     }
 };
 IncomeViewReceiptsComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 IncomeViewReceiptsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -4904,12 +4941,9 @@ IncomeViewReceiptsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-view-receipts.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-view-receipts/income-view-receipts.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-view-receipts.component.scss */ "./src/app/ams/income-tracker/components/income-view-receipts/income-view-receipts.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], IncomeViewReceiptsComponent);
 
 

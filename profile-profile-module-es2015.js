@@ -52,8 +52,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_login_check_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../api/services/login-check.service */ "./src/app/api/services/login-check.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_loginCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/loginCheck */ "./src/app/api/controllers/loginCheck.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -91,7 +91,10 @@ let ResetPasswordComponent = class ResetPasswordComponent {
                 "password": this.userPassword,
                 "updateBy": parseInt(this.cookieService.get('userId'))
             };
-            this.loginCheckService.changePassword(details).subscribe((res) => {
+            let params = {
+                AdminUsers_vm: details
+            };
+            this.loginCheckService.changePassword(params).subscribe((res) => {
                 //update user
                 var userDetails = {
                     "userId": this.route.params['value'].id,
@@ -127,7 +130,10 @@ let ResetPasswordComponent = class ResetPasswordComponent {
                     "insertedBy": 0,
                     "updatedBy": parseInt(this.cookieService.get('userId'))
                 };
-                this.userService.UpdateUser(userDetails).subscribe((res) => {
+                let userParams = {
+                    user: userDetails
+                };
+                this.userService.updateUser(userParams).subscribe((res) => {
                     if (res.message) {
                         this.isSubmitted = true;
                         this.sharedService.setAlertMessage("Password has been reset successfully");
@@ -150,8 +156,8 @@ let ResetPasswordComponent = class ResetPasswordComponent {
 ResetPasswordComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_login_check_service__WEBPACK_IMPORTED_MODULE_4__["LoginCheckService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_loginCheck__WEBPACK_IMPORTED_MODULE_4__["LoginCheckService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -163,8 +169,8 @@ ResetPasswordComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_login_check_service__WEBPACK_IMPORTED_MODULE_4__["LoginCheckService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_loginCheck__WEBPACK_IMPORTED_MODULE_4__["LoginCheckService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], ResetPasswordComponent);

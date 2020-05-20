@@ -1005,9 +1005,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var _assets_maintenance_history_assets_maintenance_history_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../assets-maintenance-history/assets-maintenance-history.component */ "./src/app/ams/assets/components/assets-maintenance-history/assets-maintenance-history.component.ts");
-/* harmony import */ var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/asset.service */ "./src/app/api/services/asset.service.ts");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../.././api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/asset */ "./src/app/api/controllers/asset.ts");
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -1076,7 +1076,10 @@ let AddAssetMaintenanceComponent = class AddAssetMaintenanceComponent {
                 "lastMaintenanceDate": this.assetMaintenance.lastMaintenanceDate,
                 "nextPlannedMaintenance": this.assetMaintenance.nextPlannedMaintenance
             };
-            this.assetService.addAssetMaintenancePlan(details).subscribe((res) => {
+            let assetMaintenancePlan = {
+                assetMaintenancePlan: details
+            };
+            this.assetService.addAssetMaintenancePlan(assetMaintenancePlan).subscribe((res) => {
                 if (res.message) {
                     this.isAssetMaintenanceSubmitted = false;
                     this.sharedService.setAlertMessage("Asset Maintenance added successfully");
@@ -1109,7 +1112,10 @@ let AddAssetMaintenanceComponent = class AddAssetMaintenanceComponent {
                 "lastMaintenanceDate": this.assetMaintenance.lastMaintenanceDate,
                 "nextPlannedMaintenance": this.assetMaintenance.nextPlannedMaintenance
             };
-            this.assetService.updateAssetMaintenancePlan(details).subscribe((res) => {
+            let updateMaintenancePlan = {
+                assetMaintenancePlan: details
+            };
+            this.assetService.updateAssetMaintenancePlan(updateMaintenancePlan).subscribe((res) => {
                 if (res.message) {
                     this.isAssetMaintenanceSubmitted = false;
                     this.sharedService.setAlertMessage("Asset Maintenance updated successfully");
@@ -1128,7 +1134,6 @@ let AddAssetMaintenanceComponent = class AddAssetMaintenanceComponent {
         }
     }
     showMaintenanceHistory(id) {
-        console.log(id);
         this.dialog.open(_assets_maintenance_history_assets_maintenance_history_component__WEBPACK_IMPORTED_MODULE_4__["AssetsMaintenanceHistoryComponent"], {
             panelClass: ['material', 'medium-02'],
             disableClose: true,
@@ -1150,7 +1155,10 @@ let AddAssetMaintenanceComponent = class AddAssetMaintenanceComponent {
             });
         }
         this.assetId = this.route.params['value'].id;
-        this.lookupService.getLookupValueByLookupTypeId(64).subscribe((res) => {
+        let statusParams = {
+            LookupTypeId: 64
+        };
+        this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
             this.statusTypeData = res;
         }, error => {
         });
@@ -1158,7 +1166,10 @@ let AddAssetMaintenanceComponent = class AddAssetMaintenanceComponent {
             this.isAssetMaintenanceLoaded = true;
             this.assetData = res[0];
         });
-        this.lookupService.getLookupValueByLookupTypeId(19).subscribe((res) => {
+        let assetCategoryParams = {
+            LookupTypeId: 19
+        };
+        this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe((res) => {
             this.assetCategoryData = res.filter(item => {
                 return item.isActive;
             });
@@ -1170,9 +1181,9 @@ AddAssetMaintenanceComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__["AssetService"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
+    { type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"] },
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
 ];
@@ -1186,9 +1197,9 @@ AddAssetMaintenanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__["AssetService"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
+        src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])
 ], AddAssetMaintenanceComponent);
@@ -1291,9 +1302,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/asset.service */ "./src/app/api/services/asset.service.ts");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/asset */ "./src/app/api/controllers/asset.ts");
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -1399,7 +1410,7 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 file: this.fileList[0],
                 asset: addAssetDetails
             };
-            this.assetService.addAssetAsync(addAssetParams).subscribe((res) => {
+            this.assetService.addAsset(addAssetParams).subscribe((res) => {
                 if (res.message) {
                     this.isAssetSubmitted = false;
                     this.sharedService.setAlertMessage("Asset added successfully");
@@ -1465,7 +1476,7 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 file: this.fileList[0],
                 asset: editAssetDetails
             };
-            this.assetService.updateAssetAsync(editAssetParams).subscribe((res) => {
+            this.assetService.updateAsset(editAssetParams).subscribe((res) => {
                 if (res.message) {
                     this.isAssetSubmitted = false;
                     this.sharedService.setAlertMessage("Asset updated successfully");
@@ -1490,22 +1501,34 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         this.asset.vendorId = "";
         if (this.route.params['value'].id != undefined) {
             this.isEditAsset = true;
-            this.assetService.getAllAssetByAssetId(this.route.params['value'].id).subscribe((res) => {
+            let params = {
+                assetId: this.route.params['value'].id
+            };
+            this.assetService.getAllAssetByAssetId(params).subscribe((res) => {
                 this.asset = res[0];
             });
         }
-        this.lookupService.getLookupValueByLookupTypeId(19).subscribe((res) => {
+        let assetCategoryParams = {
+            LookupTypeId: 19
+        };
+        this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe((res) => {
             this.assetCategoryData = res.filter(item => {
                 return item.isActive;
             });
         });
-        this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let vendprParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vendorService.getVendorByApartmentId(vendprParams).subscribe((res) => {
             this.vendorDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let assetStatusParams = {
+            LookupTypeId: 64
+        };
         //maintenance status 
-        this.lookupService.getLookupValueByLookupTypeId(64).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(assetStatusParams).subscribe((res) => {
             this.statusTypeData = res;
         }, error => {
         });
@@ -1514,9 +1537,9 @@ let AssetsCreateComponent = class AssetsCreateComponent {
 AssetsCreateComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"] },
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -1528,9 +1551,9 @@ AssetsCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], AssetsCreateComponent);
@@ -1565,8 +1588,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/asset.service */ "./src/app/api/services/asset.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/asset */ "./src/app/api/controllers/asset.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -1627,7 +1650,10 @@ let AssetsMaintenanceHistoryComponent = class AssetsMaintenanceHistoryComponent 
             }
             this.totalItems = this.maintenanceDataList.length;
         });
-        this.lookupService.getLookupValueByLookupTypeId(64).subscribe((res) => {
+        let params = {
+            LookupTypeId: 64
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.statusTypeData = res;
         }, error => {
         });
@@ -1635,8 +1661,8 @@ let AssetsMaintenanceHistoryComponent = class AssetsMaintenanceHistoryComponent 
 };
 AssetsMaintenanceHistoryComponent.ctorParameters = () => [
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
-    { type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -1647,8 +1673,8 @@ AssetsMaintenanceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./assets-maintenance-history.component.scss */ "./src/app/ams/assets/components/assets-maintenance-history/assets-maintenance-history.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], AssetsMaintenanceHistoryComponent);
@@ -2023,9 +2049,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var _assets_maintenance_history_assets_maintenance_history_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../assets-maintenance-history/assets-maintenance-history.component */ "./src/app/ams/assets/components/assets-maintenance-history/assets-maintenance-history.component.ts");
-/* harmony import */ var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/asset.service */ "./src/app/api/services/asset.service.ts");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../.././api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/asset */ "./src/app/api/controllers/asset.ts");
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -2067,7 +2093,10 @@ let AssetsViewComponent = class AssetsViewComponent {
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         router.events.forEach((event) => {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-                this.lookupService.getLookupValueByLookupTypeId(19).subscribe((res) => {
+                let params = {
+                    LookupTypeId: 19
+                };
+                this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                     this.assetCategoryData = res.filter(item => {
                         return item.isActive;
                     });
@@ -2187,7 +2216,10 @@ let AssetsViewComponent = class AssetsViewComponent {
                 this.assetCategoryName = "";
             }
         });
-        this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.assetService.getAllAssetByApartmentId(params).subscribe((res) => {
             if (id != "All") {
                 this.assetListData = res.filter(item => {
                     return (item.assetCategoryId == parseInt(id)) && item.isActive;
@@ -2246,7 +2278,10 @@ let AssetsViewComponent = class AssetsViewComponent {
         this.asset = {};
         if (this.route.params['value'].id == undefined) {
             this.assetCategoryId = "All";
-            this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.assetService.getAllAssetByApartmentId(params).subscribe((res) => {
                 this.isAssetLoaded = false;
                 this.assetListData = res.filter(item => {
                     return item.isActive;
@@ -2264,23 +2299,35 @@ let AssetsViewComponent = class AssetsViewComponent {
         else {
             this.assetCategoryId = "" + this.route.params['value'].id;
         }
+        let assetContparams = {
+            LookupTypeId: 23
+        };
         //asset condition
-        this.lookupService.getLookupValueByLookupTypeId(23).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(assetContparams).subscribe((res) => {
             this.assetConditionData = res.filter(item => {
                 return item.isActive;
             });
         });
-        this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let vendorParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vendorService.getVendorByApartmentId(vendorParams).subscribe((res) => {
             this.vendorDataList = res.filter(item => {
                 return item.isActive;
             });
         });
-        this.assetService.getAllAssetMaintenancePlanByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let assetParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.assetService.getAllAssetMaintenancePlanByApartmentId(assetParams).subscribe((res) => {
             this.assetMaintenaceDataList = res.filter(item => {
                 return item.isActive;
             });
         });
-        this.lookupService.getLookupValueByLookupTypeId(64).subscribe((res) => {
+        let statusparams = {
+            LookupTypeId: 64
+        };
+        this.lookupService.getLookupValueByLookupTypeId(statusparams).subscribe((res) => {
             this.statusTypeData = res;
         }, error => {
         });
@@ -2315,9 +2362,9 @@ AssetsViewComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__["AssetService"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
+    { type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"] },
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
 ];
@@ -2331,9 +2378,9 @@ AssetsViewComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__["AssetService"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
+        src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])
 ], AssetsViewComponent);
@@ -2368,7 +2415,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/asset.service */ "./src/app/api/services/asset.service.ts");
+/* harmony import */ var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/asset */ "./src/app/api/controllers/asset.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
@@ -2439,7 +2486,10 @@ let LastMaintenanceComponent = class LastMaintenanceComponent {
         this.asset = {};
         if (this.route.params['value'].id == undefined) {
             this.assetCategoryId = "All";
-            this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.assetService.getAllAssetByApartmentId(params).subscribe((res) => {
                 this.isAssetLoaded = false;
                 this.assetListData = res.filter(item => {
                     return item.isActive;
@@ -2464,7 +2514,7 @@ LastMaintenanceComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"] }
+    { type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"] }
 ];
 LastMaintenanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2476,7 +2526,7 @@ LastMaintenanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])
+        src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])
 ], LastMaintenanceComponent);
 
 
@@ -2509,7 +2559,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/asset.service */ "./src/app/api/services/asset.service.ts");
+/* harmony import */ var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/asset */ "./src/app/api/controllers/asset.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
@@ -2722,7 +2772,10 @@ let MaintenanceHistoryComponent = class MaintenanceHistoryComponent {
         this.asset = {};
         if (this.route.params['value'].id == undefined) {
             this.assetCategoryId = "All";
-            this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.assetService.getAllAssetByApartmentId(params).subscribe((res) => {
                 this.isAssetLoaded = false;
                 this.assetListData = res.filter(item => {
                     return item.isActive;
@@ -2792,7 +2845,7 @@ MaintenanceHistoryComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"] }
+    { type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"] }
 ];
 MaintenanceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2804,7 +2857,7 @@ MaintenanceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])
+        src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])
 ], MaintenanceHistoryComponent);
 
 

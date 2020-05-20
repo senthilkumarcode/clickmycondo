@@ -90,16 +90,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SecurityActiveAlertsComponent", function() { return SecurityActiveAlertsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../.././api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/alert.service */ "./src/app/api/services/alert.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/alert */ "./src/app/api/controllers/alert.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -110,12 +108,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
-    constructor(userService, apartmentService, alertService, lookupService, sharedService, cookieService) {
+    constructor(userService, apartmentService, alertService, lookupService, cookieService) {
         this.userService = userService;
         this.apartmentService = apartmentService;
         this.alertService = alertService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isAlertsLoaded = false;
         this.isAlertUpdated = false;
@@ -145,7 +142,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }
     }
     getAlertName(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.emergencyTypeList, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.emergencyTypeList, function (item) {
             if (item.lookupValueId === id)
                 return item;
         });
@@ -157,7 +154,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }
     }
     getAlertStatus(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.alertTypeList, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.alertTypeList, function (item) {
             if (item.lookupValueId === id)
                 return item;
         });
@@ -169,7 +166,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }
     }
     getBlock(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockDetails, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.blockDetails, function (item) {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -181,7 +178,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }
     }
     getUserName(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.userDetails, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.userDetails, function (item) {
             if (item.userId === id)
                 return item;
         });
@@ -193,7 +190,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }
     }
     getContactNumber(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.userDetails, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.userDetails, function (item) {
             if (item.userId === id)
                 return item;
         });
@@ -205,10 +202,10 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM/DD/YYYY, h:mm A");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM/DD/YYYY, h:mm A");
     }
     getDateTime(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM/DD/YYYY, h:mm A");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM/DD/YYYY, h:mm A");
     }
     isOpenStatus(id) {
         return id == 135 ? true : false; // 135 - open status
@@ -220,7 +217,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         return id == 137 ? true : false; // 135 - closed status
     }
     getLatitude(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.locationDetails, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.locationDetails, function (item) {
             if (item.userId === id)
                 return item;
         });
@@ -234,7 +231,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }
     }
     getLongitude(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.locationDetails, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.locationDetails, function (item) {
             if (item.userId === id)
                 return item;
         });
@@ -291,7 +288,10 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }
         this.alertService.updateApartmentBlockUnitAlert(details).subscribe((res) => {
             if (res.message) {
-                this.alertService.getAllApartmentBlockUnitAlertByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((alert) => {
+                let params = {
+                    apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                };
+                this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe((alert) => {
                     this.alertList = alert.filter(item => {
                         return item.isActive;
                     });
@@ -314,14 +314,20 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         this.alert = {};
         this.alert.gpsLocation = " ";
         this.alert.notes = " ";
-        this.alertService.getAllApartmentBlockUnitAlertByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((alert) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe((alert) => {
             this.alertList = alert.filter(item => {
                 return item.isActive;
             });
             this.isAlertsLoaded = true;
             console.log(this.alertList);
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.alertList, item => {
-                this.userService.getUserById(parseInt(item.insertedBy)).subscribe((user) => {
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.alertList, item => {
+                let params = {
+                    userid: parseInt(item.insertedBy)
+                };
+                this.userService.getUserById(params).subscribe((user) => {
                     this.userDetails.push(user[0]);
                     console.log(this.userDetails);
                 }, error => {
@@ -341,23 +347,28 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         }, error => {
             console.log(error);
         });
+        let emergencyParams = {
+            LookupTypeId: 29
+        };
         //get emergency types
-        this.lookupService.getLookupValueByLookupTypeId(29).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe((res) => {
             this.emergencyTypeList = res;
         });
+        let alertParams = {
+            LookupTypeId: 30
+        };
         //get alert status types
-        this.lookupService.getLookupValueByLookupTypeId(30).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe((res) => {
             this.alertTypeList = res;
         });
     }
 };
 SecurityActiveAlertsComponent.ctorParameters = () => [
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 SecurityActiveAlertsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -365,12 +376,11 @@ SecurityActiveAlertsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./security-active-alerts.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/security/components/security-active-alerts/security-active-alerts.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./security-active-alerts.component.scss */ "./src/app/ams/security/components/security-active-alerts/security-active-alerts.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], SecurityActiveAlertsComponent);
 
 

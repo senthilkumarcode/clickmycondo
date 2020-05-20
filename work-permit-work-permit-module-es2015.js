@@ -7449,7 +7449,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/work-permit.service */ "./src/app/api/services/work-permit.service.ts");
+/* harmony import */ var src_app_api_controllers_workPermit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/workPermit */ "./src/app/api/controllers/workPermit.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -7559,8 +7559,10 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
             }];
     }
     getWorkPermit() {
-        let apartMentID = parseInt(this.cookieService.get('apartmentId'));
-        this.workPermit.getWorkPermitsByApartmentId(apartMentID).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.workPermit.getWorkPermitsByApartmentId(params).subscribe((res) => {
             this.workPermitListData = res;
             this.gridSourceData = {
                 localdata: this.workPermitListData,
@@ -7621,7 +7623,7 @@ WorkpermitApprovalComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"] },
+    { type: src_app_api_controllers_workPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -7655,7 +7657,7 @@ WorkpermitApprovalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"],
+        src_app_api_controllers_workPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
 ], WorkpermitApprovalComponent);
 
@@ -7716,11 +7718,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/work-permit.service */ "./src/app/api/services/work-permit.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_workPermit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/workPermit */ "./src/app/api/controllers/workPermit.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -7878,20 +7880,28 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
     }
     //Get All workpermit vendors list
     getAllWorkPermitVendors() {
-        const apartmentId = Number(this.cookieService.get('apartmentId'));
-        this.vendor.getAllWorkPermitVendorByApartmentId(apartmentId).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vendor.getAllWorkPermitVendorByApartmentId(params).subscribe((res) => {
             this.allVendors = res;
         });
     }
     //Get Towers List
     getTowers() {
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.allTowers = res;
         });
     }
     getUnits(id) {
+        let params = {
+            apartmentBlockId: parseInt(this.workpermit.WPTower)
+        };
         this.selectedUnit = id;
-        this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.workpermit.WPTower)).subscribe((res) => {
+        this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
             this.unitData = res;
         });
     }
@@ -7903,13 +7913,19 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
     }
     //Get Work Type
     getWorktype() {
-        this.lookupService.getLookupValueByLookupTypeId(90).subscribe((res) => {
+        let params = {
+            LookupTypeId: 90
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.allWorkType = res;
         });
     }
     //Get Nature work Type
     getNatureWorktype() {
-        this.lookupService.getLookupValueByLookupTypeId(89).subscribe((res) => {
+        let params = {
+            LookupTypeId: 89
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.allNatureWorkType = res;
         });
     }
@@ -8122,11 +8138,11 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
 WorkpermitCreateComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_workPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] }
 ];
@@ -8150,11 +8166,11 @@ WorkpermitCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_work_permit_service__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_workPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]])
 ], WorkpermitCreateComponent);
@@ -8239,7 +8255,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -8303,7 +8319,10 @@ let WorkpermitSetupComponent = class WorkpermitSetupComponent {
     }
     //Get Work Type
     getWorktype() {
-        this.lookupService.getLookupValueByLookupTypeId(90).subscribe((res) => {
+        let params = {
+            LookupTypeId: 90
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.allWorkType = res;
             this.isDataLoaded = true;
             this.totalItems = this.allWorkType.length;
@@ -8317,7 +8336,10 @@ let WorkpermitSetupComponent = class WorkpermitSetupComponent {
     }
     //Get Work Type
     getNaturework() {
-        this.lookupService.getLookupValueByLookupTypeId(89).subscribe((res) => {
+        let params = {
+            LookupTypeId: 89
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.allNatureWork = res;
             this.isDataLoaded = true;
             this.NWtotalItems = this.allNatureWork.length;
@@ -8342,7 +8364,10 @@ let WorkpermitSetupComponent = class WorkpermitSetupComponent {
             "updatedBy": null,
             "updatedOn": null
         };
-        this.lookupService.addLookupValue(workpermittypes).subscribe((res) => {
+        let params = {
+            lookupvalue: workpermittypes
+        };
+        this.lookupService.addLookupValue(params).subscribe((res) => {
             if (res.message) {
                 this.sharedService.setAlertMessage("WorkPermit Type added successfully");
                 this.getWorktype();
@@ -8362,7 +8387,10 @@ let WorkpermitSetupComponent = class WorkpermitSetupComponent {
             "updatedBy": null,
             "updatedOn": null
         };
-        this.lookupService.addLookupValue(workpermittypes).subscribe((res) => {
+        let params = {
+            lookupvalue: workpermittypes
+        };
+        this.lookupService.addLookupValue(params).subscribe((res) => {
             if (res.message) {
                 this.sharedService.setAlertMessage("WorkPermit Nature of work added successfully");
                 this.getNaturework();
@@ -8373,7 +8401,7 @@ let WorkpermitSetupComponent = class WorkpermitSetupComponent {
 WorkpermitSetupComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
@@ -8385,7 +8413,7 @@ WorkpermitSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], WorkpermitSetupComponent);

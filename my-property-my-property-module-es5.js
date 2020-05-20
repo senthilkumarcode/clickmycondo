@@ -399,9 +399,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
@@ -460,7 +460,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               InputType: this.alertData.type,
               days: this.alertData.count
             };
-            this.assetService.GetAssetMasterDetail(params).subscribe(function (res) {
+            this.assetService.getAssetMasterDetail(params).subscribe(function (res) {
               if (res == undefined || res.length == 0) {
                 _this.isNoItemsAvailable = true;
               } else {
@@ -482,7 +482,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyAlertsInfoComponent.ctorParameters = function () {
       return [{
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_2__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_2__["AssetService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
@@ -499,7 +499,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-alerts-info.component.scss */
       "./src/app/ams/my-property/components/property-alerts/property-alerts-info/property-alerts-info.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_asset_service__WEBPACK_IMPORTED_MODULE_2__["AssetService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyAlertsInfoComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_2__["AssetService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyAlertsInfoComponent);
     /***/
   },
 
@@ -557,36 +557,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var PropertyAlertsComponent =
     /*#__PURE__*/
     function () {
-      function PropertyAlertsComponent(assetService, sharedService, cookieService) {
+      function PropertyAlertsComponent(assetService, cookieService) {
         _classCallCheck(this, PropertyAlertsComponent);
 
         this.assetService = assetService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.itemPositions = [];
         this.currentPosition = 0;
@@ -643,7 +636,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var wrapperWidth = document.querySelector('#alerts-wrapper').clientWidth - marginWidth;
           var itemsWidth = 0;
           this.itemPositions.push(0);
-          underscore__WEBPACK_IMPORTED_MODULE_5__["each"](this.tabItems, function (item) {
+          underscore__WEBPACK_IMPORTED_MODULE_4__["each"](this.tabItems, function (item) {
             var itemWidth = item.offsetWidth;
             itemsWidth += itemWidth;
 
@@ -714,14 +707,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             'type': 'ExpiredInsurance',
             'count': 0
           }];
-          underscore__WEBPACK_IMPORTED_MODULE_5__["each"](this.alertTypes, function (item, index) {
+          underscore__WEBPACK_IMPORTED_MODULE_4__["each"](this.alertTypes, function (item, index) {
             var params = {
               ApartmentId: parseInt(_this3.cookieService.get('apartmentId')),
               InputType: item.type,
               days: item.count
             };
 
-            _this3.assetService.GetAssetMasterDetail(params).subscribe(function (res) {
+            _this3.assetService.getAssetMasterDetail(params).subscribe(function (res) {
               if (res == undefined || res.length == 0) {
                 item.assetCount = 0;
               } else {
@@ -758,11 +751,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyAlertsComponent.ctorParameters = function () {
       return [{
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_2__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_2__["AssetService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }];
     };
 
@@ -775,7 +766,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-alerts.component.scss */
       "./src/app/ams/my-property/components/property-alerts/property-alerts.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_asset_service__WEBPACK_IMPORTED_MODULE_2__["AssetService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyAlertsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_2__["AssetService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], PropertyAlertsComponent);
     /***/
   },
 
@@ -839,40 +830,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
 
     var PropertyAssetCategoryInfoComponent =
     /*#__PURE__*/
     function () {
-      function PropertyAssetCategoryInfoComponent(router, route, assetService, lookupService, sharedService, cookieService) {
+      function PropertyAssetCategoryInfoComponent(route, assetService) {
         _classCallCheck(this, PropertyAssetCategoryInfoComponent);
 
-        this.router = router;
         this.route = route;
         this.assetService = assetService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.isDataLoaded = false;
       }
 
@@ -882,9 +851,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this5 = this;
 
           this.assetCategoryId = this.route.params['value'].id;
-          console.log(this.assetCategoryId);
-          this.assetService.GetAssetCountsByCategoryId(this.assetCategoryId).subscribe(function (res) {
-            console.log(res);
+          this.assetService.getAssetCountsByCategoryId(this.assetCategoryId).subscribe(function (res) {
             _this5.assetDataList = res;
             _this5.isDataLoaded = true;
           });
@@ -896,17 +863,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyAssetCategoryInfoComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
-      }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
       }];
     };
 
@@ -919,7 +878,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-asset-category-info.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-asset-category/property-asset-category-info/property-asset-category-info.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], PropertyAssetCategoryInfoComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])], PropertyAssetCategoryInfoComponent);
     /***/
   },
 
@@ -983,38 +942,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var PropertyAssetCategoryComponent =
     /*#__PURE__*/
     function () {
-      function PropertyAssetCategoryComponent(router, route, assetService, lookupService, sharedService, cookieService) {
+      function PropertyAssetCategoryComponent(router, route, assetService, cookieService) {
         var _this6 = this;
 
         _classCallCheck(this, PropertyAssetCategoryComponent);
@@ -1022,8 +969,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.router = router;
         this.route = route;
         this.assetService = assetService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
         this.isError = false;
@@ -1046,14 +991,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             AssetCategoryId: this.assetCategoryId
           };
-          this.assetService.GetAssetCountsByCategoryId(params).subscribe(function (res) {
+          this.assetService.getAssetCountsByCategoryId(params).subscribe(function (res) {
             _this7.assetDataList = res;
 
             if (res == undefined || res.length == 0) {
               _this7.assetCategoryName = "";
             } else {
               _this7.assetCategoryName = res[0].categoryName;
-              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this7.assetDataList, function (item) {
+              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this7.assetDataList, function (item) {
                 if ((item.maintIn30days == 0 || item.maintIn30days == null) && (item.maintIn20days == 0 || item.maintIn20days == null) && (item.maintIn10days == 0 || item.maintIn10days == null)) {
                   item.isMaitenance = false;
                 } else {
@@ -1088,13 +1033,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -1106,7 +1047,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-asset-category.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-asset-category/property-asset-category.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], PropertyAssetCategoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyAssetCategoryComponent);
     /***/
   },
 
@@ -1126,7 +1067,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".property-configuration-wrapper .card {\n  border-radius: 3px !important;\n}\n.property-configuration-wrapper .card-body .nav-pills {\n  height: 45px;\n  margin: 0 auto;\n  overflow: hidden;\n  position: relative;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  min-width: 3000px;\n  margin: 0 0 0 12px;\n  transition: all 0.3s ease;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li {\n  display: table-cell;\n  position: relative;\n  text-align: center;\n  cursor: grab;\n  cursor: -webkit-grab;\n  vertical-align: middle;\n  padding: 0;\n  border: 0;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li a {\n  padding: 12px 15px !important;\n  font-size: 1.4rem;\n  color: #8391a1;\n  position: relative;\n  background-color: #ffffff;\n  display: inline-block;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li a.active {\n  color: #ffffff;\n  background-color: #3f51b5;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li a:focus {\n  outline: none;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li:after {\n  content: none;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons {\n  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  -moz-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  -webkit-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  position: absolute;\n  right: 0;\n  z-index: 2;\n  top: 0;\n  background-color: #5cd694;\n  width: 60px;\n  height: 49px;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons a {\n  display: inline-block;\n  height: 100% !important;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons a i {\n  font-size: 2.4rem;\n  color: #ffffff;\n  margin: 0 10px;\n  position: relative;\n  top: 2px;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons a:hover, .property-configuration-wrapper .card-body .nav-pills .buttons a:focus {\n  outline: none;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons a:hover i, .property-configuration-wrapper .card-body .nav-pills .buttons a:focus i {\n  color: #1f7a49;\n}\n.property-configuration-wrapper .card-body.content {\n  min-height: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvbXktcHJvcGVydHkvY29tcG9uZW50cy9wcm9wZXJ0eS1jb25maWd1cmF0aW9uL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24uY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL21peGlucy5zY3NzIiwic3JjL2FwcC9hbXMvbXktcHJvcGVydHkvY29tcG9uZW50cy9wcm9wZXJ0eS1jb25maWd1cmF0aW9uL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24uY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUtDO0VDRUEsNkJBQUE7QUNIRDtBRktFO0VBQ0MsWUFBQTtFQUNBLGNBQUE7RUFDRyxnQkFBQTtFQUNILGtCR1JFO0FES0w7QUZJRztFQUNDLGtCR1hDO0VIWUUsU0FBQTtFQUNBLFFBQUE7RUFDRCxpQkFBQTtFQUNDLGtCQUFBO0VDd0JOLHlCRHZCTTtBRUFQO0FGQ087RUFDQyxtQkFBQTtFQUNBLGtCR2xCSDtFSG1CRyxrQkFBQTtFQUNBLFlBQUE7RUFDQSxvQkFBQTtFQUNBLHNCQUFBO0VBQ0EsVUFBQTtFQUNBLFNBQUE7QUVDUjtBRkFRO0VBQ0YsNkJBQUE7RUkrQ0osaUJBQUE7RUo3Q2EsY0d0QkY7RUh1QkUsa0JHN0JWO0VIOEJVLHlCR2lGUDtFSGhGTyxxQkFBQTtBRUVmO0FGRGU7RUFDQyxjRzhFUjtFSDdFUSx5QkdvQlA7QURqQlQ7QUZEZTtFQUNDLGFBQUE7QUVHaEI7QUZBSztFQUNVLGFBQUE7QUVFZjtBRkVHO0VDM0JELDhDRDRCRTtFQzNCRixtREQyQkU7RUMxQkYsc0REMEJFO0VBQ0Esa0JHaERDO0VIaURFLFFBQUE7RUFDQSxVQUFBO0VBQ0EsTUFBQTtFQUNBLHlCR05NO0VIT04sV0FBQTtFQUNBLFlBQUE7QUVFUDtBRkRZO0VBQ0MscUJBQUE7RUFDQSx1QkdtR1A7QURoR047QUZGYTtFSWdCWCxpQkFBQTtFSmRZLGNHb0ROO0VIbkRNLGNBQUE7RUFDQSxrQkc3RFQ7RUg4REcsUUFBQTtBRUlSO0FGRmE7RUFDQyxhQUFBO0FFSWQ7QUZIYztFQUNDLGNBQUE7QUVLZjtBRkNFO0VBQ0MsaUJBQUE7QUVDSCIsImZpbGUiOiJzcmMvYXBwL2Ftcy9teS1wcm9wZXJ0eS9jb21wb25lbnRzL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24vcHJvcGVydHktY29uZmlndXJhdGlvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIHtcblx0LmNhcmQge1xuXHRcdEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoM3B4KTtcblx0fVxuXHQuY2FyZC1ib2R5IHtcblx0XHQubmF2LXBpbGxzIHtcblx0XHRcdGhlaWdodDogNDVweDtcblx0XHRcdG1hcmdpbjowIGF1dG87XG4gICAgXHRcdG92ZXJmbG93OmhpZGRlbjtcblx0XHRcdHBvc2l0aW9uOiAkcmVsO1xuXHRcdFx0LnRhYnMge1xuXHRcdFx0XHRwb3NpdGlvbjogJGFicztcbiAgICBcdFx0XHRsZWZ0OjBweDtcblx0XHRcdCAgICB0b3A6MHB4O1xuXHRcdFx0ICBcdG1pbi13aWR0aDozMDAwcHg7XG5cdFx0XHQgICAgbWFyZ2luOiAwIDAgMCAxMnB4O1xuICAgIFx0XHRcdEBpbmNsdWRlIHRyYW5zaXRpb24oYWxsIDAuM3MgZWFzZSk7XG4gICAgXHRcdFx0bGkge1xuICAgIFx0XHRcdFx0ZGlzcGxheTp0YWJsZS1jZWxsO1xuXHRcdFx0XHQgICAgcG9zaXRpb246ICRyZWw7XG5cdFx0XHRcdCAgICB0ZXh0LWFsaWduOmNlbnRlcjtcblx0XHRcdFx0ICAgIGN1cnNvcjpncmFiO1xuXHRcdFx0XHQgICAgY3Vyc29yOi13ZWJraXQtZ3JhYjtcblx0XHRcdFx0ICAgIHZlcnRpY2FsLWFsaWduOm1pZGRsZTtcblx0XHRcdFx0ICAgIHBhZGRpbmc6IDA7XG5cdFx0XHRcdCAgICBib3JkZXI6IDA7XG5cdFx0XHRcdCAgICBhIHtcblx0XHRcdFx0XHRcdHBhZGRpbmc6IDEycHggMTVweCAhaW1wb3J0YW50O1xuXHRcdCAgICAgICAgICAgIFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1zbWFsbCk7XG5cdFx0ICAgICAgICAgICAgXHRjb2xvcjogJGxpZ2h0LWJsdWU7XG5cdFx0ICAgICAgICAgICAgXHRwb3NpdGlvbjogJHJlbDtcblx0XHQgICAgICAgICAgICBcdGJhY2tncm91bmQtY29sb3I6ICR3aGl0ZTtcblx0XHQgICAgICAgICAgICBcdGRpc3BsYXk6IGlubGluZS1ibG9jaztcblx0XHQgICAgICAgICAgICBcdCYuYWN0aXZlIHtcblx0XHQgICAgICAgICAgICBcdFx0Y29sb3I6ICR3aGl0ZTtcblx0XHQgICAgICAgICAgICBcdFx0YmFja2dyb3VuZC1jb2xvcjogJG0tYmx1ZTtcblx0XHQgICAgICAgICAgICBcdH1cblx0XHQgICAgICAgICAgICBcdCY6Zm9jdXMge1xuXHRcdCAgICAgICAgICAgIFx0XHRvdXRsaW5lOiBub25lO1xuXHRcdCAgICAgICAgICAgIFx0fVxuXHRcdFx0XHRcdH1cblx0XHRcdFx0XHQmOmFmdGVyIHtcblx0XHQgICAgICAgICAgICBcdGNvbnRlbnQ6IG5vbmU7XG5cdFx0ICAgICAgICAgICAgfVxuICAgIFx0XHRcdH1cblx0XHRcdH1cblx0XHRcdC5idXR0b25ze1xuXHRcdFx0XHRAaW5jbHVkZSBib3gtc2hhZG93KDAgMnB4IDEwcHggMXB4IHJnYmEoJGJsYWNrLCAwLjI1KSk7XG5cdFx0XHRcdHBvc2l0aW9uOiAkYWJzO1xuXHRcdFx0ICAgIHJpZ2h0OiAwO1xuXHRcdFx0ICAgIHotaW5kZXg6IDI7XG5cdFx0XHQgICAgdG9wOiAwO1xuXHRcdFx0ICAgIGJhY2tncm91bmQtY29sb3I6ICRsaW1lLWdyZWVuO1xuXHRcdFx0ICAgIHdpZHRoOiA2MHB4O1xuXHRcdFx0ICAgIGhlaWdodDogNDlweDtcblx0ICAgICAgICAgICBhIHtcblx0ICAgICAgICAgICBcdGRpc3BsYXk6IGlubGluZS1ibG9jaztcblx0ICAgICAgICAgICBcdGhlaWdodDogJGZ1bGw7XG5cdCAgICAgICAgICAgXHRpIHtcblx0ICAgICAgICAgICBcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1tZWRpdW0tMDIpO1xuXHQgICAgICAgICAgIFx0XHRjb2xvcjogJHdoaXRlO1xuXHQgICAgICAgICAgIFx0XHRtYXJnaW46IDAgMTBweDtcdFxuXHQgICAgICAgICAgIFx0XHRwb3NpdGlvbjogJHJlbDtcbiAgICBcdFx0XHRcdHRvcDogMnB4O1xuXHQgICAgICAgICAgIFx0fVxuXHQgICAgICAgICAgIFx0Jjpob3ZlciwgJjpmb2N1cyB7XG5cdCAgICAgICAgICAgXHRcdG91dGxpbmU6IG5vbmU7XG5cdCAgICAgICAgICAgXHRcdGkge1xuXHQgICAgICAgICAgIFx0XHRcdGNvbG9yOiBkYXJrZW4oJGxpbWUtZ3JlZW4sIDMwJSk7XG5cdCAgICAgICAgICAgXHRcdH1cblx0ICAgICAgICAgICBcdH1cblx0ICAgICAgICAgICB9IFx0XHRcblx0ICAgICAgICB9XG5cdFx0fVxuXHRcdCYuY29udGVudCB7XG5cdFx0XHRtaW4taGVpZ2h0OiAyMDBweDtcblx0XHR9XG5cdH1cbn0iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuXG5AbWl4aW4gYm9yZGVyLXJhZGl1cyAoJHJhZGl1cykge1xuXHQtd2Via2l0LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0LW1vei1ib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG5cdGJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXMgKCRyYWRpdXMpIHtcbiAgLXdlYmtpdC1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBvcGFjaXR5ICgkdmFsdWUpIHtcbiAgb3BhY2l0eTogJHZhbHVlO1xuICAtbW96LW9wYWNpdHk6ICR2YWx1ZTtcbiAgLXdlYmtpdC1vcGFjaXR5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2hhZG93ICgkcnVsZXMuLi4pIHtcbiAgYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtbW96LWJveC1zaGFkb3c6ICRydWxlcztcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0ZXh0LXNoYWRvdyAoJHJ1bGVzKSB7XG4gIHRleHQtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLXdlYmtpdC10ZXh0LXNoYWRvdzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gdHJhbnNmb3JtICgkcnVsZXMpIHtcblx0LXdlYmtpdC10cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xuXHQtbW96LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdHRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiB0cmFuc2l0aW9uICgkcnVsZXMuLi4pIHtcblx0LXdlYmtpdC10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdC1tb3otdHJhbnNpdGlvbjogJHJ1bGVzO1xuXHR0cmFuc2l0aW9uOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBhbmltYXRpb24tZGVsYXkgKCR2YWx1ZSkge1xuICAtd2Via2l0LWFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xuICAtbW96LWFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xuICBhbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaXppbmcgKCRydWxlcy4uLikge1xuICAtd2Via2l0LWJveC1zaXppbmc6ICRydWxlcztcbiAgLW1vei1ib3gtc2l6aW5nOiAkcnVsZXM7XG4gIGJveC1zaXppbmc6ICRydWxlcztcbn1cblxuQG1peGluIGFwcGVhcmFuY2UgKCRydWxlcy4uLikge1xuICAtd2Via2l0LWFwcGVhcmFuY2U6ICRydWxlcztcbiAgLW1vei1hcHBlYXJhbmNlOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBkZXNlbGVjdCAoKSB7XG4gIC1tb3otdXNlci1zZWxlY3Q6IC1tb3otbm9uZTtcblx0LWtodG1sLXVzZXItc2VsZWN0OiBub25lO1xuXHQtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xuXHQtby11c2VyLXNlbGVjdDogbm9uZTtcblx0dXNlci1zZWxlY3Q6IG5vbmU7XG59XG5cbkBtaXhpbiB2aXNpYmlsaXR5ICgkcnVsZXMpIHtcbiAgdmlzaWJpbGl0eTogJHJ1bGVzO1xufVxuXG5AbWl4aW4gbm8tbXAgKCkge1xuICBtYXJnaW46IDAgIWltcG9ydGFudDtcbiAgcGFkZGluZzogMCAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gY2lyY2xlcygkciwgJGJnOm51bGwsICR0YzpudWxsKSB7XG4gIHdpZHRoOiAkcjtcbiAgaGVpZ2h0OiAkcjtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OmNlbnRlcjtcbiAgYWxpZ24taXRlbXM6Y2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkYmc7XG4gIGNvbG9yOiAkdGM7XG4gIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoJHIpO1xufVxuXG5AbWl4aW4gbGluZWFyLWdyYWRpZW50KCRkaXJlY3Rpb24sICRjb2xvci1zdG9wcy4uLikge1xuICAvLyBEaXJlY3Rpb24gaGFzIGJlZW4gb21pdHRlZCBhbmQgaGFwcGVucyB0byBiZSBhIGNvbG9yLXN0b3BcbiAgQGlmIGlzLWRpcmVjdGlvbigkZGlyZWN0aW9uKSA9PSBmYWxzZSB7XG4gICAgJGNvbG9yLXN0b3BzOiAkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHM7XG4gICAgJGRpcmVjdGlvbjogMTgwZGVnO1xuICB9XG5cbiAgYmFja2dyb3VuZDogbnRoKG50aCgkY29sb3Itc3RvcHMsIDEpLCAxKTtcbiAgYmFja2dyb3VuZDogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQobGVnYWN5LWRpcmVjdGlvbigkZGlyZWN0aW9uKSwgJGNvbG9yLXN0b3BzKTtcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KCRkaXJlY3Rpb24sICRjb2xvci1zdG9wcyk7XG59XG5cbkBtaXhpbiBwbGFjZWhvbGRlciB7XG4gICY6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIge0Bjb250ZW50fVxuICAmOi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAgIHtAY29udGVudH1cbiAgJjo6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6LW1zLWlucHV0LXBsYWNlaG9sZGVyICAgICAge0Bjb250ZW50fSAgXG59XG5cblxuIiwiLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZCB7XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogM3B4ICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogM3B4ICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDNweCAhaW1wb3J0YW50O1xufVxuLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZC1ib2R5IC5uYXYtcGlsbHMge1xuICBoZWlnaHQ6IDQ1cHg7XG4gIG1hcmdpbjogMCBhdXRvO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAudGFicyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMHB4O1xuICB0b3A6IDBweDtcbiAgbWluLXdpZHRoOiAzMDAwcHg7XG4gIG1hcmdpbjogMCAwIDAgMTJweDtcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlO1xuICAtbW96LXRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2U7XG4gIHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2U7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAudGFicyBsaSB7XG4gIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBjdXJzb3I6IGdyYWI7XG4gIGN1cnNvcjogLXdlYmtpdC1ncmFiO1xuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICBwYWRkaW5nOiAwO1xuICBib3JkZXI6IDA7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAudGFicyBsaSBhIHtcbiAgcGFkZGluZzogMTJweCAxNXB4ICFpbXBvcnRhbnQ7XG4gIGZvbnQtc2l6ZTogMS40cmVtO1xuICBjb2xvcjogIzgzOTFhMTtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAudGFicyBsaSBhLmFjdGl2ZSB7XG4gIGNvbG9yOiAjZmZmZmZmO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjM2Y1MWI1O1xufVxuLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZC1ib2R5IC5uYXYtcGlsbHMgLnRhYnMgbGkgYTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAudGFicyBsaTphZnRlciB7XG4gIGNvbnRlbnQ6IG5vbmU7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAuYnV0dG9ucyB7XG4gIGJveC1zaGFkb3c6IDAgMnB4IDEwcHggMXB4IHJnYmEoMCwgMCwgMCwgMC4yNSk7XG4gIC1tb3otYm94LXNoYWRvdzogMCAycHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjI1KTtcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAwIDJweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMjUpO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAwO1xuICB6LWluZGV4OiAyO1xuICB0b3A6IDA7XG4gIGJhY2tncm91bmQtY29sb3I6ICM1Y2Q2OTQ7XG4gIHdpZHRoOiA2MHB4O1xuICBoZWlnaHQ6IDQ5cHg7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAuYnV0dG9ucyBhIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIC5idXR0b25zIGEgaSB7XG4gIGZvbnQtc2l6ZTogMi40cmVtO1xuICBjb2xvcjogI2ZmZmZmZjtcbiAgbWFyZ2luOiAwIDEwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAycHg7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAuYnV0dG9ucyBhOmhvdmVyLCAucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAuYnV0dG9ucyBhOmZvY3VzIHtcbiAgb3V0bGluZTogbm9uZTtcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIC5idXR0b25zIGE6aG92ZXIgaSwgLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZC1ib2R5IC5uYXYtcGlsbHMgLmJ1dHRvbnMgYTpmb2N1cyBpIHtcbiAgY29sb3I6ICMxZjdhNDk7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkuY29udGVudCB7XG4gIG1pbi1oZWlnaHQ6IDIwMHB4O1xufSIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iXX0= */";
+    __webpack_exports__["default"] = ".property-configuration-wrapper .card {\n  border-radius: 3px !important;\n}\n.property-configuration-wrapper .card-body .nav-pills {\n  height: 45px;\n  margin: 0 auto;\n  overflow: hidden;\n  position: relative;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  min-width: 3000px;\n  margin: 0 0 0 12px;\n  transition: all 0.3s ease;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li {\n  display: table-cell;\n  position: relative;\n  text-align: center;\n  cursor: grab;\n  cursor: -webkit-grab;\n  vertical-align: middle;\n  padding: 0;\n  border: 0;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li a {\n  padding: 12px !important;\n  font-size: 1.4rem;\n  color: #8391a1;\n  position: relative;\n  background-color: #ffffff;\n  display: inline-block;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li a.active {\n  color: #ffffff;\n  background-color: #3f51b5;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li a:focus {\n  outline: none;\n}\n.property-configuration-wrapper .card-body .nav-pills .tabs li:after {\n  content: none;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons {\n  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  -moz-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  -webkit-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  position: absolute;\n  right: 0;\n  z-index: 2;\n  top: 0;\n  background-color: #5cd694;\n  width: 60px;\n  height: 49px;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons a {\n  display: inline-block;\n  height: 100% !important;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons a i {\n  font-size: 2.4rem;\n  color: #ffffff;\n  margin: 0 10px;\n  position: relative;\n  top: 2px;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons a:hover, .property-configuration-wrapper .card-body .nav-pills .buttons a:focus {\n  outline: none;\n}\n.property-configuration-wrapper .card-body .nav-pills .buttons a:hover i, .property-configuration-wrapper .card-body .nav-pills .buttons a:focus i {\n  color: #1f7a49;\n}\n.property-configuration-wrapper .card-body.content {\n  min-height: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvbXktcHJvcGVydHkvY29tcG9uZW50cy9wcm9wZXJ0eS1jb25maWd1cmF0aW9uL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24uY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL21peGlucy5zY3NzIiwic3JjL2FwcC9hbXMvbXktcHJvcGVydHkvY29tcG9uZW50cy9wcm9wZXJ0eS1jb25maWd1cmF0aW9uL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24uY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUtDO0VDRUEsNkJBQUE7QUNIRDtBRktFO0VBQ0MsWUFBQTtFQUNBLGNBQUE7RUFDRyxnQkFBQTtFQUNILGtCR1JFO0FES0w7QUZJRztFQUNDLGtCR1hDO0VIWUUsU0FBQTtFQUNBLFFBQUE7RUFDRCxpQkFBQTtFQUNDLGtCQUFBO0VDd0JOLHlCRHZCTTtBRUFQO0FGQ087RUFDQyxtQkFBQTtFQUNBLGtCR2xCSDtFSG1CRyxrQkFBQTtFQUNBLFlBQUE7RUFDQSxvQkFBQTtFQUNBLHNCQUFBO0VBQ0EsVUFBQTtFQUNBLFNBQUE7QUVDUjtBRkFRO0VBQ0Ysd0JBQUE7RUkrQ0osaUJBQUE7RUo3Q2EsY0d0QkY7RUh1QkUsa0JHN0JWO0VIOEJVLHlCR2lGUDtFSGhGTyxxQkFBQTtBRUVmO0FGRGU7RUFDQyxjRzhFUjtFSDdFUSx5QkdvQlA7QURqQlQ7QUZEZTtFQUNDLGFBQUE7QUVHaEI7QUZBSztFQUNVLGFBQUE7QUVFZjtBRkVHO0VDM0JELDhDRDRCRTtFQzNCRixtREQyQkU7RUMxQkYsc0REMEJFO0VBQ0Esa0JHaERDO0VIaURFLFFBQUE7RUFDQSxVQUFBO0VBQ0EsTUFBQTtFQUNBLHlCR05NO0VIT04sV0FBQTtFQUNBLFlBQUE7QUVFUDtBRkRZO0VBQ0MscUJBQUE7RUFDQSx1QkdtR1A7QURoR047QUZGYTtFSWdCWCxpQkFBQTtFSmRZLGNHb0ROO0VIbkRNLGNBQUE7RUFDQSxrQkc3RFQ7RUg4REcsUUFBQTtBRUlSO0FGRmE7RUFDQyxhQUFBO0FFSWQ7QUZIYztFQUNDLGNBQUE7QUVLZjtBRkNFO0VBQ0MsaUJBQUE7QUVDSCIsImZpbGUiOiJzcmMvYXBwL2Ftcy9teS1wcm9wZXJ0eS9jb21wb25lbnRzL3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24vcHJvcGVydHktY29uZmlndXJhdGlvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIHtcblx0LmNhcmQge1xuXHRcdEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoM3B4KTtcblx0fVxuXHQuY2FyZC1ib2R5IHtcblx0XHQubmF2LXBpbGxzIHtcblx0XHRcdGhlaWdodDogNDVweDtcblx0XHRcdG1hcmdpbjowIGF1dG87XG4gICAgXHRcdG92ZXJmbG93OmhpZGRlbjtcblx0XHRcdHBvc2l0aW9uOiAkcmVsO1xuXHRcdFx0LnRhYnMge1xuXHRcdFx0XHRwb3NpdGlvbjogJGFicztcbiAgICBcdFx0XHRsZWZ0OjBweDtcblx0XHRcdCAgICB0b3A6MHB4O1xuXHRcdFx0ICBcdG1pbi13aWR0aDozMDAwcHg7XG5cdFx0XHQgICAgbWFyZ2luOiAwIDAgMCAxMnB4O1xuICAgIFx0XHRcdEBpbmNsdWRlIHRyYW5zaXRpb24oYWxsIDAuM3MgZWFzZSk7XG4gICAgXHRcdFx0bGkge1xuICAgIFx0XHRcdFx0ZGlzcGxheTp0YWJsZS1jZWxsO1xuXHRcdFx0XHQgICAgcG9zaXRpb246ICRyZWw7XG5cdFx0XHRcdCAgICB0ZXh0LWFsaWduOmNlbnRlcjtcblx0XHRcdFx0ICAgIGN1cnNvcjpncmFiO1xuXHRcdFx0XHQgICAgY3Vyc29yOi13ZWJraXQtZ3JhYjtcblx0XHRcdFx0ICAgIHZlcnRpY2FsLWFsaWduOm1pZGRsZTtcblx0XHRcdFx0ICAgIHBhZGRpbmc6IDA7XG5cdFx0XHRcdCAgICBib3JkZXI6IDA7XG5cdFx0XHRcdCAgICBhIHtcblx0XHRcdFx0XHRcdHBhZGRpbmc6IDEycHggIWltcG9ydGFudDtcblx0XHQgICAgICAgICAgICBcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xuXHRcdCAgICAgICAgICAgIFx0Y29sb3I6ICRsaWdodC1ibHVlO1xuXHRcdCAgICAgICAgICAgIFx0cG9zaXRpb246ICRyZWw7XG5cdFx0ICAgICAgICAgICAgXHRiYWNrZ3JvdW5kLWNvbG9yOiAkd2hpdGU7XG5cdFx0ICAgICAgICAgICAgXHRkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG5cdFx0ICAgICAgICAgICAgXHQmLmFjdGl2ZSB7XG5cdFx0ICAgICAgICAgICAgXHRcdGNvbG9yOiAkd2hpdGU7XG5cdFx0ICAgICAgICAgICAgXHRcdGJhY2tncm91bmQtY29sb3I6ICRtLWJsdWU7XG5cdFx0ICAgICAgICAgICAgXHR9XG5cdFx0ICAgICAgICAgICAgXHQmOmZvY3VzIHtcblx0XHQgICAgICAgICAgICBcdFx0b3V0bGluZTogbm9uZTtcblx0XHQgICAgICAgICAgICBcdH1cblx0XHRcdFx0XHR9XG5cdFx0XHRcdFx0JjphZnRlciB7XG5cdFx0ICAgICAgICAgICAgXHRjb250ZW50OiBub25lO1xuXHRcdCAgICAgICAgICAgIH1cbiAgICBcdFx0XHR9XG5cdFx0XHR9XG5cdFx0XHQuYnV0dG9uc3tcblx0XHRcdFx0QGluY2x1ZGUgYm94LXNoYWRvdygwIDJweCAxMHB4IDFweCByZ2JhKCRibGFjaywgMC4yNSkpO1xuXHRcdFx0XHRwb3NpdGlvbjogJGFicztcblx0XHRcdCAgICByaWdodDogMDtcblx0XHRcdCAgICB6LWluZGV4OiAyO1xuXHRcdFx0ICAgIHRvcDogMDtcblx0XHRcdCAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkbGltZS1ncmVlbjtcblx0XHRcdCAgICB3aWR0aDogNjBweDtcblx0XHRcdCAgICBoZWlnaHQ6IDQ5cHg7XG5cdCAgICAgICAgICAgYSB7XG5cdCAgICAgICAgICAgXHRkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG5cdCAgICAgICAgICAgXHRoZWlnaHQ6ICRmdWxsO1xuXHQgICAgICAgICAgIFx0aSB7XG5cdCAgICAgICAgICAgXHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtbWVkaXVtLTAyKTtcblx0ICAgICAgICAgICBcdFx0Y29sb3I6ICR3aGl0ZTtcblx0ICAgICAgICAgICBcdFx0bWFyZ2luOiAwIDEwcHg7XHRcblx0ICAgICAgICAgICBcdFx0cG9zaXRpb246ICRyZWw7XG4gICAgXHRcdFx0XHR0b3A6IDJweDtcblx0ICAgICAgICAgICBcdH1cblx0ICAgICAgICAgICBcdCY6aG92ZXIsICY6Zm9jdXMge1xuXHQgICAgICAgICAgIFx0XHRvdXRsaW5lOiBub25lO1xuXHQgICAgICAgICAgIFx0XHRpIHtcblx0ICAgICAgICAgICBcdFx0XHRjb2xvcjogZGFya2VuKCRsaW1lLWdyZWVuLCAzMCUpO1xuXHQgICAgICAgICAgIFx0XHR9XG5cdCAgICAgICAgICAgXHR9XG5cdCAgICAgICAgICAgfSBcdFx0XG5cdCAgICAgICAgfVxuXHRcdH1cblx0XHQmLmNvbnRlbnQge1xuXHRcdFx0bWluLWhlaWdodDogMjAwcHg7XG5cdFx0fVxuXHR9XG59IiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cblxuQG1peGluIGJvcmRlci1yYWRpdXMgKCRyYWRpdXMpIHtcblx0LXdlYmtpdC1ib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG5cdC1tb3otYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHRib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzICgkcmFkaXVzKSB7XG4gIC13ZWJraXQtYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gb3BhY2l0eSAoJHZhbHVlKSB7XG4gIG9wYWNpdHk6ICR2YWx1ZTtcbiAgLW1vei1vcGFjaXR5OiAkdmFsdWU7XG4gIC13ZWJraXQtb3BhY2l0eTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNoYWRvdyAoJHJ1bGVzLi4uKSB7XG4gIGJveC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei1ib3gtc2hhZG93OiAkcnVsZXM7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gdGV4dC1zaGFkb3cgKCRydWxlcykge1xuICB0ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtbW96LXRleHQtc2hhZG93OiAkcnVsZXM7XG4gIC13ZWJraXQtdGV4dC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRyYW5zZm9ybSAoJHJ1bGVzKSB7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0LW1vei10cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xuXHR0cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gdHJhbnNpdGlvbiAoJHJ1bGVzLi4uKSB7XG5cdC13ZWJraXQtdHJhbnNpdGlvbjogJHJ1bGVzO1xuXHQtbW96LXRyYW5zaXRpb246ICRydWxlcztcblx0dHJhbnNpdGlvbjogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYW5pbWF0aW9uLWRlbGF5ICgkdmFsdWUpIHtcbiAgLXdlYmtpdC1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgLW1vei1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2l6aW5nICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1ib3gtc2l6aW5nOiAkcnVsZXM7XG4gIC1tb3otYm94LXNpemluZzogJHJ1bGVzO1xuICBib3gtc2l6aW5nOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBhcHBlYXJhbmNlICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiAkcnVsZXM7XG4gIC1tb3otYXBwZWFyYW5jZTogJHJ1bGVzO1xufVxuXG5AbWl4aW4gZGVzZWxlY3QgKCkge1xuICAtbW96LXVzZXItc2VsZWN0OiAtbW96LW5vbmU7XG5cdC1raHRtbC11c2VyLXNlbGVjdDogbm9uZTtcblx0LXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcblx0LW8tdXNlci1zZWxlY3Q6IG5vbmU7XG5cdHVzZXItc2VsZWN0OiBub25lO1xufVxuXG5AbWl4aW4gdmlzaWJpbGl0eSAoJHJ1bGVzKSB7XG4gIHZpc2liaWxpdHk6ICRydWxlcztcbn1cblxuQG1peGluIG5vLW1wICgpIHtcbiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGNpcmNsZXMoJHIsICRiZzpudWxsLCAkdGM6bnVsbCkge1xuICB3aWR0aDogJHI7XG4gIGhlaWdodDogJHI7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDpjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOmNlbnRlcjtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGJnO1xuICBjb2xvcjogJHRjO1xuICBAaW5jbHVkZSBib3JkZXItcmFkaXVzKCRyKTtcbn1cblxuQG1peGluIGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMuLi4pIHtcbiAgLy8gRGlyZWN0aW9uIGhhcyBiZWVuIG9taXR0ZWQgYW5kIGhhcHBlbnMgdG8gYmUgYSBjb2xvci1zdG9wXG4gIEBpZiBpcy1kaXJlY3Rpb24oJGRpcmVjdGlvbikgPT0gZmFsc2Uge1xuICAgICRjb2xvci1zdG9wczogJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzO1xuICAgICRkaXJlY3Rpb246IDE4MGRlZztcbiAgfVxuXG4gIGJhY2tncm91bmQ6IG50aChudGgoJGNvbG9yLXN0b3BzLCAxKSwgMSk7XG4gIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGxlZ2FjeS1kaXJlY3Rpb24oJGRpcmVjdGlvbiksICRjb2xvci1zdG9wcyk7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMpO1xufVxuXG5AbWl4aW4gcGxhY2Vob2xkZXIge1xuICAmOjotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHtAY29udGVudH1cbiAgJjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6Oi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAge0Bjb250ZW50fVxuICAmOi1tcy1pbnB1dC1wbGFjZWhvbGRlciAgICAgIHtAY29udGVudH0gIFxufVxuXG5cbiIsIi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQge1xuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDNweCAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDNweCAhaW1wb3J0YW50O1xuICBib3JkZXItcmFkaXVzOiAzcHggIWltcG9ydGFudDtcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIHtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW46IDAgYXV0bztcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZC1ib2R5IC5uYXYtcGlsbHMgLnRhYnMge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IDBweDtcbiAgdG9wOiAwcHg7XG4gIG1pbi13aWR0aDogMzAwMHB4O1xuICBtYXJnaW46IDAgMCAwIDEycHg7XG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZTtcbiAgLW1vei10cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlO1xuICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlO1xufVxuLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZC1ib2R5IC5uYXYtcGlsbHMgLnRhYnMgbGkge1xuICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgY3Vyc29yOiBncmFiO1xuICBjdXJzb3I6IC13ZWJraXQtZ3JhYjtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgcGFkZGluZzogMDtcbiAgYm9yZGVyOiAwO1xufVxuLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZC1ib2R5IC5uYXYtcGlsbHMgLnRhYnMgbGkgYSB7XG4gIHBhZGRpbmc6IDEycHggIWltcG9ydGFudDtcbiAgZm9udC1zaXplOiAxLjRyZW07XG4gIGNvbG9yOiAjODM5MWExO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIC50YWJzIGxpIGEuYWN0aXZlIHtcbiAgY29sb3I6ICNmZmZmZmY7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzZjUxYjU7XG59XG4ucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAudGFicyBsaSBhOmZvY3VzIHtcbiAgb3V0bGluZTogbm9uZTtcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIC50YWJzIGxpOmFmdGVyIHtcbiAgY29udGVudDogbm9uZTtcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIC5idXR0b25zIHtcbiAgYm94LXNoYWRvdzogMCAycHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjI1KTtcbiAgLW1vei1ib3gtc2hhZG93OiAwIDJweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMjUpO1xuICAtd2Via2l0LWJveC1zaGFkb3c6IDAgMnB4IDEwcHggMXB4IHJnYmEoMCwgMCwgMCwgMC4yNSk7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDA7XG4gIHotaW5kZXg6IDI7XG4gIHRvcDogMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzVjZDY5NDtcbiAgd2lkdGg6IDYwcHg7XG4gIGhlaWdodDogNDlweDtcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIC5idXR0b25zIGEge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xufVxuLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZC1ib2R5IC5uYXYtcGlsbHMgLmJ1dHRvbnMgYSBpIHtcbiAgZm9udC1zaXplOiAyLjRyZW07XG4gIGNvbG9yOiAjZmZmZmZmO1xuICBtYXJnaW46IDAgMTBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IDJweDtcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIC5idXR0b25zIGE6aG92ZXIsIC5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keSAubmF2LXBpbGxzIC5idXR0b25zIGE6Zm9jdXMge1xuICBvdXRsaW5lOiBub25lO1xufVxuLnByb3BlcnR5LWNvbmZpZ3VyYXRpb24td3JhcHBlciAuY2FyZC1ib2R5IC5uYXYtcGlsbHMgLmJ1dHRvbnMgYTpob3ZlciBpLCAucHJvcGVydHktY29uZmlndXJhdGlvbi13cmFwcGVyIC5jYXJkLWJvZHkgLm5hdi1waWxscyAuYnV0dG9ucyBhOmZvY3VzIGkge1xuICBjb2xvcjogIzFmN2E0OTtcbn1cbi5wcm9wZXJ0eS1jb25maWd1cmF0aW9uLXdyYXBwZXIgLmNhcmQtYm9keS5jb250ZW50IHtcbiAgbWluLWhlaWdodDogMjAwcHg7XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuQG1peGluIHB1YmxpYy1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIGhlYWQtbGlnaHQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbn1cblxuQG1peGluIGhlYWQtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNzAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiJdfQ== */";
     /***/
   },
 
@@ -1164,37 +1105,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-    /* harmony import */
-
-
-    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var PropertyConfigurationComponent =
     /*#__PURE__*/
     function () {
-      function PropertyConfigurationComponent(lookupService, sharedService, cookieService) {
+      function PropertyConfigurationComponent(lookupService) {
         _classCallCheck(this, PropertyConfigurationComponent);
 
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.itemPositions = [];
         this.currentPosition = 0;
         this.isDataLoaded = false;
@@ -1224,7 +1151,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var wrapperWidth = document.querySelector('#property-wrapper').clientWidth - marginWidth;
           var itemsWidth = 0;
           this.itemPositions.push(0);
-          underscore__WEBPACK_IMPORTED_MODULE_5__["each"](this.tabItems, function (item) {
+          underscore__WEBPACK_IMPORTED_MODULE_3__["each"](this.tabItems, function (item) {
             var itemWidth = item.offsetWidth;
             itemsWidth += itemWidth;
 
@@ -1257,8 +1184,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngAfterViewInit() {
           var _this9 = this;
 
-          //get all asset categories
-          this.lookupService.getLookupValueByLookupTypeId(19).subscribe(function (res) {
+          var params = {
+            LookupTypeId: 19
+          }; //get all asset categories
+
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             _this9.isDataLoaded = true;
             _this9.assetCategoriesData = res.filter(function (item) {
               return item.isActive;
@@ -1279,11 +1209,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyConfigurationComponent.ctorParameters = function () {
       return [{
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
       }];
     };
 
@@ -1296,7 +1222,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-configuration.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-configuration.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyConfigurationComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]])], PropertyConfigurationComponent);
     /***/
   },
 
@@ -1354,37 +1280,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var PropertyDetailsComponent =
     /*#__PURE__*/
     function () {
-      function PropertyDetailsComponent(apartmentService, lookupService, sharedService, cookieService) {
+      function PropertyDetailsComponent(apartmentService, cookieService) {
         _classCallCheck(this, PropertyDetailsComponent);
 
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
       }
@@ -1394,7 +1306,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this10 = this;
 
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             _this10.propertyTowerData = res;
             _this10.isDataLoaded = true;
           });
@@ -1406,13 +1321,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyDetailsComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }];
     };
 
@@ -1424,7 +1335,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-details.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-details/property-details.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyDetailsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], PropertyDetailsComponent);
     /***/
   },
 
@@ -1482,9 +1393,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -1494,24 +1405,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var PropertyTowerInfoComponent =
     /*#__PURE__*/
     function () {
-      function PropertyTowerInfoComponent(apartmentService, lookupService, sharedService, cookieService) {
+      function PropertyTowerInfoComponent(apartmentService, sharedService, cookieService) {
         _classCallCheck(this, PropertyTowerInfoComponent);
 
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isEdit = false;
@@ -1554,7 +1458,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "unitsUnderConstruction": parseInt(this.tower.unitsUnderConstruction),
             "blockCommonArea": parseInt(this.tower.blockCommonArea)
           };
-          this.apartmentService.updateApartmentBlock(details).subscribe(function (res) {
+          var params = {
+            apartmentBlock: details
+          };
+          this.apartmentService.updateApartmentBlock(params).subscribe(function (res) {
             if (res.message) {
               _this11.isEdit = false;
 
@@ -1569,7 +1476,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this12 = this;
 
-          this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.tower.apartmentBlockId)).subscribe(function (res) {
+          var params = {
+            apartmentBlockId: parseInt(this.tower.apartmentBlockId)
+          };
+          this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
             _this12.towerUnitData = res;
             _this12.totalItems = _this12.towerUnitData.length;
 
@@ -1589,13 +1499,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyTowerInfoComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
-      }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -1608,7 +1516,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-tower-info.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-details/property-tower-info/property-tower-info.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyTowerInfoComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyTowerInfoComponent);
     /***/
   },
 
@@ -1666,9 +1574,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -1678,9 +1586,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -1761,7 +1669,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "updatedBy": parseInt(this.cookieService.get('userId')),
             "updatedOn": new Date().toISOString()
           };
-          this.apartmentService.updateApartmentBlockUnit(details).subscribe(function (res) {
+          var params = {
+            apartmentBlockUnit: details
+          };
+          this.apartmentService.updateApartmentBlockUnit(params).subscribe(function (res) {
             if (res.message) {
               _this13.isEdit = false;
 
@@ -1776,9 +1687,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this14 = this;
 
-          this.unitTypeId = ""; //get unit type
+          this.unitTypeId = "";
+          var unitParams = {
+            LookupTypeId: 1
+          }; //get unit type
 
-          this.lookupService.getLookupValueByLookupTypeId(1).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
             _this14.unitTypeData = res;
             setTimeout(function () {
               _this14.getUnitType(_this14.unit.unitType);
@@ -1792,9 +1706,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyTowerUnitInfoComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
@@ -1812,7 +1726,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-tower-unit-info.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-details/property-tower-info/property-tower-unit-info/property-tower-unit-info.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyTowerUnitInfoComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyTowerUnitInfoComponent);
     /***/
   },
 
@@ -1870,44 +1784,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/facility.service */
-    "./src/app/api/services/facility.service.ts");
+    var src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/facility */
+    "./src/app/api/controllers/facility.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var PropertyFacilityComponent =
     /*#__PURE__*/
     function () {
-      function PropertyFacilityComponent(cdRef, apartmentService, facilityService, lookupService, cookieService) {
+      function PropertyFacilityComponent(apartmentService, facilityService, cookieService) {
         _classCallCheck(this, PropertyFacilityComponent);
 
-        this.cdRef = cdRef;
         this.apartmentService = apartmentService;
         this.facilityService = facilityService;
-        this.lookupService = lookupService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
         this.dotItems = ['high', 'medium', 'low', 'blue', 'cyan'];
@@ -1923,12 +1829,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this15 = this;
 
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             _this15.propertyTowerData = res;
+            var params = {
+              ApartmentID: parseInt(_this15.cookieService.get('apartmentId'))
+            };
 
-            _this15.facilityService.GetPCApartmentFacility(parseInt(_this15.cookieService.get('apartmentId'))).subscribe(function (res) {
+            _this15.facilityService.getPcApartmentFacility(params).subscribe(function (res) {
               _this15.facilityData = res;
-              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this15.facilityData, function (item, index) {
+              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this15.facilityData, function (item, index) {
                 _this15.facilityData[index]["class"] = _this15.dotItems[Math.floor(Math.random() * _this15.dotItems.length)];
               });
               _this15.isDataLoaded = true;
@@ -1942,15 +1854,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyFacilityComponent.ctorParameters = function () {
       return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"]
       }, {
-        type: _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__["FacilityService"]
-      }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -1962,7 +1870,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-facility.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-facility/property-facility.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyFacilityComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyFacilityComponent);
     /***/
   },
 
@@ -2017,41 +1925,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var PropertyTowerFacilityComponent =
     /*#__PURE__*/
     function () {
-      function PropertyTowerFacilityComponent(apartmentService, lookupService, sharedService, cookieService) {
+      function PropertyTowerFacilityComponent() {
         _classCallCheck(this, PropertyTowerFacilityComponent);
 
-        this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.isEdit = false;
         this.isTowersLoaded = false;
       }
@@ -2064,18 +1944,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return PropertyTowerFacilityComponent;
     }();
 
-    PropertyTowerFacilityComponent.ctorParameters = function () {
-      return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
-      }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
-      }];
-    };
-
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], PropertyTowerFacilityComponent.prototype, "tower", void 0);
     PropertyTowerFacilityComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-property-tower-facility',
@@ -2085,7 +1953,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-tower-facility.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-facility/property-tower-facility/property-tower-facility.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyTowerFacilityComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], PropertyTowerFacilityComponent);
     /***/
   },
 
@@ -2143,31 +2011,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
 
     var PropertyParkingDetailsInfoComponent =
     /*#__PURE__*/
     function () {
-      function PropertyParkingDetailsInfoComponent(lookupService, sharedService, cookieService) {
+      function PropertyParkingDetailsInfoComponent(lookupService) {
         _classCallCheck(this, PropertyParkingDetailsInfoComponent);
 
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.parkingData = "";
         this.unitFieldType = "unitno";
         this.unitOrder = true;
@@ -2216,8 +2070,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this16 = this;
 
-          //get main slot type
-          this.lookupService.getLookupValueByLookupTypeId(71).subscribe(function (res) {
+          var params = {
+            LookupTypeId: 71
+          }; //get main slot type
+
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             //this.isDataLoaded = true;
             _this16.slotDataList = res.filter(function (item) {
               return item.isActive;
@@ -2231,11 +2088,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyParkingDetailsInfoComponent.ctorParameters = function () {
       return [{
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
       }];
     };
 
@@ -2247,7 +2100,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-parking-details-info.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyParkingDetailsInfoComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]])], PropertyParkingDetailsInfoComponent);
     /***/
   },
 
@@ -2305,37 +2158,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var PropertyParkingDetailsComponent =
     /*#__PURE__*/
     function () {
-      function PropertyParkingDetailsComponent(apartmentService, lookupService, sharedService, cookieService) {
+      function PropertyParkingDetailsComponent(apartmentService, cookieService) {
         _classCallCheck(this, PropertyParkingDetailsComponent);
 
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
       }
@@ -2345,7 +2184,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this17 = this;
 
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             _this17.propertyTowerData = res;
             _this17.isDataLoaded = true;
           });
@@ -2357,13 +2199,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyParkingDetailsComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }];
     };
 
@@ -2375,7 +2213,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-parking-details.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-parking-details/property-parking-details.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyParkingDetailsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], PropertyParkingDetailsComponent);
     /***/
   },
 
@@ -2433,9 +2271,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -2445,9 +2283,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -2608,7 +2446,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             file: this.fileList[0],
             apartment: details
           };
-          this.apartmentService.updateApartmentAsync(apartmentParams).subscribe(function (res) {
+          this.apartmentService.updateApartment(apartmentParams).subscribe(function (res) {
             if (res.message) {
               _this18.isDataLoaded = true;
               _this18.isEdit = false;
@@ -2634,23 +2472,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.apartmentService.getApartmentByApartmentId(params).subscribe(function (res) {
             _this19.property = res[0];
+            var params = {
+              apartmentId: parseInt(_this19.cookieService.get('apartmentId'))
+            };
 
-            _this19.apartmentService.getApartmentBlockByApartmentId(parseInt(_this19.cookieService.get('apartmentId'))).subscribe(function (res) {
+            _this19.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               _this19.towersLength = res.length;
+              var params = {
+                apartmentId: parseInt(_this19.cookieService.get('apartmentId'))
+              };
 
-              _this19.apartmentService.getApartmentBlockUnitByApartmentId(parseInt(_this19.cookieService.get('apartmentId'))).subscribe(function (res) {
+              _this19.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
                 _this19.unitsLength = res.length;
               });
             });
 
             _this19.isDataLoaded = true;
-          }); //get property type
+          });
+          var propertyParams = {
+            LookupTypeId: 65
+          }; //get property type
 
-          this.lookupService.getLookupValueByLookupTypeId(65).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(propertyParams).subscribe(function (res) {
             _this19.propertyTypeData = res;
-          }, function (error) {}); //get property category
+          }, function (error) {});
+          var propertyCategoryParams = {
+            LookupTypeId: 66
+          }; //get property category
 
-          this.lookupService.getLookupValueByLookupTypeId(66).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(propertyCategoryParams).subscribe(function (res) {
             _this19.propertyCategoryData = res;
           }, function (error) {});
         }
@@ -2661,9 +2511,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyProfileComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
@@ -2679,7 +2529,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-profile.component.scss */
       "./src/app/ams/my-property/components/property-configuration/property-profile/property-profile.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyProfileComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], PropertyProfileComponent);
     /***/
   },
 
@@ -2737,9 +2587,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/services */
-    "./src/app/api/services.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -8213,7 +8063,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]
       }, {
-        type: src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
       }, {
@@ -8235,7 +8085,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-tower-details.component.scss */
       "./src/app/ams/my-property/components/property-view/property-tower-details/property-tower-details.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"], src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__["ModalService"]])], PropertyTowerDetailsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__["ModalService"]])], PropertyTowerDetailsComponent);
     /***/
   },
 
@@ -8293,9 +8143,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/services */
-    "./src/app/api/services.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -8319,7 +8169,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this21 = this;
 
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             console.log('Tower Details');
             console.log(res);
             _this21.propertyTowerData = res;
@@ -8337,7 +8190,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     PropertyTowerListComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }];
@@ -8351,7 +8204,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-tower-list.component.scss */
       "./src/app/ams/my-property/components/property-view/property-tower-list/property-tower-list.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], PropertyTowerListComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], PropertyTowerListComponent);
     /***/
   },
 

@@ -225,13 +225,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastAnnouncementsComponent", function() { return BroadcastAnnouncementsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/broadcast.service */ "./src/app/api/services/broadcast.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
+/* harmony import */ var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/broadcast */ "./src/app/api/controllers/broadcast.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
@@ -256,7 +256,7 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
         this.injector = injector;
         this.images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
         this.imagePath = "../../../../../assets/images/announcement_background.jpeg";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     ngOnInit() {
         this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
@@ -266,7 +266,9 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
     }
     //Get All Category
     getAllCategory() {
-        let apartmentID = parseInt(this.cookieService.get('apartmentId'));
+        let apartmentID = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         this.broadcastService.getBroadCastMessageCategories(apartmentID).subscribe((res) => {
             this.allCategory = res;
         });
@@ -311,7 +313,10 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
         var users$ = this.userService.getAllUsers();
         var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["concatMap"])((users) => {
             this.allUser = users;
-            return this.broadcastService.getAllBroadcastMessages(apartmentId);
+            let apartmentID = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            return this.broadcastService.getAllBroadcastMessages(apartmentID);
         }));
         allBroadCastmessages$.subscribe((res) => {
             this.broadCastMessages = res;
@@ -334,12 +339,12 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
     }
 };
 BroadcastAnnouncementsComponent.ctorParameters = () => [
-    { type: _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__["StaffService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 BroadcastAnnouncementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -348,12 +353,12 @@ BroadcastAnnouncementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-announcements.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-announcements.component.scss */ "./src/app/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__["StaffService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], BroadcastAnnouncementsComponent);
 
@@ -386,13 +391,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastGroupAssignmentComponent", function() { return BroadcastGroupAssignmentComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/broadcast.service */ "./src/app/api/services/broadcast.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
+/* harmony import */ var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/broadcast */ "./src/app/api/controllers/broadcast.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
@@ -449,7 +454,7 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             "searchText": ""
         };
         this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"]();
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     ngOnInit() {
         // this.message={};
@@ -567,7 +572,7 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             this.filterOptions.blockids = blockIds;
         }
         this.filterOptions.searchText = null;
-        this.userService.getUserBykeyword(this.filterOptions).subscribe((res) => {
+        this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
             res.forEach(element => {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
                 element.userFullDetail = element.userId + " " + element.roleId + " " + element.apartmentBlockId + " " + element.apartmentBlockUnitId;
@@ -592,7 +597,7 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
                 this.filterOptions.blockids = blockIds;
             }
             this.filterOptions.searchText = evt.target.value;
-            this.userService.getUserBykeyword(this.filterOptions).subscribe((res) => {
+            this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
                 this.filteredUsers = res;
             }, error => console.log(error));
         }
@@ -768,7 +773,10 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             broadCastGroupCategoryUser.updatedOn = new Date().toISOString();
             broadCastGroupCategoryUser.serialNumber = this.groupUsercategory.serialNo;
         }
-        this.broadcastService.upsertBroadCastGroupCategoryUser(broadCastGroupCategoryUser).subscribe((res) => {
+        let broadcast = {
+            broadcast: broadCastGroupCategoryUser
+        };
+        this.broadcastService.upsertBroadCastGroupCategoryUser(broadcast).subscribe((res) => {
             if (res.message) {
                 if (this.isEdit) {
                     this.sharedService.setAlertMessage("Interest groups mapping to user updated successfully");
@@ -801,7 +809,10 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             'apartmentID': this.apartmentID,
             'serialNumber': 0
         };
-        this.broadcastService.upsertBroadCastGroupCategoryUser(broadCastGroupCategoryUser).subscribe((res) => {
+        let broadcast = {
+            broadcast: broadCastGroupCategoryUser
+        };
+        this.broadcastService.upsertBroadCastGroupCategoryUser(broadcast).subscribe((res) => {
             if (res.message) {
                 if (this.isLast) {
                     this.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
@@ -842,12 +853,12 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
     }
 };
 BroadcastGroupAssignmentComponent.ctorParameters = () => [
-    { type: _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__["StaffService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 BroadcastGroupAssignmentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -856,12 +867,12 @@ BroadcastGroupAssignmentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-group-assignment.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-group-assignment.component.scss */ "./src/app/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__["StaffService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], BroadcastGroupAssignmentComponent);
 
@@ -894,9 +905,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastHistoryComponent", function() { return BroadcastHistoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/broadcast.service */ "./src/app/api/services/broadcast.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/broadcast */ "./src/app/api/controllers/broadcast.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
@@ -957,14 +968,19 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
     }
     //Get All Category
     getAllCategory() {
-        let apartmentID = parseInt(this.cookieService.get('apartmentId'));
+        let apartmentID = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         this.broadcastService.getBroadCastMessageCategories(apartmentID).subscribe((res) => {
             this.allCategory = res;
         });
     }
     //Get All Type
     getAllType() {
-        this.lookupService.getLookupValueByLookupTypeId(11).subscribe((res) => {
+        let params = {
+            LookupTypeId: 11
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.allType = res;
         });
     }
@@ -1037,11 +1053,13 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
         }
     }
     getAllBroadcastMessage() {
-        let apartmentId = parseInt(this.cookieService.get('apartmentId'));
+        let apartmentID = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         var users$ = this.userService.getAllUsers();
         var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])((users) => {
             this.allUser = users;
-            return this.broadcastService.getAllBroadcastMessages(apartmentId);
+            return this.broadcastService.getAllBroadcastMessages(apartmentID);
         }));
         allBroadCastmessages$.subscribe((res) => {
             this.broadCastMessages = res;
@@ -1062,10 +1080,10 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
     }
 };
 BroadcastHistoryComponent.ctorParameters = () => [
-    { type: _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
+    { type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 BroadcastHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1074,10 +1092,10 @@ BroadcastHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-history.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-history/broadcast-history.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-history.component.scss */ "./src/app/ams/broadcast/components/broadcast-history/broadcast-history.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], BroadcastHistoryComponent);
 
@@ -1112,11 +1130,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/broadcast.service */ "./src/app/api/services/broadcast.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
+/* harmony import */ var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/broadcast */ "./src/app/api/controllers/broadcast.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 
 
 
@@ -1145,7 +1163,7 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
             "blockids": null,
             "searchText": ""
         };
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     ngOnInit() {
         this.loginUserId = parseInt(this.cookieService.get('userId'));
@@ -1228,7 +1246,7 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
     getUsers() {
         this.filterOptions.apartmentId = this.apartmentID;
         this.filterOptions.searchText = null;
-        this.userService.getUserBykeyword(this.filterOptions).subscribe((res) => {
+        this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
             this.allUsers = res;
         }, error => console.log(error));
     }
@@ -1260,12 +1278,12 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
     }
 };
 BroadcastRemoveuserComponent.ctorParameters = () => [
-    { type: _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
+    { type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__["StaffService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 BroadcastRemoveuserComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1274,12 +1292,12 @@ BroadcastRemoveuserComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-removeuser.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-removeuser.component.scss */ "./src/app/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__["StaffService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], BroadcastRemoveuserComponent);
 
@@ -1314,11 +1332,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/broadcast.service */ "./src/app/api/services/broadcast.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
+/* harmony import */ var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/broadcast */ "./src/app/api/controllers/broadcast.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
@@ -1386,7 +1404,7 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         this.allBroadcastMessageGroup = [];
         this.isFlashNotice = false;
         this.editorPlacehorder = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     onContentChanged(event) {
     }
@@ -1547,10 +1565,10 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         this.roleCategory.selectedItems = [];
         this.staffCategory.selectedItems = [];
         var params = {
-            'RoleTypeId': item.value,
-            'ApartmentId': this.apartmentID
+            RoleTypeId: item.value,
+            ApartmentId: this.apartmentID
         };
-        this.userService.getApartmentRolesByRoleTypeID(params).subscribe((res) => {
+        this.userService.getApartmentRolesByRoleTypeId(params).subscribe((res) => {
             this.condtionRequired = parseInt(item.value) == 2 || parseInt(item.value) == 4;
             ;
             this.roleCategory.dropdownList = res;
@@ -1726,7 +1744,7 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
     submitCreateBroadcastMessageForm(form) {
         let broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) { return item.broadCastGroupCategoryId; }).join(",");
         let broadcastModeIds = Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) { return item.value; }).join(",");
-        let broadcastMessage = {
+        var broadcastMessage = {
             "broadCastMessageId": 0,
             "apartmentId": this.apartmentID,
             "subject": this.message.subject,
@@ -1774,7 +1792,10 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
             //   )
         }
         broadcastMessage.userIds = Array.prototype.map.call(this.users, function (item) { return item.userId; }).join(",");
-        this.broadcastService.addBroadCastMessage(broadcastMessage).subscribe((res) => {
+        let broadCastParams = {
+            sourceBroadCastMessage_model: broadcastMessage
+        };
+        this.broadcastService.addBroadCastMessage(broadCastParams).subscribe((res) => {
             if (res.message) {
                 this.sharedService.setAlertMessage("Broadcast Message sent successfully");
                 this.ClearFormData();
@@ -1799,12 +1820,12 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
     }
 };
 BroadcastSendmessageComponent.ctorParameters = () => [
-    { type: _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
+    { type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__["StaffService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 BroadcastSendmessageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1813,12 +1834,12 @@ BroadcastSendmessageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-sendmessage.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-sendmessage.component.scss */ "./src/app/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_8__["StaffService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], BroadcastSendmessageComponent);
 
@@ -1852,7 +1873,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/broadcast.service */ "./src/app/api/services/broadcast.service.ts");
+/* harmony import */ var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/broadcast */ "./src/app/api/controllers/broadcast.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -1936,7 +1957,10 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
     }
     //Get Category Type
     getAllCategory() {
-        this.broadcastService.getBroadCastMessageCategories(this.apartmentId).subscribe((res) => {
+        let params = {
+            apartmentId: this.apartmentId
+        };
+        this.broadcastService.getBroadCastMessageCategories(params).subscribe((res) => {
             var allBroadcastCategory = res;
             //filter active true items
             this.allBroadcastCategory = allBroadcastCategory.filter(data => {
@@ -1980,7 +2004,10 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
             broadcastCategory.updatedOn = new Date().toISOString();
             broadcastCategory.serialNo = this.category.serialNo;
         }
-        this.broadcastService.upsertBroadCastMessageCategory(broadcastCategory).subscribe((res) => {
+        let broadCastMessageCategory = {
+            broadCastMessageCategory: broadcastCategory
+        };
+        this.broadcastService.upsertBroadCastMessageCategory(broadCastMessageCategory).subscribe((res) => {
             if (res.message) {
                 if (this.isEdit) {
                     this.sharedService.setAlertMessage("Broadcast category updated successfully");
@@ -1998,7 +2025,7 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
 BroadcastSetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
+    { type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -2010,7 +2037,7 @@ BroadcastSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
+        src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], BroadcastSetupComponent);
@@ -2045,12 +2072,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/broadcast.service */ "./src/app/api/services/broadcast.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/broadcast */ "./src/app/api/controllers/broadcast.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
@@ -2086,7 +2113,7 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
         this.isError = false;
         this.dropdownSettings = {};
         this.string = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -2150,16 +2177,19 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
         });
     }
     getAllApartmentBlockList() {
-        this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe((res) => {
+        let params = {
+            apartmentId: this.apartmentID
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.allApartmentBlockList = res;
         });
     }
     getAppartmentRole() {
         var params = {
-            'RoleTypeId': this.roleType,
-            'ApartmentId': this.apartmentID
+            RoleTypeId: this.roleType,
+            ApartmentId: this.apartmentID
         };
-        this.userService.getApartmentRolesByRoleTypeID(params).subscribe((res) => {
+        this.userService.getApartmentRolesByRoleTypeId(params).subscribe((res) => {
             this.allApartmentRolesList = res;
         });
     }
@@ -2179,7 +2209,10 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
     }
     //Get Category Type
     getAllGroupCategory() {
-        this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe((res) => {
+        let params = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getAllBroadCastGroupCategory(params).subscribe((res) => {
             var allBroadcastGroupCategory = res;
             //filter active true items
             this.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(data => {
@@ -2219,7 +2252,10 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
             broadcastGroupCategory.updatedOn = new Date().toISOString();
             broadcastGroupCategory.serialNo = this.groupCategory.serialNo;
         }
-        this.broadcastService.addBroadCastGroupCategory(broadcastGroupCategory).subscribe((res) => {
+        let params = {
+            broadcast: broadcastGroupCategory
+        };
+        this.broadcastService.addBroadCastGroupCategory(params).subscribe((res) => {
             if (res.message) {
                 if (this.isEdit) {
                     this.sharedService.setAlertMessage("Broadcast category updated successfully");
@@ -2242,11 +2278,11 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
 BroadcastgroupSetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] }
+    { type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] }
 ];
 BroadcastgroupSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2256,11 +2292,11 @@ BroadcastgroupSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_broadcast_service__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]])
+        src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]])
 ], BroadcastgroupSetupComponent);
 
 

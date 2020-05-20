@@ -116,9 +116,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeetingsCreateComponent", function() { return MeetingsCreateComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/services */ "./src/app/api/services.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+
 
 
 
@@ -151,7 +155,10 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
     }
     ngOnInit() {
         this.meeting = {};
-        this.lookupService.getLookupValueByLookupTypeId(21).subscribe((res) => {
+        let params = {
+            LookupTypeId: 21
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.isMeetingCategoryLoaded = true;
             this.meetingCategoryData = res.filter(item => {
                 return item.isActive;
@@ -169,7 +176,10 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
     }
     LoadFacilityLocation() {
         this.lstRoleTypes = [];
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.lstTowers = res;
             this.cd.markForCheck();
         });
@@ -209,11 +219,11 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
     }
 };
 MeetingsCreateComponent.ctorParameters = () => [
-    { type: src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 MeetingsCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -222,10 +232,10 @@ MeetingsCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./meetings-create.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/meetings/components/meetings-create/meetings-create.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./meetings-create.component.scss */ "./src/app/ams/meetings/components/meetings-create/meetings-create.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], MeetingsCreateComponent);
 
@@ -261,11 +271,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var src_app_api_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/services */ "./src/app/api/services.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-
+/* harmony import */ var src_app_api_controllers_meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/meeting */ "./src/app/api/controllers/meeting.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
 
 
@@ -274,10 +282,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MeetingsListComponent = class MeetingsListComponent {
-    constructor(router, meetingService, cookieService, injector, dialog) {
+    constructor(router, meetingService, injector, dialog) {
         this.router = router;
         this.meetingService = meetingService;
-        this.cookieService = cookieService;
         this.injector = injector;
         this.dialog = dialog;
         this.isMeetingDataLoaded = false;
@@ -288,7 +295,7 @@ let MeetingsListComponent = class MeetingsListComponent {
         this.isMobile = false;
         this.ItemMeetingStartIndex = 0;
         this.itemMeetingLimit = 15;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     ngOnInit() {
         if (window.innerWidth <= 991)
@@ -296,7 +303,10 @@ let MeetingsListComponent = class MeetingsListComponent {
         else
             this.isMobile = false;
         // this.meetingService.getMeetingByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res : any) => {
-        this.meetingService.getMeetingByApartmentId(parseInt("4")).subscribe((res) => {
+        let params = {
+            apartmentId: 4
+        };
+        this.meetingService.getMeetingByApartmentId(params).subscribe((res) => {
             var meetingListData = res;
             console.log(res);
             //filter active true items
@@ -374,10 +384,9 @@ let MeetingsListComponent = class MeetingsListComponent {
 };
 MeetingsListComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: src_app_api_services__WEBPACK_IMPORTED_MODULE_4__["MeetingService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
+    { type: src_app_api_controllers_meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
 ];
 MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -386,10 +395,9 @@ MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./meetings-list.component.scss */ "./src/app/ams/meetings/components/meetings-list/meetings-list.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        src_app_api_services__WEBPACK_IMPORTED_MODULE_4__["MeetingService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
+        src_app_api_controllers_meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
 ], MeetingsListComponent);
 
 
@@ -511,7 +519,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeetingsSetupComponent", function() { return MeetingsSetupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -594,9 +602,15 @@ let MeetingsSetupComponent = class MeetingsSetupComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.addLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.addLookupValue(params).subscribe((res) => {
                 if (res.message) {
-                    this.lookupService.getLookupValueByLookupTypeId(21).subscribe((res) => {
+                    let params = {
+                        LookupTypeId: 21
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                         this.isMeetingCategorySubmitted = true;
                         this.isCategorySuccess = true;
                         this.sharedService.setAlertMessage("Meeting Type Added Successfully!");
@@ -625,9 +639,15 @@ let MeetingsSetupComponent = class MeetingsSetupComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.updateLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.updateLookupValue(params).subscribe((res) => {
                 if (res.message) {
-                    this.lookupService.getLookupValueByLookupTypeId(21).subscribe((res) => {
+                    let params = {
+                        LookupTypeId: 21
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                         this.isMeetingCategorySubmitted = true;
                         this.isCategorySuccess = true;
                         this.sharedService.setAlertMessage("Meeting Type Updated Successfully!");
@@ -647,13 +667,19 @@ let MeetingsSetupComponent = class MeetingsSetupComponent {
     }
     ngOnInit() {
         this.meeting = {};
-        this.lookupService.getLookupValueByLookupTypeId(21).subscribe((res) => {
+        let params = {
+            LookupTypeId: 21
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.isMeetingCategoryLoaded = true;
             this.meetingCategoryData = res.filter(item => {
                 return item.isActive;
             });
         });
-        this.lookupService.getLookupValueByLookupTypeId(22).subscribe((res) => {
+        let meetingParams = {
+            LookupTypeId: 22
+        };
+        this.lookupService.getLookupValueByLookupTypeId(meetingParams).subscribe((res) => {
             this.isMeetingCategoryLoaded = true;
             this.recepientsTypeData = res.filter(item => {
                 return item.isActive;
@@ -662,7 +688,7 @@ let MeetingsSetupComponent = class MeetingsSetupComponent {
     }
 };
 MeetingsSetupComponent.ctorParameters = () => [
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
@@ -672,7 +698,7 @@ MeetingsSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./meetings-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/meetings/components/meetings-setup/meetings-setup.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./meetings-setup.component.scss */ "./src/app/ams/meetings/components/meetings-setup/meetings-setup.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], MeetingsSetupComponent);

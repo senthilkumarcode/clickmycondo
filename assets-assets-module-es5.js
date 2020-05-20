@@ -1778,21 +1778,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../.././api/services/vendor.service */
-    "./src/app/api/services/vendor.service.ts");
+    var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/vendor */
+    "./src/app/api/controllers/vendor.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -1891,7 +1891,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "lastMaintenanceDate": this.assetMaintenance.lastMaintenanceDate,
               "nextPlannedMaintenance": this.assetMaintenance.nextPlannedMaintenance
             };
-            this.assetService.addAssetMaintenancePlan(details).subscribe(function (res) {
+            var assetMaintenancePlan = {
+              assetMaintenancePlan: details
+            };
+            this.assetService.addAssetMaintenancePlan(assetMaintenancePlan).subscribe(function (res) {
               if (res.message) {
                 _this3.isAssetMaintenanceSubmitted = false;
 
@@ -1924,7 +1927,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "lastMaintenanceDate": this.assetMaintenance.lastMaintenanceDate,
               "nextPlannedMaintenance": this.assetMaintenance.nextPlannedMaintenance
             };
-            this.assetService.updateAssetMaintenancePlan(_details).subscribe(function (res) {
+            var updateMaintenancePlan = {
+              assetMaintenancePlan: _details
+            };
+            this.assetService.updateAssetMaintenancePlan(updateMaintenancePlan).subscribe(function (res) {
               if (res.message) {
                 _this3.isAssetMaintenanceSubmitted = false;
 
@@ -1946,7 +1952,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "showMaintenanceHistory",
         value: function showMaintenanceHistory(id) {
-          console.log(id);
           this.dialog.open(_assets_maintenance_history_assets_maintenance_history_component__WEBPACK_IMPORTED_MODULE_4__["AssetsMaintenanceHistoryComponent"], {
             panelClass: ['material', 'medium-02'],
             disableClose: true,
@@ -1976,14 +1981,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           this.assetId = this.route.params['value'].id;
-          this.lookupService.getLookupValueByLookupTypeId(64).subscribe(function (res) {
+          var statusParams = {
+            LookupTypeId: 64
+          };
+          this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
             _this4.statusTypeData = res;
           }, function (error) {});
           this.assetService.getAllAssetByAssetId(this.route.params['value'].id).subscribe(function (res) {
             _this4.isAssetMaintenanceLoaded = true;
             _this4.assetData = res[0];
           });
-          this.lookupService.getLookupValueByLookupTypeId(19).subscribe(function (res) {
+          var assetCategoryParams = {
+            LookupTypeId: 19
+          };
+          this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
             _this4.assetCategoryData = res.filter(function (item) {
               return item.isActive;
             });
@@ -2004,11 +2015,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
+        type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
       }, {
@@ -2024,7 +2035,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-asset-maintenance.component.scss */
       "./src/app/ams/assets/components/add-asset-maintenance/add-asset-maintenance.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__["AssetService"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], AddAssetMaintenanceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"], src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], AddAssetMaintenanceComponent);
     /***/
   },
 
@@ -2199,21 +2210,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/vendor.service */
-    "./src/app/api/services/vendor.service.ts");
+    var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/vendor */
+    "./src/app/api/controllers/vendor.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -2335,7 +2346,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               file: this.fileList[0],
               asset: addAssetDetails
             };
-            this.assetService.addAssetAsync(addAssetParams).subscribe(function (res) {
+            this.assetService.addAsset(addAssetParams).subscribe(function (res) {
               if (res.message) {
                 _this5.isAssetSubmitted = false;
 
@@ -2401,7 +2412,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               file: this.fileList[0],
               asset: editAssetDetails
             };
-            this.assetService.updateAssetAsync(editAssetParams).subscribe(function (res) {
+            this.assetService.updateAsset(editAssetParams).subscribe(function (res) {
               if (res.message) {
                 _this5.isAssetSubmitted = false;
 
@@ -2432,23 +2443,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (this.route.params['value'].id != undefined) {
             this.isEditAsset = true;
-            this.assetService.getAllAssetByAssetId(this.route.params['value'].id).subscribe(function (res) {
+            var params = {
+              assetId: this.route.params['value'].id
+            };
+            this.assetService.getAllAssetByAssetId(params).subscribe(function (res) {
               _this6.asset = res[0];
             });
           }
 
-          this.lookupService.getLookupValueByLookupTypeId(19).subscribe(function (res) {
+          var assetCategoryParams = {
+            LookupTypeId: 19
+          };
+          this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
             _this6.assetCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
-          this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var vendprParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.vendorService.getVendorByApartmentId(vendprParams).subscribe(function (res) {
             _this6.vendorDataList = res.filter(function (item) {
               return item.isActive;
             });
-          }); //maintenance status 
+          });
+          var assetStatusParams = {
+            LookupTypeId: 64
+          }; //maintenance status 
 
-          this.lookupService.getLookupValueByLookupTypeId(64).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(assetStatusParams).subscribe(function (res) {
             _this6.statusTypeData = res;
           }, function (error) {});
         }
@@ -2463,11 +2486,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"]
+        type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
@@ -2483,7 +2506,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./assets-create.component.scss */
       "./src/app/ams/assets/components/assets-create/assets-create.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], AssetsCreateComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], AssetsCreateComponent);
     /***/
   },
 
@@ -2547,15 +2570,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -2650,7 +2673,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             _this7.totalItems = _this7.maintenanceDataList.length;
           });
-          this.lookupService.getLookupValueByLookupTypeId(64).subscribe(function (res) {
+          var params = {
+            LookupTypeId: 64
+          };
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             _this7.statusTypeData = res;
           }, function (error) {});
         }
@@ -2667,9 +2693,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
         }]
       }, {
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -2685,7 +2711,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./assets-maintenance-history.component.scss */
       "./src/app/ams/assets/components/assets-maintenance-history/assets-maintenance-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], AssetsMaintenanceHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], AssetsMaintenanceHistoryComponent);
     /***/
   },
 
@@ -3159,21 +3185,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../.././api/services/vendor.service */
-    "./src/app/api/services/vendor.service.ts");
+    var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/vendor */
+    "./src/app/api/controllers/vendor.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -3230,7 +3256,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         router.events.forEach(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-            _this8.lookupService.getLookupValueByLookupTypeId(19).subscribe(function (res) {
+            var params = {
+              LookupTypeId: 19
+            };
+
+            _this8.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this8.assetCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
@@ -3374,7 +3404,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               _this9.assetCategoryName = "";
             }
           });
-          this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
             if (id != "All") {
               _this9.assetListData = res.filter(function (item) {
                 return item.assetCategoryId == parseInt(id) && item.isActive;
@@ -3443,7 +3476,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (this.route.params['value'].id == undefined) {
             this.assetCategoryId = "All";
-            this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+            var params = {
+              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               _this10.isAssetLoaded = false;
               _this10.assetListData = res.filter(function (item) {
                 return item.isActive;
@@ -3460,25 +3496,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
           } else {
             this.assetCategoryId = "" + this.route.params['value'].id;
-          } //asset condition
+          }
 
+          var assetContparams = {
+            LookupTypeId: 23
+          }; //asset condition
 
-          this.lookupService.getLookupValueByLookupTypeId(23).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(assetContparams).subscribe(function (res) {
             _this10.assetConditionData = res.filter(function (item) {
               return item.isActive;
             });
           });
-          this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var vendorParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
             _this10.vendorDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
-          this.assetService.getAllAssetMaintenancePlanByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var assetParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.assetService.getAllAssetMaintenancePlanByApartmentId(assetParams).subscribe(function (res) {
             _this10.assetMaintenaceDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
-          this.lookupService.getLookupValueByLookupTypeId(64).subscribe(function (res) {
+          var statusparams = {
+            LookupTypeId: 64
+          };
+          this.lookupService.getLookupValueByLookupTypeId(statusparams).subscribe(function (res) {
             _this10.statusTypeData = res;
           }, function (error) {}); // delete item
 
@@ -3526,11 +3574,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
+        type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
       }, {
@@ -3546,7 +3594,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./assets-view.component.scss */
       "./src/app/ams/assets/components/assets-view/assets-view.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_asset_service__WEBPACK_IMPORTED_MODULE_5__["AssetService"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], AssetsViewComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"], src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], AssetsViewComponent);
     /***/
   },
 
@@ -3610,9 +3658,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
@@ -3709,7 +3757,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (this.route.params['value'].id == undefined) {
             this.assetCategoryId = "All";
-            this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+            var params = {
+              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               _this11.isAssetLoaded = false;
               _this11.assetListData = res.filter(function (item) {
                 return item.isActive;
@@ -3743,7 +3794,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }, {
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
       }];
     };
 
@@ -3755,7 +3806,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./last-maintenance.component.scss */
       "./src/app/ams/assets/components/last-maintenance/last-maintenance.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])], LastMaintenanceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])], LastMaintenanceComponent);
     /***/
   },
 
@@ -3819,9 +3870,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/asset.service */
-    "./src/app/api/services/asset.service.ts");
+    var src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/asset */
+    "./src/app/api/controllers/asset.ts");
     /* harmony import */
 
 
@@ -4059,7 +4110,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (this.route.params['value'].id == undefined) {
             this.assetCategoryId = "All";
-            this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+            var params = {
+              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               _this12.isAssetLoaded = false;
               _this12.assetListData = res.filter(function (item) {
                 return item.isActive;
@@ -4138,7 +4192,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }, {
-        type: _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
       }];
     };
 
@@ -4150,7 +4204,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./maintenance-history.component.scss */
       "./src/app/ams/assets/components/maintenance-history/maintenance-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], _api_services_asset_service__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])], MaintenanceHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])], MaintenanceHistoryComponent);
     /***/
   },
 

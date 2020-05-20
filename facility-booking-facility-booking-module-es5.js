@@ -125,21 +125,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_facility_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/facility.service */
-    "./src/app/api/services/facility.service.ts");
+    var src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/facility */
+    "./src/app/api/controllers/facility.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -310,29 +310,44 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this = this;
 
-          this.facilityService.getApartmentFacilitiesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
             _this.facilityCategoryData = res.filter(function (item) {
               return item.isActive;
             });
             console.log(_this.facilityCategoryData);
-          }, function (error) {}); //status 
+          }, function (error) {});
+          var statusTypeParams = {
+            LookupTypeId: 40
+          }; //status 
 
-          this.lookupService.getLookupValueByLookupTypeId(40).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(statusTypeParams).subscribe(function (res) {
             _this.statusTypeData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
-          this.facilityService.getApartmentFacilitySlotsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var facilityParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.facilityService.getApartmentFacilitySlotsByApartmentId(facilityParams).subscribe(function (res) {
             _this.facilitySlotData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
-          this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var userListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.userService.getAllUsersByApartmentId(userListParams).subscribe(function (res) {
             _this.userListData = res.filter(function (data) {
               return data.isActive;
             });
           }, function (error) {});
-          this.facilityService.getApartmentFacilityBookingsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var bookingListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.facilityService.getApartmentFacilityBookingsByApartmentId(bookingListParams).subscribe(function (res) {
             console.log(_this.cookieService.get('apartmentId')); //filter active true items and booking related this user
 
             _this.bookingListData = res.filter(function (data) {
@@ -389,11 +404,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_facility_service__WEBPACK_IMPORTED_MODULE_4__["FacilityService"]
+        type: src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
@@ -409,7 +424,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./all-facility-bookings.component.scss */
       "./src/app/user/facility-booking/components/all-facility-bookings/all-facility-bookings.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_facility_service__WEBPACK_IMPORTED_MODULE_4__["FacilityService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], AllFacilityBookingsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], AllFacilityBookingsComponent);
     /***/
   },
 
@@ -473,15 +488,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/facility.service */
-    "./src/app/api/services/facility.service.ts");
+    var src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/facility */
+    "./src/app/api/controllers/facility.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -548,17 +563,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getFacilityBookingData() {
           var _this2 = this;
 
-          this.facilityService.getApartmentFacilitySlotsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.facilityService.getApartmentFacilitySlotsByApartmentId(params).subscribe(function (res) {
             _this2.facilitySlotData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
-          this.facilityService.getApartmentFacilitiesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var categoryParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.facilityService.getApartmentFacilitiesByApartmentId(categoryParams).subscribe(function (res) {
             _this2.facilityCategoryData = res.filter(function (item) {
               return item.isActive;
             });
+            var bookingParams = {
+              apartmentId: parseInt(_this2.cookieService.get('apartmentId'))
+            };
 
-            _this2.facilityService.getApartmentFacilityBookingsByApartmentId(parseInt(_this2.cookieService.get('apartmentId'))).subscribe(function (res) {
+            _this2.facilityService.getApartmentFacilityBookingsByApartmentId(bookingParams).subscribe(function (res) {
               _this2.facilityBookingData = res.filter(function (item) {
                 return item.isActive && item.neededUserId == parseInt(_this2.cookieService.get('userId'));
               });
@@ -606,9 +630,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__["FacilityService"]
+        type: src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -624,7 +648,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./user-facility-calendar.component.scss */
       "./src/app/user/facility-booking/components/user-facility-calendar/user-facility-calendar.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], UserFacilityCalendarComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], UserFacilityCalendarComponent);
     /***/
   },
 

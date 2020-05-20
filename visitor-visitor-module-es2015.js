@@ -143,11 +143,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/visitor.service */ "./src/app/api/services/visitor.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/visitor */ "./src/app/api/controllers/visitor.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -222,7 +222,10 @@ let CheckinVisitorComponent = class CheckinVisitorComponent {
             "updatedBy": 0,
             "updatedOn": "2019-11-18T17:08:51.188Z"
         };
-        this.visitorService.addVisitor(visitorDetails).subscribe((res) => {
+        let params = {
+            visitor: visitorDetails
+        };
+        this.visitorService.addVisitor(params).subscribe((res) => {
             if (res.message) {
                 this.isVisitorSubmitted = false;
             }
@@ -239,17 +242,26 @@ let CheckinVisitorComponent = class CheckinVisitorComponent {
     }
     ngOnInit() {
         this.visitor = {};
+        let visitParams = {
+            LookupTypeId: 15
+        };
         //visit type
-        this.lookupService.getLookupValueByLookupTypeId(15).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
             this.visitByData = res;
         }, error => {
         });
+        let visitCategoryParams = {
+            LookupTypeId: 100
+        };
         //visit type
-        this.lookupService.getLookupValueByLookupTypeId(100).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe((res) => {
             this.visitCategoryData = res;
         }, error => {
         });
-        this.apartmentService.getApartmentBlockUnitByUserId(parseInt(this.cookieService.get('userId'))).subscribe((res) => {
+        let cateogoryParams = {
+            userId: parseInt(this.cookieService.get('userId'))
+        };
+        this.apartmentService.getApartmentBlockUnitByUserId(cateogoryParams).subscribe((res) => {
             this.apartmentUnitId = res[0].apartmentBlockUnitId;
         }, error => {
         });
@@ -304,10 +316,10 @@ let CheckinVisitorComponent = class CheckinVisitorComponent {
 CheckinVisitorComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__["VisitorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
     { type: _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"] }
@@ -320,10 +332,10 @@ CheckinVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
-        _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__["VisitorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
         _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])
@@ -359,11 +371,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/visitor.service */ "./src/app/api/services/visitor.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/visitor */ "./src/app/api/controllers/visitor.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -436,7 +448,10 @@ let VisitorCheckinComponent = class VisitorCheckinComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-11-18T17:08:51.188Z",
             };
-            this.visitorService.addVisitor(expectedVisitorDetails).subscribe((res) => {
+            let params = {
+                visitor: expectedVisitorDetails
+            };
+            this.visitorService.addVisitor(params).subscribe((res) => {
                 if (res.message) {
                     this.isVisitorAdded = true;
                     this.router.navigate(['/ams/visitor/checkout']);
@@ -486,7 +501,10 @@ let VisitorCheckinComponent = class VisitorCheckinComponent {
                     "updatedBy": 0,
                     "updatedOn": "2019-11-18T17:08:51.188Z"
                 };
-                this.visitorService.addVisitor(visitorDetails).subscribe((res) => {
+                let params = {
+                    visitor: visitorDetails
+                };
+                this.visitorService.addVisitor(params).subscribe((res) => {
                     if (res.message) {
                         this.isVisitorAdded = true;
                     }
@@ -535,7 +553,10 @@ let VisitorCheckinComponent = class VisitorCheckinComponent {
                     "updatedBy": parseInt(this.cookieService.get('userId')),
                     "updatedOn": "2019-11-18T17:08:51.188Z"
                 };
-                this.visitorService.updateVisitor(visitorDetails).subscribe((res) => {
+                let params = {
+                    visitor: visitorDetails
+                };
+                this.visitorService.updateVisitor(params).subscribe((res) => {
                     if (res.message) {
                         this.isVisitorAdded = true;
                     }
@@ -586,17 +607,26 @@ let VisitorCheckinComponent = class VisitorCheckinComponent {
                 });
             }
         }
+        let visitParams = {
+            LookupTypeId: 15
+        };
         //visit type
-        this.lookupService.getLookupValueByLookupTypeId(15).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
             this.visitByData = res;
         }, error => {
         });
+        let categoryParams = {
+            LookupTypeId: 100
+        };
         //visit type
-        this.lookupService.getLookupValueByLookupTypeId(100).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
             this.visitCategoryData = res;
         }, error => {
         });
-        this.apartmentService.getApartmentBlockUnitByUserId(parseInt(this.cookieService.get('userId'))).subscribe((res) => {
+        let apartmentParams = {
+            userId: parseInt(this.cookieService.get('userId'))
+        };
+        this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe((res) => {
             this.apartmentUnitId = res[0].apartmentBlockUnitId;
         }, error => {
         });
@@ -652,10 +682,10 @@ let VisitorCheckinComponent = class VisitorCheckinComponent {
 VisitorCheckinComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__["VisitorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
     { type: _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"] }
@@ -668,10 +698,10 @@ VisitorCheckinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
-        _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__["VisitorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
         _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])
@@ -706,14 +736,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorCheckoutComponent", function() { return VisitorCheckoutComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/visitor.service */ "./src/app/api/services/visitor.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/visitor */ "./src/app/api/controllers/visitor.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -723,12 +751,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VisitorCheckoutComponent = class VisitorCheckoutComponent {
-    constructor(injector, apartmentService, visitorService, lookupService, sharedService, cookieService) {
+    constructor(injector, apartmentService, visitorService, lookupService, cookieService) {
         this.injector = injector;
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.visitorData = "";
         this.isVisitorDataLoaded = false;
@@ -736,7 +763,7 @@ let VisitorCheckoutComponent = class VisitorCheckoutComponent {
         this.unitOrder = true;
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -765,19 +792,25 @@ let VisitorCheckoutComponent = class VisitorCheckoutComponent {
     getVisitorType() {
     }
     ngOnInit() {
+        let visitParams = {
+            LookupTypeId: 15
+        };
         //get visit type
-        this.lookupService.getLookupValueByLookupTypeId(15).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
             this.visitTypeData = res;
         }, error => {
         });
-        this.visitorService.getYetToCheckoutVisitorsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let apartmentParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe((res) => {
             //filter active true items
             this.visitorListData = res.filter(item => {
                 return item.isActive && !item.isCheckedOut;
             });
             // console.log(this.visitorListData);
             //get block and unit details
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.visitorListData, (item, index) => {
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.visitorListData, (item, index) => {
                 this.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe((res) => {
                     this.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
                     this.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
@@ -797,11 +830,10 @@ let VisitorCheckoutComponent = class VisitorCheckoutComponent {
 };
 VisitorCheckoutComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 VisitorCheckoutComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -810,11 +842,10 @@ VisitorCheckoutComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-checkout.component.scss */ "./src/app/ams/visitor/components/visitor-checkout/visitor-checkout.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], VisitorCheckoutComponent);
 
 
@@ -847,16 +878,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/visitor.service */ "./src/app/api/services/visitor.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/visitor */ "./src/app/api/controllers/visitor.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -868,10 +897,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VisitorCreateComponent = class VisitorCreateComponent {
-    constructor(router, route, userService, apartmentService, visitorService, lookupService, sharedService, cookieService, SharedToaster) {
+    constructor(router, apartmentService, visitorService, lookupService, sharedService, cookieService, SharedToaster) {
         this.router = router;
-        this.route = route;
-        this.userService = userService;
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
@@ -888,7 +915,7 @@ let VisitorCreateComponent = class VisitorCreateComponent {
         this.visitorStatus = "";
         this.isUnitVisitor = false;
         this.iscommunityVisitor = false;
-        this.minDate = moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format('YYYY-MM-DD');
+        this.minDate = moment__WEBPACK_IMPORTED_MODULE_9__(new Date()).format('YYYY-MM-DD');
     }
     isCheckout() {
         return this.visitorStatus == 'checkout' ? true : false;
@@ -921,7 +948,10 @@ let VisitorCreateComponent = class VisitorCreateComponent {
             "updatedBy": 0,
             "updatedOn": "2019-11-18T17:08:51.188Z",
         };
-        this.visitorService.addExpectedVisitor(visitorDetails).subscribe((res) => {
+        let params = {
+            expectedVisitor: visitorDetails
+        };
+        this.visitorService.addExpectedVisitor(params).subscribe((res) => {
             if (res.message) {
                 this.isVisitorSubmitted = true;
                 this.sharedService.setAlertMessage("Visitor added successfully");
@@ -940,22 +970,34 @@ let VisitorCreateComponent = class VisitorCreateComponent {
     }
     ngOnInit() {
         this.visitor = {};
+        let params = {
+            LookupTypeId: 15
+        };
         //visit type
-        this.lookupService.getLookupValueByLookupTypeId(15).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.visitByData = res;
         }, error => {
         });
+        let visitParams = {
+            LookupTypeId: 100
+        };
         //visit type
-        this.lookupService.getLookupValueByLookupTypeId(100).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
             this.visitCategoryData = res;
         }, error => {
         });
-        this.apartmentService.getApartmentBlockUnitByUserId(parseInt(this.cookieService.get('userId'))).subscribe((res) => {
+        let apartmentParams = {
+            userId: parseInt(this.cookieService.get('userId'))
+        };
+        this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe((res) => {
             this.apartmentUnitId = res[0].apartmentBlockUnitId;
         }, error => {
         });
-        this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-        this.apartmentService.getApartmentBlockUnitByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_9__(new Date());
+        let blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockUnitByApartmentId(blockParams).subscribe((res) => {
             this.blockUnitData = res;
             console.log('this.blockUnitData', res);
         });
@@ -968,29 +1010,29 @@ let VisitorCreateComponent = class VisitorCreateComponent {
         this.iscommunityVisitor = (result[0].lookupValueName == "Community Visitor") ? true : false;
     }
     expectedDurationChange() {
-        if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD')) {
+        if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_9__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD')) {
             this.visitor.expectedVisitorInTime = undefined;
             this.SharedToaster.openSnackBar("Please Select valid Date", '');
             return;
         }
-        if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime).format('YYYY-MM-DD')) {
+        if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_9__(this.visitor.expectedVisitorOutTime).format('YYYY-MM-DD')) {
             this.visitor.expectedVisitorOutTime = undefined;
             this.SharedToaster.openSnackBar("Please Select Out-time greater than In-time", '');
             return;
         }
         console.log(this.visitor.expectedVisitorOutTime);
         if (this.visitor.expectedVisitorOutTime) {
-            if (moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD') > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime).format('YYYY-MM-DD')) {
+            if (moment__WEBPACK_IMPORTED_MODULE_9__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD') > moment__WEBPACK_IMPORTED_MODULE_9__(this.visitor.expectedVisitorOutTime).format('YYYY-MM-DD')) {
                 this.visitor.expectedVisitorOutTime = undefined;
                 this.SharedToaster.openSnackBar("Please Select Out-time greater than In-time", '');
                 return;
             }
         }
-        let inDate = moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime);
-        let outDate = moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime);
-        let diffDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
+        let inDate = moment__WEBPACK_IMPORTED_MODULE_9__(this.visitor.expectedVisitorInTime);
+        let outDate = moment__WEBPACK_IMPORTED_MODULE_9__(this.visitor.expectedVisitorOutTime);
+        let diffDuration = moment__WEBPACK_IMPORTED_MODULE_9__["duration"](outDate.diff(inDate));
         this.visitor.expectedDuration = diffDuration.days() + " days " + this.isSingleDigit(diffDuration.hours()) + ":" + this.isSingleDigit(diffDuration.minutes()) + " hours";
-        let sendDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
+        let sendDuration = moment__WEBPACK_IMPORTED_MODULE_9__["duration"](outDate.diff(inDate));
         let hours = sendDuration.asHours();
         this.visitor.expectedDurationInHours = Math.round(hours);
     }
@@ -1005,14 +1047,12 @@ let VisitorCreateComponent = class VisitorCreateComponent {
 };
 VisitorCreateComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__["VisitorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
-    { type: _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"] }
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
+    { type: src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_6__["VisitorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
+    { type: _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_8__["SharedToasterService"] }
 ];
 VisitorCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1021,14 +1061,12 @@ VisitorCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-create.component.scss */ "./src/app/ams/visitor/components/visitor-create/visitor-create.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
-        _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_7__["VisitorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
-        _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
+        src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_6__["VisitorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
+        _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_8__["SharedToasterService"]])
 ], VisitorCreateComponent);
 
 
@@ -1060,16 +1098,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorExpectedVisitorComponent", function() { return VisitorExpectedVisitorComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/visitor.service */ "./src/app/api/services/visitor.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/visitor */ "./src/app/api/controllers/visitor.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -1080,12 +1116,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VisitorExpectedVisitorComponent = class VisitorExpectedVisitorComponent {
-    constructor(injector, apartmentService, visitorService, lookupService, sharedService, cookieService) {
+    constructor(injector, apartmentService, visitorService, lookupService, cookieService) {
         this.injector = injector;
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.visitorData = "";
         this.isVisitorDataLoaded = false;
@@ -1095,7 +1130,7 @@ let VisitorExpectedVisitorComponent = class VisitorExpectedVisitorComponent {
         this.itemLimit = 10;
         this.selectedInput = "";
         this.columnField = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1117,7 +1152,7 @@ let VisitorExpectedVisitorComponent = class VisitorExpectedVisitorComponent {
         this.selectedInput = value;
     }
     onSelectChange(event, type, name) {
-        if (!underscore__WEBPACK_IMPORTED_MODULE_8__["isEmpty"](event)) {
+        if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
         }
@@ -1132,16 +1167,19 @@ let VisitorExpectedVisitorComponent = class VisitorExpectedVisitorComponent {
         this.modalService.showConfirmModal(index);
     }
     getTimeFormat(dateTime) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(dateTime).format("YYYY-MM-DD HH:mm");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(dateTime).format("YYYY-MM-DD HH:mm");
     }
     ngOnInit() {
-        this.visitorService.getExpectedVisitorsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe((res) => {
             //filter active true items
             this.visitorListData = res.filter(data => {
                 return data.isActive;
             });
             //get block and unit details
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.visitorListData, (item, index) => {
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.visitorListData, (item, index) => {
                 this.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe((res) => {
                     this.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
                     this.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
@@ -1149,14 +1187,20 @@ let VisitorExpectedVisitorComponent = class VisitorExpectedVisitorComponent {
                 }, error => {
                 });
             });
+            let visitParams = {
+                LookupTypeId: 15
+            };
             //get visit type
-            this.lookupService.getLookupValueByLookupTypeId(15).subscribe((res) => {
+            this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
                 this.visitTypeData = res;
                 this.checkVisitTypeData();
             }, error => {
             });
+            let categoryParams = {
+                LookupTypeId: 100
+            };
             //get visit category
-            this.lookupService.getLookupValueByLookupTypeId(100).subscribe((res) => {
+            this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                 this.visitCategoryData = res;
                 this.checkVisitCategoryData();
             }, error => {
@@ -1189,11 +1233,10 @@ let VisitorExpectedVisitorComponent = class VisitorExpectedVisitorComponent {
 };
 VisitorExpectedVisitorComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 VisitorExpectedVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1202,11 +1245,10 @@ VisitorExpectedVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-expected-visitor.component.scss */ "./src/app/ams/visitor/components/visitor-expected-visitor/visitor-expected-visitor.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], VisitorExpectedVisitorComponent);
 
 
@@ -1238,9 +1280,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorHistoryComponent", function() { return VisitorHistoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/visitor.service */ "./src/app/api/services/visitor.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/visitor */ "./src/app/api/controllers/visitor.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -1297,12 +1339,18 @@ let VisitorHistoryComponent = class VisitorHistoryComponent {
     getVisitorType() {
     }
     ngOnInit() {
+        let visitTypeParams = {
+            LookupTypeId: 15
+        };
         //get visit type
-        this.lookupService.getLookupValueByLookupTypeId(15).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(visitTypeParams).subscribe((res) => {
             this.visitTypeData = res;
         }, error => {
         });
-        this.visitorService.getVisitorsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let visitListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.visitorService.getVisitorsByApartmentId(visitListParams).subscribe((res) => {
             //filter active true items
             this.visitorListData = res.filter(item => {
                 return item.isActive && item.isCheckedOut;
@@ -1329,9 +1377,9 @@ let VisitorHistoryComponent = class VisitorHistoryComponent {
 };
 VisitorHistoryComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -1342,9 +1390,9 @@ VisitorHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-history.component.scss */ "./src/app/ams/visitor/components/visitor-history/visitor-history.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        _api_services_visitor_service__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        src_app_api_controllers_visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], VisitorHistoryComponent);
@@ -1378,7 +1426,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorReportsComponent", function() { return VisitorReportsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -1406,7 +1454,7 @@ let VisitorReportsComponent = class VisitorReportsComponent {
     }
 };
 VisitorReportsComponent.ctorParameters = () => [
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
@@ -1416,7 +1464,7 @@ VisitorReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./visitor-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/visitor-reports/visitor-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-reports.component.scss */ "./src/app/ams/visitor/components/visitor-reports/visitor-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], VisitorReportsComponent);
@@ -1450,7 +1498,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorSetupComponent", function() { return VisitorSetupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -1570,9 +1618,15 @@ let VisitorSetupComponent = class VisitorSetupComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.addLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.addLookupValue(params).subscribe((res) => {
                 if (res.message) {
-                    this.lookupService.getLookupValueByLookupTypeId(100).subscribe((res) => {
+                    let categoryParams = {
+                        LookupTypeId: 100
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isCategoryTypeNew = false;
                         this.isCategoryTypeSubmitted = true;
                         this.sharedService.setAlertMessage("Visitor Category added successfully");
@@ -1600,9 +1654,15 @@ let VisitorSetupComponent = class VisitorSetupComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.updateLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.updateLookupValue(params).subscribe((res) => {
                 if (res.message) {
-                    this.lookupService.getLookupValueByLookupTypeId(100).subscribe((res) => {
+                    let categoryParams = {
+                        LookupTypeId: 100
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isCategoryTypeUpdate = false;
                         this.isCategoryTypeSubmitted = true;
                         this.sharedService.setAlertMessage("Visitor Category updated successfully");
@@ -1620,7 +1680,10 @@ let VisitorSetupComponent = class VisitorSetupComponent {
         }
     }
     ngOnInit() {
-        this.lookupService.getLookupValueByLookupTypeId(100).subscribe((res) => {
+        let categoryListParams = {
+            LookupTypeId: 100
+        };
+        this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe((res) => {
             this.categoryDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -1637,7 +1700,7 @@ let VisitorSetupComponent = class VisitorSetupComponent {
 };
 VisitorSetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
@@ -1648,7 +1711,7 @@ VisitorSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-setup.component.scss */ "./src/app/ams/visitor/components/visitor-setup/visitor-setup.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], VisitorSetupComponent);

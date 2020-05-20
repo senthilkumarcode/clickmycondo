@@ -142,22 +142,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoveinAdminHistoryComponent", function() { return MoveinAdminHistoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/move-in-out.service */ "./src/app/api/services/move-in-out.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-
-
-
-
+/* harmony import */ var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/moveInOut */ "./src/app/api/controllers/moveInOut.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -168,17 +160,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
-    constructor(injector, moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService, dialog, router, route) {
+    constructor(injector, moveInOutService, apartmentService, lookupService, cookieService) {
         this.injector = injector;
         this.moveInOutService = moveInOutService;
-        this.userService = userService;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
-        this.dialog = dialog;
-        this.router = router;
-        this.route = route;
         this.isDataLoaded = false;
         this.moveInOutHitoryData = "";
         this.ItemStartIndex = 0;
@@ -191,7 +178,7 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.statusType = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -215,7 +202,7 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
     onDateChange(event, type) {
         if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_11__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_8__(event).format("DD/MM/YYYY");
         }
         else {
             this.columnField = {};
@@ -224,14 +211,14 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
     getDate(movein, date) {
         this.moveInDataList.map(obj => {
             if (obj.id == movein.id) {
-                obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
+                obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD/MM/YYYY");
             }
         });
-        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD/MM/YYYY");
     }
     getTime(time) {
-        var timeData = moment__WEBPACK_IMPORTED_MODULE_11__(time, 'HH:mm:ss').toDate();
-        return moment__WEBPACK_IMPORTED_MODULE_11__(timeData).format('HH:mm A');
+        var timeData = moment__WEBPACK_IMPORTED_MODULE_8__(time, 'HH:mm:ss').toDate();
+        return moment__WEBPACK_IMPORTED_MODULE_8__(timeData).format('HH:mm A');
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -243,7 +230,7 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
         return this.totalItems == 0 ? true : false;
     }
     getBlockNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -260,7 +247,7 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
         }
     }
     getBlockUnitNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -291,7 +278,10 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
         }
     }
     ngOnInit() {
-        this.moveInOutService.getMoveInByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.moveInOutService.getMoveInByApartmentId(params).subscribe((res) => {
             this.moveInDataList = res.filter(item => {
                 return item.isActive && (item.statusId == 375 || item.statusId == 380);
             });
@@ -310,7 +300,10 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
         this.getStatusName();
     }
     getStatusName() {
-        this.lookupService.getLookupValueByLookupTypeId(92).subscribe((res) => {
+        let params = {
+            LookupTypeId: 92
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.statusNames = res.filter(item => {
                 return item.isActive;
             });
@@ -322,15 +315,10 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
 };
 MoveinAdminHistoryComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"] }
+    { type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 MoveinAdminHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -339,15 +327,10 @@ MoveinAdminHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./movein-admin-history.component.scss */ "./src/app/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"]])
+        src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], MoveinAdminHistoryComponent);
 
 
@@ -379,14 +362,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoveinCancelComponent", function() { return MoveinCancelComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/move-in-out.service */ "./src/app/api/services/move-in-out.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
-
+/* harmony import */ var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/moveInOut */ "./src/app/api/controllers/moveInOut.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -395,10 +376,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveinCancelComponent = class MoveinCancelComponent {
-    constructor(moveInOutService, apartmentService, lookupService, cookieService) {
+    constructor(moveInOutService, apartmentService, cookieService) {
         this.moveInOutService = moveInOutService;
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
         this.moveInData = "";
@@ -431,14 +411,14 @@ let MoveinCancelComponent = class MoveinCancelComponent {
     getDate(movein, date) {
         this.moveInDataList.map(obj => {
             if (obj.id == movein.id) {
-                obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
+                obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_6__(date).format("DD/MM/YYYY");
             }
         });
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("DD/MM/YYYY");
     }
     getTime(time) {
-        var timeData = moment__WEBPACK_IMPORTED_MODULE_7__(time, 'HH:mm:ss').toDate();
-        return moment__WEBPACK_IMPORTED_MODULE_7__(timeData).format('HH:mm A');
+        var timeData = moment__WEBPACK_IMPORTED_MODULE_6__(time, 'HH:mm:ss').toDate();
+        return moment__WEBPACK_IMPORTED_MODULE_6__(timeData).format('HH:mm A');
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -447,7 +427,7 @@ let MoveinCancelComponent = class MoveinCancelComponent {
         return this.totalItems == 0 ? true : false;
     }
     getBlockNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_5__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -464,7 +444,7 @@ let MoveinCancelComponent = class MoveinCancelComponent {
         }
     }
     getBlockUnitNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_5__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -487,8 +467,11 @@ let MoveinCancelComponent = class MoveinCancelComponent {
             return 'low';
     }
     ngOnInit() {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         // tslint:disable-next-line:radix
-        this.moveInOutService.getMoveInByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        this.moveInOutService.getMoveInByApartmentId(params).subscribe((res) => {
             this.moveInDataList = res.filter(item => {
                 return item.statusId === 380;
             });
@@ -507,10 +490,9 @@ let MoveinCancelComponent = class MoveinCancelComponent {
     }
 };
 MoveinCancelComponent.ctorParameters = () => [
-    { type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 MoveinCancelComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -518,10 +500,9 @@ MoveinCancelComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./movein-cancel.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/movein-cancel/movein-cancel.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./movein-cancel.component.scss */ "./src/app/ams/moveinout-tracker/components/movein-cancel/movein-cancel.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], MoveinCancelComponent);
 
 
@@ -554,19 +535,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/move-in-out.service */ "./src/app/api/services/move-in-out.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-
+/* harmony import */ var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/moveInOut */ "./src/app/api/controllers/moveInOut.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
 
 
@@ -581,17 +560,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveinMaintainComponent = class MoveinMaintainComponent {
-    constructor(injector, moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService, dialog, router, route) {
+    constructor(injector, moveInOutService, apartmentService, lookupService, sharedService, cookieService, dialog, router) {
         this.injector = injector;
         this.moveInOutService = moveInOutService;
-        this.userService = userService;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.dialog = dialog;
         this.router = router;
-        this.route = route;
         this.isDataLoaded = false;
         this.moveInData = "";
         this.ItemStartIndex = 0;
@@ -604,7 +581,7 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.statusType = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -628,7 +605,7 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
     onDateChange(event, type) {
         if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_11__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_10__(event).format("DD/MM/YYYY");
         }
         else {
             this.columnField = {};
@@ -637,14 +614,14 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
     getDate(movein, date) {
         this.moveInDataList.map(obj => {
             if (obj.id == movein.id) {
-                obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
+                obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
             }
         });
-        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
     }
     getTime(time) {
-        var timeData = moment__WEBPACK_IMPORTED_MODULE_11__(time, 'HH:mm:ss').toDate();
-        return moment__WEBPACK_IMPORTED_MODULE_11__(timeData).format('HH:mm A');
+        var timeData = moment__WEBPACK_IMPORTED_MODULE_10__(time, 'HH:mm:ss').toDate();
+        return moment__WEBPACK_IMPORTED_MODULE_10__(timeData).format('HH:mm A');
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -656,7 +633,7 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
         return this.totalItems == 0 ? true : false;
     }
     getBlockNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -673,7 +650,7 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
         }
     }
     getBlockUnitNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -746,7 +723,10 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
         });
     }
     ngOnInit() {
-        this.moveInOutService.getMoveInByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.moveInOutService.getMoveInByApartmentId(params).subscribe((res) => {
             this.moveInDataList = res.filter(item => {
                 return item.isActive && item.statusId != 375;
             });
@@ -769,8 +749,8 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
     }
     chekInUser(data, i) {
         const message = `Do you want to check In?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
             panelClass: 'material',
             disableClose: true,
             data: dialogData
@@ -801,7 +781,10 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
         });
     }
     getStatusName() {
-        this.lookupService.getLookupValueByLookupTypeId(92).subscribe((res) => {
+        let params = {
+            LookupTypeId: 92
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.statusNames = res.filter(item => {
                 return item.isActive;
             });
@@ -816,15 +799,13 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
 };
 MoveinMaintainComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] },
+    { type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"] }
 ];
 MoveinMaintainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -833,15 +814,13 @@ MoveinMaintainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./movein-maintain.component.scss */ "./src/app/ams/moveinout-tracker/components/movein-maintain/movein-maintain.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"],
+        src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]])
 ], MoveinMaintainComponent);
 
 
@@ -961,8 +940,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoveinSetupComponent", function() { return MoveinSetupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/move-in-out.service */ "./src/app/api/services/move-in-out.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/moveInOut */ "./src/app/api/controllers/moveInOut.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -1060,7 +1039,10 @@ let MoveinSetupComponent = class MoveinSetupComponent {
                 "updatedOn": new Date().toISOString(),
                 "apartmentId": parseInt(this.cookieService.get('apartmentId'))
             };
-            this.moveInOutService.updateMoveInOutConfig(details).subscribe((res) => {
+            let params = {
+                moveInOutConfig: details
+            };
+            this.moveInOutService.updateMoveInOutConfig(params).subscribe((res) => {
                 if (res.message) {
                     this.isDataLoaded = true;
                     this.sharedService.setAlertMessage("MoveIn Configuration updated successfully");
@@ -1074,7 +1056,10 @@ let MoveinSetupComponent = class MoveinSetupComponent {
         }, 1000);
     }
     ngOnInit() {
-        this.moveInOutService.getMoveInOutConfigByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.moveInOutService.getMoveInOutConfigByApartmentId(params).subscribe((res) => {
             this.documentDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -1090,7 +1075,10 @@ let MoveinSetupComponent = class MoveinSetupComponent {
             console.log(error);
         });
         //document type
-        this.lookupService.getLookupValueByLookupTypeId(72).subscribe((res) => {
+        let docListparams = {
+            LookupTypeId: 72
+        };
+        this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe((res) => {
             this.documentTypeDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -1137,8 +1125,8 @@ let MoveinSetupComponent = class MoveinSetupComponent {
     }
 };
 MoveinSetupComponent.ctorParameters = () => [
-    { type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
@@ -1149,8 +1137,8 @@ MoveinSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./movein-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/movein-setup/movein-setup.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./movein-setup.component.scss */ "./src/app/ams/moveinout-tracker/components/movein-setup/movein-setup.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
@@ -1185,17 +1173,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoveoutCancelComponent", function() { return MoveoutCancelComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/move-in-out.service */ "./src/app/api/services/move-in-out.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-
-
+/* harmony import */ var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/moveInOut */ "./src/app/api/controllers/moveInOut.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -1205,11 +1189,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveoutCancelComponent = class MoveoutCancelComponent {
-    constructor(moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService) {
+    constructor(moveInOutService, apartmentService, sharedService, cookieService) {
         this.moveInOutService = moveInOutService;
-        this.userService = userService;
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
@@ -1246,7 +1228,7 @@ let MoveoutCancelComponent = class MoveoutCancelComponent {
     onDateChange(event, type) {
         if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_9__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_7__(event).format("DD/MM/YYYY");
         }
         else {
             this.columnField = {};
@@ -1255,14 +1237,14 @@ let MoveoutCancelComponent = class MoveoutCancelComponent {
     getDate(movein, date) {
         this.moveOutDataList.map(obj => {
             if (obj.id == movein.id) {
-                obj.outDateData = moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+                obj.outDateData = moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
             }
         });
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
     }
     getTime(time) {
-        var timeData = moment__WEBPACK_IMPORTED_MODULE_9__(time, 'HH:mm:ss').toDate();
-        return moment__WEBPACK_IMPORTED_MODULE_9__(timeData).format('HH:mm A');
+        var timeData = moment__WEBPACK_IMPORTED_MODULE_7__(time, 'HH:mm:ss').toDate();
+        return moment__WEBPACK_IMPORTED_MODULE_7__(timeData).format('HH:mm A');
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -1274,7 +1256,7 @@ let MoveoutCancelComponent = class MoveoutCancelComponent {
         return this.totalItems == 0 ? true : false;
     }
     getBlockNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -1291,7 +1273,7 @@ let MoveoutCancelComponent = class MoveoutCancelComponent {
         }
     }
     getBlockUnitNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -1333,7 +1315,10 @@ let MoveoutCancelComponent = class MoveoutCancelComponent {
         });
     }
     ngOnInit() {
-        this.moveInOutService.getMoveOutByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.moveInOutService.getMoveOutByApartmentId(params).subscribe((res) => {
             this.moveOutDataList = res.filter(item => {
                 return res.statusId === 381;
             });
@@ -1353,12 +1338,10 @@ let MoveoutCancelComponent = class MoveoutCancelComponent {
     }
 };
 MoveoutCancelComponent.ctorParameters = () => [
-    { type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
 MoveoutCancelComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1366,12 +1349,10 @@ MoveoutCancelComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./moveout-cancel.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/moveout-cancel/moveout-cancel.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./moveout-cancel.component.scss */ "./src/app/ams/moveinout-tracker/components/moveout-cancel/moveout-cancel.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], MoveoutCancelComponent);
 
 
@@ -1403,17 +1384,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoveoutMaintainComponent", function() { return MoveoutMaintainComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/move-in-out.service */ "./src/app/api/services/move-in-out.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-
-
+/* harmony import */ var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/moveInOut */ "./src/app/api/controllers/moveInOut.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -1423,11 +1400,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveoutMaintainComponent = class MoveoutMaintainComponent {
-    constructor(moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService) {
+    constructor(moveInOutService, apartmentService, sharedService, cookieService) {
         this.moveInOutService = moveInOutService;
-        this.userService = userService;
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
@@ -1465,7 +1440,7 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
     onDateChange(event, type) {
         if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_9__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_7__(event).format("DD/MM/YYYY");
         }
         else {
             this.columnField = {};
@@ -1474,14 +1449,14 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
     getDate(movein, date) {
         this.moveOutDataList.map(obj => {
             if (obj.id == movein.id) {
-                obj.outDateData = moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+                obj.outDateData = moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
             }
         });
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
     }
     getTime(time) {
-        var timeData = moment__WEBPACK_IMPORTED_MODULE_9__(time, 'HH:mm:ss').toDate();
-        return moment__WEBPACK_IMPORTED_MODULE_9__(timeData).format('HH:mm A');
+        var timeData = moment__WEBPACK_IMPORTED_MODULE_7__(time, 'HH:mm:ss').toDate();
+        return moment__WEBPACK_IMPORTED_MODULE_7__(timeData).format('HH:mm A');
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -1493,7 +1468,7 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
         return this.totalItems == 0 ? true : false;
     }
     getBlockNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -1510,7 +1485,7 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
         }
     }
     getBlockUnitNo(item, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockUnitData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, item => {
             if (item.apartmentBlockUnitId === id)
                 return item;
         });
@@ -1552,7 +1527,10 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
         });
     }
     ngOnInit() {
-        this.moveInOutService.getMoveOutByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.moveInOutService.getMoveOutByApartmentId(params).subscribe((res) => {
             this.moveOutDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -1572,12 +1550,10 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
     }
 };
 MoveoutMaintainComponent.ctorParameters = () => [
-    { type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
 MoveoutMaintainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1585,12 +1561,10 @@ MoveoutMaintainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./moveout-maintain.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/moveout-maintain/moveout-maintain.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./moveout-maintain.component.scss */ "./src/app/ams/moveinout-tracker/components/moveout-maintain/moveout-maintain.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], MoveoutMaintainComponent);
 
 

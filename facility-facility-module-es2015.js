@@ -117,7 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/facility.service */ "./src/app/api/services/facility.service.ts");
+/* harmony import */ var src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/facility */ "./src/app/api/controllers/facility.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -160,7 +160,10 @@ let AddFacilitySlotComponent = class AddFacilitySlotComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-12-16T12:34:36.709Z"
             };
-            this.facilityService.addApartmentFacilitySlot(details).subscribe((res) => {
+            let apartmentFacilityBookingParams = {
+                apartmentFacilityBooking: details
+            };
+            this.facilityService.addApartmentFacilitySlot(apartmentFacilityBookingParams).subscribe((res) => {
                 if (res.message) {
                     this.facilityParams.emit(true);
                     this.isSlotSubmitted = true;
@@ -186,7 +189,10 @@ let AddFacilitySlotComponent = class AddFacilitySlotComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-12-16T12:34:36.709Z"
             };
-            this.facilityService.updateApartmentFacilitySlot(details).subscribe((res) => {
+            let apartmentFacilityBookingParams = {
+                apartmentFacilityBooking: details
+            };
+            this.facilityService.updateApartmentFacilitySlot(apartmentFacilityBookingParams).subscribe((res) => {
                 if (res.message) {
                     this.facilityParams.emit(true);
                     this.isSlotSubmitted = true;
@@ -237,7 +243,7 @@ let AddFacilitySlotComponent = class AddFacilitySlotComponent {
 AddFacilitySlotComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
+    { type: src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -265,7 +271,7 @@ AddFacilitySlotComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__["FacilityService"],
+        src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], AddFacilitySlotComponent);
@@ -300,9 +306,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_facility_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/facility.service */ "./src/app/api/services/facility.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/facility */ "./src/app/api/controllers/facility.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -475,20 +481,29 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
     }
     ngOnInit() {
         this.isAdmin();
-        this.facilityService.getApartmentFacilitiesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let apartmentParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.facilityService.getApartmentFacilitiesByApartmentId(apartmentParams).subscribe((res) => {
             this.facilityCategoryData = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
+        let statusParams = {
+            LookupTypeId: 40
+        };
         //status 
-        this.lookupService.getLookupValueByLookupTypeId(40).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
             this.statusTypeData = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
-        this.facilityService.getApartmentFacilitySlotsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let facilityParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.facilityService.getApartmentFacilitySlotsByApartmentId(facilityParams).subscribe((res) => {
             this.facilitySlotData = res.filter(item => {
                 return item.isActive;
             });
@@ -499,13 +514,19 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
             });
         }, error => {
         });
-        this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let userListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.userService.getAllUsersByApartmentId(userListParams).subscribe((res) => {
             this.userListData = res.filter(data => {
                 return data.isActive;
             });
         }, error => {
         });
-        this.facilityService.getApartmentFacilityBookingsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let bookingListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.facilityService.getApartmentFacilityBookingsByApartmentId(bookingListParams).subscribe((res) => {
             //filter active true items
             this.bookingListData = res.filter(data => {
                 data.isBookingforGuest = false;
@@ -552,9 +573,9 @@ FacilityBookingActionsComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_facility_service__WEBPACK_IMPORTED_MODULE_4__["FacilityService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
 ];
@@ -567,9 +588,9 @@ FacilityBookingActionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_facility_service__WEBPACK_IMPORTED_MODULE_4__["FacilityService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
 ], FacilityBookingActionsComponent);
@@ -611,8 +632,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _service_facility_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../service/facility-service.service */ "./src/app/ams/facility/service/facility-service.service.ts");
-/* harmony import */ var src_app_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var src_app_api_services__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/services */ "./src/app/api/services.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/facility */ "./src/app/api/controllers/facility.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+
 
 
 
@@ -663,14 +686,20 @@ let FacilityEntryComponent = class FacilityEntryComponent {
         });
     }
     setPesoValue() {
-        this.lookupSrv.getLookupValueByLookupTypeId(88).subscribe((res) => {
+        let params = {
+            LookupTypeId: 88
+        };
+        this.lookupSrv.getLookupValueByLookupTypeId(params).subscribe((res) => {
             console.log(res);
         });
         this.PesoValue = "₹";
     }
     LoadFacilityLocation() {
         this.lstTowers = [];
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let towerParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe((res) => {
             console.log('Tower Details');
             console.log(res);
             this.lstTowers = res;
@@ -692,7 +721,10 @@ let FacilityEntryComponent = class FacilityEntryComponent {
         this.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_3__(item.maxTimeLimit, 'HH:mm:ss').toDate();
         this.facilitySlotLength = item.apartmentFacilitySlot.length;
         this.tempArry = [];
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let apartmentParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(apartmentParams).subscribe((res) => {
             console.log('Tower Details');
             console.log(res);
             this.tempArry = res;
@@ -754,7 +786,10 @@ let FacilityEntryComponent = class FacilityEntryComponent {
                 "apartmentFacilitySlot": null,
                 "ApartmentFacilityAllowedBlock": this.finalSelectedTowersId
             };
-            this.facilityapiservice.addApartmentFacility(details).subscribe((res) => {
+            let apartmentFacilityParams = {
+                apartmentFacility: details
+            };
+            this.facilityapiservice.addApartmentFacility(apartmentFacilityParams).subscribe((res) => {
                 if (res.message) {
                     this.isFacilityCategoryLoaded = true;
                     this.sharedService.setAlertMessage("Facility added successfully");
@@ -799,11 +834,17 @@ let FacilityEntryComponent = class FacilityEntryComponent {
                 "apartmentFacilitySlot": null,
                 "ApartmentFacilityAllowedBlock": this.finalSelectedTowersId
             };
-            this.facilityapiservice.updateApartmentFacility(details).subscribe((res) => {
+            let apartmentFacilityParams = {
+                apartmentFacility: details
+            };
+            this.facilityapiservice.updateApartmentFacility(apartmentFacilityParams).subscribe((res) => {
                 if (res.message) {
                     this.isFacilityCategoryLoaded = true;
                     this.isFacilityCategoryLoaded = false;
-                    this.facilityapiservice.getApartmentFacilitiesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+                    let params = {
+                        apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                    };
+                    this.facilityapiservice.getApartmentFacilitiesByApartmentId(params).subscribe((res) => {
                         this.facilityCategoryData = res.filter(item => {
                             return item.isActive;
                         });
@@ -827,7 +868,10 @@ let FacilityEntryComponent = class FacilityEntryComponent {
     }
     getFacilityParams(event) {
         this.isFacilityCategoryLoaded = false;
-        this.facilityapiservice.getApartmentFacilitiesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.facilityapiservice.getApartmentFacilitiesByApartmentId(params).subscribe((res) => {
             this.facilityCategoryData = res.filter(item => {
                 return item.isActive;
             });
@@ -841,11 +885,11 @@ let FacilityEntryComponent = class FacilityEntryComponent {
 };
 FacilityEntryComponent.ctorParameters = () => [
     { type: _service_facility_service_service__WEBPACK_IMPORTED_MODULE_7__["FacilityServiceService"] },
-    { type: src_app_api_services__WEBPACK_IMPORTED_MODULE_9__["FacilityService"] },
+    { type: src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_9__["FacilityService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: src_app_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
-    { type: src_app_api_services__WEBPACK_IMPORTED_MODULE_9__["LookupService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
 ];
@@ -856,9 +900,9 @@ FacilityEntryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./facility-entry.component.scss */ "./src/app/ams/facility/components/facility-entry/facility-entry.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_service_facility_service_service__WEBPACK_IMPORTED_MODULE_7__["FacilityServiceService"],
-        src_app_api_services__WEBPACK_IMPORTED_MODULE_9__["FacilityService"],
+        src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_9__["FacilityService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_services__WEBPACK_IMPORTED_MODULE_9__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
 ], FacilityEntryComponent);
 
@@ -1009,12 +1053,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/facility.service */ "./src/app/api/services/facility.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _service_facility_service_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../service/facility-service.service */ "./src/app/ams/facility/service/facility-service.service.ts");
+/* harmony import */ var src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/facility */ "./src/app/api/controllers/facility.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _service_facility_service_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../service/facility-service.service */ "./src/app/ams/facility/service/facility-service.service.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
@@ -1041,7 +1085,7 @@ let FacilitySetupComponent = class FacilitySetupComponent {
         this.isCategoryError = false;
         this.alertMessage = "";
         this.facilityAmount = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     addNewFacilityCategory() {
         // this.isFacilityCategoryNew = true;
@@ -1118,7 +1162,10 @@ let FacilitySetupComponent = class FacilitySetupComponent {
         this.facility.description = "";
         this.facility.rateBaseId = "";
         this.facility.facilityTypeId = "";
-        this.facilityService.getApartmentFacilitiesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe((res) => {
             this.facilityCategoryData = res.filter(item => {
                 return item.isActive;
             });
@@ -1130,11 +1177,11 @@ let FacilitySetupComponent = class FacilitySetupComponent {
 FacilitySetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
-    { type: _service_facility_service_service__WEBPACK_IMPORTED_MODULE_8__["FacilityServiceService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
+    { type: _service_facility_service_service__WEBPACK_IMPORTED_MODULE_5__["FacilityServiceService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
 ];
 FacilitySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1144,11 +1191,11 @@ FacilitySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_facility_service__WEBPACK_IMPORTED_MODULE_3__["FacilityService"],
-        _service_facility_service_service__WEBPACK_IMPORTED_MODULE_8__["FacilityServiceService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_api_controllers_facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"],
+        _service_facility_service_service__WEBPACK_IMPORTED_MODULE_5__["FacilityServiceService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
 ], FacilitySetupComponent);
 
 

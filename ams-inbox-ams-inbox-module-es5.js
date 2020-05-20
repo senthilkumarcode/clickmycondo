@@ -504,27 +504,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
     /* harmony import */
 
 
@@ -559,7 +559,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getUnits() {
           var _this = this;
 
-          this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.apartmentBlockId)).subscribe(function (res) {
+          var params = {
+            apartmentBlockId: parseInt(this.apartmentBlockId),
+            active: 1
+          };
+          this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
             _this.isBlockSelected = true;
             _this.unitData = res;
           }, function (error) {
@@ -571,8 +575,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this2 = this;
 
-          //get apartment blocks
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          }; //get apartment blocks
+
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             _this2.blocksData = res;
           });
         }
@@ -583,13 +590,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     AmsInboxNotifyComponent.ctorParameters = function () {
       return [{
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
@@ -603,7 +610,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./ams-inbox-notify.component.scss */
       "./src/app/ams/ams-inbox/components/ams-inbox-notify/ams-inbox-notify.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], AmsInboxNotifyComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], AmsInboxNotifyComponent);
     /***/
   },
 
@@ -661,9 +668,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -711,7 +718,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     AmsInboxReportsComponent.ctorParameters = function () {
       return [{
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
@@ -727,7 +734,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./ams-inbox-reports.component.scss */
       "./src/app/ams/ams-inbox/components/ams-inbox-reports/ams-inbox-reports.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], AmsInboxReportsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], AmsInboxReportsComponent);
     /***/
   },
 
@@ -785,15 +792,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -870,9 +877,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this5 = this;
 
-          this.isInboxCategoryLoaded = true; //get all users
+          this.isInboxCategoryLoaded = true;
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          }; //get all users
 
-          this.userService.getAllUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          this.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
             _this5.inboxCategoryOwnerData = res;
           }, function (error) {});
         }
@@ -883,9 +893,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     AmsInboxSetupComponent.ctorParameters = function () {
       return [{
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
@@ -901,7 +911,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./ams-inbox-setup.component.scss */
       "./src/app/ams/ams-inbox/components/ams-inbox-setup/ams-inbox-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], AmsInboxSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], AmsInboxSetupComponent);
     /***/
   }
 }]);

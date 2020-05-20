@@ -5304,7 +5304,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"sidebar\" [ngClass]=\"showMiniSideBar()\">\n\t<div class=\"hero-info\">\n\t\t<div class=\"apartment\" *ngIf=\"isApartmentSelected\" (click)=\"showApartments()\">\n\t\t\t<div class=\"icon\"><img src=\"assets/images/apartment2-icon.svg\" width=\"24\" /></div>\n\t\t\t<!-- <h5>{{apartmentName}}</h5> -->\n\t\t</div>\n\t\t<div class=\"user d-none\" (click)=\"showUserInfo()\" *ngIf=\"userLoggedIn\">\n\t\t\t<div class=\"profile\">\n\t\t\t\t<figure class=\"profile-picture\">\n\t\t\t\t\t<img src=\"https://randomuser.me/api/portraits/men/9.jpg\" id=\"userProfile\">\n\t\t\t\t</figure>\n\t\t\t\t<div class=\"profile-info\">\n\t      \t\t\t<h5 class=\"text-capitalize\">{{user.firstName}}</h5>\n               \t\t<p>{{user.role}}</p>\n\t      \t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<nav class=\"nav-main\">\n\t\t<ul id=\"leftMenuScroller\" class=\"ps navs\" [perfectScrollbar]=\"config\" (scroll)=\"onScroll($event)\" #navElement>\n\n\t\t\t<app-loader *ngIf=\"!isMenuLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isMenuLoaded\">\n\n\t\t\t\t<ng-container *ngFor=\"let menu of sidebarMenuDataList\">\n\t\t\t\t\t\n\n\t\t\t\t\t<ng-container *ngIf=\"menu.submenus.length != 0\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<li class=\"nav-list nav-parent\" [ngClass]=\"isNavActive(menu.name)\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"toggleNav(menu.name)\">\n\t\t\t\t\t\t\t\t<div class=\"icon\"><img class=\"svg\" src=\"assets/images/{{menu.icon}}-icon.svg\" width=\"17\" /></div>\n\t\t\t\t\t\t\t\t<span>{{menu.label}}</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t<ul class=\"nav nav-children\" [ngClass]=\"isNavActive(menu.name)\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let submenu of menu.submenus\">\n\t\t\t\t\t\t\t\t\t<li >\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\t\t\t\t\t\tdata-name=\"{{menu.name}}\"\n\t\t\t\t\t\t\t\t\t\tclass=\"nav-link\"\n\t\t\t\t\t\t\t\t\t\t[routerLink] = \"submenu.link\" \n\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">{{submenu.label}}</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</li>\n\n\t\t\t\t\t</ng-container>\n\n\n\t\t\t\t\t <ng-container *ngIf=\"menu.submenus.length == 0\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<li class=\"nav-list\" [ngClass]=\"isNavActive(menu.name)\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\t\t\t\tclass=\"nav-link\"\n\t\t\t\t\t\t\t\tdata-name=\"{{menu.name}}\"\n\t\t\t\t\t\t\t\t(click)=\"toggleNav(menu.name)\"\n\t\t\t\t\t\t\t\t[routerLink] = \"menu.link\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<div class=\"icon\"><img class=\"svg\" src=\"assets/images/{{menu.icon}}-icon.svg\" width=\"17\" /></div>\n\t\t\t\t\t\t\t\t<span>{{menu.label}}</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</li>\n\n\t\t\t\t\t</ng-container> \n\n\t\t\t\t</ng-container>\n\n\t\t\t</ng-container>\n\n\t\t</ul> \n\t</nav>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"sidebar\" [ngClass]=\"showMiniSideBar()\">\n\t<div class=\"hero-info\">\n\t\t<div class=\"apartment\" *ngIf=\"isApartmentSelected\" (click)=\"showApartments()\">\n\t\t\t<div class=\"icon\"><img src=\"assets/images/apartment2-icon.svg\" width=\"24\" /></div>\n\t\t\t<!-- <h5>{{apartmentName}}</h5> -->\n\t\t</div>\n\t\t<div class=\"user d-none\" (click)=\"showUserInfo()\" *ngIf=\"userLoggedIn\">\n\t\t\t<div class=\"profile\">\n\t\t\t\t<figure class=\"profile-picture\">\n\t\t\t\t\t<img src=\"https://randomuser.me/api/portraits/men/9.jpg\" id=\"userProfile\">\n\t\t\t\t</figure>\n\t\t\t\t<div class=\"profile-info\">\n\t      \t\t\t<h5 class=\"text-capitalize\">{{user.firstName}}</h5>\n               \t\t<p>{{user.role}}</p>\n\t      \t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<nav class=\"nav-main\">\n\t\t<ul id=\"leftMenuScroller\" class=\"navs\" [perfectScrollbar]=\"config\" (scroll)=\"onScroll($event)\" #navElement>\n\n\t\t\t<app-loader *ngIf=\"!isMenuLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isMenuLoaded\">\n\n\t\t\t\t<ng-container *ngFor=\"let menu of sidebarMenuDataList\">\n\t\t\t\t\t\n\n\t\t\t\t\t<ng-container *ngIf=\"menu.submenus.length != 0\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<li class=\"nav-list nav-parent\" [ngClass]=\"isNavActive(menu.name)\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"toggleNav(menu.name)\">\n\t\t\t\t\t\t\t\t<div class=\"icon\"><img class=\"svg\" src=\"assets/images/{{menu.icon}}-icon.svg\" width=\"17\" /></div>\n\t\t\t\t\t\t\t\t<span>{{menu.label}}</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t<ul class=\"nav nav-children\" [ngClass]=\"isNavActive(menu.name)\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let submenu of menu.submenus\">\n\t\t\t\t\t\t\t\t\t<li >\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\t\t\t\t\t\tdata-name=\"{{menu.name}}\"\n\t\t\t\t\t\t\t\t\t\tclass=\"nav-link\"\n\t\t\t\t\t\t\t\t\t\t[routerLink] = \"submenu.link\" \n\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">{{submenu.label}}</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</li>\n\n\t\t\t\t\t</ng-container>\n\n\n\t\t\t\t\t <ng-container *ngIf=\"menu.submenus.length == 0\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<li class=\"nav-list\" [ngClass]=\"isNavActive(menu.name)\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\t\t\t\tclass=\"nav-link\"\n\t\t\t\t\t\t\t\tdata-name=\"{{menu.name}}\"\n\t\t\t\t\t\t\t\t(click)=\"toggleNav(menu.name)\"\n\t\t\t\t\t\t\t\t[routerLink] = \"menu.link\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<div class=\"icon\"><img class=\"svg\" src=\"assets/images/{{menu.icon}}-icon.svg\" width=\"17\" /></div>\n\t\t\t\t\t\t\t\t<span>{{menu.label}}</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</li>\n\n\t\t\t\t\t</ng-container> \n\n\t\t\t\t</ng-container>\n\n\t\t\t</ng-container>\n\n\t\t</ul> \n\t</nav>\n</div>");
 
 /***/ }),
 
@@ -5591,8 +5591,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AmsBottomMenuComponent", function() { return AmsBottomMenuComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../.././api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../.././api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -5624,8 +5624,8 @@ let AmsBottomMenuComponent = class AmsBottomMenuComponent {
     }
 };
 AmsBottomMenuComponent.ctorParameters = () => [
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
@@ -5636,8 +5636,8 @@ AmsBottomMenuComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./ams-bottom-menu.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/components/ams-bottom-menu/ams-bottom-menu.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./ams-bottom-menu.component.scss */ "./src/app/ams/components/ams-bottom-menu/ams-bottom-menu.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
@@ -5808,9 +5808,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../.././api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../.././api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_screen_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../.././api/services/screen.service */ "./src/app/api/services/screen.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_screen__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/screen */ "./src/app/api/controllers/screen.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
@@ -5899,7 +5899,10 @@ let SidebarComponent = class SidebarComponent {
     ngOnInit() {
         this.isMenuLoaded = false;
         this.menusDataList = this.constantsService.getAllMenus();
-        this.screenService.getAllScreensByStatus(1).subscribe((res) => {
+        let params = {
+            active: 1
+        };
+        this.screenService.getAllScreensByStatus(params).subscribe((res) => {
             this.availableScreensDataList = res;
             this.isMenuLoaded = true;
             underscore__WEBPACK_IMPORTED_MODULE_10__["each"](this.availableScreensDataList, item => {
@@ -5922,7 +5925,10 @@ let SidebarComponent = class SidebarComponent {
             this.isMenuLoaded = true;
         });
         var userId = parseInt(this.cookieService.get('userId'));
-        this.userService.getUserById(userId).subscribe((res) => {
+        let userParams = {
+            userid: userId
+        };
+        this.userService.getUserById(userParams).subscribe((res) => {
             this.user = res[0];
             this.user.role = this.cookieService.get('userRole');
             this.sharedService.setUserDetails(this.user);
@@ -5955,9 +5961,9 @@ SidebarComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: _api_services_screen_service__WEBPACK_IMPORTED_MODULE_5__["ScreenService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_screen__WEBPACK_IMPORTED_MODULE_5__["ScreenService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] },
     { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] }
@@ -5981,9 +5987,9 @@ SidebarComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        _api_services_screen_service__WEBPACK_IMPORTED_MODULE_5__["ScreenService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_screen__WEBPACK_IMPORTED_MODULE_5__["ScreenService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"],
         _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]])

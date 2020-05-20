@@ -265,71 +265,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../.././api/services/vendor.service */
-    "./src/app/api/services/vendor.service.ts");
+    var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/vendor */
+    "./src/app/api/controllers/vendor.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_10___default =
+    var moment__WEBPACK_IMPORTED_MODULE_9___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
     var ExpensePayInvoiceComponent =
     /*#__PURE__*/
     function () {
-      function ExpensePayInvoiceComponent(router, route, userService, lookupService, accountsService, vendorService, sharedService, cookieService) {
+      function ExpensePayInvoiceComponent(route, userService, lookupService, accountsService, vendorService, cookieService) {
         _classCallCheck(this, ExpensePayInvoiceComponent);
 
-        this.router = router;
         this.route = route;
         this.userService = userService;
         this.lookupService = lookupService;
         this.accountsService = accountsService;
         this.vendorService = vendorService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isInvoiceDataLoaded = false;
         this.invoiceData = "";
@@ -366,7 +358,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUserName",
         value: function getUserName(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.userDataList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.userDataList, function (item) {
             if (item.userId === id) return item;
           });
 
@@ -379,7 +371,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getInvoiceDate",
         value: function getInvoiceDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
         }
       }, {
         key: "getAccountName",
@@ -394,7 +386,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             accountDetails.glaccountId = account[0].glaccountId;
           }
 
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.glAccountListData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glAccountListData, function (item) {
             if (item.glaccountId === accountDetails.glaccountId) return item;
           });
 
@@ -409,7 +401,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCategoryName",
         value: function getCategoryName(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.vendorCategoryData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.vendorCategoryData, function (item) {
             if (item.lookupValueId === parseInt(id)) return item;
           });
 
@@ -428,7 +420,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.selectedInvoiceIdArray = [];
 
           if (this.selectAllInvoices) {
-            underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.invoiceDataList, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceDataList, function (item) {
               item.checked = true;
 
               _this.totalAmountArray.push(item.vendorInvoiceAmount);
@@ -437,7 +429,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
             this.isInvoiceSelected = true;
           } else {
-            underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.invoiceDataList, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceDataList, function (item) {
               item.checked = false;
             });
             this.isInvoiceSelected = false;
@@ -451,7 +443,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var length = 0;
           this.totalAmountArray = [];
           this.selectedInvoiceIdArray = [];
-          underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.invoiceDataList, function (item) {
+          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceDataList, function (item) {
             if (item.checked) {
               length++;
 
@@ -513,7 +505,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this3.ItemEndIndex = _this3.totalItems;
             }
 
-            _this3.userService.getAllUsersByApartmentId(parseInt(_this3.cookieService.get('apartmentId'))).subscribe(function (res) {
+            var params = {
+              apartmentId: parseInt(_this3.cookieService.get('apartmentId'))
+            };
+
+            _this3.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
               _this3.userDataList = res;
               _this3.isInvoiceDataLoaded = true;
             }, function (error) {});
@@ -525,13 +521,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this4 = this;
 
           this.getCustInvoices();
-          this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
             _this4.vendorDataList = res.filter(function (item) {
               return item.vendorId == _this4.route.params['value'].id;
             });
             _this4.isVendorDataLoaded = true;
+            var categoryParams = {
+              LookupTypeId: 57
+            };
 
-            _this4.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+            _this4.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
               _this4.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
@@ -541,7 +543,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
           };
-          this.accountsService.getGLAccountsByGroupId(accountParams).subscribe(function (res) {
+          this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
             _this4.glAccountListData = res;
           });
         }
@@ -552,21 +554,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     ExpensePayInvoiceComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
+        type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }];
     };
 
@@ -578,7 +576,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./expense-pay-invoice.component.scss */
       "./src/app/ams/expense-tracker/components/expense-pay-invoice/expense-pay-invoice.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ExpensePayInvoiceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ExpensePayInvoiceComponent);
     /***/
   },
 
@@ -642,56 +640,44 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../.././api/services/vendor.service */
-    "./src/app/api/services/vendor.service.ts");
+    var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/vendor */
+    "./src/app/api/controllers/vendor.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
-    /* harmony import */
-
-
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var ExpensePostInvoiceComponent =
     /*#__PURE__*/
     function () {
-      function ExpensePostInvoiceComponent(router, route, vendorService, lookupService, accountsService, userService, apartmentService, sharedService, cookieService) {
+      function ExpensePostInvoiceComponent(router, route, vendorService, lookupService, accountsService, sharedService, cookieService) {
         _classCallCheck(this, ExpensePostInvoiceComponent);
 
         this.router = router;
@@ -699,8 +685,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.vendorService = vendorService;
         this.lookupService = lookupService;
         this.accountsService = accountsService;
-        this.userService = userService;
-        this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.invoiceId = "";
@@ -716,7 +700,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ExpensePostInvoiceComponent, [{
         key: "getCategoryName",
         value: function getCategoryName(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.vendorCategoryData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.vendorCategoryData, function (item) {
             if (item.lookupValueId === parseInt(id)) return item;
           });
 
@@ -780,7 +764,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 "amount": this.invoice.vendorInvoiceAmount
               }]
             };
-            this.accountsService.addVendorInvoice(details).subscribe(function (res) {
+            var vendorParams = {
+              invoice: details
+            };
+            this.accountsService.addVendorInvoice(vendorParams).subscribe(function (res) {
               if (res.message) {
                 _this5.isInvoiceSubmitted = true;
 
@@ -844,7 +831,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 "amount": this.invoice.vendorInvoiceAmount
               }]
             };
-            this.accountsService.updateVendorInvoice(_details).subscribe(function (res) {
+            var _vendorParams = {
+              invoice: _details
+            };
+            this.accountsService.updateVendorInvoice(_vendorParams).subscribe(function (res) {
               if (res.message) {
                 _this5.isInvoiceSubmitted = true;
 
@@ -869,13 +859,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoice = {};
           this.invoice.glaccountId = "";
           this.invoice.vendorId = this.route.params['value'].id;
-          this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
             _this6.vendorDataList = res.filter(function (item) {
               return item.vendorId == _this6.route.params['value'].id;
             });
             _this6.isVendorDataLoaded = true;
+            var categoryParams = {
+              LookupTypeId: 57
+            };
 
-            _this6.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+            _this6.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
               _this6.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
@@ -899,7 +895,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           }
 
-          this.accountsService.getAllGLAccounts().subscribe(function (res) {
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
             _this6.glAccountListData = res.filter(function (item) {
               return item.isActive && parseInt(_this6.cookieService.get('apartmentId')) && item.indicator == _this6.glAccountIndicator;
             });
@@ -916,19 +912,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__["VendorService"]
+        type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }];
     };
 
@@ -940,7 +932,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./expense-post-invoice.component.scss */
       "./src/app/ams/expense-tracker/components/expense-post-invoice/expense-post-invoice.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__["VendorService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]])], ExpensePostInvoiceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ExpensePostInvoiceComponent);
     /***/
   },
 
@@ -998,45 +990,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-    /* harmony import */
-
-
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var ExpensePostMultiInvoiceFieldsComponent =
     /*#__PURE__*/
     function () {
-      function ExpensePostMultiInvoiceFieldsComponent(cd, router, route, accountsService, sharedService, cookieService) {
+      function ExpensePostMultiInvoiceFieldsComponent(accountsService, cookieService) {
         _classCallCheck(this, ExpensePostMultiInvoiceFieldsComponent);
 
-        this.cd = cd;
-        this.router = router;
-        this.route = route;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.invoiceId = "";
         this.isEditInvoice = false;
@@ -1085,7 +1061,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this7 = this;
 
           this.invoiceGLAccountsData = this.invoiceGLAccountsArray[this.index];
-          this.accountsService.getAllGLAccounts().subscribe(function (res) {
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
             _this7.glAccountListData = res.filter(function (item) {
               return item.isActive && parseInt(_this7.cookieService.get('apartmentId')) && item.indicator == _this7.glAccountIndicator;
             });
@@ -1104,17 +1080,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     ExpensePostMultiInvoiceFieldsComponent.ctorParameters = function () {
       return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-      }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -1123,7 +1091,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], ExpensePostMultiInvoiceFieldsComponent.prototype, "fieldParams", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('postExpenseMultiInvoiceFieldsForm', {
       "static": true
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"])], ExpensePostMultiInvoiceFieldsComponent.prototype, "invoiceForm", void 0);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"])], ExpensePostMultiInvoiceFieldsComponent.prototype, "invoiceForm", void 0);
     ExpensePostMultiInvoiceFieldsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-expense-post-multi-invoice-fields',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1132,7 +1100,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./expense-post-multi-invoice-fields.component.scss */
       "./src/app/ams/expense-tracker/components/expense-post-multi-invoice-fields/expense-post-multi-invoice-fields.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ExpensePostMultiInvoiceFieldsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], ExpensePostMultiInvoiceFieldsComponent);
     /***/
   },
 
@@ -1196,15 +1164,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../.././api/services/vendor.service */
-    "./src/app/api/services/vendor.service.ts");
+    var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/vendor */
+    "./src/app/api/controllers/vendor.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
@@ -1214,9 +1182,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -1354,7 +1322,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "transReference2": "string",
             "vendorInvoiceGlaccount": this.invoiceGLAccountsArray
           };
-          this.accountsService.addVendorInvoice(details).subscribe(function (res) {
+          var params = {
+            invoice: details
+          };
+          this.accountsService.addVendorInvoice(params).subscribe(function (res) {
             if (res.message) {
               _this10.isInvoiceSubmitted = true;
 
@@ -1398,13 +1369,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "deductTax": 0,
             "amount": this.invoiceGLAccountsData.amount
           }];
-          this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
             _this11.vendorDataList = res.filter(function (item) {
               return item.vendorId == _this11.route.params['value'].id;
             });
             _this11.isVendorDataLoaded = true;
+            var lookupParams = {
+              LookupTypeId: 57
+            };
 
-            _this11.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+            _this11.lookupService.getLookupValueByLookupTypeId(lookupParams).subscribe(function (res) {
               _this11.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
@@ -1428,11 +1405,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__["VendorService"]
+        type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -1448,7 +1425,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./expense-post-multi-invoice.component.scss */
       "./src/app/ams/expense-tracker/components/expense-post-multi-invoice/expense-post-multi-invoice.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_3__["VendorService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ExpensePostMultiInvoiceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ExpensePostMultiInvoiceComponent);
     /***/
   },
 
@@ -1506,48 +1483,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var ExpensePostPaymentComponent =
     /*#__PURE__*/
     function () {
-      function ExpensePostPaymentComponent(router, route, accountsService, lookupService, sharedService, cookieService) {
+      function ExpensePostPaymentComponent(accountsService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, ExpensePostPaymentComponent);
 
-        this.router = router;
-        this.route = route;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -1565,7 +1534,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this12 = this;
 
           var custInvoiceObjArray = [];
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, function (item, index) {
+          underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, function (item, index) {
             var details = {
               "apartmentId": parseInt(_this12.cookieService.get('apartmentId')),
               "paymentId": 11,
@@ -1600,7 +1569,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "transReference2": "",
             "glAcctIndicator": "Income"
           };
-          this.accountsService.addVendorPayment(collectionDetails).subscribe(function (res) {
+          var vendorParams = {
+            payment: collectionDetails
+          };
+          this.accountsService.addVendorPayment(vendorParams).subscribe(function (res) {
             if (res.message) {
               _this12.isCollectionSubmitted = true;
 
@@ -1625,9 +1597,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.collection.instrumentTypeId = "";
           this.collection.paymentAmount = this.totalAmountArray.reduce(function (a, b) {
             return a + b;
-          }); //payment mode
+          });
+          var params = {
+            LookupTypeId: 33
+          }; //payment mode
 
-          this.lookupService.getLookupValueByLookupTypeId(33).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             _this13.instrumentTypeListData = res.filter(function (item) {
               return item.isActive;
             });
@@ -1636,7 +1611,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
           };
-          this.accountsService.getGLAccountsByGroupId(accountParams).subscribe(function (res) {
+          this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
             _this13.glAccountListData = res;
           });
           this.isCollectionSubmitted = true;
@@ -1655,17 +1630,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     ExpensePostPaymentComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }];
     };
 
@@ -1680,7 +1651,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./expense-post-payment.component.scss */
       "./src/app/ams/expense-tracker/components/expense-post-payment/expense-post-payment.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ExpensePostPaymentComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], ExpensePostPaymentComponent);
     /***/
   },
 
@@ -1744,33 +1715,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/vendor */
+    "./src/app/api/controllers/vendor.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/vendor.service */
-    "./src/app/api/services/vendor.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -1925,7 +1896,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this14 = this;
 
-          this.accountsService.GetExpenseTrackerInvoicesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.accountsService.getExpenseTrackerInvoicesByApartmentId(params).subscribe(function (res) {
             _this14.subLedgerDataList = res;
             _this14.totalItems = _this14.subLedgerDataList.length;
 
@@ -1941,13 +1915,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this14.netDueAmount = _this14.netDueAmount + item.due;
               if (item.due >= 0) _this14.totalDueAmount = _this14.totalDueAmount + item.due;
             });
+            var categoryParams = {
+              LookupTypeId: 57
+            };
 
-            _this14.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+            _this14.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
               _this14.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
+              var dataParams = {
+                apartmentId: parseInt(_this14.cookieService.get('apartmentId'))
+              };
 
-              _this14.vendorService.getVendorByApartmentId(parseInt(_this14.cookieService.get('apartmentId'))).subscribe(function (res) {
+              _this14.vendorService.getVendorByApartmentId(dataParams).subscribe(function (res) {
                 _this14.vendorDataList = res;
                 _this14.isSubLedgerDataLoaded = true;
               });
@@ -1965,15 +1945,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__["VendorService"]
+        type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_6__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }];
@@ -1990,7 +1970,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./expense-sub-ledger.component.scss */
       "./src/app/ams/expense-tracker/components/expense-sub-ledger/expense-sub-ledger.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__["VendorService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_6__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ExpenseSubLedgerComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ExpenseSubLedgerComponent);
     /***/
   },
 
@@ -2133,71 +2113,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/vendor.service */
-    "./src/app/api/services/vendor.service.ts");
+    var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/vendor */
+    "./src/app/api/controllers/vendor.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_10___default =
+    var moment__WEBPACK_IMPORTED_MODULE_9___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
     var ExpenseViewInvoiceHistoryComponent =
     /*#__PURE__*/
     function () {
-      function ExpenseViewInvoiceHistoryComponent(router, route, userService, vendorService, accountsService, lookupService, sharedService, cookieService) {
+      function ExpenseViewInvoiceHistoryComponent(route, userService, vendorService, accountsService, lookupService, cookieService) {
         _classCallCheck(this, ExpenseViewInvoiceHistoryComponent);
 
-        this.router = router;
         this.route = route;
         this.userService = userService;
         this.vendorService = vendorService;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isInvoiceDataLoaded = false;
         this.invoiceData = "";
@@ -2234,7 +2206,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUserName",
         value: function getUserName(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.userDataList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.userDataList, function (item) {
             if (item.userId === id) return item;
           });
 
@@ -2247,7 +2219,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCategoryName",
         value: function getCategoryName(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.vendorCategoryData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.vendorCategoryData, function (item) {
             if (item.lookupValueId === parseInt(id)) return item;
           });
 
@@ -2267,7 +2239,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onDateChange(event, type) {
           if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_10__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_9__(event).format("DD/MM/YYYY");
           } else {
             this.columnField = {};
           }
@@ -2277,10 +2249,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getInvoiceDate(invoice, date) {
           this.invoiceDataList.map(function (obj) {
             if (obj.vendorInvoiceNo == invoice.vendorInvoiceNo) {
-              obj.invoiceDateFormat = moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
+              obj.invoiceDateFormat = moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
             }
           });
-          return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
         }
       }, {
         key: "isMobileView",
@@ -2297,13 +2269,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this15 = this;
 
-          this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
             _this15.vendorDataList = res.filter(function (item) {
               return item.vendorId == _this15.route.params['value'].id;
             });
             _this15.isVendorDataLoaded = true;
+            var categoryParams = {
+              LookupTypeId: 57
+            };
 
-            _this15.lookupService.getLookupValueByLookupTypeId(57).subscribe(function (res) {
+            _this15.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
               _this15.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
@@ -2313,10 +2291,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
           };
-          this.accountsService.getGLAccountsByGroupId(accountParams).subscribe(function (res) {
+          this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
             _this15.glAccountListData = res;
           });
-          this.accountsService.GetVendorPaymenntHistoryById(this.route.params['value'].id).subscribe(function (res) {
+          this.accountsService.getVendorPaymenntHistoryById(this.route.params['value'].id).subscribe(function (res) {
             _this15.invoiceDataList = res;
             _this15.totalItems = _this15.invoiceDataList.length;
 
@@ -2326,7 +2304,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this15.ItemEndIndex = _this15.totalItems;
             }
 
-            _this15.userService.getAllUsersByApartmentId(parseInt(_this15.cookieService.get('apartmentId'))).subscribe(function (res) {
+            var params = {
+              apartmentId: parseInt(_this15.cookieService.get('apartmentId'))
+            };
+
+            _this15.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
               _this15.userDataList = res;
               _this15.isInvoiceDataLoaded = true;
             }, function (error) {});
@@ -2339,21 +2321,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     ExpenseViewInvoiceHistoryComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"]
+        type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }];
     };
 
@@ -2365,7 +2343,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./expense-view-invoice-history.component.scss */
       "./src/app/ams/expense-tracker/components/expense-view-invoice-history/expense-view-invoice-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ExpenseViewInvoiceHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ExpenseViewInvoiceHistoryComponent);
     /***/
   },
 
@@ -2423,51 +2401,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var ExpenseViewInvoiceComponent =
     /*#__PURE__*/
     function () {
-      function ExpenseViewInvoiceComponent(router, route, userService, accountsService, sharedService, cookieService) {
+      function ExpenseViewInvoiceComponent(userService, accountsService, cookieService) {
         _classCallCheck(this, ExpenseViewInvoiceComponent);
 
-        this.router = router;
-        this.route = route;
         this.userService = userService;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isInvoiceDataLoaded = false;
         this.invoiceData = "";
@@ -2503,7 +2466,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUserName",
         value: function getUserName(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.userDataList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_5__["filter"](this.userDataList, function (item) {
             if (item.userId === id) return item;
           });
 
@@ -2537,10 +2500,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
           };
-          this.accountsService.getGLAccountsByGroupId(accountParams).subscribe(function (res) {
+          this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
             _this16.glAccountListData = res;
           });
-          this.accountsService.GetExpenseTrackerInvoicesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var invoiceParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.accountsService.getExpenseTrackerInvoicesByApartmentId(invoiceParams).subscribe(function (res) {
             _this16.invoiceDataList = res;
             _this16.totalItems = _this16.invoiceDataList.length;
 
@@ -2550,7 +2516,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this16.ItemEndIndex = _this16.totalItems;
             }
 
-            _this16.userService.getAllUsersByApartmentId(parseInt(_this16.cookieService.get('apartmentId'))).subscribe(function (res) {
+            var dataParams = {
+              apartmentId: parseInt(_this16.cookieService.get('apartmentId'))
+            };
+
+            _this16.userService.getAllUsersByApartmentId(dataParams).subscribe(function (res) {
               _this16.userDataList = res;
               _this16.isInvoiceDataLoaded = true;
             }, function (error) {});
@@ -2563,17 +2533,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     ExpenseViewInvoiceComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
-      }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -2585,7 +2549,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./expense-view-invoice.component.scss */
       "./src/app/ams/expense-tracker/components/expense-view-invoice/expense-view-invoice.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ExpenseViewInvoiceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], ExpenseViewInvoiceComponent);
     /***/
   },
 

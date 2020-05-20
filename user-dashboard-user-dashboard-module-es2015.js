@@ -308,7 +308,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserDashboardComponent", function() { return UserDashboardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
@@ -321,7 +321,10 @@ let UserDashboardComponent = class UserDashboardComponent {
         this.userName = "";
     }
     ngOnInit() {
-        this.userService.getUserById(parseInt(this.cookieService.get('userId'))).subscribe((res) => {
+        let params = {
+            userid: parseInt(this.cookieService.get('userId'))
+        };
+        this.userService.getUserById(params).subscribe((res) => {
             this.userName = res[0].firstName;
         }, error => {
             console.log(error);
@@ -329,7 +332,7 @@ let UserDashboardComponent = class UserDashboardComponent {
     }
 };
 UserDashboardComponent.ctorParameters = () => [
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
 ];
 UserDashboardComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -338,7 +341,7 @@ UserDashboardComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./user-dashboard.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/user/user-dashboard/user-dashboard.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./user-dashboard.component.scss */ "./src/app/user/user-dashboard/user-dashboard.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
 ], UserDashboardComponent);
 

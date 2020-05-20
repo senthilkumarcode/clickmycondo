@@ -118,9 +118,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _api_services_document_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/document.service */ "./src/app/api/services/document.service.ts");
-/* harmony import */ var _api_services_file_details_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/file-details.service */ "./src/app/api/services/file-details.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/document */ "./src/app/api/controllers/document.ts");
+/* harmony import */ var src_app_api_controllers_fileDetails__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/fileDetails */ "./src/app/api/controllers/fileDetails.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
@@ -160,7 +160,7 @@ let DocumentCommonDownloadComponent = class DocumentCommonDownloadComponent {
             "savefileNameWithPath": file.userDocumentName,
             "fileNameOnBlob": file.filePath
         };
-        this.fileDetailsService.DownloadAsync(obj).subscribe((res) => {
+        this.fileDetailsService.downloadAsync(obj).subscribe((res) => {
         }, error => { });
     }
     getUserDocumentData(unitNo) {
@@ -185,11 +185,17 @@ let DocumentCommonDownloadComponent = class DocumentCommonDownloadComponent {
             this.userUnitNo = this.route.params['value'].id;
         }
         var unitInfo = this.userUnitNo;
+        let params = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         //if(this.userPage) {     
-        this.documentService.GetAllDocCountByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        this.documentService.getAllDocCountByApartmentId(params).subscribe((res) => {
             this.getalldocument = res;
             if (this.getUserDocumentData(unitInfo).apartmentBlockUnitID != undefined) {
-                this.documentService.GetAllDocByApartmentBlockUnitId(this.getUserDocumentData(this.userUnitNo).apartmentBlockUnitID).subscribe((res) => {
+                let params = {
+                    ApartmentBlockUnitId: this.getUserDocumentData(this.userUnitNo).apartmentBlockUnitID
+                };
+                this.documentService.getAllDocByApartmentBlockUnitId(params).subscribe((res) => {
                     this.listofFiles = res;
                     this.isDocumentDataLoaded = true;
                     this.isNoDownloads = this.listofFiles.length;
@@ -212,7 +218,7 @@ let DocumentCommonDownloadComponent = class DocumentCommonDownloadComponent {
     ngOnChanges(changes) {
         this.isDocumentDataLoaded = false;
         if (this.userPage) {
-            this.documentService.GetAllDocByApartmentBlockUnitId(this.getUserDocumentData(this.userUnitNo).apartmentBlockUnitID).subscribe((res) => {
+            this.documentService.getAllDocByApartmentBlockUnitId(this.getUserDocumentData(this.userUnitNo).apartmentBlockUnitID).subscribe((res) => {
                 this.isDocumentDataLoaded = true;
                 this.listofFiles = res;
                 this.isNoDownloads = this.listofFiles.length;
@@ -235,9 +241,9 @@ let DocumentCommonDownloadComponent = class DocumentCommonDownloadComponent {
 DocumentCommonDownloadComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: _api_services_document_service__WEBPACK_IMPORTED_MODULE_5__["DocumentService"] },
-    { type: _api_services_file_details_service__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"] },
+    { type: src_app_api_controllers_fileDetails__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"] }
 ];
@@ -253,9 +259,9 @@ DocumentCommonDownloadComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        _api_services_document_service__WEBPACK_IMPORTED_MODULE_5__["DocumentService"],
-        _api_services_file_details_service__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"],
+        src_app_api_controllers_fileDetails__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]])
 ], DocumentCommonDownloadComponent);
@@ -289,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentSetupCategoryComponent", function() { return DocumentSetupCategoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
@@ -338,9 +344,15 @@ let DocumentSetupCategoryComponent = class DocumentSetupCategoryComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.addLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.addLookupValue(params).subscribe((res) => {
                 if (res.message) {
-                    this.lookupService.getLookupValueByLookupTypeId(62).subscribe((res) => {
+                    let categoryParams = {
+                        LookupTypeId: 62
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isDocumentCategorySubmitted = true;
                         this.isCategorySuccess = true;
                         this.alertTicketMessage = "Category Added Successfully!";
@@ -368,9 +380,15 @@ let DocumentSetupCategoryComponent = class DocumentSetupCategoryComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.updateLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.updateLookupValue(params).subscribe((res) => {
                 if (res.message) {
-                    this.lookupService.getLookupValueByLookupTypeId(62).subscribe((res) => {
+                    let categoryParams = {
+                        LookupTypeId: 62
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isDocumentCategorySubmitted = true;
                         this.isCategorySuccess = true;
                         this.alertTicketMessage = "Category Updated Successfully!";
@@ -388,7 +406,10 @@ let DocumentSetupCategoryComponent = class DocumentSetupCategoryComponent {
         }
     }
     ngOnInit() {
-        this.lookupService.getLookupValueByLookupTypeId(62).subscribe((res) => {
+        let categoryParams = {
+            LookupTypeId: 62
+        };
+        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
             this.isDocumentCategoryLoaded = true;
             this.documentCategoryData = res.filter(item => {
                 return item.isActive;
@@ -397,7 +418,7 @@ let DocumentSetupCategoryComponent = class DocumentSetupCategoryComponent {
     }
 };
 DocumentSetupCategoryComponent.ctorParameters = () => [
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
 ];
 DocumentSetupCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -406,7 +427,7 @@ DocumentSetupCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./document-setup-category.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/documents/components/document-setup/document-setup-category/document-setup-category.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./document-setup-category.component.scss */ "./src/app/ams/documents/components/document-setup/document-setup-category/document-setup-category.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
 ], DocumentSetupCategoryComponent);
 
@@ -537,13 +558,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_document_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/document.service */ "./src/app/api/services/document.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/document */ "./src/app/api/controllers/document.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 
 
 
@@ -689,16 +710,25 @@ let FolderListsComponent = class FolderListsComponent {
             "ApartmentId": parseInt(this.cookieService.get('apartmentId')),
             "IsPublic": true
         };
-        this.UserService.getAllRoles(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let accessibleListParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.UserService.getAllRoles(accessibleListParams).subscribe((res) => {
             this.accessibleList = res;
         }, error => { });
-        this.lookupService.getLookupValueByLookupTypeId(62).subscribe((res) => {
+        let categoryParams = {
+            LookupTypeId: 62
+        };
+        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
             this.folderByCategory = res;
-            this.documentService.GetAllDocCountByCategory(adminCategory).subscribe((res) => {
+            this.documentService.getAllDocCountByCategory(adminCategory).subscribe((res) => {
                 this.folderList = res;
                 this.setFileCount();
                 if (this.isUserPage) {
-                    this.documentService.GetAllDocCountByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+                    let documentListParams = {
+                        ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+                    };
+                    this.documentService.getAllDocCountByApartmentId(documentListParams).subscribe((res) => {
                         this.isCommmonDataLoaded = true;
                         this.getalldocument = res;
                     }, error => { });
@@ -714,9 +744,9 @@ FolderListsComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_9__["LookupService"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: _api_services_document_service__WEBPACK_IMPORTED_MODULE_3__["DocumentService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_3__["DocumentService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
 ];
@@ -733,9 +763,9 @@ FolderListsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_9__["LookupService"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        _api_services_document_service__WEBPACK_IMPORTED_MODULE_3__["DocumentService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_3__["DocumentService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
 ], FolderListsComponent);
@@ -769,7 +799,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserListsComponent", function() { return UserListsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_document_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/document.service */ "./src/app/api/services/document.service.ts");
+/* harmony import */ var src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/document */ "./src/app/api/controllers/document.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
@@ -810,7 +840,10 @@ let UserListsComponent = class UserListsComponent {
             this.isMobile = true;
         else
             this.isMobile = false;
-        this.documentService.GetAllDocCountByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.documentService.getAllDocCountByApartmentId(params).subscribe((res) => {
             this.isUserDataLoaded = true;
             this.getAllDocumentData = res;
             this.totalUserDocument = this.getAllDocumentData.length;
@@ -824,7 +857,7 @@ let UserListsComponent = class UserListsComponent {
     }
 };
 UserListsComponent.ctorParameters = () => [
-    { type: _api_services_document_service__WEBPACK_IMPORTED_MODULE_2__["DocumentService"] },
+    { type: src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_2__["DocumentService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
 ];
 UserListsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -833,7 +866,7 @@ UserListsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./user-lists.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/documents/components/user-lists/user-lists.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./user-lists.component.scss */ "./src/app/ams/documents/components/user-lists/user-lists.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_document_service__WEBPACK_IMPORTED_MODULE_2__["DocumentService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_document__WEBPACK_IMPORTED_MODULE_2__["DocumentService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
 ], UserListsComponent);
 

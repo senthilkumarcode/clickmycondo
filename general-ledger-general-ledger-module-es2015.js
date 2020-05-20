@@ -378,8 +378,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -441,7 +441,10 @@ let AddGlAccountComponent = class AddGlAccountComponent {
                 "updatedBy": null,
                 "updatedOn": null
             };
-            this.accountsService.addGLAccount(details).subscribe((res) => {
+            let params = {
+                glAccount: details
+            };
+            this.accountsService.addGlAccount(params).subscribe((res) => {
                 this.isAccountAdded = true;
                 if (res.message) {
                     this.sharedService.setAlertMessage("Account added successfully");
@@ -471,7 +474,10 @@ let AddGlAccountComponent = class AddGlAccountComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
             };
-            this.accountsService.updateGLAccount(details).subscribe((res) => {
+            let params = {
+                glAccount: details
+            };
+            this.accountsService.updateGlAccount(params).subscribe((res) => {
                 this.isAccountAdded = true;
                 if (res.message) {
                     this.sharedService.setAlertMessage("Account updated successfully");
@@ -498,7 +504,7 @@ let AddGlAccountComponent = class AddGlAccountComponent {
                 apartmentId: parseInt(this.cookieService.get('apartmentId')),
                 glAccountId: this.glAccountId,
             };
-            this.accountsService.getGLAccountsId(params).subscribe((res) => {
+            this.accountsService.getGlAccountsId(params).subscribe((res) => {
                 this.gl = res[0];
                 if (this.group == 'Income' || this.group == 'Expenses') {
                     this.gl.openingBalance = 0;
@@ -506,13 +512,16 @@ let AddGlAccountComponent = class AddGlAccountComponent {
             });
         }
         ;
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive && item.glaccountTypeId == parseInt(this.glaccountTypeId);
             });
         });
+        let defaultParams = {
+            LookupTypeId: 60
+        };
         //bank details
-        this.lookupService.getLookupValueByLookupTypeId(60).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe((res) => {
             this.glDefaultBankDataList = res;
         }, error => {
         });
@@ -523,8 +532,8 @@ AddGlAccountComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
 ];
@@ -554,8 +563,8 @@ AddGlAccountComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
 ], AddGlAccountComponent);
@@ -591,8 +600,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -635,7 +644,10 @@ let AddGlGroupComponent = class AddGlGroupComponent {
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString()
             };
-            this.accountsService.addGLGroup(details).subscribe((res) => {
+            let params = {
+                glGroup: details
+            };
+            this.accountsService.addGlGroup(params).subscribe((res) => {
                 this.isGroupAdded = true;
                 if (res.message) {
                     this.sharedService.setAlertMessage("Group added successfully");
@@ -660,7 +672,10 @@ let AddGlGroupComponent = class AddGlGroupComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
             };
-            this.accountsService.updateGLGroup(details).subscribe((res) => {
+            let params = {
+                glGroup: details
+            };
+            this.accountsService.updateGlGroup(params).subscribe((res) => {
                 this.isGroupAdded = true;
                 if (res.message) {
                     this.sharedService.setAlertMessage("Group updated successfully");
@@ -681,7 +696,7 @@ let AddGlGroupComponent = class AddGlGroupComponent {
                 apartmentId: parseInt(this.cookieService.get('apartmentId')),
                 glGroupId: this.glgroupId,
             };
-            this.accountsService.getGLGroupById(params).subscribe((res) => {
+            this.accountsService.getGlGroupById(params).subscribe((res) => {
                 this.gl = res[0];
             });
         }
@@ -692,8 +707,8 @@ AddGlGroupComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -723,8 +738,8 @@ AddGlGroupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], AddGlGroupComponent);
@@ -759,15 +774,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -778,10 +791,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlAssetsComponent = class GlAssetsComponent {
-    constructor(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+    constructor(injector, dialog, accountsService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -793,7 +805,7 @@ let GlAssetsComponent = class GlAssetsComponent {
         this.itemLimit = 100;
         this.unitFieldType = "glGroupName";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -812,7 +824,7 @@ let GlAssetsComponent = class GlAssetsComponent {
             return '';
     }
     getGroup(account, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glGroupsDataList, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.glGroupsDataList, function (item) {
             if (item.glgroupId === id)
                 return item;
         });
@@ -831,7 +843,7 @@ let GlAssetsComponent = class GlAssetsComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -849,7 +861,7 @@ let GlAssetsComponent = class GlAssetsComponent {
         event.stopPropagation();
     }
     getAccounts() {
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
@@ -866,7 +878,7 @@ let GlAssetsComponent = class GlAssetsComponent {
     }
     ngOnInit() {
         this.getAccounts();
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -884,9 +896,9 @@ let GlAssetsComponent = class GlAssetsComponent {
                     glAccountId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLAccount(params).subscribe((res) => {
+                this.accountsService.deleteGlAccount(params).subscribe((res) => {
                     if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glAccountsDataList, (type) => {
+                        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.glAccountsDataList, (type) => {
                             if (type.glaccountId == id) {
                                 type.isActive = false;
                             }
@@ -911,10 +923,9 @@ let GlAssetsComponent = class GlAssetsComponent {
 GlAssetsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
 GlAssetsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -924,10 +935,9 @@ GlAssetsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], GlAssetsComponent);
 
 
@@ -960,9 +970,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -1065,7 +1075,7 @@ let GlEquityMemberFundComponent = class GlEquityMemberFundComponent {
         event.stopPropagation();
     }
     getAccounts() {
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
@@ -1082,13 +1092,16 @@ let GlEquityMemberFundComponent = class GlEquityMemberFundComponent {
     }
     ngOnInit() {
         this.getAccounts();
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let bankListParams = {
+            LookupTypeId: 27
+        };
         //bank details
-        this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe((res) => {
             this.glBankDataList = res;
         }, error => {
         });
@@ -1105,7 +1118,7 @@ let GlEquityMemberFundComponent = class GlEquityMemberFundComponent {
                     glAccountId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLAccount(params).subscribe((res) => {
+                this.accountsService.deleteGlAccount(params).subscribe((res) => {
                     if (res.message) {
                         underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.glAccountsDataList, (type) => {
                             if (type.glaccountId == id) {
@@ -1132,9 +1145,9 @@ let GlEquityMemberFundComponent = class GlEquityMemberFundComponent {
 GlEquityMemberFundComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -1146,9 +1159,9 @@ GlEquityMemberFundComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], GlEquityMemberFundComponent);
@@ -1183,16 +1196,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -1204,10 +1215,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlExpenseComponent = class GlExpenseComponent {
-    constructor(injector, dialog, apartmentService, accountsService, lookupService, sharedService, cookieService) {
+    constructor(injector, dialog, accountsService, lookupService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -1220,7 +1230,7 @@ let GlExpenseComponent = class GlExpenseComponent {
         this.itemLimit = 100;
         this.unitFieldType = "glGroupName";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1239,7 +1249,7 @@ let GlExpenseComponent = class GlExpenseComponent {
             return '';
     }
     getGroup(account, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.glGroupsDataList, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glGroupsDataList, function (item) {
             if (item.glgroupId === id)
                 return item;
         });
@@ -1258,7 +1268,7 @@ let GlExpenseComponent = class GlExpenseComponent {
         }
     }
     getBank(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.glBankDataList, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glBankDataList, function (item) {
             if (item.lookupValueId === id)
                 return item;
         });
@@ -1270,7 +1280,7 @@ let GlExpenseComponent = class GlExpenseComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -1288,7 +1298,7 @@ let GlExpenseComponent = class GlExpenseComponent {
         event.stopPropagation();
     }
     getAccounts() {
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
@@ -1305,13 +1315,16 @@ let GlExpenseComponent = class GlExpenseComponent {
     }
     ngOnInit() {
         this.getAccounts();
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let bankListParams = {
+            LookupTypeId: 27
+        };
         //bank details
-        this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe((res) => {
             this.glBankDataList = res;
         }, error => {
         });
@@ -1328,9 +1341,9 @@ let GlExpenseComponent = class GlExpenseComponent {
                     glAccountId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLAccount(params).subscribe((res) => {
+                this.accountsService.deleteGlAccount(params).subscribe((res) => {
                     if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.glAccountsDataList, (type) => {
+                        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glAccountsDataList, (type) => {
                             if (type.glaccountId == id) {
                                 type.isActive = false;
                             }
@@ -1355,11 +1368,10 @@ let GlExpenseComponent = class GlExpenseComponent {
 GlExpenseComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 GlExpenseComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1369,11 +1381,10 @@ GlExpenseComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], GlExpenseComponent);
 
 
@@ -1406,8 +1417,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -1471,7 +1482,7 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
     }
     getGlGroups() {
         this.isDataLoaded = false;
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive && (item.glaccountTypeId == parseInt(this.glaccountTypeId)); // active and type id
             });
@@ -1498,7 +1509,7 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
                     glGroupId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLGroup(params).subscribe((res) => {
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
                     if (res.message) {
                         underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glGroupsDataList, (type) => {
                             if (type.glgroupId == id) {
@@ -1532,8 +1543,8 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
 GlAssetGroupsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -1549,8 +1560,8 @@ GlAssetGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], GlAssetGroupsComponent);
@@ -1585,13 +1596,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -1601,10 +1610,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent {
-    constructor(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+    constructor(injector, dialog, accountsService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -1614,7 +1622,7 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
         this.itemLimit = 8;
         this.unitFieldType = "glnumber";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1650,7 +1658,7 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
     }
     getGlGroups() {
         this.isDataLoaded = false;
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive && (item.glaccountTypeId == parseInt(this.glaccountTypeId)); // active and type id
             });
@@ -1677,9 +1685,9 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
                     glGroupId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLGroup(params).subscribe((res) => {
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
                     if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glGroupsDataList, (type) => {
+                        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.glGroupsDataList, (type) => {
                             if (type.glgroupId == id) {
                                 type.isActive = false;
                             }
@@ -1711,10 +1719,9 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
 GlEquityMemberFundGroupsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -1728,10 +1735,9 @@ GlEquityMemberFundGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], GlEquityMemberFundGroupsComponent);
 
 
@@ -1764,13 +1770,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -1780,10 +1784,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
-    constructor(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+    constructor(injector, dialog, accountsService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -1793,7 +1796,7 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
         this.itemLimit = 8;
         this.unitFieldType = "glnumber";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1829,7 +1832,7 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
     }
     getGlGroups() {
         this.isDataLoaded = false;
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive && (item.glaccountTypeId == parseInt(this.glaccountTypeId)); // active and type id
             });
@@ -1856,9 +1859,9 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
                     glGroupId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLGroup(params).subscribe((res) => {
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
                     if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glGroupsDataList, (type) => {
+                        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.glGroupsDataList, (type) => {
                             if (type.glgroupId == id) {
                                 type.isActive = false;
                             }
@@ -1890,10 +1893,9 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
 GlExpenseGroupsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -1907,10 +1909,9 @@ GlExpenseGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], GlExpenseGroupsComponent);
 
 
@@ -1988,8 +1989,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -2053,7 +2054,7 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
     }
     getGlGroups() {
         this.isDataLoaded = false;
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive && (item.glaccountTypeId == parseInt(this.glaccountTypeId)); // active and type id
             });
@@ -2080,7 +2081,7 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
                     glGroupId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLGroup(params).subscribe((res) => {
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
                     if (res.message) {
                         underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glGroupsDataList, (type) => {
                             if (type.glgroupId == id) {
@@ -2114,8 +2115,8 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
 GlIncomeGroupsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -2131,8 +2132,8 @@ GlIncomeGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], GlIncomeGroupsComponent);
@@ -2167,8 +2168,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -2232,7 +2233,7 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
     }
     getGlGroups() {
         this.isDataLoaded = false;
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive && (item.glaccountTypeId == parseInt(this.glaccountTypeId)); // active and type id
             });
@@ -2259,7 +2260,7 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
                     glGroupId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLGroup(params).subscribe((res) => {
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
                     if (res.message) {
                         underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glGroupsDataList, (type) => {
                             if (type.glgroupId == id) {
@@ -2293,8 +2294,8 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
 GlLiabilitesGroupsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -2310,8 +2311,8 @@ GlLiabilitesGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], GlLiabilitesGroupsComponent);
@@ -2346,9 +2347,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -2451,7 +2452,7 @@ let GlIncomeComponent = class GlIncomeComponent {
         event.stopPropagation();
     }
     getAccounts() {
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
@@ -2468,13 +2469,16 @@ let GlIncomeComponent = class GlIncomeComponent {
     }
     ngOnInit() {
         this.getAccounts();
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let bankListParams = {
+            LookupTypeId: 27
+        };
         //bank details
-        this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe((res) => {
             this.glBankDataList = res;
         }, error => {
         });
@@ -2485,14 +2489,13 @@ let GlIncomeComponent = class GlIncomeComponent {
         });
         // delete item
         this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            console.log(id);
             if (id != null) {
                 var params = {
                     apartmentId: parseInt(this.cookieService.get('apartmentId')),
                     glAccountId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLAccount(params).subscribe((res) => {
+                this.accountsService.deleteGlAccount(params).subscribe((res) => {
                     if (res.message) {
                         underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.glAccountsDataList, (type) => {
                             if (type.glaccountId == id) {
@@ -2520,9 +2523,9 @@ let GlIncomeComponent = class GlIncomeComponent {
 GlIncomeComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -2534,9 +2537,9 @@ GlIncomeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], GlIncomeComponent);
@@ -2570,15 +2573,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlAllJournalsComponent", function() { return GlAllJournalsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_journal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../.././api/services/journal.service */ "./src/app/api/services/journal.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/journal */ "./src/app/api/controllers/journal.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -2588,11 +2589,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlAllJournalsComponent = class GlAllJournalsComponent {
-    constructor(injector, dialog, router, route, journalService, sharedService, cookieService) {
+    constructor(injector, dialog, journalService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
-        this.router = router;
-        this.route = route;
         this.journalService = journalService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -2603,7 +2602,7 @@ let GlAllJournalsComponent = class GlAllJournalsComponent {
         this.unitFieldType = "documentNumber";
         this.unitOrder = true;
         this.isMobile = false;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -2622,7 +2621,7 @@ let GlAllJournalsComponent = class GlAllJournalsComponent {
             return '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -2637,7 +2636,7 @@ let GlAllJournalsComponent = class GlAllJournalsComponent {
         return id;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
     }
     showConfirmModal(index) {
         this.modalService.showConfirmModal(index);
@@ -2666,8 +2665,8 @@ let GlAllJournalsComponent = class GlAllJournalsComponent {
     }
     ngOnInit() {
         // fetch data for past one week by default
-        this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(1, 'week').format("YYYY-MM-DD");
-        this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().add(1, 'days').format("YYYY-MM-DD");
+        this.fromDate = moment__WEBPACK_IMPORTED_MODULE_7__().subtract(1, 'week').format("YYYY-MM-DD");
+        this.toDate = moment__WEBPACK_IMPORTED_MODULE_7__().add(1, 'days').format("YYYY-MM-DD");
         this.getJournals();
         // delete item
         this.sharedService.unitlistdeleteindexcast.subscribe(id => {
@@ -2690,12 +2689,10 @@ let GlAllJournalsComponent = class GlAllJournalsComponent {
 };
 GlAllJournalsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_journal_service__WEBPACK_IMPORTED_MODULE_4__["JournalService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
+    { type: src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__["JournalService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 GlAllJournalsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2704,12 +2701,10 @@ GlAllJournalsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./gl-all-journals.component.scss */ "./src/app/ams/general-ledger/components/gl-journals/gl-all-journals/gl-all-journals.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_journal_service__WEBPACK_IMPORTED_MODULE_4__["JournalService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+        src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__["JournalService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], GlAllJournalsComponent);
 
 
@@ -2743,24 +2738,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 
 
 
 
 
 let GlCreateJournalFieldsComponent = class GlCreateJournalFieldsComponent {
-    constructor(cd, router, route, accountsService, sharedService, cookieService) {
-        this.cd = cd;
-        this.router = router;
+    constructor(route, accountsService) {
         this.route = route;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.isEditJournal = false;
         this.isError = false;
         this.alertMessage = "";
@@ -2812,11 +2799,7 @@ let GlCreateJournalFieldsComponent = class GlCreateJournalFieldsComponent {
         if (this.route.params['value'].id != undefined) {
             this.isEditJournal = true;
         }
-        /*var accountParams = {
-          apartmentId: parseInt(this.cookieService.get('apartmentId')),
-          groupId: 3
-        }*/
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountListData = res;
         });
     }
@@ -2825,12 +2808,8 @@ let GlCreateJournalFieldsComponent = class GlCreateJournalFieldsComponent {
     }
 };
 GlCreateJournalFieldsComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -2854,12 +2833,8 @@ GlCreateJournalFieldsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./gl-create-journal-fields.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/general-ledger/components/gl-journals/gl-create-journal-fields/gl-create-journal-fields.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./gl-create-journal-fields.component.scss */ "./src/app/ams/general-ledger/components/gl-journals/gl-create-journal-fields/gl-create-journal-fields.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]])
 ], GlCreateJournalFieldsComponent);
 
 
@@ -2892,7 +2867,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_journal_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../.././api/services/journal.service */ "./src/app/api/services/journal.service.ts");
+/* harmony import */ var src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/journal */ "./src/app/api/controllers/journal.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -2907,8 +2882,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlCreateJournalComponent = class GlCreateJournalComponent {
-    constructor(router, route, journalService, sharedService, cookieService) {
-        this.router = router;
+    constructor(route, journalService, sharedService, cookieService) {
         this.route = route;
         this.journalService = journalService;
         this.sharedService = sharedService;
@@ -3050,9 +3024,8 @@ let GlCreateJournalComponent = class GlCreateJournalComponent {
     }
 };
 GlCreateJournalComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_journal_service__WEBPACK_IMPORTED_MODULE_3__["JournalService"] },
+    { type: src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__["JournalService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
@@ -3062,9 +3035,8 @@ GlCreateJournalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./gl-create-journal.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/general-ledger/components/gl-journals/gl-create-journal/gl-create-journal.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./gl-create-journal.component.scss */ "./src/app/ams/general-ledger/components/gl-journals/gl-create-journal/gl-create-journal.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_journal_service__WEBPACK_IMPORTED_MODULE_3__["JournalService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__["JournalService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], GlCreateJournalComponent);
@@ -3240,15 +3212,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -3259,10 +3229,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlLiablilitiesComponent = class GlLiablilitiesComponent {
-    constructor(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+    constructor(injector, dialog, accountsService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -3274,7 +3243,7 @@ let GlLiablilitiesComponent = class GlLiablilitiesComponent {
         this.itemLimit = 100;
         this.unitFieldType = "glGroupName";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -3293,7 +3262,7 @@ let GlLiablilitiesComponent = class GlLiablilitiesComponent {
             return '';
     }
     getGroup(account, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glGroupsDataList, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.glGroupsDataList, function (item) {
             if (item.glgroupId === id)
                 return item;
         });
@@ -3312,7 +3281,7 @@ let GlLiablilitiesComponent = class GlLiablilitiesComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -3330,7 +3299,7 @@ let GlLiablilitiesComponent = class GlLiablilitiesComponent {
         event.stopPropagation();
     }
     getAccounts() {
-        this.accountsService.getAllGLAccounts().subscribe((res) => {
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
             });
@@ -3347,7 +3316,7 @@ let GlLiablilitiesComponent = class GlLiablilitiesComponent {
     }
     ngOnInit() {
         this.getAccounts();
-        this.accountsService.getAllGLGroups().subscribe((res) => {
+        this.accountsService.getAllGlGroups().subscribe((res) => {
             this.glGroupsDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -3365,9 +3334,9 @@ let GlLiablilitiesComponent = class GlLiablilitiesComponent {
                     glAccountId: id,
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
-                this.accountsService.deleteGLAccount(params).subscribe((res) => {
+                this.accountsService.deleteGlAccount(params).subscribe((res) => {
                     if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glAccountsDataList, (type) => {
+                        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.glAccountsDataList, (type) => {
                             if (type.glaccountId == id) {
                                 type.isActive = false;
                             }
@@ -3392,10 +3361,9 @@ let GlLiablilitiesComponent = class GlLiablilitiesComponent {
 GlLiablilitiesComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
 GlLiablilitiesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3405,10 +3373,9 @@ GlLiablilitiesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], GlLiablilitiesComponent);
 
 
@@ -3441,12 +3408,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -3454,11 +3419,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlFinancialStatementsComponent = class GlFinancialStatementsComponent {
-    constructor(router, route, accountsService, sharedService, cookieService) {
-        this.router = router;
+    constructor(route, accountsService, cookieService) {
         this.route = route;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.ItemStartIndex = 0;
         this.itemLimit = 8;
@@ -3497,7 +3460,7 @@ let GlFinancialStatementsComponent = class GlFinancialStatementsComponent {
         return this.totalItems == 0 ? true : false;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
     }
     submitGlreportsFinancialForm(form) {
         let details = {
@@ -3507,7 +3470,7 @@ let GlFinancialStatementsComponent = class GlFinancialStatementsComponent {
         };
         this.isDataLoaded = false;
         this.isFormGenerated = false;
-        this.accountsService.GetTrialBalanceByDate(details).subscribe((res) => {
+        this.accountsService.getTrialBalanceByDate(details).subscribe((res) => {
             this.isDataLoaded = true;
             this.isFormGenerated = true;
             this.glReportsDataList = res;
@@ -3558,11 +3521,9 @@ let GlFinancialStatementsComponent = class GlFinancialStatementsComponent {
     }
 };
 GlFinancialStatementsComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 GlFinancialStatementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3570,11 +3531,9 @@ GlFinancialStatementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./gl-financial-statements.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/general-ledger/components/gl-other-reports/gl-financial-statements/gl-financial-statements.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./gl-financial-statements.component.scss */ "./src/app/ams/general-ledger/components/gl-other-reports/gl-financial-statements/gl-financial-statements.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], GlFinancialStatementsComponent);
 
 
@@ -3669,15 +3628,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlOtherReprotsTransactionsComponent", function() { return GlOtherReprotsTransactionsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
-
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -3685,10 +3640,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlOtherReprotsTransactionsComponent = class GlOtherReprotsTransactionsComponent {
-    constructor(apartmentService, accountsService, sharedService, cookieService) {
-        this.apartmentService = apartmentService;
+    constructor(accountsService, cookieService) {
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.glTypes = [];
         this.glGroups = [];
@@ -3733,7 +3686,7 @@ let GlOtherReprotsTransactionsComponent = class GlOtherReprotsTransactionsCompon
             GlaccountTypeId: id,
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
-        this.accountsService.getAllGLGroupsByAccountTypeID(params).subscribe((res) => {
+        this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe((res) => {
             this.isGlGroupsLoaded = true;
             this.glGroups = res;
             this.glTypeSelectedIndex = id;
@@ -3745,7 +3698,7 @@ let GlOtherReprotsTransactionsComponent = class GlOtherReprotsTransactionsCompon
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: id
         };
-        this.accountsService.getGLAccountsByGroupId(params).subscribe((res) => {
+        this.accountsService.getGlAccountsByGroupId(params).subscribe((res) => {
             this.isGlAccountsLoaded = true;
             this.glAccounts = res;
             this.glGroupSelectedIndex = id;
@@ -3771,7 +3724,7 @@ let GlOtherReprotsTransactionsComponent = class GlOtherReprotsTransactionsCompon
             return '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -3786,14 +3739,14 @@ let GlOtherReprotsTransactionsComponent = class GlOtherReprotsTransactionsCompon
         this.isDataSubmitted = true;
         this.isDataLoaded = false;
         var params = {
-            FromDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.reports.fromDate).format("YYYY-MM-DD"),
-            Todate: moment__WEBPACK_IMPORTED_MODULE_7__(this.reports.toDate).format("YYYY-MM-DD"),
+            FromDate: moment__WEBPACK_IMPORTED_MODULE_5__(this.reports.fromDate).format("YYYY-MM-DD"),
+            Todate: moment__WEBPACK_IMPORTED_MODULE_5__(this.reports.toDate).format("YYYY-MM-DD"),
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             //GlAccountTypeID: this.glTypeSelectedIndex,
             //GLGroupID: this.glGroupSelectedIndex,
             GLAccountId: this.glAccountSelectedIndex
         };
-        this.accountsService.GetGLAccountTransactionsByID(params).subscribe((res) => {
+        this.accountsService.getGlAccountTransactionsById(params).subscribe((res) => {
             this.totalDebitAmount = 0;
             this.totalCreditAmount = 0;
             this.isDataLoaded = true;
@@ -3805,7 +3758,7 @@ let GlOtherReprotsTransactionsComponent = class GlOtherReprotsTransactionsCompon
             else {
                 this.ItemEndIndex = this.totalItems;
             }
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.reportsTransactionsDataList, (item, index) => {
+            underscore__WEBPACK_IMPORTED_MODULE_4__["each"](this.reportsTransactionsDataList, (item, index) => {
                 this.totalDebitAmount = this.totalDebitAmount + item.debit;
                 this.totalCreditAmount = this.totalCreditAmount + item.credit;
             });
@@ -3828,10 +3781,8 @@ let GlOtherReprotsTransactionsComponent = class GlOtherReprotsTransactionsCompon
     }
 };
 GlOtherReprotsTransactionsComponent.ctorParameters = () => [
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
 ];
 GlOtherReprotsTransactionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3839,10 +3790,8 @@ GlOtherReprotsTransactionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./gl-other-reprots-transactions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/general-ledger/components/gl-other-reports/gl-other-reprots-transactions/gl-other-reprots-transactions.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./gl-other-reprots-transactions.component.scss */ "./src/app/ams/general-ledger/components/gl-other-reports/gl-other-reprots-transactions/gl-other-reprots-transactions.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
 ], GlOtherReprotsTransactionsComponent);
 
 
@@ -3875,13 +3824,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -3890,11 +3837,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlReportTransactionsComponent = class GlReportTransactionsComponent {
-    constructor(router, route, accountsService, sharedService, cookieService) {
-        this.router = router;
+    constructor(route, accountsService, cookieService) {
         this.route = route;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
         this.reportsTransactionsData = "";
@@ -3923,7 +3868,7 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
             return '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -3939,13 +3884,13 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
         var params = {
             GLAccountId: this.route.params['value'].id,
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
-            FromDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.fromDate).format("YYYY-MM-DD"),
-            Todate: moment__WEBPACK_IMPORTED_MODULE_7__(this.toDate).format("YYYY-MM-DD")
+            FromDate: moment__WEBPACK_IMPORTED_MODULE_6__(this.fromDate).format("YYYY-MM-DD"),
+            Todate: moment__WEBPACK_IMPORTED_MODULE_6__(this.toDate).format("YYYY-MM-DD")
         };
         this.getTransactions(params);
     }
     getTransactions(params) {
-        this.accountsService.GetGLAccountTransactionsByID(params).subscribe((res) => {
+        this.accountsService.getGlAccountTransactionsById(params).subscribe((res) => {
             this.isDataLoaded = true;
             this.reportsTransactionsDataList = res;
             this.totalItems = this.reportsTransactionsDataList.length;
@@ -3955,7 +3900,7 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
             else {
                 this.ItemEndIndex = this.totalItems;
             }
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.reportsTransactionsDataList, (item, index) => {
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](this.reportsTransactionsDataList, (item, index) => {
                 this.totalDebitAmount = this.totalDebitAmount + item.debit;
                 this.totalCreditAmount = this.totalCreditAmount + item.credit;
             });
@@ -3977,11 +3922,9 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
     }
 };
 GlReportTransactionsComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 GlReportTransactionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3989,11 +3932,9 @@ GlReportTransactionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./gl-report-transactions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/general-ledger/components/gl-reports/gl-report-transactions/gl-report-transactions.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./gl-report-transactions.component.scss */ "./src/app/ams/general-ledger/components/gl-reports/gl-report-transactions/gl-report-transactions.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], GlReportTransactionsComponent);
 
 
@@ -4109,7 +4050,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlReportsComponent", function() { return GlReportsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -4132,14 +4073,14 @@ let GlReportsComponent = class GlReportsComponent {
         return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
     }
     submitGlTrialBalanceForm(form) {
+        this.isDataLoaded = false;
+        this.isTrialGenerated = false;
         let details = {
             FromDate: this.getDateFormat(this.reports.fromDate),
             ToDate: this.getDateFormat(this.reports.toDate),
             ApartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
-        this.isDataLoaded = false;
-        this.isTrialGenerated = false;
-        this.accountsService.GetTrialBalanceByDate(details).subscribe((res) => {
+        this.accountsService.getTrialBalanceByDate(details).subscribe((res) => {
             this.isDataLoaded = true;
             this.isTrialGenerated = true;
             this.glReportsDataList = res;
@@ -4153,7 +4094,7 @@ let GlReportsComponent = class GlReportsComponent {
     }
 };
 GlReportsComponent.ctorParameters = () => [
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
@@ -4163,7 +4104,7 @@ GlReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./gl-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/general-ledger/components/gl-reports/gl-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./gl-reports.component.scss */ "./src/app/ams/general-ledger/components/gl-reports/gl-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], GlReportsComponent);

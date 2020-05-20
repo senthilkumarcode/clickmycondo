@@ -179,30 +179,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var HelpdeskReportsComponent =
     /*#__PURE__*/
     function () {
-      function HelpdeskReportsComponent(lookupService, sharedService, cookieService) {
+      function HelpdeskReportsComponent(lookupService, cookieService) {
         _classCallCheck(this, HelpdeskReportsComponent);
 
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
       }
@@ -229,11 +222,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     HelpdeskReportsComponent.ctorParameters = function () {
       return [{
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }];
     };
 
@@ -245,7 +236,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./helpdesk-reports.component.scss */
       "./src/app/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], HelpdeskReportsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], HelpdeskReportsComponent);
     /***/
   },
 
@@ -309,21 +300,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../api/services/staff.service */
-    "./src/app/api/services/staff.service.ts");
+    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/staff */
+    "./src/app/api/controllers/staff.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -358,9 +349,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this2 = this;
 
           this.staff = {};
-          this.staff.category = ""; //staff category
+          this.staff.category = "";
+          var categoryParams = {
+            LookupTypeId: 8
+          }; //staff category
 
-          this.lookupService.getLookupValueByLookupTypeId(8).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
             _this2.staffCategoryData = res;
           }, function (error) {});
         }
@@ -375,11 +369,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__["StaffService"]
+        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
@@ -393,7 +387,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./helpdesk-edit-staff.component.scss */
       "./src/app/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__["StaffService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], HelpdeskEditStaffComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], HelpdeskEditStaffComponent);
     /***/
   },
 
@@ -457,15 +451,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -575,11 +569,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 "updatedBy": 0,
                 "updatedOn": "2019-11-16T14:50:08.217Z"
               };
-              this.lookupService.addLookupValue(details).subscribe(function (res) {
+              var params = {
+                lookupvalue: details
+              };
+              this.lookupService.addLookupValue(params).subscribe(function (res) {
                 _this3.isStaffLoaded = true;
                 _this3.isCategoryDataLoaded = false;
+                var params = {
+                  LookupTypeId: _this3.staffTypeId
+                };
 
-                _this3.lookupService.getLookupValueByLookupTypeId(_this3.staffTypeId).subscribe(function (res) {
+                _this3.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                   var categoryCommonListData = res.filter(function (item) {
                     return item.isActive;
                   });
@@ -610,11 +610,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 "updatedBy": 0,
                 "updatedOn": "2019-11-16T14:50:08.217Z"
               };
-              this.lookupService.addLookupValue(details).subscribe(function (res) {
+              var _params = {
+                lookupvalue: details
+              };
+              this.lookupService.addLookupValue(_params).subscribe(function (res) {
                 _this3.isStaffLoaded = true;
                 _this3.isCategoryDataLoaded = false;
+                var params = {
+                  LookupTypeId: _this3.staffTypeId
+                };
 
-                _this3.lookupService.getLookupValueByLookupTypeId(_this3.staffTypeId).subscribe(function (res) {
+                _this3.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                   var categoryPrivateListData = res.filter(function (item) {
                     return item.isActive;
                   });
@@ -635,13 +641,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this4 = this;
 
-          //get all staff type
-          this.lookupService.getLookupValueByLookupTypeId(7).subscribe(function (res) {
+          var params = {
+            LookupTypeId: 7
+          }; //get all staff type
+
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             _this4.staffTypeData = res;
             _this4.isStaffLoaded = true;
-          }, function (error) {}); //get all private category
+          }, function (error) {});
+          var categoryParams = {
+            LookupTypeId: 16
+          }; //get all private category
 
-          this.lookupService.getLookupValueByLookupTypeId(16).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
             var categoryPrivateListData = res.filter(function (item) {
               return item['isActive'] === true;
             });
@@ -651,7 +663,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(categoryPrivateListData);
             _this4.categoryPrivateListData = categoryPrivateListData; //get all common category
 
-            _this4.lookupService.getLookupValueByLookupTypeId(17).subscribe(function (res) {
+            var commonListParams = {
+              LookupTypeId: 17
+            };
+
+            _this4.lookupService.getLookupValueByLookupTypeId(commonListParams).subscribe(function (res) {
               var categoryCommonListData = res.filter(function (item) {
                 return item.isActive;
               });
@@ -703,9 +719,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -721,7 +737,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./helpdesk-setup.component.scss */
       "./src/app/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], HelpdeskSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], HelpdeskSetupComponent);
     /***/
   },
 

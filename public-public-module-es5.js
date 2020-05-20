@@ -5379,15 +5379,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_login_check_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../.././api/services/login-check.service */
-    "./src/app/api/services/login-check.service.ts");
+    var src_app_api_controllers_loginCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/loginCheck */
+    "./src/app/api/controllers/loginCheck.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../.././api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
@@ -5434,11 +5434,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getUserDetails(id) {
           var _this12 = this;
 
-          this.userService.getUserById(id).subscribe(function (res) {
+          var params = {
+            userid: id
+          };
+          this.userService.getUserById(params).subscribe(function (res) {
             var user = res[0];
             if (user.resetPassword) _this12.cookieService.set('isReset', 'yes');else _this12.cookieService.set('isReset', 'no');
+            var params = {
+              userId: id
+            };
 
-            _this12.userService.getRolesByUserId(id).subscribe(function (data) {
+            _this12.userService.getRolesByUserId(params).subscribe(function (data) {
               user.roleName = data[0].roleName;
 
               _this12.sharedService.setUserDetails(user);
@@ -5480,7 +5486,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             password: this.userPassword,
             emailId: this.userEmailId
           };
-          this.loginCheckService.AuthenticateUserByIdPassword(params).subscribe(function (res) {
+          this.loginCheckService.authenticateUserByIdPassword(params).subscribe(function (res) {
             if (res.length > 0) {
               _this13.isInvalidLogin = false;
               _this13.isInvalidPassword = false;
@@ -5517,9 +5523,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
-        type: _api_services_login_check_service__WEBPACK_IMPORTED_MODULE_3__["LoginCheckService"]
+        type: src_app_api_controllers_loginCheck__WEBPACK_IMPORTED_MODULE_3__["LoginCheckService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -5535,7 +5541,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./login.component.scss */
       "./src/app/public/components/login/login.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _api_services_login_check_service__WEBPACK_IMPORTED_MODULE_3__["LoginCheckService"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], LoginComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_loginCheck__WEBPACK_IMPORTED_MODULE_3__["LoginCheckService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], LoginComponent);
     /***/
   },
 
@@ -6146,15 +6152,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../.././api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../.././api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -6309,9 +6315,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "genderName": this.user.genderId.toString()
             }]
           };
-          console.log(userDetails); //add user  (addSignUpUser)
-
-          this.userService.addSignupUserRequestResponse(userDetails).subscribe(function (res) {
+          var params = {
+            signupUser: userDetails
+          };
+          this.userService.addSignupUserRequest(params).subscribe(function (res) {
             console.log(res);
 
             if (res.body.message) {
@@ -6337,9 +6344,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     SignupEntryComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
       }, {
@@ -6355,7 +6362,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./signup-entry.component.scss */
       "./src/app/public/components/signup-entry/signup-entry.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])], SignupEntryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])], SignupEntryComponent);
     /***/
   },
 

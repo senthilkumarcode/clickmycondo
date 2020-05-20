@@ -550,9 +550,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/vehicle.service */ "./src/app/api/services/vehicle.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/vehicle */ "./src/app/api/controllers/vehicle.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -592,7 +592,10 @@ let AddSlotComponent = class AddSlotComponent {
         this.outputParams.emit(this.slotArray.length);
     }
     getUnits() {
-        this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.slot.apartmentBlockId)).subscribe((res) => {
+        let blockParams = {
+            apartmentBlockId: parseInt(this.slot.apartmentBlockId)
+        };
+        this.apartmentService.getApartmentBlockUnitByBlockId(blockParams).subscribe((res) => {
             this.isSlotSelected = true;
             this.isBlockSelected = true;
             this.unitData = res;
@@ -615,7 +618,10 @@ let AddSlotComponent = class AddSlotComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-11-19T19:53:19.815Z"
             };
-            this.vehicleService.addParkingSlot(details).subscribe((res) => {
+            let params = {
+                parkingSlot: details
+            };
+            this.vehicleService.addParkingSlot(params).subscribe((res) => {
                 if (res.message) {
                     this.isSlotAdded = true;
                 }
@@ -642,7 +648,10 @@ let AddSlotComponent = class AddSlotComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-11-19T19:53:19.815Z"
             };
-            this.vehicleService.updateParkingSlot(details).subscribe((res) => {
+            let params = {
+                parkingSlot: details
+            };
+            this.vehicleService.updateParkingSlot(params).subscribe((res) => {
                 if (res.message) {
                     this.isSlotAdded = true;
                 }
@@ -659,8 +668,11 @@ let AddSlotComponent = class AddSlotComponent {
     ngOnInit() {
         this.slot = {};
         this.slotType = "";
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         //get apartment blocks
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.blocksData = res;
         });
         if (this.route.params['value'].id != undefined) {
@@ -673,7 +685,10 @@ let AddSlotComponent = class AddSlotComponent {
                 //get block unit
                 this.apartmentService.getApartmentBlockUnitById(this.slot.apartmentBlockUnitId).subscribe((block) => {
                     this.slot.apartmentBlockId = block[0].apartmentBlockId.toString();
-                    this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.slot.apartmentBlockId)).subscribe((res) => {
+                    let params = {
+                        apartmentBlockId: parseInt(this.slot.apartmentBlockId)
+                    };
+                    this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
                         this.isSlotSelected = true;
                         this.unitData = res;
                     }, error => {
@@ -689,9 +704,9 @@ let AddSlotComponent = class AddSlotComponent {
 AddSlotComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_3__["VehicleService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -715,9 +730,9 @@ AddSlotComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_3__["VehicleService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], AddSlotComponent);
@@ -752,9 +767,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/vehicle.service */ "./src/app/api/services/vehicle.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/vehicle */ "./src/app/api/controllers/vehicle.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -798,7 +813,10 @@ let AddVehicleComponent = class AddVehicleComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-11-20T06:34:51.891Z"
             };
-            this.vehicleService.addVehicle(details).subscribe((res) => {
+            let params = {
+                vehicle: details
+            };
+            this.vehicleService.addVehicle(params).subscribe((res) => {
                 if (res.message) {
                     var vehicleId = res.message;
                     let mapVehicleDetails = {
@@ -818,7 +836,10 @@ let AddVehicleComponent = class AddVehicleComponent {
                         "updatedBy": 0,
                         "updatedOn": "2019-11-20T07:23:30.495Z"
                     };
-                    this.vehicleService.addApartmentBlockUnitVehicle(mapVehicleDetails).subscribe((res) => {
+                    let params = {
+                        apartmentBlockUnitVehicle: mapVehicleDetails
+                    };
+                    this.vehicleService.addApartmentBlockUnitVehicle(params).subscribe((res) => {
                         if (res.message) {
                             this.isVehicleAdded = true;
                         }
@@ -848,7 +869,10 @@ let AddVehicleComponent = class AddVehicleComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-11-20T06:34:51.891Z"
             };
-            this.vehicleService.updateVehicle(details).subscribe((res) => {
+            let params = {
+                vehicle: details
+            };
+            this.vehicleService.updateVehicle(params).subscribe((res) => {
                 if (res.message) {
                     this.isVehicleAdded = true;
                 }
@@ -863,8 +887,11 @@ let AddVehicleComponent = class AddVehicleComponent {
     }
     ngOnInit() {
         this.vehicle = {};
+        let params = {
+            LookupTypeId: 2
+        };
         //get vehicle type
-        this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.vehicleTypeData = res;
             console.log(res);
         });
@@ -885,9 +912,9 @@ let AddVehicleComponent = class AddVehicleComponent {
 AddVehicleComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_3__["VehicleService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -903,9 +930,9 @@ AddVehicleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_3__["VehicleService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], AddVehicleComponent);
@@ -1242,15 +1269,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParkingCreateParkingSlotComponent", function() { return ParkingCreateParkingSlotComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/services */ "./src/app/api/services.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/parking */ "./src/app/api/controllers/parking.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
 
 
 
 
 let ParkingCreateParkingSlotComponent = class ParkingCreateParkingSlotComponent {
-    constructor(apartmentService, lookupService, activatedRoute) {
+    constructor(apartmentService, parkingService, lookupService, activatedRoute) {
         this.apartmentService = apartmentService;
+        this.parkingService = parkingService;
         this.lookupService = lookupService;
         this.activatedRoute = activatedRoute;
         this.isEditSlot = false;
@@ -1293,26 +1325,32 @@ let ParkingCreateParkingSlotComponent = class ParkingCreateParkingSlotComponent 
         });
     }
     getMasterData() {
+        let slotMainList = {
+            LookupTypeId: 71
+        };
         //slot main type
-        this.lookupService.getLookupValueByLookupTypeId(71).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(slotMainList).subscribe((res) => {
             this.slotMainTypeList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let slotTypeParams = {
+            LookupTypeId: 18
+        };
         //slot type
-        this.lookupService.getLookupValueByLookupTypeId(18).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe((res) => {
             this.slotTypeList = res.filter(item => {
                 return item.isActive;
             });
         });
         //parking type
-        this.apartmentService.getParkingType().subscribe((resp) => {
+        this.parkingService.getParkingType().subscribe((resp) => {
             this.parkingTypeList = resp;
         }, error => {
         });
     }
     getParkingSlot() {
-        this.apartmentService.getParkingSlot(this.slotId).subscribe(resp => {
+        this.parkingService.getParkingSlot(this.slotId).subscribe(resp => {
             let slotDetails = resp[0];
             for (const key in slotDetails) {
                 this.createSlot[key] = slotDetails[key];
@@ -1320,27 +1358,12 @@ let ParkingCreateParkingSlotComponent = class ParkingCreateParkingSlotComponent 
         }, error => {
         });
     }
-    parkingSlot() {
-        if (this.isCreateSlot) {
-            this.createSlot.insertedBy = 1;
-            this.createSlot.updatedBy = 0;
-            this.apartmentService.createParkingSlot(this.createSlot).subscribe(resp => {
-            }, error => {
-            });
-        }
-        else {
-            this.createSlot.insertedBy = 0;
-            this.createSlot.updatedBy = 1;
-            this.apartmentService.updateParkingSlot(this.createSlot).subscribe(resp => {
-            }, error => {
-            });
-        }
-    }
 };
 ParkingCreateParkingSlotComponent.ctorParameters = () => [
-    { type: src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_3__["ParkingService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }
 ];
 ParkingCreateParkingSlotComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1348,9 +1371,10 @@ ParkingCreateParkingSlotComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./parking-create-parking-slot.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-create-parking-slot/parking-create-parking-slot.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./parking-create-parking-slot.component.scss */ "./src/app/ams/parking-management/components/parking-create-parking-slot/parking-create-parking-slot.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        src_app_api_services__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_3__["ParkingService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
 ], ParkingCreateParkingSlotComponent);
 
 
@@ -2132,10 +2156,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/vehicle.service */ "./src/app/api/services/vehicle.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/parking */ "./src/app/api/controllers/parking.ts");
+/* harmony import */ var src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/vehicle */ "./src/app/api/controllers/vehicle.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -2152,10 +2176,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponent {
-    constructor(injector, dialog, userService, apartmentService, vehicleService, lookupService, sharedService, cookieService) {
+    constructor(injector, dialog, parkingService, apartmentService, vehicleService, lookupService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
-        this.userService = userService;
+        this.parkingService = parkingService;
         this.apartmentService = apartmentService;
         this.vehicleService = vehicleService;
         this.lookupService = lookupService;
@@ -2256,32 +2280,44 @@ let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponen
      * get Msater Data
      */
     getMasterData() {
-        this.apartmentService.getApartmentBlockUnitByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let blockUnitParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockUnitByApartmentId(blockUnitParams).subscribe((res) => {
             this.apartmentBlockUnitDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let slotMainParams = {
+            LookupTypeId: 71
+        };
         //slot main type
-        this.lookupService.getLookupValueByLookupTypeId(71).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(slotMainParams).subscribe((res) => {
             this.slotMainTypeDataList = res.filter(item => {
                 return item.isActive;
             });
         });
+        let slotTypeParams = {
+            LookupTypeId: 18
+        };
         //slot type
-        this.lookupService.getLookupValueByLookupTypeId(18).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe((res) => {
             this.slotTypeDataList = res.filter(item => {
                 return item.isActive;
             });
             console.log(this.slotTypeDataList);
         });
+        let vehicleTypeParams = {
+            LookupTypeId: 2
+        };
         //vehicle type
-        this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe((res) => {
             this.vehicleTypeDataList = res.filter(item => {
                 return item.isActive;
             });
         });
         //parking type
-        this.apartmentService.getParkingType().subscribe((resp) => {
+        this.parkingService.getParkingType().subscribe((resp) => {
             this.parkingTypeList = resp;
         }, error => {
         });
@@ -2291,7 +2327,10 @@ let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponen
      * get parking slot
      */
     getParkingSlot() {
-        this.vehicleService.getParkingSlotByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let parkingSlotParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vehicleService.getParkingSlotByApartmentId(parkingSlotParams).subscribe((res) => {
             this.parkingSlotDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -2309,10 +2348,10 @@ let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponen
 ParkingManageParkingSlotsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_5__["VehicleService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_5__["VehicleService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] }
 ];
@@ -2324,10 +2363,10 @@ ParkingManageParkingSlotsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_5__["VehicleService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_5__["VehicleService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]])
 ], ParkingManageParkingSlotsComponent);
@@ -2362,14 +2401,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/vehicle.service */ "./src/app/api/services/vehicle.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/parking */ "./src/app/api/controllers/parking.ts");
+/* harmony import */ var src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/vehicle */ "./src/app/api/controllers/vehicle.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+
 
 
 
@@ -2382,10 +2423,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponent {
-    constructor(injector, dialog, userService, apartmentService, vehicleService, lookupService, sharedService, cookieService) {
+    constructor(injector, dialog, userService, parkingService, apartmentService, vehicleService, lookupService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
         this.userService = userService;
+        this.parkingService = parkingService;
         this.apartmentService = apartmentService;
         this.vehicleService = vehicleService;
         this.lookupService = lookupService;
@@ -2398,14 +2440,14 @@ let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponen
         this.unitOrder = true;
         this.ItemUserStartIndex = 0;
         this.itemUserLimit = 20;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
     }
     getUserIndexParams(event) {
         this.ItemUserStartIndex = event.ItemUserStartIndex;
         this.ItemUserEndIndex = event.ItemUserEndIndex;
     }
     getSlotType(slotId, index) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.slotTypeData, item => {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_11__["filter"](this.slotTypeData, item => {
             if (item.lookupValueId === slotId)
                 return item;
         });
@@ -2421,7 +2463,7 @@ let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponen
         var vehicleId = this.allSlotsData[index].vehicleId;
         this.vehicleService.getVehicleByVehicleId(vehicleId).subscribe((res) => {
             var vehicleData = res[0];
-            var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.vehicleTypeData, item => {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_11__["filter"](this.vehicleTypeData, item => {
                 if (item.lookupValueId === vehicleData.vehicleTypeId) {
                     return item;
                 }
@@ -2443,7 +2485,7 @@ let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponen
         this.isBlockSelected = true;
         this.isDataLoaded = false;
         this.allottedSlotListData = [];
-        underscore__WEBPACK_IMPORTED_MODULE_10__["each"](this.allSlotsData, (item, index) => {
+        underscore__WEBPACK_IMPORTED_MODULE_11__["each"](this.allSlotsData, (item, index) => {
             var data = item.slotName.split(' ');
             var blockName = data[0];
             if (this.apartmentBlockNumber == blockName) {
@@ -2483,21 +2525,30 @@ let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponen
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     ngOnInit() {
+        let slotParams = {
+            LookupTypeId: 18
+        };
         //get slot type
-        this.lookupService.getLookupValueByLookupTypeId(18).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(slotParams).subscribe((res) => {
             this.slotTypeData = res;
         }, error => {
         });
+        let vehicleParams = {
+            LookupTypeId: 2
+        };
         //get vehicle type
-        this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(vehicleParams).subscribe((res) => {
             this.vehicleTypeData = res;
         }, error => {
         });
-        this.vehicleService.getParkingSlotByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let allSlotParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vehicleService.getParkingSlotByApartmentId(allSlotParams).subscribe((res) => {
             this.allSlotsData = res.filter(item => {
                 return item.isActive;
             });
-            underscore__WEBPACK_IMPORTED_MODULE_10__["each"](this.allSlotsData, (item, index) => {
+            underscore__WEBPACK_IMPORTED_MODULE_11__["each"](this.allSlotsData, (item, index) => {
                 this.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe((res) => {
                     this.allSlotsData[index].blockNo = res[0].apartmentBlockNumber;
                     this.allSlotsData[index].unitNo = res[0].apartmentBlockUnitNumber;
@@ -2517,7 +2568,10 @@ let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponen
             });
         }, error => {
         });
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe((res) => {
             this.blocksData = res;
         }, error => {
             console.log(error);
@@ -2527,12 +2581,13 @@ let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponen
 ParkingManagementAllottedComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_5__["VehicleService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] }
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_5__["ParkingService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_6__["VehicleService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("viewVehicleRef", { static: false }),
@@ -2546,12 +2601,13 @@ ParkingManagementAllottedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_5__["VehicleService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]])
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_parking__WEBPACK_IMPORTED_MODULE_5__["ParkingService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_6__["VehicleService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])
 ], ParkingManagementAllottedComponent);
 
 
@@ -2628,19 +2684,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParkingAddSetupVehicleTypeComponent", function() { return ParkingAddSetupVehicleTypeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../api/services/vehicle.service */ "./src/app/api/services/vehicle.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
 
 
 let ParkingAddSetupVehicleTypeComponent = class ParkingAddSetupVehicleTypeComponent {
-    constructor(vehicleService, lookupService, sharedService, cookieService) {
-        this.vehicleService = vehicleService;
+    constructor(lookupService, sharedService, cookieService) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -2666,7 +2719,10 @@ let ParkingAddSetupVehicleTypeComponent = class ParkingAddSetupVehicleTypeCompon
                 "updatedBy": 0,
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.addLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.addLookupValue(params).subscribe((res) => {
                 if (res.message) {
                     this.sharedService.setAlertMessage(`${this.config.type} added successfully`);
                     this.emitConfig.emit({ isAdd: this.config.category, type: this.typeId });
@@ -2688,7 +2744,10 @@ let ParkingAddSetupVehicleTypeComponent = class ParkingAddSetupVehicleTypeCompon
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
             };
-            this.lookupService.updateLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.updateLookupValue(params).subscribe((res) => {
                 if (res.message) {
                     this.sharedService.setAlertMessage("Vehicle Type added successfully");
                     this.emitConfig.emit({ isAdd: this.config.category, type: this.typeId });
@@ -2703,10 +2762,9 @@ let ParkingAddSetupVehicleTypeComponent = class ParkingAddSetupVehicleTypeCompon
     }
 };
 ParkingAddSetupVehicleTypeComponent.ctorParameters = () => [
-    { type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_2__["VehicleService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -2734,10 +2792,9 @@ ParkingAddSetupVehicleTypeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./parking-add-setup-vehicle-type.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-management-settings/parking-add-setup-vehicle-type/parking-add-setup-vehicle-type.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./parking-add-setup-vehicle-type.component.scss */ "./src/app/ams/parking-management/components/parking-management-settings/parking-add-setup-vehicle-type/parking-add-setup-vehicle-type.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_2__["VehicleService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], ParkingAddSetupVehicleTypeComponent);
 
 
@@ -2769,8 +2826,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParkingManagementSettingsComponent", function() { return ParkingManagementSettingsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/vehicle.service */ "./src/app/api/services/vehicle.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/vehicle */ "./src/app/api/controllers/vehicle.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -2814,8 +2871,11 @@ let ParkingManagementSettingsComponent = class ParkingManagementSettingsComponen
         });
     }
     getVehicleType() {
+        let categoryParams = {
+            LookupTypeId: 2
+        };
         //get vehcile type
-        this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
             this.isVehicleDataLoaded = true;
             this.vehicleCategoryData = res.filter(item => {
                 return item.isActive;
@@ -2823,8 +2883,11 @@ let ParkingManagementSettingsComponent = class ParkingManagementSettingsComponen
         });
     }
     getMainSlotType() {
+        let slotCategoryParams = {
+            LookupTypeId: 71
+        };
         //get main slot type
-        this.lookupService.getLookupValueByLookupTypeId(71).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe((res) => {
             this.isSlotMainDataLoaded = true;
             this.slotMainCategoryData = res.filter(item => {
                 return item.isActive;
@@ -2832,8 +2895,11 @@ let ParkingManagementSettingsComponent = class ParkingManagementSettingsComponen
         });
     }
     getSlotType() {
+        let slotCategoryParams = {
+            LookupTypeId: 18
+        };
         //get slot type
-        this.lookupService.getLookupValueByLookupTypeId(18).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe((res) => {
             this.isSlotDataLoaded = true;
             this.slotCategoryData = res.filter(item => {
                 return item.isActive;
@@ -2858,8 +2924,8 @@ let ParkingManagementSettingsComponent = class ParkingManagementSettingsComponen
 };
 ParkingManagementSettingsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_2__["VehicleService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
@@ -2870,8 +2936,8 @@ ParkingManagementSettingsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./parking-management-settings.component.scss */ "./src/app/ams/parking-management/components/parking-management-settings/parking-management-settings.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_2__["VehicleService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], ParkingManagementSettingsComponent);
@@ -2905,7 +2971,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParkingManagementSlotTypesComponent", function() { return ParkingManagementSlotTypesComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -3020,7 +3086,10 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
                 "updatedBy": 0,
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.addLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.addLookupValue(params).subscribe((res) => {
                 if (res.message) {
                     this.isSlotTypeSubmitted = true;
                     this.sharedService.setAlertMessage("Slot Type added successfully");
@@ -3046,7 +3115,10 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.updateLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.updateLookupValue(params).subscribe((res) => {
                 if (res.message) {
                     this.isSlotTypeSubmitted = true;
                     this.sharedService.setAlertMessage("Vehicle Type updated successfully");
@@ -3063,7 +3135,10 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
     }
     ngOnInit() {
         this.getSlotType();
-        this.lookupService.getLookupValueByLookupTypeId(71).subscribe((res) => {
+        let slotMainParams = {
+            LookupTypeId: 71
+        };
+        this.lookupService.getLookupValueByLookupTypeId(slotMainParams).subscribe((res) => {
             this.slotMainTypeDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -3073,7 +3148,10 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
      * Get Slot Type
      */
     getSlotType() {
-        this.lookupService.getLookupValueByLookupTypeId(18).subscribe((res) => {
+        let slotListParams = {
+            LookupTypeId: 18
+        };
+        this.lookupService.getLookupValueByLookupTypeId(slotListParams).subscribe((res) => {
             this.slotDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -3089,7 +3167,7 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
     }
 };
 ParkingManagementSlotTypesComponent.ctorParameters = () => [
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
@@ -3099,7 +3177,7 @@ ParkingManagementSlotTypesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./parking-management-slot-types.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-management-slot-types/parking-management-slot-types.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./parking-management-slot-types.component.scss */ "./src/app/ams/parking-management/components/parking-management-slot-types/parking-management-slot-types.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], ParkingManagementSlotTypesComponent);
@@ -3178,7 +3256,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParkingManagementVehicleTypesComponent", function() { return ParkingManagementVehicleTypesComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -3283,7 +3361,10 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
                 "updatedBy": 0,
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.addLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.addLookupValue(params).subscribe((res) => {
                 if (res.message) {
                     this.isVehicleTypeSubmitted = true;
                     this.sharedService.setAlertMessage("Vehicle Type added successfully");
@@ -3314,7 +3395,10 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.updateLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.updateLookupValue(params).subscribe((res) => {
                 if (res.message) {
                     this.isVehicleTypeSubmitted = true;
                     this.isVehicleTypeUpdate = !this.isVehicleTypeUpdate;
@@ -3357,7 +3441,10 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
      * Get Vehilce Type List
      */
     getVehicleTypeList() {
-        this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res) => {
+        let vehicleDataListParams = {
+            LookupTypeId: 2
+        };
+        this.lookupService.getLookupValueByLookupTypeId(vehicleDataListParams).subscribe((res) => {
             this.vehicleDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -3374,7 +3461,7 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
 };
 ParkingManagementVehicleTypesComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
@@ -3385,7 +3472,7 @@ ParkingManagementVehicleTypesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./parking-management-vehicle-types.component.scss */ "./src/app/ams/parking-management/components/parking-management-vehicle-types/parking-management-vehicle-types.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], ParkingManagementVehicleTypesComponent);

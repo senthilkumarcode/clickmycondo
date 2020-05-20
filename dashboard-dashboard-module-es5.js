@@ -850,21 +850,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/ticket.service */
-    "./src/app/api/services/ticket.service.ts");
+    var src_app_api_controllers_ticket__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/ticket */
+    "./src/app/api/controllers/ticket.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -904,7 +904,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this2 = this;
 
-          this.ticketService.getAllTicketsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
             if (res.length == undefined || res.length == 0) {
               _this2.totalOpenPersonalTickets = 0;
               _this2.totalUrgentPersonalTickets = 0;
@@ -939,11 +942,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_3__["TicketService"]
+        type: src_app_api_controllers_ticket__WEBPACK_IMPORTED_MODULE_3__["TicketService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -959,7 +962,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./helpdesk-chart.component.scss */
       "./src/app/ams/dashboard/components/shared/helpdesk-chart/helpdesk-chart.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _api_services_ticket_service__WEBPACK_IMPORTED_MODULE_3__["TicketService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], HelpdeskChartComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_ticket__WEBPACK_IMPORTED_MODULE_3__["TicketService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], HelpdeskChartComponent);
     /***/
   },
 
@@ -1372,37 +1375,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../.././api/services/user.service */
-    "./src/app/api/services/user.service.ts");
-    /* harmony import */
-
-
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var UnitChartComponent =
     /*#__PURE__*/
     function () {
-      function UnitChartComponent(userService, apartmentService, sharedService, cookieService) {
+      function UnitChartComponent(apartmentService, cookieService) {
         _classCallCheck(this, UnitChartComponent);
 
-        this.userService = userService;
         this.apartmentService = apartmentService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
       }
 
@@ -1411,7 +1400,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this4 = this;
 
-          this.apartmentService.getApartmentBlockUnitByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
             _this4.totalUnits = res.length;
           }, function (error) {
             console.log(error);
@@ -1475,13 +1467,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     UnitChartComponent.ctorParameters = function () {
       return [{
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -1496,7 +1484,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./unit-chart.component.scss */
       "./src/app/ams/dashboard/components/shared/unit-chart/unit-chart.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], UnitChartComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], UnitChartComponent);
     /***/
   },
 
@@ -1554,37 +1542,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../.././api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var UsersChartComponent =
     /*#__PURE__*/
     function () {
-      function UsersChartComponent(userService, apartmentService, sharedService, cookieService) {
+      function UsersChartComponent(userService, apartmentService, cookieService) {
         _classCallCheck(this, UsersChartComponent);
 
         this.userService = userService;
         this.apartmentService = apartmentService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
       }
 
@@ -1605,7 +1586,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(error);
           });
           this.totalApprovedUsers = this.totalUsers - this.totalUnapprovedUsers;
-          this.apartmentService.getApartmentBlockUnitByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
             _this6.totalUnits = res.length;
           }, function (error) {
             console.log(error);
@@ -1618,13 +1602,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     UsersChartComponent.ctorParameters = function () {
       return [{
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -1636,7 +1618,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./users-chart.component.scss */
       "./src/app/ams/dashboard/components/shared/users-chart/users-chart.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], UsersChartComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], UsersChartComponent);
     /***/
   },
 
@@ -1842,9 +1824,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../.././api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
@@ -1892,7 +1874,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this7 = this;
 
           this.userRole = this.cookieService.get('userRole');
-          this.userService.getUserById(parseInt(this.cookieService.get('userId'))).subscribe(function (res) {
+          var params = {
+            userid: parseInt(this.cookieService.get('userId'))
+          };
+          this.userService.getUserById(params).subscribe(function (res) {
             _this7.userName = res[0].firstName;
           }, function (error) {
             console.log(error);
@@ -1908,7 +1893,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     DashboardComponent.ctorParameters = function () {
       return [{
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
@@ -1924,7 +1909,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./dashboard.component.scss */
       "./src/app/ams/dashboard/dashboard.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], DashboardComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], DashboardComponent);
     /***/
   },
 

@@ -52,11 +52,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/email-send.service */ "./src/app/api/services/email-send.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/emailSend */ "./src/app/api/controllers/emailSend.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
@@ -129,8 +129,11 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
             "isDocSubmitted": this.user.isDocSubmitted,
             "readyForApproval": this.user.readyForApproval
         };
+        let params = {
+            user: userDetails
+        };
         //update user 
-        this.userService.UpdateUser(userDetails).subscribe((res) => {
+        this.userService.updateUser(params).subscribe((res) => {
             if (res.message) {
                 this.sharedService.setAlertMessage("User updated successfully");
                 this.isDataLoaded = true;
@@ -155,17 +158,26 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
     }
     ngOnInit() {
         this.user = {};
-        this.userService.getUserById(parseInt(this.cookieService.get('userId'))).subscribe((res) => {
+        let params = {
+            userid: parseInt(this.cookieService.get('userId'))
+        };
+        this.userService.getUserById(params).subscribe((res) => {
             console.log(res);
             this.user = res[0];
             this.genderType = this.user.genderId.toString();
             this.isDataLoaded = true;
         });
-        this.userService.getRolesByUserId(parseInt(this.cookieService.get('userId'))).subscribe((res) => {
+        let roleParams = {
+            userId: parseInt(this.cookieService.get('userId'))
+        };
+        this.userService.getRolesByUserId(roleParams).subscribe((res) => {
             console.log(res);
             this.roleName = res[0].roleName;
         });
-        this.apartmentService.getAllApartmentBlockUnitUsersByUserId(parseInt(this.cookieService.get('userId'))).subscribe((res) => {
+        let apartmentParams = {
+            userId: parseInt(this.cookieService.get('userId'))
+        };
+        this.apartmentService.getAllApartmentBlockUnitUsersByUserId(apartmentParams).subscribe((res) => {
             this.apartmentBlockUnitId = res[0].apartmentBlockUnitId;
             this.apartmentService.getApartmentBlockUnitById(this.apartmentBlockUnitId).subscribe((res) => {
                 this.user.apartmentBlockNumber = res[0].apartmentBlockNumber;
@@ -218,11 +230,11 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
 ProfileAreaBasicComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__["EmailSendService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__["EmailSendService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
 ];
 ProfileAreaBasicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -233,11 +245,11 @@ ProfileAreaBasicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__["EmailSendService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__["EmailSendService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
 ], ProfileAreaBasicComponent);
 

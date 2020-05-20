@@ -186,10 +186,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var AddBlockWrapperComponent =
     /*#__PURE__*/
     function () {
-      function AddBlockWrapperComponent(router, route) {
+      function AddBlockWrapperComponent(route) {
         _classCallCheck(this, AddBlockWrapperComponent);
 
-        this.router = router;
         this.route = route;
         this.blockCount = 1;
         this.isEditUser = false;
@@ -232,8 +231,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AddBlockWrapperComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }];
     };
@@ -246,7 +243,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-block-wrapper.component.scss */
       "./src/app/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])], AddBlockWrapperComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])], AddBlockWrapperComponent);
     /***/
   },
 
@@ -310,9 +307,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -374,7 +371,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             isActive: true,
             insertedBy: 1
           };
-          this.apartmentService.addApartmentBlock(this.apartmentBlock).subscribe(function (res) {
+          var params = {
+            apartmentBlock: this.apartmentBlock
+          };
+          this.apartmentService.addApartmentBlock(params).subscribe(function (res) {
             _this.isBlockAdded = true;
           }, function (error) {
             console.log(error);
@@ -394,7 +394,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
@@ -413,7 +413,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-block.component.scss */
       "./src/app/ams/profile-settings/components/add-block-wrapper/add-block/add-block.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], AddBlockComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], AddBlockComponent);
     /***/
   },
 
@@ -550,9 +550,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -607,7 +607,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this2 = this;
 
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             _this2.unitBlocksData = res;
           });
           this.unitArray = Array(this.unitCount).fill(0).map(function (x, i) {
@@ -621,7 +624,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AddUnitWrapperComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }];
@@ -635,7 +638,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-unit-wrapper.component.scss */
       "./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], AddUnitWrapperComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], AddUnitWrapperComponent);
     /***/
   },
 
@@ -693,15 +696,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -764,7 +767,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "isVacant": true,
             insertedBy: 1
           };
-          this.apartmentService.addApartmentBlockUnit(this.apartmentBlockUnit).subscribe(function (res) {
+          var params = {
+            apartmentBlockUnit: this.apartmentBlockUnit
+          };
+          this.apartmentService.addApartmentBlockUnit(params).subscribe(function (res) {
             _this3.isUnitAdded = true;
           });
         }
@@ -774,10 +780,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this4 = this;
 
           this.unit = {};
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             _this4.unitBlocksData = res;
           });
-          this.lookupService.getLookupValueByLookupTypeId(1).subscribe(function (res) {
+          var unitParams = {
+            LookupTypeId: 1
+          };
+          this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
             _this4.unitTypeData = res;
           });
         }
@@ -788,9 +800,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AddUnitComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
@@ -808,7 +820,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-unit.component.scss */
       "./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], AddUnitComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], AddUnitComponent);
     /***/
   },
 

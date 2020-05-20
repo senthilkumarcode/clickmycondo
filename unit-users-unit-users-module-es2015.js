@@ -227,15 +227,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../api/services/email-send.service */ "./src/app/api/services/email-send.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/emailSend */ "./src/app/api/controllers/emailSend.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
 
 
@@ -247,14 +245,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddResidentComponent = class AddResidentComponent {
-    constructor(dialog, router, route, userService, emailSendService, apartmentService, lookupService, sharedService, cookieService, cd) {
+    constructor(dialog, router, route, userService, emailSendService, apartmentService, sharedService, cookieService, cd) {
         this.dialog = dialog;
         this.router = router;
         this.route = route;
         this.userService = userService;
         this.emailSendService = emailSendService;
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.cd = cd;
@@ -284,7 +281,10 @@ let AddResidentComponent = class AddResidentComponent {
         this.outputParams.emit(this.residentArray);
     }
     getUnits() {
-        this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.apartmentBlockId)).subscribe((res) => {
+        let params = {
+            apartmentBlockId: parseInt(this.apartmentBlockId)
+        };
+        this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
             this.isBlockSelected = true;
             this.unitData = res;
             if (this.isEditUser) {
@@ -334,8 +334,11 @@ let AddResidentComponent = class AddResidentComponent {
                 "isDocSubmitted": false,
                 "readyForApproval": false
             };
+            let params = {
+                user: userDetails
+            };
             //add user 
-            this.userService.addUser(userDetails).subscribe((res) => {
+            this.userService.addUser(params).subscribe((res) => {
                 if (res.message) {
                     var userId = res.message;
                     let userRole = {
@@ -347,7 +350,10 @@ let AddResidentComponent = class AddResidentComponent {
                         "updatedBy": 0,
                         "updatedOn": "2019-11-10T10:00:28.212Z"
                     };
-                    this.userService.addUserRole(userRole).subscribe((res) => {
+                    let params = {
+                        userRole: userRole
+                    };
+                    this.userService.addUserRole(params).subscribe((res) => {
                         var apartmentBlockUnitUser = {
                             "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                             "userId": userId,
@@ -359,7 +365,10 @@ let AddResidentComponent = class AddResidentComponent {
                             "updatedBy": 0,
                             "updatedOn": "2019-11-10T10:38:46.060Z"
                         };
-                        this.apartmentService.addApartmentBlockUnitUser(apartmentBlockUnitUser).subscribe((res) => {
+                        let params = {
+                            apartmentBlockUnitUser: apartmentBlockUnitUser
+                        };
+                        this.apartmentService.addApartmentBlockUnitUser(params).subscribe((res) => {
                             this.isUserSubmitted = false;
                             if (res.message) {
                                 let emailDetails = {
@@ -368,7 +377,7 @@ let AddResidentComponent = class AddResidentComponent {
                                     Subject: 'User Created',
                                     TextMessage: 'User Created'
                                 };
-                                this.emailSendService.SendEmail(emailDetails).subscribe((res) => {
+                                this.emailSendService.sendEmail(emailDetails).subscribe((res) => {
                                     this.sharedService.setAlertMessage("Account has been created. User notified via Email ");
                                     this.router.navigate(['ams/unit&users/unapproved']);
                                 }, error => {
@@ -432,8 +441,11 @@ let AddResidentComponent = class AddResidentComponent {
                 "isDocSubmitted": this.user.isDocSubmitted,
                 "readyForApproval": this.user.readyForApproval
             };
+            let params = {
+                user: userDetails
+            };
             //edit user 
-            this.userService.UpdateUser(userDetails).subscribe((res) => {
+            this.userService.updateUser(params).subscribe((res) => {
                 if (res.message) {
                     var userId = res.message;
                     var userRole = {
@@ -445,7 +457,10 @@ let AddResidentComponent = class AddResidentComponent {
                         "updatedBy": this.user.updatedBy,
                         "updatedOn": this.user.updatedOn
                     };
-                    this.userService.addUserRole(userRole).subscribe((res) => {
+                    let params = {
+                        userRole: userRole
+                    };
+                    this.userService.addUserRole(params).subscribe((res) => {
                         var apartmentBlockUnitUser = {
                             "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                             "userId": userId,
@@ -457,7 +472,10 @@ let AddResidentComponent = class AddResidentComponent {
                             "updatedBy": this.user.updatedBy,
                             "updatedOn": this.user.updatedOn
                         };
-                        this.apartmentService.addApartmentBlockUnitUser(apartmentBlockUnitUser).subscribe((res) => {
+                        let params = {
+                            apartmentBlockUnitUser: apartmentBlockUnitUser
+                        };
+                        this.apartmentService.addApartmentBlockUnitUser(params).subscribe((res) => {
                             this.isUserSubmitted = false;
                             if (res.message) {
                                 this.sharedService.setAlertMessage("User updated successfully");
@@ -486,12 +504,17 @@ let AddResidentComponent = class AddResidentComponent {
     ngOnInit() {
         this.user = {};
         this.user.isEmailNotify = true;
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         //get apartment blocks
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.blocksData = res;
         });
-        this.userService.getAllRoles(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
-            console.log(res);
+        let roleParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.userService.getAllRoles(roleParams).subscribe((res) => {
             this.userRolesData = res;
         });
         if (this.route.params['value'].id != undefined) {
@@ -520,7 +543,10 @@ let AddResidentComponent = class AddResidentComponent {
         var isValid = rex.test(this.emailToRegister);
         if (isValid) {
             // Validate Email
-            this.userService.checkUserEmailExists(this.emailToRegister).subscribe((data) => {
+            let params = {
+                emailId: this.emailToRegister
+            };
+            this.userService.checkUserEmailExists(params).subscribe((data) => {
                 console.log(data);
                 if (data.ErrorMessage == 'EmailId Not Exists.') {
                     this.isValidEmail = true;
@@ -530,8 +556,8 @@ let AddResidentComponent = class AddResidentComponent {
                 }
                 else {
                     const message = `The user Id already exists Do you want to add this user to this condo?`;
-                    const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-                    const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                    const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
+                    const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
                         panelClass: 'material',
                         disableClose: true,
                         data: dialogData
@@ -579,15 +605,14 @@ let AddResidentComponent = class AddResidentComponent {
     }
 };
 AddResidentComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__["EmailSendService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__["EmailSendService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -608,15 +633,14 @@ AddResidentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-resident.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/unit-users/components/add-users/add-resident/add-resident.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-resident.component.scss */ "./src/app/ams/unit-users/components/add-users/add-resident/add-resident.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__["EmailSendService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__["EmailSendService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], AddResidentComponent);
 
@@ -727,11 +751,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/vehicle.service */ "./src/app/api/services/vehicle.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/vehicle */ "./src/app/api/controllers/vehicle.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -748,8 +772,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ApprovedUserDetailsComponent = class ApprovedUserDetailsComponent {
-    constructor(router, route, injector, dialog, userService, apartmentService, vehicleService, lookupService, sharedService, cookieService) {
-        this.router = router;
+    constructor(route, injector, dialog, userService, apartmentService, vehicleService, lookupService, sharedService, cookieService) {
         this.route = route;
         this.injector = injector;
         this.dialog = dialog;
@@ -845,21 +868,23 @@ let ApprovedUserDetailsComponent = class ApprovedUserDetailsComponent {
             this.isUserDataLoaded = false;
             this.getUserDetails(this.selectedTab);
         }
-        this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res) => {
+        let params = {
+            LookupTypeId: 2
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.vehicleTypeData = res;
         }, error => {
         });
     }
 };
 ApprovedUserDetailsComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_7__["VehicleService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_7__["VehicleService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
 ];
@@ -877,14 +902,13 @@ ApprovedUserDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./approved-user-details.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/unit-users/components/approved-user-details/approved-user-details.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./approved-user-details.component.scss */ "./src/app/ams/unit-users/components/approved-user-details/approved-user-details.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
-        _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_7__["VehicleService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_7__["VehicleService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])
 ], ApprovedUserDetailsComponent);
@@ -919,9 +943,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
@@ -1024,7 +1048,10 @@ let ApprovedComponent = class ApprovedComponent {
         }, error => {
             console.log(error);
         });
-        this.apartmentService.getApartmentBlockUnitByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
             this.totalUnits = res.length;
         }, error => {
             console.log(error);
@@ -1034,8 +1061,8 @@ let ApprovedComponent = class ApprovedComponent {
 ApprovedComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -1047,8 +1074,8 @@ ApprovedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], ApprovedComponent);
@@ -1129,7 +1156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -1296,7 +1323,7 @@ let DeActivatedComponent = class DeActivatedComponent {
                 this.userService.getUserById(item.id).subscribe((res) => {
                     var user = res[0];
                     user.isActive = true;
-                    this.userService.UpdateUser(user).subscribe((res) => {
+                    this.userService.updateUser(user).subscribe((res) => {
                         this.deActivatedListData.splice(index, 1);
                         this.totalUserItems = this.deActivatedListData.length;
                         this.isUserDataLoaded = true;
@@ -1329,7 +1356,7 @@ let DeActivatedComponent = class DeActivatedComponent {
 DeActivatedComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -1345,7 +1372,7 @@ DeActivatedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], DeActivatedComponent);
@@ -1381,7 +1408,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/user.service */ "./src/app/api/services/user.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -1423,7 +1450,10 @@ let SignuprequestComponent = class SignuprequestComponent {
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     ngOnInit() {
-        this.userService.getAllSignupUserRequestByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.userService.getAllSignupUserRequestByApartmentId(params).subscribe((res) => {
             // this.userService.getAllSignupUserRequestByApartmentId(3).subscribe((res : any) => {  
             console.log(res);
             var unitLstData = res;
@@ -1439,7 +1469,10 @@ let SignuprequestComponent = class SignuprequestComponent {
         }, error => {
             console.log(error);
         });
-        this.userService.getAllUnApprovedUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let unitParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.userService.getAllUnApprovedUsersByApartmentId(unitParams).subscribe((res) => {
             var unitListData = res;
             console.log(res);
             console.log(res.name);
@@ -1562,7 +1595,7 @@ let SignuprequestComponent = class SignuprequestComponent {
             signupUserId: data.signupUserRequestId,
             apartmentId: data.apartmentId
         };
-        this.userService.UpdateSignupUserRequestByApartmentId(params).subscribe((res) => {
+        this.userService.updateSignupUserRequestByApartmentId(params).subscribe((res) => {
             if (res.message) {
                 this.sharedService.setAlertMessage("Signup deleted successfully.");
                 this.router.navigate(['ams/unit&users/usersignuprequest', this.viewUserId]);
@@ -1578,7 +1611,7 @@ let SignuprequestComponent = class SignuprequestComponent {
                 this.userService.getUserById(item.id).subscribe((res) => {
                     var user = res[0];
                     user.isApproved = true;
-                    this.userService.UpdateUser(user).subscribe((res) => {
+                    this.userService.updateUser(user).subscribe((res) => {
                         this.unitListData.splice(index, 1);
                         this.totalUserItems = this.unitListData.length;
                         this.isUserDataLoaded = true;
@@ -1656,7 +1689,7 @@ SignuprequestComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -1676,7 +1709,7 @@ SignuprequestComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], SignuprequestComponent);
@@ -1756,9 +1789,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../.././api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/apartment */ "./src/app/api/controllers/apartment.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -1856,42 +1889,42 @@ let UserReportDataComponent = class UserReportDataComponent {
             ApartmentBlockID: blockId
         };
         if (this.isListOfResidents()) {
-            this.userService.GetReportUnitUserResidentsbyApartmentIdBlockId(details).subscribe((res) => {
+            this.userService.getReportUnitUserResidentsbyApartmentIdBlockId(details).subscribe((res) => {
                 this.userReportDataList = res;
                 this.isDataLoaded = true;
                 this.showItems();
             });
         }
         else if (this.isListOfApprovedUsers()) {
-            this.userService.GetReportApprovedUnitUserbyApartmentIdBlockId(details).subscribe((res) => {
+            this.userService.getReportApprovedUnitUserbyApartmentIdBlockId(details).subscribe((res) => {
                 this.userReportDataList = res;
                 this.isDataLoaded = true;
                 this.showItems();
             });
         }
         else if (this.isListOfDeactivatedUsers()) {
-            this.userService.GetReportDeActivatedUnitUserbyApartmentIdBlockId(details).subscribe((res) => {
+            this.userService.getReportDeActivatedUnitUserbyApartmentIdBlockId(details).subscribe((res) => {
                 this.userReportDataList = res;
                 this.isDataLoaded = true;
                 this.showItems();
             });
         }
         else if (this.isListOfResidentsVehicleInfo()) {
-            this.userService.GetReportUnitUserResidentsVehicleInfobyApartmentIdBlockId(details).subscribe((res) => {
+            this.userService.getReportUnitUserResidentsVehicleInfobyApartmentIdBlockId(details).subscribe((res) => {
                 this.userReportDataList = res;
                 this.isDataLoaded = true;
                 this.showItems();
             });
         }
         else if (this.isListOfExpiringRental()) {
-            this.userService.GetReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(details).subscribe((res) => {
+            this.userService.getReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(details).subscribe((res) => {
                 this.userReportDataList = res;
                 this.isDataLoaded = true;
                 this.showItems();
             });
         }
         else if (this.isListOfUsersWithPets()) {
-            this.userService.GetReportUnitUserPetInfobyApartmentIdBlockId(details).subscribe((res) => {
+            this.userService.getReportUnitUserPetInfobyApartmentIdBlockId(details).subscribe((res) => {
                 this.userReportDataList = res;
                 this.isDataLoaded = true;
                 this.showItems();
@@ -1909,10 +1942,16 @@ let UserReportDataComponent = class UserReportDataComponent {
     }
     ngOnInit() {
         this.pageName = this.route.params['value'].name;
-        this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let unitBlockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe((res) => {
             this.unitBlocksData = res;
         });
-        this.lookupService.getLookupValueByLookupTypeId(87).subscribe((res) => {
+        let params = {
+            LookupTypeId: 87
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             var data = res.filter(item => {
                 return item.lookupValueId == this.route.params['value'].id;
             });
@@ -1925,9 +1964,9 @@ let UserReportDataComponent = class UserReportDataComponent {
 UserReportDataComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -1939,9 +1978,9 @@ UserReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], UserReportDataComponent);
@@ -1975,18 +2014,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserReportsComponent", function() { return UserReportsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
 
 let UserReportsComponent = class UserReportsComponent {
-    constructor(lookupService, sharedService, cookieService) {
+    constructor(lookupService, cookieService) {
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
     }
@@ -2006,9 +2042,8 @@ let UserReportsComponent = class UserReportsComponent {
     }
 };
 UserReportsComponent.ctorParameters = () => [
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
 ];
 UserReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2016,9 +2051,8 @@ UserReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./user-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/unit-users/components/user-reports/user-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./user-reports.component.scss */ "./src/app/ams/unit-users/components/user-reports/user-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_lookup_service__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
 ], UserReportsComponent);
 
 

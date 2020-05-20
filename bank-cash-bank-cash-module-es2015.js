@@ -179,8 +179,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/bank-account.service */ "./src/app/api/services/bank-account.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/bankAccount */ "./src/app/api/controllers/bankAccount.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -246,7 +246,10 @@ let BankSettingsComponent = class BankSettingsComponent {
                 "updatedBy": 0,
                 "updatedOn": "2020-03-13T09:38:46.772Z"
             };
-            this.bankAccountService.addBankAccountDetails(details).subscribe((res) => {
+            let bankAccountDetails = {
+                bankAccountDetails: details
+            };
+            this.bankAccountService.addBankAccountDetails(bankAccountDetails).subscribe((res) => {
                 if (res.message) {
                     this.bankAccountService.getAllBankAccountDetails().subscribe((res) => {
                         this.isBankSubmitted = true;
@@ -282,7 +285,10 @@ let BankSettingsComponent = class BankSettingsComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
             };
-            this.bankAccountService.updateBankAccountDetails(details).subscribe((res) => {
+            let bankAccountDetails = {
+                bankAccountDetails: details
+            };
+            this.bankAccountService.updateBankAccountDetails(bankAccountDetails).subscribe((res) => {
                 if (res.message) {
                     this.bankAccountService.getAllBankAccountDetails().subscribe((res) => {
                         this.isBankSubmitted = true;
@@ -313,7 +319,6 @@ let BankSettingsComponent = class BankSettingsComponent {
         });
         // delete account
         this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            console.log(id);
             if (id != null) {
                 this.isBankLoaded = false;
                 var params = {
@@ -335,8 +340,8 @@ let BankSettingsComponent = class BankSettingsComponent {
 BankSettingsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -348,8 +353,8 @@ BankSettingsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], BankSettingsComponent);

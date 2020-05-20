@@ -239,92 +239,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material/dialog */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/moveInOut */
+    "./src/app/api/controllers/moveInOut.ts");
     /* harmony import */
 
 
-    var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/move-in-out.service */
-    "./src/app/api/services/move-in-out.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_11___default =
+    var moment__WEBPACK_IMPORTED_MODULE_8___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
     var MoveinAdminHistoryComponent =
     /*#__PURE__*/
     function () {
-      function MoveinAdminHistoryComponent(injector, moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService, dialog, router, route) {
+      function MoveinAdminHistoryComponent(injector, moveInOutService, apartmentService, lookupService, cookieService) {
         _classCallCheck(this, MoveinAdminHistoryComponent);
 
         this.injector = injector;
         this.moveInOutService = moveInOutService;
-        this.userService = userService;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
-        this.dialog = dialog;
-        this.router = router;
-        this.route = route;
         this.isDataLoaded = false;
         this.moveInOutHitoryData = "";
         this.ItemStartIndex = 0;
@@ -337,7 +308,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.selectedInput = "";
         this.columnField = {};
         this.statusType = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
       _createClass(MoveinAdminHistoryComponent, [{
@@ -370,7 +341,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onDateChange(event, type) {
           if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_11__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_8__(event).format("DD/MM/YYYY");
           } else {
             this.columnField = {};
           }
@@ -380,16 +351,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getDate(movein, date) {
           this.moveInDataList.map(function (obj) {
             if (obj.id == movein.id) {
-              obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
+              obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD/MM/YYYY");
             }
           });
-          return moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD/MM/YYYY");
         }
       }, {
         key: "getTime",
         value: function getTime(time) {
-          var timeData = moment__WEBPACK_IMPORTED_MODULE_11__(time, 'HH:mm:ss').toDate();
-          return moment__WEBPACK_IMPORTED_MODULE_11__(timeData).format('HH:mm A');
+          var timeData = moment__WEBPACK_IMPORTED_MODULE_8__(time, 'HH:mm:ss').toDate();
+          return moment__WEBPACK_IMPORTED_MODULE_8__(timeData).format('HH:mm A');
         }
       }, {
         key: "isMobileView",
@@ -409,7 +380,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockNo",
         value: function getBlockNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -427,7 +398,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockUnitNo",
         value: function getBlockUnitNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -460,7 +431,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this = this;
 
-          this.moveInOutService.getMoveInByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.moveInOutService.getMoveInByApartmentId(params).subscribe(function (res) {
             _this.moveInDataList = res.filter(function (item) {
               return item.isActive && (item.statusId == 375 || item.statusId == 380);
             });
@@ -484,7 +458,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getStatusName() {
           var _this2 = this;
 
-          this.lookupService.getLookupValueByLookupTypeId(92).subscribe(function (res) {
+          var params = {
+            LookupTypeId: 92
+          };
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             _this2.statusNames = res.filter(function (item) {
               return item.isActive;
             });
@@ -503,23 +480,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"]
+        type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
-      }, {
-        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
     };
 
@@ -531,7 +498,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./movein-admin-history.component.scss */
       "./src/app/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"]])], MoveinAdminHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], MoveinAdminHistoryComponent);
     /***/
   },
 
@@ -589,55 +556,48 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/move-in-out.service */
-    "./src/app/api/services/move-in-out.service.ts");
+    var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/moveInOut */
+    "./src/app/api/controllers/moveInOut.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_7___default =
+    var moment__WEBPACK_IMPORTED_MODULE_6___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
     var MoveinCancelComponent =
     /*#__PURE__*/
     function () {
-      function MoveinCancelComponent(moveInOutService, apartmentService, lookupService, cookieService) {
+      function MoveinCancelComponent(moveInOutService, apartmentService, cookieService) {
         _classCallCheck(this, MoveinCancelComponent);
 
         this.moveInOutService = moveInOutService;
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
         this.moveInData = "";
@@ -677,16 +637,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getDate(movein, date) {
           this.moveInDataList.map(function (obj) {
             if (obj.id == movein.id) {
-              obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
+              obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_6__(date).format("DD/MM/YYYY");
             }
           });
-          return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("DD/MM/YYYY");
         }
       }, {
         key: "getTime",
         value: function getTime(time) {
-          var timeData = moment__WEBPACK_IMPORTED_MODULE_7__(time, 'HH:mm:ss').toDate();
-          return moment__WEBPACK_IMPORTED_MODULE_7__(timeData).format('HH:mm A');
+          var timeData = moment__WEBPACK_IMPORTED_MODULE_6__(time, 'HH:mm:ss').toDate();
+          return moment__WEBPACK_IMPORTED_MODULE_6__(timeData).format('HH:mm A');
         }
       }, {
         key: "isMobileView",
@@ -701,7 +661,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockNo",
         value: function getBlockNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_5__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -719,7 +679,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockUnitNo",
         value: function getBlockUnitNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_5__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -744,8 +704,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this3 = this;
 
-          // tslint:disable-next-line:radix
-          this.moveInOutService.getMoveInByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          }; // tslint:disable-next-line:radix
+
+          this.moveInOutService.getMoveInByApartmentId(params).subscribe(function (res) {
             _this3.moveInDataList = res.filter(function (item) {
               return item.statusId === 380;
             });
@@ -770,13 +733,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     MoveinCancelComponent.ctorParameters = function () {
       return [{
-        type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
+        type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -788,7 +749,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./movein-cancel.component.scss */
       "./src/app/ams/moveinout-tracker/components/movein-cancel/movein-cancel.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], MoveinCancelComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], MoveinCancelComponent);
     /***/
   },
 
@@ -852,92 +813,84 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/move-in-out.service */
-    "./src/app/api/services/move-in-out.service.ts");
+    var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/moveInOut */
+    "./src/app/api/controllers/moveInOut.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_11___default =
+    var moment__WEBPACK_IMPORTED_MODULE_10___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
     "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
     var MoveinMaintainComponent =
     /*#__PURE__*/
     function () {
-      function MoveinMaintainComponent(injector, moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService, dialog, router, route) {
+      function MoveinMaintainComponent(injector, moveInOutService, apartmentService, lookupService, sharedService, cookieService, dialog, router) {
         _classCallCheck(this, MoveinMaintainComponent);
 
         this.injector = injector;
         this.moveInOutService = moveInOutService;
-        this.userService = userService;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.dialog = dialog;
         this.router = router;
-        this.route = route;
         this.isDataLoaded = false;
         this.moveInData = "";
         this.ItemStartIndex = 0;
@@ -950,7 +903,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.selectedInput = "";
         this.columnField = {};
         this.statusType = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
       }
 
       _createClass(MoveinMaintainComponent, [{
@@ -983,7 +936,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onDateChange(event, type) {
           if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_11__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_10__(event).format("DD/MM/YYYY");
           } else {
             this.columnField = {};
           }
@@ -993,16 +946,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getDate(movein, date) {
           this.moveInDataList.map(function (obj) {
             if (obj.id == movein.id) {
-              obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
+              obj.inDateData = moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
             }
           });
-          return moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
         }
       }, {
         key: "getTime",
         value: function getTime(time) {
-          var timeData = moment__WEBPACK_IMPORTED_MODULE_11__(time, 'HH:mm:ss').toDate();
-          return moment__WEBPACK_IMPORTED_MODULE_11__(timeData).format('HH:mm A');
+          var timeData = moment__WEBPACK_IMPORTED_MODULE_10__(time, 'HH:mm:ss').toDate();
+          return moment__WEBPACK_IMPORTED_MODULE_10__(timeData).format('HH:mm A');
         }
       }, {
         key: "isMobileView",
@@ -1022,7 +975,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockNo",
         value: function getBlockNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -1040,7 +993,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockUnitNo",
         value: function getBlockUnitNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -1118,7 +1071,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this5 = this;
 
-          this.moveInOutService.getMoveInByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.moveInOutService.getMoveInByApartmentId(params).subscribe(function (res) {
             _this5.moveInDataList = res.filter(function (item) {
               return item.isActive && item.statusId != 375;
             });
@@ -1148,8 +1104,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this6 = this;
 
           var message = "Do you want to check In?";
-          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
-          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
             panelClass: 'material',
             disableClose: true,
             data: dialogData
@@ -1188,7 +1144,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getStatusName() {
           var _this7 = this;
 
-          this.lookupService.getLookupValueByLookupTypeId(92).subscribe(function (res) {
+          var params = {
+            LookupTypeId: 92
+          };
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             _this7.statusNames = res.filter(function (item) {
               return item.isActive;
             });
@@ -1212,23 +1171,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"]
+        type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]
       }];
     };
 
@@ -1240,7 +1195,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./movein-maintain.component.scss */
       "./src/app/ams/moveinout-tracker/components/movein-maintain/movein-maintain.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["ActivatedRoute"]])], MoveinMaintainComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]])], MoveinMaintainComponent);
     /***/
   },
 
@@ -1456,15 +1411,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/move-in-out.service */
-    "./src/app/api/services/move-in-out.service.ts");
+    var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/moveInOut */
+    "./src/app/api/controllers/moveInOut.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -1601,8 +1556,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedOn": new Date().toISOString(),
               "apartmentId": parseInt(_this8.cookieService.get('apartmentId'))
             };
+            var params = {
+              moveInOutConfig: details
+            };
 
-            _this8.moveInOutService.updateMoveInOutConfig(details).subscribe(function (res) {
+            _this8.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
               if (res.message) {
                 _this8.isDataLoaded = true;
 
@@ -1620,7 +1578,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this9 = this;
 
-          this.moveInOutService.getMoveInOutConfigByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.moveInOutService.getMoveInOutConfigByApartmentId(params).subscribe(function (res) {
             _this9.documentDataList = res.filter(function (item) {
               return item.isActive;
             });
@@ -1637,7 +1598,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(error);
           }); //document type
 
-          this.lookupService.getLookupValueByLookupTypeId(72).subscribe(function (res) {
+          var docListparams = {
+            LookupTypeId: 72
+          };
+          this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe(function (res) {
             _this9.documentTypeDataList = res.filter(function (item) {
               return item.isActive;
             });
@@ -1692,9 +1656,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     MoveinSetupComponent.ctorParameters = function () {
       return [{
-        type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
+        type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
@@ -1712,7 +1676,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./movein-setup.component.scss */
       "./src/app/ams/moveinout-tracker/components/movein-setup/movein-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])], MoveinSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])], MoveinSetupComponent);
     /***/
   },
 
@@ -1770,68 +1734,54 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/move-in-out.service */
-    "./src/app/api/services/move-in-out.service.ts");
+    var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/moveInOut */
+    "./src/app/api/controllers/moveInOut.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9___default =
+    var moment__WEBPACK_IMPORTED_MODULE_7___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
     var MoveoutCancelComponent =
     /*#__PURE__*/
     function () {
-      function MoveoutCancelComponent(moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService) {
+      function MoveoutCancelComponent(moveInOutService, apartmentService, sharedService, cookieService) {
         _classCallCheck(this, MoveoutCancelComponent);
 
         this.moveInOutService = moveInOutService;
-        this.userService = userService;
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
@@ -1877,7 +1827,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onDateChange(event, type) {
           if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_9__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_7__(event).format("DD/MM/YYYY");
           } else {
             this.columnField = {};
           }
@@ -1887,16 +1837,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getDate(movein, date) {
           this.moveOutDataList.map(function (obj) {
             if (obj.id == movein.id) {
-              obj.outDateData = moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+              obj.outDateData = moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
             }
           });
-          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
         }
       }, {
         key: "getTime",
         value: function getTime(time) {
-          var timeData = moment__WEBPACK_IMPORTED_MODULE_9__(time, 'HH:mm:ss').toDate();
-          return moment__WEBPACK_IMPORTED_MODULE_9__(timeData).format('HH:mm A');
+          var timeData = moment__WEBPACK_IMPORTED_MODULE_7__(time, 'HH:mm:ss').toDate();
+          return moment__WEBPACK_IMPORTED_MODULE_7__(timeData).format('HH:mm A');
         }
       }, {
         key: "isMobileView",
@@ -1916,7 +1866,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockNo",
         value: function getBlockNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -1934,7 +1884,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockUnitNo",
         value: function getBlockUnitNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -1982,7 +1932,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this11 = this;
 
-          this.moveInOutService.getMoveOutByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.moveInOutService.getMoveOutByApartmentId(params).subscribe(function (res) {
             _this11.moveOutDataList = res.filter(function (item) {
               return res.statusId === 381;
             });
@@ -2008,17 +1961,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     MoveoutCancelComponent.ctorParameters = function () {
       return [{
-        type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
+        type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }];
     };
 
@@ -2030,7 +1979,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./moveout-cancel.component.scss */
       "./src/app/ams/moveinout-tracker/components/moveout-cancel/moveout-cancel.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], MoveoutCancelComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], MoveoutCancelComponent);
     /***/
   },
 
@@ -2088,68 +2037,54 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/move-in-out.service */
-    "./src/app/api/services/move-in-out.service.ts");
+    var src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/moveInOut */
+    "./src/app/api/controllers/moveInOut.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9___default =
+    var moment__WEBPACK_IMPORTED_MODULE_7___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
     var MoveoutMaintainComponent =
     /*#__PURE__*/
     function () {
-      function MoveoutMaintainComponent(moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService) {
+      function MoveoutMaintainComponent(moveInOutService, apartmentService, sharedService, cookieService) {
         _classCallCheck(this, MoveoutMaintainComponent);
 
         this.moveInOutService = moveInOutService;
-        this.userService = userService;
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
@@ -2196,7 +2131,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onDateChange(event, type) {
           if (event != null) {
             this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_9__(event).format("DD/MM/YYYY");
+            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_7__(event).format("DD/MM/YYYY");
           } else {
             this.columnField = {};
           }
@@ -2206,16 +2141,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getDate(movein, date) {
           this.moveOutDataList.map(function (obj) {
             if (obj.id == movein.id) {
-              obj.outDateData = moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+              obj.outDateData = moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
             }
           });
-          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
         }
       }, {
         key: "getTime",
         value: function getTime(time) {
-          var timeData = moment__WEBPACK_IMPORTED_MODULE_9__(time, 'HH:mm:ss').toDate();
-          return moment__WEBPACK_IMPORTED_MODULE_9__(timeData).format('HH:mm A');
+          var timeData = moment__WEBPACK_IMPORTED_MODULE_7__(time, 'HH:mm:ss').toDate();
+          return moment__WEBPACK_IMPORTED_MODULE_7__(timeData).format('HH:mm A');
         }
       }, {
         key: "isMobileView",
@@ -2235,7 +2170,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockNo",
         value: function getBlockNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -2253,7 +2188,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockUnitNo",
         value: function getBlockUnitNo(item, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockUnitData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.blockUnitData, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -2301,7 +2236,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this13 = this;
 
-          this.moveInOutService.getMoveOutByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.moveInOutService.getMoveOutByApartmentId(params).subscribe(function (res) {
             _this13.moveOutDataList = res.filter(function (item) {
               return item.isActive;
             });
@@ -2327,17 +2265,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     MoveoutMaintainComponent.ctorParameters = function () {
       return [{
-        type: _api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
+        type: src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }];
     };
 
@@ -2349,7 +2283,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./moveout-maintain.component.scss */
       "./src/app/ams/moveinout-tracker/components/moveout-maintain/moveout-maintain.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_move_in_out_service__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], MoveoutMaintainComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_moveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], MoveoutMaintainComponent);
     /***/
   },
 

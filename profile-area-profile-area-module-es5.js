@@ -105,33 +105,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/email-send.service */
-    "./src/app/api/services/email-send.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/emailSend */
+    "./src/app/api/controllers/emailSend.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
     /* harmony import */
 
 
@@ -210,9 +210,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "updatedBy": parseInt(this.cookieService.get('userId')),
             "isDocSubmitted": this.user.isDocSubmitted,
             "readyForApproval": this.user.readyForApproval
+          };
+          var params = {
+            user: userDetails
           }; //update user 
 
-          this.userService.UpdateUser(userDetails).subscribe(function (res) {
+          this.userService.updateUser(params).subscribe(function (res) {
             if (res.message) {
               _this.sharedService.setAlertMessage("User updated successfully");
 
@@ -244,17 +247,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this2 = this;
 
           this.user = {};
-          this.userService.getUserById(parseInt(this.cookieService.get('userId'))).subscribe(function (res) {
+          var params = {
+            userid: parseInt(this.cookieService.get('userId'))
+          };
+          this.userService.getUserById(params).subscribe(function (res) {
             console.log(res);
             _this2.user = res[0];
             _this2.genderType = _this2.user.genderId.toString();
             _this2.isDataLoaded = true;
           });
-          this.userService.getRolesByUserId(parseInt(this.cookieService.get('userId'))).subscribe(function (res) {
+          var roleParams = {
+            userId: parseInt(this.cookieService.get('userId'))
+          };
+          this.userService.getRolesByUserId(roleParams).subscribe(function (res) {
             console.log(res);
             _this2.roleName = res[0].roleName;
           });
-          this.apartmentService.getAllApartmentBlockUnitUsersByUserId(parseInt(this.cookieService.get('userId'))).subscribe(function (res) {
+          var apartmentParams = {
+            userId: parseInt(this.cookieService.get('userId'))
+          };
+          this.apartmentService.getAllApartmentBlockUnitUsersByUserId(apartmentParams).subscribe(function (res) {
             _this2.apartmentBlockUnitId = res[0].apartmentBlockUnitId;
 
             _this2.apartmentService.getApartmentBlockUnitById(_this2.apartmentBlockUnitId).subscribe(function (res) {
@@ -326,15 +338,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
-        type: _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__["EmailSendService"]
+        type: src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__["EmailSendService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }];
@@ -348,7 +360,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-area-basic.component.scss */
       "./src/app/ams/profile-area/components/profile-area-basic/profile-area-basic.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_email_send_service__WEBPACK_IMPORTED_MODULE_4__["EmailSendService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfileAreaBasicComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_emailSend__WEBPACK_IMPORTED_MODULE_5__["EmailSendService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfileAreaBasicComponent);
     /***/
   },
 

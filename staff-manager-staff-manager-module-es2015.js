@@ -182,9 +182,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
@@ -277,7 +277,10 @@ let AddEntryComponent = class AddEntryComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-12-04T05:43:41.299Z"
             };
-            this.staffService.addAttendance(details).subscribe((res) => {
+            let params = {
+                attendance: details
+            };
+            this.staffService.addAttendance(params).subscribe((res) => {
                 if (res.message) {
                     this.isEntrySubmitted = true;
                     this.sharedService.setAlertMessage("Entry added successfully");
@@ -311,7 +314,10 @@ let AddEntryComponent = class AddEntryComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-12-04T05:43:41.299Z"
             };
-            this.staffService.updateAttendance(details).subscribe((res) => {
+            let params = {
+                attendance: details
+            };
+            this.staffService.updateAttendance(params).subscribe((res) => {
                 if (res.message) {
                     this.isEntrySubmitted = true;
                     this.sharedService.setAlertMessage("Entry updated successfully");
@@ -349,40 +355,58 @@ let AddEntryComponent = class AddEntryComponent {
             }, error => {
             });
         }
-        this.staffService.getAllStaffsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.staffService.getAllStaffsByApartmentId(params).subscribe((res) => {
             this.staffDataList = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
-        this.staffService.getAllGatesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let gatesParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.staffService.getAllGatesByApartmentId(gatesParams).subscribe((res) => {
             this.gatesDataList = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
-        this.staffService.getAllShiftsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let shiftParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.staffService.getAllShiftsByApartmentId(shiftParams).subscribe((res) => {
             this.shiftsDataList = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
         //get all shift types
-        this.lookupService.getLookupValueByLookupTypeId(28).subscribe((res) => {
+        let shiftTypeParams = {
+            LookupTypeId: 28
+        };
+        this.lookupService.getLookupValueByLookupTypeId(shiftTypeParams).subscribe((res) => {
             this.shiftTypeList = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
+        let officalListParams = {
+            LookupTypeId: 26
+        };
         //get all offical staff 
-        this.lookupService.getLookupValueByLookupTypeId(26).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(officalListParams).subscribe((res) => {
             this.officalStaffsDataList = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
+        let personalListParams = {
+            LookupTypeId: 27
+        };
         //get all personal staffs 
-        this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(personalListParams).subscribe((res) => {
             this.personalStaffsDataList = res.filter(item => {
                 return item.isActive;
             });
@@ -393,8 +417,8 @@ let AddEntryComponent = class AddEntryComponent {
 AddEntryComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -406,8 +430,8 @@ AddEntryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], AddEntryComponent);
@@ -442,10 +466,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/user */ "./src/app/api/controllers/user.ts");
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
@@ -550,8 +574,11 @@ let AddStaffComponent = class AddStaffComponent {
     getStaffType(typeId) {
         this.isTypeSelected = true;
         if (typeId == "115") {
+            let params = {
+                LookupTypeId: 26
+            };
             //staff offical category
-            this.lookupService.getLookupValueByLookupTypeId(26).subscribe((res) => {
+            this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                 this.staffCategoryData = res.filter(item => {
                     return item.isActive;
                 });
@@ -559,8 +586,11 @@ let AddStaffComponent = class AddStaffComponent {
             });
         }
         else {
+            let params = {
+                LookupTypeId: 27
+            };
             //staff personal category
-            this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+            this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                 this.staffCategoryData = res.filter(item => {
                     return item.isActive;
                 });
@@ -609,8 +639,11 @@ let AddStaffComponent = class AddStaffComponent {
                 "insertedBy": parseInt(this.cookieService.get('userId')),
                 "updatedBy": 0
             };
+            let userParams = {
+                user: userDetails
+            };
             //add user 
-            this.userService.addUser(userDetails).subscribe((res) => {
+            this.userService.addUser(userParams).subscribe((res) => {
                 if (res.message) {
                     this.userId = res.message;
                     let userRole = {
@@ -622,8 +655,11 @@ let AddStaffComponent = class AddStaffComponent {
                         "updatedBy": 0,
                         "updatedOn": "2019-11-10T10:00:28.212Z"
                     };
+                    let roleParams = {
+                        userRole: userRole
+                    };
                     //add userrole
-                    this.userService.addUserRole(userRole).subscribe((res) => {
+                    this.userService.addUserRole(roleParams).subscribe((res) => {
                         if (res.message) {
                             let staffDetails = {
                                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
@@ -671,7 +707,10 @@ let AddStaffComponent = class AddStaffComponent {
                                 "updatedBy": parseInt(this.cookieService.get('userId')),
                                 "updatedOn": "2019-11-30T12:41:45.620Z"
                             };
-                            this.staffService.addStaff(staffDetails).subscribe((res) => {
+                            let staffParams = {
+                                staff: staffDetails
+                            };
+                            this.staffService.addStaff(staffParams).subscribe((res) => {
                                 this.isStaffSubmitted = false;
                                 if (res.message) {
                                     this.sharedService.setAlertMessage("Staff added successfully");
@@ -737,8 +776,11 @@ let AddStaffComponent = class AddStaffComponent {
                 "insertedBy": 0,
                 "updatedBy": parseInt(this.cookieService.get('userId'))
             };
+            let userParams = {
+                user: userDetails
+            };
             //edit user 
-            this.userService.UpdateUser(userDetails).subscribe((res) => {
+            this.userService.updateUser(userParams).subscribe((res) => {
                 if (res.message) {
                     let staffDetails = {
                         "staffId": this.route.params['value'].id,
@@ -787,8 +829,11 @@ let AddStaffComponent = class AddStaffComponent {
                         "updatedBy": parseInt(this.cookieService.get('userId')),
                         "updatedOn": "2019-11-30T12:41:45.620Z"
                     };
+                    let staffParams = {
+                        staff: staffDetails
+                    };
                     //edit staff
-                    this.staffService.updateStaff(staffDetails).subscribe((res) => {
+                    this.staffService.updateStaff(staffParams).subscribe((res) => {
                         this.isStaffSubmitted = false;
                         if (res.message) {
                             //this.isStaffSuccess = true;
@@ -834,18 +879,27 @@ let AddStaffComponent = class AddStaffComponent {
             }, error => {
             });
         }
-        this.lookupService.getLookupValueByLookupTypeId(24).subscribe((res) => {
+        let groupParams = {
+            LookupTypeId: 24
+        };
+        this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe((res) => {
             this.bloodGroupData = res;
         });
+        let staffParams = {
+            LookupTypeId: 25
+        };
         //staff type
-        this.lookupService.getLookupValueByLookupTypeId(25).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe((res) => {
             this.staffTypeData = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
+        let categoryParams = {
+            LookupTypeId: 26
+        };
         //category type
-        this.lookupService.getLookupValueByLookupTypeId(26).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
             this.staffCategoryData = res.filter(item => {
                 return item.isActive;
             });
@@ -856,10 +910,10 @@ let AddStaffComponent = class AddStaffComponent {
 AddStaffComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -882,10 +936,10 @@ AddStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], AddStaffComponent);
 
@@ -918,14 +972,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffAttendanceComponent", function() { return StaffAttendanceComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
-
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -933,12 +983,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffAttendanceComponent = class StaffAttendanceComponent {
-    constructor(router, route, staffService, lookupService, sharedService, cookieService) {
-        this.router = router;
-        this.route = route;
+    constructor(staffService, lookupService, cookieService) {
         this.staffService = staffService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isEntryDataLoaded = false;
         this.unitFieldType = "unitno";
@@ -972,7 +1019,7 @@ let StaffAttendanceComponent = class StaffAttendanceComponent {
         this.selectedInput = value;
     }
     onSelectChange(event, type, name) {
-        if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
+        if (!underscore__WEBPACK_IMPORTED_MODULE_5__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
         }
@@ -1069,29 +1116,41 @@ let StaffAttendanceComponent = class StaffAttendanceComponent {
         this.gateDataList = [];
         this.officalStaffsDataList = [];
         this.personalStaffsDataList = [];
-        this.staffService.getAllAttendancesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.staffService.getAllAttendancesByApartmentId(params).subscribe((res) => {
             //filter active true items
             this.entryListData = res.filter(data => {
                 return data.isActive;
             });
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.entryListData, item => {
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](this.entryListData, item => {
                 this.staffService.getStaffByStaffId(item.staffId).subscribe((staff) => {
                     this.staffDetails.push(staff[0]);
                 });
             });
+            let dataListparams = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
             //get all gates
-            this.staffService.getAllGatesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            this.staffService.getAllGatesByApartmentId(dataListparams).subscribe((res) => {
                 this.gateDataList = res;
             });
+            let officialListparams = {
+                LookupTypeId: 26
+            };
             //get all offical staff 
-            this.lookupService.getLookupValueByLookupTypeId(26).subscribe((res) => {
+            this.lookupService.getLookupValueByLookupTypeId(officialListparams).subscribe((res) => {
                 this.officalStaffsDataList = res.filter(item => {
                     return item.isActive;
                 });
             }, error => {
             });
+            let personalListparams = {
+                LookupTypeId: 27
+            };
             //get all personal staffs 
-            this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+            this.lookupService.getLookupValueByLookupTypeId(personalListparams).subscribe((res) => {
                 this.personalStaffsDataList = res.filter(item => {
                     return item.isActive;
                 });
@@ -1109,12 +1168,9 @@ let StaffAttendanceComponent = class StaffAttendanceComponent {
     }
 };
 StaffAttendanceComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 StaffAttendanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1122,12 +1178,9 @@ StaffAttendanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./staff-attendance.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/staff-manager/components/staff-attendance/staff-attendance.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./staff-attendance.component.scss */ "./src/app/ams/staff-manager/components/staff-attendance/staff-attendance.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], StaffAttendanceComponent);
 
 
@@ -1160,12 +1213,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
@@ -1174,11 +1225,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffGatesComponent = class StaffGatesComponent {
-    constructor(injector, dialog, staffService, lookupService, sharedService, cookieService) {
+    constructor(injector, dialog, staffService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
         this.staffService = staffService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isGateLoaded = true;
@@ -1189,7 +1239,7 @@ let StaffGatesComponent = class StaffGatesComponent {
         this.unitOrder = true;
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1220,7 +1270,10 @@ let StaffGatesComponent = class StaffGatesComponent {
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString()
             };
-            this.staffService.addGate(details).subscribe((res) => {
+            let params = {
+                gate: details
+            };
+            this.staffService.addGate(params).subscribe((res) => {
                 if (res.message) {
                     this.isGateLoaded = true;
                     this.sharedService.setAlertMessage("Gate added Successfully!");
@@ -1241,7 +1294,10 @@ let StaffGatesComponent = class StaffGatesComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
             };
-            this.staffService.updateGate(details).subscribe((res) => {
+            let params = {
+                gate: details
+            };
+            this.staffService.updateGate(params).subscribe((res) => {
                 if (res.message) {
                     this.isGateLoaded = true;
                     this.sharedService.setAlertMessage("Gate updated Successfully!");
@@ -1252,7 +1308,10 @@ let StaffGatesComponent = class StaffGatesComponent {
         }
     }
     getAllGates() {
-        this.staffService.getAllGatesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.staffService.getAllGatesByApartmentId(params).subscribe((res) => {
             this.isGateTableLoaded = true;
             this.gateListData = res.filter(item => {
                 return item.isActive;
@@ -1332,10 +1391,9 @@ let StaffGatesComponent = class StaffGatesComponent {
 StaffGatesComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 StaffGatesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1345,10 +1403,9 @@ StaffGatesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], StaffGatesComponent);
 
 
@@ -1380,8 +1437,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffInactiveStaffComponent", function() { return StaffInactiveStaffComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -1478,7 +1535,10 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
         }
     }
     ngOnInit() {
-        this.staffService.getAllStaffsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.staffService.getAllStaffsByApartmentId(params).subscribe((res) => {
             //filter inactive true items
             this.staffListData = res.filter(data => {
                 return !data.isActive;
@@ -1492,23 +1552,32 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
             }
             this.isStaffDataLoaded = true;
         });
+        let staffParams = {
+            LookupTypeId: 25
+        };
         //staff type
-        this.lookupService.getLookupValueByLookupTypeId(25).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe((res) => {
             this.staffTypeData = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
+        let staffOfficialParams = {
+            LookupTypeId: 26
+        };
         //offical category type
-        this.lookupService.getLookupValueByLookupTypeId(26).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(staffOfficialParams).subscribe((res) => {
             this.staffOfficalCategoryData = res.filter(item => {
                 return item.isActive;
             });
             console.log(this.staffOfficalCategoryData);
         }, error => {
         });
+        let staffPersonalParams = {
+            LookupTypeId: 27
+        };
         //personal category type
-        this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(staffPersonalParams).subscribe((res) => {
             this.staffPersonalCategoryData = res.filter(item => {
                 return item.isActive;
             });
@@ -1517,8 +1586,8 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
     }
 };
 StaffInactiveStaffComponent.ctorParameters = () => [
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_2__["StaffService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
@@ -1528,8 +1597,8 @@ StaffInactiveStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./staff-inactive-staff.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/staff-manager/components/staff-inactive-staff/staff-inactive-staff.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./staff-inactive-staff.component.scss */ "./src/app/ams/staff-manager/components/staff-inactive-staff/staff-inactive-staff.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_staff_service__WEBPACK_IMPORTED_MODULE_2__["StaffService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], StaffInactiveStaffComponent);
@@ -1563,16 +1632,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffMaintainStaffComponent", function() { return StaffMaintainStaffComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -1583,9 +1650,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
-    constructor(router, route, injector, staffService, lookupService, sharedService, cookieService) {
-        this.router = router;
-        this.route = route;
+    constructor(injector, staffService, lookupService, sharedService, cookieService) {
         this.injector = injector;
         this.staffService = staffService;
         this.lookupService = lookupService;
@@ -1599,7 +1664,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         this.staffData = "";
         this.selectedInput = "";
         this.columnField = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1621,7 +1686,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         this.selectedInput = value;
     }
     onSelectChange(event, type, name) {
-        if (!underscore__WEBPACK_IMPORTED_MODULE_8__["isEmpty"](event)) {
+        if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
         }
@@ -1636,10 +1701,10 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         this.modalService.showConfirmModal(id);
     }
     getTimeFormat(dateTime) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(dateTime).format("YYYY-MM-DD HH:mm");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(dateTime).format("YYYY-MM-DD HH:mm");
     }
     getStaffCategory(staff, id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffTypeData, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffTypeData, function (item) {
             if (item.lookupValueId === id)
                 return item;
         });
@@ -1657,7 +1722,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
     }
     getStaffSubCategory(staff, id) {
         if (this.staffTypeId == 115) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffOfficalCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffOfficalCategoryData, function (item) {
                 if (item.lookupValueId === id)
                     return item;
             });
@@ -1674,7 +1739,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
             }
         }
         else {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffPersonalCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffPersonalCategoryData, function (item) {
                 if (item.lookupValueId === id)
                     return item;
             });
@@ -1692,7 +1757,10 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         }
     }
     ngOnInit() {
-        this.staffService.getAllStaffsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.staffService.getAllStaffsByApartmentId(params).subscribe((res) => {
             //filter active true items
             this.staffListData = res.filter(data => {
                 return data.isActive;
@@ -1706,23 +1774,32 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
             }
             this.isStaffDataLoaded = true;
         });
+        let staffParams = {
+            LookupTypeId: 25
+        };
         //staff type
-        this.lookupService.getLookupValueByLookupTypeId(25).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe((res) => {
             this.staffTypeData = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
+        let officialParams = {
+            LookupTypeId: 26
+        };
         //offical category type
-        this.lookupService.getLookupValueByLookupTypeId(26).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(officialParams).subscribe((res) => {
             this.staffOfficalCategoryData = res.filter(item => {
                 return item.isActive;
             });
             console.log(this.staffOfficalCategoryData);
         }, error => {
         });
+        let officialCategoryParams = {
+            LookupTypeId: 27
+        };
         //personal category type
-        this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(officialCategoryParams).subscribe((res) => {
             this.staffPersonalCategoryData = res.filter(item => {
                 return item.isActive;
             });
@@ -1736,7 +1813,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
                     deleteBy: parseInt(this.cookieService.get('userId'))
                 };
                 this.staffService.deleteStaff(params).subscribe((res) => {
-                    underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.staffListData, (type) => {
+                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.staffListData, (type) => {
                         if (type.staffId == id) {
                             type.isActive = false;
                         }
@@ -1755,13 +1832,11 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
     }
 };
 StaffMaintainStaffComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 StaffMaintainStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1769,13 +1844,11 @@ StaffMaintainStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./staff-maintain-staff.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/staff-manager/components/staff-maintain-staff/staff-maintain-staff.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./staff-maintain-staff.component.scss */ "./src/app/ams/staff-manager/components/staff-maintain-staff/staff-maintain-staff.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], StaffMaintainStaffComponent);
 
 
@@ -1943,13 +2016,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -1959,10 +2030,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffSetupComponent = class StaffSetupComponent {
-    constructor(injector, dialog, userService, lookupService, sharedService, cookieService) {
+    constructor(injector, dialog, lookupService, sharedService, cookieService) {
         this.injector = injector;
         this.dialog = dialog;
-        this.userService = userService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -1978,7 +2048,7 @@ let StaffSetupComponent = class StaffSetupComponent {
         this.errorMessage = "";
         this.isError = false;
         this.isEditStaffCategory = false;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     sortUnitData(type) {
         this.unitFieldType = type;
@@ -2007,7 +2077,7 @@ let StaffSetupComponent = class StaffSetupComponent {
         //offical category
         if (this.staffType == "115") {
             this.staffTypeId = 26;
-            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.categoryOffcialData, item => {
+            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryOffcialData, item => {
                 return item.lookupValueName === this.staffCategory;
             });
             if (categoryAvailable) {
@@ -2028,10 +2098,16 @@ let StaffSetupComponent = class StaffSetupComponent {
                         "updatedBy": 0,
                         "updatedOn": "2019-11-16T14:50:08.217Z"
                     };
-                    this.lookupService.addLookupValue(details).subscribe((res) => {
+                    let params = {
+                        lookupvalue: details
+                    };
+                    this.lookupService.addLookupValue(params).subscribe((res) => {
                         this.isStaffLoaded = true;
                         this.isCategoryDataLoaded = false;
-                        this.lookupService.getLookupValueByLookupTypeId(this.staffTypeId).subscribe((res) => {
+                        let params = {
+                            LookupTypeId: this.staffTypeId
+                        };
+                        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                             var categoryOffcialListData = res.filter(item => {
                                 return item.isActive;
                             });
@@ -2054,11 +2130,17 @@ let StaffSetupComponent = class StaffSetupComponent {
                         "updatedBy": parseInt(this.cookieService.get('userId')),
                         "updatedOn": "2019-11-16T14:50:08.217Z"
                     };
-                    this.lookupService.updateLookupValue(details).subscribe((res) => {
+                    let params = {
+                        lookupvalue: details
+                    };
+                    this.lookupService.updateLookupValue(params).subscribe((res) => {
                         this.isStaffLoaded = true;
                         this.isCategoryDataLoaded = false;
                         this.isEditStaffCategory = false;
-                        this.lookupService.getLookupValueByLookupTypeId(this.staffTypeId).subscribe((res) => {
+                        let params = {
+                            LookupTypeId: this.staffTypeId
+                        };
+                        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                             var categoryOffcialListData = res.filter(item => {
                                 return item.isActive;
                             });
@@ -2073,7 +2155,7 @@ let StaffSetupComponent = class StaffSetupComponent {
         }
         else {
             this.staffTypeId = 27;
-            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.categoryPersonalData, item => {
+            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryPersonalData, item => {
                 return item.lookupValueName === this.staffCategory;
             });
             if (categoryAvailable) {
@@ -2094,10 +2176,16 @@ let StaffSetupComponent = class StaffSetupComponent {
                         "updatedBy": 0,
                         "updatedOn": "2019-11-16T14:50:08.217Z"
                     };
-                    this.lookupService.addLookupValue(details).subscribe((res) => {
+                    let params = {
+                        lookupvalue: details
+                    };
+                    this.lookupService.addLookupValue(params).subscribe((res) => {
                         this.isStaffLoaded = true;
                         this.isCategoryDataLoaded = false;
-                        this.lookupService.getLookupValueByLookupTypeId(this.staffTypeId).subscribe((res) => {
+                        let params = {
+                            LookupTypeId: this.staffTypeId
+                        };
+                        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                             var categoryPersonalListData = res.filter(item => {
                                 return item.isActive;
                             });
@@ -2120,11 +2208,17 @@ let StaffSetupComponent = class StaffSetupComponent {
                         "updatedBy": parseInt(this.cookieService.get('userId')),
                         "updatedOn": "2019-11-16T14:50:08.217Z"
                     };
-                    this.lookupService.updateLookupValue(details).subscribe((res) => {
+                    let params = {
+                        lookupvalue: details
+                    };
+                    this.lookupService.updateLookupValue(params).subscribe((res) => {
                         this.isStaffLoaded = true;
                         this.isCategoryDataLoaded = false;
                         this.isEditStaffCategory = false;
-                        this.lookupService.getLookupValueByLookupTypeId(this.staffTypeId).subscribe((res) => {
+                        let params = {
+                            LookupTypeId: this.staffTypeId
+                        };
+                        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                             var categoryPersonalListData = res.filter(item => {
                                 return item.isActive;
                             });
@@ -2139,20 +2233,29 @@ let StaffSetupComponent = class StaffSetupComponent {
         }
     }
     ngOnInit() {
+        let params = {
+            LookupTypeId: 25
+        };
         //get all staff type
-        this.lookupService.getLookupValueByLookupTypeId(25).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.staffCategoryData = res;
             this.isStaffLoaded = true;
         }, error => {
         });
+        let categoryParams = {
+            LookupTypeId: 26
+        };
         //get all offical category
-        this.lookupService.getLookupValueByLookupTypeId(26).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
             var categoryOffcialListData = res.filter(item => {
                 return item.isActive;
             });
             this.categoryOffcialListData = categoryOffcialListData;
+            let categoryPersonalParams = {
+                LookupTypeId: 27
+            };
             //get all personal category
-            this.lookupService.getLookupValueByLookupTypeId(27).subscribe((res) => {
+            this.lookupService.getLookupValueByLookupTypeId(categoryPersonalParams).subscribe((res) => {
                 var categoryPersonalListData = res.filter(item => {
                     return item.isActive;
                 });
@@ -2197,10 +2300,9 @@ let StaffSetupComponent = class StaffSetupComponent {
 StaffSetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 StaffSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2210,10 +2312,9 @@ StaffSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], StaffSetupComponent);
 
 
@@ -2246,8 +2347,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/staff.service */ "./src/app/api/services/staff.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/staff */ "./src/app/api/controllers/staff.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -2333,7 +2434,10 @@ let StaffShiftsComponent = class StaffShiftsComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-12-03T06:11:51.972Z"
             };
-            this.staffService.addShift(details).subscribe((res) => {
+            let params = {
+                shift: details
+            };
+            this.staffService.addShift(params).subscribe((res) => {
                 if (res.message) {
                     this.isShiftsLoaded = true;
                     this.sharedService.setAlertMessage("Shift added Successfully!");
@@ -2355,7 +2459,10 @@ let StaffShiftsComponent = class StaffShiftsComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
             };
-            this.staffService.updateShift(details).subscribe((res) => {
+            let params = {
+                shift: details
+            };
+            this.staffService.updateShift(params).subscribe((res) => {
                 if (res.message) {
                     this.isShiftsLoaded = true;
                     this.sharedService.setAlertMessage("Shift updated Successfully!");
@@ -2407,7 +2514,10 @@ let StaffShiftsComponent = class StaffShiftsComponent {
     }
     getAllShifts() {
         this.isShiftTableLoaded = false;
-        this.staffService.getAllShiftsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.staffService.getAllShiftsByApartmentId(params).subscribe((res) => {
             this.shiftsListData = res.filter(item => {
                 return item.isActive;
             });
@@ -2425,8 +2535,11 @@ let StaffShiftsComponent = class StaffShiftsComponent {
     ngOnInit() {
         this.shift = {};
         this.getAllShifts();
+        let params = {
+            LookupTypeId: 28
+        };
         //shift type
-        this.lookupService.getLookupValueByLookupTypeId(28).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.shiftTypeList = res.filter(item => {
                 return item.isActive;
             });
@@ -2454,8 +2567,8 @@ let StaffShiftsComponent = class StaffShiftsComponent {
 StaffShiftsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
@@ -2467,8 +2580,8 @@ StaffShiftsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], StaffShiftsComponent);

@@ -6873,15 +6873,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../.././api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
@@ -7175,7 +7175,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                 var user = res[0];
                 user.isApproved = true;
 
-                _this25.userService.UpdateUser(user).subscribe(function (res) {
+                _this25.userService.updateUser(user).subscribe(function (res) {
                   _this25.unitListData.splice(index, 1);
 
                   _this25.totalUserItems = _this25.unitListData.length;
@@ -7275,7 +7275,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           var _this29 = this;
 
           if (window.innerWidth <= 991) this.isMobile = true;else this.isMobile = false;
-          this.userService.getAllUnApprovedUsersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.userService.getAllUnApprovedUsersByApartmentId(params).subscribe(function (res) {
             var unitListData = res;
             console.log(res); //filter active true items
 
@@ -7350,9 +7353,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }, {
@@ -7372,7 +7375,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./unapproved.component.scss */
       "./src/app/ams/unit-users/components/unapproved/unapproved.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]])], UnapprovedComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]])], UnapprovedComponent);
     /***/
   },
 
@@ -7594,27 +7597,27 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
     /* harmony import */
 
 
@@ -7724,7 +7727,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             "insertedBy": this.user.insertedBy,
             "updatedBy": parseInt(this.cookieService.get('userId'))
           };
-          this.userService.UpdateUser(userDetails).subscribe(function (res) {
+          var params = {
+            user: userDetails
+          };
+          this.userService.updateUser(params).subscribe(function (res) {
             if (res.message) {
               _this30.isUserDataLoaded = true;
               _this30.isEdit = false;
@@ -7759,7 +7765,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             _this31.genderType = '' + _this31.user.genderId;
             _this31.isUserDataLoaded = true;
           }, function (error) {});
-          this.lookupService.getLookupValueByLookupTypeId(24).subscribe(function (res) {
+          var groupParams = {
+            LookupTypeId: 24
+          };
+          this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
             _this31.bloodGroupData = res;
           });
         }
@@ -7825,13 +7834,13 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }];
@@ -7848,7 +7857,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-basic.component.scss */
       "./src/app/user/my-profile/components/profile-basic/profile-basic.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ProfileBasicComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ProfileBasicComponent);
     /***/
   },
 
@@ -7912,9 +7921,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
@@ -7924,9 +7933,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -8027,7 +8036,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
               "updatedBy": 0,
               "updatedOn": "2020-03-28T10:44:31.345Z"
             };
-            this.userService.addUserFamilyMember(details).subscribe(function (res) {
+            var params = {
+              userFamilyMember: details
+            };
+            this.userService.addUserFamilyMember(params).subscribe(function (res) {
               if (res.message) {
                 _this33.isDataLoaded = true;
 
@@ -8057,7 +8069,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
             };
-            this.userService.updateUserFamilyMember(_details).subscribe(function (res) {
+            var _params = {
+              userFamilyMember: _details
+            };
+            this.userService.updateUserFamilyMember(_params).subscribe(function (res) {
               if (res.message) {
                 _this33.isDataLoaded = true;
 
@@ -8081,9 +8096,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             this.userId = parseInt(this.cookieService.get('userId'));
           }
 
-          console.log(this.userId);
-          console.log(this.isFamilyNew);
-          this.lookupService.getLookupValueByLookupTypeId(24).subscribe(function (res) {
+          var groupParams = {
+            LookupTypeId: 24
+          };
+          this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
             _this34.bloodGroupData = res;
           });
 
@@ -8107,11 +8123,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
@@ -8128,7 +8144,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-family-members-details.component.scss */
       "./src/app/user/my-profile/components/profile-family-members-details/profile-family-members-details.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ProfileFamilyMembersDetailsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ProfileFamilyMembersDetailsComponent);
     /***/
   },
 
@@ -8192,9 +8208,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
@@ -8204,9 +8220,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -8280,11 +8296,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
@@ -8298,7 +8314,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-family-members.component.scss */
       "./src/app/user/my-profile/components/profile-family-members/profile-family-members.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ProfileFamilyMembersComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ProfileFamilyMembersComponent);
     /***/
   },
 
@@ -8520,21 +8536,21 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_pet_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/pet.service */
-    "./src/app/api/services/pet.service.ts");
+    var src_app_api_controllers_pet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/pet */
+    "./src/app/api/controllers/pet.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -8544,9 +8560,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -8658,7 +8674,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
               "updatedBy": 0,
               "updatedOn": "2020-03-27T07:50:54.680Z"
             };
-            this.petService.addPet(details).subscribe(function (res) {
+            var params = {
+              pet: details
+            };
+            this.petService.addPet(params).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
                   "apartmentBlockUnitId": parseInt(_this38.apartmentBlockUnitId),
@@ -8669,8 +8688,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                   "updatedBy": 0,
                   "updatedOn": "2020-03-27T07:52:53.767Z"
                 };
+                var _params2 = {
+                  apartmentBlockUnitPet: unitDetails
+                };
 
-                _this38.petService.addApartmentBlockUnitPet(unitDetails).subscribe(function (res) {
+                _this38.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
                   if (res.message) {
                     _this38.isDataLoaded = true;
 
@@ -8696,7 +8718,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
             };
-            this.petService.updatePet(_details2).subscribe(function (res) {
+            var _params3 = {
+              pet: _details2
+            };
+            this.petService.updatePet(_params3).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
                   "apartmentBlockUnitPetId": parseInt(_this38.petUnit.apartmentBlockUnitPetId),
@@ -8708,8 +8733,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                   "updatedBy": parseInt(_this38.cookieService.get('userId')),
                   "updatedOn": new Date().toISOString()
                 };
+                var _params4 = {
+                  apartmentBlockUnitPet: unitDetails
+                };
 
-                _this38.petService.updateApartmentBlockUnitPet(unitDetails).subscribe(function (res) {
+                _this38.petService.updateApartmentBlockUnitPet(_params4).subscribe(function (res) {
                   if (res.message) {
                     _this38.isDataLoaded = true;
 
@@ -8747,7 +8775,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           }
 
           this.isDataLoaded = true;
-          this.lookupService.getLookupValueByLookupTypeId(85).subscribe(function (res) {
+          var petTypeParams = {
+            LookupTypeId: 85
+          };
+          this.lookupService.getLookupValueByLookupTypeId(petTypeParams).subscribe(function (res) {
             _this39.petTypeList = res;
           });
         }
@@ -8765,15 +8796,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_pet_service__WEBPACK_IMPORTED_MODULE_4__["PetService"]
+        type: src_app_api_controllers_pet__WEBPACK_IMPORTED_MODULE_4__["PetService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }];
@@ -8791,7 +8822,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-pet-details.component.scss */
       "./src/app/user/my-profile/components/profile-pet-details/profile-pet-details.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_pet_service__WEBPACK_IMPORTED_MODULE_4__["PetService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfilePetDetailsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_pet__WEBPACK_IMPORTED_MODULE_4__["PetService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfilePetDetailsComponent);
     /***/
   },
 
@@ -8855,21 +8886,21 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_pet_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/pet.service */
-    "./src/app/api/services/pet.service.ts");
+    var src_app_api_controllers_pet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/pet */
+    "./src/app/api/controllers/pet.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -8879,9 +8910,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -8936,7 +8967,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
           this.isUserDataLoaded = false;
           this.isUnitSelected = true;
-          this.petService.getAllPetsByApartmentBlockUnitId(parseInt(id)).subscribe(function (res) {
+          var petListParams = {
+            apartmentBlockUnitId: parseInt(id)
+          };
+          this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
             if (res.length != 0) {
               _this40.petDataList = res.filter(function (item) {
                 return item.pet.isActive;
@@ -8994,7 +9028,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           var _this41 = this;
 
           if (event) {
-            this.petService.getAllPetsByApartmentBlockUnitId(parseInt(this.userUnitId)).subscribe(function (res) {
+            var petListParams = {
+              apartmentBlockUnitId: parseInt(this.userUnitId)
+            };
+            this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
               if (res.length != 0) {
                 _this41.petDataList = res.filter(function (item) {
                   return item.pet.isActive;
@@ -9025,13 +9062,22 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           }
 
           this.unitNameList = [];
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
             _this42.blockData = res;
           });
-          this.lookupService.getLookupValueByLookupTypeId(85).subscribe(function (res) {
+          var petParams = {
+            LookupTypeId: 85
+          };
+          this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
             _this42.petTypeList = res;
           });
-          this.lookupService.getLookupValueByLookupTypeId(1).subscribe(function (res) {
+          var unitParams = {
+            LookupTypeId: 1
+          };
+          this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
             _this42.unitTypeData = res;
 
             _this42.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this42.userId).subscribe(function (unit) {
@@ -9057,15 +9103,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_pet_service__WEBPACK_IMPORTED_MODULE_4__["PetService"]
+        type: src_app_api_controllers_pet__WEBPACK_IMPORTED_MODULE_4__["PetService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }];
@@ -9080,7 +9126,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-pet.component.scss */
       "./src/app/user/my-profile/components/profile-pet/profile-pet.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_pet_service__WEBPACK_IMPORTED_MODULE_4__["PetService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfilePetComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_pet__WEBPACK_IMPORTED_MODULE_4__["PetService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfilePetComponent);
     /***/
   },
 
@@ -9144,15 +9190,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -9162,9 +9208,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -9211,7 +9257,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
         value: function getUnits(id) {
           var _this43 = this;
 
-          this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(id)).subscribe(function (res) {
+          var params = {
+            apartmentBlockId: parseInt(id)
+          };
+          this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
             _this43.blockUnitData = res;
             _this43.isBlockSelected = true;
           });
@@ -9298,7 +9347,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             "updatedBy": parseInt(this.cookieService.get('userId')),
             "updatedOn": "2019-12-14T07:01:44.740Z"
           };
-          this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUser).subscribe(function (res) {
+          var apartmentBlockUnitUserParams = {
+            apartmentBlockUnitUser: apartmentBlockUnitUser
+          };
+          this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe(function (res) {
             if (res.message) {
               var details = {
                 "apartmentBlockUnitId": parseInt(_this44.block.apartmentBlockUnitId),
@@ -9323,8 +9375,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                 "updatedBy": parseInt(_this44.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
               };
+              var apartmentBlockUnitParams = {
+                apartmentBlockUnit: details
+              };
 
-              _this44.apartmentService.updateApartmentBlockUnit(details).subscribe(function (res) {
+              _this44.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
                 if (res.message) {
                   _this44.isUserDataLoaded = true;
                   _this44.isEdit = false;
@@ -9360,14 +9415,20 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           }
 
           this.unitNameList = [];
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
             _this45.blockData = res;
           }); // get role
 
           this.userService.getRolesByUserId(this.userId).subscribe(function (data) {
             _this45.userType = data[0].roleId.toString();
           }, function (error) {});
-          this.lookupService.getLookupValueByLookupTypeId(1).subscribe(function (res) {
+          var unitTypeParams = {
+            LookupTypeId: 1
+          };
+          this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
             _this45.unitTypeData = res;
 
             _this45.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this45.userId).subscribe(function (unit) {
@@ -9393,13 +9454,13 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }];
@@ -9414,7 +9475,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-unit-details.component.scss */
       "./src/app/user/my-profile/components/profile-unit-details/profile-unit-details.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_6__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ProfileUnitDetailsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ProfileUnitDetailsComponent);
     /***/
   },
 
@@ -9636,21 +9697,21 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/vehicle.service */
-    "./src/app/api/services/vehicle.service.ts");
+    var src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/vehicle */
+    "./src/app/api/controllers/vehicle.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -9660,9 +9721,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -9736,7 +9797,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
               "updatedBy": 0,
               "updatedOn": "2020-03-26T20:23:25.938Z"
             };
-            this.vehicleService.addVehicle(details).subscribe(function (res) {
+            var vehicleParams = {
+              vehicle: details
+            };
+            this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
                   "apartmentBlockUnitId": parseInt(_this46.apartmentBlockUnitId),
@@ -9755,8 +9819,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                   "updatedBy": 0,
                   "updatedOn": "2020-03-26T20:30:26.576Z"
                 };
+                var unitParams = {
+                  apartmentBlockUnitVehicle: unitDetails
+                };
 
-                _this46.vehicleService.addApartmentBlockUnitVehicle(unitDetails).subscribe(function (res) {
+                _this46.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
                     _this46.isDataLoaded = true;
 
@@ -9786,7 +9853,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
             };
-            this.vehicleService.updateVehicle(_details3).subscribe(function (res) {
+            var _vehicleParams = {
+              vehicle: _details3
+            };
+            this.vehicleService.updateVehicle(_vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
                   "apartmentBlockUnitVehicleId": parseInt(_this46.vehicleUnit.apartmentBlockUnitVehicleId),
@@ -9806,8 +9876,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                   "updatedBy": parseInt(_this46.cookieService.get('userId')),
                   "updatedOn": new Date().toISOString()
                 };
+                var unitParams = {
+                  apartmentBlockUnitVehicle: unitDetails
+                };
 
-                _this46.vehicleService.updateApartmentBlockUnitVehicle(unitDetails).subscribe(function (res) {
+                _this46.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
                     _this46.isDataLoaded = true;
 
@@ -9846,7 +9919,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           }
 
           this.isDataLoaded = true;
-          this.lookupService.getLookupValueByLookupTypeId(2).subscribe(function (res) {
+          var vehcileTypeParams = {
+            LookupTypeId: 2
+          };
+          this.lookupService.getLookupValueByLookupTypeId(vehcileTypeParams).subscribe(function (res) {
             _this47.vehicleTypeList = res;
           });
         }
@@ -9864,15 +9940,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_4__["VehicleService"]
+        type: src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }];
@@ -9890,7 +9966,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-vehicle-details.component.scss */
       "./src/app/user/my-profile/components/profile-vehicle-details/profile-vehicle-details.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfileVehicleDetailsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfileVehicleDetailsComponent);
     /***/
   },
 
@@ -9954,21 +10030,21 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/vehicle.service */
-    "./src/app/api/services/vehicle.service.ts");
+    var src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/vehicle */
+    "./src/app/api/controllers/vehicle.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
@@ -9978,9 +10054,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -10023,11 +10099,17 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
           this.isUserDataLoaded = false;
           this.isUnitSelected = true;
-          this.vehicleService.getAllVehiclesByApartmentBlockUnitId(parseInt(id)).subscribe(function (res) {
+          var vehicleListParams = {
+            apartmentBlockUnitId: parseInt(id)
+          };
+          this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
             _this48.vehicleDataList = res;
             _this48.isUserDataLoaded = true;
           });
-          this.vehicleService.getParkingSlotByApartmentIdUnitId(parseInt(id)).subscribe(function (res) {
+          var parkingListParams = {
+            apartmentIdBlockUnitId: parseInt(id)
+          };
+          this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
             _this48.parkingSlotsDataList = res;
           });
         }
@@ -10067,7 +10149,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           var _this49 = this;
 
           if (event) {
-            this.vehicleService.getAllVehiclesByApartmentBlockUnitId(parseInt(this.userUnitId)).subscribe(function (res) {
+            var params = {
+              apartmentBlockUnitId: parseInt(this.userUnitId)
+            };
+            this.vehicleService.getAllVehiclesByApartmentBlockUnitId(params).subscribe(function (res) {
               _this49.vehicleDataList = res;
               _this49.isUserDataLoaded = true;
             });
@@ -10095,13 +10180,22 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           }
 
           this.unitNameList = [];
-          this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
             _this50.blockData = res;
           });
-          this.lookupService.getLookupValueByLookupTypeId(2).subscribe(function (res) {
+          var vehicleTypeParams = {
+            LookupTypeId: 2
+          };
+          this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
             _this50.vehicleTypeList = res;
           });
-          this.lookupService.getLookupValueByLookupTypeId(1).subscribe(function (res) {
+          var unitTypeParams = {
+            LookupTypeId: 1
+          };
+          this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
             _this50.unitTypeData = res;
 
             _this50.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this50.userId).subscribe(function (unit) {
@@ -10127,15 +10221,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_4__["VehicleService"]
+        type: src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }];
@@ -10150,7 +10244,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-vehicles.component.scss */
       "./src/app/user/my-profile/components/profile-vehicles/profile-vehicles.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_vehicle_service__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfileVehiclesComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfileVehiclesComponent);
     /***/
   },
 
@@ -10482,44 +10576,29 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var MyProfileComponent =
     /*#__PURE__*/
     function () {
-      function MyProfileComponent(router, route, userService, apartmentService, sharedService, cookieService) {
+      function MyProfileComponent(userService, sharedService, cookieService) {
         _classCallCheck(this, MyProfileComponent);
 
-        this.router = router;
-        this.route = route;
         this.userService = userService;
-        this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isUserDataLoaded = false;
@@ -10595,17 +10674,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
     MyProfileComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
-      }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -10621,7 +10694,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./my-profile.component.scss */
       "./src/app/user/my-profile/my-profile.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], MyProfileComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], MyProfileComponent);
     /***/
   },
 

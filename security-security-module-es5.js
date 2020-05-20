@@ -159,69 +159,62 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../.././api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/alert.service */
-    "./src/app/api/services/alert.service.ts");
+    var src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/alert */
+    "./src/app/api/controllers/alert.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9___default =
+    var moment__WEBPACK_IMPORTED_MODULE_8___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
     var SecurityActiveAlertsComponent =
     /*#__PURE__*/
     function () {
-      function SecurityActiveAlertsComponent(userService, apartmentService, alertService, lookupService, sharedService, cookieService) {
+      function SecurityActiveAlertsComponent(userService, apartmentService, alertService, lookupService, cookieService) {
         _classCallCheck(this, SecurityActiveAlertsComponent);
 
         this.userService = userService;
         this.apartmentService = apartmentService;
         this.alertService = alertService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isAlertsLoaded = false;
         this.isAlertUpdated = false;
@@ -251,7 +244,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAlertName",
         value: function getAlertName(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.emergencyTypeList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.emergencyTypeList, function (item) {
             if (item.lookupValueId === id) return item;
           });
 
@@ -264,7 +257,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAlertStatus",
         value: function getAlertStatus(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.alertTypeList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.alertTypeList, function (item) {
             if (item.lookupValueId === id) return item;
           });
 
@@ -277,7 +270,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlock",
         value: function getBlock(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.blockDetails, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.blockDetails, function (item) {
             if (item.apartmentBlockUnitId === id) return item;
           });
 
@@ -290,7 +283,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUserName",
         value: function getUserName(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.userDetails, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.userDetails, function (item) {
             if (item.userId === id) return item;
           });
 
@@ -303,7 +296,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getContactNumber",
         value: function getContactNumber(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.userDetails, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.userDetails, function (item) {
             if (item.userId === id) return item;
           });
 
@@ -316,12 +309,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM/DD/YYYY, h:mm A");
+          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM/DD/YYYY, h:mm A");
         }
       }, {
         key: "getDateTime",
         value: function getDateTime(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM/DD/YYYY, h:mm A");
+          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM/DD/YYYY, h:mm A");
         }
       }, {
         key: "isOpenStatus",
@@ -341,7 +334,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLatitude",
         value: function getLatitude(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.locationDetails, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.locationDetails, function (item) {
             if (item.userId === id) return item;
           });
 
@@ -356,7 +349,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLongitude",
         value: function getLongitude(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.locationDetails, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.locationDetails, function (item) {
             if (item.userId === id) return item;
           });
 
@@ -418,7 +411,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.alertService.updateApartmentBlockUnitAlert(details).subscribe(function (res) {
             if (res.message) {
-              _this.alertService.getAllApartmentBlockUnitAlertByApartmentId(parseInt(_this.cookieService.get('apartmentId'))).subscribe(function (alert) {
+              var params = {
+                apartmentId: parseInt(_this.cookieService.get('apartmentId'))
+              };
+
+              _this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe(function (alert) {
                 _this.alertList = alert.filter(function (item) {
                   return item.isActive;
                 });
@@ -446,14 +443,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.alert = {};
           this.alert.gpsLocation = " ";
           this.alert.notes = " ";
-          this.alertService.getAllApartmentBlockUnitAlertByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (alert) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe(function (alert) {
             _this2.alertList = alert.filter(function (item) {
               return item.isActive;
             });
             _this2.isAlertsLoaded = true;
             console.log(_this2.alertList);
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this2.alertList, function (item) {
-              _this2.userService.getUserById(parseInt(item.insertedBy)).subscribe(function (user) {
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this2.alertList, function (item) {
+              var params = {
+                userid: parseInt(item.insertedBy)
+              };
+
+              _this2.userService.getUserById(params).subscribe(function (user) {
                 _this2.userDetails.push(user[0]);
 
                 console.log(_this2.userDetails);
@@ -479,13 +483,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           }, function (error) {
             console.log(error);
-          }); //get emergency types
+          });
+          var emergencyParams = {
+            LookupTypeId: 29
+          }; //get emergency types
 
-          this.lookupService.getLookupValueByLookupTypeId(29).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe(function (res) {
             _this2.emergencyTypeList = res;
-          }); //get alert status types
+          });
+          var alertParams = {
+            LookupTypeId: 30
+          }; //get alert status types
 
-          this.lookupService.getLookupValueByLookupTypeId(30).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe(function (res) {
             _this2.alertTypeList = res;
           });
         }
@@ -496,17 +506,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     SecurityActiveAlertsComponent.ctorParameters = function () {
       return [{
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"]
+        type: src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
     };
 
@@ -518,7 +526,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./security-active-alerts.component.scss */
       "./src/app/ams/security/components/security-active-alerts/security-active-alerts.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], SecurityActiveAlertsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], SecurityActiveAlertsComponent);
     /***/
   },
 

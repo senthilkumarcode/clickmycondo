@@ -305,9 +305,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/staff.service */
-    "./src/app/api/services/staff.service.ts");
+    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/staff */
+    "./src/app/api/controllers/staff.ts");
     /* harmony import */
 
 
@@ -317,9 +317,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -432,7 +432,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": 0,
               "updatedOn": "2019-12-04T05:43:41.299Z"
             };
-            this.staffService.addAttendance(details).subscribe(function (res) {
+            var params = {
+              attendance: details
+            };
+            this.staffService.addAttendance(params).subscribe(function (res) {
               if (res.message) {
                 _this3.isEntrySubmitted = true;
 
@@ -466,7 +469,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": "2019-12-04T05:43:41.299Z"
             };
-            this.staffService.updateAttendance(_details).subscribe(function (res) {
+            var _params = {
+              attendance: _details
+            };
+            this.staffService.updateAttendance(_params).subscribe(function (res) {
               if (res.message) {
                 _this3.isEntrySubmitted = true;
 
@@ -512,35 +518,53 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, function (error) {});
           }
 
-          this.staffService.getAllStaffsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.staffService.getAllStaffsByApartmentId(params).subscribe(function (res) {
             _this4.staffDataList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
-          this.staffService.getAllGatesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var gatesParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.staffService.getAllGatesByApartmentId(gatesParams).subscribe(function (res) {
             _this4.gatesDataList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
-          this.staffService.getAllShiftsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var shiftParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.staffService.getAllShiftsByApartmentId(shiftParams).subscribe(function (res) {
             _this4.shiftsDataList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {}); //get all shift types
 
-          this.lookupService.getLookupValueByLookupTypeId(28).subscribe(function (res) {
+          var shiftTypeParams = {
+            LookupTypeId: 28
+          };
+          this.lookupService.getLookupValueByLookupTypeId(shiftTypeParams).subscribe(function (res) {
             _this4.shiftTypeList = res.filter(function (item) {
               return item.isActive;
             });
-          }, function (error) {}); //get all offical staff 
+          }, function (error) {});
+          var officalListParams = {
+            LookupTypeId: 26
+          }; //get all offical staff 
 
-          this.lookupService.getLookupValueByLookupTypeId(26).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(officalListParams).subscribe(function (res) {
             _this4.officalStaffsDataList = res.filter(function (item) {
               return item.isActive;
             });
-          }, function (error) {}); //get all personal staffs 
+          }, function (error) {});
+          var personalListParams = {
+            LookupTypeId: 27
+          }; //get all personal staffs 
 
-          this.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(personalListParams).subscribe(function (res) {
             _this4.personalStaffsDataList = res.filter(function (item) {
               return item.isActive;
             });
@@ -557,9 +581,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
+        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
@@ -575,7 +599,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-entry.component.scss */
       "./src/app/ams/staff-manager/components/add-entry/add-entry.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], AddEntryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], AddEntryComponent);
     /***/
   },
 
@@ -639,27 +663,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/staff.service */
-    "./src/app/api/services/staff.service.ts");
+    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/staff */
+    "./src/app/api/controllers/staff.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -787,15 +811,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isTypeSelected = true;
 
           if (typeId == "115") {
-            //staff offical category
-            this.lookupService.getLookupValueByLookupTypeId(26).subscribe(function (res) {
+            var params = {
+              LookupTypeId: 26
+            }; //staff offical category
+
+            this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this5.staffCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
           } else {
-            //staff personal category
-            this.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+            var _params2 = {
+              LookupTypeId: 27
+            }; //staff personal category
+
+            this.lookupService.getLookupValueByLookupTypeId(_params2).subscribe(function (res) {
               _this5.staffCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
@@ -849,9 +879,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "resetPassword": true,
               "insertedBy": parseInt(this.cookieService.get('userId')),
               "updatedBy": 0
+            };
+            var userParams = {
+              user: userDetails
             }; //add user 
 
-            this.userService.addUser(userDetails).subscribe(function (res) {
+            this.userService.addUser(userParams).subscribe(function (res) {
               if (res.message) {
                 _this6.userId = res.message;
                 var userRole = {
@@ -862,9 +895,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   "insertedOn": "2019-11-10T10:00:28.212Z",
                   "updatedBy": 0,
                   "updatedOn": "2019-11-10T10:00:28.212Z"
+                };
+                var roleParams = {
+                  userRole: userRole
                 }; //add userrole
 
-                _this6.userService.addUserRole(userRole).subscribe(function (res) {
+                _this6.userService.addUserRole(roleParams).subscribe(function (res) {
                   if (res.message) {
                     var staffDetails = {
                       "apartmentId": parseInt(_this6.cookieService.get('apartmentId')),
@@ -912,8 +948,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       "updatedBy": parseInt(_this6.cookieService.get('userId')),
                       "updatedOn": "2019-11-30T12:41:45.620Z"
                     };
+                    var staffParams = {
+                      staff: staffDetails
+                    };
 
-                    _this6.staffService.addStaff(staffDetails).subscribe(function (res) {
+                    _this6.staffService.addStaff(staffParams).subscribe(function (res) {
                       _this6.isStaffSubmitted = false;
 
                       if (res.message) {
@@ -976,9 +1015,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "resetPassword": true,
               "insertedBy": 0,
               "updatedBy": parseInt(this.cookieService.get('userId'))
+            };
+            var _userParams = {
+              user: _userDetails
             }; //edit user 
 
-            this.userService.UpdateUser(_userDetails).subscribe(function (res) {
+            this.userService.updateUser(_userParams).subscribe(function (res) {
               if (res.message) {
                 var staffDetails = {
                   "staffId": _this6.route.params['value'].id,
@@ -1026,9 +1068,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   "insertedOn": "2019-11-30T12:41:45.620Z",
                   "updatedBy": parseInt(_this6.cookieService.get('userId')),
                   "updatedOn": "2019-11-30T12:41:45.620Z"
+                };
+                var staffParams = {
+                  staff: staffDetails
                 }; //edit staff
 
-                _this6.staffService.updateStaff(staffDetails).subscribe(function (res) {
+                _this6.staffService.updateStaff(staffParams).subscribe(function (res) {
                   _this6.isStaffSubmitted = false;
 
                   if (res.message) {
@@ -1080,17 +1125,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, function (error) {});
           }
 
-          this.lookupService.getLookupValueByLookupTypeId(24).subscribe(function (res) {
+          var groupParams = {
+            LookupTypeId: 24
+          };
+          this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
             _this7.bloodGroupData = res;
-          }); //staff type
+          });
+          var staffParams = {
+            LookupTypeId: 25
+          }; //staff type
 
-          this.lookupService.getLookupValueByLookupTypeId(25).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
             _this7.staffTypeData = res.filter(function (item) {
               return item.isActive;
             });
-          }, function (error) {}); //category type
+          }, function (error) {});
+          var categoryParams = {
+            LookupTypeId: 26
+          }; //category type
 
-          this.lookupService.getLookupValueByLookupTypeId(26).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
             _this7.staffCategoryData = res.filter(function (item) {
               return item.isActive;
             });
@@ -1107,13 +1161,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__["StaffService"]
+        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }];
@@ -1130,7 +1184,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-staff.component.scss */
       "./src/app/ams/staff-manager/components/add-staff/add-staff.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_4__["StaffService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], AddStaffComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], AddStaffComponent);
     /***/
   },
 
@@ -1188,51 +1242,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/staff */
+    "./src/app/api/controllers/staff.ts");
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/staff.service */
-    "./src/app/api/services/staff.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var StaffAttendanceComponent =
     /*#__PURE__*/
     function () {
-      function StaffAttendanceComponent(router, route, staffService, lookupService, sharedService, cookieService) {
+      function StaffAttendanceComponent(staffService, lookupService, cookieService) {
         _classCallCheck(this, StaffAttendanceComponent);
 
-        this.router = router;
-        this.route = route;
         this.staffService = staffService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isEntryDataLoaded = false;
         this.unitFieldType = "unitno";
@@ -1277,7 +1316,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSelectChange",
         value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
+          if (!underscore__WEBPACK_IMPORTED_MODULE_5__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
           } else {
@@ -1384,30 +1423,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.gateDataList = [];
           this.officalStaffsDataList = [];
           this.personalStaffsDataList = [];
-          this.staffService.getAllAttendancesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.staffService.getAllAttendancesByApartmentId(params).subscribe(function (res) {
             //filter active true items
             _this8.entryListData = res.filter(function (data) {
               return data.isActive;
             });
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this8.entryListData, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this8.entryListData, function (item) {
               _this8.staffService.getStaffByStaffId(item.staffId).subscribe(function (staff) {
                 _this8.staffDetails.push(staff[0]);
               });
-            }); //get all gates
+            });
+            var dataListparams = {
+              apartmentId: parseInt(_this8.cookieService.get('apartmentId'))
+            }; //get all gates
 
-            _this8.staffService.getAllGatesByApartmentId(parseInt(_this8.cookieService.get('apartmentId'))).subscribe(function (res) {
+            _this8.staffService.getAllGatesByApartmentId(dataListparams).subscribe(function (res) {
               _this8.gateDataList = res;
-            }); //get all offical staff 
+            });
 
+            var officialListparams = {
+              LookupTypeId: 26
+            }; //get all offical staff 
 
-            _this8.lookupService.getLookupValueByLookupTypeId(26).subscribe(function (res) {
+            _this8.lookupService.getLookupValueByLookupTypeId(officialListparams).subscribe(function (res) {
               _this8.officalStaffsDataList = res.filter(function (item) {
                 return item.isActive;
               });
-            }, function (error) {}); //get all personal staffs 
+            }, function (error) {});
 
+            var personalListparams = {
+              LookupTypeId: 27
+            }; //get all personal staffs 
 
-            _this8.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+            _this8.lookupService.getLookupValueByLookupTypeId(personalListparams).subscribe(function (res) {
               _this8.personalStaffsDataList = res.filter(function (item) {
                 return item.isActive;
               });
@@ -1431,17 +1482,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     StaffAttendanceComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
-      }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -1453,7 +1498,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-attendance.component.scss */
       "./src/app/ams/staff-manager/components/staff-attendance/staff-attendance.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], StaffAttendanceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], StaffAttendanceComponent);
     /***/
   },
 
@@ -1517,44 +1562,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/staff.service */
-    "./src/app/api/services/staff.service.ts");
+    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/staff */
+    "./src/app/api/controllers/staff.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var StaffGatesComponent =
     /*#__PURE__*/
     function () {
-      function StaffGatesComponent(injector, dialog, staffService, lookupService, sharedService, cookieService) {
+      function StaffGatesComponent(injector, dialog, staffService, sharedService, cookieService) {
         _classCallCheck(this, StaffGatesComponent);
 
         this.injector = injector;
         this.dialog = dialog;
         this.staffService = staffService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isGateLoaded = true;
@@ -1565,7 +1603,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.unitOrder = true;
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
       _createClass(StaffGatesComponent, [{
@@ -1606,7 +1644,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": 0,
               "updatedOn": new Date().toISOString()
             };
-            this.staffService.addGate(details).subscribe(function (res) {
+            var params = {
+              gate: details
+            };
+            this.staffService.addGate(params).subscribe(function (res) {
               if (res.message) {
                 _this9.isGateLoaded = true;
 
@@ -1627,7 +1668,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
             };
-            this.staffService.updateGate(_details2).subscribe(function (res) {
+            var _params3 = {
+              gate: _details2
+            };
+            this.staffService.updateGate(_params3).subscribe(function (res) {
               if (res.message) {
                 _this9.isGateLoaded = true;
 
@@ -1643,7 +1687,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getAllGates() {
           var _this10 = this;
 
-          this.staffService.getAllGatesByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.staffService.getAllGatesByApartmentId(params).subscribe(function (res) {
             _this10.isGateTableLoaded = true;
             _this10.gateListData = res.filter(function (item) {
               return item.isActive;
@@ -1749,13 +1796,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
+        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
     };
 
@@ -1767,7 +1812,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-gates.component.scss */
       "./src/app/ams/staff-manager/components/staff-gates/staff-gates.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], StaffGatesComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], StaffGatesComponent);
     /***/
   },
 
@@ -1825,15 +1870,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../api/services/staff.service */
-    "./src/app/api/services/staff.service.ts");
+    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/staff */
+    "./src/app/api/controllers/staff.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -1957,7 +2002,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this14 = this;
 
-          this.staffService.getAllStaffsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.staffService.getAllStaffsByApartmentId(params).subscribe(function (res) {
             //filter inactive true items
             _this14.staffListData = res.filter(function (data) {
               return !data.isActive;
@@ -1971,22 +2019,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
 
             _this14.isStaffDataLoaded = true;
-          }); //staff type
+          });
+          var staffParams = {
+            LookupTypeId: 25
+          }; //staff type
 
-          this.lookupService.getLookupValueByLookupTypeId(25).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
             _this14.staffTypeData = res.filter(function (item) {
               return item.isActive;
             });
-          }, function (error) {}); //offical category type
+          }, function (error) {});
+          var staffOfficialParams = {
+            LookupTypeId: 26
+          }; //offical category type
 
-          this.lookupService.getLookupValueByLookupTypeId(26).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(staffOfficialParams).subscribe(function (res) {
             _this14.staffOfficalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
             console.log(_this14.staffOfficalCategoryData);
-          }, function (error) {}); //personal category type
+          }, function (error) {});
+          var staffPersonalParams = {
+            LookupTypeId: 27
+          }; //personal category type
 
-          this.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(staffPersonalParams).subscribe(function (res) {
             _this14.staffPersonalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
@@ -1999,9 +2056,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     StaffInactiveStaffComponent.ctorParameters = function () {
       return [{
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_2__["StaffService"]
+        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
@@ -2017,7 +2074,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-inactive-staff.component.scss */
       "./src/app/ams/staff-manager/components/staff-inactive-staff/staff-inactive-staff.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_staff_service__WEBPACK_IMPORTED_MODULE_2__["StaffService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], StaffInactiveStaffComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], StaffInactiveStaffComponent);
     /***/
   },
 
@@ -2075,66 +2132,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/staff */
+    "./src/app/api/controllers/staff.ts");
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/staff.service */
-    "./src/app/api/services/staff.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9___default =
+    var moment__WEBPACK_IMPORTED_MODULE_8___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
     var StaffMaintainStaffComponent =
     /*#__PURE__*/
     function () {
-      function StaffMaintainStaffComponent(router, route, injector, staffService, lookupService, sharedService, cookieService) {
+      function StaffMaintainStaffComponent(injector, staffService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, StaffMaintainStaffComponent);
 
-        this.router = router;
-        this.route = route;
         this.injector = injector;
         this.staffService = staffService;
         this.lookupService = lookupService;
@@ -2148,7 +2197,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.staffData = "";
         this.selectedInput = "";
         this.columnField = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
       _createClass(StaffMaintainStaffComponent, [{
@@ -2179,7 +2228,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSelectChange",
         value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_8__["isEmpty"](event)) {
+          if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
           } else {
@@ -2199,12 +2248,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getTimeFormat",
         value: function getTimeFormat(dateTime) {
-          return moment__WEBPACK_IMPORTED_MODULE_9__(dateTime).format("YYYY-MM-DD HH:mm");
+          return moment__WEBPACK_IMPORTED_MODULE_8__(dateTime).format("YYYY-MM-DD HH:mm");
         }
       }, {
         key: "getStaffCategory",
         value: function getStaffCategory(staff, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffTypeData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffTypeData, function (item) {
             if (item.lookupValueId === id) return item;
           });
 
@@ -2223,7 +2272,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getStaffSubCategory",
         value: function getStaffSubCategory(staff, id) {
           if (this.staffTypeId == 115) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffOfficalCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffOfficalCategoryData, function (item) {
               if (item.lookupValueId === id) return item;
             });
 
@@ -2238,7 +2287,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return data[0].lookupValueName;
             }
           } else {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffPersonalCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffPersonalCategoryData, function (item) {
               if (item.lookupValueId === id) return item;
             });
 
@@ -2259,7 +2308,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this15 = this;
 
-          this.staffService.getAllStaffsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.staffService.getAllStaffsByApartmentId(params).subscribe(function (res) {
             //filter active true items
             _this15.staffListData = res.filter(function (data) {
               return data.isActive;
@@ -2273,22 +2325,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
 
             _this15.isStaffDataLoaded = true;
-          }); //staff type
+          });
+          var staffParams = {
+            LookupTypeId: 25
+          }; //staff type
 
-          this.lookupService.getLookupValueByLookupTypeId(25).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
             _this15.staffTypeData = res.filter(function (item) {
               return item.isActive;
             });
-          }, function (error) {}); //offical category type
+          }, function (error) {});
+          var officialParams = {
+            LookupTypeId: 26
+          }; //offical category type
 
-          this.lookupService.getLookupValueByLookupTypeId(26).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(officialParams).subscribe(function (res) {
             _this15.staffOfficalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
             console.log(_this15.staffOfficalCategoryData);
-          }, function (error) {}); //personal category type
+          }, function (error) {});
+          var officialCategoryParams = {
+            LookupTypeId: 27
+          }; //personal category type
 
-          this.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(officialCategoryParams).subscribe(function (res) {
             _this15.staffPersonalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
@@ -2302,7 +2363,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               };
 
               _this15.staffService.deleteStaff(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this15.staffListData, function (type) {
+                underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this15.staffListData, function (type) {
                   if (type.staffId == id) {
                     type.isActive = false;
                   }
@@ -2330,19 +2391,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     StaffMaintainStaffComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-      }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
+        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
     };
 
@@ -2354,7 +2411,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-maintain-staff.component.scss */
       "./src/app/ams/staff-manager/components/staff-maintain-staff/staff-maintain-staff.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], StaffMaintainStaffComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], StaffMaintainStaffComponent);
     /***/
   },
 
@@ -2655,49 +2712,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var StaffSetupComponent =
     /*#__PURE__*/
     function () {
-      function StaffSetupComponent(injector, dialog, userService, lookupService, sharedService, cookieService) {
+      function StaffSetupComponent(injector, dialog, lookupService, sharedService, cookieService) {
         _classCallCheck(this, StaffSetupComponent);
 
         this.injector = injector;
         this.dialog = dialog;
-        this.userService = userService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -2713,7 +2763,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.errorMessage = "";
         this.isError = false;
         this.isEditStaffCategory = false;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
       _createClass(StaffSetupComponent, [{
@@ -2755,7 +2805,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.staffType == "115") {
             this.staffTypeId = 26;
-            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.categoryOffcialData, function (item) {
+            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryOffcialData, function (item) {
               return item.lookupValueName === _this16.staffCategory;
             });
 
@@ -2777,11 +2827,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   "updatedBy": 0,
                   "updatedOn": "2019-11-16T14:50:08.217Z"
                 };
-                this.lookupService.addLookupValue(details).subscribe(function (res) {
+                var params = {
+                  lookupvalue: details
+                };
+                this.lookupService.addLookupValue(params).subscribe(function (res) {
                   _this16.isStaffLoaded = true;
                   _this16.isCategoryDataLoaded = false;
+                  var params = {
+                    LookupTypeId: _this16.staffTypeId
+                  };
 
-                  _this16.lookupService.getLookupValueByLookupTypeId(_this16.staffTypeId).subscribe(function (res) {
+                  _this16.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryOffcialListData = res.filter(function (item) {
                       return item.isActive;
                     });
@@ -2801,12 +2857,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   "updatedBy": parseInt(this.cookieService.get('userId')),
                   "updatedOn": "2019-11-16T14:50:08.217Z"
                 };
-                this.lookupService.updateLookupValue(_details3).subscribe(function (res) {
+                var _params4 = {
+                  lookupvalue: _details3
+                };
+                this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
                   _this16.isStaffLoaded = true;
                   _this16.isCategoryDataLoaded = false;
                   _this16.isEditStaffCategory = false;
+                  var params = {
+                    LookupTypeId: _this16.staffTypeId
+                  };
 
-                  _this16.lookupService.getLookupValueByLookupTypeId(_this16.staffTypeId).subscribe(function (res) {
+                  _this16.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryOffcialListData = res.filter(function (item) {
                       return item.isActive;
                     });
@@ -2818,7 +2880,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           } else {
             this.staffTypeId = 27;
-            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.categoryPersonalData, function (item) {
+            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryPersonalData, function (item) {
               return item.lookupValueName === _this16.staffCategory;
             });
 
@@ -2840,11 +2902,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   "updatedBy": 0,
                   "updatedOn": "2019-11-16T14:50:08.217Z"
                 };
-                this.lookupService.addLookupValue(_details4).subscribe(function (res) {
+                var _params5 = {
+                  lookupvalue: _details4
+                };
+                this.lookupService.addLookupValue(_params5).subscribe(function (res) {
                   _this16.isStaffLoaded = true;
                   _this16.isCategoryDataLoaded = false;
+                  var params = {
+                    LookupTypeId: _this16.staffTypeId
+                  };
 
-                  _this16.lookupService.getLookupValueByLookupTypeId(_this16.staffTypeId).subscribe(function (res) {
+                  _this16.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryPersonalListData = res.filter(function (item) {
                       return item.isActive;
                     });
@@ -2864,12 +2932,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   "updatedBy": parseInt(this.cookieService.get('userId')),
                   "updatedOn": "2019-11-16T14:50:08.217Z"
                 };
-                this.lookupService.updateLookupValue(_details5).subscribe(function (res) {
+                var _params6 = {
+                  lookupvalue: _details5
+                };
+                this.lookupService.updateLookupValue(_params6).subscribe(function (res) {
                   _this16.isStaffLoaded = true;
                   _this16.isCategoryDataLoaded = false;
                   _this16.isEditStaffCategory = false;
+                  var params = {
+                    LookupTypeId: _this16.staffTypeId
+                  };
 
-                  _this16.lookupService.getLookupValueByLookupTypeId(_this16.staffTypeId).subscribe(function (res) {
+                  _this16.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryPersonalListData = res.filter(function (item) {
                       return item.isActive;
                     });
@@ -2886,19 +2960,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this17 = this;
 
-          //get all staff type
-          this.lookupService.getLookupValueByLookupTypeId(25).subscribe(function (res) {
+          var params = {
+            LookupTypeId: 25
+          }; //get all staff type
+
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             _this17.staffCategoryData = res;
             _this17.isStaffLoaded = true;
-          }, function (error) {}); //get all offical category
+          }, function (error) {});
+          var categoryParams = {
+            LookupTypeId: 26
+          }; //get all offical category
 
-          this.lookupService.getLookupValueByLookupTypeId(26).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
             var categoryOffcialListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this17.categoryOffcialListData = categoryOffcialListData; //get all personal category
+            _this17.categoryOffcialListData = categoryOffcialListData;
+            var categoryPersonalParams = {
+              LookupTypeId: 27
+            }; //get all personal category
 
-            _this17.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+            _this17.lookupService.getLookupValueByLookupTypeId(categoryPersonalParams).subscribe(function (res) {
               var categoryPersonalListData = res.filter(function (item) {
                 return item.isActive;
               });
@@ -2950,13 +3033,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
     };
 
@@ -2968,7 +3049,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-setup.component.scss */
       "./src/app/ams/staff-manager/components/staff-setup/staff-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], StaffSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], StaffSetupComponent);
     /***/
   },
 
@@ -3032,15 +3113,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/staff.service */
-    "./src/app/api/services/staff.service.ts");
+    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/staff */
+    "./src/app/api/controllers/staff.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -3164,7 +3245,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": 0,
               "updatedOn": "2019-12-03T06:11:51.972Z"
             };
-            this.staffService.addShift(details).subscribe(function (res) {
+            var params = {
+              shift: details
+            };
+            this.staffService.addShift(params).subscribe(function (res) {
               if (res.message) {
                 _this18.isShiftsLoaded = true;
 
@@ -3186,7 +3270,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
             };
-            this.staffService.updateShift(_details6).subscribe(function (res) {
+            var _params7 = {
+              shift: _details6
+            };
+            this.staffService.updateShift(_params7).subscribe(function (res) {
               if (res.message) {
                 _this18.isShiftsLoaded = true;
 
@@ -3255,7 +3342,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this21 = this;
 
           this.isShiftTableLoaded = false;
-          this.staffService.getAllShiftsByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe(function (res) {
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.staffService.getAllShiftsByApartmentId(params).subscribe(function (res) {
             _this21.shiftsListData = res.filter(function (item) {
               return item.isActive;
             });
@@ -3276,9 +3366,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this22 = this;
 
           this.shift = {};
-          this.getAllShifts(); //shift type
+          this.getAllShifts();
+          var params = {
+            LookupTypeId: 28
+          }; //shift type
 
-          this.lookupService.getLookupValueByLookupTypeId(28).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             _this22.shiftTypeList = res.filter(function (item) {
               return item.isActive;
             });
@@ -3317,9 +3410,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
+        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -3335,7 +3428,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-shifts.component.scss */
       "./src/app/ams/staff-manager/components/staff-shifts/staff-shifts.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_staff_service__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], StaffShiftsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], StaffShiftsComponent);
     /***/
   },
 

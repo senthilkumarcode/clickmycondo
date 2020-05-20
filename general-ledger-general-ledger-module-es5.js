@@ -611,15 +611,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -708,7 +708,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": null,
               "updatedOn": null
             };
-            this.accountsService.addGLAccount(details).subscribe(function (res) {
+            var params = {
+              glAccount: details
+            };
+            this.accountsService.addGlAccount(params).subscribe(function (res) {
               _this.isAccountAdded = true;
 
               if (res.message) {
@@ -739,7 +742,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
             };
-            this.accountsService.updateGLAccount(_details).subscribe(function (res) {
+            var _params = {
+              glAccount: _details
+            };
+            this.accountsService.updateGlAccount(_params).subscribe(function (res) {
               _this.isAccountAdded = true;
 
               if (res.message) {
@@ -774,7 +780,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               apartmentId: parseInt(this.cookieService.get('apartmentId')),
               glAccountId: this.glAccountId
             };
-            this.accountsService.getGLAccountsId(params).subscribe(function (res) {
+            this.accountsService.getGlAccountsId(params).subscribe(function (res) {
               _this2.gl = res[0];
 
               if (_this2.group == 'Income' || _this2.group == 'Expenses') {
@@ -784,13 +790,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           ;
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this2.glGroupsDataList = res.filter(function (item) {
               return item.isActive && item.glaccountTypeId == parseInt(_this2.glaccountTypeId);
             });
-          }); //bank details
+          });
+          var defaultParams = {
+            LookupTypeId: 60
+          }; //bank details
 
-          this.lookupService.getLookupValueByLookupTypeId(60).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
             _this2.glDefaultBankDataList = res;
           }, function (error) {});
         }
@@ -809,9 +818,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
@@ -831,7 +840,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-gl-account.component.scss */
       "./src/app/ams/general-ledger/components/add-gl-account/add-gl-account.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], AddGlAccountComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], AddGlAccountComponent);
     /***/
   },
 
@@ -901,15 +910,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -971,7 +980,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": 0,
               "updatedOn": new Date().toISOString()
             };
-            this.accountsService.addGLGroup(details).subscribe(function (res) {
+            var params = {
+              glGroup: details
+            };
+            this.accountsService.addGlGroup(params).subscribe(function (res) {
               _this3.isGroupAdded = true;
 
               if (res.message) {
@@ -1003,7 +1015,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
             };
-            this.accountsService.updateGLGroup(_details2).subscribe(function (res) {
+            var _params2 = {
+              glGroup: _details2
+            };
+            this.accountsService.updateGlGroup(_params2).subscribe(function (res) {
               _this3.isGroupAdded = true;
 
               if (res.message) {
@@ -1040,7 +1055,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               apartmentId: parseInt(this.cookieService.get('apartmentId')),
               glGroupId: this.glgroupId
             };
-            this.accountsService.getGLGroupById(params).subscribe(function (res) {
+            this.accountsService.getGlGroupById(params).subscribe(function (res) {
               _this4.gl = res[0];
             });
           }
@@ -1060,9 +1075,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
@@ -1082,7 +1097,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-gl-group.component.scss */
       "./src/app/ams/general-ledger/components/add-gl-group/add-gl-group.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], AddGlGroupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], AddGlGroupComponent);
     /***/
   },
 
@@ -1146,61 +1161,54 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9___default =
+    var moment__WEBPACK_IMPORTED_MODULE_8___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
     var GlAssetsComponent =
     /*#__PURE__*/
     function () {
-      function GlAssetsComponent(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+      function GlAssetsComponent(injector, dialog, accountsService, sharedService, cookieService) {
         _classCallCheck(this, GlAssetsComponent);
 
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -1213,7 +1221,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.itemLimit = 100;
         this.unitFieldType = "glGroupName";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(GlAssetsComponent, [{
@@ -1239,7 +1247,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getGroup",
         value: function getGroup(account, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glGroupsDataList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.glGroupsDataList, function (item) {
             if (item.glgroupId === id) return item;
           });
 
@@ -1259,7 +1267,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
         }
       }, {
         key: "isMobileView",
@@ -1291,7 +1299,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getAccounts() {
           var _this5 = this;
 
-          this.accountsService.getAllGLAccounts().subscribe(function (res) {
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
             _this5.glAccountsDataList = res.filter(function (item) {
               return item.isActive && parseInt(_this5.cookieService.get('apartmentId')) && item.indicator == _this5.glAccountIndicator;
             });
@@ -1313,7 +1321,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this6 = this;
 
           this.getAccounts();
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this6.glGroupsDataList = res.filter(function (item) {
               return item.isActive;
             });
@@ -1332,9 +1340,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this6.cookieService.get('userId'))
               };
 
-              _this6.accountsService.deleteGLAccount(params).subscribe(function (res) {
+              _this6.accountsService.deleteGlAccount(params).subscribe(function (res) {
                 if (res.message) {
-                  underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this6.glAccountsDataList, function (type) {
+                  underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this6.glAccountsDataList, function (type) {
                     if (type.glaccountId == id) {
                       type.isActive = false;
                     }
@@ -1369,13 +1377,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }];
     };
 
@@ -1387,7 +1393,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-assets.component.scss */
       "./src/app/ams/general-ledger/components/gl-assets/gl-assets.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlAssetsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlAssetsComponent);
     /***/
   },
 
@@ -1451,21 +1457,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -1616,7 +1622,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getAccounts() {
           var _this7 = this;
 
-          this.accountsService.getAllGLAccounts().subscribe(function (res) {
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
             _this7.glAccountsDataList = res.filter(function (item) {
               return item.isActive && parseInt(_this7.cookieService.get('apartmentId')) && item.indicator == _this7.glAccountIndicator;
             });
@@ -1638,13 +1644,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this8 = this;
 
           this.getAccounts();
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this8.glGroupsDataList = res.filter(function (item) {
               return item.isActive;
             });
-          }); //bank details
+          });
+          var bankListParams = {
+            LookupTypeId: 27
+          }; //bank details
 
-          this.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {
             _this8.glBankDataList = res;
           }, function (error) {});
           this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
@@ -1661,7 +1670,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this8.cookieService.get('userId'))
               };
 
-              _this8.accountsService.deleteGLAccount(params).subscribe(function (res) {
+              _this8.accountsService.deleteGlAccount(params).subscribe(function (res) {
                 if (res.message) {
                   underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this8.glAccountsDataList, function (type) {
                     if (type.glaccountId == id) {
@@ -1698,11 +1707,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
@@ -1718,7 +1727,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-equity-member-fund.component.scss */
       "./src/app/ams/general-ledger/components/gl-equity-member-fund/gl-equity-member-fund.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], GlEquityMemberFundComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], GlEquityMemberFundComponent);
     /***/
   },
 
@@ -1782,67 +1791,60 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_10___default =
+    var moment__WEBPACK_IMPORTED_MODULE_9___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
     var GlExpenseComponent =
     /*#__PURE__*/
     function () {
-      function GlExpenseComponent(injector, dialog, apartmentService, accountsService, lookupService, sharedService, cookieService) {
+      function GlExpenseComponent(injector, dialog, accountsService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, GlExpenseComponent);
 
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -1856,7 +1858,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.itemLimit = 100;
         this.unitFieldType = "glGroupName";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
       }
 
       _createClass(GlExpenseComponent, [{
@@ -1882,7 +1884,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getGroup",
         value: function getGroup(account, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.glGroupsDataList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glGroupsDataList, function (item) {
             if (item.glgroupId === id) return item;
           });
 
@@ -1902,7 +1904,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBank",
         value: function getBank(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.glBankDataList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glBankDataList, function (item) {
             if (item.lookupValueId === id) return item;
           });
 
@@ -1915,7 +1917,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("MM-DD-YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
         }
       }, {
         key: "isMobileView",
@@ -1947,7 +1949,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getAccounts() {
           var _this9 = this;
 
-          this.accountsService.getAllGLAccounts().subscribe(function (res) {
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
             _this9.glAccountsDataList = res.filter(function (item) {
               return item.isActive && parseInt(_this9.cookieService.get('apartmentId')) && item.indicator == _this9.glAccountIndicator;
             });
@@ -1969,13 +1971,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this10 = this;
 
           this.getAccounts();
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this10.glGroupsDataList = res.filter(function (item) {
               return item.isActive;
             });
-          }); //bank details
+          });
+          var bankListParams = {
+            LookupTypeId: 27
+          }; //bank details
 
-          this.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {
             _this10.glBankDataList = res;
           }, function (error) {});
           this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
@@ -1992,9 +1997,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this10.cookieService.get('userId'))
               };
 
-              _this10.accountsService.deleteGLAccount(params).subscribe(function (res) {
+              _this10.accountsService.deleteGlAccount(params).subscribe(function (res) {
                 if (res.message) {
-                  underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this10.glAccountsDataList, function (type) {
+                  underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this10.glAccountsDataList, function (type) {
                     if (type.glaccountId == id) {
                       type.isActive = false;
                     }
@@ -2029,15 +2034,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
     };
 
@@ -2049,7 +2052,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-expense.component.scss */
       "./src/app/ams/general-ledger/components/gl-expense/gl-expense.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], GlExpenseComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlExpenseComponent);
     /***/
   },
 
@@ -2113,15 +2116,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
@@ -2220,7 +2223,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this11 = this;
 
           this.isDataLoaded = false;
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this11.glGroupsDataList = res.filter(function (item) {
               return item.isActive && item.glaccountTypeId == parseInt(_this11.glaccountTypeId); // active and type id
             });
@@ -2255,7 +2258,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this12.cookieService.get('userId'))
               };
 
-              _this12.accountsService.deleteGLGroup(params).subscribe(function (res) {
+              _this12.accountsService.deleteGlGroup(params).subscribe(function (res) {
                 if (res.message) {
                   underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this12.glGroupsDataList, function (type) {
                     if (type.glgroupId == id) {
@@ -2300,9 +2303,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -2319,7 +2322,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-asset-groups.component.scss */
       "./src/app/ams/general-ledger/components/gl-groups-wrapper/gl-asset-groups/gl-asset-groups.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlAssetGroupsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlAssetGroupsComponent);
     /***/
   },
 
@@ -2383,49 +2386,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var GlEquityMemberFundGroupsComponent =
     /*#__PURE__*/
     function () {
-      function GlEquityMemberFundGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+      function GlEquityMemberFundGroupsComponent(injector, dialog, accountsService, sharedService, cookieService) {
         _classCallCheck(this, GlEquityMemberFundGroupsComponent);
 
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -2435,7 +2431,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.itemLimit = 8;
         this.unitFieldType = "glnumber";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(GlEquityMemberFundGroupsComponent, [{
@@ -2490,7 +2486,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this13 = this;
 
           this.isDataLoaded = false;
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this13.glGroupsDataList = res.filter(function (item) {
               return item.isActive && item.glaccountTypeId == parseInt(_this13.glaccountTypeId); // active and type id
             });
@@ -2525,9 +2521,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this14.cookieService.get('userId'))
               };
 
-              _this14.accountsService.deleteGLGroup(params).subscribe(function (res) {
+              _this14.accountsService.deleteGlGroup(params).subscribe(function (res) {
                 if (res.message) {
-                  underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this14.glGroupsDataList, function (type) {
+                  underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this14.glGroupsDataList, function (type) {
                     if (type.glgroupId == id) {
                       type.isActive = false;
                     }
@@ -2570,13 +2566,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }];
     };
 
@@ -2589,7 +2583,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-equity-member-fund-groups.component.scss */
       "./src/app/ams/general-ledger/components/gl-groups-wrapper/gl-equity-member-fund-groups/gl-equity-member-fund-groups.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlEquityMemberFundGroupsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlEquityMemberFundGroupsComponent);
     /***/
   },
 
@@ -2653,49 +2647,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var GlExpenseGroupsComponent =
     /*#__PURE__*/
     function () {
-      function GlExpenseGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+      function GlExpenseGroupsComponent(injector, dialog, accountsService, sharedService, cookieService) {
         _classCallCheck(this, GlExpenseGroupsComponent);
 
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -2705,7 +2692,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.itemLimit = 8;
         this.unitFieldType = "glnumber";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(GlExpenseGroupsComponent, [{
@@ -2760,7 +2747,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this15 = this;
 
           this.isDataLoaded = false;
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this15.glGroupsDataList = res.filter(function (item) {
               return item.isActive && item.glaccountTypeId == parseInt(_this15.glaccountTypeId); // active and type id
             });
@@ -2795,9 +2782,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this16.cookieService.get('userId'))
               };
 
-              _this16.accountsService.deleteGLGroup(params).subscribe(function (res) {
+              _this16.accountsService.deleteGlGroup(params).subscribe(function (res) {
                 if (res.message) {
-                  underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this16.glGroupsDataList, function (type) {
+                  underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this16.glGroupsDataList, function (type) {
                     if (type.glgroupId == id) {
                       type.isActive = false;
                     }
@@ -2840,13 +2827,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }];
     };
 
@@ -2859,7 +2844,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-expense-groups.component.scss */
       "./src/app/ams/general-ledger/components/gl-groups-wrapper/gl-expense-groups/gl-expense-groups.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlExpenseGroupsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlExpenseGroupsComponent);
     /***/
   },
 
@@ -3002,15 +2987,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
@@ -3109,7 +3094,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this17 = this;
 
           this.isDataLoaded = false;
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this17.glGroupsDataList = res.filter(function (item) {
               return item.isActive && item.glaccountTypeId == parseInt(_this17.glaccountTypeId); // active and type id
             });
@@ -3144,7 +3129,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this18.cookieService.get('userId'))
               };
 
-              _this18.accountsService.deleteGLGroup(params).subscribe(function (res) {
+              _this18.accountsService.deleteGlGroup(params).subscribe(function (res) {
                 if (res.message) {
                   underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this18.glGroupsDataList, function (type) {
                     if (type.glgroupId == id) {
@@ -3189,9 +3174,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -3208,7 +3193,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-income-groups.component.scss */
       "./src/app/ams/general-ledger/components/gl-groups-wrapper/gl-income-groups/gl-income-groups.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlIncomeGroupsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlIncomeGroupsComponent);
     /***/
   },
 
@@ -3272,15 +3257,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
@@ -3379,7 +3364,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this19 = this;
 
           this.isDataLoaded = false;
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this19.glGroupsDataList = res.filter(function (item) {
               return item.isActive && item.glaccountTypeId == parseInt(_this19.glaccountTypeId); // active and type id
             });
@@ -3414,7 +3399,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this20.cookieService.get('userId'))
               };
 
-              _this20.accountsService.deleteGLGroup(params).subscribe(function (res) {
+              _this20.accountsService.deleteGlGroup(params).subscribe(function (res) {
                 if (res.message) {
                   underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this20.glGroupsDataList, function (type) {
                     if (type.glgroupId == id) {
@@ -3459,9 +3444,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -3478,7 +3463,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-liabilites-groups.component.scss */
       "./src/app/ams/general-ledger/components/gl-groups-wrapper/gl-liabilites-groups/gl-liabilites-groups.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlLiabilitesGroupsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlLiabilitesGroupsComponent);
     /***/
   },
 
@@ -3542,21 +3527,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -3707,7 +3692,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getAccounts() {
           var _this21 = this;
 
-          this.accountsService.getAllGLAccounts().subscribe(function (res) {
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
             _this21.glAccountsDataList = res.filter(function (item) {
               return item.isActive && parseInt(_this21.cookieService.get('apartmentId')) && item.indicator == _this21.glAccountIndicator;
             });
@@ -3729,13 +3714,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this22 = this;
 
           this.getAccounts();
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this22.glGroupsDataList = res.filter(function (item) {
               return item.isActive;
             });
-          }); //bank details
+          });
+          var bankListParams = {
+            LookupTypeId: 27
+          }; //bank details
 
-          this.lookupService.getLookupValueByLookupTypeId(27).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {
             _this22.glBankDataList = res;
           }, function (error) {});
           this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
@@ -3745,8 +3733,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-            console.log(id);
-
             if (id != null) {
               var params = {
                 apartmentId: parseInt(_this22.cookieService.get('apartmentId')),
@@ -3754,7 +3740,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this22.cookieService.get('userId'))
               };
 
-              _this22.accountsService.deleteGLAccount(params).subscribe(function (res) {
+              _this22.accountsService.deleteGlAccount(params).subscribe(function (res) {
                 if (res.message) {
                   underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this22.glAccountsDataList, function (type) {
                     if (type.glaccountId == id) {
@@ -3793,11 +3779,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
@@ -3813,7 +3799,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-income.component.scss */
       "./src/app/ams/general-ledger/components/gl-income/gl-income.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], GlIncomeComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], GlIncomeComponent);
     /***/
   },
 
@@ -3871,62 +3857,54 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-    /* harmony import */
-
-
-    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/material/dialog */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
     /* harmony import */
 
 
-    var _api_services_journal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../.././api/services/journal.service */
-    "./src/app/api/services/journal.service.ts");
+    var src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/journal */
+    "./src/app/api/controllers/journal.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_8___default =
+    var moment__WEBPACK_IMPORTED_MODULE_7___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
     var GlAllJournalsComponent =
     /*#__PURE__*/
     function () {
-      function GlAllJournalsComponent(injector, dialog, router, route, journalService, sharedService, cookieService) {
+      function GlAllJournalsComponent(injector, dialog, journalService, sharedService, cookieService) {
         _classCallCheck(this, GlAllJournalsComponent);
 
         this.injector = injector;
         this.dialog = dialog;
-        this.router = router;
-        this.route = route;
         this.journalService = journalService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -3937,7 +3915,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.unitFieldType = "documentNumber";
         this.unitOrder = true;
         this.isMobile = false;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
       _createClass(GlAllJournalsComponent, [{
@@ -3963,7 +3941,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
         }
       }, {
         key: "isMobileView",
@@ -3988,7 +3966,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDateFormat",
         value: function getDateFormat(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
         }
       }, {
         key: "showConfirmModal",
@@ -4028,8 +4006,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this24 = this;
 
           // fetch data for past one week by default
-          this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(1, 'week').format("YYYY-MM-DD");
-          this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().add(1, 'days').format("YYYY-MM-DD");
+          this.fromDate = moment__WEBPACK_IMPORTED_MODULE_7__().subtract(1, 'week').format("YYYY-MM-DD");
+          this.toDate = moment__WEBPACK_IMPORTED_MODULE_7__().add(1, 'days').format("YYYY-MM-DD");
           this.getJournals(); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
@@ -4061,17 +4039,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        type: src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__["JournalService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _api_services_journal_service__WEBPACK_IMPORTED_MODULE_4__["JournalService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
     };
 
@@ -4083,7 +4057,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-all-journals.component.scss */
       "./src/app/ams/general-ledger/components/gl-journals/gl-all-journals/gl-all-journals.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_journal_service__WEBPACK_IMPORTED_MODULE_4__["JournalService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], GlAllJournalsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__["JournalService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlAllJournalsComponent);
     /***/
   },
 
@@ -4153,34 +4127,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
 
     var GlCreateJournalFieldsComponent =
     /*#__PURE__*/
     function () {
-      function GlCreateJournalFieldsComponent(cd, router, route, accountsService, sharedService, cookieService) {
+      function GlCreateJournalFieldsComponent(route, accountsService) {
         _classCallCheck(this, GlCreateJournalFieldsComponent);
 
-        this.cd = cd;
-        this.router = router;
         this.route = route;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.isEditJournal = false;
         this.isError = false;
         this.alertMessage = "";
@@ -4256,13 +4214,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.route.params['value'].id != undefined) {
             this.isEditJournal = true;
           }
-          /*var accountParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            groupId: 3
-          }*/
 
-
-          this.accountsService.getAllGLAccounts().subscribe(function (res) {
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
             _this25.glAccountListData = res;
           });
         }
@@ -4278,17 +4231,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     GlCreateJournalFieldsComponent.ctorParameters = function () {
       return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
       }];
     };
 
@@ -4306,7 +4251,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-create-journal-fields.component.scss */
       "./src/app/ams/general-ledger/components/gl-journals/gl-create-journal-fields/gl-create-journal-fields.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlCreateJournalFieldsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]])], GlCreateJournalFieldsComponent);
     /***/
   },
 
@@ -4370,9 +4315,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_journal_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../.././api/services/journal.service */
-    "./src/app/api/services/journal.service.ts");
+    var src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/journal */
+    "./src/app/api/controllers/journal.ts");
     /* harmony import */
 
 
@@ -4407,10 +4352,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var GlCreateJournalComponent =
     /*#__PURE__*/
     function () {
-      function GlCreateJournalComponent(router, route, journalService, sharedService, cookieService) {
+      function GlCreateJournalComponent(route, journalService, sharedService, cookieService) {
         _classCallCheck(this, GlCreateJournalComponent);
 
-        this.router = router;
         this.route = route;
         this.journalService = journalService;
         this.sharedService = sharedService;
@@ -4569,11 +4513,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     GlCreateJournalComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_journal_service__WEBPACK_IMPORTED_MODULE_3__["JournalService"]
+        type: src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__["JournalService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
@@ -4589,7 +4531,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-create-journal.component.scss */
       "./src/app/ams/general-ledger/components/gl-journals/gl-create-journal/gl-create-journal.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_journal_service__WEBPACK_IMPORTED_MODULE_3__["JournalService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlCreateJournalComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_journal__WEBPACK_IMPORTED_MODULE_3__["JournalService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlCreateJournalComponent);
     /***/
   },
 
@@ -4904,61 +4846,54 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9___default =
+    var moment__WEBPACK_IMPORTED_MODULE_8___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
     var GlLiablilitiesComponent =
     /*#__PURE__*/
     function () {
-      function GlLiablilitiesComponent(injector, dialog, apartmentService, accountsService, sharedService, cookieService) {
+      function GlLiablilitiesComponent(injector, dialog, accountsService, sharedService, cookieService) {
         _classCallCheck(this, GlLiablilitiesComponent);
 
         this.injector = injector;
         this.dialog = dialog;
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -4971,7 +4906,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.itemLimit = 100;
         this.unitFieldType = "glGroupName";
         this.unitOrder = true;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(GlLiablilitiesComponent, [{
@@ -4997,7 +4932,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getGroup",
         value: function getGroup(account, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glGroupsDataList, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.glGroupsDataList, function (item) {
             if (item.glgroupId === id) return item;
           });
 
@@ -5017,7 +4952,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
         }
       }, {
         key: "isMobileView",
@@ -5049,7 +4984,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getAccounts() {
           var _this29 = this;
 
-          this.accountsService.getAllGLAccounts().subscribe(function (res) {
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
             _this29.glAccountsDataList = res.filter(function (item) {
               return item.isActive && parseInt(_this29.cookieService.get('apartmentId')) && item.indicator == _this29.glAccountIndicator;
             });
@@ -5071,7 +5006,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this30 = this;
 
           this.getAccounts();
-          this.accountsService.getAllGLGroups().subscribe(function (res) {
+          this.accountsService.getAllGlGroups().subscribe(function (res) {
             _this30.glGroupsDataList = res.filter(function (item) {
               return item.isActive;
             });
@@ -5090,9 +5025,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 deleteBy: parseInt(_this30.cookieService.get('userId'))
               };
 
-              _this30.accountsService.deleteGLAccount(params).subscribe(function (res) {
+              _this30.accountsService.deleteGlAccount(params).subscribe(function (res) {
                 if (res.message) {
-                  underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this30.glAccountsDataList, function (type) {
+                  underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this30.glAccountsDataList, function (type) {
                     if (type.glaccountId == id) {
                       type.isActive = false;
                     }
@@ -5127,13 +5062,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }];
     };
 
@@ -5145,7 +5078,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-liablilities.component.scss */
       "./src/app/ams/general-ledger/components/gl-liablilities/gl-liablilities.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], GlLiablilitiesComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlLiablilitiesComponent);
     /***/
   },
 
@@ -5209,44 +5142,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_6___default =
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 
     var GlFinancialStatementsComponent =
     /*#__PURE__*/
     function () {
-      function GlFinancialStatementsComponent(router, route, accountsService, sharedService, cookieService) {
+      function GlFinancialStatementsComponent(route, accountsService, cookieService) {
         _classCallCheck(this, GlFinancialStatementsComponent);
 
-        this.router = router;
         this.route = route;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.ItemStartIndex = 0;
         this.itemLimit = 8;
@@ -5298,7 +5223,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDateFormat",
         value: function getDateFormat(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
         }
       }, {
         key: "submitGlreportsFinancialForm",
@@ -5312,7 +5237,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.isDataLoaded = false;
           this.isFormGenerated = false;
-          this.accountsService.GetTrialBalanceByDate(details).subscribe(function (res) {
+          this.accountsService.getTrialBalanceByDate(details).subscribe(function (res) {
             _this31.isDataLoaded = true;
             _this31.isFormGenerated = true;
             _this31.glReportsDataList = res;
@@ -5374,15 +5299,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     GlFinancialStatementsComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -5394,7 +5315,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-financial-statements.component.scss */
       "./src/app/ams/general-ledger/components/gl-other-reports/gl-financial-statements/gl-financial-statements.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlFinancialStatementsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], GlFinancialStatementsComponent);
     /***/
   },
 
@@ -5572,55 +5493,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../../../api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_7___default =
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 
     var GlOtherReprotsTransactionsComponent =
     /*#__PURE__*/
     function () {
-      function GlOtherReprotsTransactionsComponent(apartmentService, accountsService, sharedService, cookieService) {
+      function GlOtherReprotsTransactionsComponent(accountsService, cookieService) {
         _classCallCheck(this, GlOtherReprotsTransactionsComponent);
 
-        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.glTypes = [];
         this.glGroups = [];
@@ -5682,7 +5589,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             GlaccountTypeId: id,
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.accountsService.getAllGLGroupsByAccountTypeID(params).subscribe(function (res) {
+          this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
             _this32.isGlGroupsLoaded = true;
             _this32.glGroups = res;
             _this32.glTypeSelectedIndex = id;
@@ -5698,7 +5605,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: id
           };
-          this.accountsService.getGLAccountsByGroupId(params).subscribe(function (res) {
+          this.accountsService.getGlAccountsByGroupId(params).subscribe(function (res) {
             _this33.isGlAccountsLoaded = true;
             _this33.glAccounts = res;
             _this33.glGroupSelectedIndex = id;
@@ -5732,7 +5639,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
         }
       }, {
         key: "isMobileView",
@@ -5757,14 +5664,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isDataSubmitted = true;
           this.isDataLoaded = false;
           var params = {
-            FromDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.reports.fromDate).format("YYYY-MM-DD"),
-            Todate: moment__WEBPACK_IMPORTED_MODULE_7__(this.reports.toDate).format("YYYY-MM-DD"),
+            FromDate: moment__WEBPACK_IMPORTED_MODULE_5__(this.reports.fromDate).format("YYYY-MM-DD"),
+            Todate: moment__WEBPACK_IMPORTED_MODULE_5__(this.reports.toDate).format("YYYY-MM-DD"),
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             //GlAccountTypeID: this.glTypeSelectedIndex,
             //GLGroupID: this.glGroupSelectedIndex,
             GLAccountId: this.glAccountSelectedIndex
           };
-          this.accountsService.GetGLAccountTransactionsByID(params).subscribe(function (res) {
+          this.accountsService.getGlAccountTransactionsById(params).subscribe(function (res) {
             _this34.totalDebitAmount = 0;
             _this34.totalCreditAmount = 0;
             _this34.isDataLoaded = true;
@@ -5777,7 +5684,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this34.ItemEndIndex = _this34.totalItems;
             }
 
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this34.reportsTransactionsDataList, function (item, index) {
+            underscore__WEBPACK_IMPORTED_MODULE_4__["each"](_this34.reportsTransactionsDataList, function (item, index) {
               _this34.totalDebitAmount = _this34.totalDebitAmount + item.debit;
               _this34.totalCreditAmount = _this34.totalCreditAmount + item.credit;
             });
@@ -5816,13 +5723,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     GlOtherReprotsTransactionsComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }];
     };
 
@@ -5834,7 +5737,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-other-reprots-transactions.component.scss */
       "./src/app/ams/general-ledger/components/gl-other-reports/gl-other-reprots-transactions/gl-other-reprots-transactions.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlOtherReprotsTransactionsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], GlOtherReprotsTransactionsComponent);
     /***/
   },
 
@@ -5898,50 +5801,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_7___default =
+    var moment__WEBPACK_IMPORTED_MODULE_6___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
     var GlReportTransactionsComponent =
     /*#__PURE__*/
     function () {
-      function GlReportTransactionsComponent(router, route, accountsService, sharedService, cookieService) {
+      function GlReportTransactionsComponent(route, accountsService, cookieService) {
         _classCallCheck(this, GlReportTransactionsComponent);
 
-        this.router = router;
         this.route = route;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
         this.reportsTransactionsData = "";
@@ -5977,7 +5872,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
         }
       }, {
         key: "isMobileView",
@@ -6001,8 +5896,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var params = {
             GLAccountId: this.route.params['value'].id,
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
-            FromDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.fromDate).format("YYYY-MM-DD"),
-            Todate: moment__WEBPACK_IMPORTED_MODULE_7__(this.toDate).format("YYYY-MM-DD")
+            FromDate: moment__WEBPACK_IMPORTED_MODULE_6__(this.fromDate).format("YYYY-MM-DD"),
+            Todate: moment__WEBPACK_IMPORTED_MODULE_6__(this.toDate).format("YYYY-MM-DD")
           };
           this.getTransactions(params);
         }
@@ -6011,7 +5906,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getTransactions(params) {
           var _this35 = this;
 
-          this.accountsService.GetGLAccountTransactionsByID(params).subscribe(function (res) {
+          this.accountsService.getGlAccountTransactionsById(params).subscribe(function (res) {
             _this35.isDataLoaded = true;
             _this35.reportsTransactionsDataList = res;
             _this35.totalItems = _this35.reportsTransactionsDataList.length;
@@ -6022,7 +5917,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this35.ItemEndIndex = _this35.totalItems;
             }
 
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this35.reportsTransactionsDataList, function (item, index) {
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this35.reportsTransactionsDataList, function (item, index) {
               _this35.totalDebitAmount = _this35.totalDebitAmount + item.debit;
               _this35.totalCreditAmount = _this35.totalCreditAmount + item.credit;
             });
@@ -6051,15 +5946,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     GlReportTransactionsComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -6071,7 +5962,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-report-transactions.component.scss */
       "./src/app/ams/general-ledger/components/gl-reports/gl-report-transactions/gl-report-transactions.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], GlReportTransactionsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], GlReportTransactionsComponent);
     /***/
   },
 
@@ -6248,9 +6139,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../.././api/services/accounts.service */
-    "./src/app/api/services/accounts.service.ts");
+    var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/Accounts */
+    "./src/app/api/controllers/Accounts.ts");
     /* harmony import */
 
 
@@ -6299,14 +6190,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function submitGlTrialBalanceForm(form) {
           var _this37 = this;
 
+          this.isDataLoaded = false;
+          this.isTrialGenerated = false;
           var details = {
             FromDate: this.getDateFormat(this.reports.fromDate),
             ToDate: this.getDateFormat(this.reports.toDate),
             ApartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.isDataLoaded = false;
-          this.isTrialGenerated = false;
-          this.accountsService.GetTrialBalanceByDate(details).subscribe(function (res) {
+          this.accountsService.getTrialBalanceByDate(details).subscribe(function (res) {
             _this37.isDataLoaded = true;
             _this37.isTrialGenerated = true;
             _this37.glReportsDataList = res;
@@ -6327,7 +6218,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     GlReportsComponent.ctorParameters = function () {
       return [{
-        type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
+        type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
@@ -6343,7 +6234,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./gl-reports.component.scss */
       "./src/app/ams/general-ledger/components/gl-reports/gl-reports.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_accounts_service__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], GlReportsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], GlReportsComponent);
     /***/
   },
 

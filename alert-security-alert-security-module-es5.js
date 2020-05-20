@@ -390,38 +390,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_alert_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../.././api/services/alert.service */
-    "./src/app/api/services/alert.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    var src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/alert */
+    "./src/app/api/controllers/alert.ts");
 
     var SecurityEmergencyContactNumbersComponent =
     /*#__PURE__*/
     function () {
-      function SecurityEmergencyContactNumbersComponent(alertService, sharedService, lookupService, cookieService) {
+      function SecurityEmergencyContactNumbersComponent(alertService) {
         _classCallCheck(this, SecurityEmergencyContactNumbersComponent);
 
         this.alertService = alertService;
-        this.sharedService = sharedService;
-        this.lookupService = lookupService;
-        this.cookieService = cookieService;
         this.isContactsLoaded = false;
       }
 
@@ -444,13 +423,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     SecurityEmergencyContactNumbersComponent.ctorParameters = function () {
       return [{
-        type: _api_services_alert_service__WEBPACK_IMPORTED_MODULE_2__["AlertService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-      }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_2__["AlertService"]
       }];
     };
 
@@ -462,7 +435,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./security-emergency-contact-numbers.component.scss */
       "./src/app/user/alert-security/components/security-emergency-contact-numbers/security-emergency-contact-numbers.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_alert_service__WEBPACK_IMPORTED_MODULE_2__["AlertService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], SecurityEmergencyContactNumbersComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_2__["AlertService"]])], SecurityEmergencyContactNumbersComponent);
     /***/
   },
 
@@ -520,21 +493,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../../../.././api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_alert_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../../../.././api/services/alert.service */
-    "./src/app/api/services/alert.service.ts");
+    var src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/alert */
+    "./src/app/api/controllers/alert.ts");
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -664,7 +637,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this2 = this;
 
-          this.apartmentService.getApartmentBlockUnitByUserId(parseInt(this.cookieService.get('userId'))).subscribe(function (res) {
+          var params = {
+            userId: parseInt(this.cookieService.get('userId'))
+          };
+          this.apartmentService.getApartmentBlockUnitByUserId(params).subscribe(function (res) {
             _this2.apartmentBlockUnitId = res[0].apartmentBlockUnitId;
 
             _this2.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(_this2.apartmentBlockUnitId).subscribe(function (alert) {
@@ -686,13 +662,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
           }, function (error) {
             console.log(error);
-          }); //get emergency types
+          });
+          var emergencyListParams = {
+            LookupTypeId: 29
+          }; //get emergency types
 
-          this.lookupService.getLookupValueByLookupTypeId(29).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(emergencyListParams).subscribe(function (res) {
             _this2.emergencyTypeList = res;
-          }); //get alert status types
+          });
+          var alertListParams = {
+            LookupTypeId: 30
+          }; //get alert status types
 
-          this.lookupService.getLookupValueByLookupTypeId(30).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeId(alertListParams).subscribe(function (res) {
             _this2.alertTypeList = res;
           });
         }
@@ -703,11 +685,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     SecurityMyHistoryComponent.ctorParameters = function () {
       return [{
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
-        type: _api_services_alert_service__WEBPACK_IMPORTED_MODULE_3__["AlertService"]
+        type: src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
@@ -723,7 +705,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./security-my-history.component.scss */
       "./src/app/user/alert-security/components/security-my-history/security-my-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_services_alert_service__WEBPACK_IMPORTED_MODULE_3__["AlertService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], SecurityMyHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], SecurityMyHistoryComponent);
     /***/
   },
 
@@ -793,21 +775,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../.././api/services/user.service */
-    "./src/app/api/services/user.service.ts");
+    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/user */
+    "./src/app/api/controllers/user.ts");
     /* harmony import */
 
 
-    var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../.././api/services/apartment.service */
-    "./src/app/api/services/apartment.service.ts");
+    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/apartment */
+    "./src/app/api/controllers/apartment.ts");
     /* harmony import */
 
 
-    var _api_services_alert_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../.././api/services/alert.service */
-    "./src/app/api/services/alert.service.ts");
+    var src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/alert */
+    "./src/app/api/controllers/alert.ts");
     /* harmony import */
 
 
@@ -817,9 +799,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ../../../../api/services/lookup.service */
-    "./src/app/api/services/lookup.service.ts");
+    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/api/controllers/lookup */
+    "./src/app/api/controllers/lookup.ts");
     /* harmony import */
 
 
@@ -897,7 +879,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "updatedBy": 0,
               "updatedOn": "2019-12-06T13:45:09.296Z"
             };
-            this.alertService.addApartmentBlockUnitAlert(details).subscribe(function (res) {
+            var params = {
+              apartmentBlockUnitAlert: details
+            };
+            this.alertService.addApartmentBlockUnitAlert(params).subscribe(function (res) {
               if (res.message) {
                 _this3.isRangeDone = false;
                 _this3.isRequestSuccess = true;
@@ -969,15 +954,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this8 = this;
 
-          //get emergency services
-          this.lookupService.getLookupValueByLookupTypeId(29).subscribe(function (res) {
+          var emergencyListParams = {
+            LookupTypeId: 29
+          }; //get emergency services
+
+          this.lookupService.getLookupValueByLookupTypeId(emergencyListParams).subscribe(function (res) {
             _this8.isEmergenciesLoaded = true;
             _this8.emergencyList = res;
           });
-          this.userService.getUserById(parseInt(this.cookieService.get('userId'))).subscribe(function (res) {
+          var userParams = {
+            userid: parseInt(this.cookieService.get('userId'))
+          };
+          this.userService.getUserById(userParams).subscribe(function (res) {
             _this8.userName = res[0].firstName;
+            var apartmentBlockUnitParams = {
+              userId: parseInt(_this8.cookieService.get('userId'))
+            };
 
-            _this8.apartmentService.getApartmentBlockUnitByUserId(parseInt(_this8.cookieService.get('userId'))).subscribe(function (res) {
+            _this8.apartmentService.getApartmentBlockUnitByUserId(apartmentBlockUnitParams).subscribe(function (res) {
               _this8.apartmentBlockUnitId = res[0].apartmentBlockUnitId;
             }, function (error) {
               console.log(error);
@@ -1000,15 +994,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
-        type: _api_services_alert_service__WEBPACK_IMPORTED_MODULE_6__["AlertService"]
+        type: src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"]
       }, {
-        type: _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
-        type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
       }, {
-        type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"]
+        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]
       }];
@@ -1025,7 +1019,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./send-panic-alert.component.scss */
       "./src/app/user/alert-security/components/send-panic-alert/send-panic-alert.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _api_services_alert_service__WEBPACK_IMPORTED_MODULE_6__["AlertService"], _api_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], SendPanicAlertComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], SendPanicAlertComponent);
     /***/
   }
 }]);

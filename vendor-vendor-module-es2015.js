@@ -92,8 +92,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../.././api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -180,7 +180,10 @@ let AllVendorsComponent = class AllVendorsComponent {
             this.categoryName = "";
         }
         this.isVendorLoaded = false;
-        this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vendorService.getVendorByApartmentId(params).subscribe((res) => {
             if (id != "All") {
                 this.vendorListData = res.filter(item => {
                     return (item.isActive && item.vendorCategoryId == parseInt(id));
@@ -219,7 +222,10 @@ let AllVendorsComponent = class AllVendorsComponent {
         this.vendor = {};
         this.vendorCategoryId = "All";
         this.vendor.categoryName = "";
-        this.lookupService.getLookupValueByLookupTypeId(57).subscribe((res) => {
+        let params = {
+            LookupTypeId: 57
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.isVendorCategoryLoaded = true;
             this.vendorCategoryData = res.filter(item => {
                 return item.isActive;
@@ -261,8 +267,8 @@ AllVendorsComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
 ];
@@ -280,8 +286,8 @@ AllVendorsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_4__["VendorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
 ], AllVendorsComponent);
@@ -316,15 +322,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../.././api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/bank-account.service */ "./src/app/api/services/bank-account.service.ts");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../.././api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/bankAccount */ "./src/app/api/controllers/bankAccount.ts");
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
@@ -336,14 +340,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CreateVendorComponent = class CreateVendorComponent {
-    constructor(router, route, injector, accountsService, vendorService, bankAccountService, apartmentService, lookupService, sharedService, cookieService) {
+    constructor(router, route, injector, accountsService, vendorService, bankAccountService, lookupService, sharedService, cookieService) {
         this.router = router;
         this.route = route;
         this.injector = injector;
         this.accountsService = accountsService;
         this.vendorService = vendorService;
         this.bankAccountService = bankAccountService;
-        this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -355,7 +358,7 @@ let CreateVendorComponent = class CreateVendorComponent {
         this.isVendorAdded = false;
         this.isError = false;
         this.alertMessage = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     getCategoryName() {
     }
@@ -388,7 +391,10 @@ let CreateVendorComponent = class CreateVendorComponent {
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString(),
             };
-            this.bankAccountService.addBankAccountDetails(bank_details).subscribe((bank_res) => {
+            let params = {
+                bankAccountDetails: bank_details
+            };
+            this.bankAccountService.addBankAccountDetails(params).subscribe((bank_res) => {
                 if (bank_res) {
                     //map vendor bankAccountDetailsId from resp
                 }
@@ -426,7 +432,10 @@ let CreateVendorComponent = class CreateVendorComponent {
                 "updatedBy": null,
                 "updatedOn": new Date().toISOString(),
             };
-            this.vendorService.addVendor(details).subscribe((res) => {
+            let bankParams = {
+                vendor: details
+            };
+            this.vendorService.addVendor(bankParams).subscribe((res) => {
                 if (res.message) {
                     this.isVendorSubmitted = false;
                     this.sharedService.setAlertMessage("Vendor added successfully");
@@ -459,7 +468,10 @@ let CreateVendorComponent = class CreateVendorComponent {
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString(),
             };
-            this.bankAccountService.updateBankAccountDetails(bank_details).subscribe((bank_res) => {
+            let bankAccParams = {
+                bankAccountDetails: bank_details
+            };
+            this.bankAccountService.updateBankAccountDetails(bankAccParams).subscribe((bank_res) => {
                 if (bank_res) {
                 }
             }, error => {
@@ -497,7 +509,10 @@ let CreateVendorComponent = class CreateVendorComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString(),
             };
-            this.vendorService.updateVendor(details).subscribe((res) => {
+            let bankParams = {
+                vendor: details
+            };
+            this.vendorService.updateVendor(bankParams).subscribe((res) => {
                 if (res.message) {
                     this.isVendorSubmitted = false;
                     this.sharedService.setAlertMessage("Vendor updated successfully");
@@ -549,18 +564,24 @@ let CreateVendorComponent = class CreateVendorComponent {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
         };
-        this.accountsService.getGLAccountsByGroupId(accountParams).subscribe((res) => {
+        this.accountsService.getGlAccountsByGroupId(accountParams).subscribe((res) => {
             this.glAccountListData = res;
         });
+        let params = {
+            LookupTypeId: 57
+        };
         //vendor Category
-        this.lookupService.getLookupValueByLookupTypeId(57).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.vendorCategoryList = res.filter(item => {
                 return item.isActive;
             });
         }, error => {
         });
+        let vendorParams = {
+            LookupTypeId: 59
+        };
         //vendor type
-        this.lookupService.getLookupValueByLookupTypeId(59).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe((res) => {
             this.vendorTypeList = res.filter(item => {
                 return item.isActive;
             });
@@ -572,13 +593,12 @@ CreateVendorComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__["VendorService"] },
-    { type: _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_4__["BankAccountService"] },
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"] },
+    { type: src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_4__["BankAccountService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] }
 ];
 CreateVendorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -589,13 +609,12 @@ CreateVendorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_5__["VendorService"],
-        _api_services_bank_account_service__WEBPACK_IMPORTED_MODULE_4__["BankAccountService"],
-        _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"],
+        src_app_api_controllers_bankAccount__WEBPACK_IMPORTED_MODULE_4__["BankAccountService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]])
 ], CreateVendorComponent);
 
 
@@ -628,16 +647,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/apartment.service */ "./src/app/api/services/apartment.service.ts");
-/* harmony import */ var _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/services/accounts.service */ "./src/app/api/services/accounts.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../.././api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
-
-
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
 
@@ -646,12 +659,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VendorReportsComponent = class VendorReportsComponent {
-    constructor(apartmentService, accountsService, dialog, vendorService, sharedService, lookupService, cookieService) {
-        this.apartmentService = apartmentService;
-        this.accountsService = accountsService;
+    constructor(dialog, vendorService, lookupService, cookieService) {
         this.dialog = dialog;
         this.vendorService = vendorService;
-        this.sharedService = sharedService;
         this.lookupService = lookupService;
         this.cookieService = cookieService;
         this.vendorCategoryId = "";
@@ -684,7 +694,7 @@ let VendorReportsComponent = class VendorReportsComponent {
         this.selectedInput = value;
     }
     onSelectChange(event, type, name) {
-        if (!underscore__WEBPACK_IMPORTED_MODULE_9__["isEmpty"](event)) {
+        if (!underscore__WEBPACK_IMPORTED_MODULE_6__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
         }
@@ -734,12 +744,18 @@ let VendorReportsComponent = class VendorReportsComponent {
             { name: 'Active Vendors', type: 'Active' },
             { name: 'Inactive Vendors', type: 'Inactive' }
         ];
-        this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vendorService.getVendorByApartmentId(params).subscribe((res) => {
             this.allVendorListData = res;
             this.isVendorLoaded = true;
         }, error => {
         });
-        this.lookupService.getLookupValueByLookupTypeId(57).subscribe((res) => {
+        let vendorParams = {
+            LookupTypeId: 57
+        };
+        this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe((res) => {
             this.vendorCategoryData = res.filter(item => {
                 return item.isActive;
             });
@@ -747,13 +763,10 @@ let VendorReportsComponent = class VendorReportsComponent {
     }
 };
 VendorReportsComponent.ctorParameters = () => [
-    { type: _api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("viewVendorRef", { static: false }),
@@ -765,13 +778,10 @@ VendorReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./vendor-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/vendor/components/vendor-reports/vendor-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./vendor-reports.component.scss */ "./src/app/ams/vendor/components/vendor-reports/vendor-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_services_apartment_service__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        _api_services_accounts_service__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_6__["VendorService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], VendorReportsComponent);
 
 
@@ -803,8 +813,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VendorSetupComponent", function() { return VendorSetupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../.././api/services/vendor.service */ "./src/app/api/services/vendor.service.ts");
-/* harmony import */ var _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/services/lookup.service */ "./src/app/api/services/lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/vendor */ "./src/app/api/controllers/vendor.ts");
+/* harmony import */ var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/lookup */ "./src/app/api/controllers/lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
@@ -897,9 +907,15 @@ let VendorSetupComponent = class VendorSetupComponent {
                 "updatedBy": 0,
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.addLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.addLookupValue(params).subscribe((res) => {
                 if (res.message) {
-                    this.lookupService.getLookupValueByLookupTypeId(57).subscribe((res) => {
+                    let categoryParams = {
+                        LookupTypeId: 57
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isVendorCategorySubmitted = true;
                         this.sharedService.setAlertMessage("Category added Successfully!");
                         this.vendorCategoryData = res.filter(item => {
@@ -926,9 +942,15 @@ let VendorSetupComponent = class VendorSetupComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            this.lookupService.updateLookupValue(details).subscribe((res) => {
+            let params = {
+                lookupvalue: details
+            };
+            this.lookupService.updateLookupValue(params).subscribe((res) => {
                 if (res.message) {
-                    this.lookupService.getLookupValueByLookupTypeId(57).subscribe((res) => {
+                    let categoryParams = {
+                        LookupTypeId: 57
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isVendorCategorySubmitted = true;
                         this.sharedService.setAlertMessage("Category updated Successfully!");
                         this.vendorCategoryData = res.filter(item => {
@@ -946,12 +968,18 @@ let VendorSetupComponent = class VendorSetupComponent {
         this.VendorCategory = "";
     }
     loadVendorCategory() {
-        this.lookupService.getLookupValueByLookupTypeId(57).subscribe((res) => {
+        let categoryParams = {
+            LookupTypeId: 57
+        };
+        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
             console.log("vendor category resp", res);
             this.vendorCategoryData = res.filter(item => {
                 return item.isActive;
             });
-            this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res) => {
+            let vendorListParams = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.vendorService.getVendorByApartmentId(vendorListParams).subscribe((res) => {
                 this.vendorListData = res;
                 this.isVendorCategoryLoaded = true;
             }, error => {
@@ -975,8 +1003,8 @@ let VendorSetupComponent = class VendorSetupComponent {
 };
 VendorSetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_2__["VendorService"] },
-    { type: _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_2__["VendorService"] },
+    { type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
@@ -987,8 +1015,8 @@ VendorSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./vendor-setup.component.scss */ "./src/app/ams/vendor/components/vendor-setup/vendor-setup.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _api_services_vendor_service__WEBPACK_IMPORTED_MODULE_2__["VendorService"],
-        _api_services_lookup_service__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        src_app_api_controllers_vendor__WEBPACK_IMPORTED_MODULE_2__["VendorService"],
+        src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], VendorSetupComponent);
