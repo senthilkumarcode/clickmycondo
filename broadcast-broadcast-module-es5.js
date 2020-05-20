@@ -442,27 +442,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/controllers/broadcast */
-    "./src/app/api/controllers/broadcast.ts");
+    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/user */
-    "./src/app/api/controllers/user.ts");
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/apartment */
-    "./src/app/api/controllers/apartment.ts");
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/staff */
-    "./src/app/api/controllers/staff.ts");
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
     /* harmony import */
 
 
@@ -620,17 +620,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastAnnouncementsComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }, {
-        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"]
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"]
       }, {
-        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
@@ -644,7 +644,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-announcements.component.scss */
       "./src/app/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastAnnouncementsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastAnnouncementsComponent);
     /***/
   },
 
@@ -702,27 +702,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/controllers/broadcast */
-    "./src/app/api/controllers/broadcast.ts");
+    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/user */
-    "./src/app/api/controllers/user.ts");
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/apartment */
-    "./src/app/api/controllers/apartment.ts");
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/staff */
-    "./src/app/api/controllers/staff.ts");
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
     /* harmony import */
 
 
@@ -1316,17 +1316,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastGroupAssignmentComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }, {
-        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"]
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"]
       }, {
-        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
@@ -1340,7 +1340,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-group-assignment.component.scss */
       "./src/app/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastGroupAssignmentComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastGroupAssignmentComponent);
     /***/
   },
 
@@ -1398,21 +1398,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/controllers/broadcast */
-    "./src/app/api/controllers/broadcast.ts");
+    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/lookup */
-    "./src/app/api/controllers/lookup.ts");
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/user */
-    "./src/app/api/controllers/user.ts");
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
@@ -1641,13 +1641,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastHistoryComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
-        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
@@ -1661,7 +1661,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-history.component.scss */
       "./src/app/ams/broadcast/components/broadcast-history/broadcast-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], BroadcastHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], BroadcastHistoryComponent);
     /***/
   },
 
@@ -1731,27 +1731,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/broadcast */
-    "./src/app/api/controllers/broadcast.ts");
+    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/user */
-    "./src/app/api/controllers/user.ts");
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/api/controllers/apartment */
-    "./src/app/api/controllers/apartment.ts");
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/api/controllers/staff */
-    "./src/app/api/controllers/staff.ts");
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
     /* harmony import */
 
 
@@ -1945,17 +1945,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastRemoveuserComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
+        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }, {
-        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
       }, {
-        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
       }, {
-        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
@@ -1969,7 +1969,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-removeuser.component.scss */
       "./src/app/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastRemoveuserComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastRemoveuserComponent);
     /***/
   },
 
@@ -2039,27 +2039,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/broadcast */
-    "./src/app/api/controllers/broadcast.ts");
+    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/user */
-    "./src/app/api/controllers/user.ts");
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/api/controllers/apartment */
-    "./src/app/api/controllers/apartment.ts");
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/api/controllers/staff */
-    "./src/app/api/controllers/staff.ts");
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
     /* harmony import */
 
 
@@ -2690,17 +2690,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastSendmessageComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
+        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }, {
-        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
       }, {
-        type: src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
       }, {
-        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
@@ -2714,7 +2714,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-sendmessage.component.scss */
       "./src/app/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastSendmessageComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastSendmessageComponent);
     /***/
   },
 
@@ -2778,9 +2778,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/broadcast */
-    "./src/app/api/controllers/broadcast.ts");
+    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
@@ -2984,7 +2984,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
+        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
@@ -3000,7 +3000,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-setup.component.scss */
       "./src/app/ams/broadcast/components/broadcast-setup/broadcast-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], BroadcastSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], BroadcastSetupComponent);
     /***/
   },
 
@@ -3064,21 +3064,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/broadcast */
-    "./src/app/api/controllers/broadcast.ts");
+    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/user */
-    "./src/app/api/controllers/user.ts");
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/apartment */
-    "./src/app/api/controllers/apartment.ts");
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
@@ -3352,15 +3352,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
+        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }, {
-        type: src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
-        type: src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
       }];
     };
 
@@ -3372,7 +3372,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcastgroup-setup.component.scss */
       "./src/app/ams/broadcast/components/broadcastgroup-setup/broadcastgroup-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_user__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]])], BroadcastgroupSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]])], BroadcastgroupSetupComponent);
     /***/
   }
 }]);

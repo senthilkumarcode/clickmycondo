@@ -111,8 +111,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_api_controllers_forumTopics__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/forumTopics */ "./src/app/api/controllers/forumTopics.ts");
-/* harmony import */ var src_app_api_controllers_forumPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/forumPosts */ "./src/app/api/controllers/forumPosts.ts");
+/* harmony import */ var src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/ForumTopics */ "./src/app/api/controllers/ForumTopics.ts");
+/* harmony import */ var src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/ForumPosts */ "./src/app/api/controllers/ForumPosts.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -228,8 +228,8 @@ let ForumComponent = class ForumComponent {
 ForumComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_forumPosts__WEBPACK_IMPORTED_MODULE_4__["ForumPostsService"] },
-    { type: src_app_api_controllers_forumTopics__WEBPACK_IMPORTED_MODULE_3__["ForumTopicsService"] },
+    { type: src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_4__["ForumPostsService"] },
+    { type: src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_3__["ForumTopicsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -241,8 +241,8 @@ ForumComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_forumPosts__WEBPACK_IMPORTED_MODULE_4__["ForumPostsService"],
-        src_app_api_controllers_forumTopics__WEBPACK_IMPORTED_MODULE_3__["ForumTopicsService"],
+        src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_4__["ForumPostsService"],
+        src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_3__["ForumTopicsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], ForumComponent);
