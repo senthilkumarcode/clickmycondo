@@ -9390,9 +9390,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isMenuLoaded = false;
           this.menusDataList = this.constantsService.getAllMenus();
           var params = {
-            active: 1
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.screenService.getAllScreensByStatus(params).subscribe(function (res) {
+          this.screenService.getAllScreens(params).subscribe(function (res) {
             _this85.availableScreensDataList = res;
             _this85.isMenuLoaded = true;
             underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this85.availableScreensDataList, function (item) {

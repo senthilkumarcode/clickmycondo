@@ -5901,9 +5901,9 @@ let SidebarComponent = class SidebarComponent {
         this.isMenuLoaded = false;
         this.menusDataList = this.constantsService.getAllMenus();
         let params = {
-            active: 1
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
-        this.screenService.getAllScreensByStatus(params).subscribe((res) => {
+        this.screenService.getAllScreens(params).subscribe((res) => {
             this.availableScreensDataList = res;
             this.isMenuLoaded = true;
             underscore__WEBPACK_IMPORTED_MODULE_10__["each"](this.availableScreensDataList, item => {
