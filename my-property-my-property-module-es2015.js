@@ -1,5 +1,1617 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["my-property-my-property-module"],{
 
+/***/ "./node_modules/ngx-pinch-zoom/__ivy_ngcc__/fesm2015/ngx-pinch-zoom.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/ngx-pinch-zoom/__ivy_ngcc__/fesm2015/ngx-pinch-zoom.js ***!
+  \*****************************************************************************/
+/*! exports provided: PinchZoomModule, ɵa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PinchZoomModule", function() { return PinchZoomModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return PinchZoomComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/interfaces.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+
+
+
+function PinchZoomComponent_div_2_Template(rf, ctx) { if (rf & 1) {
+    const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function PinchZoomComponent_div_2_Template_div_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2); const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r1.toggleZoom(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("pz-zoom-button-out", ctx_r0.isZoomedIn);
+} }
+const _c0 = ["*"];
+function Properties() { }
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/properties.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const defaultProperties = {
+    transitionDuration: 200,
+    doubleTap: true,
+    doubleTapScale: 2,
+    limitZoom: "original image size",
+    autoZoomOut: false,
+    disabled: false,
+    overflow: "hidden",
+    zoomControlScale: 1,
+    backgroundColor: "rgba(0,0,0,0.85)",
+    minScale: 0,
+    minPanScale: 1.0001,
+    disableZoomControl: "auto",
+    listeners: "mouse and touch",
+    wheel: true,
+    wheelZoomFactor: 0.2,
+    draggableImage: false
+};
+/** @type {?} */
+const backwardCompatibilityProperties = {
+    "transition-duration": "transitionDuration",
+    "double-tap": "doubleTap",
+    "double-tap-scale": "doubleTapScale",
+    "zoom-button": "zoomButton",
+    "auto-zoom-out": "autoZoomOut",
+    "limit-zoom": "limitZoom"
+};
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/touches.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function Properties$1() { }
+if (false) {}
+class Touches {
+    /**
+     * @param {?} properties
+     */
+    constructor(properties) {
+        this.eventType = undefined;
+        this.handlers = {};
+        this.startX = 0;
+        this.startY = 0;
+        this.lastTap = 0;
+        this.doubleTapMinTimeout = 300;
+        this.tapMinTimeout = 200;
+        this.touchstartTime = 0;
+        this.i = 0;
+        this.isMousedown = false;
+        this.touchListeners = {
+            "touchstart": "handleTouchstart",
+            "touchmove": "handleTouchmove",
+            "touchend": "handleTouchend"
+        };
+        this.mouseListeners = {
+            "mousedown": "handleMousedown",
+            "mousemove": "handleMousemove",
+            "mouseup": "handleMouseup",
+            "wheel": "handleWheel"
+        };
+        this.otherListeners = {
+            "resize": "handleResize"
+        };
+        /*
+             * Listeners
+             */
+        /* Touchstart */
+        this.handleTouchstart = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            this.elementPosition = this.getElementPosition();
+            this.touchstartTime = new Date().getTime();
+            if (this.eventType === undefined) {
+                this.getTouchstartPosition(event);
+            }
+            this.runHandler("touchstart", event);
+        });
+        /* Touchmove */
+        this.handleTouchmove = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            /** @type {?} */
+            const touches = event.touches;
+            // Pan
+            if (this.detectPan(touches)) {
+                this.runHandler("pan", event);
+            }
+            // Pinch
+            if (this.detectPinch(event)) {
+                this.runHandler("pinch", event);
+            }
+        });
+        /* Touchend */
+        this.handleTouchend = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            /** @type {?} */
+            const touches = event.touches;
+            // Double Tap
+            if (this.detectDoubleTap()) {
+                this.runHandler("double-tap", event);
+            }
+            // Tap
+            this.detectTap();
+            this.runHandler("touchend", event);
+            this.eventType = 'touchend';
+            if (touches && touches.length === 0) {
+                this.eventType = undefined;
+                this.i = 0;
+            }
+        });
+        /* Mousedown */
+        this.handleMousedown = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            this.isMousedown = true;
+            this.elementPosition = this.getElementPosition();
+            this.touchstartTime = new Date().getTime();
+            if (this.eventType === undefined) {
+                this.getMousedownPosition(event);
+            }
+            this.runHandler("mousedown", event);
+        });
+        /* Mousemove */
+        this.handleMousemove = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            //event.preventDefault();
+            if (!this.isMousedown) {
+                return;
+            }
+            // Pan
+            this.runHandler("pan", event);
+            // Linear swipe
+            switch (this.detectLinearSwipe(event)) {
+                case "horizontal-swipe":
+                    event.swipeType = "horizontal-swipe";
+                    this.runHandler("horizontal-swipe", event);
+                    break;
+                case "vertical-swipe":
+                    event.swipeType = "vertical-swipe";
+                    this.runHandler("vertical-swipe", event);
+                    break;
+            }
+            // Linear swipe
+            if (this.detectLinearSwipe(event) ||
+                this.eventType === 'horizontal-swipe' ||
+                this.eventType === 'vertical-swipe') {
+                this.handleLinearSwipe(event);
+            }
+        });
+        /* Mouseup */
+        this.handleMouseup = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            // Tap
+            this.detectTap();
+            this.isMousedown = false;
+            this.runHandler("mouseup", event);
+            this.eventType = undefined;
+            this.i = 0;
+        });
+        /* Wheel */
+        this.handleWheel = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            this.runHandler("wheel", event);
+        });
+        /* Resize */
+        this.handleResize = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            this.runHandler("resize", event);
+        });
+        this.properties = properties;
+        this.element = this.properties.element;
+        this.elementPosition = this.getElementPosition();
+        this.toggleEventListeners('addEventListener');
+    }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        this.toggleEventListeners('removeEventListener');
+    }
+    /**
+     * @param {?} action
+     * @return {?}
+     */
+    toggleEventListeners(action) {
+        /** @type {?} */
+        let listeners;
+        if (this.properties.listeners === 'mouse and touch') {
+            listeners = Object.assign(this.touchListeners, this.mouseListeners);
+        }
+        else {
+            listeners = this.detectTouchScreen() ? this.touchListeners : this.mouseListeners;
+        }
+        if (this.properties.resize) {
+            listeners = Object.assign(listeners, this.otherListeners);
+        }
+        for (var listener in listeners) {
+            /** @type {?} */
+            const handler = listeners[listener];
+            // Window
+            if (listener === "resize") {
+                if (action === 'addEventListener') {
+                    window.addEventListener(listener, this[handler], false);
+                }
+                if (action === 'removeEventListener') {
+                    window.removeEventListener(listener, this[handler], false);
+                }
+                // Document
+            }
+            else if (listener === 'mouseup' || listener === "mousemove") {
+                if (action === 'addEventListener') {
+                    document.addEventListener(listener, this[handler], false);
+                }
+                if (action === 'removeEventListener') {
+                    document.removeEventListener(listener, this[handler], false);
+                }
+                // Element
+            }
+            else {
+                if (action === 'addEventListener') {
+                    this.element.addEventListener(listener, this[handler], false);
+                }
+                if (action === 'removeEventListener') {
+                    this.element.removeEventListener(listener, this[handler], false);
+                }
+            }
+        }
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    handleLinearSwipe(event) {
+        //event.preventDefault();
+        this.i++;
+        if (this.i > 3) {
+            this.eventType = this.getLinearSwipeType(event);
+        }
+        if (this.eventType === 'horizontal-swipe') {
+            this.runHandler('horizontal-swipe', event);
+        }
+        if (this.eventType === 'vertical-swipe') {
+            this.runHandler('vertical-swipe', event);
+        }
+    }
+    /**
+     * @param {?} eventName
+     * @param {?} response
+     * @return {?}
+     */
+    runHandler(eventName, response) {
+        if (this.handlers[eventName]) {
+            this.handlers[eventName](response);
+        }
+    }
+    /*
+         * Detection
+         */
+    /**
+     * @param {?} touches
+     * @return {?}
+     */
+    detectPan(touches) {
+        return touches.length === 1 && !this.eventType || this.eventType === 'pan';
+    }
+    /**
+     * @return {?}
+     */
+    detectDoubleTap() {
+        if (this.eventType != undefined) {
+            return;
+        }
+        /** @type {?} */
+        const currentTime = new Date().getTime();
+        /** @type {?} */
+        const tapLength = currentTime - this.lastTap;
+        clearTimeout(this.doubleTapTimeout);
+        if (tapLength < this.doubleTapMinTimeout && tapLength > 0) {
+            return true;
+        }
+        else {
+            this.doubleTapTimeout = setTimeout((/**
+             * @return {?}
+             */
+            () => {
+                clearTimeout(this.doubleTapTimeout);
+            }), this.doubleTapMinTimeout);
+        }
+        this.lastTap = currentTime;
+    }
+    /**
+     * @return {?}
+     */
+    detectTap() {
+        if (this.eventType != undefined) {
+            return;
+        }
+        /** @type {?} */
+        const currentTime = new Date().getTime();
+        /** @type {?} */
+        const tapLength = currentTime - this.touchstartTime;
+        if (tapLength > 0) {
+            if (tapLength < this.tapMinTimeout) {
+                this.runHandler("tap", event);
+            }
+            else {
+                this.runHandler("longtap", event);
+            }
+        }
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    detectPinch(event) {
+        /** @type {?} */
+        const touches = event.touches;
+        return (touches.length === 2 && this.eventType === undefined) || this.eventType === 'pinch';
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    detectLinearSwipe(event) {
+        /** @type {?} */
+        const touches = event.touches;
+        if (touches) {
+            if (touches.length === 1 && !this.eventType || this.eventType === 'horizontal-swipe' || this.eventType === 'vertical-swipe') {
+                return this.getLinearSwipeType(event);
+            }
+        }
+        else {
+            if (!this.eventType || this.eventType === 'horizontal-swipe' || this.eventType === 'vertical-swipe') {
+                return this.getLinearSwipeType(event);
+            }
+        }
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    getLinearSwipeType(event) {
+        if (this.eventType !== 'horizontal-swipe' && this.eventType !== 'vertical-swipe') {
+            /** @type {?} */
+            const movementX = Math.abs(this.moveLeft(0, event) - this.startX);
+            /** @type {?} */
+            const movementY = Math.abs(this.moveTop(0, event) - this.startY);
+            if ((movementY * 3) > movementX) {
+                return 'vertical-swipe';
+            }
+            else {
+                return 'horizontal-swipe';
+            }
+        }
+        else {
+            return this.eventType;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    getElementPosition() {
+        return this.element.getBoundingClientRect();
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    getTouchstartPosition(event) {
+        this.startX = event.touches[0].clientX - this.elementPosition.left;
+        this.startY = event.touches[0].clientY - this.elementPosition.top;
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    getMousedownPosition(event) {
+        this.startX = event.clientX - this.elementPosition.left;
+        this.startY = event.clientY - this.elementPosition.top;
+    }
+    /**
+     * @param {?} index
+     * @param {?} event
+     * @return {?}
+     */
+    moveLeft(index, event) {
+        /** @type {?} */
+        const touches = event.touches;
+        if (touches) {
+            return touches[index].clientX - this.elementPosition.left;
+        }
+        else {
+            return event.clientX - this.elementPosition.left;
+        }
+    }
+    /**
+     * @param {?} index
+     * @param {?} event
+     * @return {?}
+     */
+    moveTop(index, event) {
+        /** @type {?} */
+        const touches = event.touches;
+        if (touches) {
+            return touches[index].clientY - this.elementPosition.top;
+        }
+        else {
+            return event.clientY - this.elementPosition.top;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    detectTouchScreen() {
+        /** @type {?} */
+        var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+        /** @type {?} */
+        var mq = (/**
+         * @param {?} query
+         * @return {?}
+         */
+        function (query) {
+            return window.matchMedia(query).matches;
+        });
+        if (('ontouchstart' in window)) {
+            return true;
+        }
+        // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+        // https://git.io/vznFH
+        /** @type {?} */
+        var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+        return mq(query);
+    }
+    /* Public properties and methods */
+    /**
+     * @param {?} event
+     * @param {?} handler
+     * @return {?}
+     */
+    on(event, handler) {
+        if (event) {
+            this.handlers[event] = handler;
+        }
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/ivypinch.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function IvyPinchProperties() { }
+if (false) {}
+/** @type {?} */
+const IvyPinchDefaultProperties = {
+    doubleTap: true,
+    doubleTapScale: 2,
+    transitionDuration: 200,
+    limitZoom: "original image size",
+    minScale: 0,
+    minPanScale: 1.0001,
+    wheel: true,
+    wheelZoomFactor: 0.2,
+    draggableImage: true,
+    listeners: 'auto',
+    zoomControlScale: 2
+};
+class IvyPinch {
+    /**
+     * @param {?} properties
+     */
+    constructor(properties) {
+        this.i = 0;
+        this.scale = 1;
+        this.initialScale = 1;
+        this.startX = 0;
+        this.startY = 0;
+        this.moveX = 0;
+        this.moveY = 0;
+        this.initialMoveX = 0;
+        this.initialMoveY = 0;
+        this.moveXC = 0;
+        this.moveYC = 0;
+        this.lastTap = 0;
+        this.draggingMode = false;
+        this.distance = 0;
+        this.doubleTapTimeout = 0;
+        this.initialDistance = 0;
+        this.events = {};
+        this.maxHtmlContentScale = 3;
+        this.maxScale = 3;
+        /* Touchstart */
+        this.handleTouchstart = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            this.getElementPosition();
+            if (this.eventType === undefined) {
+                this.getTouchstartPosition(event);
+            }
+        });
+        /* Touchend */
+        this.handleTouchend = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            /* touchend */
+            if (event.type === "touchend") {
+                this.i = 0;
+                this.draggingMode = false;
+                /** @type {?} */
+                const touches = event.touches;
+                // Min scale
+                if (this.scale < 1) {
+                    this.scale = 1;
+                }
+                // Auto Zoom Out
+                if (this.properties.autoZoomOut && this.eventType === 'pinch') {
+                    this.scale = 1;
+                }
+                // Align image
+                if (this.eventType === 'pinch' ||
+                    this.eventType === 'pan' && this.scale > this.properties.minPanScale) {
+                    this.alignImage();
+                }
+                // Update initial values
+                if (this.eventType === 'pinch' ||
+                    this.eventType === 'pan' ||
+                    this.eventType === 'horizontal-swipe' ||
+                    this.eventType === 'vertical-swipe') {
+                    this.updateInitialValues();
+                }
+                this.eventType = 'touchend';
+                if (touches && touches.length === 0) {
+                    this.eventType = undefined;
+                }
+            }
+            /* mouseup */
+            if (event.type === "mouseup") {
+                this.draggingMode = false;
+                this.updateInitialValues();
+                this.eventType = undefined;
+            }
+        });
+        /*
+             * Handlers
+             */
+        this.handlePan = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            if (this.scale < this.properties.minPanScale || this.properties.disablePan) {
+                return;
+            }
+            event.preventDefault();
+            const { clientX, clientY } = this.getClientPosition(event);
+            if (!this.eventType) {
+                this.startX = clientX - this.elementPosition.left;
+                this.startY = clientY - this.elementPosition.top;
+            }
+            this.eventType = 'pan';
+            this.moveX = this.initialMoveX + (this.moveLeft(event, 0) - this.startX);
+            this.moveY = this.initialMoveY + (this.moveTop(event, 0) - this.startY);
+            if (this.properties.limitPan) {
+                this.limitPanY();
+                this.limitPanX();
+            }
+            /* mousemove */
+            if (event.type === "mousemove" && this.scale > this.properties.minPanScale) {
+                this.centeringImage();
+            }
+            this.transformElement(0);
+        });
+        this.handleDoubleTap = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            this.toggleZoom(event);
+            return;
+        });
+        this.handlePinch = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            event.preventDefault();
+            if (this.eventType === undefined || this.eventType === 'pinch') {
+                /** @type {?} */
+                const touches = event.touches;
+                if (!this.eventType) {
+                    this.initialDistance = this.getDistance(touches);
+                    /** @type {?} */
+                    const moveLeft0 = this.moveLeft(event, 0);
+                    /** @type {?} */
+                    const moveLeft1 = this.moveLeft(event, 1);
+                    /** @type {?} */
+                    const moveTop0 = this.moveTop(event, 0);
+                    /** @type {?} */
+                    const moveTop1 = this.moveTop(event, 1);
+                    this.moveXC = ((moveLeft0 + moveLeft1) / 2) - this.initialMoveX;
+                    this.moveYC = ((moveTop0 + moveTop1) / 2) - this.initialMoveY;
+                }
+                this.eventType = 'pinch';
+                this.distance = this.getDistance(touches);
+                this.scale = this.initialScale * (this.distance / this.initialDistance);
+                this.moveX = this.initialMoveX - (((this.distance / this.initialDistance) * this.moveXC) - this.moveXC);
+                this.moveY = this.initialMoveY - (((this.distance / this.initialDistance) * this.moveYC) - this.moveYC);
+                this.handleLimitZoom();
+                if (this.properties.limitPan) {
+                    this.limitPanY();
+                    this.limitPanX();
+                }
+                this.transformElement(0);
+            }
+        });
+        this.handleWheel = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            event.preventDefault();
+            /** @type {?} */
+            let wheelZoomFactor = this.properties.wheelZoomFactor || 0;
+            /** @type {?} */
+            let zoomFactor = event.deltaY < 0 ? (wheelZoomFactor) : (-wheelZoomFactor);
+            /** @type {?} */
+            let newScale = this.initialScale + zoomFactor;
+            /* Round value */
+            if (newScale < (1 + wheelZoomFactor)) {
+                newScale = 1;
+            }
+            else if (newScale < this.maxScale && newScale > this.maxScale - wheelZoomFactor) {
+                newScale = this.maxScale;
+            }
+            if (newScale < 1 || newScale > this.maxScale) {
+                return;
+            }
+            if (newScale === this.scale) {
+                return;
+            }
+            this.getElementPosition();
+            this.scale = newScale;
+            /* Get cursor position over image */
+            /** @type {?} */
+            let xCenter = (event.clientX - this.elementPosition.left) - this.initialMoveX;
+            /** @type {?} */
+            let yCenter = (event.clientY - this.elementPosition.top) - this.initialMoveY;
+            this.setZoom({
+                scale: newScale,
+                center: [xCenter, yCenter]
+            });
+        });
+        this.handleResize = (/**
+         * @param {?} _event
+         * @return {?}
+         */
+        (_event) => {
+            this.setAutoHeight();
+        });
+        this.element = properties.element;
+        this.elementTarget = this.element.querySelector('*').tagName;
+        this.parentElement = this.element.parentElement;
+        this.properties = Object.assign({}, IvyPinchDefaultProperties, properties);
+        this.pollLimitZoom();
+        this.touches = new Touches({
+            element: properties.element,
+            listeners: this.properties.listeners,
+            resize: this.properties.autoHeight
+        });
+        /* Init */
+        this.setBasicStyles();
+        /*
+         * Listeners
+         */
+        this.touches.on('touchstart', this.handleTouchstart);
+        this.touches.on('touchend', this.handleTouchend);
+        this.touches.on('mousedown', this.handleTouchstart);
+        this.touches.on('mouseup', this.handleTouchend);
+        this.touches.on('pan', this.handlePan);
+        this.touches.on('mousemove', this.handlePan);
+        this.touches.on('pinch', this.handlePinch);
+        if (this.properties.wheel) {
+            this.touches.on('wheel', this.handleWheel);
+        }
+        if (this.properties.doubleTap) {
+            this.touches.on('double-tap', this.handleDoubleTap);
+        }
+        if (this.properties.autoHeight) {
+            this.touches.on('resize', this.handleResize);
+        }
+    }
+    /**
+     * @return {?}
+     */
+    handleLimitZoom() {
+        /** @type {?} */
+        const limitZoom = this.maxScale;
+        /** @type {?} */
+        const minScale = this.properties.minScale || 0;
+        if (this.scale > limitZoom || this.scale <= minScale) {
+            /** @type {?} */
+            const imageWidth = this.getImageWidth();
+            /** @type {?} */
+            const imageHeight = this.getImageHeight();
+            /** @type {?} */
+            const enlargedImageWidth = imageWidth * this.scale;
+            /** @type {?} */
+            const enlargedImageHeight = imageHeight * this.scale;
+            /** @type {?} */
+            const moveXRatio = this.moveX / (enlargedImageWidth - imageWidth);
+            /** @type {?} */
+            const moveYRatio = this.moveY / (enlargedImageHeight - imageHeight);
+            if (this.scale > limitZoom) {
+                this.scale = limitZoom;
+            }
+            if (this.scale <= minScale) {
+                this.scale = minScale;
+            }
+            /** @type {?} */
+            const newImageWidth = imageWidth * this.scale;
+            /** @type {?} */
+            const newImageHeight = imageHeight * this.scale;
+            this.moveX = -Math.abs((moveXRatio * (newImageWidth - imageWidth)));
+            this.moveY = -Math.abs((-moveYRatio * (newImageHeight - imageHeight)));
+        }
+    }
+    /**
+     * @return {?}
+     */
+    getLimitZoom() {
+        if (this.properties.limitZoom === "original image size") {
+            if (this.elementTarget === "IMG") {
+                /** @type {?} */
+                let img = this.element.getElementsByTagName("img")[0];
+                if (img.naturalWidth && img.offsetWidth) {
+                    this.maxScale = img.naturalWidth / img.offsetWidth;
+                    return this.maxScale;
+                }
+            }
+            else {
+                this.maxScale = this.maxHtmlContentScale;
+                return this.maxScale;
+            }
+        }
+        else {
+            this.maxScale = this.properties.limitZoom || 0;
+            return this.maxScale;
+        }
+    }
+    /**
+     * @param {?} event
+     * @param {?=} index
+     * @return {?}
+     */
+    moveLeft(event, index = 0) {
+        /** @type {?} */
+        const clientX = this.getClientPosition(event, index).clientX;
+        return clientX - this.elementPosition.left;
+    }
+    /**
+     * @param {?} event
+     * @param {?=} index
+     * @return {?}
+     */
+    moveTop(event, index = 0) {
+        /** @type {?} */
+        const clientY = this.getClientPosition(event, index).clientY;
+        return clientY - this.elementPosition.top;
+    }
+    /*
+         * Detection
+         */
+    /**
+     * @return {?}
+     */
+    centeringImage() {
+        /** @type {?} */
+        const img = this.element.getElementsByTagName(this.elementTarget)[0];
+        /** @type {?} */
+        const initialMoveX = this.moveX;
+        /** @type {?} */
+        const initialMoveY = this.moveY;
+        if (this.moveY > 0) {
+            this.moveY = 0;
+        }
+        if (this.moveX > 0) {
+            this.moveX = 0;
+        }
+        if (img) {
+            this.limitPanY();
+            this.limitPanX();
+        }
+        if (img && this.scale < 1) {
+            if (this.moveX < this.element.offsetWidth * (1 - this.scale)) {
+                this.moveX = this.element.offsetWidth * (1 - this.scale);
+            }
+        }
+        return initialMoveX !== this.moveX || initialMoveY !== this.moveY;
+    }
+    /**
+     * @return {?}
+     */
+    limitPanY() {
+        /** @type {?} */
+        const imgHeight = this.getImageHeight();
+        /** @type {?} */
+        const scaledImgHeight = imgHeight * this.scale;
+        /** @type {?} */
+        const parentHeight = this.parentElement.offsetHeight;
+        /** @type {?} */
+        const elementHeight = this.element.offsetHeight;
+        if (scaledImgHeight < parentHeight) {
+            this.moveY = (parentHeight - elementHeight * this.scale) / 2;
+        }
+        else {
+            /** @type {?} */
+            const imgOffsetTop = ((imgHeight - elementHeight) * this.scale) / 2;
+            if (this.moveY > imgOffsetTop) {
+                this.moveY = imgOffsetTop;
+            }
+            else if ((scaledImgHeight + Math.abs(imgOffsetTop) - parentHeight) + this.moveY < 0) {
+                this.moveY = -(scaledImgHeight + Math.abs(imgOffsetTop) - parentHeight);
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    limitPanX() {
+        /** @type {?} */
+        const imgWidth = this.getImageWidth();
+        /** @type {?} */
+        const scaledImgWidth = imgWidth * this.scale;
+        /** @type {?} */
+        const parentWidth = this.parentElement.offsetWidth;
+        /** @type {?} */
+        const elementWidth = this.element.offsetWidth;
+        if (scaledImgWidth < parentWidth) {
+            this.moveX = (parentWidth - elementWidth * this.scale) / 2;
+        }
+        else {
+            /** @type {?} */
+            const imgOffsetLeft = ((imgWidth - elementWidth) * this.scale) / 2;
+            if (this.moveX > imgOffsetLeft) {
+                this.moveX = imgOffsetLeft;
+            }
+            else if ((scaledImgWidth + Math.abs(imgOffsetLeft) - parentWidth) + this.moveX < 0) {
+                this.moveX = -(imgWidth * this.scale + Math.abs(imgOffsetLeft) - parentWidth);
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    setBasicStyles() {
+        this.element.style.display = 'flex';
+        this.element.style.alignItems = 'center';
+        this.element.style.justifyContent = 'center';
+        this.element.style.transformOrigin = '0 0';
+        this.setImageSize();
+        this.setDraggableImage();
+    }
+    /**
+     * @return {?}
+     */
+    removeBasicStyles() {
+        this.element.style.display = '';
+        this.element.style.alignItems = '';
+        this.element.style.justifyContent = '';
+        this.element.style.transformOrigin = '';
+        this.removeImageSize();
+        this.removeDraggableImage();
+    }
+    /**
+     * @return {?}
+     */
+    setDraggableImage() {
+        /** @type {?} */
+        const imgElement = this.getImageElement();
+        if (imgElement) {
+            imgElement.draggable = this.properties.draggableImage;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    removeDraggableImage() {
+        /** @type {?} */
+        const imgElement = this.getImageElement();
+        if (imgElement) {
+            imgElement.draggable = true;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    setImageSize() {
+        /** @type {?} */
+        const imgElement = this.element.getElementsByTagName(this.elementTarget);
+        if (imgElement.length) {
+            imgElement[0].style.maxWidth = '100%';
+            imgElement[0].style.maxHeight = '100%';
+            this.setAutoHeight();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    setAutoHeight() {
+        /** @type {?} */
+        const imgElement = this.element.getElementsByTagName(this.elementTarget);
+        if (!this.properties.autoHeight || !imgElement.length) {
+            return;
+        }
+        /** @type {?} */
+        const imgNaturalWidth = imgElement[0].getAttribute("width");
+        /** @type {?} */
+        const imgNaturalHeight = imgElement[0].getAttribute("height");
+        /** @type {?} */
+        const sizeRatio = imgNaturalWidth / imgNaturalHeight;
+        /** @type {?} */
+        const parentWidth = this.parentElement.offsetWidth;
+        imgElement[0].style.maxHeight = parentWidth / sizeRatio + "px";
+    }
+    /**
+     * @return {?}
+     */
+    removeImageSize() {
+        /** @type {?} */
+        const imgElement = this.element.getElementsByTagName(this.elementTarget);
+        if (imgElement.length) {
+            imgElement[0].style.maxWidth = '';
+            imgElement[0].style.maxHeight = '';
+        }
+    }
+    /**
+     * @return {?}
+     */
+    getElementPosition() {
+        this.elementPosition = this.element.parentElement.getBoundingClientRect();
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    getTouchstartPosition(event) {
+        const { clientX, clientY } = this.getClientPosition(event);
+        this.startX = clientX - this.elementPosition.left;
+        this.startY = clientY - this.elementPosition.top;
+    }
+    /**
+     * @param {?} event
+     * @param {?=} index
+     * @return {?}
+     */
+    getClientPosition(event, index = 0) {
+        /** @type {?} */
+        let clientX;
+        /** @type {?} */
+        let clientY;
+        if (event.type === "touchstart" || event.type === "touchmove") {
+            clientX = event.touches[index].clientX;
+            clientY = event.touches[index].clientY;
+        }
+        if (event.type === "mousedown" || event.type === "mousemove") {
+            clientX = event.clientX;
+            clientY = event.clientY;
+        }
+        return {
+            clientX,
+            clientY
+        };
+    }
+    /**
+     * @return {?}
+     */
+    resetScale() {
+        this.scale = 1;
+        this.moveX = 0;
+        this.moveY = 0;
+        this.updateInitialValues();
+        this.transformElement(this.properties.transitionDuration);
+    }
+    /**
+     * @return {?}
+     */
+    updateInitialValues() {
+        this.initialScale = this.scale;
+        this.initialMoveX = this.moveX;
+        this.initialMoveY = this.moveY;
+    }
+    /**
+     * @param {?} touches
+     * @return {?}
+     */
+    getDistance(touches) {
+        return Math.sqrt(Math.pow(touches[0].pageX - touches[1].pageX, 2) + Math.pow(touches[0].pageY - touches[1].pageY, 2));
+    }
+    /**
+     * @return {?}
+     */
+    getImageHeight() {
+        /** @type {?} */
+        const img = this.element.getElementsByTagName(this.elementTarget)[0];
+        return img.offsetHeight;
+    }
+    /**
+     * @return {?}
+     */
+    getImageWidth() {
+        /** @type {?} */
+        const img = this.element.getElementsByTagName(this.elementTarget)[0];
+        return img.offsetWidth;
+    }
+    /**
+     * @param {?} duration
+     * @return {?}
+     */
+    transformElement(duration) {
+        this.element.style.transition = "all " + duration + "ms";
+        this.element.style.transform = "matrix(" + Number(this.scale) + ", 0, 0, " + Number(this.scale) + ", " + Number(this.moveX) + ", " + Number(this.moveY) + ")";
+    }
+    /**
+     * @return {?}
+     */
+    isTouchScreen() {
+        /** @type {?} */
+        const prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+        if (('ontouchstart' in window)) {
+            return true;
+        }
+        // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+        // https://git.io/vznFH
+        /** @type {?} */
+        const query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+        return this.getMatchMedia(query);
+    }
+    /**
+     * @param {?} query
+     * @return {?}
+     */
+    getMatchMedia(query) {
+        return window.matchMedia(query).matches;
+    }
+    /**
+     * @return {?}
+     */
+    isDragging() {
+        if (this.properties.disablePan) {
+            return false;
+        }
+        /** @type {?} */
+        const imgHeight = this.getImageHeight();
+        /** @type {?} */
+        const imgWidth = this.getImageWidth();
+        if (this.scale > 1) {
+            return imgHeight * this.scale > this.parentElement.offsetHeight ||
+                imgWidth * this.scale > this.parentElement.offsetWidth;
+        }
+        if (this.scale === 1) {
+            return imgHeight > this.parentElement.offsetHeight ||
+                imgWidth > this.parentElement.offsetWidth;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    pollLimitZoom() {
+        /** @type {?} */
+        let poll = setInterval((/**
+         * @return {?}
+         */
+        () => {
+            if (this.getLimitZoom()) {
+                clearInterval(poll);
+            }
+        }), 10);
+    }
+    /**
+     * @return {?}
+     */
+    getImageElement() {
+        /** @type {?} */
+        const imgElement = this.element.getElementsByTagName(this.elementTarget);
+        if (imgElement.length) {
+            return imgElement[0];
+        }
+    }
+    /**
+     * @param {?=} event
+     * @return {?}
+     */
+    toggleZoom(event = false) {
+        if (this.initialScale === 1) {
+            if (event && event.changedTouches) {
+                if (this.properties.doubleTapScale === undefined) {
+                    return;
+                }
+                /** @type {?} */
+                const changedTouches = event.changedTouches;
+                this.scale = this.initialScale * this.properties.doubleTapScale;
+                this.moveX = this.initialMoveX - (changedTouches[0].clientX - this.elementPosition.left) * (this.properties.doubleTapScale - 1);
+                this.moveY = this.initialMoveY - (changedTouches[0].clientY - this.elementPosition.top) * (this.properties.doubleTapScale - 1);
+            }
+            else {
+                /** @type {?} */
+                let zoomControlScale = this.properties.zoomControlScale || 0;
+                this.scale = this.initialScale * (zoomControlScale + 1);
+                this.moveX = this.initialMoveX - this.element.offsetWidth * (this.scale - 1) / 2;
+                this.moveY = this.initialMoveY - this.element.offsetHeight * (this.scale - 1) / 2;
+            }
+            this.centeringImage();
+            this.updateInitialValues();
+            this.transformElement(this.properties.transitionDuration);
+        }
+        else {
+            this.resetScale();
+        }
+    }
+    /**
+     * @param {?} properties
+     * @return {?}
+     */
+    setZoom(properties) {
+        this.scale = properties.scale;
+        /** @type {?} */
+        let xCenter;
+        /** @type {?} */
+        let yCenter;
+        /** @type {?} */
+        let visibleAreaWidth = this.element.offsetWidth;
+        /** @type {?} */
+        let visibleAreaHeight = this.element.offsetHeight;
+        /** @type {?} */
+        let scalingPercent = (visibleAreaWidth * this.scale) / (visibleAreaWidth * this.initialScale);
+        if (properties.center) {
+            xCenter = properties.center[0];
+            yCenter = properties.center[1];
+        }
+        else {
+            xCenter = visibleAreaWidth / 2 - this.initialMoveX;
+            yCenter = visibleAreaHeight / 2 - this.initialMoveY;
+        }
+        this.moveX = this.initialMoveX - ((scalingPercent * xCenter) - xCenter);
+        this.moveY = this.initialMoveY - ((scalingPercent * yCenter) - yCenter);
+        this.centeringImage();
+        this.updateInitialValues();
+        this.transformElement(this.properties.transitionDuration);
+    }
+    /**
+     * @return {?}
+     */
+    alignImage() {
+        /** @type {?} */
+        const isMoveChanged = this.centeringImage();
+        if (isMoveChanged) {
+            this.updateInitialValues();
+            this.transformElement(this.properties.transitionDuration);
+        }
+    }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        this.removeBasicStyles();
+        this.touches.destroy();
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/pinch-zoom.component.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class PinchZoomComponent {
+    /**
+     * @param {?} elementRef
+     */
+    constructor(elementRef) {
+        this.elementRef = elementRef;
+        this.transitionDuration = 200;
+        this.doubleTap = true;
+        this.doubleTapScale = 2;
+        this.autoZoomOut = false;
+        this.disabled = false;
+        this.zoomControlScale = 1;
+        this.backgroundColor = "rgba(0,0,0,0.85)";
+        this.minPanScale = 1.0001;
+        this.minScale = 0;
+        this.listeners = 'mouse and touch';
+        this.wheel = true;
+        this.autoHeight = false;
+        this.wheelZoomFactor = 0.2;
+        this.draggableImage = false;
+        this.applyOptionsDefault(defaultProperties, {});
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set properties(value) {
+        if (value) {
+            this._properties = value;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    get properties() {
+        return this._properties;
+    }
+    /**
+     * @return {?}
+     */
+    get hostOverflow() {
+        return this.properties['overflow'];
+    }
+    /**
+     * @return {?}
+     */
+    get hostBackgroundColor() {
+        return this.properties['backgroundColor'];
+    }
+    /**
+     * @return {?}
+     */
+    get isTouchScreen() {
+        /** @type {?} */
+        var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+        /** @type {?} */
+        var mq = (/**
+         * @param {?} query
+         * @return {?}
+         */
+        function (query) {
+            return window.matchMedia(query).matches;
+        });
+        if (('ontouchstart' in window)) {
+            return true;
+        }
+        // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+        // https://git.io/vznFH
+        /** @type {?} */
+        var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+        return mq(query);
+    }
+    /**
+     * @return {?}
+     */
+    get isDragging() {
+        return this.pinchZoom.isDragging();
+    }
+    /**
+     * @return {?}
+     */
+    get isDisabled() {
+        return this.properties['disabled'];
+    }
+    /**
+     * @return {?}
+     */
+    get scale() {
+        return this.pinchZoom.scale;
+    }
+    /**
+     * @return {?}
+     */
+    get isZoomedIn() {
+        return this.scale > 1;
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        this.initPinchZoom();
+        /* Calls the method until the image size is available */
+        this.pollLimitZoom();
+    }
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    ngOnChanges(changes) {
+        /** @type {?} */
+        let changedOptions = this.getProperties(changes);
+        changedOptions = this.renameProperties(changedOptions);
+        this.applyOptionsDefault(defaultProperties, changedOptions);
+    }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        this.destroy();
+    }
+    /**
+     * @return {?}
+     */
+    initPinchZoom() {
+        if (this.properties['disabled']) {
+            return;
+        }
+        this.properties['element'] = this.elementRef.nativeElement.querySelector('.pinch-zoom-content');
+        this.pinchZoom = new IvyPinch(this.properties);
+    }
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    getProperties(changes) {
+        /** @type {?} */
+        let properties = {};
+        for (var prop in changes) {
+            if (prop !== 'properties') {
+                properties[prop] = changes[prop].currentValue;
+            }
+            if (prop === 'properties') {
+                properties = changes[prop].currentValue;
+            }
+        }
+        return properties;
+    }
+    /**
+     * @param {?} options
+     * @return {?}
+     */
+    renameProperties(options) {
+        for (var prop in options) {
+            if (backwardCompatibilityProperties[prop]) {
+                options[backwardCompatibilityProperties[prop]] = options[prop];
+                delete options[prop];
+            }
+        }
+        return options;
+    }
+    /**
+     * @param {?} defaultOptions
+     * @param {?} options
+     * @return {?}
+     */
+    applyOptionsDefault(defaultOptions, options) {
+        this.properties = Object.assign({}, defaultOptions, options);
+    }
+    /**
+     * @return {?}
+     */
+    toggleZoom() {
+        this.pinchZoom.toggleZoom();
+    }
+    /**
+     * @return {?}
+     */
+    isControl() {
+        if (this.isDisabled) {
+            return false;
+        }
+        if (this.properties['disableZoomControl'] === "disable") {
+            return false;
+        }
+        if (this.isTouchScreen && this.properties['disableZoomControl'] === "auto") {
+            return false;
+        }
+        return true;
+    }
+    /**
+     * @return {?}
+     */
+    pollLimitZoom() {
+        this.pinchZoom.pollLimitZoom();
+    }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        this.pinchZoom.destroy();
+    }
+}
+PinchZoomComponent.ɵfac = function PinchZoomComponent_Factory(t) { return new (t || PinchZoomComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])); };
+PinchZoomComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PinchZoomComponent, selectors: [["pinch-zoom"], ["", "pinch-zoom", ""]], hostVars: 4, hostBindings: function PinchZoomComponent_HostBindings(rf, ctx) { if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("overflow", ctx.hostOverflow)("background-color", ctx.hostBackgroundColor);
+    } }, inputs: { transitionDuration: ["transition-duration", "transitionDuration"], doubleTap: ["double-tap", "doubleTap"], doubleTapScale: ["double-tap-scale", "doubleTapScale"], autoZoomOut: ["auto-zoom-out", "autoZoomOut"], disabled: "disabled", zoomControlScale: "zoomControlScale", backgroundColor: "backgroundColor", minPanScale: "minPanScale", minScale: "minScale", listeners: "listeners", wheel: "wheel", autoHeight: "autoHeight", wheelZoomFactor: "wheelZoomFactor", draggableImage: "draggableImage", properties: "properties", limitZoom: ["limit-zoom", "limitZoom"], disablePan: "disablePan", overflow: "overflow", disableZoomControl: "disableZoomControl", limitPan: "limitPan" }, exportAs: ["pinchZoom"], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], ngContentSelectors: _c0, decls: 3, vars: 3, consts: [[1, "pinch-zoom-content"], ["class", "pz-zoom-button pz-zoom-control-position-bottom", 3, "pz-zoom-button-out", "click", 4, "ngIf"], [1, "pz-zoom-button", "pz-zoom-control-position-bottom", 3, "click"]], template: function PinchZoomComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, PinchZoomComponent_div_2_Template, 1, 2, "div", 1);
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("pz-dragging", ctx.isDragging);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isControl());
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"]], styles: ["[_nghost-%COMP%]{position:relative;overflow:hidden;display:block}.pinch-zoom-content[_ngcontent-%COMP%]{height:inherit}.pz-dragging[_ngcontent-%COMP%]{cursor:all-scroll}.pz-zoom-button[_ngcontent-%COMP%]{position:absolute;z-index:1000;color:#fff;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgc3R5bGU9IiI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0MxNS40MSAxMi41OSAxNiAxMS4xMSAxNiA5LjUgMTYgNS45MSAxMy4wOSAzIDkuNSAzUzMgNS45MSAzIDkuNSA1LjkxIDE2IDkuNSAxNmMxLjYxIDAgMy4wOS0uNTkgNC4yMy0xLjU3bC4yNy4yOHYuNzlsNSA0Ljk5TDIwLjQ5IDE5bC00Ljk5LTV6bS02IDBDNy4wMSAxNCA1IDExLjk5IDUgOS41UzcuMDEgNSA5LjUgNSAxNCA3LjAxIDE0IDkuNSAxMS45OSAxNCA5LjUgMTR6IiBpZD0ic3ZnXzEiIGNsYXNzPSIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSIvPjxwYXRoIGQ9Ik0xMiAxMGgtMnYySDl2LTJIN1Y5aDJWN2gxdjJoMnYxeiIgaWQ9InN2Z18zIiBjbGFzcz0iIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiLz48L2c+PC9zdmc+),url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0MxNS40MSAxMi41OSAxNiAxMS4xMSAxNiA5LjUgMTYgNS45MSAxMy4wOSAzIDkuNSAzUzMgNS45MSAzIDkuNSA1LjkxIDE2IDkuNSAxNmMxLjYxIDAgMy4wOS0uNTkgNC4yMy0xLjU3bC4yNy4yOHYuNzlsNSA0Ljk5TDIwLjQ5IDE5bC00Ljk5LTV6bS02IDBDNy4wMSAxNCA1IDExLjk5IDUgOS41UzcuMDEgNSA5LjUgNSAxNCA3LjAxIDE0IDkuNSAxMS45OSAxNCA5LjUgMTR6TTcgOWg1djFIN3oiIGlkPSJzdmdfMiIgY2xhc3M9IiIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIi8+PC9nPjwvc3ZnPg==);background-color:rgba(0,0,0,.8);background-position:center,-1000px;background-repeat:no-repeat,no-repeat;background-size:40px;width:56px;height:56px;border-radius:4px;opacity:.5;cursor:pointer;transition:opacity .1s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.pz-zoom-button-out[_ngcontent-%COMP%]{background-position:-1000px,center}.pz-zoom-button[_ngcontent-%COMP%]:hover{opacity:.7}.pz-zoom-button.pz-zoom-control-position-right[_ngcontent-%COMP%]{right:16px;top:50%;margin-top:-28px}.pz-zoom-button.pz-zoom-control-position-right-bottom[_ngcontent-%COMP%]{right:16px;bottom:32px}.pz-zoom-button.pz-zoom-control-position-bottom[_ngcontent-%COMP%]{bottom:16px;left:50%;margin-left:-28px}.pz-zoom-control[_ngcontent-%COMP%]{position:absolute;background-color:rgba(0,0,0,.8);border-radius:4px;overflow:hidden}.pz-zoom-control.pz-zoom-control-position-right[_ngcontent-%COMP%]{right:16px;top:50%;margin-top:-48px}.pz-zoom-control.pz-zoom-control-position-right-bottom[_ngcontent-%COMP%]{right:16px;bottom:32px}.pz-zoom-control.pz-zoom-control-position-bottom[_ngcontent-%COMP%]{bottom:16px;left:50%;margin-left:-48px}.pz-zoom-in[_ngcontent-%COMP%], .pz-zoom-out[_ngcontent-%COMP%]{width:48px;height:48px;background-position:center;background-repeat:no-repeat;opacity:1;cursor:pointer}.pz-zoom-in[_ngcontent-%COMP%]:hover, .pz-zoom-out[_ngcontent-%COMP%]:hover{background-color:rgba(255,255,255,.2)}.pz-zoom-control-position-bottom[_ngcontent-%COMP%]   .pz-zoom-in[_ngcontent-%COMP%], .pz-zoom-control-position-bottom[_ngcontent-%COMP%]   .pz-zoom-out[_ngcontent-%COMP%]{float:right}.pz-disabled[_ngcontent-%COMP%]{opacity:.5;cursor:default}.pz-disabled[_ngcontent-%COMP%]:hover{background-color:rgba(255,255,255,0)}.pz-zoom-in[_ngcontent-%COMP%]{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgc3R5bGU9IiI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTE5IDEzaC02djZoLTJ2LTZINXYtMmg2VjVoMnY2aDZ2MnoiIGlkPSJzdmdfMSIgY2xhc3M9IiIgc3Ryb2tlPSJub25lIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiLz48cGF0aCBkPSJNLTE1LjgzNjczNDQyMDQ2MTY1Myw0NC41MzU0MDkzMDY3MTAxOCBoNTguMjA0MDgwODI3NTkzMDkgdi02LjU3NjIyNjcyMzM2OTIyMTUgSC0xNS44MzY3MzQ0MjA0NjE2NTMgeiIgZmlsbD0ibm9uZSIgaWQ9InN2Z18yIiBjbGFzcz0iIiBzdHJva2U9Im5vbmUiLz48L2c+PC9zdmc+)}.pz-zoom-out[_ngcontent-%COMP%]{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTE5IDEzSDV2LTJoMTR2MnoiIGlkPSJzdmdfMSIgY2xhc3M9IiIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIi8+PC9nPjwvc3ZnPg==)}"] });
+/** @nocollapse */
+PinchZoomComponent.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
+];
+PinchZoomComponent.propDecorators = {
+    properties: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['properties',] }],
+    transitionDuration: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['transition-duration',] }],
+    doubleTap: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['double-tap',] }],
+    doubleTapScale: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['double-tap-scale',] }],
+    autoZoomOut: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['auto-zoom-out',] }],
+    limitZoom: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['limit-zoom',] }],
+    disabled: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['disabled',] }],
+    disablePan: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    overflow: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    zoomControlScale: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    disableZoomControl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    backgroundColor: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    limitPan: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    minPanScale: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    minScale: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    listeners: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    wheel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    autoHeight: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    wheelZoomFactor: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    draggableImage: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    hostOverflow: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"], args: ['style.overflow',] }],
+    hostBackgroundColor: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"], args: ['style.background-color',] }]
+};
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PinchZoomComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'pinch-zoom, [pinch-zoom]',
+                exportAs: 'pinchZoom',
+                template: "<div class=\"pinch-zoom-content\" [class.pz-dragging]=\"isDragging\">\n\t<ng-content></ng-content>\n</div>\n\n<!-- Control: one button -->\n<div class=\"pz-zoom-button pz-zoom-control-position-bottom\" \n\t[class.pz-zoom-button-out]=\"isZoomedIn\" \n\t*ngIf=\"isControl()\" \n\t(click)=\"toggleZoom()\"></div>",
+                styles: [":host{position:relative;overflow:hidden;display:block}.pinch-zoom-content{height:inherit}.pz-dragging{cursor:all-scroll}.pz-zoom-button{position:absolute;z-index:1000;color:#fff;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgc3R5bGU9IiI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0MxNS40MSAxMi41OSAxNiAxMS4xMSAxNiA5LjUgMTYgNS45MSAxMy4wOSAzIDkuNSAzUzMgNS45MSAzIDkuNSA1LjkxIDE2IDkuNSAxNmMxLjYxIDAgMy4wOS0uNTkgNC4yMy0xLjU3bC4yNy4yOHYuNzlsNSA0Ljk5TDIwLjQ5IDE5bC00Ljk5LTV6bS02IDBDNy4wMSAxNCA1IDExLjk5IDUgOS41UzcuMDEgNSA5LjUgNSAxNCA3LjAxIDE0IDkuNSAxMS45OSAxNCA5LjUgMTR6IiBpZD0ic3ZnXzEiIGNsYXNzPSIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSIvPjxwYXRoIGQ9Ik0xMiAxMGgtMnYySDl2LTJIN1Y5aDJWN2gxdjJoMnYxeiIgaWQ9InN2Z18zIiBjbGFzcz0iIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiLz48L2c+PC9zdmc+),url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0MxNS40MSAxMi41OSAxNiAxMS4xMSAxNiA5LjUgMTYgNS45MSAxMy4wOSAzIDkuNSAzUzMgNS45MSAzIDkuNSA1LjkxIDE2IDkuNSAxNmMxLjYxIDAgMy4wOS0uNTkgNC4yMy0xLjU3bC4yNy4yOHYuNzlsNSA0Ljk5TDIwLjQ5IDE5bC00Ljk5LTV6bS02IDBDNy4wMSAxNCA1IDExLjk5IDUgOS41UzcuMDEgNSA5LjUgNSAxNCA3LjAxIDE0IDkuNSAxMS45OSAxNCA5LjUgMTR6TTcgOWg1djFIN3oiIGlkPSJzdmdfMiIgY2xhc3M9IiIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIi8+PC9nPjwvc3ZnPg==);background-color:rgba(0,0,0,.8);background-position:center,-1000px;background-repeat:no-repeat,no-repeat;background-size:40px;width:56px;height:56px;border-radius:4px;opacity:.5;cursor:pointer;transition:opacity .1s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.pz-zoom-button-out{background-position:-1000px,center}.pz-zoom-button:hover{opacity:.7}.pz-zoom-button.pz-zoom-control-position-right{right:16px;top:50%;margin-top:-28px}.pz-zoom-button.pz-zoom-control-position-right-bottom{right:16px;bottom:32px}.pz-zoom-button.pz-zoom-control-position-bottom{bottom:16px;left:50%;margin-left:-28px}.pz-zoom-control{position:absolute;background-color:rgba(0,0,0,.8);border-radius:4px;overflow:hidden}.pz-zoom-control.pz-zoom-control-position-right{right:16px;top:50%;margin-top:-48px}.pz-zoom-control.pz-zoom-control-position-right-bottom{right:16px;bottom:32px}.pz-zoom-control.pz-zoom-control-position-bottom{bottom:16px;left:50%;margin-left:-48px}.pz-zoom-in,.pz-zoom-out{width:48px;height:48px;background-position:center;background-repeat:no-repeat;opacity:1;cursor:pointer}.pz-zoom-in:hover,.pz-zoom-out:hover{background-color:rgba(255,255,255,.2)}.pz-zoom-control-position-bottom .pz-zoom-in,.pz-zoom-control-position-bottom .pz-zoom-out{float:right}.pz-disabled{opacity:.5;cursor:default}.pz-disabled:hover{background-color:rgba(255,255,255,0)}.pz-zoom-in{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgc3R5bGU9IiI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTE5IDEzaC02djZoLTJ2LTZINXYtMmg2VjVoMnY2aDZ2MnoiIGlkPSJzdmdfMSIgY2xhc3M9IiIgc3Ryb2tlPSJub25lIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiLz48cGF0aCBkPSJNLTE1LjgzNjczNDQyMDQ2MTY1Myw0NC41MzU0MDkzMDY3MTAxOCBoNTguMjA0MDgwODI3NTkzMDkgdi02LjU3NjIyNjcyMzM2OTIyMTUgSC0xNS44MzY3MzQ0MjA0NjE2NTMgeiIgZmlsbD0ibm9uZSIgaWQ9InN2Z18yIiBjbGFzcz0iIiBzdHJva2U9Im5vbmUiLz48L2c+PC9zdmc+)}.pz-zoom-out{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTE5IDEzSDV2LTJoMTR2MnoiIGlkPSJzdmdfMSIgY2xhc3M9IiIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIi8+PC9nPjwvc3ZnPg==)}"]
+            }]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }]; }, { transitionDuration: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
+            args: ['transition-duration']
+        }], doubleTap: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
+            args: ['double-tap']
+        }], doubleTapScale: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
+            args: ['double-tap-scale']
+        }], autoZoomOut: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
+            args: ['auto-zoom-out']
+        }], disabled: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
+            args: ['disabled']
+        }], zoomControlScale: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], backgroundColor: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], minPanScale: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], minScale: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], listeners: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], wheel: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], autoHeight: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], wheelZoomFactor: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], draggableImage: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], properties: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
+            args: ['properties']
+        }], hostOverflow: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['style.overflow']
+        }], hostBackgroundColor: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['style.background-color']
+        }], limitZoom: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
+            args: ['limit-zoom']
+        }], disablePan: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], overflow: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], disableZoomControl: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], limitPan: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: lib/pinch-zoom.module.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class PinchZoomModule {
+}
+PinchZoomModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: PinchZoomModule });
+PinchZoomModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function PinchZoomModule_Factory(t) { return new (t || PinchZoomModule)(); }, providers: [], imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](PinchZoomModule, { declarations: function () { return [PinchZoomComponent]; }, imports: function () { return [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]]; }, exports: function () { return [PinchZoomComponent]; } }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PinchZoomModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                declarations: [
+                    PinchZoomComponent
+                ],
+                imports: [
+                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+                ],
+                exports: [
+                    PinchZoomComponent
+                ],
+                providers: [],
+                bootstrap: [],
+                entryComponents: [
+                    PinchZoomComponent
+                ]
+            }]
+    }], null, null); })();
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: public-api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: ngx-pinch-zoom.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+
+//# sourceMappingURL=ngx-pinch-zoom.js.map
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-alerts/property-alerts-info/property-alerts-info.component.html":
 /*!***********************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-alerts/property-alerts-info/property-alerts-info.component.html ***!
@@ -195,6 +1807,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.html":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.html ***!
+  \***********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>property-view-graphic works!</p>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.html":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.html ***!
+  \*****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-grid\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <mat-card>\n                <h4 class=\"property-grid-head\">Towers</h4>\n                <mat-card>\n                    <owl-carousel-o [options]=\"customOptions\">\n                        <ng-container *ngFor=\"let tower of towerList; let i = index\" style=\"position:relative;\">\n                            <ng-template carouselSlide>\n                                <div class=\"towerDetail d-flex align-items-center justify-content-center flex-column\"\n                                    (click)=\"selectedTower(tower.towerName)\">\n                                    <img [src]=\"tower.towerModel\" alt=\"\">\n                                    <label class=\"tower-name\"\n                                        [style.color]=\"selectedTowerData == tower.towerName ? '#419fd5': '#757575ad'\">\n                                        {{tower?.towerName}}\n                                    </label>\n                                    <span>No of Floors<span class=\"total\"\n                                            [style.color]=\"selectedTowerData == tower.towerName ? '#ffffff': '#383737'\"\n                                            [style.background-color]=\"selectedTowerData == tower.towerName ? '#000c93': '#eaeaea'\">{{tower?.noOfFloor}}</span></span>\n                                    <span>No of Units<span class=\"total\"\n                                            [style.color]=\"selectedTowerData == tower.towerName ? '#ffffff': '#383737'\"\n                                            [style.background-color]=\"selectedTowerData == tower.towerName ? '#000c93': '#eaeaea'\">{{tower?.noOfUnit}}</span></span>\n                                </div>\n                            </ng-template>\n                        </ng-container>\n                    </owl-carousel-o>\n                </mat-card>\n                <mat-card class=\"property-filter mt-12\">\n                    <div class=\"row\">\n                        <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">\n                            <h6> <img src=\"../../../../../../assets/images/office-block.svg\" alt=\"\"> Tower A Details\n                            </h6>\n                        </div>\n                        <!-- <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12 peoprty-actions\">\n                           \n                        </div> -->\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-lg-5 col-md-5 col-sm-12 col-xs-12\">\n                            <label class=\"mt-12\">Filter</label>\n                            <div class=\"form-group d-flex justify-content-between\">\n                                <select class=\"form-control w-75\" name=\"category\" [(ngModel)]=\"selectedFilter\">\n                                    <option value=\"\">Select</option>\n                                    <option *ngFor=\"let item of filterCategory\" [value]=\"item.name\">{{item.name}}\n                                    </option>\n                                </select>\n                                <button mat-stroked-button>Apply</button>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-wrap\">\n                            <div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 filtered\" *ngFor=\"let item of filterList\">\n                                <div class=\"legend\" [style.background-color]=\"item.color\"></div>\n                                <span>{{item?.name}}</span>\n                                <div class=\"total-count\">{{item?.count}}</div>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-1 col-md-1 col-sm-12 col-xs-12 peoprty-actions flex-column align-items-center\">\n                            <img src=\"../../../../../../assets/images/refresh-ccw.svg\" alt=\"\">\n                            <!-- <img (click)=\"zoomIn()\" src=\"../../../../../../assets/images/plus.svg\" alt=\"\">\n                            <img (click)=\"zoomOut()\" src=\"../../../../../../assets/images/minus.svg\" alt=\"\"> -->\n                            <img class=\"mt-12\" src=\"../../../../../../assets/images/download.svg\" alt=\"\">\n                        </div>\n                    </div>\n                </mat-card>\n                <pinch-zoom #scene=\"pinchZoom\">\n                    <div class=\"property-view mt-12\">\n                        <div class=\"row\">\n                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\n                                <div class=\"property-view-head\">\n                                    <label>Floors</label>\n                                    <label>Individual Units</label>\n                                </div>\n                                <div class=\"property-view-content\" *ngFor=\"let floor of floorData\">\n                                    <div>\n                                        <span class=\"property-floors\">{{floor?.floorName}}</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"property-units\" *ngFor=\"let unit of floor.units\"\n                                            [style.background-color]=\"getSelectedUnits(selectedFilter,unit.type)\"\n                                            ngbTooltip=\"{{unit?.type}}\"></span>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </pinch-zoom>\n            </mat-card>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-main/property-view-main.component.html":
 /*!*****************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-main/property-view-main.component.html ***!
@@ -204,7 +1842,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-property-tower-list *ngIf = \"Mode ==='List'\"></app-property-tower-list>\n<app-property-tower-details *ngIf = \"Mode ==='Details'\"></app-property-tower-details>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-property-view-grid></app-property-view-grid>");
 
 /***/ }),
 
@@ -6963,6 +8601,1399 @@ PropertyTowerListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
 
 /***/ }),
 
+/***/ "./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.scss":
+/*!*********************************************************************************************************************!*\
+  !*** ./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.scss ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9teS1wcm9wZXJ0eS9jb21wb25lbnRzL3Byb3BlcnR5LXZpZXcvcHJvcGVydHktdmlldy1ncmFwaGljL3Byb3BlcnR5LXZpZXctZ3JhcGhpYy5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.ts":
+/*!*******************************************************************************************************************!*\
+  !*** ./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.ts ***!
+  \*******************************************************************************************************************/
+/*! exports provided: PropertyViewGraphicComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyViewGraphicComponent", function() { return PropertyViewGraphicComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+PropertyViewGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-property-view-graphic',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./property-view-graphic.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./property-view-graphic.component.scss */ "./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], PropertyViewGraphicComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.scss":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.scss ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".property-grid {\n  width: 100%;\n}\n.property-grid .property-grid-head {\n  color: #000b86;\n  font-family: \"Lato\", sans-serif;\n  margin-bottom: 12px;\n}\n.property-grid .towerDetail {\n  width: 100%;\n  padding: 12px;\n}\n.property-grid .towerDetail span {\n  margin-top: 12px;\n  color: #757575ad;\n}\n.property-grid .towerDetail > img {\n  width: 120px;\n}\n.property-grid .towerDetail .tower-name {\n  color: #757575ad;\n  font-weight: 700;\n  font-size: 12px;\n  font-family: \"Lato\", sans-serif;\n  margin-top: 12px;\n}\n.property-grid .towerDetail .total {\n  margin-left: 12px;\n  width: auto;\n  border-radius: 50%;\n  background-color: #eaeaea;\n  color: #797979;\n  font-size: 10px;\n  padding: 6px;\n}\n.property-grid .property-filter h6 {\n  color: #000b86;\n  font-weight: 600;\n  display: flex;\n  align-items: center;\n}\n.property-grid .property-filter h6 img {\n  width: 3.7%;\n}\n.property-grid .property-filter .peoprty-actions {\n  display: flex;\n  justify-content: flex-end;\n}\n.property-grid .property-filter .peoprty-actions img {\n  background-color: #eaeaea;\n  width: 22px;\n  padding: 4px;\n  margin-right: 12px;\n}\n.property-grid .property-filter label {\n  color: #419fd5;\n}\n.property-grid .property-filter .filtered {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n.property-grid .property-filter .filtered .legend {\n  width: 16px;\n  height: 16px;\n  border-radius: 4px;\n}\n.property-grid .property-filter .filtered span {\n  color: #757575ad;\n  font-size: 12px;\n  font-family: \"Lato\", sans-serif;\n}\n.property-grid .property-filter .filtered .total-count {\n  background-color: #eaeaea;\n  color: #383737;\n  font-size: 12px;\n  padding: 2px 6px;\n  font-weight: 600;\n}\n.property-grid .property-view {\n  width: 100%;\n  max-height: 100%;\n  padding: 12px;\n  transition: transform 0.25s ease;\n}\n.property-grid .property-view .property-view-head {\n  width: 100%;\n}\n.property-grid .property-view .property-view-head label {\n  color: #419fd5;\n}\n.property-grid .property-view .property-view-head label:first-child {\n  width: 10%;\n}\n.property-grid .property-view .property-view-head label:last-child {\n  width: 90%;\n}\n.property-grid .property-view .property-view-content {\n  width: 100%;\n  display: flex;\n}\n.property-grid .property-view .property-view-content div:first-child {\n  width: 10%;\n}\n.property-grid .property-view .property-view-content div:last-child {\n  width: 90%;\n  display: flex;\n  justify-content: flex-start;\n}\n.property-grid .property-view .property-view-content div .property-floors {\n  color: #757575ad;\n  font-family: \"Lato\", sans-serif;\n}\n.property-grid .property-view .property-view-content div .property-units {\n  width: 10px;\n  height: 10px;\n  background-color: #eaeaea;\n  margin-right: 10px;\n  border-radius: 2px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvbXktcHJvcGVydHkvY29tcG9uZW50cy9wcm9wZXJ0eS12aWV3L3Byb3BlcnR5LXZpZXctZ3JpZC9wcm9wZXJ0eS12aWV3LWdyaWQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9teS1wcm9wZXJ0eS9jb21wb25lbnRzL3Byb3BlcnR5LXZpZXcvcHJvcGVydHktdmlldy1ncmlkL3Byb3BlcnR5LXZpZXctZ3JpZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUNDSjtBREFJO0VBQ0ksY0FBQTtFQUNBLCtCQUFBO0VBQ0EsbUJBQUE7QUNFUjtBREFJO0VBQ0ksV0FBQTtFQUNBLGFBQUE7QUNFUjtBRERRO0VBQ0ksZ0JBQUE7RUFDQSxnQkFBQTtBQ0daO0FERFE7RUFDSSxZQUFBO0FDR1o7QUREUTtFQUNJLGdCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQkFBQTtBQ0daO0FERFE7RUFDSSxpQkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLHlCQUFBO0VBQ0EsY0FBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FDR1o7QURDUTtFQUNJLGNBQUE7RUFDQSxnQkFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtBQ0NaO0FEQVk7RUFDSSxXQUFBO0FDRWhCO0FEQ1E7RUFDSSxhQUFBO0VBQ0EseUJBQUE7QUNDWjtBREFZO0VBQ0kseUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FDRWhCO0FEQ1E7RUFDSSxjQUFBO0FDQ1o7QURDUTtFQUNJLFdBQUE7RUFDQSxhQUFBO0VBQ0EsNkJBQUE7RUFDQSxtQkFBQTtBQ0NaO0FEQVk7RUFDSSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FDRWhCO0FEQVk7RUFDSSxnQkFBQTtFQUNBLGVBQUE7RUFDQSwrQkFBQTtBQ0VoQjtBREFZO0VBQ0kseUJBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7QUNFaEI7QURFSTtFQUNJLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGFBQUE7RUFDQSxnQ0FBQTtBQ0FSO0FEQ1E7RUFDSSxXQUFBO0FDQ1o7QURBWTtFQUNJLGNBQUE7QUNFaEI7QUREZ0I7RUFDSSxVQUFBO0FDR3BCO0FERGdCO0VBQ0ksVUFBQTtBQ0dwQjtBRENRO0VBQ0ksV0FBQTtFQUNBLGFBQUE7QUNDWjtBRENnQjtFQUNJLFVBQUE7QUNDcEI7QURDZ0I7RUFDSSxVQUFBO0VBQ0EsYUFBQTtFQUNBLDJCQUFBO0FDQ3BCO0FEQ2dCO0VBQ0ksZ0JBQUE7RUFDQSwrQkFBQTtBQ0NwQjtBRENnQjtFQUNJLFdBQUE7RUFDQSxZQUFBO0VBQ0EseUJBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FDQ3BCIiwiZmlsZSI6InNyYy9hcHAvYW1zL215LXByb3BlcnR5L2NvbXBvbmVudHMvcHJvcGVydHktdmlldy9wcm9wZXJ0eS12aWV3LWdyaWQvcHJvcGVydHktdmlldy1ncmlkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnByb3BlcnR5LWdyaWR7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgLnByb3BlcnR5LWdyaWQtaGVhZHtcbiAgICAgICAgY29sb3I6ICMwMDBiODY7XG4gICAgICAgIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMTJweDtcbiAgICB9XG4gICAgLnRvd2VyRGV0YWlse1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgcGFkZGluZzogMTJweDtcbiAgICAgICAgc3BhbntcbiAgICAgICAgICAgIG1hcmdpbi10b3A6IDEycHg7XG4gICAgICAgICAgICBjb2xvcjojNzU3NTc1YWQ7XG4gICAgICAgIH1cbiAgICAgICAgPmltZ3tcbiAgICAgICAgICAgIHdpZHRoOiAxMjBweDtcbiAgICAgICAgfVxuICAgICAgICAudG93ZXItbmFtZXtcbiAgICAgICAgICAgIGNvbG9yOiAjNzU3NTc1YWQ7XG4gICAgICAgICAgICBmb250LXdlaWdodDogNzAwO1xuICAgICAgICAgICAgZm9udC1zaXplOiAxMnB4O1xuICAgICAgICAgICAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICAgICAgICAgICAgbWFyZ2luLXRvcDogMTJweDtcbiAgICAgICAgfVxuICAgICAgICAudG90YWx7XG4gICAgICAgICAgICBtYXJnaW4tbGVmdDogMTJweDtcbiAgICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgICAgICAgICAgIGNvbG9yOiAjNzk3OTc5O1xuICAgICAgICAgICAgZm9udC1zaXplOiAxMHB4O1xuICAgICAgICAgICAgcGFkZGluZzogNnB4O1xuICAgICAgICB9XG4gICAgfVxuICAgIC5wcm9wZXJ0eS1maWx0ZXJ7XG4gICAgICAgIGg2e1xuICAgICAgICAgICAgY29sb3I6IzAwMGI4NjtcbiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAgICAgIGltZ3tcbiAgICAgICAgICAgICAgICB3aWR0aDogMy43JTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICAucGVvcHJ0eS1hY3Rpb25ze1xuICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG4gICAgICAgICAgICBpbWd7XG4gICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDIzNCwgMjM0LCAyMzQpO1xuICAgICAgICAgICAgICAgIHdpZHRoOiAyMnB4O1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6NHB4O1xuICAgICAgICAgICAgICAgIG1hcmdpbi1yaWdodDogMTJweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICBsYWJlbHtcbiAgICAgICAgICAgIGNvbG9yOiM0MTlmZDU7XG4gICAgICAgIH1cbiAgICAgICAgLmZpbHRlcmVke1xuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG4gICAgICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICAgICAgLmxlZ2VuZHtcbiAgICAgICAgICAgICAgICB3aWR0aDogMTZweDtcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IDE2cHg7XG4gICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgc3BhbntcbiAgICAgICAgICAgICAgICBjb2xvcjogIzc1NzU3NWFkO1xuICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICAgICAgICAgICAgICBmb250LWZhbWlseTogXCJMYXRvXCIsIHNhbnMtc2VyaWY7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICAudG90YWwtY291bnR7XG4gICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgICAgICAgICAgICAgICBjb2xvcjogIzM4MzczNztcbiAgICAgICAgICAgICAgICBmb250LXNpemU6IDEycHg7XG4gICAgICAgICAgICAgICAgcGFkZGluZzogMnB4IDZweDtcbiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogNjAwO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxuICAgIC5wcm9wZXJ0eS12aWV3e1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgbWF4LWhlaWdodDogMTAwJTtcbiAgICAgICAgcGFkZGluZzogMTJweDtcbiAgICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMjVzIGVhc2U7XG4gICAgICAgIC5wcm9wZXJ0eS12aWV3LWhlYWR7XG4gICAgICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgICAgIGxhYmVse1xuICAgICAgICAgICAgICAgIGNvbG9yOiM0MTlmZDU7XG4gICAgICAgICAgICAgICAgJjpmaXJzdC1jaGlsZHtcbiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEwJTtcbiAgICAgICAgICAgICAgICB9IFxuICAgICAgICAgICAgICAgICY6bGFzdC1jaGlsZHtcbiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDkwJTtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICAgLnByb3BlcnR5LXZpZXctY29udGVudHtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgIGRpdntcbiAgICAgICAgICAgICAgICAmOmZpcnN0LWNoaWxke1xuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMTAlO1xuICAgICAgICAgICAgICAgIH0gXG4gICAgICAgICAgICAgICAgJjpsYXN0LWNoaWxke1xuICAgICAgICAgICAgICAgICAgICB3aWR0aDogOTAlO1xuICAgICAgICAgICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIC5wcm9wZXJ0eS1mbG9vcnN7XG4gICAgICAgICAgICAgICAgICAgIGNvbG9yOiM3NTc1NzVhZDtcbiAgICAgICAgICAgICAgICAgICAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAucHJvcGVydHktdW5pdHN7XG4gICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxMHB4O1xuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IDEwcHg7XG4gICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNlYWVhZWE7XG4gICAgICAgICAgICAgICAgICAgIG1hcmdpbi1yaWdodDogMTBweDtcbiAgICAgICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMnB4O1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn1cblxuIiwiLnByb3BlcnR5LWdyaWQge1xuICB3aWR0aDogMTAwJTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS1ncmlkLWhlYWQge1xuICBjb2xvcjogIzAwMGI4NjtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICBtYXJnaW4tYm90dG9tOiAxMnB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnRvd2VyRGV0YWlsIHtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6IDEycHg7XG59XG4ucHJvcGVydHktZ3JpZCAudG93ZXJEZXRhaWwgc3BhbiB7XG4gIG1hcmdpbi10b3A6IDEycHg7XG4gIGNvbG9yOiAjNzU3NTc1YWQ7XG59XG4ucHJvcGVydHktZ3JpZCAudG93ZXJEZXRhaWwgPiBpbWcge1xuICB3aWR0aDogMTIwcHg7XG59XG4ucHJvcGVydHktZ3JpZCAudG93ZXJEZXRhaWwgLnRvd2VyLW5hbWUge1xuICBjb2xvcjogIzc1NzU3NWFkO1xuICBmb250LXdlaWdodDogNzAwO1xuICBmb250LXNpemU6IDEycHg7XG4gIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgbWFyZ2luLXRvcDogMTJweDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC50b3dlckRldGFpbCAudG90YWwge1xuICBtYXJnaW4tbGVmdDogMTJweDtcbiAgd2lkdGg6IGF1dG87XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgY29sb3I6ICM3OTc5Nzk7XG4gIGZvbnQtc2l6ZTogMTBweDtcbiAgcGFkZGluZzogNnB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciBoNiB7XG4gIGNvbG9yOiAjMDAwYjg2O1xuICBmb250LXdlaWdodDogNjAwO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciBoNiBpbWcge1xuICB3aWR0aDogMy43JTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS1maWx0ZXIgLnBlb3BydHktYWN0aW9ucyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIC5wZW9wcnR5LWFjdGlvbnMgaW1nIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgd2lkdGg6IDIycHg7XG4gIHBhZGRpbmc6IDRweDtcbiAgbWFyZ2luLXJpZ2h0OiAxMnB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciBsYWJlbCB7XG4gIGNvbG9yOiAjNDE5ZmQ1O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciAuZmlsdGVyZWQge1xuICB3aWR0aDogMTAwJTtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIC5maWx0ZXJlZCAubGVnZW5kIHtcbiAgd2lkdGg6IDE2cHg7XG4gIGhlaWdodDogMTZweDtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciAuZmlsdGVyZWQgc3BhbiB7XG4gIGNvbG9yOiAjNzU3NTc1YWQ7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciAuZmlsdGVyZWQgLnRvdGFsLWNvdW50IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgY29sb3I6ICMzODM3Mzc7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgcGFkZGluZzogMnB4IDZweDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IHtcbiAgd2lkdGg6IDEwMCU7XG4gIG1heC1oZWlnaHQ6IDEwMCU7XG4gIHBhZGRpbmc6IDEycHg7XG4gIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjI1cyBlYXNlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctaGVhZCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctaGVhZCBsYWJlbCB7XG4gIGNvbG9yOiAjNDE5ZmQ1O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctaGVhZCBsYWJlbDpmaXJzdC1jaGlsZCB7XG4gIHdpZHRoOiAxMCU7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1oZWFkIGxhYmVsOmxhc3QtY2hpbGQge1xuICB3aWR0aDogOTAlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctY29udGVudCB7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctY29udGVudCBkaXY6Zmlyc3QtY2hpbGQge1xuICB3aWR0aDogMTAlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctY29udGVudCBkaXY6bGFzdC1jaGlsZCB7XG4gIHdpZHRoOiA5MCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWNvbnRlbnQgZGl2IC5wcm9wZXJ0eS1mbG9vcnMge1xuICBjb2xvcjogIzc1NzU3NWFkO1xuICBmb250LWZhbWlseTogXCJMYXRvXCIsIHNhbnMtc2VyaWY7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1jb250ZW50IGRpdiAucHJvcGVydHktdW5pdHMge1xuICB3aWR0aDogMTBweDtcbiAgaGVpZ2h0OiAxMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWFlYWVhO1xuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDJweDtcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.ts":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.ts ***!
+  \*************************************************************************************************************/
+/*! exports provided: PropertyViewGridComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyViewGridComponent", function() { return PropertyViewGridComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let PropertyViewGridComponent = class PropertyViewGridComponent {
+    constructor() {
+        this.towerList = [];
+        this.filterList = [];
+        this.floorData = [];
+        this.selectedTowerData = "Tower A";
+        this.scaleIndexValue = 1;
+        this.scaleIndex = `scale(${this.scaleIndexValue})`;
+        this.filterCategory = [
+            {
+                name: '1BHK',
+            },
+            {
+                name: '2BHK',
+            },
+            {
+                name: '3BHK',
+            }
+        ];
+        this.selectedFilter = "";
+        this.customOptions = {
+            // loop: true,
+            mouseDrag: true,
+            touchDrag: true,
+            pullDrag: true,
+            // margin:15,
+            dots: false,
+            navSpeed: 700,
+            navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+            responsive: {
+                0: {
+                    items: 2
+                },
+                400: {
+                    items: 2
+                },
+                740: {
+                    items: 3
+                },
+                940: {
+                    items: 4
+                }
+            },
+            nav: true
+        };
+    }
+    ngOnInit() {
+        this.towerList = [
+            {
+                towerModel: '../../../../../../assets/images/office-block.svg',
+                towerName: 'Tower A',
+                noOfFloor: 2,
+                noOfUnit: 350
+            },
+            {
+                towerModel: '../../../../../../assets/images/office-block.svg',
+                towerName: 'Tower B',
+                noOfFloor: 2,
+                noOfUnit: 350
+            },
+            {
+                towerModel: '../../../../../../assets/images/office-block.svg',
+                towerName: 'Tower C',
+                noOfFloor: 2,
+                noOfUnit: 350
+            },
+            {
+                towerModel: '../../../../../../assets/images/office-block.svg',
+                towerName: 'Tower D',
+                noOfFloor: 2,
+                noOfUnit: 350
+            },
+            {
+                towerModel: '../../../../../../assets/images/office-block.svg',
+                towerName: 'Tower E',
+                noOfFloor: 2,
+                noOfUnit: 350
+            }
+        ];
+        this.filterList = [
+            {
+                color: "#feb0bd",
+                name: "1BHK Units",
+                count: 100
+            },
+            {
+                color: "#3777ce",
+                name: "2BHK Units",
+                count: 100
+            },
+            {
+                color: "#feb0bd",
+                name: "1BHK Units",
+                count: 100
+            },
+            {
+                color: "#3777ce",
+                name: "2BHK Units",
+                count: 100
+            },
+            {
+                color: "#3bbe9e",
+                name: "Party Hall Units",
+                count: 100
+            }
+        ];
+        this.floorData = [
+            {
+                floorName: 'F1',
+                units: [
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    }
+                ]
+            },
+            {
+                floorName: 'F2',
+                units: [
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    }
+                ]
+            },
+            {
+                floorName: 'F3',
+                units: [
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    }
+                ]
+            },
+            {
+                floorName: 'F4',
+                units: [
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    }
+                ]
+            },
+            {
+                floorName: 'F5',
+                units: [
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    }
+                ]
+            },
+            {
+                floorName: 'F6',
+                units: [
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '3BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    }
+                ]
+            },
+            {
+                floorName: 'F7',
+                units: [
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    }
+                ]
+            },
+            {
+                floorName: 'F8',
+                units: [
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '1BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    }
+                ]
+            },
+            {
+                floorName: 'F9',
+                units: [
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    },
+                    {
+                        type: '2BHK',
+                        category: 'unit'
+                    }
+                ]
+            }
+        ];
+    }
+    getSelectedUnits(category, type) {
+        if (category === type) {
+            if (category == '1BHK') {
+                return '#feb0bd';
+            }
+            else if (category == '2BHK') {
+                return '#3777ce';
+            }
+            else {
+                return '#3bbe9e';
+            }
+        }
+        else {
+            return '#eaeaea';
+        }
+    }
+    selectedTower(name) {
+        this.selectedTowerData = name;
+    }
+    zoomIn() {
+        this.scene.zoomIn();
+    }
+    zoomOut() {
+        this.scene.zoomOut();
+    }
+};
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('scene', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], PropertyViewGridComponent.prototype, "scene", void 0);
+PropertyViewGridComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-property-view-grid',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./property-view-grid.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./property-view-grid.component.scss */ "./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], PropertyViewGridComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/my-property/components/property-view/property-view-main/property-view-main.component.scss":
 /*!***************************************************************************************************************!*\
   !*** ./src/app/ams/my-property/components/property-view/property-view-main/property-view-main.component.scss ***!
@@ -6991,36 +10022,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PropertyViewMainComponent = class PropertyViewMainComponent {
-    constructor(
-    // private srvPV : PropertyViewService, 
-    cd) {
-        this.cd = cd;
-        this.__subscription = {};
-    }
     ngOnInit() {
     }
-    ngAfterViewInit() {
-        // this.srvPV.Mode.pipe(untilDestroyed(this)).subscribe(data => {
-        //     if (!isNullOrUndefined(data)) {
-        //         this.Mode = data.mode;
-        //         this.cd.markForCheck();
-        //     }
-        // });
-    }
-    ngOnDestroy() {
-        // this.srvPV.Mode.next({ mode: 'List',data:null });
-    }
 };
-PropertyViewMainComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
-];
 PropertyViewMainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-property-view-main',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./property-view-main.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-main/property-view-main.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./property-view-main.component.scss */ "./src/app/ams/my-property/components/property-view/property-view-main/property-view-main.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+    })
 ], PropertyViewMainComponent);
 
 
@@ -7164,27 +10174,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _my_property_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./my-property-routing.module */ "./src/app/ams/my-property/my-property-routing.module.ts");
-/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _my_property_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./my-property.component */ "./src/app/ams/my-property/my-property.component.ts");
-/* harmony import */ var _components_property_configuration_property_configuration_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/property-configuration/property-configuration.component */ "./src/app/ams/my-property/components/property-configuration/property-configuration.component.ts");
-/* harmony import */ var _components_property_configuration_property_details_property_details_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/property-configuration/property-details/property-details.component */ "./src/app/ams/my-property/components/property-configuration/property-details/property-details.component.ts");
-/* harmony import */ var _components_property_configuration_property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/property-configuration/property-profile/property-profile.component */ "./src/app/ams/my-property/components/property-configuration/property-profile/property-profile.component.ts");
-/* harmony import */ var _components_property_configuration_property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/property-configuration/property-facility/property-facility.component */ "./src/app/ams/my-property/components/property-configuration/property-facility/property-facility.component.ts");
-/* harmony import */ var _components_property_configuration_property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/property-configuration/property-parking-details/property-parking-details.component */ "./src/app/ams/my-property/components/property-configuration/property-parking-details/property-parking-details.component.ts");
-/* harmony import */ var _components_property_configuration_property_asset_category_property_asset_category_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/property-configuration/property-asset-category/property-asset-category.component */ "./src/app/ams/my-property/components/property-configuration/property-asset-category/property-asset-category.component.ts");
-/* harmony import */ var _components_property_alerts_property_alerts_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/property-alerts/property-alerts.component */ "./src/app/ams/my-property/components/property-alerts/property-alerts.component.ts");
-/* harmony import */ var _components_property_configuration_property_details_property_tower_info_property_tower_info_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/property-configuration/property-details/property-tower-info/property-tower-info.component */ "./src/app/ams/my-property/components/property-configuration/property-details/property-tower-info/property-tower-info.component.ts");
-/* harmony import */ var _components_property_configuration_property_details_property_tower_info_property_tower_unit_info_property_tower_unit_info_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/property-configuration/property-details/property-tower-info/property-tower-unit-info/property-tower-unit-info.component */ "./src/app/ams/my-property/components/property-configuration/property-details/property-tower-info/property-tower-unit-info/property-tower-unit-info.component.ts");
-/* harmony import */ var _components_property_configuration_property_facility_property_tower_facility_property_tower_facility_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/property-configuration/property-facility/property-tower-facility/property-tower-facility.component */ "./src/app/ams/my-property/components/property-configuration/property-facility/property-tower-facility/property-tower-facility.component.ts");
-/* harmony import */ var _components_property_configuration_property_asset_category_property_asset_category_info_property_asset_category_info_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/property-configuration/property-asset-category/property-asset-category-info/property-asset-category-info.component */ "./src/app/ams/my-property/components/property-configuration/property-asset-category/property-asset-category-info/property-asset-category-info.component.ts");
-/* harmony import */ var _components_property_alerts_property_alerts_info_property_alerts_info_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/property-alerts/property-alerts-info/property-alerts-info.component */ "./src/app/ams/my-property/components/property-alerts/property-alerts-info/property-alerts-info.component.ts");
-/* harmony import */ var _components_property_configuration_property_parking_details_property_parking_details_info_property_parking_details_info_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component */ "./src/app/ams/my-property/components/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component.ts");
-/* harmony import */ var _components_property_view_property_tower_list_property_tower_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/property-view/property-tower-list/property-tower-list.component */ "./src/app/ams/my-property/components/property-view/property-tower-list/property-tower-list.component.ts");
-/* harmony import */ var _components_property_view_property_tower_details_property_tower_details_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/property-view/property-tower-details/property-tower-details.component */ "./src/app/ams/my-property/components/property-view/property-tower-details/property-tower-details.component.ts");
-/* harmony import */ var _components_property_view_property_units_details_property_units_details_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/property-view/property-units-details/property-units-details.component */ "./src/app/ams/my-property/components/property-view/property-units-details/property-units-details.component.ts");
-/* harmony import */ var _components_property_view_property_view_main_property_view_main_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/property-view/property-view-main/property-view-main.component */ "./src/app/ams/my-property/components/property-view/property-view-main/property-view-main.component.ts");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+/* harmony import */ var ngx_pinch_zoom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-pinch-zoom */ "./node_modules/ngx-pinch-zoom/__ivy_ngcc__/fesm2015/ngx-pinch-zoom.js");
+/* harmony import */ var _my_property_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./my-property-routing.module */ "./src/app/ams/my-property/my-property-routing.module.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _my_property_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./my-property.component */ "./src/app/ams/my-property/my-property.component.ts");
+/* harmony import */ var _components_property_configuration_property_configuration_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/property-configuration/property-configuration.component */ "./src/app/ams/my-property/components/property-configuration/property-configuration.component.ts");
+/* harmony import */ var _components_property_configuration_property_details_property_details_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/property-configuration/property-details/property-details.component */ "./src/app/ams/my-property/components/property-configuration/property-details/property-details.component.ts");
+/* harmony import */ var _components_property_configuration_property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/property-configuration/property-profile/property-profile.component */ "./src/app/ams/my-property/components/property-configuration/property-profile/property-profile.component.ts");
+/* harmony import */ var _components_property_configuration_property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/property-configuration/property-facility/property-facility.component */ "./src/app/ams/my-property/components/property-configuration/property-facility/property-facility.component.ts");
+/* harmony import */ var _components_property_configuration_property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/property-configuration/property-parking-details/property-parking-details.component */ "./src/app/ams/my-property/components/property-configuration/property-parking-details/property-parking-details.component.ts");
+/* harmony import */ var _components_property_configuration_property_asset_category_property_asset_category_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/property-configuration/property-asset-category/property-asset-category.component */ "./src/app/ams/my-property/components/property-configuration/property-asset-category/property-asset-category.component.ts");
+/* harmony import */ var _components_property_alerts_property_alerts_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/property-alerts/property-alerts.component */ "./src/app/ams/my-property/components/property-alerts/property-alerts.component.ts");
+/* harmony import */ var _components_property_configuration_property_details_property_tower_info_property_tower_info_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/property-configuration/property-details/property-tower-info/property-tower-info.component */ "./src/app/ams/my-property/components/property-configuration/property-details/property-tower-info/property-tower-info.component.ts");
+/* harmony import */ var _components_property_configuration_property_details_property_tower_info_property_tower_unit_info_property_tower_unit_info_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/property-configuration/property-details/property-tower-info/property-tower-unit-info/property-tower-unit-info.component */ "./src/app/ams/my-property/components/property-configuration/property-details/property-tower-info/property-tower-unit-info/property-tower-unit-info.component.ts");
+/* harmony import */ var _components_property_configuration_property_facility_property_tower_facility_property_tower_facility_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/property-configuration/property-facility/property-tower-facility/property-tower-facility.component */ "./src/app/ams/my-property/components/property-configuration/property-facility/property-tower-facility/property-tower-facility.component.ts");
+/* harmony import */ var _components_property_configuration_property_asset_category_property_asset_category_info_property_asset_category_info_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/property-configuration/property-asset-category/property-asset-category-info/property-asset-category-info.component */ "./src/app/ams/my-property/components/property-configuration/property-asset-category/property-asset-category-info/property-asset-category-info.component.ts");
+/* harmony import */ var _components_property_alerts_property_alerts_info_property_alerts_info_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/property-alerts/property-alerts-info/property-alerts-info.component */ "./src/app/ams/my-property/components/property-alerts/property-alerts-info/property-alerts-info.component.ts");
+/* harmony import */ var _components_property_configuration_property_parking_details_property_parking_details_info_property_parking_details_info_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component */ "./src/app/ams/my-property/components/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component.ts");
+/* harmony import */ var _components_property_view_property_tower_list_property_tower_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/property-view/property-tower-list/property-tower-list.component */ "./src/app/ams/my-property/components/property-view/property-tower-list/property-tower-list.component.ts");
+/* harmony import */ var _components_property_view_property_tower_details_property_tower_details_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/property-view/property-tower-details/property-tower-details.component */ "./src/app/ams/my-property/components/property-view/property-tower-details/property-tower-details.component.ts");
+/* harmony import */ var _components_property_view_property_units_details_property_units_details_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/property-view/property-units-details/property-units-details.component */ "./src/app/ams/my-property/components/property-view/property-units-details/property-units-details.component.ts");
+/* harmony import */ var _components_property_view_property_view_main_property_view_main_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/property-view/property-view-main/property-view-main.component */ "./src/app/ams/my-property/components/property-view/property-view-main/property-view-main.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _components_property_view_property_view_grid_property_view_grid_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/property-view/property-view-grid/property-view-grid.component */ "./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.ts");
+/* harmony import */ var _components_property_view_property_view_graphic_property_view_graphic_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/property-view/property-view-graphic/property-view-graphic.component */ "./src/app/ams/my-property/components/property-view/property-view-graphic/property-view-graphic.component.ts");
+
+
+
 
 
 
@@ -7214,32 +10230,35 @@ let MyPropertyModule = class MyPropertyModule {
 MyPropertyModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _my_property_component__WEBPACK_IMPORTED_MODULE_5__["MyPropertyComponent"],
-            _components_property_configuration_property_configuration_component__WEBPACK_IMPORTED_MODULE_6__["PropertyConfigurationComponent"],
-            _components_property_configuration_property_details_property_details_component__WEBPACK_IMPORTED_MODULE_7__["PropertyDetailsComponent"],
-            _components_property_configuration_property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_8__["PropertyProfileComponent"],
-            _components_property_configuration_property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_9__["PropertyFacilityComponent"],
-            _components_property_configuration_property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_10__["PropertyParkingDetailsComponent"],
-            _components_property_configuration_property_asset_category_property_asset_category_component__WEBPACK_IMPORTED_MODULE_11__["PropertyAssetCategoryComponent"],
-            _components_property_alerts_property_alerts_component__WEBPACK_IMPORTED_MODULE_12__["PropertyAlertsComponent"],
-            _components_property_configuration_property_details_property_tower_info_property_tower_info_component__WEBPACK_IMPORTED_MODULE_13__["PropertyTowerInfoComponent"],
-            _components_property_configuration_property_details_property_tower_info_property_tower_unit_info_property_tower_unit_info_component__WEBPACK_IMPORTED_MODULE_14__["PropertyTowerUnitInfoComponent"],
-            _components_property_configuration_property_facility_property_tower_facility_property_tower_facility_component__WEBPACK_IMPORTED_MODULE_15__["PropertyTowerFacilityComponent"],
-            _components_property_configuration_property_asset_category_property_asset_category_info_property_asset_category_info_component__WEBPACK_IMPORTED_MODULE_16__["PropertyAssetCategoryInfoComponent"],
-            _components_property_alerts_property_alerts_info_property_alerts_info_component__WEBPACK_IMPORTED_MODULE_17__["PropertyAlertsInfoComponent"],
-            _components_property_configuration_property_parking_details_property_parking_details_info_property_parking_details_info_component__WEBPACK_IMPORTED_MODULE_18__["PropertyParkingDetailsInfoComponent"],
-            _components_property_view_property_tower_list_property_tower_list_component__WEBPACK_IMPORTED_MODULE_19__["PropertyTowerListComponent"],
-            _components_property_view_property_tower_details_property_tower_details_component__WEBPACK_IMPORTED_MODULE_20__["PropertyTowerDetailsComponent"],
-            _components_property_view_property_units_details_property_units_details_component__WEBPACK_IMPORTED_MODULE_21__["PropertyUnitsDetailsComponent"],
-            _components_property_view_property_view_main_property_view_main_component__WEBPACK_IMPORTED_MODULE_22__["PropertyViewMainComponent"]
+            _my_property_component__WEBPACK_IMPORTED_MODULE_6__["MyPropertyComponent"],
+            _components_property_configuration_property_configuration_component__WEBPACK_IMPORTED_MODULE_7__["PropertyConfigurationComponent"],
+            _components_property_configuration_property_details_property_details_component__WEBPACK_IMPORTED_MODULE_8__["PropertyDetailsComponent"],
+            _components_property_configuration_property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_9__["PropertyProfileComponent"],
+            _components_property_configuration_property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_10__["PropertyFacilityComponent"],
+            _components_property_configuration_property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_11__["PropertyParkingDetailsComponent"],
+            _components_property_configuration_property_asset_category_property_asset_category_component__WEBPACK_IMPORTED_MODULE_12__["PropertyAssetCategoryComponent"],
+            _components_property_alerts_property_alerts_component__WEBPACK_IMPORTED_MODULE_13__["PropertyAlertsComponent"],
+            _components_property_configuration_property_details_property_tower_info_property_tower_info_component__WEBPACK_IMPORTED_MODULE_14__["PropertyTowerInfoComponent"],
+            _components_property_configuration_property_details_property_tower_info_property_tower_unit_info_property_tower_unit_info_component__WEBPACK_IMPORTED_MODULE_15__["PropertyTowerUnitInfoComponent"],
+            _components_property_configuration_property_facility_property_tower_facility_property_tower_facility_component__WEBPACK_IMPORTED_MODULE_16__["PropertyTowerFacilityComponent"],
+            _components_property_configuration_property_asset_category_property_asset_category_info_property_asset_category_info_component__WEBPACK_IMPORTED_MODULE_17__["PropertyAssetCategoryInfoComponent"],
+            _components_property_alerts_property_alerts_info_property_alerts_info_component__WEBPACK_IMPORTED_MODULE_18__["PropertyAlertsInfoComponent"],
+            _components_property_configuration_property_parking_details_property_parking_details_info_property_parking_details_info_component__WEBPACK_IMPORTED_MODULE_19__["PropertyParkingDetailsInfoComponent"],
+            _components_property_view_property_tower_list_property_tower_list_component__WEBPACK_IMPORTED_MODULE_20__["PropertyTowerListComponent"],
+            _components_property_view_property_tower_details_property_tower_details_component__WEBPACK_IMPORTED_MODULE_21__["PropertyTowerDetailsComponent"],
+            _components_property_view_property_units_details_property_units_details_component__WEBPACK_IMPORTED_MODULE_22__["PropertyUnitsDetailsComponent"],
+            _components_property_view_property_view_main_property_view_main_component__WEBPACK_IMPORTED_MODULE_23__["PropertyViewMainComponent"],
+            _components_property_view_property_view_grid_property_view_grid_component__WEBPACK_IMPORTED_MODULE_25__["PropertyViewGridComponent"],
+            _components_property_view_property_view_graphic_property_view_graphic_component__WEBPACK_IMPORTED_MODULE_26__["PropertyViewGraphicComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
-            _my_property_routing_module__WEBPACK_IMPORTED_MODULE_3__["MyPropertyRoutingModule"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_23__["NgbTooltipModule"]
+            _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
+            _my_property_routing_module__WEBPACK_IMPORTED_MODULE_4__["MyPropertyRoutingModule"],
+            ngx_pinch_zoom__WEBPACK_IMPORTED_MODULE_3__["PinchZoomModule"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_24__["NgbTooltipModule"]
         ],
-        bootstrap: [_my_property_component__WEBPACK_IMPORTED_MODULE_5__["MyPropertyComponent"]]
+        bootstrap: [_my_property_component__WEBPACK_IMPORTED_MODULE_6__["MyPropertyComponent"]]
     })
 ], MyPropertyModule);
 

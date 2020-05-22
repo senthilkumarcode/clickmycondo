@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>add-floor-unit works!</p>\n";
+    __webpack_exports__["default"] = "<div class=\"document-setup-wrapper\">\n\t<h5 class=\"mb-3\">Configuration - Towers, Floors and Units</h5>\n\t<div class=\"card mb-3\">\n\t\t<div class=\"card-body\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>No of Towers*</label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"No of Towers\" name=\"noOfTower\" [(ngModel)]=\"noOfTowers\" (ngModelChange)=\"towerSubject.next($event)\" [disabled]=\"pageType == 'edit' ? true : false\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div class=\"card\" *ngIf=\"tableInfo\">\n\t\t<div class=\"card-body\">\n\t\t\t<form [formGroup]=\"floorTable\">\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\"></th>\n\t\t\t\t\t\t\t<th scope=\"col\">Tower Name</th>\n\t\t\t\t\t\t\t<th scope=\"col\">No of Floors</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Total of Units</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container formArrayName=\"floor\" *ngFor=\"let group of floorControlArray.controls ; let i=index\">\n\t\t\t\t\t\t\t<tr [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t<td>{{group.get('apartmentBlock').value}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalnofloors\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalNounits\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t<div class=\"mt-5\" *ngFor=\"let data of formData;let i=index\">\n\t\t\t\t<h5 class=\"mb-5 font-weight-bold\">{{data[0].apartmentBlockNumber}}</h5>\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th class=\"floor-no-width \">Floor No</th>\n\t\t\t\t\t\t\t<th class=\"floor-name-width\">Floor Name</th>\n\t\t\t\t\t\t\t<th class=\"floor-no-width\">Unit</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Unit No</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container *ngFor=\"let child of data;let j=index;\">\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width \">Floor {{child.floorno}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-name-width\">\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.floorLabel\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width\">{{child.unit}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.apartmentBlockUnitNumber\" (keyup)=\"calculate(child.apartmentBlockUnitNumber,i,j)\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"data[0].button\" type=\"submit\" (click)=\"towerSubmit(data)\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n";
     /***/
   },
 
@@ -336,7 +336,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.cookieService = cookieService;
         this.blockNo = "";
         this.blockDescription = "";
-        this.apartmentBlock = {};
         this.isBlockSubmitted = false;
         this.isBlockAdded = false;
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -372,7 +371,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             insertedBy: 1
           };
           var params = {
-            apartmentBlock: this.apartmentBlock
+            apartmentBlocks: this.apartmentBlock
           };
           this.apartmentService.addApartmentBlock(params).subscribe(function (res) {
             _this.isBlockAdded = true;
@@ -433,7 +432,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9wcm9maWxlLXNldHRpbmdzL2NvbXBvbmVudHMvYWRkLWZsb29yLXVuaXQvYWRkLWZsb29yLXVuaXQuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n\n.mat-form-field {\n  display: block;\n}\n\n.floor-no-width {\n  width: 12%;\n}\n\n.floor-name-width {\n  width: 22%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvcHJvZmlsZS1zZXR0aW5ncy9jb21wb25lbnRzL2FkZC1mbG9vci11bml0L2FkZC1mbG9vci11bml0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvcHJvZmlsZS1zZXR0aW5ncy9jb21wb25lbnRzL2FkZC1mbG9vci11bml0L2FkZC1mbG9vci11bml0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1BO0VBQ0UsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsYUFBQTtBQ0xGOztBRFFBO0VBQ0UsYUFBQTtBQ0xGOztBRFFBOzs7RUFHRSw4QkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7QUNMRjs7QURRQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0FDTEY7O0FEU0E7RUFDRSxjQUFBO0FDTkY7O0FEU0E7RUFDRSxVQUFBO0FDTkY7O0FEU0E7RUFDRSxVQUFBO0FDTkYiLCJmaWxlIjoic3JjL2FwcC9hbXMvcHJvZmlsZS1zZXR0aW5ncy9jb21wb25lbnRzL2FkZC1mbG9vci11bml0L2FkZC1mbG9vci11bml0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG5AaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcbiAgXG4gIFxuLmFjdGlvbi1jb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi50YWJsZSB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi50YWJsZSB0Ym9keSB0ciB0ZCxcbi50YWJsZSB0aGVhZCB0aCxcbi50YWJsZSB0aGVhZCB7XG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgJGdyZXktNDYwO1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAkZ3JleS00NjA7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAkZ3JleS00NjA7XG59XG5cbnNwYW4udWktY29sdW1uLXJlc2l6ZXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBjdXJzb3I6IGNvbC1yZXNpemU7XG4gIHBhZGRpbmc6IDMwcHg7XG5cbn1cbiAgXG4ubWF0LWZvcm0tZmllbGQge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuLmZsb29yLW5vLXdpZHRoIHtcbiAgd2lkdGg6IDEyJTtcbn1cblxuLmZsb29yLW5hbWUtd2lkdGgge1xuICB3aWR0aDogMjIlO1xufSIsIi5hY3Rpb24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUgdGJvZHkgdHIgdGQsXG4udGFibGUgdGhlYWQgdGgsXG4udGFibGUgdGhlYWQge1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuXG5zcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICBwYWRkaW5nOiAzMHB4O1xufVxuXG4ubWF0LWZvcm0tZmllbGQge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuLmZsb29yLW5vLXdpZHRoIHtcbiAgd2lkdGg6IDEyJTtcbn1cblxuLmZsb29yLW5hbWUtd2lkdGgge1xuICB3aWR0aDogMjIlO1xufSJdfQ== */";
     /***/
   },
 
@@ -468,21 +467,275 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
 
     var AddFloorUnitComponent =
     /*#__PURE__*/
     function () {
-      function AddFloorUnitComponent() {
+      function AddFloorUnitComponent(apartmentService, cookieService) {
         _classCallCheck(this, AddFloorUnitComponent);
+
+        this.apartmentService = apartmentService;
+        this.cookieService = cookieService;
+        this.towerSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.tableInfo = false;
+        this.error = false;
+        this.pageType = 'create';
+        this.floorTable = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+          'floor': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormArray"]([])
+        });
       }
 
       _createClass(AddFloorUnitComponent, [{
+        key: "isMobileView",
+        value: function isMobileView() {
+          return window.innerWidth <= 767 ? 'table-responsive' : '';
+        }
+      }, {
+        key: "increaseTower",
+        value: function increaseTower() {
+          this.formData = [];
+
+          if (this.noOfTowers > 0) {
+            this.tableInfo = true;
+
+            if (this.floorControlArray.length > 0) {
+              this.deleteAllFloor();
+
+              for (var i = 0; i < this.noOfTowers; i++) {
+                this.addFloor(i);
+              }
+            } else {
+              for (var _i = 0; _i < this.noOfTowers; _i++) {
+                this.addFloor(_i);
+              }
+            }
+          } else {
+            this.tableInfo = false;
+          }
+        }
+      }, {
+        key: "addFloor",
+        value: function addFloor(index) {
+          this.floorControlArray.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            'apartmentBlock': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]({
+              value: "Tower".concat(index + 1),
+              disabled: true
+            }),
+            'apartmentBlockId': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](0),
+            'apartmentBlockNumber': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            'totalNounits': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            'totalnofloors': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
+          }));
+        }
+      }, {
+        key: "deleteAllFloor",
+        value: function deleteAllFloor() {
+          while (this.floorControlArray.length != 0) {
+            this.floorControlArray.removeAt(0);
+          }
+        }
+      }, {
+        key: "calculate",
+        value: function calculate(value, i, j) {
+          if (value.length > 0) {
+            var unitSplit = value.split(',');
+            this.formData[i][j].unit = unitSplit.length;
+          } else {
+            this.formData[i][j].unit = 0;
+          }
+
+          var totalUnit = this.formData[i].reduce(function (accu, data) {
+            return accu + data.unit;
+          }, 0);
+
+          if (this.formData[i][j].totalNounits >= totalUnit) {
+            this.formData[i][0].button = false;
+          } else {
+            this.formData[i][0].button = true;
+          }
+        }
+      }, {
+        key: "submitForm",
+        value: function submitForm() {
+          var params = {};
+          params.apartmentBlock = [];
+
+          for (var i = 0; i < this.floorControlArray.length; i++) {
+            var createTowers = {
+              'apartmentBlockId': this.floorControlArray.at(i).get('apartmentBlockId').value,
+              "apartmentBlockNumber": this.floorControlArray.at(i).get('apartmentBlockNumber').value,
+              "totalNounits": this.floorControlArray.at(i).get('totalNounits').value,
+              "totalnofloors": this.floorControlArray.at(i).get('totalnofloors').value,
+              "description": this.floorControlArray.at(i).get('apartmentBlockNumber').value,
+              "apartmentId": Number(this.cookieService.get('apartmentId')),
+              "isActive": true,
+              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "updatedBy": this.pageType == 'edit' ? parseInt(this.cookieService.get('userId')) : null
+            };
+            params.apartmentBlock.push(createTowers);
+          }
+
+          this.formData = [];
+          var dupObject = {};
+
+          for (var _i2 = 0; _i2 < this.floorControlArray.length; _i2++) {
+            var floor = this.floorControlArray.at(_i2).get('totalnofloors').value;
+            var key = "floor".concat(_i2 + 1);
+            dupObject[key] = [];
+
+            for (var j = 0; j < floor; j++) {
+              var entity = {
+                "apartmentBlockId": 0,
+                "totalNounits": this.floorControlArray.at(_i2).get('totalNounits').value,
+                "apartmentBlockNumber": this.floorControlArray.at(_i2).get('apartmentBlockNumber').value,
+                "unit": '',
+                "floorno": j + 1,
+                "apartmentBlockUnitNumber": '',
+                "floorLabel": ''
+              };
+              dupObject[key].push(entity);
+            }
+          }
+
+          for (var floorNumber in dupObject) {
+            this.formData.push(dupObject[floorNumber]);
+          } // let apiMethod = this.pageType == 'create' ? 'addApartmentBlock' : 'updateApartmentBlock';
+          // this.apartmentService[apiMethod](params).subscribe((res: any) => {
+          //   let resSplit = res.message.split(',');
+          //   if(resSplit && resSplit.length > 0) {
+          //     this.formData = [];
+          //     let dupObject:any = {};
+          //     for(let i=0; i < this.floorControlArray.length; i++) {
+          //       for(let r=0; r<resSplit.length; r++) {
+          //         if(i == r) {
+          //           let floor = this.floorControlArray.at(i).get('totalnofloors').value;
+          //           let key = `floor${i+1}`;
+          //           dupObject[key] = [];
+          //           for(let j=0; j < floor; j++) {
+          //             let entity = {
+          //               "apartmentBlockId": parseInt(resSplit[r]),
+          //               "totalNounits":  this.floorControlArray.at(i).get('totalNounits').value,
+          //               "apartmentBlockNumber":  this.floorControlArray.at(i).get('apartmentBlockNumber').value,
+          //               "unit": '',
+          //               "floorno": j+1,
+          //               "apartmentBlockUnitNumber": '',
+          //               "floorLabel": ''
+          //             }  
+          //             dupObject[key].push(entity);
+          //           }
+          //         }
+          //       }
+          //     }
+          //     for(let floorNumber in dupObject) {
+          //       this.formData.push(dupObject[floorNumber])
+          //     }
+          //   }
+          // });
+
+        }
+      }, {
+        key: "towerSubmit",
+        value: function towerSubmit(data) {
+          var tower = [];
+
+          for (var i = 0; i < data.length; i++) {
+            var entity = {
+              apartmentBlockUnitNumber: data[i].apartmentBlockUnitNumber,
+              apartmentBlockId: data[i].apartmentBlockId,
+              floorno: data[i].floorno,
+              floorLabel: data[i].floorLabel,
+              isActive: true,
+              insertedBy: parseInt(this.cookieService.get('userId')),
+              insertedOn: new Date().toISOString()
+            };
+            tower.push(entity);
+          } // this.apartmentService.addApartmentBlockUnit(tower).subscribe((res:any) => {
+          //   console.log(res);
+          // });
+
+        }
+      }, {
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this2 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          }; // this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res:any) => {
+          //   if(res.length > 0) {
+          //     this.pageType = 'edit';
+          //     this.noOfTowers = res.length;
+          //     this.tableInfo = true;
+          //     this.formData = []
+          //     for(var i=0; i < res.length; i++) {
+          //       this.floorControlArray.push(new FormGroup({
+          //         'apartmentBlock': new FormControl({value: `Tower${i+1}`, disabled: true}),
+          //         'apartmentBlockId': new FormControl(res[i].apartmentBlockId),
+          //         'apartmentBlockNumber': new FormControl(res[i].apartmentBlockNumber,Validators.required),
+          //         'totalNounits': new FormControl(res[i].totalNounits,Validators.required),
+          //         'totalnofloors': new FormControl(res[i].totalnofloors,Validators.required)
+          //       }));
+          //       let blockId = {
+          //         apartmentId : parseInt(this.cookieService.get('apartmentId')),
+          //         apartmentBlockId : res[i].apartmentBlockId
+          //       }
+          //       // this.apartmentService.getApartmentBlockByApartmentId(blockId).subscribe((res:any) => {
+          //       // })
+          //     }
+          //   }
+          // });
+
+          this.towerSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["distinctUntilChanged"])()).subscribe(function (value) {
+            _this2.increaseTower();
+          });
+        }
+      }, {
+        key: "floorControlArray",
+        get: function get() {
+          return this.floorTable.get('floor');
+        }
       }]);
 
       return AddFloorUnitComponent;
     }();
+
+    AddFloorUnitComponent.ctorParameters = function () {
+      return [{
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+      }];
+    };
 
     AddFloorUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-add-floor-unit',
@@ -492,7 +745,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-floor-unit.component.scss */
       "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], AddFloorUnitComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], AddFloorUnitComponent);
     /***/
   },
 
@@ -605,13 +858,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this2 = this;
+          var _this3 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this2.unitBlocksData = res;
+            _this3.unitBlocksData = res;
           });
           this.unitArray = Array(this.unitCount).fill(0).map(function (x, i) {
             return i;
@@ -746,7 +999,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddUnitForm",
         value: function submitAddUnitForm(form) {
-          var _this3 = this;
+          var _this4 = this;
 
           this.isUnitSubmitted = true;
           this.apartmentBlockUnit = {
@@ -768,29 +1021,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             insertedBy: 1
           };
           var params = {
-            apartmentBlockUnit: this.apartmentBlockUnit
+            apartmentBlockUnits: this.apartmentBlockUnit
           };
           this.apartmentService.addApartmentBlockUnit(params).subscribe(function (res) {
-            _this3.isUnitAdded = true;
+            _this4.isUnitAdded = true;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this5 = this;
 
           this.unit = {};
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this4.unitBlocksData = res;
+            _this5.unitBlocksData = res;
           });
           var unitParams = {
             LookupTypeId: 1
           };
           this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
-            _this4.unitTypeData = res;
+            _this5.unitTypeData = res;
           });
         }
       }]);

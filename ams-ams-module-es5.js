@@ -8241,7 +8241,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | work-permit-work-permit-module */
-          [__webpack_require__.e("default~broadcast-broadcast-module~work-permit-work-permit-module"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~broadcast-broadcast-module~meetings-meetings-module~work-permit-work-permit-module"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
           /*! ./work-permit/work-permit.module */
           "./src/app/ams/work-permit/work-permit.module.ts")).then(function (m) {
             return m.WorkPermitModule;
@@ -8263,7 +8263,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | broadcast-broadcast-module */
-          [__webpack_require__.e("default~broadcast-broadcast-module~work-permit-work-permit-module"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~broadcast-broadcast-module~meetings-meetings-module~work-permit-work-permit-module"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null,
           /*! ./broadcast/broadcast.module */
           "./src/app/ams/broadcast/broadcast.module.ts")).then(function (m) {
             return m.BroadcastModule;
@@ -8283,9 +8283,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'visitor',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | visitor-visitor-module */
-          [__webpack_require__.e("common"), __webpack_require__.e("visitor-visitor-module")]).then(__webpack_require__.bind(null,
+          "visitor-visitor-module").then(__webpack_require__.bind(null,
           /*! ./visitor/visitor.module */
           "./src/app/ams/visitor/visitor.module.ts")).then(function (m) {
             return m.VisitorModule;
@@ -8360,9 +8360,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'meetings',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | meetings-meetings-module */
-          "meetings-meetings-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~broadcast-broadcast-module~meetings-meetings-module~work-permit-work-permit-module"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null,
           /*! ./meetings/meetings.module */
           "./src/app/ams/meetings/meetings.module.ts")).then(function (m) {
             return m.MeetingsModule;
@@ -8432,6 +8432,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           /*! ./directory/directory.module */
           "./src/app/ams/directory/directory.module.ts")).then(function (m) {
             return m.DirectoryModule;
+          });
+        }
+      }, {
+        path: 'operational-maintanance',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | operational-maintanance-operational-maintanance-module */
+          "operational-maintanance-operational-maintanance-module").then(__webpack_require__.bind(null,
+          /*! ./operational-maintanance/operational-maintanance.module */
+          "./src/app/ams/operational-maintanance/operational-maintanance.module.ts")).then(function (m) {
+            return m.OperationalMaintananceModule;
           });
         }
       }, {

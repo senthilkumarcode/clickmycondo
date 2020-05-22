@@ -204,23 +204,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var moment__WEBPACK_IMPORTED_MODULE_8___default =
     /*#__PURE__*/
     __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    /* harmony import */
+
+
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! src/app/shared/services/shared-toaster.service */
+    "./src/app/shared/services/shared-toaster.service.ts");
 
     var SecurityActiveAlertsComponent =
     /*#__PURE__*/
     function () {
-      function SecurityActiveAlertsComponent(userService, apartmentService, alertService, lookupService, cookieService) {
+      function SecurityActiveAlertsComponent(userService, apartmentService, alertService, lookupService, sharedService, cookieService, dialog, SharedToaster) {
         _classCallCheck(this, SecurityActiveAlertsComponent);
 
         this.userService = userService;
         this.apartmentService = apartmentService;
         this.alertService = alertService;
         this.lookupService = lookupService;
+        this.sharedService = sharedService;
         this.cookieService = cookieService;
+        this.dialog = dialog;
+        this.SharedToaster = SharedToaster;
         this.isAlertsLoaded = false;
         this.isAlertUpdated = false;
         this.userDetails = [];
         this.blockDetails = [];
         this.locationDetails = [];
+        this.result = '';
       }
 
       _createClass(SecurityActiveAlertsComponent, [{
@@ -374,60 +402,88 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           if (type == 'approve') {
-            details = {
-              "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
-              "apartmentBlockUnitId": alert.apartmentBlockUnitId,
-              "receivedDate": alert.receivedDate,
-              "alertTypeId": alert.alertTypeId,
-              "location": "string",
-              "gpslocation": alert.gpslocation,
-              "assignedTo": parseInt(this.cookieService.get('userId')),
-              "alertStatusId": 136,
-              "notes": alert.notes,
-              "isActive": alert.isActive,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
-              "insertedOn": "2019-12-06T13:45:09.296Z",
-              "updatedBy": parseInt(this.cookieService.get('userId')),
-              "updatedOn": "2019-12-06T13:45:09.296Z"
-            };
-          } else {
-            details = {
-              "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
-              "apartmentBlockUnitId": alert.apartmentBlockUnitId,
-              "receivedDate": alert.receivedDate,
-              "alertTypeId": alert.alertTypeId,
-              "location": "string",
-              "gpslocation": alert.gpslocation,
-              "assignedTo": parseInt(this.cookieService.get('userId')),
-              "alertStatusId": 137,
-              "notes": alert.notes,
-              "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
-              "insertedOn": "2019-12-06T13:45:09.296Z",
-              "updatedBy": parseInt(this.cookieService.get('userId')),
-              "updatedOn": "2019-12-06T13:45:09.296Z"
-            };
+            this.confirmationMessage = "Are you sure, you want to Acknowledge?";
           }
 
-          this.alertService.updateApartmentBlockUnitAlert(details).subscribe(function (res) {
-            if (res.message) {
-              var params = {
-                apartmentId: parseInt(_this.cookieService.get('apartmentId'))
-              };
+          if (type == 'close') {
+            this.confirmationMessage = "Are you sure you want to close this Alert?";
+          }
 
-              _this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe(function (alert) {
-                _this.alertList = alert.filter(function (item) {
-                  return item.isActive;
-                });
-                _this.isAlertUpdated = false;
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", this.confirmationMessage);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            _this.result = dialogResult;
+
+            if (_this.result) {
+              console.log("Checking", _this.result);
+
+              if (type == 'approve') {
+                details = {
+                  "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
+                  "apartmentBlockUnitId": alert.apartmentBlockUnitId,
+                  "receivedDate": alert.receivedDate,
+                  "alertTypeId": alert.alertTypeId,
+                  "location": "string",
+                  "gpslocation": alert.gpslocation,
+                  "assignedTo": parseInt(_this.cookieService.get('userId')),
+                  "alertStatusId": 136,
+                  "notes": alert.notes,
+                  "isActive": alert.isActive,
+                  "insertedBy": parseInt(_this.cookieService.get('userId')),
+                  "insertedOn": "2019-12-06T13:45:09.296Z",
+                  "updatedBy": parseInt(_this.cookieService.get('userId')),
+                  "updatedOn": "2019-12-06T13:45:09.296Z"
+                };
+              } else {
+                details = {
+                  "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
+                  "apartmentBlockUnitId": alert.apartmentBlockUnitId,
+                  "receivedDate": alert.receivedDate,
+                  "alertTypeId": alert.alertTypeId,
+                  "location": "string",
+                  "gpslocation": alert.gpslocation,
+                  "assignedTo": parseInt(_this.cookieService.get('userId')),
+                  "alertStatusId": 137,
+                  "notes": alert.notes,
+                  "isActive": true,
+                  "insertedBy": parseInt(_this.cookieService.get('userId')),
+                  "insertedOn": "2019-12-06T13:45:09.296Z",
+                  "updatedBy": parseInt(_this.cookieService.get('userId')),
+                  "updatedOn": "2019-12-06T13:45:09.296Z"
+                };
+              }
+
+              _this.alertService.updateApartmentBlockUnitAlert(details).subscribe(function (res) {
+                if (res.message) {
+                  var apartmentIdParams = {
+                    apartmentId: parseInt(_this.cookieService.get('apartmentId'))
+                  };
+
+                  _this.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe(function (alert) {
+                    _this.alertList = alert.filter(function (item) {
+                      return item.isActive;
+                    });
+                    _this.isAlertUpdated = false;
+                  }, function (error) {
+                    console.log(error);
+                  });
+                } else {
+                  _this.isAlertUpdated = false;
+
+                  _this.SharedToaster.openSnackBar(res.errorMessage, '');
+                }
               }, function (error) {
                 console.log(error);
               });
             } else {
               _this.isAlertUpdated = false;
+
+              _this.SharedToaster.openSnackBar('Alert updated', '');
             }
-          }, function (error) {
-            console.log(error);
           });
         }
       }, {
@@ -465,7 +521,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 console.log(error);
               });
 
-              _this2.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (user) {
+              var apartmentBlockUnitIdParam = {
+                apartmentBlockUnitId: item.apartmentBlockUnitId
+              };
+
+              _this2.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (user) {
                 _this2.blockDetails.push(user[0]);
               }, function (error) {
                 console.log(error);
@@ -514,7 +574,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"]
+      }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
+      }, {
+        type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"]
       }];
     };
 
@@ -526,7 +592,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./security-active-alerts.component.scss */
       "./src/app/ams/security/components/security-active-alerts/security-active-alerts.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], SecurityActiveAlertsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"]])], SecurityActiveAlertsComponent);
     /***/
   },
 
@@ -1030,6 +1096,77 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _security_routing_module__WEBPACK_IMPORTED_MODULE_3__["SecurityRoutingModule"]],
       bootstrap: [_security_component__WEBPACK_IMPORTED_MODULE_5__["SecurityComponent"]]
     })], SecurityModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/services/shared-toaster.service.ts":
+  /*!***********************************************************!*\
+    !*** ./src/app/shared/services/shared-toaster.service.ts ***!
+    \***********************************************************/
+
+  /*! exports provided: SharedToasterService */
+
+  /***/
+  function srcAppSharedServicesSharedToasterServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SharedToasterService", function () {
+      return SharedToasterService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/material/snack-bar */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
+
+    var SharedToasterService =
+    /*#__PURE__*/
+    function () {
+      function SharedToasterService(snackBar) {
+        _classCallCheck(this, SharedToasterService);
+
+        this.snackBar = snackBar;
+      }
+
+      _createClass(SharedToasterService, [{
+        key: "openSnackBar",
+        value: function openSnackBar(message, action) {
+          this.snackBar.open(message, action, {
+            duration: 2000
+          });
+        }
+      }]);
+
+      return SharedToasterService;
+    }();
+
+    SharedToasterService.ctorParameters = function () {
+      return [{
+        type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]
+      }];
+    };
+
+    SharedToasterService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])], SharedToasterService);
     /***/
   }
 }]);

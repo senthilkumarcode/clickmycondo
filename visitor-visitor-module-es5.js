@@ -101,7 +101,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"expected-visitor-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Expected Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/visitor/create-expected-visitor\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"\n\t\t\t\t\t[state]=\"{ data: 'admin'}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Expected Visitor</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t<div class=\"card-body p-0 customScroll\">\n  \t\t\t\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\" mdbTable mdbTableScroll scrollX=\"true\" maxWidth=\"400\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tVisitor Name\n\t\t\t\t      \t<span (click)=\"sortUnitData('visitorName')\" [ngClass]=\"getFieldOrderBy('visitorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['visitorName']\" (ngModelChange)=\"selectColInput('visitorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tPhone Number\n\t\t\t\t      \t<span (click)=\"sortUnitData('visitorPhone')\" [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['visitorPhone']\" (ngModelChange)=\"selectColInput('visitorPhone')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Expected in Date/Time<span (click)=\"sortUnitData('visitorInTime')\" [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Expected out Date/Time<span (click)=\"sortUnitData('visitorOutTime')\" [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Visitor Type<span (click)=\"sortUnitData('visitorOutTime')\" [ngClass]=\"getFieldOrderBy('visitorType')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Visitor category<span (click)=\"sortUnitData('visitorCategoryId_Label')\" [ngClass]=\"getFieldOrderBy('visitorCategoryId_Label')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Tower Unit<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.expectedVisitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedVisitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.expectedVisitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{getTimeFormat(visitor.expectedVisitorInTime)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{getTimeFormat(visitor.expectedVisitorOutTime)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{visitor.visitTypeName}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorCategoryId_Label}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.block_Unit}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/visitor/edit-visitor/{{visitor.expectedVisitorId}}/checkin\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<img src=\"assets/images/checkin-icon.svg\" width=\"20\" />\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<ng-template #popAddCheckInContent>\n\t\t\t\t      \t\t<div class=\"pop-desp\">\n\t\t\t\t      \t\t\t<h5>CheckIn</h5>\n\t\t\t\t      \t\t</div>\n\t\t\t\t      \t</ng-template>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"expected-visitor-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Expected Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\" (click) = \"print()\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/visitor/create-expected-visitor\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"\n\t\t\t\t\t[state]=\"{ data: 'admin'}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Expected Visitor</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t<div class=\"card-body p-0 customScroll\">\n  \t\t\t\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\" mdbTable mdbTableScroll scrollX=\"true\" maxWidth=\"400\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tVisitor Name\n\t\t\t\t      \t<span (click)=\"sortUnitData('visitorName')\" [ngClass]=\"getFieldOrderBy('visitorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['visitorName']\" (ngModelChange)=\"selectColInput('visitorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tPhone Number\n\t\t\t\t      \t<span (click)=\"sortUnitData('visitorPhone')\" [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['visitorPhone']\" (ngModelChange)=\"selectColInput('visitorPhone')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Expected Date/Time of Visit<span (click)=\"sortUnitData('visitorInTime')\" [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Expected Time-out<span (click)=\"sortUnitData('visitorOutTime')\" [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Visitor Type<span (click)=\"sortUnitData('visitorOutTime')\" [ngClass]=\"getFieldOrderBy('visitorType')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Visitor category<span (click)=\"sortUnitData('visitorCategoryId_Label')\" [ngClass]=\"getFieldOrderBy('visitorCategoryId_Label')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Tower Unit<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.expectedVisitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedVisitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.expectedVisitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{getTimeFormat(visitor.expectedVisitorInTime)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{getTimeFormat(visitor.expectedVisitorOutTime)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{visitor.visitTypeName}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorCategoryId_Label}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.block_Unit}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/visitor/edit-visitor/{{visitor.expectedVisitorId}}/checkin\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<img src=\"assets/images/checkin-icon.svg\" width=\"20\" />\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<ng-template #popAddCheckInContent>\n\t\t\t\t      \t\t<div class=\"pop-desp\">\n\t\t\t\t      \t\t\t<h5>CheckIn</h5>\n\t\t\t\t      \t\t</div>\n\t\t\t\t      \t</ng-template>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
     /***/
   },
 
@@ -161,7 +161,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"visitor-setup-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30 vehicle-type-table-card\" *ngIf=\"isDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Visitor Categories <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Delete Visitor Categories</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categoryData\" >\n    \t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" (click)=\"addNewCategoryType()\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Category</span>\n\t\t\t\t\t</a>\n\t    \t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Sno <span [ngClass]=\"getFieldOrderBy('primayContact')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Visitor Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th> \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryDataList | simpleSearch: categoryData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td>{{i + 1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.lookupValueName}}</td> \n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"updateCategoryType(category)\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"deleteCategoryType(category)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t                </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\t\t</div>\n\n    </div>\n\n    <div class=\"card mb-30 vehicle-type-card\" *ngIf=\"isCategoryTypeNew || isCategoryTypeUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isCategoryTypeNew\">Add Visitor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isCategoryTypeNew\">Update Visitor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryTypeBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">  \n\t\t\t\n\t\t\t<app-alert-message [isError]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isCategoryTypeSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isCategoryTypeSubmitted\">\n\n\t\t\t\t<form #addCategoryTypeForm = \"ngForm\" name=\"addCategoryTypeForm\"  (ngSubmit)=\"submitCategoryTypeForm(addCategoryTypeForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Visitor Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"categoryType\" [(ngModel)]=\"categoryType\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<button class=\"btn blue at-input\" [disabled]=\"addCategoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"visitor-setup-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30 vehicle-type-table-card\" *ngIf=\"isDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Visitor Categories <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Delete Visitor Categories</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categoryData\" >\n    \t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" (click)=\"addNewCategoryType()\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Category</span>\n\t\t\t\t\t</a>\n\t    \t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Sno <span [ngClass]=\"getFieldOrderBy('primayContact')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Visitor Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th> \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryDataList | simpleSearch: categoryData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td>{{i + 1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.lookupValueName}}</td> \n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"updateCategoryType(category)\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"deleteCategoryType(category)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t                </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\t\t</div>\n\n    </div>\n\n    <div class=\"card mb-30 vehicle-type-card\" *ngIf=\"isCategoryTypeNew || isCategoryTypeUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isCategoryTypeNew\">Add Visitor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isCategoryTypeNew\">Update Visitor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryTypeBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">  \n\t\t\t\n\t\t\t<!-- <app-alert-message [isError]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isCategoryTypeSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isCategoryTypeSubmitted\">\n\n\t\t\t\t<form #addCategoryTypeForm = \"ngForm\" name=\"addCategoryTypeForm\"  (ngSubmit)=\"submitCategoryTypeForm(addCategoryTypeForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Visitor Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"categoryType\" [(ngModel)]=\"categoryType\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<button class=\"btn blue at-input\" [disabled]=\"addCategoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n</div>\n";
     /***/
   },
 
@@ -825,7 +825,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.visitorStatus = this.route.params['value'].type;
 
             if (this.route.params['value'].type == 'checkout') {
-              this.visitorService.getVisitorById(this.route.params['value'].id).subscribe(function (res) {
+              var visitorIdParam = {
+                visitorId: this.route.params['value'].id
+              };
+              this.visitorService.getVisitorById(visitorIdParam).subscribe(function (res) {
                 _this4.visitor = res[0];
                 _this4.visitTypeId = _this4.visitor.visitTypeId;
                 _this4.visitCategoryId = _this4.visitor.visitorCategoryId;
@@ -840,7 +843,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 _this4.visitor.expectedDurationInHours = Math.round(hours);
               }, function (error) {});
             } else {
-              this.visitorService.getExpectedVisitorById(this.route.params['value'].id).subscribe(function (res) {
+              var expectedVisitorIdParam = {
+                expectedVisitorId: this.route.params['value'].id
+              };
+              this.visitorService.getExpectedVisitorById(expectedVisitorIdParam).subscribe(function (res) {
                 _this4.visitor = res[0];
                 _this4.visitor.purpose = '';
                 _this4.visitTypeId = _this4.visitor.visitTypeId;
@@ -1134,7 +1140,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             //get block and unit details
 
             underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this5.visitorListData, function (item, index) {
-              _this5.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe(function (res) {
+              var apartmentBlockUnitIdParam = {
+                apartmentBlockUnitId: item.apartmentUnitId
+              };
+
+              _this5.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (res) {
                 _this5.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
                 _this5.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
               }, function (error) {});
@@ -1593,11 +1603,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var moment__WEBPACK_IMPORTED_MODULE_8___default =
     /*#__PURE__*/
     __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    /* harmony import */
+
+
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
     var VisitorExpectedVisitorComponent =
     /*#__PURE__*/
     function () {
-      function VisitorExpectedVisitorComponent(injector, apartmentService, visitorService, lookupService, cookieService) {
+      function VisitorExpectedVisitorComponent(injector, apartmentService, visitorService, lookupService, cookieService, dialog) {
         _classCallCheck(this, VisitorExpectedVisitorComponent);
 
         this.injector = injector;
@@ -1605,6 +1627,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.visitorService = visitorService;
         this.lookupService = lookupService;
         this.cookieService = cookieService;
+        this.dialog = dialog;
         this.visitorData = "";
         this.isVisitorDataLoaded = false;
         this.unitFieldType = "unitno";
@@ -1613,6 +1636,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.itemLimit = 10;
         this.selectedInput = "";
         this.columnField = {};
+        this.result = '';
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
@@ -1675,13 +1699,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe(function (res) {
-            //filter active true items
+            _this8.visitorListData = res;
+            console.log("visitorListData", _this8.visitorListData[0].visitTypeId); //filter active true items
+
             _this8.visitorListData = res.filter(function (data) {
               return data.isActive;
             }); //get block and unit details
 
             underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this8.visitorListData, function (item, index) {
-              _this8.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe(function (res) {
+              var apartmentBlockUnitIdParam = {
+                apartmentBlockUnitId: item.apartmentUnitId
+              };
+
+              _this8.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (res) {
                 _this8.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
                 _this8.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber; // console.log(res[0]);
               }, function (error) {});
@@ -1739,6 +1769,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this10.visitorListData[0].visitCategoryName = element.lookupValueName.toLowerCase();
             }
           });
+        } //print button
+
+      }, {
+        key: "print",
+        value: function print() {
+          var _this11 = this;
+
+          var confirmationMessage = "Are you sure, you want to Print?";
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            _this11.result = dialogResult;
+
+            if (_this11.result) {//code
+            }
+          });
         }
       }]);
 
@@ -1756,6 +1806,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
       }];
     };
 
@@ -1767,7 +1819,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./visitor-expected-visitor.component.scss */
       "./src/app/ams/visitor/components/visitor-expected-visitor/visitor-expected-visitor.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], VisitorExpectedVisitorComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], VisitorExpectedVisitorComponent);
     /***/
   },
 
@@ -1925,40 +1977,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this11 = this;
+          var _this12 = this;
 
           var visitTypeParams = {
             LookupTypeId: 15
           }; //get visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitTypeParams).subscribe(function (res) {
-            _this11.visitTypeData = res;
+            _this12.visitTypeData = res;
           }, function (error) {});
           var visitListParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getVisitorsByApartmentId(visitListParams).subscribe(function (res) {
             //filter active true items
-            _this11.visitorListData = res.filter(function (item) {
+            _this12.visitorListData = res.filter(function (item) {
               return item.isActive && item.isCheckedOut;
             }); // console.log(this.visitorListData);
             //get block and unit details
 
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this11.visitorListData, function (item, index) {
-              _this11.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe(function (res) {
-                _this11.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
-                _this11.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this12.visitorListData, function (item, index) {
+              _this12.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe(function (res) {
+                _this12.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
+                _this12.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
               }, function (error) {});
             });
-            _this11.totalItems = _this11.visitorListData.length;
+            _this12.totalItems = _this12.visitorListData.length;
 
-            if (_this11.totalItems > _this11.itemLimit) {
-              _this11.ItemEndIndex = _this11.itemLimit;
+            if (_this12.totalItems > _this12.itemLimit) {
+              _this12.ItemEndIndex = _this12.itemLimit;
             } else {
-              _this11.ItemEndIndex = _this11.totalItems;
+              _this12.ItemEndIndex = _this12.totalItems;
             }
 
-            _this11.isVisitorDataLoaded = true;
+            _this12.isVisitorDataLoaded = true;
           });
         }
       }]);
@@ -2079,7 +2131,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(VisitorReportsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this13 = this;
 
           var details = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -2087,8 +2139,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             MenuName: 'VisitorManagement'
           };
           this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-            _this12.reportDataList = res;
-            _this12.isDataLoaded = true;
+            _this13.reportDataList = res;
+            _this13.isDataLoaded = true;
           });
         }
       }]);
@@ -2193,15 +2245,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
     var VisitorSetupComponent =
     /*#__PURE__*/
     function () {
-      function VisitorSetupComponent(injector, lookupService, sharedService, cookieService) {
+      function VisitorSetupComponent(injector, lookupService, dialog, sharedService, cookieService) {
         _classCallCheck(this, VisitorSetupComponent);
 
         this.injector = injector;
         this.lookupService = lookupService;
+        this.dialog = dialog;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDataLoaded = false;
@@ -2217,6 +2282,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.categoryUpdateId = 0;
         this.isError = false;
         this.alertMessage = false;
+        this.result = '';
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__["ModalService"]);
       }
 
@@ -2278,27 +2344,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteCategoryType",
         value: function deleteCategoryType(item) {
-          var _this13 = this;
+          var _this14 = this;
 
           this.modalService.showConfirmModal(item); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
             if (item != null) {
-              _this13.isDataLoaded = false;
+              _this14.isDataLoaded = false;
               var params = {
                 lookupValueId: item.lookupValueId,
-                updateUserId: parseInt(_this13.cookieService.get('userId'))
+                updateUserId: parseInt(_this14.cookieService.get('userId'))
               };
 
-              _this13.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                _this13.categoryDataList = _this13.categoryDataList.filter(function (type) {
+              _this14.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this14.categoryDataList = _this14.categoryDataList.filter(function (type) {
                   return type.lookupValueId !== item.lookupValueId;
                 });
 
-                _this13.sharedService.setUnitListDeleteIndex(null);
+                _this14.sharedService.setUnitListDeleteIndex(null);
 
-                _this13.isDataLoaded = true;
+                _this14.isDataLoaded = true;
               });
+
+              var errorDetails = {
+                msg: 'Visitor category deleted successfully',
+                type: "Success"
+              };
+
+              _this14.sharedService.setCustomAlertMessage(errorDetails);
             }
           });
         }
@@ -2320,106 +2393,136 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCategoryTypeForm",
         value: function submitCategoryTypeForm(form) {
-          var _this14 = this;
+          var _this15 = this;
 
-          this.isCategoryTypeSubmitted = false;
+          var confirmationMessage = "Are you sure you want to save this settings?";
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            _this15.result = dialogResult;
 
-          if (this.isCategoryTypeNew) {
-            var details = {
-              "lookupTypeId": 100,
-              "lookupValueName": this.categoryType,
-              "description": 'Visitor Category',
-              "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
-              "insertedOn": "2019-11-20T16:51:24.105Z",
-              "updatedBy": 0,
-              "updatedOn": "2019-11-20T16:51:24.105Z"
-            };
-            var params = {
-              lookupvalue: details
-            };
-            this.lookupService.addLookupValue(params).subscribe(function (res) {
-              if (res.message) {
-                var categoryParams = {
-                  LookupTypeId: 100
+            if (_this15.result) {
+              //code
+              _this15.isCategoryTypeSubmitted = false;
+
+              if (_this15.isCategoryTypeNew) {
+                var details = {
+                  "lookupTypeId": 100,
+                  "lookupValueName": _this15.categoryType,
+                  "description": 'Visitor Category',
+                  "isActive": true,
+                  "insertedBy": parseInt(_this15.cookieService.get('userId')),
+                  "insertedOn": "2019-11-20T16:51:24.105Z",
+                  "updatedBy": 0,
+                  "updatedOn": "2019-11-20T16:51:24.105Z"
+                };
+                var params = {
+                  lookupvalue: details
                 };
 
-                _this14.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                  _this14.isCategoryTypeNew = false;
-                  _this14.isCategoryTypeSubmitted = true;
+                _this15.lookupService.addLookupValue(params).subscribe(function (res) {
+                  if (res.message) {
+                    var categoryParams = {
+                      LookupTypeId: 100
+                    };
 
-                  _this14.sharedService.setAlertMessage("Visitor Category added successfully");
+                    _this15.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this15.isCategoryTypeNew = false;
+                      _this15.isCategoryTypeSubmitted = true;
 
-                  _this14.categoryDataList = res.filter(function (item) {
-                    return item.isActive;
-                  });
+                      _this15.sharedService.setAlertMessage("Visitor Category added successfully");
+
+                      _this15.categoryDataList = res.filter(function (item) {
+                        return item.isActive;
+                      });
+                    });
+                  } else {
+                    _this15.isCategoryTypeSubmitted = true;
+                    _this15.isError = true;
+                    _this15.alertMessage = res.errorMessage;
+                    var errorDetails = {
+                      msg: _this15.alertMessage,
+                      type: "Error"
+                    };
+
+                    _this15.sharedService.setCustomAlertMessage(errorDetails);
+                  }
                 });
               } else {
-                _this14.isCategoryTypeSubmitted = true;
-                _this14.isError = true;
-                _this14.alertMessage = res.errorMessage;
-              }
-            });
-          } else {
-            var _details = {
-              "lookupValueId": this.categoryUpdateId,
-              "lookupTypeId": 100,
-              "lookupValueName": this.categoryType,
-              "description": this.categoryType,
-              "isActive": true,
-              "insertedBy": 0,
-              "insertedOn": "2019-11-20T16:51:24.105Z",
-              "updatedBy": parseInt(this.cookieService.get('userId')),
-              "updatedOn": "2019-11-20T16:51:24.105Z"
-            };
-            var _params3 = {
-              lookupvalue: _details
-            };
-            this.lookupService.updateLookupValue(_params3).subscribe(function (res) {
-              if (res.message) {
-                var categoryParams = {
-                  LookupTypeId: 100
+                var _details = {
+                  "lookupValueId": _this15.categoryUpdateId,
+                  "lookupTypeId": 100,
+                  "lookupValueName": _this15.categoryType,
+                  "description": _this15.categoryType,
+                  "isActive": true,
+                  "insertedBy": 0,
+                  "insertedOn": "2019-11-20T16:51:24.105Z",
+                  "updatedBy": parseInt(_this15.cookieService.get('userId')),
+                  "updatedOn": "2019-11-20T16:51:24.105Z"
+                };
+                var _params3 = {
+                  lookupvalue: _details
                 };
 
-                _this14.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                  _this14.isCategoryTypeUpdate = false;
-                  _this14.isCategoryTypeSubmitted = true;
+                _this15.lookupService.updateLookupValue(_params3).subscribe(function (res) {
+                  if (res.message) {
+                    var categoryParams = {
+                      LookupTypeId: 100
+                    };
 
-                  _this14.sharedService.setAlertMessage("Visitor Category updated successfully");
+                    _this15.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this15.isCategoryTypeUpdate = false;
+                      _this15.isCategoryTypeSubmitted = true;
 
-                  _this14.categoryDataList = res.filter(function (item) {
-                    return item.isActive;
-                  });
+                      _this15.sharedService.setAlertMessage("Visitor Category updated successfully");
+
+                      _this15.categoryDataList = res.filter(function (item) {
+                        return item.isActive;
+                      });
+                    });
+                  } else {
+                    _this15.isCategoryTypeSubmitted = true;
+                    _this15.isError = true;
+                    _this15.alertMessage = res.errorMessage;
+                    var errorDetails = {
+                      msg: _this15.alertMessage,
+                      type: "Error"
+                    };
+
+                    _this15.sharedService.setCustomAlertMessage(errorDetails);
+                  }
                 });
-              } else {
-                _this14.isCategoryTypeSubmitted = true;
-                _this14.isError = true;
-                _this14.alertMessage = res.errorMessage;
               }
-            });
-          }
+            } else {
+              _this15.isCategoryTypeSubmitted = true;
+            }
+          });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this15 = this;
+          var _this16 = this;
 
           var categoryListParams = {
             LookupTypeId: 100
           };
           this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe(function (res) {
-            _this15.categoryDataList = res.filter(function (item) {
+            _this16.categoryDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this15.totalItems = _this15.categoryDataList.length;
+            _this16.totalItems = _this16.categoryDataList.length;
 
-            if (_this15.totalItems > _this15.itemLimit) {
-              _this15.ItemEndIndex = _this15.itemLimit;
+            if (_this16.totalItems > _this16.itemLimit) {
+              _this16.ItemEndIndex = _this16.itemLimit;
             } else {
-              _this15.ItemEndIndex = _this15.totalItems;
+              _this16.ItemEndIndex = _this16.totalItems;
             }
 
-            _this15.isDataLoaded = true;
+            _this16.isDataLoaded = true;
           });
         }
       }]);
@@ -2432,6 +2535,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
         type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
@@ -2447,7 +2552,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./visitor-setup.component.scss */
       "./src/app/ams/visitor/components/visitor-setup/visitor-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], VisitorSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], VisitorSetupComponent);
     /***/
   },
 
@@ -2777,6 +2882,77 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _visitor_routing_module__WEBPACK_IMPORTED_MODULE_3__["VisitorRoutingModule"]],
       bootstrap: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"]]
     })], VisitorModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/services/shared-toaster.service.ts":
+  /*!***********************************************************!*\
+    !*** ./src/app/shared/services/shared-toaster.service.ts ***!
+    \***********************************************************/
+
+  /*! exports provided: SharedToasterService */
+
+  /***/
+  function srcAppSharedServicesSharedToasterServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SharedToasterService", function () {
+      return SharedToasterService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/material/snack-bar */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
+
+    var SharedToasterService =
+    /*#__PURE__*/
+    function () {
+      function SharedToasterService(snackBar) {
+        _classCallCheck(this, SharedToasterService);
+
+        this.snackBar = snackBar;
+      }
+
+      _createClass(SharedToasterService, [{
+        key: "openSnackBar",
+        value: function openSnackBar(message, action) {
+          this.snackBar.open(message, action, {
+            duration: 2000
+          });
+        }
+      }]);
+
+      return SharedToasterService;
+    }();
+
+    SharedToasterService.ctorParameters = function () {
+      return [{
+        type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]
+      }];
+    };
+
+    SharedToasterService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])], SharedToasterService);
     /***/
   }
 }]);

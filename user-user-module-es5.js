@@ -640,9 +640,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         path: 'visitor',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | user-visitor-user-visitor-module */
-          [__webpack_require__.e("common"), __webpack_require__.e("user-visitor-user-visitor-module")]).then(__webpack_require__.bind(null,
+          "user-visitor-user-visitor-module").then(__webpack_require__.bind(null,
           /*! ./user-visitor/user-visitor.module */
           "./src/app/user/user-visitor/user-visitor.module.ts")).then(function (m) {
             return m.UserVisitorModule;
