@@ -9388,32 +9388,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this85 = this;
 
           this.isMenuLoaded = false;
-          this.menusDataList = this.constantsService.getAllMenus();
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-          };
-          this.screenService.getAllScreens(params).subscribe(function (res) {
-            _this85.availableScreensDataList = res;
-            _this85.isMenuLoaded = true;
-            underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this85.availableScreensDataList, function (item) {
-              var menus = _this85.menusDataList.filter(function (menu) {
-                return menu.name == item.screenName;
-              }); //undefined check if local json doesnt have corrosponding menu data
-
-
-              if (menus[0] != undefined) _this85.sidebarMenuDataList.push(menus[0]);
-            });
-            setTimeout(function () {
-              var navItems = $(".nav-list");
-              $.each(navItems, function (index, elem) {
-                if ($(elem).find('.nav-link').hasClass('active')) {
-                  _this85.activeNav = $(elem).find('.nav-link').attr('name');
-                }
-              });
-            }, 1000);
-          }, function (error) {
-            _this85.isMenuLoaded = true;
-          });
           var userId = parseInt(this.cookieService.get('userId'));
           var userParams = {
             userid: userId
@@ -9432,6 +9406,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this85.isApartmentSelected = isSelected;
 
             if (_this85.isApartmentSelected) {
+              _this85.menusDataList = _this85.constantsService.getAllMenus();
+              var sidebarParams = {
+                apartmentId: parseInt(_this85.cookieService.get('apartmentId'))
+              };
+
+              _this85.screenService.getAllScreens(sidebarParams).subscribe(function (res) {
+                _this85.availableScreensDataList = res;
+                _this85.isMenuLoaded = true;
+                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this85.availableScreensDataList, function (item) {
+                  var menus = _this85.menusDataList.filter(function (menu) {
+                    return menu.name == item.screenName;
+                  }); //undefined check if local json doesnt have corrosponding menu data
+
+
+                  if (menus[0] != undefined) _this85.sidebarMenuDataList.push(menus[0]);
+                });
+                setTimeout(function () {
+                  var navItems = $(".nav-list");
+                  $.each(navItems, function (index, elem) {
+                    if ($(elem).find('.nav-link').hasClass('active')) {
+                      _this85.activeNav = $(elem).find('.nav-link').attr('name');
+                    }
+                  });
+                }, 1000);
+              }, function (error) {
+                _this85.isMenuLoaded = true;
+              });
+
               var params = {
                 apartmentId: parseInt(_this85.cookieService.get('apartmentId')),
                 active: 1

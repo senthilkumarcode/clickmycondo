@@ -5899,32 +5899,6 @@ let SidebarComponent = class SidebarComponent {
     }
     ngOnInit() {
         this.isMenuLoaded = false;
-        this.menusDataList = this.constantsService.getAllMenus();
-        let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-        };
-        this.screenService.getAllScreens(params).subscribe((res) => {
-            this.availableScreensDataList = res;
-            this.isMenuLoaded = true;
-            underscore__WEBPACK_IMPORTED_MODULE_10__["each"](this.availableScreensDataList, item => {
-                var menus = this.menusDataList.filter(menu => {
-                    return menu.name == item.screenName;
-                });
-                //undefined check if local json doesnt have corrosponding menu data
-                if (menus[0] != undefined)
-                    this.sidebarMenuDataList.push(menus[0]);
-            });
-            setTimeout(() => {
-                var navItems = $(".nav-list");
-                $.each(navItems, (index, elem) => {
-                    if ($(elem).find('.nav-link').hasClass('active')) {
-                        this.activeNav = $(elem).find('.nav-link').attr('name');
-                    }
-                });
-            }, 1000);
-        }, error => {
-            this.isMenuLoaded = true;
-        });
         var userId = parseInt(this.cookieService.get('userId'));
         let userParams = {
             userid: userId
@@ -5940,6 +5914,32 @@ let SidebarComponent = class SidebarComponent {
         this.sharedService.apartmentselectedcast.subscribe(isSelected => {
             this.isApartmentSelected = isSelected;
             if (this.isApartmentSelected) {
+                this.menusDataList = this.constantsService.getAllMenus();
+                let sidebarParams = {
+                    apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                };
+                this.screenService.getAllScreens(sidebarParams).subscribe((res) => {
+                    this.availableScreensDataList = res;
+                    this.isMenuLoaded = true;
+                    underscore__WEBPACK_IMPORTED_MODULE_10__["each"](this.availableScreensDataList, item => {
+                        var menus = this.menusDataList.filter(menu => {
+                            return menu.name == item.screenName;
+                        });
+                        //undefined check if local json doesnt have corrosponding menu data
+                        if (menus[0] != undefined)
+                            this.sidebarMenuDataList.push(menus[0]);
+                    });
+                    setTimeout(() => {
+                        var navItems = $(".nav-list");
+                        $.each(navItems, (index, elem) => {
+                            if ($(elem).find('.nav-link').hasClass('active')) {
+                                this.activeNav = $(elem).find('.nav-link').attr('name');
+                            }
+                        });
+                    }, 1000);
+                }, error => {
+                    this.isMenuLoaded = true;
+                });
                 var params = {
                     apartmentId: parseInt(this.cookieService.get('apartmentId')),
                     active: 1
