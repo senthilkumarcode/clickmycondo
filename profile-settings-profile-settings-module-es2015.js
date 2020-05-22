@@ -649,6 +649,7 @@ let AddUnitComponent = class AddUnitComponent {
     submitAddUnitForm(form) {
         this.isUnitSubmitted = true;
         this.apartmentBlockUnit = {
+            "apartmentBlockUnitId": 1,
             "apartmentBlockUnitNumber": this.unit.no,
             "apartmentBlockId": parseInt(this.blockId),
             "unitTypeId": parseInt(this.unitType),
