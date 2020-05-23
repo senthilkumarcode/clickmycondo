@@ -161,7 +161,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n    <div class=\"card ov card-table\" *ngIf=\"isUserDataLoaded\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Self Sign Up Users <span class=\"badge blue\">{{totalUserItems}}</span></h5>\n                <p class=\"d-none d-md-inline-block\">User ID creation requests from Condo Website</p>\n            </div>\n            <ul class=\"float-right\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" >\n                </li>\n                <li class=\"list-inline-item\">\n                    <a class=\"btn trans-white mt_5\">\n                        <i-feather class=\"icon print\" name=\"printer\"></i-feather>\n                        <span>Print</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n        <div class=\"card-body ov p-0\">\n            <table class=\"table table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">\n                            RequestID \n                            <span (click)=\"sortUnitData('signupUserRequestId')\" [ngClass]=\"getFieldOrderBy('signupUserRequestId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"RequstID\" [(ngModel)]=\"columnField['signupUserRequestId']\" (ngModelChange)=\"selectColInput('signupUserRequestId')\" >\n                        </th>\n                      <th scope=\"col\">\n                          Name \n                          <span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Phone <span (click)=\"sortUnitData('phoneNumber')\" [ngClass]=\"getFieldOrderBy('phoneNumber')\"></span>\n                           <input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phoneNumber']\" (ngModelChange)=\"selectColInput('phoneNumber')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Email <span  (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n                           <input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Block No <span  (click)=\"sortUnitData('apartmentId')\" [ngClass]=\"getFieldOrderBy('apartmentId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Block No\" [(ngModel)]=\"columnField['apartmentId']\" (ngModelChange)=\"selectColInput('apartmentId')\" >\n                      </th>\n                      <th scope=\"col\">Unit No <span  (click)=\"sortUnitData('apartmentId')\" [ngClass]=\"getFieldOrderBy('apartmentId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Unit No\" [(ngModel)]=\"columnField['apartmentId']\" (ngModelChange)=\"selectColInput('apartmentId')\">\n                      </th>\n                      <th scope=\"col\">Requested On \n                        <span (click)=\"sortUnitData('insertedOn')\" [ngClass]=\"getFieldOrderBy('insertedOn')\"></span>\n                        <app-simple-date-box \n                          [dateModel]=\"insertedOn\"\n                          (inputChange) = \"onDateChange($event, 'insertedOn')\"\n                          ></app-simple-date-box>\n                    </th>\n                      <th scope=\"col\" class=\"simple-actions\">\n                      Actions\n                      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n                        </th>\n                    </tr>\n                </thead>\n                <tbody>\n                 <tr *ngFor=\"let unit of unitListData  columnField:selectedInput | simpleSearch: unitData ; let i = index\">\n                    <td class=\"grey\">{{unit.signupUserRequestId}}</td>   \n                      <td class=\"name\">\n                          <a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n                          {{unit.firstName}}</a>\n                          <ng-template #popContent>\n                            <div class=\"pop-desp\">\n                                <ul>\n                                    <li>\n                                        <h6>Status/Notes</h6>\n                                        <p>{{unit.notes}}</p>\n                                    </li>\n                                    <li>\n                                        <h6>Owner/Tenant</h6>\n                                        <p>{{unit.comments}}</p>\n                                    </li>\n                                </ul>\n                            </div>\n                        </ng-template>\n                        </td>\n                      <td class=\"grey\">{{unit.phoneNumber}}</td>\n                      <td class=\"grey\">{{unit.emailId}}</td>\n                      <td class=\"grey\">{{unit.signupSubNotes[0].blockUnit}}</td>\n                      <td class=\"grey\">{{unit.signupSubNotes[0].unit}}</td>\n                      <td class=\"grey\">{{getBookedDate(unit.insertedOn)}}</td>\n                      <td class=\"simple-actions\">\n                        <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"EditUserInfo(unit)\"><i-feather class=\"icon plus\" name=\"plus\"></i-feather></a>\n                          <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"viewSignup(unit)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n                         \n                          <a href=\"javascript:void(0)\" (click)=\"showConfirmModal(unit)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                    </td>\n                    </tr> \n                </tbody>\n            </table>\n            <!-- <div class=\"button-wrapper\">\n                <a class=\"btn lime-green sf\"\n                    (click)=\"approveUsers()\"\n                    [ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n                    <span>Approve Selected Users</span>\n                </a>\n                <a class=\"btn trans-white sf \"\n                    routerLink=\"addunit\" \n                    routerLinkActive=\"active\"\n                    [routerLinkActiveOptions] = \"{exact:true}\"\n                    [ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n                    <span>Re-send verification link</span>\n                </a>\n                <p>Once approved the user will be informed automatically</p>\n            </div> -->\n            <app-pagination \n                [totalItems]=\"totalUserItems\"  \n                [ItemStartIndex]=\"ItemUserStartIndex\"\n                [ItemEndIndex] = \"ItemUserEndIndex\"\n                [itemLimit] = \"itemUserLimit\"\n                (outputParams) = \"getUserIndexParams($event)\">\t\n            </app-pagination>\n    \n        </div>\n    </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\n    <app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isUserDataLoaded\">\n\n        <div class=\"card clear table-card\">\n\n            <div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Self Sign Up Users <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t    \t\t</ul>\n              </div>\n              \n              <div class=\"card-body p-0\">\n\n                <jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\n              </div>\n\n        </div>\n\n\n    </ng-container>\n\n\n   <!--  <div class=\"card ov card-table\" *ngIf=\"isUserDataLoaded\">\n        \n        <div class=\"card-body ov p-0\">\n            <table class=\"table table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">\n                            RequestID \n                            <span (click)=\"sortUnitData('signupUserRequestId')\" [ngClass]=\"getFieldOrderBy('signupUserRequestId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"RequstID\" [(ngModel)]=\"columnField['signupUserRequestId']\" (ngModelChange)=\"selectColInput('signupUserRequestId')\" >\n                        </th>\n                      <th scope=\"col\">\n                          Name \n                          <span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Phone <span (click)=\"sortUnitData('phoneNumber')\" [ngClass]=\"getFieldOrderBy('phoneNumber')\"></span>\n                           <input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phoneNumber']\" (ngModelChange)=\"selectColInput('phoneNumber')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Email <span  (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n                           <input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Block No <span  (click)=\"sortUnitData('apartmentId')\" [ngClass]=\"getFieldOrderBy('apartmentId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Block No\" [(ngModel)]=\"columnField['apartmentId']\" (ngModelChange)=\"selectColInput('apartmentId')\" >\n                      </th>\n                      <th scope=\"col\">Unit No <span  (click)=\"sortUnitData('apartmentId')\" [ngClass]=\"getFieldOrderBy('apartmentId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Unit No\" [(ngModel)]=\"columnField['apartmentId']\" (ngModelChange)=\"selectColInput('apartmentId')\">\n                      </th>\n                      <th scope=\"col\">Requested On \n                        <span (click)=\"sortUnitData('insertedOn')\" [ngClass]=\"getFieldOrderBy('insertedOn')\"></span>\n                        <app-simple-date-box \n                          [dateModel]=\"insertedOn\"\n                          (inputChange) = \"onDateChange($event, 'insertedOn')\"\n                          ></app-simple-date-box>\n                    </th>\n                      <th scope=\"col\" class=\"simple-actions\">\n                      Actions\n                      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n                        </th>\n                    </tr>\n                </thead>\n                <tbody>\n                 <tr *ngFor=\"let unit of unitListData  columnField:selectedInput | simpleSearch: unitData ; let i = index\">\n                    <td class=\"grey\">{{unit.signupUserRequestId}}</td>   \n                      <td class=\"name\">\n                          <a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n                          {{unit.firstName}}</a>\n                          <ng-template #popContent>\n                            <div class=\"pop-desp\">\n                                <ul>\n                                    <li>\n                                        <h6>Status/Notes</h6>\n                                        <p>{{unit.notes}}</p>\n                                    </li>\n                                    <li>\n                                        <h6>Owner/Tenant</h6>\n                                        <p>{{unit.comments}}</p>\n                                    </li>\n                                </ul>\n                            </div>\n                        </ng-template>\n                        </td>\n                      <td class=\"grey\">{{unit.phoneNumber}}</td>\n                      <td class=\"grey\">{{unit.emailId}}</td>\n                      <td class=\"grey\">{{unit.signupSubNotes[0].blockUnit}}</td>\n                      <td class=\"grey\">{{unit.signupSubNotes[0].unit}}</td>\n                      <td class=\"grey\">{{getBookedDate(unit.insertedOn)}}</td>\n                      <td class=\"simple-actions\">\n                        <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"EditUserInfo(unit)\"><i-feather class=\"icon plus\" name=\"plus\"></i-feather></a>\n                          <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"viewSignup(unit)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n                         \n                          <a href=\"javascript:void(0)\" (click)=\"showConfirmModal(unit)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                    </td>\n                    </tr> \n                </tbody>\n            </table>\n            <app-pagination \n                [totalItems]=\"totalUserItems\"  \n                [ItemStartIndex]=\"ItemUserStartIndex\"\n                [ItemEndIndex] = \"ItemUserEndIndex\"\n                [itemLimit] = \"itemUserLimit\"\n                (outputParams) = \"getUserIndexParams($event)\">\t\n            </app-pagination>\n    \n        </div>\n    </div> -->\n</div>\n";
     /***/
   },
 
@@ -2167,203 +2167,127 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material/dialog */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/api/controllers/User */
     "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/services/shared.service */
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../../../shared/services/constants.service */
+    "./src/app/shared/services/constants.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! src/app/shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! underscore */
-    "./node_modules/underscore/modules/index-all.js");
-    /* harmony import */
-
-
-    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_9___default =
+    var moment__WEBPACK_IMPORTED_MODULE_10___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
     var SignuprequestComponent =
     /*#__PURE__*/
     function () {
-      function SignuprequestComponent(injector, dialog, router, route, userService, sharedService, cookieService) {
+      function SignuprequestComponent(injector, dialog, router, userService, constantsService, sharedService, cookieService) {
         _classCallCheck(this, SignuprequestComponent);
 
         this.injector = injector;
         this.dialog = dialog;
         this.router = router;
-        this.route = route;
         this.userService = userService;
+        this.constantsService = constantsService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
-        this.unitFieldType = "unitno";
-        this.unitOrder = false;
+        this.unitData = "";
         this.isUserDataLoaded = false;
         this.isProfile = false;
-        this.ItemUserStartIndex = 0;
-        this.itemUserLimit = 15;
         this.isMobile = false;
-        this.columnField = {};
-        this.selectAllUnapprovedUser = false;
         this.isUserSelected = false;
-        this.unitData = "";
-        this.selectedInput = "";
-        this.ItemLogStartIndex = 0;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
       }
 
       _createClass(SignuprequestComponent, [{
-        key: "sortUnitData",
-        value: function sortUnitData(type) {
-          this.unitFieldType = type;
-          this.unitOrder = !this.unitOrder;
-        }
-      }, {
-        key: "selectColInput",
-        value: function selectColInput(value) {
-          console.log(value);
-          this.selectedInput = value;
-        }
-      }, {
-        key: "getLogIndexParams",
-        value: function getLogIndexParams(event) {
-          this.ItemLogStartIndex = event.ItemLogStartIndex;
-          this.ItemLogEndIndex = event.ItemLogEndIndex;
-        }
-      }, {
-        key: "getFieldOrderBy",
-        value: function getFieldOrderBy(type) {
-          if (this.unitFieldType == type) {
-            return this.unitOrder ? 'desc' : 'asc';
-          } else return '';
-        }
-      }, {
-        key: "getNotes",
-        value: function getNotes(data) {
-          console.log(data);
-          if (data === undefined || data.length == 0) return '';else return data.notes;
-        }
-      }, {
-        key: "getBlockName",
-        value: function getBlockName(data) {
-          var dt = JSON.parse(data);
-          return dt.BlockName;
-        }
-      }, {
-        key: "getUserType",
-        value: function getUserType(data) {
-          var usrType = 0;
-          var dt = JSON.parse(data);
-          usrType = dt.UserType;
-          var usrName = "";
-
-          if (usrType == 0) {
-            usrName = "N/A";
-          } else if (usrType == 2) {
-            usrName = "Tenant";
-          } else if (usrType == 4) {
-            usrName = "Owner";
-          } else if (usrType == 1) {
-            usrName = "Admin";
-          }
-
-          return usrName;
-        }
-      }, {
-        key: "getUnitName",
-        value: function getUnitName(data) {
-          var dt = JSON.parse(data);
-          return dt.UnitName;
-        }
-      }, {
-        key: "getUserRole",
-        value: function getUserRole(role, index) {
-          if (role === undefined || role.length == 0) {
-            return '';
-          } else {
-            this.unitListData[index].roleName = role[0].roleName;
-            return role[0].roleName;
-          }
-        }
-      }, {
-        key: "onDateChange",
-        value: function onDateChange(event, type) {
-          if (event != null) {
-            this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_9__(event).format("DD/MM/YYYY");
-          } else {
-            this.columnField = {};
-          }
-        }
-      }, {
         key: "getBookedDate",
         value: function getBookedDate(date) {
-          return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+          return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
         }
       }, {
-        key: "getBlockNo",
-        value: function getBlockNo(item, data) {
-          this.unitListData.map(function (obj) {
-            if (obj.id == item.id) {
-              obj.apartmentBlockNumber = data;
-            }
-          });
-          return data;
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this13 = this;
+
+          if (this.unitData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.unitData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
         }
       }, {
-        key: "getBlockUnitNo",
-        value: function getBlockUnitNo(item, data) {
-          this.unitListData.map(function (obj) {
-            if (obj.id == item.id) {
-              obj.apartmentBlockUnitNumber = data;
-            }
-          });
-          return data;
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'selfSignupUser');
         }
       }, {
         key: "viewUserInfo",
         value: function viewUserInfo(id) {
-          var _this13 = this;
+          var _this14 = this;
 
           this.isProfile = false;
           setTimeout(function () {
-            _this13.isProfile = true;
+            _this14.isProfile = true;
           }, 10);
           setTimeout(function () {
             var elem = document.querySelector('.user-info-card');
@@ -2379,7 +2303,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "showConfirmModal",
         value: function showConfirmModal(data) {
-          var _this14 = this;
+          var _this15 = this;
 
           this.modalService.showConfirmModal(data.signupUserRequestId);
           var params = {
@@ -2388,98 +2312,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
             if (res.message) {
-              _this14.sharedService.setAlertMessage("Signup deleted successfully.");
+              _this15.sharedService.setAlertMessage("Signup deleted successfully.");
 
-              _this14.router.navigate(['ams/unit&users/usersignuprequest', _this14.viewUserId]);
+              _this15.router.navigate(['ams/unit&users/usersignuprequest', _this15.viewUserId]);
             }
           }, function (error) {
             console.log(error);
           });
         }
       }, {
-        key: "approveUsers",
-        value: function approveUsers() {
-          var _this15 = this;
-
-          this.isUserDataLoaded = false;
-          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.unitListData, function (item, index) {
-            if (item.checked) {
-              _this15.userService.getUserById(item.id).subscribe(function (res) {
-                var user = res[0];
-                user.isApproved = true;
-
-                _this15.userService.updateUser(user).subscribe(function (res) {
-                  _this15.unitListData.splice(index, 1);
-
-                  _this15.totalUserItems = _this15.unitListData.length;
-                  _this15.isUserDataLoaded = true;
-                });
-              });
-            }
-          });
+        key: "onEditUser",
+        value: function onEditUser(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          dataRecord.mode = true;
+          this.modalService.showSignUpdetailsModal(dataRecord);
         }
       }, {
-        key: "onResize",
-        value: function onResize(event) {
-          if (event.target.innerWidth <= 991) this.isMobile = true;else this.isMobile = false;
+        key: "onUserDelete",
+        value: function onUserDelete(detail) {
+          this.modalService.showConfirmModal(detail.rowId);
         }
       }, {
-        key: "getUserIndexParams",
-        value: function getUserIndexParams(event) {
-          console.log(event);
-          this.ItemUserStartIndex = event.ItemUserStartIndex;
-          this.ItemUserEndIndex = event.ItemUserEndIndex;
-          this.itemUserLimit = event.ItemLimit;
-
-          if (this.totalUserItems > this.itemUserLimit) {
-            this.ItemUserEndIndex = this.itemUserLimit;
-          } else {
-            this.ItemUserEndIndex = this.totalUserItems;
-          }
-        }
-      }, {
-        key: "isMobileView",
-        value: function isMobileView() {
-          return window.innerWidth <= 767 ? 'table-responsive' : '';
-        }
-      }, {
-        key: "getAllUnapprovedUser",
-        value: function getAllUnapprovedUser() {
-          if (this.selectAllUnapprovedUser) {
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.unitListData, function (item) {
-              item.checked = true;
-            });
-            this.isUserSelected = true;
-          } else {
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.unitListData, function (item) {
-              item.checked = false;
-            });
-            this.isUserSelected = false;
-          }
-        }
-      }, {
-        key: "getSelectedUnapprovedUser",
-        value: function getSelectedUnapprovedUser(unit) {
-          var length = 0;
-          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.unitListData, function (item) {
-            if (item.checked) {
-              length++;
-            }
-          });
-
-          if (length > 0) {
-            this.isUserSelected = true;
-          } else {
-            this.isUserSelected = false;
-          }
-
-          if (length == 0) {
-            this.selectAllUnapprovedUser = false;
-          }
-
-          if (length == this.unitListData.length) {
-            this.selectAllUnapprovedUser = true;
-          }
+        key: "onViewUser",
+        value: function onViewUser(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          dataRecord.mode = false;
+          this.modalService.showSignUpdetailsModal(dataRecord);
         }
       }, {
         key: "EditUserInfo",
@@ -2498,23 +2356,103 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this16 = this;
 
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.userService.getAllSignupUserRequestByApartmentId(params).subscribe(function (res) {
-            console.log(res);
-            _this16.unitListData = res;
-            _this16.totalUserItems = _this16.unitListData.length;
-
-            if (_this16.totalUserItems > _this16.itemUserLimit) {
-              _this16.ItemUserEndIndex = _this16.itemUserLimit;
-            } else {
-              _this16.ItemUserEndIndex = _this16.totalUserItems;
-            }
-
+            var unitListData = res;
+            _this16.gridSourceData = {
+              localdata: unitListData,
+              datatype: "array"
+            };
+            _this16.unitListData = new jqx.dataAdapter(_this16.gridSourceData);
+            _this16.totalItems = unitListData.length;
+            _this16.columnData = [{
+              text: 'Request ID',
+              datafield: 'signupUserRequestId',
+              width: 100,
+              pinned: true,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Name',
+              datafield: 'firstName',
+              minwidth: 150,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Phone Number',
+              datafield: 'phoneNumber',
+              minwidth: 120,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Email',
+              datafield: 'emailId',
+              minwidth: 150,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Tower Unit',
+              datafield: 'block_Unit',
+              minwidth: 120,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Requested On',
+              datafield: 'insertedOn',
+              minwidth: 120,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this16.constantsService.dateFormat) + '</div>';
+              },
+              renderer: columnrenderer
+            }, {
+              text: 'Actions',
+              cellsalign: 'center',
+              align: 'center',
+              width: 120,
+              cellsrenderer: function cellsrenderer(row) {
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="viewUserEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="editUserEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+              },
+              renderer: columnrenderer
+            }];
             _this16.isUserDataLoaded = true;
           }, function (error) {
             console.log(error);
+          }); // delete item
+
+          this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            if (id != null) {
+              var dataRecord = _this16.datagrid.getrowdata(id);
+
+              var signupUserId = dataRecord.signupUserRequestId;
+              var _params = {
+                signupUserId: signupUserId,
+                apartmentId: parseInt(_this16.cookieService.get('apartmentId'))
+              };
+
+              _this16.userService.updateSignupUserRequestByApartmentId(_params).subscribe(function (res) {
+                setTimeout(function () {
+                  _this16.datagrid.deleterow(id);
+
+                  _this16.totalItems = _this16.unitListData.length;
+
+                  _this16.sharedService.setAlertMessage("Signup deleted successfully.");
+
+                  _this16.sharedService.setUnitListDeleteIndex(null);
+                }, 500);
+              }, function (error) {
+                console.log(error);
+              });
+            }
           });
         }
       }]);
@@ -2526,21 +2464,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"]
       }, {
-        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
       }];
     };
 
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:resize', ['$event']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], SignuprequestComponent.prototype, "onResize", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__["jqxGridComponent"])], SignuprequestComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditUser', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], SignuprequestComponent.prototype, "onEditUser", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onUserDelete', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], SignuprequestComponent.prototype, "onUserDelete", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onViewUser', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], SignuprequestComponent.prototype, "onViewUser", null);
     SignuprequestComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-signuprequest',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -2549,7 +2492,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./signuprequest.component.scss */
       "./src/app/ams/unit-users/components/signuprequest/signuprequest.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], SignuprequestComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], SignuprequestComponent);
+
+    function editUserEvent(row) {
+      var event = new CustomEvent('onEditUser', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editUserEvent = editUserEvent;
+
+    function viewUserEvent(row) {
+      var event = new CustomEvent('onViewUser', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.viewUserEvent = viewUserEvent;
+
+    function showConfirmDeleteEvent(row) {
+      var event = new CustomEvent('onUserDelete', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.showConfirmDeleteEvent = showConfirmDeleteEvent;
     /***/
   },
 
