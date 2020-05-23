@@ -612,7 +612,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }, function (error) {});
             var details = {
-              "vendorTypeId": parseInt(this.vendorTypeId),
+              "vendorTypeId": this.vendorTypeId,
               "vendorName": this.vendor.vendorName,
               "apartmentId": parseInt(this.cookieService.get('apartmentId')),
               "legalTypeId": parseInt(this.vendor.legalTypeId),
@@ -687,7 +687,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, function (error) {});
             var _details = {
               "vendorId": parseInt(this.vendor.vendorId),
-              "vendorTypeId": parseInt(this.vendorTypeId),
+              "vendorTypeId": this.vendorTypeId,
               "vendorName": this.vendor.vendorName,
               "apartmentId": parseInt(this.cookieService.get('apartmentId')),
               "legalTypeId": parseInt(this.vendor.legalTypeId),

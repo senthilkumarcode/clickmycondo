@@ -401,7 +401,7 @@ let CreateVendorComponent = class CreateVendorComponent {
             }, error => {
             });
             let details = {
-                "vendorTypeId": parseInt(this.vendorTypeId),
+                "vendorTypeId": this.vendorTypeId,
                 "vendorName": this.vendor.vendorName,
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
                 "legalTypeId": parseInt(this.vendor.legalTypeId),
@@ -478,7 +478,7 @@ let CreateVendorComponent = class CreateVendorComponent {
             });
             let details = {
                 "vendorId": parseInt(this.vendor.vendorId),
-                "vendorTypeId": parseInt(this.vendorTypeId),
+                "vendorTypeId": this.vendorTypeId,
                 "vendorName": this.vendor.vendorName,
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
                 "legalTypeId": parseInt(this.vendor.legalTypeId),
