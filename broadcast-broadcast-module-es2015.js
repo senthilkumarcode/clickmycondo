@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-removeuser-wrapper\">\n    <mat-tab-group dynamicHeight> -->\n                   <mat-tab label=\"BroadCast Based\">\n    <ngb-carousel *ngIf=\"images\" >\n        <ng-template ngbSlide *ngFor=\"let broadCastMessage of broadCastBased\">\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random first slide\">\n           \n          </div>\n          <div class=\"carousel-caption1\">\n            <h5> {{broadCastMessage.CategoryName}}</h5>\n          </div>\n          <div class=\"carousel-caption2\"> \n            <h5><b> {{broadCastMessage.subject}}</b> </h5>\n          </div>\n          <div class=\"carousel-caption3\">\n            <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n            </div>\n        </ng-template>\n        <!-- <ng-template ngbSlide>\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random second slide\">\n          </div>\n          <div class=\"carousel-caption\">\n            <h3>Second slide label</h3>\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n          </div>\n        </ng-template>\n        <ng-template ngbSlide>\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random third slide\">\n          </div>\n          <div class=\"carousel-caption\">\n            <h3>Third slide label</h3>\n            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>\n          </div>\n        </ng-template> -->\n      </ngb-carousel>\n </mat-tab>\n                            <mat-tab label=\"Interest Group Based \"> \n                              <ngb-carousel *ngIf=\"images\" >\n                                <ng-template ngbSlide *ngFor=\"let broadCastMessage of interestGroupBased\">\n                                  <div class=\"picsum-img-wrapper\">\n                                    <img [src]=\"imagePath\" alt=\"Random first slide\">\n                                   \n                                  </div>\n                                  <div class=\"carousel-caption1\">\n                                    <h5> {{broadCastMessage.CategoryName}}</h5>\n                                  </div>\n                                  <div class=\"carousel-caption2\"> \n                                    <h5><b> {{broadCastMessage.subject}}</b> </h5>\n                                  </div>\n                                  <div class=\"carousel-caption3\">\n                                    <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n                                    </div>\n                                </ng-template>\n                                \n                              </ngb-carousel> </mat-tab>\n                            \n                           </mat-tab-group> \n    </div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-announcements-wrapper col-sm-10 col-offset-2 m-auto\">\n    <mat-tab-group dynamicHeight>\n                   <mat-tab label=\"BroadCast Group Based\">\n<div class=\"row\">\n  <div class=\"col-3\"> \n      <angular2-multiselect [data]=\"filterGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n      [(ngModel)]=\"filterGroupCategory.selectedItems\" \n      [settings]=\"groupCategorySetting\"  \n      (onSelect)=\"filterMessages($event,'broadcastGroup')\">\n  </angular2-multiselect>\n  </div>\n    \n</div>\n                      \n    <ngb-carousel  class=\"mt-5\" >\n        <ng-template ngbSlide *ngFor=\"let broadCastMessage of broadCastBased\">\n            \n          <div class=\"picsum-img-wrapper\">\n              \n            <img [src]=\"imagePath\" alt=\"Random first slide\">\n           \n          </div>\n          <div class=\"carousel-caption1\">\n            <h5> {{broadCastMessage.CategoryName}}</h5>\n          </div>\n          <div class=\"carousel-caption2\"> \n            <h5><b> {{broadCastMessage.subject}}</b> </h5>\n          </div>\n          <div class=\"carousel-caption3\">\n            <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n            </div>\n        </ng-template>\n        <!-- <ng-template ngbSlide>\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random second slide\">\n          </div>\n          <div class=\"carousel-caption\">\n            <h3>Second slide label</h3>\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n          </div>\n        </ng-template>\n        <ng-template ngbSlide>\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random third slide\">\n          </div>\n          <div class=\"carousel-caption\">\n            <h3>Third slide label</h3>\n            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>\n          </div>\n        </ng-template> -->\n      </ngb-carousel>\n </mat-tab>\n                            <mat-tab label=\"Interest Group Based \"> \n                                <div class=\"row\">\n                                    <div class=\"col-3 offset-3\"> \n                                   <angular2-multiselect  [data]=\"interestGroupCategory.dropdownList\" name=\"interestGroupTypeDropDown\"\n                                        [(ngModel)]=\"interestGroupCategory.selectedItems\" \n                                        [settings]=\"interestGroupCategorySetting\"\n                                        (onSelect)=\"filterMessages($event,'interestGroup')\"\n                                        >\n                                    </angular2-multiselect>\n                                    </div>\n                                    </div>\n                                \n                              <ngb-carousel class=\"mt-5\" >\n                                \n                                <ng-template ngbSlide *ngFor=\"let broadCastMessage of interestGroupBased\">\n                                  <div class=\"picsum-img-wrapper\">\n                                    <img [src]=\"imagePath\" alt=\"Random first slide\">\n                                   \n                                  </div>\n                                  <div class=\"carousel-caption1\">\n                                    <h5> {{broadCastMessage.CategoryName}}</h5>\n                                  </div>\n                                  <div class=\"carousel-caption2\"> \n                                    <h5><b> {{broadCastMessage.subject}}</b> </h5>\n                                  </div>\n                                  <div class=\"carousel-caption3\">\n                                    <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n                                    </div>\n                                </ng-template>\n                                \n                              </ngb-carousel> </mat-tab>\n                            \n                           </mat-tab-group> \n    </div>\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcastgroupAssignment-setup-wrapper\">\n        <div  class=\"card clear form-group\" id=\"mapaccordion\" >\n    <div class=\"card-body\">\n        <ul class=\"list-group  clear\">\n            <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseMap\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n                <h5>Assign Users to Interest Group</h5>  \n            </li>\n            <div id=\"typeCollapseMap\"  aria-labelledby=\"headingOne\" data-parent=\"#mapaccordion\">\n                <div class=\"details\">\n                    <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n                    <form #mapGroupUserForm = \"ngForm\" name=\"mapGroupUserForm\" (ngSubmit)=\"submitMapGroupUserForm(mapGroupUserForm)\"  novalidate>\n                    <div class=\"row mt-4\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                    <div class=\"input-box\">\n                                        <label>Interest Group Category*</label>\n                                        <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                             [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                         (onSelect)=\"getUsersBycategory($event)\" (onDeSelect)=\"removeCategory()\" (onDeSelectAll)=\"removeCategory()\"   [settings]=\"groupCategorySetting\"  required>\n                                        </angular2-multiselect>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                            <!-- <div  class=\"col-sm-4\"> \n                                <div class=\"select-box\">                             \n                                    <label>Role Type</label>\n                                    <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                       [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                       [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                        (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"\n                                    ></angular2-multiselect>\n                                 </div>\n                              </div> -->\n                                <div  class=\"col-sm-12\">\n                                    <div class=\"select-box\">\n                                        <label> Role</label>\n                                        <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                            [(ngModel)]=\"roleCategory.selectedItems\"\n                                            [settings]=\"roleDropdownSettings\" \n                                            (onSelect)='updateUsers()' (onDeSelect)='updateUsers()'\n                                             (onSelectAll)=\"updateUsers()\"  (onDeSelectAll)=\"updateUsers()\">    \n                                        </angular2-multiselect>\n                                    </div>  \n                                </div>                        \n                            </div>\n                            <div class=\"row\">\n                                <div  class=\"col-sm-12\">\n                                    <div class=\"select-box\">\n                                        <label>Appartment Block</label>\n                                        <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                             [settings]=\"blockdropdownSettings\"\n                                            (onSelect)='updateUsers()' (onDeSelect)='updateUsers()'\n                                             (onSelectAll)=\"updateUsers()\"  (onDeSelectAll)=\"updateUsers()\">\n                                        </angular2-multiselect>\n                                    </div>  \n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div  class=\"col-sm-12\"> \n                                    <div class=\"select-box\">                             \n                                        <label>Users*</label>\n                                        <angular2-multiselect [data]=\"users.dropdownList\" name=\"userTypeDropDown\"\n                                            [(ngModel)]=\"users.selectedItems\"\n                                             [settings]=\"usersDropdownSettings\"  required\n                                        ></angular2-multiselect>\n                                    </div>\n                                 </div>                     \n                             \n                            </div>\n                            <!-- <div class=\"row\">\n                                <div  class=\"col-sm-12\"> \n                                    <div class=\"select-box\"> \n                                       <label>Users *</label>\n          <input type=\"text\" placeholder=\"serach user\" matInput   (keyup)=\"search($event)\" />\n    <mat-autocomplete #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of filteredUsers\" [value]=\"option\">\n        {{option.userName}}\n      </mat-option>\n    </mat-autocomplete>\n   </div>\n                                 </div>                     \n                             \n                            </div> -->\n\n\n                        </div>\n            <div class=\"col-sm-2\">\n                <div class=\"row\">\n                    <div  class=\"col-sm-8\">\n                        <div class=\"select-box\" style=\"transform: translateY(120px);\">                         \n                            <button  type=\"button\" class=\"btn\" [disabled]=\"mapGroupUserForm.invalid\" > \n                                <label class=\"assignBtn\"> Assign</label>\n                                <i class=\"fa fa-long-arrow-right\" style=\"font-size:60px;\" (click)='assignUser()' aria-hidden=\"true\"></i>\n                            </button>\n                        </div>  \n                    </div> \n                </div>\n                \n            </div>\n            <div class=\"col-sm-4\">\n           <div class=\"row mt-3\">\n             <div class=\"col-sm-12\" style=\"border: 1px solid #cccccc;height: 320px;\">\n                 <li *ngFor=\"let user of assignUsers\">\n                        {{ user.userFullName }}\n                      </li>\n                \n             </div>\n           </div>\n\n             </div>\n           </div>\n                \n             \n          \n            \n        \n          \n            \n            <!-- <div class=\"row\">\n              <div class=\"col-sm-12\">\n                <div class=\"list-inline float-right mt-4\">\n                   \n                    <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"Cancel()\">Cancel</button>\n                    <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"mapGroupUserForm.invalid\">Submit</button>\n                   \n                </div>\n              </div>\n            </div> -->\n                   </form>\n\n        </div>\n        </div>\t\n        </ul>\n    </div>\n        </div>              \n\n        <!-- <div class=\"card card-table\">\n            <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Interest Group Users <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n                </li>\n            \n            </ul>\n            </div>\n\n            <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n            <div class=\"card-body p-0\">\n\n            <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                    <th width=\"15%\" (click)=\"sortUnitData('broadCastGroupCategoryID')\">Category ID<span [ngClass]=\"getFieldOrderBy('broadCastGroupCategoryID')\"></span></th>\n                    <th width=\"30%\" (click)=\"sortUnitData('UserIDs')\">Broadcast Category <span [ngClass]=\"getFieldOrderBy('UserIDs')\"></span></th>\n                    <th width=\"45%\" (click)=\"sortUnitData('RoleTypeId')\">Description <span [ngClass]=\"getFieldOrderBy('RoleTypeId')\"></span></th>\n                    <th width=\"10%\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let category of interestGroupUsers| orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n                    <td class=\"name\">{{category.broadCastGroupCategoryID}}</td>\n                    <td class=\"grey\">{{category.UserIDs}}</td>\n                    <td class=\"grey\">{{category.RoleTypeId}}</td>\n                    <td class=\"grey\">\n                \n                        <a class=\"\" (click)=\"updateData(category)\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n                        <a class=\"\" (click)=\"showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                    </td>\n                    </tr>\n                </tbody>\n            </table>\n\n            <app-pagination \n                [totalItems]=\"totalItems\"  \n                [ItemStartIndex]=\"ItemStartIndex\"\n                [ItemEndIndex] = \"ItemEndIndex\"\n                [itemLimit] = \"itemLimit\"\n                (outputParams) = \"getIndexParams($event)\">\t\n            </app-pagination>\n        </div>\n        </div> -->\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcastgroupAssignment-setup-wrapper\">\n        <div  class=\"card clear form-group\" id=\"mapaccordion\" >\n    <div class=\"card-body\">\n        <ul class=\"list-group  clear\">\n            <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseMap\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n                <h5>Assign Users to Interest Group</h5>  \n            </li>\n            <div id=\"typeCollapseMap\"  aria-labelledby=\"headingOne\" data-parent=\"#mapaccordion\">\n                <div class=\"details\">\n                    <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n                    <form #mapGroupUserForm = \"ngForm\" name=\"mapGroupUserForm\" (ngSubmit)=\"submitMapGroupUserForm(mapGroupUserForm)\"  novalidate>\n                    <div class=\"row mt-4\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                    <div class=\"input-box\">\n                                        <label>Interest Group Category*</label>\n                                        <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                        [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                         (onSelect)=\"getUsersBycategory($event)\" \n                                         (onDeSelect)=\"removeCategory()\"\n                                          (onDeSelectAll)=\"removeCategory()\"   \n                                          [settings]=\"groupCategorySetting\"  required>\n                                        </angular2-multiselect>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                            <!-- <div  class=\"col-sm-4\"> \n                                <div class=\"select-box\">                             \n                                    <label>Role Type</label>\n                                    <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                       [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                       [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                        (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"\n                                    ></angular2-multiselect>\n                                 </div>\n                              </div> -->\n                                <div  class=\"col-sm-12\">\n                                    <div class=\"select-box\">\n                                        <label> Role</label>\n                                        <angular2-multiselect\n                                         [data]=\"roleCategory.dropdownList\"     name=\"roleDropDown\"\n                                            [(ngModel)]=\"roleCategory.selectedItems\"\n                                            [settings]=\"roleDropdownSettings\" \n                                            (onSelect)='getUsers()'\n                                             (onDeSelect)='getUsers()'\n                                             (onSelectAll)=\"getUsers()\" \n                                              (onDeSelectAll)=\"removeAllRole()\">    \n                                        </angular2-multiselect>\n                                    </div>  \n                                </div>                        \n                            </div>\n                            <div class=\"row\">\n                                <div  class=\"col-sm-12\">\n                                    <div class=\"select-box\">\n                                        <label>Appartment Block</label>\n                                        <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                             [settings]=\"blockdropdownSettings\"\n                                            (onSelect)='getUsers()' \n                                            (onDeSelect)='getUsers()'\n                                             (onSelectAll)=\"getUsers()\"  \n                                             (onDeSelectAll)=\"removeAllBlock()\">\n                                        </angular2-multiselect>\n                                    </div>  \n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div  class=\"col-sm-12\"> \n                                    <div class=\"select-box\">                             \n                                        <label>Users*</label>\n                                        <angular2-multiselect [data]=\"users.dropdownList\" name=\"userTypeDropDown\"\n                                            [(ngModel)]=\"users.selectedItems\"\n                                             [settings]=\"usersDropdownSettings\"  required\n                                        ></angular2-multiselect>\n                                    </div>\n                                 </div>                     \n                             \n                            </div>\n                            <!-- <div class=\"row\">\n                                <div  class=\"col-sm-12\"> \n                                    <div class=\"select-box\"> \n                                       <label>Users *</label>\n          <input type=\"text\" placeholder=\"serach user\" matInput   (keyup)=\"search($event)\" />\n    <mat-autocomplete #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of filteredUsers\" [value]=\"option\">\n        {{option.userName}}\n      </mat-option>\n    </mat-autocomplete>\n   </div>\n                                 </div>                     \n                             \n                            </div> -->\n\n\n                        </div>\n            <div class=\"col-sm-2\">\n                <div class=\"row\">\n                    <div  class=\"col-sm-8\">\n                        <div class=\"select-box\" style=\"transform: translateY(120px);\">                         \n                            <button  type=\"button\" class=\"btn\" [disabled]=\"mapGroupUserForm.invalid\" > \n                                <label class=\"assignBtn\"> Assign</label>\n                                <i class=\"fa fa-long-arrow-right\" style=\"font-size:60px;\" (click)='assignUser()' aria-hidden=\"true\"></i>\n                            </button>\n                        </div>  \n                    </div> \n                </div>\n                \n            </div>\n            <div class=\"col-sm-4\">\n           <div class=\"row mt-3\">\n             <div class=\"col-sm-12\" style=\"border: 1px solid #cccccc;height: 320px;\">\n                 <li *ngFor=\"let user of assignUsers\">\n                        {{ user.userFullName }}\n                      </li>\n                \n             </div>\n           </div>\n\n             </div>\n           </div>\n                \n             \n          \n            \n        \n          \n            \n            <!-- <div class=\"row\">\n              <div class=\"col-sm-12\">\n                <div class=\"list-inline float-right mt-4\">\n                   \n                    <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"Cancel()\">Cancel</button>\n                    <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"mapGroupUserForm.invalid\">Submit</button>\n                   \n                </div>\n              </div>\n            </div> -->\n                   </form>\n\n        </div>\n        </div>\t\n        </ul>\n    </div>\n        </div>              \n\n        <!-- <div class=\"card card-table\">\n            <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Interest Group Users <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n                </li>\n            \n            </ul>\n            </div>\n\n            <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n            <div class=\"card-body p-0\">\n\n            <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                    <th width=\"15%\" (click)=\"sortUnitData('broadCastGroupCategoryID')\">Category ID<span [ngClass]=\"getFieldOrderBy('broadCastGroupCategoryID')\"></span></th>\n                    <th width=\"30%\" (click)=\"sortUnitData('UserIDs')\">Broadcast Category <span [ngClass]=\"getFieldOrderBy('UserIDs')\"></span></th>\n                    <th width=\"45%\" (click)=\"sortUnitData('RoleTypeId')\">Description <span [ngClass]=\"getFieldOrderBy('RoleTypeId')\"></span></th>\n                    <th width=\"10%\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let category of interestGroupUsers| orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n                    <td class=\"name\">{{category.broadCastGroupCategoryID}}</td>\n                    <td class=\"grey\">{{category.UserIDs}}</td>\n                    <td class=\"grey\">{{category.RoleTypeId}}</td>\n                    <td class=\"grey\">\n                \n                        <a class=\"\" (click)=\"updateData(category)\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n                        <a class=\"\" (click)=\"showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                    </td>\n                    </tr>\n                </tbody>\n            </table>\n\n            <app-pagination \n                [totalItems]=\"totalItems\"  \n                [ItemStartIndex]=\"ItemStartIndex\"\n                [ItemEndIndex] = \"ItemEndIndex\"\n                [itemLimit] = \"itemLimit\"\n                (outputParams) = \"getIndexParams($event)\">\t\n            </app-pagination>\n        </div>\n        </div> -->\n</div>\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-removeuser-wrapper\">\n    <div class=\"card card-table\">\n        <div class=\"card-header\">\n        <div class=\"float-left\">\n            <h5>Broadcast Category <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n        </div>\n        <ul class=\"list-inline\">\n            <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n            </li>\n            <!-- <li class=\"list-inline-item\">\n                <a class=\"btn l-blue mt_5\">\n                    <i-feather class=\"icon print\" name=\"printer\"></i-feather>\n                    <span>Print</span>\n                </a>\n            </li> -->\n        </ul>\n        </div>\n    \n        <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n        <div class=\"row\">\n            <div class=\"col-sm-4 mt-3\">\n                <div class=\"input-box m-4\">\n                    <h5>Interest Group Category*</h5>\n                    <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                         [(ngModel)]=\"broadCastGroupCategory.selectedItems\" (onSelect)=\"getUsersBycategory($event)\"\n                         (onDeSelect)=\"deSelectCategory()\"  (onDeSelectAll)=\"deSelectCategory()\"\n                         [settings]=\"groupCategorySetting\"  required>\n                    </angular2-multiselect>\n                </div>\n            </div>\n        </div>\n          <div class=\"card-body p-0 mt-3\">\n\n    \n        <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                <th width=\"20%\" (click)=\"sortUnitData('groupCategory')\">Interest Group<span [ngClass]=\"getFieldOrderBy('groupCategory')\"></span></th>\n                <th width=\"20%\" (click)=\"sortUnitData('roleId')\">Role<span [ngClass]=\"getFieldOrderBy('roleId')\"></span></th>\n                <th width=\"10%\" (click)=\"sortUnitData('blockId')\">Block <span [ngClass]=\"getFieldOrderBy('blockId')\"></span></th>\n                <th width=\"10%\" (click)=\"sortUnitData('unitId')\">Unit <span [ngClass]=\"getFieldOrderBy('unitId')\"></span></th>\n                <th width=\"30%\" (click)=\"sortUnitData('userId')\">User <span [ngClass]=\"getFieldOrderBy('userId')\"></span></th>\n                <th width=\"10%\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let groupUser of allGroupUser | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n                <td class=\"name\">{{groupUser.groupCategory}}</td>\n                <td class=\"name\">{{groupUser.role}}</td>\n                <td class=\"grey\">{{groupUser.block}}</td>\n                <td class=\"grey\">{{groupUser.unit}}</td>\n                <td class=\"grey\">{{groupUser.user}}</td>\n                <td class=\"grey\">\n                <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"removeUser(groupUser)\">Remove</button>\n                </td>\n                </tr>\n            </tbody>\n        </table>\n    \n        <app-pagination \n            [totalItems]=\"totalItems\"  \n            [ItemStartIndex]=\"ItemStartIndex\"\n            [ItemEndIndex] = \"ItemEndIndex\"\n            [itemLimit] = \"itemLimit\"\n            (outputParams) = \"getIndexParams($event)\">\t\n        </app-pagination>\n    </div>\n    </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-removeuser-wrapper\">\n    <div class=\"card card-table\">\n     \n    \n        <!-- <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box> -->\n        <div class=\"row\">\n            <div class=\"col-sm-4 mt-3\">\n                <div class=\"input-box m-4\">\n                    <h5>Interest Group Category*</h5>\n                    <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                         [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                          (onSelect)=\"getUsersBycategory($event)\"\n                         (onDeSelect)=\"deSelectCategory()\"\n                           (onDeSelectAll)=\"deSelectCategory()\"\n                         [settings]=\"groupCategorySetting\"  required>\n                    </angular2-multiselect>\n                </div>\n            </div>\n        </div>\n          <div class=\"card-body p-0 mt-3\">\n\n    \n        <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                <th width=\"20%\" (click)=\"sortUnitData('groupCategory')\">Interest Group<span [ngClass]=\"getFieldOrderBy('groupCategory')\"></span></th>\n                <th width=\"20%\" (click)=\"sortUnitData('roleId')\">Role<span [ngClass]=\"getFieldOrderBy('roleId')\"></span></th>\n                <th width=\"10%\" (click)=\"sortUnitData('blockId')\">Block <span [ngClass]=\"getFieldOrderBy('blockId')\"></span></th>\n                <th width=\"10%\" (click)=\"sortUnitData('unitId')\">Unit <span [ngClass]=\"getFieldOrderBy('unitId')\"></span></th>\n                <th width=\"30%\" (click)=\"sortUnitData('userId')\">User <span [ngClass]=\"getFieldOrderBy('userId')\"></span></th>\n                <th width=\"10%\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let groupUser of allGroupUser | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n                <td class=\"name\">{{groupUser.groupCategory}}</td>\n                <td class=\"name\">{{groupUser.role}}</td>\n                <td class=\"grey\">{{groupUser.block}}</td>\n                <td class=\"grey\">{{groupUser.unit}}</td>\n                <td class=\"grey\">{{groupUser.user}}</td>\n                <td class=\"grey\">\n                <button type=\"button\" class=\"btn blue mr-4\"\n                  (click)=\"removeMappedUser(groupUser.broadCastGroupCategoryUserId)\">Remove</button>\n                </td>\n                </tr>\n            </tbody>\n        </table>\n    \n        <app-pagination \n            [totalItems]=\"totalItems\"  \n            [ItemStartIndex]=\"ItemStartIndex\"\n            [ItemEndIndex] = \"ItemEndIndex\"\n            [itemLimit] = \"itemLimit\"\n            (outputParams) = \"getIndexParams($event)\">\t\n        </app-pagination>\n    </div>\n    </div>\n\n</div>\n");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-message-wrapper\">\n\t\n    <div class=\"card clear form-group\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>\n                    <span>Broadcast Message</span>\n                </h5>\n            </div>\n            <div class=\"float-right\">\n                <!-- <a href=\"javascript:void(0)\" \n                routerLink=\"/ams/work-permit/settings/approval\" \n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions] = \"{exact:true}\">\n                    <i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n                </a> -->\n            </div>\n        </div>\n        \n        <div class=\"card-body\">\n    \n        <!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n        <!-- <ng-container *ngIf=\"!isBroadCastSubmitted\"> -->\n        <ng-container>\n        <form #createBroadcastMessageForm = \"ngForm\" name=\"createBroadcastMessageForm\" (ngSubmit)=\"submitCreateBroadcastMessageForm(createBroadcastMessageForm)\"  novalidate>\n        \n        <div class=\"row\">\n            <div class=\"col-sm-10 offset-sm-1\">\n                <!-- <mat-tab-group dynamicHeight> -->\n                    <!-- <mat-tab label=\"Role Based\"> -->\n\n                        <ul class=\"nav nav-tabs nav-fill\" id=\"nav-tab\" role=\"tablist\">\n                            \n                            <li ><a class=\"nav-item nav-link active\" id=\"nav-menu1-tab\" data-toggle=\"tab\" role=\"tab\" href=\"#menu1\" (click)=\"currentTab('role')\">Role Based</a></li>\n                            <li><a class=\"nav-item nav-link\" id=\"nav-menu2-tab\" data-toggle=\"tab\" role=\"tab\" href=\"#menu2\" (click)=\"currentTab('interest')\">Interest Group based</a></li>\n                            \n                          </ul>\n                          <div class=\"tab-content\" id=\"nav-tabContent\">\n\n                            <div id=\"menu1\" role=\"tabpanel\" ria-labelledby=\"nav-menu1-tab\" class=\"tab-pane show active\">\n\n                                <div class=\"row\"> \n                                    <div  class=\"col-sm-4\">\n                                     <div class=\"select-box\">\n                                         <label>Role Type</label>\n                                         <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                         [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                         [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                         (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                                     </div>  \n                                     </div>\n                                     <div  class=\"col-sm-4\">\n                                        <div class=\"select-box\">\n                                            <label>Apartment Block</label>\n                                            <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                            [settings]=\"blockdropdownSettings\"\n                                            (onSelect)=\"updateUsers()\"\n                                            ></angular2-multiselect>\n                                        </div>  \n                                            </div>\n                                            <div  class=\"col-sm-4\">\n                                                <div class=\"select-box\">\n                                                    <label>Conditions</label>\n                                                    <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                                    [(ngModel)]=\"condition.selectedItems\"\n                                                    [settings]=\"roleDropdownSettings\" \n                                                    (onSelect)=\"updateUsers()\"\n                                                    ></angular2-multiselect>\n                                                </div>  \n                                             </div>\n                                        </div>\n                                    <div class=\"row\"> \n                                            <div  class=\"col-sm-4\">\n                                             <div class=\"select-box\">\n                                                 <label>Role</label>\n                                                 <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                                 [(ngModel)]=\"roleCategory.selectedItems\"\n                                                 [settings]=\"roleDropdownSettings\"\n                                                 (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                                                 (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                                                 >\n                                                  \n                                                </angular2-multiselect>\n                                             </div>  \n                                                 </div>\n                                                 <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                                                    <div class=\"select-box\">\n                                                        <label>Staff Category</label>\n                                                        <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                                                        [(ngModel)]=\"staffCategory.selectedItems\"\n                                                        [settings]=\"dropdownSettings\"\n                                                        (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                                                        (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                                         (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                                                    </angular2-multiselect>\n                                                    </div>  \n                                                        </div>\n                                                        <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                                                            <div class=\"select-box\">\n                                                                <label>Staff SubCategory</label>\n                                                                <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                                                                [(ngModel)]=\"staffSubCategory.selectedItems\"\n                                                                [settings]=\"dropdownSettings\"\n                                                                (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                                                                (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                                                                (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                                                                ></angular2-multiselect>\n                                                            </div>  \n                                                                </div>\n                                                </div>\n                                             <!-- </mat-tab>\n                            <mat-tab label=\"Interest Group Based \"> \n                                \n                                Content 2 </mat-tab>\n                            \n                           </mat-tab-group>  -->\n                                </div>  \n                        <div id=\"menu2\" role=\"tabpanel\" ria-labelledby=\"nav-menu2-tab\" class=\"tab-pane \">\n                            <div class=\"row\">\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>Interest Group Category*</label>\n                                        <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                        [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                        [settings]=\"groupCategorySetting\"  (onSelect)=\"selectInterestGroup($event)\" \n                                        (onDeSelect)=\"removeInterestGroup($event)\" required></angular2-multiselect>\n                                    </div>\n                                    </div>\n                                </div>\n                          </div>\n\n                          \n\n                          </div>\n\n                        \n                       \n                                <div class=\"row recipentsDiv\" > \n                                    <div class=\"col-sm-12\">\n                                       <label>Recipients</label>\n                                        <div  class=\"col-sm-12 box\" >\n                                     <label *ngFor=\"let user of users\" >\n                                         {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                                     </label>\n\n                                         </div> \n                                    </div> \n                                </div>\n                 \n                <div class=\"row\"> \n                    <div  class=\"col-sm-4\" *ngIf=\"IsBroadcast\">\n                     <div class=\"select-box\">\n                         <label>Broadcast Category*</label>\n                         <angular2-multiselect  [data]=\"broadCastCategory.dropdownList\" name=\"broadcastDropDown\"\n                         [(ngModel)]=\"broadCastCategory.selectedItems\"\n                         [settings]=\"broadCastdropdownSettings\" (onSelect)=\"categoryChange($event)\" required></angular2-multiselect>\n                     </div>  \n                   </div>\n                   <div  class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Broadcast Mode*</label>\n                        <angular2-multiselect  [data]=\"broadModeArr.dropdownList\" name=\"BroadCastModeDropDown\"\n                        [(ngModel)]=\"broadModeArr.selectedItems\"\n                        [settings]=\"roleDropdownSettings\"  required></angular2-multiselect>\n                    </div> \n                </div>\n                \n                   <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Subject*</label>\n                            <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\" name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                            <quill-editor\n                                class=\"quill-editor\"\n                                name=\"ckeditor\"\n                                [placeholder]=\"editorPlacehorder\"\n                                [(ngModel)]=\"message.ckeditor\"\n                                (onContentChanged)=\"onContentChanged($event)\">\n                            </quill-editor>\n                        </div>\n                    </div>\n            \n                    <div class=\"col-sm-12\">\n                      <ul class=\"list-inline float-right mt-4\">\n                        <li class=\"list-inline-item\">\n                          <button class=\"btn blue mr-2\" (click)=\"ClearFormData()\">Cancel</button>\n                          <button class=\"btn blue mr-2\" [disabled]=\"createBroadcastMessageForm.invalid\">Submit</button>\n                        </li>\n                      </ul>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n      </form>\n    </ng-container>\n  </div>\n</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-message-wrapper\">\n\t\n    <div class=\"card clear form-group\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>\n                    <span>Broadcast Message</span>\n                </h5>\n            </div>\n            <div class=\"float-right\">\n                <!-- <a href=\"javascript:void(0)\" \n                routerLink=\"/ams/work-permit/settings/approval\" \n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions] = \"{exact:true}\">\n                    <i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n                </a> -->\n            </div>\n        </div>\n        \n        <div class=\"card-body\">\n    \n        <!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n        <!-- <ng-container *ngIf=\"!isBroadCastSubmitted\"> -->\n        <ng-container>\n        <form #createBroadcastMessageForm = \"ngForm\" name=\"createBroadcastMessageForm\" (ngSubmit)=\"submitCreateBroadcastMessageForm(createBroadcastMessageForm)\"  novalidate>\n        \n        <div class=\"row\">\n            <div class=\"col-sm-10 offset-sm-1\">\n                <!-- <mat-tab-group dynamicHeight> -->\n                    <!-- <mat-tab label=\"Role Based\"> -->\n\n                        <ul class=\"nav nav-tabs nav-fill\" id=\"nav-tab\" role=\"tablist\">\n                            \n                            <li ><a class=\"nav-item nav-link active\" id=\"nav-menu1-tab\" data-toggle=\"tab\" role=\"tab\" href=\"#menu1\" (click)=\"currentTab('role')\">Role Based</a></li>\n                            <li><a class=\"nav-item nav-link\" id=\"nav-menu2-tab\" data-toggle=\"tab\" role=\"tab\" href=\"#menu2\" (click)=\"currentTab('interest')\">Interest Group based</a></li>\n                            \n                          </ul>\n                          <div class=\"tab-content\" id=\"nav-tabContent\">\n\n                            <div id=\"menu1\" role=\"tabpanel\" ria-labelledby=\"nav-menu1-tab\" class=\"tab-pane show active\">\n\n                                <div class=\"row\"> \n                                    <div  class=\"col-sm-4\">\n                                     <div class=\"select-box\">\n                                         <label>Role Type</label>\n                                         <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                         [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                         [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                         (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                                     </div>  \n                                     </div>\n                                     <div  class=\"col-sm-4\">\n                                        <div class=\"select-box\">\n                                            <label>Apartment Block</label>\n                                            <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                            [settings]=\"blockdropdownSettings\"\n                                            (onSelect)=\"updateUsers()\"\n                                            (onDeSelect)=\"updateUsers()\"\n                                            (onSelectAll)=\"updateUsers()\"\n                                            (onDeSelectAll)=\"updateUsers()\"\n                                            ></angular2-multiselect>\n                                        </div>  \n                                            </div>\n                                            <div  class=\"col-sm-4\">\n                                                <div class=\"select-box\">\n                                                    <label>Conditions</label>\n                                                    <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                                    [(ngModel)]=\"condition.selectedItems\"\n                                                    [settings]=\"roleDropdownSettings\" \n                                                    (onSelect)=\"updateUsers()\"\n                                                    (onDeSelect)=\"updateUsers()\"\n                                                    (onSelectAll)=\"updateUsers()\"\n                                                    (onDeSelectAll)=\"updateUsers()\"\n                                                    ></angular2-multiselect>\n                                                </div>  \n                                             </div>\n                                        </div>\n                                    <div class=\"row\"> \n                                            <div  class=\"col-sm-4\">\n                                             <div class=\"select-box\">\n                                                 <label>Role</label>\n                                                 <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                                 [(ngModel)]=\"roleCategory.selectedItems\"\n                                                 [settings]=\"roleDropdownSettings\"\n                                                 (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                                                 (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                                                 >\n                                                  \n                                                </angular2-multiselect>\n                                             </div>  \n                                                 </div>\n                                                 <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                                                    <div class=\"select-box\">\n                                                        <label>Staff Category</label>\n                                                        <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                                                        [(ngModel)]=\"staffCategory.selectedItems\"\n                                                        [settings]=\"dropdownSettings\"\n                                                        (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                                                        (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                                         (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                                                    </angular2-multiselect>\n                                                    </div>  \n                                                        </div>\n                                                        <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                                                            <div class=\"select-box\">\n                                                                <label>Staff SubCategory</label>\n                                                                <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                                                                [(ngModel)]=\"staffSubCategory.selectedItems\"\n                                                                [settings]=\"dropdownSettings\"\n                                                                (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                                                                (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                                                                (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                                                                ></angular2-multiselect>\n                                                            </div>  \n                                                                </div>\n                                                </div>\n                                             <!-- </mat-tab>\n                            <mat-tab label=\"Interest Group Based \"> \n                                \n                                Content 2 </mat-tab>\n                            \n                           </mat-tab-group>  -->\n                                </div>  \n                        <div id=\"menu2\" role=\"tabpanel\" ria-labelledby=\"nav-menu2-tab\" class=\"tab-pane \">\n                            <div class=\"row\">\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\" *ngIf=\"selectedTab=='interest'\">\n                                        <label>Interest Group Category*</label>\n                                        <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                        [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                        [settings]=\"groupCategorySetting\"\n                                          (onSelect)=\"selectInterestGroup($event)\" \n                                        (onDeSelect)=\"removeInterestGroup($event)\" \n                                        (onDeSelectAll)=\"removeInterestGroup($event)\"\n                                        required></angular2-multiselect>\n                                    </div>\n                                    </div>\n                                </div>\n                          </div>\n\n                          \n\n                          </div>\n\n                        \n                       \n                                <div class=\"row recipentsDiv\" > \n                                    <div class=\"col-sm-12\">\n                                       <label>Recipients</label>\n                                  <div  class=\"col-sm-12 box\" *ngIf=\"IsBroadcast\" >\n                                     <label *ngFor=\"let user of users\" >\n                                         {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                                     </label>\n                                        </div> \n                                   <div  class=\"col-sm-12 box\" *ngIf=\"!IsBroadcast\" >\n                                 <label *ngFor=\"let user of AssignInterestUsers\" >\n                                              {{user.userFullName +\",\"}}\n                                          </label>\n                                             </div> \n\n                                        \n                                    </div> \n                                </div>\n                 \n                <div class=\"row\"> \n                    <div  class=\"col-sm-4\" *ngIf=\"IsBroadcast\">\n                     <div class=\"select-box\">\n                         <label>Broadcast Category*</label>\n                         <angular2-multiselect  [data]=\"broadCastCategory.dropdownList\" name=\"broadcastDropDown\"\n                         [(ngModel)]=\"broadCastCategory.selectedItems\"\n                         [settings]=\"broadCastdropdownSettings\" (onSelect)=\"categoryChange($event)\" required></angular2-multiselect>\n                     </div>  \n                   </div>\n                   <div  class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Broadcast Mode*</label>\n                        <angular2-multiselect  [data]=\"broadModeArr.dropdownList\" name=\"BroadCastModeDropDown\"\n                        [(ngModel)]=\"broadModeArr.selectedItems\"\n                        [settings]=\"roleDropdownSettings\"  required></angular2-multiselect>\n                    </div> \n                </div>\n                \n                   <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Subject*</label>\n                            <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\" name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                            <quill-editor\n                                class=\"quill-editor\"\n                                name=\"ckeditor\"\n                                [placeholder]=\"editorPlacehorder\"\n                                [(ngModel)]=\"message.ckeditor\"\n                                (onContentChanged)=\"onContentChanged($event)\">\n                            </quill-editor>\n                        </div>\n                    </div>\n            \n                    <div class=\"col-sm-12\">\n                      <ul class=\"list-inline float-right mt-4\">\n                        <li class=\"list-inline-item\">\n                          <button class=\"btn blue mr-2\" (click)=\"ClearFormData()\">Cancel</button>\n                          <button class=\"btn blue mr-2\" [disabled]=\"createBroadcastMessageForm.invalid\">Submit</button>\n                        </li>\n                      </ul>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n      </form>\n    </ng-container>\n  </div>\n</div>\n</div>");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class=\"broadcastgroup-setup-wrapper\">\n    \n    <div class=\"card clear form-group\" id=\"accordion\">\n\t\t<div class=\"card-body p-0\">\n\t\t\t<ul class=\"list-group  clear\">\n\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n\t\t\t\t<h5>{{(!isEdit)?'Add':'Update'}} Interest Group</h5>\n\t\t\t</li>\n\t\t\t<div id=\"typeCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t<div class=\"details\">\n\n            <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n            <form #createBroadcastGroupCategoryForm = \"ngForm\" name=\"createBroadcastGroupCategoryForm\" (ngSubmit)=\"submitcreateBroadcastGroupCategoryForm(createBroadcastGroupCategoryForm)\"  novalidate>\n                <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                       <label> Interest Group Name*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Group Name\" name=\"groupName\" [(ngModel)]=\"groupCategory.groupName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>Priviledge*</label>\n                        <angular2-multiselect  [data]=\"privilageCategory.dropdownList\" name=\"privilegeModeDropDown\"\n                [(ngModel)]=\"privilageCategory.selectedItems\"\n                [settings]=\"dropdownSettings\"  required></angular2-multiselect>                    </div>\n                </div>\n            </div>\n                <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <!-- <quill-editor\n                            class=\"quill-editor\"\n                            name=\"ckeditor\"\n                            [placeholder]=\"editorPlacehorder\"\n                            [(ngModel)]=\"groupCategory.comment\"\n                            (onContentChanged)=\"onContentChanged($event)\">\n                        </quill-editor> -->\n                        <textarea class=\"form-control\" rows=5 placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"groupCategory.description\"></textarea>\n                        <!-- <textarea class=\"form-control\" placeholder=\"Enter\" name=\"template\" [(ngModel)]=\"category.template\" required></textarea> -->\n                    </div>\n                </div>\n                </div>\n        <div class=\"row\">\n            <!-- <div *ngIf=\"(groupCategory.parentId!=null) || (!isEdit)\" class=\"col-sm-6\">\n                <div class=\"select-box\">\n                    <label>Parent Category</label>\n                    <select \n                        name=\"parentId\" \n                        id=\"parentId\" \n                        class=\"form-control\"\n                        [(ngModel)]=\"groupCategory.parentId\"  (ngModelChange)=\"getParent(groupCategory.parentId)\" >\n                        <option value=\"\" disabled selected hidden>Select</option>\n                         <option *ngFor=\"let item of parentCategoryList\" [value]=\"item.value\">{{ item.name }}</option>\n                     </select>\n                </div>\n             </div> -->\n            <!-- <div class=\"col-sm-6\">\n                <div class=\"input-box radio-box\">\n                    <label>Authorize*</label>\n                    \n                </div>\n                <div class=\"form-check recur-check float-left mr-4\">\n                    <input type=\"checkbox\" id=\"isUser\" [(ngModel)]=\"groupCategory.isUser\" name=\"isUser\" value=\"1\" class=\"form-check-input\">\n                    <label for=\"isUser\" class=\"form-check-label tiny\">User</label>\n                </div>\n                <div class=\"form-check recur-check float-left mr-4\">\n                    <input type=\"checkbox\" id=\"isAdmin\" [(ngModel)]=\"groupCategory.isUser\" name=\"isAdmin\" value=\"2\" class=\"form-check-input\">\n                    <label for=\"isAdmin\" class=\"form-check-label tiny\">Admin</label>\n                </div>\n\n                \n            </div>  -->\n            \n            </div>\n        \n                <div class=\"row\">\n                  <div class=\"col-sm-12\">\n                    <div class=\"list-inline float-right mt-4\">\n                       \n                        <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"Cancel()\">Cancel</button>\n                        <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"createBroadcastGroupCategoryForm.invalid\" *ngIf=\"!isEdit\">Submit</button>\n                        <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"createBroadcastGroupCategoryForm.invalid\" *ngIf=\"isEdit\">Update</button>\n                    </div>\n                  </div>\n                </div>\n            </form>\n\n\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t</ul>\n\t\t</div>\n    </div>\n    \n\n <div class=\"card card-table\">\n    <div class=\"card-header\" >\n    <div class=\"float-left\">\n        <h5>Interest Group  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    </div>\n    <ul class=\"list-inline\">\n        <li class=\"list-inline-item search d-none d-md-inline-block\">\n            <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n        </li>\n       \n    </ul>\n    </div>\n\n    <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n  \t<div class=\"card-body p-0\">\n\n    <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n        <thead>\n            <tr>\n            <th width=\"10%\" (click)=\"sortUnitData('serialNo')\">Serial NO<span [ngClass]=\"getFieldOrderBy('serialNo')\"></span></th>\n            <th width=\"30%\" (click)=\"sortUnitData('groupName')\">Broadcast Group Category <span [ngClass]=\"getFieldOrderBy('groupName')\"></span></th>\n            <th width=\"20%\" (click)=\"sortUnitData('description')\">Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n            <th width=\"30%\" (click)=\"sortUnitData('privilege')\">Privilege <span [ngClass]=\"getFieldOrderBy('privilege')\"></span></th>\n            <th width=\"10%\">Action</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr *ngFor=\"let groupCategory of allBroadcastGroupCategory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n            <td class=\"name\">{{groupCategory.serialNo}}</td>\n            <td class=\"grey\">{{groupCategory.groupName}}</td>\n            <td class=\"grey\">{{groupCategory.description}}</td>\n            <td class=\"grey\">{{groupCategory.privilege}}</td>\n            \n            <td class=\"grey\">\n                <a class=\"\" (click)=\"updateData(groupCategory)\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n                <a class=\"\" (click)=\"showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n            </td>\n            </tr>\n        </tbody>\n    </table>\n\n    <app-pagination \n        [totalItems]=\"totalItems\"  \n        [ItemStartIndex]=\"ItemStartIndex\"\n        [ItemEndIndex] = \"ItemEndIndex\"\n        [itemLimit] = \"itemLimit\"\n        (outputParams) = \"getIndexParams($event)\">\t\n    </app-pagination>\n</div>\n<!-- </div>\n\n</div> -->\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class=\"broadcastgroup-setup-wrapper\">\n    \n    <div class=\"card clear form-group\" id=\"accordion\">\n\t\t<div class=\"card-body p-0\">\n\t\t\t<ul class=\"list-group  clear\">\n\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n\t\t\t\t<h5>{{(!isEdit)?'Add':'Update'}} Interest Group</h5>\n\t\t\t</li>\n\t\t\t<div id=\"typeCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t<div class=\"details\">\n\n            <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n            <form #createBroadcastGroupCategoryForm = \"ngForm\" name=\"createBroadcastGroupCategoryForm\" (ngSubmit)=\"submitcreateBroadcastGroupCategoryForm(createBroadcastGroupCategoryForm)\"  novalidate>\n                <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box m-3\">\n                       <label> Interest Group Name*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Group Name\" name=\"groupName\" [(ngModel)]=\"groupCategory.groupName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box m-3\">\n                        <label>Priviledge*</label>\n                        <angular2-multiselect  [data]=\"privilageCategory.dropdownList\" name=\"privilegeModeDropDown\"\n                [(ngModel)]=\"privilageCategory.selectedItems\"\n                [settings]=\"dropdownSettings\"  required></angular2-multiselect>                    </div>\n                </div>\n            </div>\n                <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box m-3\">\n                        <label>Description</label>\n                     <textarea class=\"form-control\" rows=5 placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"groupCategory.description\"></textarea>\n               \n                    </div>\n                </div>\n                </div>\n        <div class=\"row\">\n           \n            </div>\n        \n                <div class=\"row\">\n                  <div class=\"col-sm-12\">\n                    <div class=\"list-inline float-right  mt-4 mb-4\">\n                       \n                        <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"Cancel()\">Cancel</button>\n                        <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"createBroadcastGroupCategoryForm.invalid\" *ngIf=\"!isEdit\">Submit</button>\n                        <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"createBroadcastGroupCategoryForm.invalid\" *ngIf=\"isEdit\">Update</button>\n                    </div>\n                  </div>\n                </div>\n            </form>\n\n\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t</ul>\n\t\t</div>\n    </div>\n    \n\n <div class=\"card card-table\">\n    <div class=\"card-header\" >\n    <div class=\"float-left\">\n        <h5>Interest Group  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    </div>\n    <ul class=\"list-inline\">\n        <li class=\"list-inline-item search d-none d-md-inline-block\">\n            <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n        </li>\n       \n    </ul>\n    </div>\n\n    <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n  \t<div class=\"card-body p-0\">\n\n    <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n        <thead>\n            <tr>\n            <th width=\"10%\" (click)=\"sortUnitData('serialNo')\">Serial NO<span [ngClass]=\"getFieldOrderBy('serialNo')\"></span></th>\n            <th width=\"30%\" (click)=\"sortUnitData('groupName')\">Broadcast Group Category <span [ngClass]=\"getFieldOrderBy('groupName')\"></span></th>\n            <th width=\"20%\" (click)=\"sortUnitData('description')\">Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n            <th width=\"30%\" (click)=\"sortUnitData('privilege')\">Privilege <span [ngClass]=\"getFieldOrderBy('privilege')\"></span></th>\n            <th width=\"10%\">Action</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr *ngFor=\"let groupCategory of allBroadcastGroupCategory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n            <td class=\"name\">{{groupCategory.serialNo}}</td>\n            <td class=\"grey\">{{groupCategory.groupName}}</td>\n            <td class=\"grey\">{{groupCategory.description}}</td>\n            <td class=\"grey\">{{groupCategory.privilege}}</td>\n            \n            <td class=\"grey\">\n                <a class=\"\" (click)=\"updateData(groupCategory)\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n                <a class=\"\" (click)=\"showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n            </td>\n            </tr>\n        </tbody>\n    </table>\n\n    <app-pagination \n        [totalItems]=\"totalItems\"  \n        [ItemStartIndex]=\"ItemStartIndex\"\n        [ItemEndIndex] = \"ItemEndIndex\"\n        [itemLimit] = \"itemLimit\"\n        (outputParams) = \"getIndexParams($event)\">\t\n    </app-pagination>\n</div>\n\n\n");
 
 /***/ }),
 
@@ -168,6 +168,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/broadcast-group-assignment/broadcast-group-assignment.component */ "./src/app/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.ts");
 /* harmony import */ var _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/broadcast-removeuser/broadcast-removeuser.component */ "./src/app/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.ts");
 /* harmony import */ var _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/broadcast-announcements/broadcast-announcements.component */ "./src/app/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.ts");
+/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+
+
+
+
+
 
 
 
@@ -192,7 +202,8 @@ BroadcastModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
             _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"],
             angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"]
-        ]
+        ],
+        providers: [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__["BroadcastService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__["LookupService"]]
     })
 ], BroadcastModule);
 
@@ -209,7 +220,7 @@ BroadcastModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".broadcast-removeuser-wrapper {\n  margin-left: 100px;\n  margin-right: 121px;\n}\n.broadcast-removeuser-wrapper .carousel-caption1 {\n  position: absolute;\n  right: 10%;\n  top: 50px;\n  left: -30%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n.broadcast-removeuser-wrapper .carousel-caption2 {\n  position: absolute;\n  right: 26%;\n  top: 100px;\n  left: 10%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n.broadcast-removeuser-wrapper .carousel-caption3 {\n  position: absolute;\n  right: 15%;\n  bottom: 107px;\n  left: 10%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  color: #fff;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0VBQ0EsbUJBQUE7QUNDSjtBREFJO0VBQ0ksa0JBQUE7RUFDQSxVQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0FDRVI7QURBSTtFQUNJLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFVBQUE7RUFDQSxTQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0Esb0JBQUE7RUFDQSxrQkFBQTtBQ0VSO0FEQUk7RUFDSSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxhQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtFQUNBLG9CQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDRVIiLCJmaWxlIjoic3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnJvYWRjYXN0LXJlbW92ZXVzZXItd3JhcHBlcntcbiAgICBtYXJnaW4tbGVmdDogMTAwcHg7IFxuICAgIG1hcmdpbi1yaWdodDogMTIxcHg7XG4gICAgLmNhcm91c2VsLWNhcHRpb24xe1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIHJpZ2h0OiAxMCU7XG4gICAgICAgIHRvcDogNTBweDtcbiAgICAgICAgbGVmdDogLTMwJTtcbiAgICAgICAgei1pbmRleDogMTA7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIH1cbiAgICAuY2Fyb3VzZWwtY2FwdGlvbjJ7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgcmlnaHQ6IDI2JTtcbiAgICAgICAgdG9wOiAxMDBweDtcbiAgICAgICAgbGVmdDogMTAlO1xuICAgICAgICB6LWluZGV4OiAxMDtcbiAgICAgICAgcGFkZGluZy10b3A6IDIwcHg7XG4gICAgICAgIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgfVxuICAgIC5jYXJvdXNlbC1jYXB0aW9uM3tcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICByaWdodDogMTUlO1xuICAgICAgICBib3R0b206MTA3cHg7XG4gICAgICAgIGxlZnQ6IDEwJTtcbiAgICAgICAgei1pbmRleDogMTA7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgY29sb3I6ICNmZmY7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB9XG59IiwiLmJyb2FkY2FzdC1yZW1vdmV1c2VyLXdyYXBwZXIge1xuICBtYXJnaW4tbGVmdDogMTAwcHg7XG4gIG1hcmdpbi1yaWdodDogMTIxcHg7XG59XG4uYnJvYWRjYXN0LXJlbW92ZXVzZXItd3JhcHBlciAuY2Fyb3VzZWwtY2FwdGlvbjEge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAxMCU7XG4gIHRvcDogNTBweDtcbiAgbGVmdDogLTMwJTtcbiAgei1pbmRleDogMTA7XG4gIHBhZGRpbmctdG9wOiAyMHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLmJyb2FkY2FzdC1yZW1vdmV1c2VyLXdyYXBwZXIgLmNhcm91c2VsLWNhcHRpb24yIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogMjYlO1xuICB0b3A6IDEwMHB4O1xuICBsZWZ0OiAxMCU7XG4gIHotaW5kZXg6IDEwO1xuICBwYWRkaW5nLXRvcDogMjBweDtcbiAgcGFkZGluZy1ib3R0b206IDIwcHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5icm9hZGNhc3QtcmVtb3ZldXNlci13cmFwcGVyIC5jYXJvdXNlbC1jYXB0aW9uMyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDE1JTtcbiAgYm90dG9tOiAxMDdweDtcbiAgbGVmdDogMTAlO1xuICB6LWluZGV4OiAxMDtcbiAgcGFkZGluZy10b3A6IDIwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICBjb2xvcjogI2ZmZjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".broadcast-announcements-wrapper img {\n  width: 100%;\n}\n.broadcast-announcements-wrapper .carousel-caption1 {\n  position: absolute;\n  right: 10%;\n  top: 50px;\n  left: -30%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n.broadcast-announcements-wrapper .carousel-caption2 {\n  position: absolute;\n  top: 100px;\n  left: 22%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n.broadcast-announcements-wrapper .carousel-caption3 {\n  position: absolute;\n  right: 15%;\n  bottom: 87px;\n  left: 10%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  color: #fff;\n  text-align: center;\n}\n.broadcast-announcements-wrapper angular2-multiselect .c-btn {\n  border: none !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHSztFQUNDLFdBQUE7QUNGTjtBRElJO0VBQ0ksa0JBQUE7RUFDQSxVQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0FDRlI7QURJSTtFQUNJLGtCQUFBO0VBRUEsVUFBQTtFQUNBLFNBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0FDSFI7QURLSTtFQUNJLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFlBQUE7RUFDQSxTQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0Esb0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNIUjtBREtJO0VBQ0UsdUJBQUE7QUNITiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5icm9hZGNhc3QtYW5ub3VuY2VtZW50cy13cmFwcGVye1xuICAgIC8vIG1hcmdpbi1sZWZ0OiAxMDBweDsgXG4gICAgLy8gbWFyZ2luLXJpZ2h0OiAxMjFweDtcbiAgICAgaW1ne1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgfVxuICAgIC5jYXJvdXNlbC1jYXB0aW9uMXtcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICByaWdodDogMTAlO1xuICAgICAgICB0b3A6IDUwcHg7XG4gICAgICAgIGxlZnQ6IC0zMCU7XG4gICAgICAgIHotaW5kZXg6IDEwO1xuICAgICAgICBwYWRkaW5nLXRvcDogMjBweDtcbiAgICAgICAgcGFkZGluZy1ib3R0b206IDIwcHg7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB9XG4gICAgLmNhcm91c2VsLWNhcHRpb24ye1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIC8vIHJpZ2h0OiAyNiU7XG4gICAgICAgIHRvcDogMTAwcHg7XG4gICAgICAgIGxlZnQ6IDIyJTtcbiAgICAgICAgei1pbmRleDogMTA7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIH1cbiAgICAuY2Fyb3VzZWwtY2FwdGlvbjN7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgcmlnaHQ6IDE1JTtcbiAgICAgICAgYm90dG9tOjg3cHg7XG4gICAgICAgIGxlZnQ6IDEwJTtcbiAgICAgICAgei1pbmRleDogMTA7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgY29sb3I6ICNmZmY7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB9XG4gICAgYW5ndWxhcjItbXVsdGlzZWxlY3QgLmMtYnRuIHtcbiAgICAgIGJvcmRlcjogbm9uZSFpbXBvcnRhbnQ7IFxuICAgICAgXG4gIH1cbn0iLCIuYnJvYWRjYXN0LWFubm91bmNlbWVudHMtd3JhcHBlciBpbWcge1xuICB3aWR0aDogMTAwJTtcbn1cbi5icm9hZGNhc3QtYW5ub3VuY2VtZW50cy13cmFwcGVyIC5jYXJvdXNlbC1jYXB0aW9uMSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDEwJTtcbiAgdG9wOiA1MHB4O1xuICBsZWZ0OiAtMzAlO1xuICB6LWluZGV4OiAxMDtcbiAgcGFkZGluZy10b3A6IDIwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4uYnJvYWRjYXN0LWFubm91bmNlbWVudHMtd3JhcHBlciAuY2Fyb3VzZWwtY2FwdGlvbjIge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMTAwcHg7XG4gIGxlZnQ6IDIyJTtcbiAgei1pbmRleDogMTA7XG4gIHBhZGRpbmctdG9wOiAyMHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLmJyb2FkY2FzdC1hbm5vdW5jZW1lbnRzLXdyYXBwZXIgLmNhcm91c2VsLWNhcHRpb24zIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogMTUlO1xuICBib3R0b206IDg3cHg7XG4gIGxlZnQ6IDEwJTtcbiAgei1pbmRleDogMTA7XG4gIHBhZGRpbmctdG9wOiAyMHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgY29sb3I6ICNmZmY7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5icm9hZGNhc3QtYW5ub3VuY2VtZW50cy13cmFwcGVyIGFuZ3VsYXIyLW11bHRpc2VsZWN0IC5jLWJ0biB7XG4gIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -225,18 +236,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastAnnouncementsComponent", function() { return BroadcastAnnouncementsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-
-
-
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 
 
@@ -246,30 +251,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
-    constructor(broadcastService, sharedService, cookieService, userService, staffService, apartmentService, injector) {
+    constructor(broadcastService, cookieService, userService, injector) {
         this.broadcastService = broadcastService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.userService = userService;
-        this.staffService = staffService;
-        this.apartmentService = apartmentService;
         this.injector = injector;
-        this.images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
         this.imagePath = "../../../../../assets/images/announcement_background.jpeg";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.filterGroupCategory = {
+            "dropdownList": [],
+            "selectedItems": []
+        };
+        this.interestGroupCategory = {
+            "dropdownList": [],
+            "selectedItems": []
+        };
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     ngOnInit() {
         this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
         this.getAllCategory();
         this.getAllBroadcastMessage();
         this.getAllGroupCategory();
+        this.groupCategorySetting = {
+            singleSelection: true,
+            labelKey: 'name',
+            primaryKey: 'value',
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+        };
+        this.interestGroupCategorySetting = {
+            singleSelection: true,
+            labelKey: 'name',
+            primaryKey: 'value',
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+        };
+        this.filterGroupCategory.dropdownList = [{ name: "today", value: 0 }, { name: "yesterday", value: 1 }, { name: "Past Week", value: 7 }, { name: "Past 2 Week", value: 14 }];
+        this.interestGroupCategory.dropdownList = [{ name: "today", value: 0 }, { name: "yesterday", value: 1 }, { name: "Past Week", value: 7 }, { name: "Past 2 Week", value: 14 }];
+        this.filterGroupCategory.selectedItems = [{ name: "today", value: 0 }];
+        this.interestGroupCategory.selectedItems = [{ name: "today", value: 0 }];
     }
     //Get All Category
     getAllCategory() {
-        let apartmentID = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        let queryParamBase = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
         };
-        this.broadcastService.getBroadCastMessageCategories(apartmentID).subscribe((res) => {
+        this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe((res) => {
             this.allCategory = res;
         });
     }
@@ -285,7 +314,7 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
         return groupcategory[0].groupName;
     }
     getCategoryName(name) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.allCategory, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.allCategory, function (item) {
             if (item.broadCastMessageCategoryId === name)
                 return item;
         });
@@ -296,8 +325,10 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
             return data[0].broadCastMessageCategory1;
         }
     }
+    getBroadcastGroupCategory(item) {
+    }
     getUserName(name) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.allUser, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.allUser, function (item) {
             if (item.userId === name)
                 return item;
         });
@@ -311,12 +342,12 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
     getAllBroadcastMessage() {
         let apartmentId = parseInt(this.cookieService.get('apartmentId'));
         var users$ = this.userService.getAllUsers();
-        var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["concatMap"])((users) => {
+        var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])((users) => {
             this.allUser = users;
-            let apartmentID = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            let queryParamBase = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId')),
             };
-            return this.broadcastService.getAllBroadcastMessages(apartmentID);
+            return this.broadcastService.getAllBroadcastMessages(queryParamBase);
         }));
         allBroadCastmessages$.subscribe((res) => {
             this.broadCastMessages = res;
@@ -329,22 +360,44 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
                 }
                 element.UserName = this.getUserName(element.broadcastBy);
             });
-            this.broadCastBased = this.broadCastMessages.filter(function (obj) {
-                return obj.broadCastGroupcategoryId == null;
-            });
-            this.interestGroupBased = this.broadCastMessages.filter(function (obj) {
-                return obj.broadCastGroupcategoryId != null;
-            });
+            this.filterMessages({ name: "today", value: 0 }, "interestGroup");
+            this.filterMessages({ name: "today", value: 0 }, "broadcastGroup");
         });
+    }
+    getDate(inDays) {
+        const today = new Date();
+        return new Date(today.getFullYear(), today.getMonth(), today.getDate() + (inDays * -1));
+    }
+    filterMessages(item, messageType) {
+        let numberOfDays = item.value;
+        let current = new Date();
+        let previousDate = this.getDate(numberOfDays);
+        if (messageType == "interestGroup") {
+            this.interestGroupBased = this.broadCastMessages.filter(function (obj) {
+                return obj.broadCastGroupcategoryId != null
+                    && current > new Date(Date.parse(obj.broadcastOn))
+                    && previousDate < new Date(Date.parse(obj.broadcastOn));
+            });
+            if (this.interestGroupBased.length == 0) {
+                this.interestGroupBased = [{}];
+            }
+        }
+        if (messageType == "broadcastGroup") {
+            this.broadCastBased = this.broadCastMessages.filter(function (obj) {
+                return obj.broadCastGroupcategoryId == null
+                    && current > new Date(Date.parse(obj.broadcastOn))
+                    && previousDate < new Date(Date.parse(obj.broadcastOn));
+            });
+            if (this.broadCastBased.length == 0) {
+                this.broadCastBased = [{}];
+            }
+        }
     }
 };
 BroadcastAnnouncementsComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] },
+    { type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 BroadcastAnnouncementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -353,12 +406,9 @@ BroadcastAnnouncementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-announcements.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-announcements.component.scss */ "./src/app/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"],
+        _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], BroadcastAnnouncementsComponent);
 
@@ -391,16 +441,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastGroupAssignmentComponent", function() { return BroadcastGroupAssignmentComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
 
 
@@ -412,15 +460,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent {
-    constructor(broadcastService, sharedService, cookieService, userService, staffService, apartmentService, injector) {
+    constructor(broadcastService, sharedService, cookieService, userService, apartmentService, injector) {
         this.broadcastService = broadcastService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.userService = userService;
-        this.staffService = staffService;
         this.apartmentService = apartmentService;
         this.injector = injector;
-        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
+        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
         this.groupCategorySetting = {};
         this.users = {
             "dropdownList": [],
@@ -449,22 +496,19 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
         };
         this.filterOptions = {
             "roleids": null,
-            "apartmentId": 0,
+            "ApartmentId": 0,
             "blockids": null,
             "searchText": ""
         };
-        this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"]();
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"]();
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     ngOnInit() {
-        // this.message={};
         this.loginUserId = parseInt(this.cookieService.get('userId'));
         this.groupUsercategory = {};
         this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
         this.getUsers();
         this.assignUsers = [];
-        // this.getAllUsers();
-        //this.getAllRoleTypesList();
         this.getAllApartmentBlockList();
         this.getAllGroupCategory();
         this.dropdownSettings = {
@@ -499,7 +543,7 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             singleSelection: false,
             enableSearchFilter: true,
             labelKey: 'userFullName',
-            primaryKey: 'userFullDetail',
+            primaryKey: 'userId',
             enableFilterSelectAll: false,
             autoPosition: false,
             maxHeight: 240
@@ -524,83 +568,21 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
         };
         this.getInterestGroupUsers();
         this.roleCategory.dropdownList = [{ "name": "Tenant", "value": 2 }, { "name": "Owner", "value": 4 }];
-        // this.filteredOptions = this.myControl.valueChanges
-        // .pipe(
-        //   startWith(''),
-        //   map(val => this.filter(val))
-        // );
-        // this.subject.pipe(
-        //   debounceTime(1000),
-        //   map(searchText =>{
-        //     this.userService.getUserBykeyword(this.filterOptions);
-        //      })).subscribe((res:any)=>{
-        //       this.filteredUsers =res; 
-        //       console.log(this.filteredUsers);
-        //      },
-        //      error=>console.log(error)
-        //      );
     }
-    //   filter(val: string): any[] {
-    //     if(val.length>2){
-    //       this.filterOptions.apartmentId=this.apartmentID;
-    //       let roleIds= Array.prototype.map.call(this.roleCategory.selectedItems,function(item){ return item.value}).join(",");
-    //     if(roleIds.length>0)
-    //     {
-    //       this.filterOptions.roleids=roleIds;
-    //     }
-    //     let blockIds=Array.prototype.map.call(this.apartmentBlock.selectedItems,function(item){ return item.apartmentBlockId}).join(",");
-    //     if(blockIds.length>0)
-    //     {
-    //     this.filterOptions.blockids= blockIds
-    //     }
-    //    this.filterOptions.searchText=val;
-    //   this.userService.getUserBykeyword(this.filterOptions).subscribe((res:any)=>{
-    //      this.filteredUsers =res; 
-    //     },
-    //     error=>console.log(error)
-    //     );
-    //     }
-    //  }
     getUsers() {
-        this.filterOptions.apartmentId = this.apartmentID;
+        this.filterOptions.ApartmentId = this.apartmentID;
         let roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) { return item.value; }).join(",");
-        if (roleIds.length > 0) {
-            this.filterOptions.roleids = roleIds;
-        }
+        this.filterOptions.roleids = roleIds;
         let blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
-        if (blockIds.length > 0) {
-            this.filterOptions.blockids = blockIds;
-        }
+        this.filterOptions.blockids = blockIds;
         this.filterOptions.searchText = null;
         this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
             res.forEach(element => {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
-                element.userFullDetail = element.userId + " " + element.roleId + " " + element.apartmentBlockId + " " + element.apartmentBlockUnitId;
             });
             this.allUsers = res;
             this.users.dropdownList = res;
         }, error => console.log(error));
-    }
-    search(evt) {
-        // const searchText = evt.target.value
-        // if(searchText.length>2)
-        //     this.subject.next(searchText)
-        const searchText = evt.target.value;
-        if (searchText.length > 2) {
-            this.filterOptions.apartmentId = this.apartmentID;
-            let roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) { return item.value; }).join(",");
-            if (roleIds.length > 0) {
-                this.filterOptions.roleids = roleIds;
-            }
-            let blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
-            if (blockIds.length > 0) {
-                this.filterOptions.blockids = blockIds;
-            }
-            this.filterOptions.searchText = evt.target.value;
-            this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
-                this.filteredUsers = res;
-            }, error => console.log(error));
-        }
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -620,38 +602,11 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
-    //   getAllRoleTypesList(){
-    //     this.userService.getAllRoleTypes().subscribe((res:any) => {
-    //      this.roleTypeArr.dropdownList=res.filter(function(obj){
-    //            return ["OWNER","TENANT"].includes(obj.name.toUpperCase())
-    //      });
-    //   });
-    // }
-    // getAppartmentRole(item){
-    //   this.roleCategory.selectedItems=[];
-    //  // this.staffCategory.selectedItems=[];
-    //  let parms={
-    //   'RoleTypeId': item.value,
-    //   "ApartmentId": this.apartmentID
-    //  }
-    //   this.userService.getApartmentRolesByRoleTypeID(parms).subscribe((res:any) => {
-    //     this.roleCategory.dropdownList=res;
-    //        this.updateUsers();
-    //     });
-    // }
     getAllApartmentBlockList() {
         this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe((res) => {
             this.apartmentBlock.dropdownList = res;
         });
     }
-    // getAllUsers(){
-    //   this.userService.getUsersByApartmentId(this.apartmentID).subscribe(
-    //     (res)=>{
-    //       this.allUsers=res;
-    //       this.updateUsers();
-    //     }
-    //   );
-    // }
     assignUser() {
         let usersToInsert = this.users.selectedItems;
         let counter = 0;
@@ -661,7 +616,7 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             this.insertGroupUser(element.userId, element.roleID, element.apartmentBlockID, element.apartmentBlockUnitID);
             this.assignUsers.push(element);
             this.users.dropdownList = this.users.dropdownList.filter(function (obj) {
-                return obj.userId !== element.userId || obj.roleID !== element.roleID || obj.apartmentBlockID !== element.apartmentBlockID || obj.unitId !== element.apartmentBlockUnitID;
+                return obj.userId !== element.userId || obj.roleID !== element.roleID || obj.apartmentBlockID !== element.apartmentBlockID || obj.apartmentBlockUnitID !== element.apartmentBlockUnitID;
             });
         });
         this.users.selectedItems = [];
@@ -691,58 +646,13 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
         this.assignUsers = [];
         this.users.selectedItems = [];
     }
-    updateData(interestGroup) {
-        //ApartmentBlockIDs
-        //interestGroup
-        let blockIdArr = interestGroup.apartmentBlockIds.split(',');
-        if (blockIdArr.length > 0) {
-            this.apartmentBlock.selectedItems = this.apartmentBlock.dropdownList.filter(function (element) {
-                return blockIdArr.includes(element.apartmentBlockId.toString());
-            });
-        }
-        let roleTypeId = interestGroup.RoleTypeId;
-        if (roleTypeId > 0) {
-            this.roleTypeArr.selectedItems = this.roleTypeArr.dropdownList.filter(function (element) {
-                return element.value === roleTypeId;
-            });
-        }
-        let roleIdArr = interestGroup.RoleIds.split(',');
-        if (roleIdArr.length > 0) {
-            this.roleCategory.selectedItems = this.roleCategory.dropdownList.filter(function (element) {
-                return roleIdArr.includes(element.value.toString());
-            });
-        }
+    removeAllRole() {
+        this.roleCategory.selectedItems = [];
+        this.getUsers();
     }
-    // updateUsers(){
-    //   //this.tempUsers=[...this.allUsers];
-    //   this.getUserIds$().subscribe((res:any)=>{
-    //      if(res.length>0){
-    //      let fiterUsers =this.allUsers.filter(function(obj){
-    //       if(res.includes(obj.userId))
-    //       {
-    //         obj.fullName=obj.firstName+' '+obj.middleName+' '+obj.lastName;
-    //         return obj;
-    //       }
-    //     });
-    //     this.users.dropdownList=fiterUsers;
-    //     }else{
-    //       this.users.dropdownList=[];
-    //     }
-    //     console.log( this.users.dropdownList);
-    //   });
-    // }
-    getUserIds$() {
-        let roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) { return item.value; }).join(",");
-        let blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
-        let params = {
-            'roleIds': roleIds,
-            'conditionIds': "",
-            'appartmentbBlockIds': blockIds,
-            'apartmentId': this.apartmentID,
-            'staffcategoryIds': "",
-            'staffSubCategoryIds': ''
-        };
-        return this.userService.getUsersByFilter(params);
+    removeAllBlock() {
+        this.apartmentBlock.selectedItems = [];
+        this.getUsers();
     }
     submitMapGroupUserForm(mapGroupUserForm) {
         let broadCastGroupCategoryID = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) { return item.broadCastGroupCategoryId; }).join(",");
@@ -773,10 +683,10 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             broadCastGroupCategoryUser.updatedOn = new Date().toISOString();
             broadCastGroupCategoryUser.serialNumber = this.groupUsercategory.serialNo;
         }
-        let broadcast = {
-            broadcast: broadCastGroupCategoryUser
+        let upsertBroadCastGroupCategoryUserParams = {
+            'broadcast': broadCastGroupCategoryUser
         };
-        this.broadcastService.upsertBroadCastGroupCategoryUser(broadcast).subscribe((res) => {
+        this.broadcastService.upsertBroadCastGroupCategoryUser(upsertBroadCastGroupCategoryUserParams).subscribe((res) => {
             if (res.message) {
                 if (this.isEdit) {
                     this.sharedService.setAlertMessage("Interest groups mapping to user updated successfully");
@@ -809,10 +719,11 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             'apartmentID': this.apartmentID,
             'serialNumber': 0
         };
-        let broadcast = {
-            broadcast: broadCastGroupCategoryUser
+        let upsertBroadCastGroupCategoryUserParams = {
+            'broadcast': broadCastGroupCategoryUser
         };
-        this.broadcastService.upsertBroadCastGroupCategoryUser(broadcast).subscribe((res) => {
+        this.broadcastService.upsertBroadCastGroupCategoryUser(upsertBroadCastGroupCategoryUserParams)
+            .subscribe((res) => {
             if (res.message) {
                 if (this.isLast) {
                     this.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
@@ -841,24 +752,23 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
     getInterestGroupUsers() {
         this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe((res) => {
             this.interestGroupUsers = res;
-            this.isDataLoaded = true;
-            this.totalItems = this.interestGroupUsers.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
+            // this.isDataLoaded = true;
+            // this.totalItems = this.interestGroupUsers.length;
+            // if(this.totalItems>this.itemLimit){
+            //   this.ItemEndIndex = this.itemLimit;
+            // }
+            // else {
+            //   this.ItemEndIndex = this.totalItems;
+            // }
         });
     }
 };
 BroadcastGroupAssignmentComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
+    { type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 BroadcastGroupAssignmentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -867,12 +777,11 @@ BroadcastGroupAssignmentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-group-assignment.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-group-assignment.component.scss */ "./src/app/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
+        _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], BroadcastGroupAssignmentComponent);
 
@@ -905,9 +814,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastHistoryComponent", function() { return BroadcastHistoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/controllers/User */ "./src/app/api/controllers/User.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
@@ -968,19 +877,19 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
     }
     //Get All Category
     getAllCategory() {
-        let apartmentID = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        let queryParamBase = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
         };
-        this.broadcastService.getBroadCastMessageCategories(apartmentID).subscribe((res) => {
+        this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe((res) => {
             this.allCategory = res;
         });
     }
     //Get All Type
     getAllType() {
-        let params = {
+        let queryParamBase = {
             LookupTypeId: 11
         };
-        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
+        this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe((res) => {
             this.allType = res;
         });
     }
@@ -1053,13 +962,13 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
         }
     }
     getAllBroadcastMessage() {
-        let apartmentID = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-        };
         var users$ = this.userService.getAllUsers();
         var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])((users) => {
             this.allUser = users;
-            return this.broadcastService.getAllBroadcastMessages(apartmentID);
+            let queryParamBase = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            };
+            return this.broadcastService.getAllBroadcastMessages(queryParamBase);
         }));
         allBroadCastmessages$.subscribe((res) => {
             this.broadCastMessages = res;
@@ -1080,10 +989,10 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
     }
 };
 BroadcastHistoryComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
+    { type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 BroadcastHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1092,10 +1001,10 @@ BroadcastHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-history.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-history/broadcast-history.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-history.component.scss */ "./src/app/ams/broadcast/components/broadcast-history/broadcast-history.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], BroadcastHistoryComponent);
 
@@ -1112,7 +1021,7 @@ BroadcastHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtcmVtb3ZldXNlci9icm9hZGNhc3QtcmVtb3ZldXNlci5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".broadcast-removeuser-wrapper .card {\n  overflow: visible !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LXJlbW92ZXVzZXIvYnJvYWRjYXN0LXJlbW92ZXVzZXIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtcmVtb3ZldXNlci9icm9hZGNhc3QtcmVtb3ZldXNlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLDRCQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LXJlbW92ZXVzZXIvYnJvYWRjYXN0LXJlbW92ZXVzZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnJvYWRjYXN0LXJlbW92ZXVzZXItd3JhcHBlcntcbiAgLmNhcmR7XG4gICAgb3ZlcmZsb3c6IHZpc2libGUgIWltcG9ydGFudDtcbiAgfVxufSIsIi5icm9hZGNhc3QtcmVtb3ZldXNlci13cmFwcGVyIC5jYXJkIHtcbiAgb3ZlcmZsb3c6IHZpc2libGUgIWltcG9ydGFudDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1130,11 +1039,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 
 
 
@@ -1157,13 +1066,14 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
             "dropdownList": [],
             "selectedItems": []
         };
+        this.isDataLoaded = false;
         this.filterOptions = {
             "roleids": null,
-            "apartmentId": 0,
+            "ApartmentId": 0,
             "blockids": null,
             "searchText": ""
         };
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     ngOnInit() {
         this.loginUserId = parseInt(this.cookieService.get('userId'));
@@ -1180,30 +1090,23 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         this.getAllGroupCategory();
         this.getAllApartmentBlockList();
         this.getUsers();
-        this.getAllGoupUsers();
     }
-    // getUsers(Item){
-    //   //get All user based on apartmentId and broadCastGroupCategoryId
-    //   let params={
-    //     "aparmentId":this.apartmentID,
-    //     "broadCastGroupCategoryId":Item.broadCastGroupCategoryId
-    //   }
-    //  // this.allGroupUser=this.broadcastService.getBroadCastGroupCategoryUserResponse()
-    // }
-    removeUser(user) {
-        var params = {
-            broadCastGroupCategoryUserId: user.broadCastGroupCategoryUserId,
-            deleteBy: this.loginUserId
-        };
-        this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe((res) => {
-            this.sharedService.setAlertMessage("User has been removed from interest group successfully");
-            this.allGroupUser = this.allGroupUser.filter(function (obj) {
-                return obj.broadCastGroupCategoryUserId !== user.broadCastGroupCategoryUserId;
+    removeMappedUser(index) {
+        if (index != null) {
+            var params = {
+                broadCastGroupCategoryUserId: index,
+                deleteBy: this.loginUserId
+            };
+            this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe((res) => {
+                this.sharedService.setAlertMessage("User has been removed from interest group successfully");
+                this.allGroupUser = this.allGroupUser.filter(function (obj) {
+                    return obj.broadCastGroupCategoryUserId !== index;
+                });
+                this.interestGroupUsers = this.interestGroupUsers.filter(function (obj) {
+                    return obj.broadCastGroupCategoryUserId !== index;
+                });
             });
-            this.interestGroupUsers = this.interestGroupUsers.filter(function (obj) {
-                return obj.broadCastGroupCategoryUserId !== user.broadCastGroupCategoryUserId;
-            });
-        });
+        }
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1224,17 +1127,34 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     getAllGoupUsers() {
+        this.isDataLoaded = false;
         this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe((res) => {
             this.interestGroupUsers = res;
             this.interestGroupUsers.forEach(element => {
                 let currentUser = this.getUser(element.userId, element.roleId, element.apartmentBlockId, element.unitId);
-                element.role = currentUser.roleName;
-                element.block = currentUser.apartmentBlockNumber;
-                element.unit = currentUser.apartmentBlockUnitNumber;
-                element.user = currentUser.userName;
+                if (currentUser != undefined) {
+                    element.role = currentUser.roleName;
+                    element.block = currentUser.apartmentBlockNumber;
+                    element.unit = currentUser.apartmentBlockUnitNumber;
+                    element.user = currentUser.userName;
+                }
+                else {
+                    element.role = element.roleId;
+                    element.block = element.apartmentBlockId;
+                    element.unit = element.unitId;
+                    element.user = element.userId;
+                }
                 element.groupCategory = this.getGroupCategory(element.broadCastGroupCategoryId);
             });
-            this.allGroupUser = this.interestGroupUsers;
+            this.allGroupUser = [...this.interestGroupUsers];
+            this.isDataLoaded = true;
+            this.totalItems = this.allGroupUser.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
         });
     }
     getUser(userId, roleId, apartmentBlockId, unitId) {
@@ -1244,11 +1164,19 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         return users[0];
     }
     getUsers() {
-        this.filterOptions.apartmentId = this.apartmentID;
-        this.filterOptions.searchText = null;
-        this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
-            this.allUsers = res;
-        }, error => console.log(error));
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.filterOptions.ApartmentId = this.apartmentID;
+            this.filterOptions.searchText = null;
+            var data = yield this.userService.getUsersByKeyword(this.filterOptions)
+                .toPromise();
+            this.allUsers = data;
+            this.getAllGoupUsers();
+            // .subscribe((res:any)=>{
+            //    this.allUsers=res;
+            //   },
+            //   error=>console.log(error)
+            //   );
+        });
     }
     getAllApartmentBlockList() {
         this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe((res) => {
@@ -1268,7 +1196,7 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         });
     }
     deSelectCategory() {
-        this.allGroupUser = this.interestGroupUsers;
+        this.allGroupUser = [...this.interestGroupUsers];
     }
     getUsersBycategory(item) {
         let categoryUsers = this.interestGroupUsers.filter(function (obj) {
@@ -1278,12 +1206,12 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
     }
 };
 BroadcastRemoveuserComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
+    { type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"] },
+    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 BroadcastRemoveuserComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1292,12 +1220,12 @@ BroadcastRemoveuserComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-removeuser.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-removeuser.component.scss */ "./src/app/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"],
+        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], BroadcastRemoveuserComponent);
 
@@ -1332,11 +1260,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
@@ -1404,13 +1332,20 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         this.allBroadcastMessageGroup = [];
         this.isFlashNotice = false;
         this.editorPlacehorder = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.filterOptions = {
+            "roleids": null,
+            "ApartmentId": 0,
+            "blockids": null,
+            "searchText": ""
+        };
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     onContentChanged(event) {
     }
     ngOnInit() {
         this.message = {};
         this.IsBroadcast = true;
+        this.loginedUser = parseInt(this.cookieService.get('userId'));
         this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
         this.getAllUsers();
         this.getAllCategory();
@@ -1418,6 +1353,7 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         this.getAllApartmentBlockList();
         this.getAllGroupCategory();
         this.getInterestGroupUsers();
+        this.getAllInterestGroupUser();
         this.groupCategorySetting = {
             singleSelection: true,
             enableSearchFilter: true,
@@ -1473,6 +1409,7 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
             autoPosition: false,
             maxHeight: 240
         };
+        this.selectedTab = 'role';
     }
     currentTab(item) {
         this.selectedTab = item;
@@ -1491,36 +1428,44 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
             this.IsBroadcast = true;
         }
     }
+    getAllInterestGroupUser() {
+        this.filterOptions.ApartmentId = this.apartmentID;
+        this.filterOptions.searchText = null;
+        this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
+            res.forEach(element => {
+                element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
+            });
+            this.allnterestGroupUsers = res;
+        }, error => console.log(error));
+    }
     getAllUsers() {
-        this.userService.getUsersByApartmentId(this.apartmentID).subscribe((res) => {
+        this.userService.getUsersByApartmentId(this.apartmentID)
+            .subscribe((res) => {
+            res.forEach(element => {
+                element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
+            });
             this.allUsers = res;
             this.updateUsers();
         });
     }
     selectInterestGroup(item) {
-        let selectedGroup = this.interestGroupUsers.filter(function (element) {
-            return element.broadCastGroupCategoryId == item.broadCastGroupCategoryId;
+        let categoryUsers = this.interestGroupUsers.filter(function (obj) {
+            return obj.broadCastGroupCategoryId == item.broadCastGroupCategoryId;
         });
-        if (selectedGroup.length > 0) {
-            let userIds = [];
-            selectedGroup.forEach(element => {
-                userIds.push(element.userId);
+        let tempAssignUsers = [];
+        let tempUsers = [...this.allnterestGroupUsers];
+        categoryUsers.forEach(element => {
+            tempUsers.forEach(obj => {
+                let isFound = obj.userId == element.userId && obj.roleID == element.roleId && obj.apartmentBlockID == element.apartmentBlockId && obj.apartmentBlockUnitID == element.unitId;
+                if (isFound) {
+                    tempAssignUsers.push(obj);
+                }
             });
-            if (userIds.length > 0) {
-                this.users = this.allUsers.filter(function (obj) {
-                    return userIds.includes(obj.userId);
-                });
-            }
-            else {
-                this.users = [];
-            }
-        }
-        else {
-            this.users = [];
-        }
+        });
+        this.AssignInterestUsers = [...tempAssignUsers];
     }
     removeInterestGroup(item) {
-        this.users = [];
+        this.AssignInterestUsers = [];
     }
     //broadCastGroupCategoryId
     flashNotice(bool) {
@@ -1565,8 +1510,8 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         this.roleCategory.selectedItems = [];
         this.staffCategory.selectedItems = [];
         var params = {
-            RoleTypeId: item.value,
-            ApartmentId: this.apartmentID
+            'RoleTypeId': item.value,
+            'ApartmentId': this.apartmentID
         };
         this.userService.getApartmentRolesByRoleTypeId(params).subscribe((res) => {
             this.condtionRequired = parseInt(item.value) == 2 || parseInt(item.value) == 4;
@@ -1742,66 +1687,89 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
     }
     //Submit Category
     submitCreateBroadcastMessageForm(form) {
-        let broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) { return item.broadCastGroupCategoryId; }).join(",");
-        let broadcastModeIds = Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) { return item.value; }).join(",");
-        var broadcastMessage = {
-            "broadCastMessageId": 0,
-            "apartmentId": this.apartmentID,
-            "subject": this.message.subject,
-            "broadcastMessage1": this.message.ckeditor,
-            "broadcastBy": parseInt(this.cookieService.get('userId')),
-            "broadcastOn": new Date().toISOString(),
-            "broadcastMessageCategoryId": 0,
-            "broadcastModeIds": broadcastModeIds,
-            "broadCastGroupcategoryId": null,
-            "userIds": null,
-            "isReadAllowed": false,
-            "isLater": true,
-            "laterDate": null,
-            "isFlashNotice": this.isFlashNotice,
-            "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
-            "insertedOn": new Date().toISOString(),
-            "updatedBy": null,
-            "updatedOn": null,
-            "serialNo": 0,
-            "description": "",
-            "filterId": null
-        };
-        // var addBoradcastMessage$;
-        if (this.selectedTab == 'interest') {
-            broadcastMessage.broadCastGroupcategoryId = parseInt(broadCastGroupCategoryIDs);
-            broadcastMessage.broadcastMessageCategoryId = null;
-            // broadcastMessage.userIds= Array.prototype.map.call(this.users,function(item){ return item.userId}).join(",");
-            // addBoradcastMessage$=  this.broadcastService.addBroadCastMessage(broadcastMessage);
-        }
-        if (this.selectedTab == 'role') {
-            broadcastMessage.broadcastMessageCategoryId = this.broadCastCategory.selectedItems[0].broadCastMessageCategoryId;
-            broadcastMessage.broadCastGroupcategoryId = null;
-            // var userId$=this.getUserIds$();
-            //  addBoradcastMessage$=userId$.pipe(
-            //     concatMap((userIds:any) =>{
-            //       if(userIds.length==0)
-            //       {
-            //         this.modalService.showErrorModal("No such Users exists to broadcast message.");
-            //         return never();
-            //       }
-            //     broadcastMessage.userIds=userIds.join(',');
-            //      return  this.broadcastService.addBroadCastMessage(broadcastMessage);
-            //     } )
-            //   )
-        }
-        broadcastMessage.userIds = Array.prototype.map.call(this.users, function (item) { return item.userId; }).join(",");
-        let broadCastParams = {
-            sourceBroadCastMessage_model: broadcastMessage
-        };
-        this.broadcastService.addBroadCastMessage(broadCastParams).subscribe((res) => {
-            if (res.message) {
-                this.sharedService.setAlertMessage("Broadcast Message sent successfully");
-                this.ClearFormData();
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            let broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) { return item.broadCastGroupCategoryId; }).join(",");
+            let broadcastModeIds = Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) { return item.value; }).join(",");
+            let broadcastMessage = {
+                "broadCastMessageId": 0,
+                "apartmentId": this.apartmentID,
+                "subject": this.message.subject,
+                "broadcastMessage1": this.message.ckeditor,
+                "broadcastBy": this.loginedUser,
+                "broadcastOn": new Date().toISOString(),
+                "broadcastMessageCategoryId": 0,
+                "broadcastModeIds": broadcastModeIds,
+                "broadCastGroupcategoryId": null,
+                "userIds": null,
+                "isReadAllowed": false,
+                "isLater": true,
+                "laterDate": null,
+                "isFlashNotice": this.isFlashNotice,
+                "isActive": true,
+                "insertedBy": this.loginedUser,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null,
+                "serialNo": 0,
+                "description": "",
+                "filterId": null
+            };
+            if (this.selectedTab == 'interest') {
+                broadcastMessage.broadCastGroupcategoryId = parseInt(broadCastGroupCategoryIDs);
+                broadcastMessage.broadcastMessageCategoryId = null;
+                broadcastMessage.userIds = Array.prototype.map.call(this.AssignInterestUsers, function (item) { return item.userId; }).join(",");
+            }
+            if (this.selectedTab == 'role') {
+                broadcastMessage.userIds = Array.prototype.map.call(this.users, function (item) { return item.userId; }).join(",");
+                broadcastMessage.broadcastMessageCategoryId = this.broadCastCategory.selectedItems[0].broadCastMessageCategoryId;
+                broadcastMessage.broadCastGroupcategoryId = null;
+                let roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) { return item.value; }).join(",");
+                let blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
+                let conditionIds = Array.prototype.map.call(this.condition.selectedItems, function (item) { return item.value; }).join(",");
+                let staffcategoryIds = Array.prototype.map.call(this.staffCategory.selectedItems, function (item) { return item.value; }).join(",");
+                let staffSubCategoryIds = Array.prototype.map.call(this.staffSubCategory.selectedItems, function (item) { return item.value; }).join(",");
+                let params = {
+                    'filterId': 0,
+                    'roleIds': roleIds,
+                    'conditions': conditionIds,
+                    'appartmentbBlockIds': blockIds,
+                    'apartmentId': this.apartmentID,
+                    'staffCategoryIds': staffcategoryIds,
+                    'subStaffCategoryIds': staffSubCategoryIds,
+                    "insertedBy": this.loginedUser,
+                    "insertedOn": new Date().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null,
+                    'isActive': true,
+                    'roleTypeId': this.roleTypeArr.selectedItems[0].value
+                };
+                let data = { "message": "0" };
+                let params2 = {
+                    "broadCastFilters_model": params
+                };
+                //data = 
+                yield this.broadcastService.upsertBroadCastFilters(params2).
+                    toPromise();
+                broadcastMessage.filterId = parseInt(data.message);
+                // .subscribe((res)=>{
+                //       broadcastMessage.filterId=parseInt(res);
+                //                   }).toPromise();
+            }
+            if (broadcastMessage.userIds.length == 0) {
+                this.modalService.showErrorModal("No such Users exists to broadcast message.");
+            }
+            else {
+                let params = {
+                    "sourceBroadCastMessage_model": broadcastMessage
+                };
+                this.broadcastService.addBroadCastMessage(params).subscribe((res) => {
+                    if (res.message) {
+                        this.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                        this.ClearFormData();
+                    }
+                });
             }
         });
-        // this.updateUsers();
     }
     ClearFormData() {
         this.message = {};
@@ -1820,12 +1788,12 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
     }
 };
 BroadcastSendmessageComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
+    { type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"] },
+    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 BroadcastSendmessageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1834,12 +1802,12 @@ BroadcastSendmessageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./broadcast-sendmessage.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-sendmessage.component.scss */ "./src/app/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"],
+        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], BroadcastSendmessageComponent);
 
@@ -1873,7 +1841,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
@@ -1957,10 +1925,10 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
     }
     //Get Category Type
     getAllCategory() {
-        let params = {
+        let queryParamBase = {
             apartmentId: this.apartmentId
         };
-        this.broadcastService.getBroadCastMessageCategories(params).subscribe((res) => {
+        this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe((res) => {
             var allBroadcastCategory = res;
             //filter active true items
             this.allBroadcastCategory = allBroadcastCategory.filter(data => {
@@ -2004,10 +1972,10 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
             broadcastCategory.updatedOn = new Date().toISOString();
             broadcastCategory.serialNo = this.category.serialNo;
         }
-        let broadCastMessageCategory = {
-            broadCastMessageCategory: broadcastCategory
+        let params = {
+            'broadCastMessageCategory': broadcastCategory
         };
-        this.broadcastService.upsertBroadCastMessageCategory(broadCastMessageCategory).subscribe((res) => {
+        this.broadcastService.upsertBroadCastMessageCategory(params).subscribe((res) => {
             if (res.message) {
                 if (this.isEdit) {
                     this.sharedService.setAlertMessage("Broadcast category updated successfully");
@@ -2025,7 +1993,7 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
 BroadcastSetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
+    { type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
@@ -2037,7 +2005,7 @@ BroadcastSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
+        _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], BroadcastSetupComponent);
@@ -2072,12 +2040,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _api_controllers_User__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../api/controllers/User */ "./src/app/api/controllers/User.ts");
 
 
 
@@ -2113,7 +2081,7 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
         this.isError = false;
         this.dropdownSettings = {};
         this.string = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -2177,17 +2145,17 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
         });
     }
     getAllApartmentBlockList() {
-        let params = {
+        let queryParamBase = {
             apartmentId: this.apartmentID
         };
-        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
+        this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe((res) => {
             this.allApartmentBlockList = res;
         });
     }
     getAppartmentRole() {
         var params = {
-            RoleTypeId: this.roleType,
-            ApartmentId: this.apartmentID
+            'RoleTypeId': this.roleType,
+            'ApartmentId': this.apartmentID
         };
         this.userService.getApartmentRolesByRoleTypeId(params).subscribe((res) => {
             this.allApartmentRolesList = res;
@@ -2209,10 +2177,10 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
     }
     //Get Category Type
     getAllGroupCategory() {
-        let params = {
+        let queryParamBase = {
             apartmentId: this.apartmentID
         };
-        this.broadcastService.getAllBroadCastGroupCategory(params).subscribe((res) => {
+        this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe((res) => {
             var allBroadcastGroupCategory = res;
             //filter active true items
             this.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(data => {
@@ -2253,7 +2221,7 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
             broadcastGroupCategory.serialNo = this.groupCategory.serialNo;
         }
         let params = {
-            broadcast: broadcastGroupCategory
+            'broadcast': broadcastGroupCategory
         };
         this.broadcastService.addBroadCastGroupCategory(params).subscribe((res) => {
             if (res.message) {
@@ -2278,11 +2246,11 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
 BroadcastgroupSetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] }
+    { type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
+    { type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_8__["UserService"] },
+    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] }
 ];
 BroadcastgroupSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2292,11 +2260,11 @@ BroadcastgroupSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]])
+        _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
+        _api_controllers_User__WEBPACK_IMPORTED_MODULE_8__["UserService"],
+        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]])
 ], BroadcastgroupSetupComponent);
 
 

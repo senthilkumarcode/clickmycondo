@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-dashboard-wrapper\">\n\n\t\t<div class=\"message-box mb-4\">\n\t\t\t<h4>Hi <span class=\"text-capitialize\">{{userName}}</span></h4>\n\t\t\t<!-- <h5>We are here to help you.</h5> -->\n\t\t</div>\n\n\t\t<app-userdash-main-comp></app-userdash-main-comp>\n\t\t<app-userdash-messages-comp></app-userdash-messages-comp>\n\t\t<app-userdash-events-comp></app-userdash-events-comp>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-dashboard-wrapper\" *ngIf=\"isApartmentSelected\">\n\n\t\t<div class=\"message-box mb-4\">\n\t\t\t<h4>Hi <span class=\"text-capitialize\">{{userName}}</span></h4>\n\t\t\t<!-- <h5>We are here to help you.</h5> -->\n\t\t</div>\n\n\t\t<app-userdash-main-comp></app-userdash-main-comp>\n\t\t<app-userdash-messages-comp></app-userdash-messages-comp>\n\t\t<app-userdash-events-comp></app-userdash-events-comp>\n\n</div>");
 
 /***/ }),
 
@@ -309,18 +309,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
 
 
 
 
 let UserDashboardComponent = class UserDashboardComponent {
-    constructor(userService, cookieService) {
+    constructor(userService, sharedService, cookieService) {
         this.userService = userService;
+        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.userName = "";
+        this.isApartmentSelected = false;
     }
     ngOnInit() {
+        this.sharedService.apartmentselectedcast.subscribe(isApartmentSelected => this.isApartmentSelected = isApartmentSelected);
         let params = {
             userid: parseInt(this.cookieService.get('userId'))
         };
@@ -333,7 +338,8 @@ let UserDashboardComponent = class UserDashboardComponent {
 };
 UserDashboardComponent.ctorParameters = () => [
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
 UserDashboardComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -342,7 +348,8 @@ UserDashboardComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./user-dashboard.component.scss */ "./src/app/user/user-dashboard/user-dashboard.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], UserDashboardComponent);
 
 

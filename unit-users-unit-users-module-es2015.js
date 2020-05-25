@@ -427,8 +427,11 @@ let AddResidentComponent = class AddResidentComponent {
                             this.isUserSubmitted = false;
                             this.isError = true;
                             this.errorMessage = res.errorMessage;
-                            this.SharedToaster.openSnackBar(this.errorMessage, '');
-                            console.log("error message ==> ", this.errorMessage);
+                            var errorDetails = {
+                                msg: this.errorMessage,
+                                type: "Error"
+                            };
+                            this.sharedService.setCustomAlertMessage(errorDetails);
                             //valid
                             // this.isInvalidLogin = true;
                         }
@@ -529,7 +532,12 @@ let AddResidentComponent = class AddResidentComponent {
                             this.isUserSubmitted = false;
                             this.isError = true;
                             this.errorMessage = res.errorMessage;
-                            this.SharedToaster.openSnackBar(this.errorMessage, '');
+                            var errorDetails = {
+                                msg: this.errorMessage,
+                                type: "Error"
+                            };
+                            this.sharedService.setCustomAlertMessage(errorDetails);
+                            //this.SharedToaster.openSnackBar(this.errorMessage,'');
                         }
                     }, error => {
                     });
@@ -601,16 +609,22 @@ let AddResidentComponent = class AddResidentComponent {
         });
         if (this.route.params['value'].id != undefined) {
             this.isEditUser = true;
-            this.userService.getUserById(this.route.params['value'].id).subscribe((res) => {
+            let useridParam = {
+                userid: this.route.params['value'].id
+            };
+            this.userService.getUserById(useridParam).subscribe((res) => {
                 this.user = res[0];
                 this.genderType = this.user.genderId.toString();
                 // get role
-                this.userService.getRolesByUserId(this.route.params['value'].id).subscribe((data) => {
+                let userIdParam = {
+                    userId: this.route.params['value'].id
+                };
+                this.userService.getRolesByUserId(userIdParam).subscribe((data) => {
                     this.userType = data[0].roleId.toString();
                 }, error => {
                 });
                 //get block
-                this.apartmentService.getApartmentBlockByUserId(this.route.params['value'].id).subscribe((block) => {
+                this.apartmentService.getApartmentBlockByUserId(userIdParam).subscribe((block) => {
                     this.apartmentBlockId = block[0].apartmentBlockId.toString();
                     this.getUnits();
                 }, error => {
@@ -2221,6 +2235,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_my_profile_components_profile_basic_profile_basic_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../user/my-profile/components/profile-basic/profile-basic.component */ "./src/app/user/my-profile/components/profile-basic/profile-basic.component.ts");
 /* harmony import */ var _user_my_profile_components_profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../user/my-profile/components/profile-user-absence/profile-user-absence.component */ "./src/app/user/my-profile/components/profile-user-absence/profile-user-absence.component.ts");
 /* harmony import */ var _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/signuprequest/signuprequest.component */ "./src/app/ams/unit-users/components/signuprequest/signuprequest.component.ts");
+/* harmony import */ var src_app_user_my_profile_components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component */ "./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.ts");
+
 
 
 
@@ -2252,6 +2268,7 @@ const routes = [
             { path: 'vehicles/:id', component: _user_my_profile_components_profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_9__["ProfileVehiclesComponent"] },
             { path: 'pets/:id', component: _user_my_profile_components_profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_11__["ProfilePetComponent"] },
             { path: 'propertymanager/:id', component: _user_my_profile_components_property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_12__["PropertyManagerComponent"] },
+            { path: 'propertymanager/create', component: src_app_user_my_profile_components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_20__["PropertyManagerCreateComponent"] },
             { path: 'family/:id', component: _user_my_profile_components_profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_10__["ProfileFamilyMembersComponent"] },
             { path: 'lease/:id', component: _user_my_profile_components_profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_15__["ProfileLeaseInfoComponent"] },
             { path: 'interest/:id', component: _user_my_profile_components_profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_16__["ProfileInterestGroupComponent"] },

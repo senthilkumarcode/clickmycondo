@@ -33,7 +33,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"broadcast-removeuser-wrapper\">\n    <mat-tab-group dynamicHeight> -->\n                   <mat-tab label=\"BroadCast Based\">\n    <ngb-carousel *ngIf=\"images\" >\n        <ng-template ngbSlide *ngFor=\"let broadCastMessage of broadCastBased\">\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random first slide\">\n           \n          </div>\n          <div class=\"carousel-caption1\">\n            <h5> {{broadCastMessage.CategoryName}}</h5>\n          </div>\n          <div class=\"carousel-caption2\"> \n            <h5><b> {{broadCastMessage.subject}}</b> </h5>\n          </div>\n          <div class=\"carousel-caption3\">\n            <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n            </div>\n        </ng-template>\n        <!-- <ng-template ngbSlide>\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random second slide\">\n          </div>\n          <div class=\"carousel-caption\">\n            <h3>Second slide label</h3>\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n          </div>\n        </ng-template>\n        <ng-template ngbSlide>\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random third slide\">\n          </div>\n          <div class=\"carousel-caption\">\n            <h3>Third slide label</h3>\n            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>\n          </div>\n        </ng-template> -->\n      </ngb-carousel>\n </mat-tab>\n                            <mat-tab label=\"Interest Group Based \"> \n                              <ngb-carousel *ngIf=\"images\" >\n                                <ng-template ngbSlide *ngFor=\"let broadCastMessage of interestGroupBased\">\n                                  <div class=\"picsum-img-wrapper\">\n                                    <img [src]=\"imagePath\" alt=\"Random first slide\">\n                                   \n                                  </div>\n                                  <div class=\"carousel-caption1\">\n                                    <h5> {{broadCastMessage.CategoryName}}</h5>\n                                  </div>\n                                  <div class=\"carousel-caption2\"> \n                                    <h5><b> {{broadCastMessage.subject}}</b> </h5>\n                                  </div>\n                                  <div class=\"carousel-caption3\">\n                                    <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n                                    </div>\n                                </ng-template>\n                                \n                              </ngb-carousel> </mat-tab>\n                            \n                           </mat-tab-group> \n    </div>\n";
+    __webpack_exports__["default"] = "<div class=\"broadcast-announcements-wrapper col-sm-10 col-offset-2 m-auto\">\n    <mat-tab-group dynamicHeight>\n                   <mat-tab label=\"BroadCast Group Based\">\n<div class=\"row\">\n  <div class=\"col-3\"> \n      <angular2-multiselect [data]=\"filterGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n      [(ngModel)]=\"filterGroupCategory.selectedItems\" \n      [settings]=\"groupCategorySetting\"  \n      (onSelect)=\"filterMessages($event,'broadcastGroup')\">\n  </angular2-multiselect>\n  </div>\n    \n</div>\n                      \n    <ngb-carousel  class=\"mt-5\" >\n        <ng-template ngbSlide *ngFor=\"let broadCastMessage of broadCastBased\">\n            \n          <div class=\"picsum-img-wrapper\">\n              \n            <img [src]=\"imagePath\" alt=\"Random first slide\">\n           \n          </div>\n          <div class=\"carousel-caption1\">\n            <h5> {{broadCastMessage.CategoryName}}</h5>\n          </div>\n          <div class=\"carousel-caption2\"> \n            <h5><b> {{broadCastMessage.subject}}</b> </h5>\n          </div>\n          <div class=\"carousel-caption3\">\n            <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n            </div>\n        </ng-template>\n        <!-- <ng-template ngbSlide>\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random second slide\">\n          </div>\n          <div class=\"carousel-caption\">\n            <h3>Second slide label</h3>\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n          </div>\n        </ng-template>\n        <ng-template ngbSlide>\n          <div class=\"picsum-img-wrapper\">\n            <img [src]=\"imagePath\" alt=\"Random third slide\">\n          </div>\n          <div class=\"carousel-caption\">\n            <h3>Third slide label</h3>\n            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>\n          </div>\n        </ng-template> -->\n      </ngb-carousel>\n </mat-tab>\n                            <mat-tab label=\"Interest Group Based \"> \n                                <div class=\"row\">\n                                    <div class=\"col-3 offset-3\"> \n                                   <angular2-multiselect  [data]=\"interestGroupCategory.dropdownList\" name=\"interestGroupTypeDropDown\"\n                                        [(ngModel)]=\"interestGroupCategory.selectedItems\" \n                                        [settings]=\"interestGroupCategorySetting\"\n                                        (onSelect)=\"filterMessages($event,'interestGroup')\"\n                                        >\n                                    </angular2-multiselect>\n                                    </div>\n                                    </div>\n                                \n                              <ngb-carousel class=\"mt-5\" >\n                                \n                                <ng-template ngbSlide *ngFor=\"let broadCastMessage of interestGroupBased\">\n                                  <div class=\"picsum-img-wrapper\">\n                                    <img [src]=\"imagePath\" alt=\"Random first slide\">\n                                   \n                                  </div>\n                                  <div class=\"carousel-caption1\">\n                                    <h5> {{broadCastMessage.CategoryName}}</h5>\n                                  </div>\n                                  <div class=\"carousel-caption2\"> \n                                    <h5><b> {{broadCastMessage.subject}}</b> </h5>\n                                  </div>\n                                  <div class=\"carousel-caption3\">\n                                    <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n                                    </div>\n                                </ng-template>\n                                \n                              </ngb-carousel> </mat-tab>\n                            \n                           </mat-tab-group> \n    </div>\n";
     /***/
   },
 
@@ -53,7 +53,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"broadcastgroupAssignment-setup-wrapper\">\n        <div  class=\"card clear form-group\" id=\"mapaccordion\" >\n    <div class=\"card-body\">\n        <ul class=\"list-group  clear\">\n            <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseMap\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n                <h5>Assign Users to Interest Group</h5>  \n            </li>\n            <div id=\"typeCollapseMap\"  aria-labelledby=\"headingOne\" data-parent=\"#mapaccordion\">\n                <div class=\"details\">\n                    <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n                    <form #mapGroupUserForm = \"ngForm\" name=\"mapGroupUserForm\" (ngSubmit)=\"submitMapGroupUserForm(mapGroupUserForm)\"  novalidate>\n                    <div class=\"row mt-4\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                    <div class=\"input-box\">\n                                        <label>Interest Group Category*</label>\n                                        <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                             [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                         (onSelect)=\"getUsersBycategory($event)\" (onDeSelect)=\"removeCategory()\" (onDeSelectAll)=\"removeCategory()\"   [settings]=\"groupCategorySetting\"  required>\n                                        </angular2-multiselect>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                            <!-- <div  class=\"col-sm-4\"> \n                                <div class=\"select-box\">                             \n                                    <label>Role Type</label>\n                                    <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                       [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                       [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                        (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"\n                                    ></angular2-multiselect>\n                                 </div>\n                              </div> -->\n                                <div  class=\"col-sm-12\">\n                                    <div class=\"select-box\">\n                                        <label> Role</label>\n                                        <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                            [(ngModel)]=\"roleCategory.selectedItems\"\n                                            [settings]=\"roleDropdownSettings\" \n                                            (onSelect)='updateUsers()' (onDeSelect)='updateUsers()'\n                                             (onSelectAll)=\"updateUsers()\"  (onDeSelectAll)=\"updateUsers()\">    \n                                        </angular2-multiselect>\n                                    </div>  \n                                </div>                        \n                            </div>\n                            <div class=\"row\">\n                                <div  class=\"col-sm-12\">\n                                    <div class=\"select-box\">\n                                        <label>Appartment Block</label>\n                                        <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                             [settings]=\"blockdropdownSettings\"\n                                            (onSelect)='updateUsers()' (onDeSelect)='updateUsers()'\n                                             (onSelectAll)=\"updateUsers()\"  (onDeSelectAll)=\"updateUsers()\">\n                                        </angular2-multiselect>\n                                    </div>  \n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div  class=\"col-sm-12\"> \n                                    <div class=\"select-box\">                             \n                                        <label>Users*</label>\n                                        <angular2-multiselect [data]=\"users.dropdownList\" name=\"userTypeDropDown\"\n                                            [(ngModel)]=\"users.selectedItems\"\n                                             [settings]=\"usersDropdownSettings\"  required\n                                        ></angular2-multiselect>\n                                    </div>\n                                 </div>                     \n                             \n                            </div>\n                            <!-- <div class=\"row\">\n                                <div  class=\"col-sm-12\"> \n                                    <div class=\"select-box\"> \n                                       <label>Users *</label>\n          <input type=\"text\" placeholder=\"serach user\" matInput   (keyup)=\"search($event)\" />\n    <mat-autocomplete #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of filteredUsers\" [value]=\"option\">\n        {{option.userName}}\n      </mat-option>\n    </mat-autocomplete>\n   </div>\n                                 </div>                     \n                             \n                            </div> -->\n\n\n                        </div>\n            <div class=\"col-sm-2\">\n                <div class=\"row\">\n                    <div  class=\"col-sm-8\">\n                        <div class=\"select-box\" style=\"transform: translateY(120px);\">                         \n                            <button  type=\"button\" class=\"btn\" [disabled]=\"mapGroupUserForm.invalid\" > \n                                <label class=\"assignBtn\"> Assign</label>\n                                <i class=\"fa fa-long-arrow-right\" style=\"font-size:60px;\" (click)='assignUser()' aria-hidden=\"true\"></i>\n                            </button>\n                        </div>  \n                    </div> \n                </div>\n                \n            </div>\n            <div class=\"col-sm-4\">\n           <div class=\"row mt-3\">\n             <div class=\"col-sm-12\" style=\"border: 1px solid #cccccc;height: 320px;\">\n                 <li *ngFor=\"let user of assignUsers\">\n                        {{ user.userFullName }}\n                      </li>\n                \n             </div>\n           </div>\n\n             </div>\n           </div>\n                \n             \n          \n            \n        \n          \n            \n            <!-- <div class=\"row\">\n              <div class=\"col-sm-12\">\n                <div class=\"list-inline float-right mt-4\">\n                   \n                    <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"Cancel()\">Cancel</button>\n                    <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"mapGroupUserForm.invalid\">Submit</button>\n                   \n                </div>\n              </div>\n            </div> -->\n                   </form>\n\n        </div>\n        </div>\t\n        </ul>\n    </div>\n        </div>              \n\n        <!-- <div class=\"card card-table\">\n            <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Interest Group Users <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n                </li>\n            \n            </ul>\n            </div>\n\n            <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n            <div class=\"card-body p-0\">\n\n            <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                    <th width=\"15%\" (click)=\"sortUnitData('broadCastGroupCategoryID')\">Category ID<span [ngClass]=\"getFieldOrderBy('broadCastGroupCategoryID')\"></span></th>\n                    <th width=\"30%\" (click)=\"sortUnitData('UserIDs')\">Broadcast Category <span [ngClass]=\"getFieldOrderBy('UserIDs')\"></span></th>\n                    <th width=\"45%\" (click)=\"sortUnitData('RoleTypeId')\">Description <span [ngClass]=\"getFieldOrderBy('RoleTypeId')\"></span></th>\n                    <th width=\"10%\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let category of interestGroupUsers| orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n                    <td class=\"name\">{{category.broadCastGroupCategoryID}}</td>\n                    <td class=\"grey\">{{category.UserIDs}}</td>\n                    <td class=\"grey\">{{category.RoleTypeId}}</td>\n                    <td class=\"grey\">\n                \n                        <a class=\"\" (click)=\"updateData(category)\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n                        <a class=\"\" (click)=\"showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                    </td>\n                    </tr>\n                </tbody>\n            </table>\n\n            <app-pagination \n                [totalItems]=\"totalItems\"  \n                [ItemStartIndex]=\"ItemStartIndex\"\n                [ItemEndIndex] = \"ItemEndIndex\"\n                [itemLimit] = \"itemLimit\"\n                (outputParams) = \"getIndexParams($event)\">\t\n            </app-pagination>\n        </div>\n        </div> -->\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"broadcastgroupAssignment-setup-wrapper\">\n        <div  class=\"card clear form-group\" id=\"mapaccordion\" >\n    <div class=\"card-body\">\n        <ul class=\"list-group  clear\">\n            <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseMap\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n                <h5>Assign Users to Interest Group</h5>  \n            </li>\n            <div id=\"typeCollapseMap\"  aria-labelledby=\"headingOne\" data-parent=\"#mapaccordion\">\n                <div class=\"details\">\n                    <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n                    <form #mapGroupUserForm = \"ngForm\" name=\"mapGroupUserForm\" (ngSubmit)=\"submitMapGroupUserForm(mapGroupUserForm)\"  novalidate>\n                    <div class=\"row mt-4\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                    <div class=\"input-box\">\n                                        <label>Interest Group Category*</label>\n                                        <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                        [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                         (onSelect)=\"getUsersBycategory($event)\" \n                                         (onDeSelect)=\"removeCategory()\"\n                                          (onDeSelectAll)=\"removeCategory()\"   \n                                          [settings]=\"groupCategorySetting\"  required>\n                                        </angular2-multiselect>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                            <!-- <div  class=\"col-sm-4\"> \n                                <div class=\"select-box\">                             \n                                    <label>Role Type</label>\n                                    <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                       [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                       [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                        (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"\n                                    ></angular2-multiselect>\n                                 </div>\n                              </div> -->\n                                <div  class=\"col-sm-12\">\n                                    <div class=\"select-box\">\n                                        <label> Role</label>\n                                        <angular2-multiselect\n                                         [data]=\"roleCategory.dropdownList\"     name=\"roleDropDown\"\n                                            [(ngModel)]=\"roleCategory.selectedItems\"\n                                            [settings]=\"roleDropdownSettings\" \n                                            (onSelect)='getUsers()'\n                                             (onDeSelect)='getUsers()'\n                                             (onSelectAll)=\"getUsers()\" \n                                              (onDeSelectAll)=\"removeAllRole()\">    \n                                        </angular2-multiselect>\n                                    </div>  \n                                </div>                        \n                            </div>\n                            <div class=\"row\">\n                                <div  class=\"col-sm-12\">\n                                    <div class=\"select-box\">\n                                        <label>Appartment Block</label>\n                                        <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                             [settings]=\"blockdropdownSettings\"\n                                            (onSelect)='getUsers()' \n                                            (onDeSelect)='getUsers()'\n                                             (onSelectAll)=\"getUsers()\"  \n                                             (onDeSelectAll)=\"removeAllBlock()\">\n                                        </angular2-multiselect>\n                                    </div>  \n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div  class=\"col-sm-12\"> \n                                    <div class=\"select-box\">                             \n                                        <label>Users*</label>\n                                        <angular2-multiselect [data]=\"users.dropdownList\" name=\"userTypeDropDown\"\n                                            [(ngModel)]=\"users.selectedItems\"\n                                             [settings]=\"usersDropdownSettings\"  required\n                                        ></angular2-multiselect>\n                                    </div>\n                                 </div>                     \n                             \n                            </div>\n                            <!-- <div class=\"row\">\n                                <div  class=\"col-sm-12\"> \n                                    <div class=\"select-box\"> \n                                       <label>Users *</label>\n          <input type=\"text\" placeholder=\"serach user\" matInput   (keyup)=\"search($event)\" />\n    <mat-autocomplete #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of filteredUsers\" [value]=\"option\">\n        {{option.userName}}\n      </mat-option>\n    </mat-autocomplete>\n   </div>\n                                 </div>                     \n                             \n                            </div> -->\n\n\n                        </div>\n            <div class=\"col-sm-2\">\n                <div class=\"row\">\n                    <div  class=\"col-sm-8\">\n                        <div class=\"select-box\" style=\"transform: translateY(120px);\">                         \n                            <button  type=\"button\" class=\"btn\" [disabled]=\"mapGroupUserForm.invalid\" > \n                                <label class=\"assignBtn\"> Assign</label>\n                                <i class=\"fa fa-long-arrow-right\" style=\"font-size:60px;\" (click)='assignUser()' aria-hidden=\"true\"></i>\n                            </button>\n                        </div>  \n                    </div> \n                </div>\n                \n            </div>\n            <div class=\"col-sm-4\">\n           <div class=\"row mt-3\">\n             <div class=\"col-sm-12\" style=\"border: 1px solid #cccccc;height: 320px;\">\n                 <li *ngFor=\"let user of assignUsers\">\n                        {{ user.userFullName }}\n                      </li>\n                \n             </div>\n           </div>\n\n             </div>\n           </div>\n                \n             \n          \n            \n        \n          \n            \n            <!-- <div class=\"row\">\n              <div class=\"col-sm-12\">\n                <div class=\"list-inline float-right mt-4\">\n                   \n                    <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"Cancel()\">Cancel</button>\n                    <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"mapGroupUserForm.invalid\">Submit</button>\n                   \n                </div>\n              </div>\n            </div> -->\n                   </form>\n\n        </div>\n        </div>\t\n        </ul>\n    </div>\n        </div>              \n\n        <!-- <div class=\"card card-table\">\n            <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Interest Group Users <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n                </li>\n            \n            </ul>\n            </div>\n\n            <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n            <div class=\"card-body p-0\">\n\n            <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                    <th width=\"15%\" (click)=\"sortUnitData('broadCastGroupCategoryID')\">Category ID<span [ngClass]=\"getFieldOrderBy('broadCastGroupCategoryID')\"></span></th>\n                    <th width=\"30%\" (click)=\"sortUnitData('UserIDs')\">Broadcast Category <span [ngClass]=\"getFieldOrderBy('UserIDs')\"></span></th>\n                    <th width=\"45%\" (click)=\"sortUnitData('RoleTypeId')\">Description <span [ngClass]=\"getFieldOrderBy('RoleTypeId')\"></span></th>\n                    <th width=\"10%\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let category of interestGroupUsers| orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n                    <td class=\"name\">{{category.broadCastGroupCategoryID}}</td>\n                    <td class=\"grey\">{{category.UserIDs}}</td>\n                    <td class=\"grey\">{{category.RoleTypeId}}</td>\n                    <td class=\"grey\">\n                \n                        <a class=\"\" (click)=\"updateData(category)\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n                        <a class=\"\" (click)=\"showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                    </td>\n                    </tr>\n                </tbody>\n            </table>\n\n            <app-pagination \n                [totalItems]=\"totalItems\"  \n                [ItemStartIndex]=\"ItemStartIndex\"\n                [ItemEndIndex] = \"ItemEndIndex\"\n                [itemLimit] = \"itemLimit\"\n                (outputParams) = \"getIndexParams($event)\">\t\n            </app-pagination>\n        </div>\n        </div> -->\n</div>\n";
     /***/
   },
 
@@ -93,7 +93,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"broadcast-removeuser-wrapper\">\n    <div class=\"card card-table\">\n        <div class=\"card-header\">\n        <div class=\"float-left\">\n            <h5>Broadcast Category <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n        </div>\n        <ul class=\"list-inline\">\n            <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n            </li>\n            <!-- <li class=\"list-inline-item\">\n                <a class=\"btn l-blue mt_5\">\n                    <i-feather class=\"icon print\" name=\"printer\"></i-feather>\n                    <span>Print</span>\n                </a>\n            </li> -->\n        </ul>\n        </div>\n    \n        <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n        <div class=\"row\">\n            <div class=\"col-sm-4 mt-3\">\n                <div class=\"input-box m-4\">\n                    <h5>Interest Group Category*</h5>\n                    <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                         [(ngModel)]=\"broadCastGroupCategory.selectedItems\" (onSelect)=\"getUsersBycategory($event)\"\n                         (onDeSelect)=\"deSelectCategory()\"  (onDeSelectAll)=\"deSelectCategory()\"\n                         [settings]=\"groupCategorySetting\"  required>\n                    </angular2-multiselect>\n                </div>\n            </div>\n        </div>\n          <div class=\"card-body p-0 mt-3\">\n\n    \n        <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                <th width=\"20%\" (click)=\"sortUnitData('groupCategory')\">Interest Group<span [ngClass]=\"getFieldOrderBy('groupCategory')\"></span></th>\n                <th width=\"20%\" (click)=\"sortUnitData('roleId')\">Role<span [ngClass]=\"getFieldOrderBy('roleId')\"></span></th>\n                <th width=\"10%\" (click)=\"sortUnitData('blockId')\">Block <span [ngClass]=\"getFieldOrderBy('blockId')\"></span></th>\n                <th width=\"10%\" (click)=\"sortUnitData('unitId')\">Unit <span [ngClass]=\"getFieldOrderBy('unitId')\"></span></th>\n                <th width=\"30%\" (click)=\"sortUnitData('userId')\">User <span [ngClass]=\"getFieldOrderBy('userId')\"></span></th>\n                <th width=\"10%\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let groupUser of allGroupUser | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n                <td class=\"name\">{{groupUser.groupCategory}}</td>\n                <td class=\"name\">{{groupUser.role}}</td>\n                <td class=\"grey\">{{groupUser.block}}</td>\n                <td class=\"grey\">{{groupUser.unit}}</td>\n                <td class=\"grey\">{{groupUser.user}}</td>\n                <td class=\"grey\">\n                <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"removeUser(groupUser)\">Remove</button>\n                </td>\n                </tr>\n            </tbody>\n        </table>\n    \n        <app-pagination \n            [totalItems]=\"totalItems\"  \n            [ItemStartIndex]=\"ItemStartIndex\"\n            [ItemEndIndex] = \"ItemEndIndex\"\n            [itemLimit] = \"itemLimit\"\n            (outputParams) = \"getIndexParams($event)\">\t\n        </app-pagination>\n    </div>\n    </div>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"broadcast-removeuser-wrapper\">\n    <div class=\"card card-table\">\n     \n    \n        <!-- <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box> -->\n        <div class=\"row\">\n            <div class=\"col-sm-4 mt-3\">\n                <div class=\"input-box m-4\">\n                    <h5>Interest Group Category*</h5>\n                    <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                         [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                          (onSelect)=\"getUsersBycategory($event)\"\n                         (onDeSelect)=\"deSelectCategory()\"\n                           (onDeSelectAll)=\"deSelectCategory()\"\n                         [settings]=\"groupCategorySetting\"  required>\n                    </angular2-multiselect>\n                </div>\n            </div>\n        </div>\n          <div class=\"card-body p-0 mt-3\">\n\n    \n        <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                <th width=\"20%\" (click)=\"sortUnitData('groupCategory')\">Interest Group<span [ngClass]=\"getFieldOrderBy('groupCategory')\"></span></th>\n                <th width=\"20%\" (click)=\"sortUnitData('roleId')\">Role<span [ngClass]=\"getFieldOrderBy('roleId')\"></span></th>\n                <th width=\"10%\" (click)=\"sortUnitData('blockId')\">Block <span [ngClass]=\"getFieldOrderBy('blockId')\"></span></th>\n                <th width=\"10%\" (click)=\"sortUnitData('unitId')\">Unit <span [ngClass]=\"getFieldOrderBy('unitId')\"></span></th>\n                <th width=\"30%\" (click)=\"sortUnitData('userId')\">User <span [ngClass]=\"getFieldOrderBy('userId')\"></span></th>\n                <th width=\"10%\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let groupUser of allGroupUser | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n                <td class=\"name\">{{groupUser.groupCategory}}</td>\n                <td class=\"name\">{{groupUser.role}}</td>\n                <td class=\"grey\">{{groupUser.block}}</td>\n                <td class=\"grey\">{{groupUser.unit}}</td>\n                <td class=\"grey\">{{groupUser.user}}</td>\n                <td class=\"grey\">\n                <button type=\"button\" class=\"btn blue mr-4\"\n                  (click)=\"removeMappedUser(groupUser.broadCastGroupCategoryUserId)\">Remove</button>\n                </td>\n                </tr>\n            </tbody>\n        </table>\n    \n        <app-pagination \n            [totalItems]=\"totalItems\"  \n            [ItemStartIndex]=\"ItemStartIndex\"\n            [ItemEndIndex] = \"ItemEndIndex\"\n            [itemLimit] = \"itemLimit\"\n            (outputParams) = \"getIndexParams($event)\">\t\n        </app-pagination>\n    </div>\n    </div>\n\n</div>\n";
     /***/
   },
 
@@ -113,7 +113,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"broadcast-message-wrapper\">\n\t\n    <div class=\"card clear form-group\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>\n                    <span>Broadcast Message</span>\n                </h5>\n            </div>\n            <div class=\"float-right\">\n                <!-- <a href=\"javascript:void(0)\" \n                routerLink=\"/ams/work-permit/settings/approval\" \n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions] = \"{exact:true}\">\n                    <i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n                </a> -->\n            </div>\n        </div>\n        \n        <div class=\"card-body\">\n    \n        <!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n        <!-- <ng-container *ngIf=\"!isBroadCastSubmitted\"> -->\n        <ng-container>\n        <form #createBroadcastMessageForm = \"ngForm\" name=\"createBroadcastMessageForm\" (ngSubmit)=\"submitCreateBroadcastMessageForm(createBroadcastMessageForm)\"  novalidate>\n        \n        <div class=\"row\">\n            <div class=\"col-sm-10 offset-sm-1\">\n                <!-- <mat-tab-group dynamicHeight> -->\n                    <!-- <mat-tab label=\"Role Based\"> -->\n\n                        <ul class=\"nav nav-tabs nav-fill\" id=\"nav-tab\" role=\"tablist\">\n                            \n                            <li ><a class=\"nav-item nav-link active\" id=\"nav-menu1-tab\" data-toggle=\"tab\" role=\"tab\" href=\"#menu1\" (click)=\"currentTab('role')\">Role Based</a></li>\n                            <li><a class=\"nav-item nav-link\" id=\"nav-menu2-tab\" data-toggle=\"tab\" role=\"tab\" href=\"#menu2\" (click)=\"currentTab('interest')\">Interest Group based</a></li>\n                            \n                          </ul>\n                          <div class=\"tab-content\" id=\"nav-tabContent\">\n\n                            <div id=\"menu1\" role=\"tabpanel\" ria-labelledby=\"nav-menu1-tab\" class=\"tab-pane show active\">\n\n                                <div class=\"row\"> \n                                    <div  class=\"col-sm-4\">\n                                     <div class=\"select-box\">\n                                         <label>Role Type</label>\n                                         <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                         [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                         [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                         (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                                     </div>  \n                                     </div>\n                                     <div  class=\"col-sm-4\">\n                                        <div class=\"select-box\">\n                                            <label>Apartment Block</label>\n                                            <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                            [settings]=\"blockdropdownSettings\"\n                                            (onSelect)=\"updateUsers()\"\n                                            ></angular2-multiselect>\n                                        </div>  \n                                            </div>\n                                            <div  class=\"col-sm-4\">\n                                                <div class=\"select-box\">\n                                                    <label>Conditions</label>\n                                                    <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                                    [(ngModel)]=\"condition.selectedItems\"\n                                                    [settings]=\"roleDropdownSettings\" \n                                                    (onSelect)=\"updateUsers()\"\n                                                    ></angular2-multiselect>\n                                                </div>  \n                                             </div>\n                                        </div>\n                                    <div class=\"row\"> \n                                            <div  class=\"col-sm-4\">\n                                             <div class=\"select-box\">\n                                                 <label>Role</label>\n                                                 <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                                 [(ngModel)]=\"roleCategory.selectedItems\"\n                                                 [settings]=\"roleDropdownSettings\"\n                                                 (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                                                 (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                                                 >\n                                                  \n                                                </angular2-multiselect>\n                                             </div>  \n                                                 </div>\n                                                 <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                                                    <div class=\"select-box\">\n                                                        <label>Staff Category</label>\n                                                        <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                                                        [(ngModel)]=\"staffCategory.selectedItems\"\n                                                        [settings]=\"dropdownSettings\"\n                                                        (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                                                        (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                                         (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                                                    </angular2-multiselect>\n                                                    </div>  \n                                                        </div>\n                                                        <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                                                            <div class=\"select-box\">\n                                                                <label>Staff SubCategory</label>\n                                                                <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                                                                [(ngModel)]=\"staffSubCategory.selectedItems\"\n                                                                [settings]=\"dropdownSettings\"\n                                                                (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                                                                (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                                                                (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                                                                ></angular2-multiselect>\n                                                            </div>  \n                                                                </div>\n                                                </div>\n                                             <!-- </mat-tab>\n                            <mat-tab label=\"Interest Group Based \"> \n                                \n                                Content 2 </mat-tab>\n                            \n                           </mat-tab-group>  -->\n                                </div>  \n                        <div id=\"menu2\" role=\"tabpanel\" ria-labelledby=\"nav-menu2-tab\" class=\"tab-pane \">\n                            <div class=\"row\">\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>Interest Group Category*</label>\n                                        <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                        [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                        [settings]=\"groupCategorySetting\"  (onSelect)=\"selectInterestGroup($event)\" \n                                        (onDeSelect)=\"removeInterestGroup($event)\" required></angular2-multiselect>\n                                    </div>\n                                    </div>\n                                </div>\n                          </div>\n\n                          \n\n                          </div>\n\n                        \n                       \n                                <div class=\"row recipentsDiv\" > \n                                    <div class=\"col-sm-12\">\n                                       <label>Recipients</label>\n                                        <div  class=\"col-sm-12 box\" >\n                                     <label *ngFor=\"let user of users\" >\n                                         {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                                     </label>\n\n                                         </div> \n                                    </div> \n                                </div>\n                 \n                <div class=\"row\"> \n                    <div  class=\"col-sm-4\" *ngIf=\"IsBroadcast\">\n                     <div class=\"select-box\">\n                         <label>Broadcast Category*</label>\n                         <angular2-multiselect  [data]=\"broadCastCategory.dropdownList\" name=\"broadcastDropDown\"\n                         [(ngModel)]=\"broadCastCategory.selectedItems\"\n                         [settings]=\"broadCastdropdownSettings\" (onSelect)=\"categoryChange($event)\" required></angular2-multiselect>\n                     </div>  \n                   </div>\n                   <div  class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Broadcast Mode*</label>\n                        <angular2-multiselect  [data]=\"broadModeArr.dropdownList\" name=\"BroadCastModeDropDown\"\n                        [(ngModel)]=\"broadModeArr.selectedItems\"\n                        [settings]=\"roleDropdownSettings\"  required></angular2-multiselect>\n                    </div> \n                </div>\n                \n                   <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Subject*</label>\n                            <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\" name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                            <quill-editor\n                                class=\"quill-editor\"\n                                name=\"ckeditor\"\n                                [placeholder]=\"editorPlacehorder\"\n                                [(ngModel)]=\"message.ckeditor\"\n                                (onContentChanged)=\"onContentChanged($event)\">\n                            </quill-editor>\n                        </div>\n                    </div>\n            \n                    <div class=\"col-sm-12\">\n                      <ul class=\"list-inline float-right mt-4\">\n                        <li class=\"list-inline-item\">\n                          <button class=\"btn blue mr-2\" (click)=\"ClearFormData()\">Cancel</button>\n                          <button class=\"btn blue mr-2\" [disabled]=\"createBroadcastMessageForm.invalid\">Submit</button>\n                        </li>\n                      </ul>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n      </form>\n    </ng-container>\n  </div>\n</div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"broadcast-message-wrapper\">\n\t\n    <div class=\"card clear form-group\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>\n                    <span>Broadcast Message</span>\n                </h5>\n            </div>\n            <div class=\"float-right\">\n                <!-- <a href=\"javascript:void(0)\" \n                routerLink=\"/ams/work-permit/settings/approval\" \n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions] = \"{exact:true}\">\n                    <i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n                </a> -->\n            </div>\n        </div>\n        \n        <div class=\"card-body\">\n    \n        <!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n        <!-- <ng-container *ngIf=\"!isBroadCastSubmitted\"> -->\n        <ng-container>\n        <form #createBroadcastMessageForm = \"ngForm\" name=\"createBroadcastMessageForm\" (ngSubmit)=\"submitCreateBroadcastMessageForm(createBroadcastMessageForm)\"  novalidate>\n        \n        <div class=\"row\">\n            <div class=\"col-sm-10 offset-sm-1\">\n                <!-- <mat-tab-group dynamicHeight> -->\n                    <!-- <mat-tab label=\"Role Based\"> -->\n\n                        <ul class=\"nav nav-tabs nav-fill\" id=\"nav-tab\" role=\"tablist\">\n                            \n                            <li ><a class=\"nav-item nav-link active\" id=\"nav-menu1-tab\" data-toggle=\"tab\" role=\"tab\" href=\"#menu1\" (click)=\"currentTab('role')\">Role Based</a></li>\n                            <li><a class=\"nav-item nav-link\" id=\"nav-menu2-tab\" data-toggle=\"tab\" role=\"tab\" href=\"#menu2\" (click)=\"currentTab('interest')\">Interest Group based</a></li>\n                            \n                          </ul>\n                          <div class=\"tab-content\" id=\"nav-tabContent\">\n\n                            <div id=\"menu1\" role=\"tabpanel\" ria-labelledby=\"nav-menu1-tab\" class=\"tab-pane show active\">\n\n                                <div class=\"row\"> \n                                    <div  class=\"col-sm-4\">\n                                     <div class=\"select-box\">\n                                         <label>Role Type</label>\n                                         <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                         [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                         [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                         (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                                     </div>  \n                                     </div>\n                                     <div  class=\"col-sm-4\">\n                                        <div class=\"select-box\">\n                                            <label>Apartment Block</label>\n                                            <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                            [settings]=\"blockdropdownSettings\"\n                                            (onSelect)=\"updateUsers()\"\n                                            (onDeSelect)=\"updateUsers()\"\n                                            (onSelectAll)=\"updateUsers()\"\n                                            (onDeSelectAll)=\"updateUsers()\"\n                                            ></angular2-multiselect>\n                                        </div>  \n                                            </div>\n                                            <div  class=\"col-sm-4\">\n                                                <div class=\"select-box\">\n                                                    <label>Conditions</label>\n                                                    <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                                    [(ngModel)]=\"condition.selectedItems\"\n                                                    [settings]=\"roleDropdownSettings\" \n                                                    (onSelect)=\"updateUsers()\"\n                                                    (onDeSelect)=\"updateUsers()\"\n                                                    (onSelectAll)=\"updateUsers()\"\n                                                    (onDeSelectAll)=\"updateUsers()\"\n                                                    ></angular2-multiselect>\n                                                </div>  \n                                             </div>\n                                        </div>\n                                    <div class=\"row\"> \n                                            <div  class=\"col-sm-4\">\n                                             <div class=\"select-box\">\n                                                 <label>Role</label>\n                                                 <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                                 [(ngModel)]=\"roleCategory.selectedItems\"\n                                                 [settings]=\"roleDropdownSettings\"\n                                                 (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                                                 (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                                                 >\n                                                  \n                                                </angular2-multiselect>\n                                             </div>  \n                                                 </div>\n                                                 <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                                                    <div class=\"select-box\">\n                                                        <label>Staff Category</label>\n                                                        <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                                                        [(ngModel)]=\"staffCategory.selectedItems\"\n                                                        [settings]=\"dropdownSettings\"\n                                                        (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                                                        (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                                         (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                                                    </angular2-multiselect>\n                                                    </div>  \n                                                        </div>\n                                                        <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                                                            <div class=\"select-box\">\n                                                                <label>Staff SubCategory</label>\n                                                                <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                                                                [(ngModel)]=\"staffSubCategory.selectedItems\"\n                                                                [settings]=\"dropdownSettings\"\n                                                                (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                                                                (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                                                                (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                                                                ></angular2-multiselect>\n                                                            </div>  \n                                                                </div>\n                                                </div>\n                                             <!-- </mat-tab>\n                            <mat-tab label=\"Interest Group Based \"> \n                                \n                                Content 2 </mat-tab>\n                            \n                           </mat-tab-group>  -->\n                                </div>  \n                        <div id=\"menu2\" role=\"tabpanel\" ria-labelledby=\"nav-menu2-tab\" class=\"tab-pane \">\n                            <div class=\"row\">\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\" *ngIf=\"selectedTab=='interest'\">\n                                        <label>Interest Group Category*</label>\n                                        <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                        [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                        [settings]=\"groupCategorySetting\"\n                                          (onSelect)=\"selectInterestGroup($event)\" \n                                        (onDeSelect)=\"removeInterestGroup($event)\" \n                                        (onDeSelectAll)=\"removeInterestGroup($event)\"\n                                        required></angular2-multiselect>\n                                    </div>\n                                    </div>\n                                </div>\n                          </div>\n\n                          \n\n                          </div>\n\n                        \n                       \n                                <div class=\"row recipentsDiv\" > \n                                    <div class=\"col-sm-12\">\n                                       <label>Recipients</label>\n                                  <div  class=\"col-sm-12 box\" *ngIf=\"IsBroadcast\" >\n                                     <label *ngFor=\"let user of users\" >\n                                         {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                                     </label>\n                                        </div> \n                                   <div  class=\"col-sm-12 box\" *ngIf=\"!IsBroadcast\" >\n                                 <label *ngFor=\"let user of AssignInterestUsers\" >\n                                              {{user.userFullName +\",\"}}\n                                          </label>\n                                             </div> \n\n                                        \n                                    </div> \n                                </div>\n                 \n                <div class=\"row\"> \n                    <div  class=\"col-sm-4\" *ngIf=\"IsBroadcast\">\n                     <div class=\"select-box\">\n                         <label>Broadcast Category*</label>\n                         <angular2-multiselect  [data]=\"broadCastCategory.dropdownList\" name=\"broadcastDropDown\"\n                         [(ngModel)]=\"broadCastCategory.selectedItems\"\n                         [settings]=\"broadCastdropdownSettings\" (onSelect)=\"categoryChange($event)\" required></angular2-multiselect>\n                     </div>  \n                   </div>\n                   <div  class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Broadcast Mode*</label>\n                        <angular2-multiselect  [data]=\"broadModeArr.dropdownList\" name=\"BroadCastModeDropDown\"\n                        [(ngModel)]=\"broadModeArr.selectedItems\"\n                        [settings]=\"roleDropdownSettings\"  required></angular2-multiselect>\n                    </div> \n                </div>\n                \n                   <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Subject*</label>\n                            <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\" name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                            <quill-editor\n                                class=\"quill-editor\"\n                                name=\"ckeditor\"\n                                [placeholder]=\"editorPlacehorder\"\n                                [(ngModel)]=\"message.ckeditor\"\n                                (onContentChanged)=\"onContentChanged($event)\">\n                            </quill-editor>\n                        </div>\n                    </div>\n            \n                    <div class=\"col-sm-12\">\n                      <ul class=\"list-inline float-right mt-4\">\n                        <li class=\"list-inline-item\">\n                          <button class=\"btn blue mr-2\" (click)=\"ClearFormData()\">Cancel</button>\n                          <button class=\"btn blue mr-2\" [disabled]=\"createBroadcastMessageForm.invalid\">Submit</button>\n                        </li>\n                      </ul>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n      </form>\n    </ng-container>\n  </div>\n</div>\n</div>";
     /***/
   },
 
@@ -153,7 +153,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n\n<div class=\"broadcastgroup-setup-wrapper\">\n    \n    <div class=\"card clear form-group\" id=\"accordion\">\n\t\t<div class=\"card-body p-0\">\n\t\t\t<ul class=\"list-group  clear\">\n\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n\t\t\t\t<h5>{{(!isEdit)?'Add':'Update'}} Interest Group</h5>\n\t\t\t</li>\n\t\t\t<div id=\"typeCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t<div class=\"details\">\n\n            <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n            <form #createBroadcastGroupCategoryForm = \"ngForm\" name=\"createBroadcastGroupCategoryForm\" (ngSubmit)=\"submitcreateBroadcastGroupCategoryForm(createBroadcastGroupCategoryForm)\"  novalidate>\n                <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                       <label> Interest Group Name*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Group Name\" name=\"groupName\" [(ngModel)]=\"groupCategory.groupName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>Priviledge*</label>\n                        <angular2-multiselect  [data]=\"privilageCategory.dropdownList\" name=\"privilegeModeDropDown\"\n                [(ngModel)]=\"privilageCategory.selectedItems\"\n                [settings]=\"dropdownSettings\"  required></angular2-multiselect>                    </div>\n                </div>\n            </div>\n                <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <!-- <quill-editor\n                            class=\"quill-editor\"\n                            name=\"ckeditor\"\n                            [placeholder]=\"editorPlacehorder\"\n                            [(ngModel)]=\"groupCategory.comment\"\n                            (onContentChanged)=\"onContentChanged($event)\">\n                        </quill-editor> -->\n                        <textarea class=\"form-control\" rows=5 placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"groupCategory.description\"></textarea>\n                        <!-- <textarea class=\"form-control\" placeholder=\"Enter\" name=\"template\" [(ngModel)]=\"category.template\" required></textarea> -->\n                    </div>\n                </div>\n                </div>\n        <div class=\"row\">\n            <!-- <div *ngIf=\"(groupCategory.parentId!=null) || (!isEdit)\" class=\"col-sm-6\">\n                <div class=\"select-box\">\n                    <label>Parent Category</label>\n                    <select \n                        name=\"parentId\" \n                        id=\"parentId\" \n                        class=\"form-control\"\n                        [(ngModel)]=\"groupCategory.parentId\"  (ngModelChange)=\"getParent(groupCategory.parentId)\" >\n                        <option value=\"\" disabled selected hidden>Select</option>\n                         <option *ngFor=\"let item of parentCategoryList\" [value]=\"item.value\">{{ item.name }}</option>\n                     </select>\n                </div>\n             </div> -->\n            <!-- <div class=\"col-sm-6\">\n                <div class=\"input-box radio-box\">\n                    <label>Authorize*</label>\n                    \n                </div>\n                <div class=\"form-check recur-check float-left mr-4\">\n                    <input type=\"checkbox\" id=\"isUser\" [(ngModel)]=\"groupCategory.isUser\" name=\"isUser\" value=\"1\" class=\"form-check-input\">\n                    <label for=\"isUser\" class=\"form-check-label tiny\">User</label>\n                </div>\n                <div class=\"form-check recur-check float-left mr-4\">\n                    <input type=\"checkbox\" id=\"isAdmin\" [(ngModel)]=\"groupCategory.isUser\" name=\"isAdmin\" value=\"2\" class=\"form-check-input\">\n                    <label for=\"isAdmin\" class=\"form-check-label tiny\">Admin</label>\n                </div>\n\n                \n            </div>  -->\n            \n            </div>\n        \n                <div class=\"row\">\n                  <div class=\"col-sm-12\">\n                    <div class=\"list-inline float-right mt-4\">\n                       \n                        <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"Cancel()\">Cancel</button>\n                        <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"createBroadcastGroupCategoryForm.invalid\" *ngIf=\"!isEdit\">Submit</button>\n                        <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"createBroadcastGroupCategoryForm.invalid\" *ngIf=\"isEdit\">Update</button>\n                    </div>\n                  </div>\n                </div>\n            </form>\n\n\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t</ul>\n\t\t</div>\n    </div>\n    \n\n <div class=\"card card-table\">\n    <div class=\"card-header\" >\n    <div class=\"float-left\">\n        <h5>Interest Group  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    </div>\n    <ul class=\"list-inline\">\n        <li class=\"list-inline-item search d-none d-md-inline-block\">\n            <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n        </li>\n       \n    </ul>\n    </div>\n\n    <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n  \t<div class=\"card-body p-0\">\n\n    <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n        <thead>\n            <tr>\n            <th width=\"10%\" (click)=\"sortUnitData('serialNo')\">Serial NO<span [ngClass]=\"getFieldOrderBy('serialNo')\"></span></th>\n            <th width=\"30%\" (click)=\"sortUnitData('groupName')\">Broadcast Group Category <span [ngClass]=\"getFieldOrderBy('groupName')\"></span></th>\n            <th width=\"20%\" (click)=\"sortUnitData('description')\">Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n            <th width=\"30%\" (click)=\"sortUnitData('privilege')\">Privilege <span [ngClass]=\"getFieldOrderBy('privilege')\"></span></th>\n            <th width=\"10%\">Action</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr *ngFor=\"let groupCategory of allBroadcastGroupCategory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n            <td class=\"name\">{{groupCategory.serialNo}}</td>\n            <td class=\"grey\">{{groupCategory.groupName}}</td>\n            <td class=\"grey\">{{groupCategory.description}}</td>\n            <td class=\"grey\">{{groupCategory.privilege}}</td>\n            \n            <td class=\"grey\">\n                <a class=\"\" (click)=\"updateData(groupCategory)\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n                <a class=\"\" (click)=\"showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n            </td>\n            </tr>\n        </tbody>\n    </table>\n\n    <app-pagination \n        [totalItems]=\"totalItems\"  \n        [ItemStartIndex]=\"ItemStartIndex\"\n        [ItemEndIndex] = \"ItemEndIndex\"\n        [itemLimit] = \"itemLimit\"\n        (outputParams) = \"getIndexParams($event)\">\t\n    </app-pagination>\n</div>\n<!-- </div>\n\n</div> -->\n\n";
+    __webpack_exports__["default"] = "\n\n<div class=\"broadcastgroup-setup-wrapper\">\n    \n    <div class=\"card clear form-group\" id=\"accordion\">\n\t\t<div class=\"card-body p-0\">\n\t\t\t<ul class=\"list-group  clear\">\n\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n\t\t\t\t<h5>{{(!isEdit)?'Add':'Update'}} Interest Group</h5>\n\t\t\t</li>\n\t\t\t<div id=\"typeCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t<div class=\"details\">\n\n            <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n            <form #createBroadcastGroupCategoryForm = \"ngForm\" name=\"createBroadcastGroupCategoryForm\" (ngSubmit)=\"submitcreateBroadcastGroupCategoryForm(createBroadcastGroupCategoryForm)\"  novalidate>\n                <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box m-3\">\n                       <label> Interest Group Name*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Group Name\" name=\"groupName\" [(ngModel)]=\"groupCategory.groupName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box m-3\">\n                        <label>Priviledge*</label>\n                        <angular2-multiselect  [data]=\"privilageCategory.dropdownList\" name=\"privilegeModeDropDown\"\n                [(ngModel)]=\"privilageCategory.selectedItems\"\n                [settings]=\"dropdownSettings\"  required></angular2-multiselect>                    </div>\n                </div>\n            </div>\n                <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box m-3\">\n                        <label>Description</label>\n                     <textarea class=\"form-control\" rows=5 placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"groupCategory.description\"></textarea>\n               \n                    </div>\n                </div>\n                </div>\n        <div class=\"row\">\n           \n            </div>\n        \n                <div class=\"row\">\n                  <div class=\"col-sm-12\">\n                    <div class=\"list-inline float-right  mt-4 mb-4\">\n                       \n                        <button type=\"button\" class=\"btn blue mr-4\"  (click)=\"Cancel()\">Cancel</button>\n                        <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"createBroadcastGroupCategoryForm.invalid\" *ngIf=\"!isEdit\">Submit</button>\n                        <button type=\"submit\" class=\"btn blue mr-2\" [disabled]=\"createBroadcastGroupCategoryForm.invalid\" *ngIf=\"isEdit\">Update</button>\n                    </div>\n                  </div>\n                </div>\n            </form>\n\n\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t</ul>\n\t\t</div>\n    </div>\n    \n\n <div class=\"card card-table\">\n    <div class=\"card-header\" >\n    <div class=\"float-left\">\n        <h5>Interest Group  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    </div>\n    <ul class=\"list-inline\">\n        <li class=\"list-inline-item search d-none d-md-inline-block\">\n            <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bcData\" >\n        </li>\n       \n    </ul>\n    </div>\n\n    <app-filter-box *ngIf=\"isDataLoaded\" [totalItems]=\"totalFilterItems\" class=\"d-sm-block d-none\"></app-filter-box>\n\n  \t<div class=\"card-body p-0\">\n\n    <table class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n        <thead>\n            <tr>\n            <th width=\"10%\" (click)=\"sortUnitData('serialNo')\">Serial NO<span [ngClass]=\"getFieldOrderBy('serialNo')\"></span></th>\n            <th width=\"30%\" (click)=\"sortUnitData('groupName')\">Broadcast Group Category <span [ngClass]=\"getFieldOrderBy('groupName')\"></span></th>\n            <th width=\"20%\" (click)=\"sortUnitData('description')\">Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n            <th width=\"30%\" (click)=\"sortUnitData('privilege')\">Privilege <span [ngClass]=\"getFieldOrderBy('privilege')\"></span></th>\n            <th width=\"10%\">Action</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr *ngFor=\"let groupCategory of allBroadcastGroupCategory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: bcData ; let i = index\">\n            <td class=\"name\">{{groupCategory.serialNo}}</td>\n            <td class=\"grey\">{{groupCategory.groupName}}</td>\n            <td class=\"grey\">{{groupCategory.description}}</td>\n            <td class=\"grey\">{{groupCategory.privilege}}</td>\n            \n            <td class=\"grey\">\n                <a class=\"\" (click)=\"updateData(groupCategory)\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n                <a class=\"\" (click)=\"showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n            </td>\n            </tr>\n        </tbody>\n    </table>\n\n    <app-pagination \n        [totalItems]=\"totalItems\"  \n        [ItemStartIndex]=\"ItemStartIndex\"\n        [ItemEndIndex] = \"ItemEndIndex\"\n        [itemLimit] = \"itemLimit\"\n        (outputParams) = \"getIndexParams($event)\">\t\n    </app-pagination>\n</div>\n\n\n";
     /***/
   },
 
@@ -376,6 +376,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./components/broadcast-announcements/broadcast-announcements.component */
     "./src/app/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! src/app/api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! src/app/api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
 
     var BroadcastModule = function BroadcastModule() {
       _classCallCheck(this, BroadcastModule);
@@ -383,7 +413,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastSetupComponent"], _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastHistoryComponent"], _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_7__["BroadcastSendmessageComponent"], _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_8__["BroadcastgroupSetupComponent"], _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_10__["BroadcastGroupAssignmentComponent"], _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_11__["BroadcastRemoveuserComponent"], _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastAnnouncementsComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"]]
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"]],
+      providers: [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__["BroadcastService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__["LookupService"]]
     })], BroadcastModule);
     /***/
   },
@@ -404,7 +435,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".broadcast-removeuser-wrapper {\n  margin-left: 100px;\n  margin-right: 121px;\n}\n.broadcast-removeuser-wrapper .carousel-caption1 {\n  position: absolute;\n  right: 10%;\n  top: 50px;\n  left: -30%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n.broadcast-removeuser-wrapper .carousel-caption2 {\n  position: absolute;\n  right: 26%;\n  top: 100px;\n  left: 10%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n.broadcast-removeuser-wrapper .carousel-caption3 {\n  position: absolute;\n  right: 15%;\n  bottom: 107px;\n  left: 10%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  color: #fff;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0VBQ0EsbUJBQUE7QUNDSjtBREFJO0VBQ0ksa0JBQUE7RUFDQSxVQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0FDRVI7QURBSTtFQUNJLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFVBQUE7RUFDQSxTQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0Esb0JBQUE7RUFDQSxrQkFBQTtBQ0VSO0FEQUk7RUFDSSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxhQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtFQUNBLG9CQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDRVIiLCJmaWxlIjoic3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnJvYWRjYXN0LXJlbW92ZXVzZXItd3JhcHBlcntcbiAgICBtYXJnaW4tbGVmdDogMTAwcHg7IFxuICAgIG1hcmdpbi1yaWdodDogMTIxcHg7XG4gICAgLmNhcm91c2VsLWNhcHRpb24xe1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIHJpZ2h0OiAxMCU7XG4gICAgICAgIHRvcDogNTBweDtcbiAgICAgICAgbGVmdDogLTMwJTtcbiAgICAgICAgei1pbmRleDogMTA7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIH1cbiAgICAuY2Fyb3VzZWwtY2FwdGlvbjJ7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgcmlnaHQ6IDI2JTtcbiAgICAgICAgdG9wOiAxMDBweDtcbiAgICAgICAgbGVmdDogMTAlO1xuICAgICAgICB6LWluZGV4OiAxMDtcbiAgICAgICAgcGFkZGluZy10b3A6IDIwcHg7XG4gICAgICAgIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgfVxuICAgIC5jYXJvdXNlbC1jYXB0aW9uM3tcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICByaWdodDogMTUlO1xuICAgICAgICBib3R0b206MTA3cHg7XG4gICAgICAgIGxlZnQ6IDEwJTtcbiAgICAgICAgei1pbmRleDogMTA7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgY29sb3I6ICNmZmY7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB9XG59IiwiLmJyb2FkY2FzdC1yZW1vdmV1c2VyLXdyYXBwZXIge1xuICBtYXJnaW4tbGVmdDogMTAwcHg7XG4gIG1hcmdpbi1yaWdodDogMTIxcHg7XG59XG4uYnJvYWRjYXN0LXJlbW92ZXVzZXItd3JhcHBlciAuY2Fyb3VzZWwtY2FwdGlvbjEge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAxMCU7XG4gIHRvcDogNTBweDtcbiAgbGVmdDogLTMwJTtcbiAgei1pbmRleDogMTA7XG4gIHBhZGRpbmctdG9wOiAyMHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLmJyb2FkY2FzdC1yZW1vdmV1c2VyLXdyYXBwZXIgLmNhcm91c2VsLWNhcHRpb24yIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogMjYlO1xuICB0b3A6IDEwMHB4O1xuICBsZWZ0OiAxMCU7XG4gIHotaW5kZXg6IDEwO1xuICBwYWRkaW5nLXRvcDogMjBweDtcbiAgcGFkZGluZy1ib3R0b206IDIwcHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5icm9hZGNhc3QtcmVtb3ZldXNlci13cmFwcGVyIC5jYXJvdXNlbC1jYXB0aW9uMyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDE1JTtcbiAgYm90dG9tOiAxMDdweDtcbiAgbGVmdDogMTAlO1xuICB6LWluZGV4OiAxMDtcbiAgcGFkZGluZy10b3A6IDIwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICBjb2xvcjogI2ZmZjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".broadcast-announcements-wrapper img {\n  width: 100%;\n}\n.broadcast-announcements-wrapper .carousel-caption1 {\n  position: absolute;\n  right: 10%;\n  top: 50px;\n  left: -30%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n.broadcast-announcements-wrapper .carousel-caption2 {\n  position: absolute;\n  top: 100px;\n  left: 22%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n.broadcast-announcements-wrapper .carousel-caption3 {\n  position: absolute;\n  right: 15%;\n  bottom: 87px;\n  left: 10%;\n  z-index: 10;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  color: #fff;\n  text-align: center;\n}\n.broadcast-announcements-wrapper angular2-multiselect .c-btn {\n  border: none !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMvYnJvYWRjYXN0LWFubm91bmNlbWVudHMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHSztFQUNDLFdBQUE7QUNGTjtBRElJO0VBQ0ksa0JBQUE7RUFDQSxVQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0FDRlI7QURJSTtFQUNJLGtCQUFBO0VBRUEsVUFBQTtFQUNBLFNBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0FDSFI7QURLSTtFQUNJLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFlBQUE7RUFDQSxTQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0Esb0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNIUjtBREtJO0VBQ0UsdUJBQUE7QUNITiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy9icm9hZGNhc3QtYW5ub3VuY2VtZW50cy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5icm9hZGNhc3QtYW5ub3VuY2VtZW50cy13cmFwcGVye1xuICAgIC8vIG1hcmdpbi1sZWZ0OiAxMDBweDsgXG4gICAgLy8gbWFyZ2luLXJpZ2h0OiAxMjFweDtcbiAgICAgaW1ne1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgfVxuICAgIC5jYXJvdXNlbC1jYXB0aW9uMXtcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICByaWdodDogMTAlO1xuICAgICAgICB0b3A6IDUwcHg7XG4gICAgICAgIGxlZnQ6IC0zMCU7XG4gICAgICAgIHotaW5kZXg6IDEwO1xuICAgICAgICBwYWRkaW5nLXRvcDogMjBweDtcbiAgICAgICAgcGFkZGluZy1ib3R0b206IDIwcHg7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB9XG4gICAgLmNhcm91c2VsLWNhcHRpb24ye1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIC8vIHJpZ2h0OiAyNiU7XG4gICAgICAgIHRvcDogMTAwcHg7XG4gICAgICAgIGxlZnQ6IDIyJTtcbiAgICAgICAgei1pbmRleDogMTA7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIH1cbiAgICAuY2Fyb3VzZWwtY2FwdGlvbjN7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgcmlnaHQ6IDE1JTtcbiAgICAgICAgYm90dG9tOjg3cHg7XG4gICAgICAgIGxlZnQ6IDEwJTtcbiAgICAgICAgei1pbmRleDogMTA7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgY29sb3I6ICNmZmY7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB9XG4gICAgYW5ndWxhcjItbXVsdGlzZWxlY3QgLmMtYnRuIHtcbiAgICAgIGJvcmRlcjogbm9uZSFpbXBvcnRhbnQ7IFxuICAgICAgXG4gIH1cbn0iLCIuYnJvYWRjYXN0LWFubm91bmNlbWVudHMtd3JhcHBlciBpbWcge1xuICB3aWR0aDogMTAwJTtcbn1cbi5icm9hZGNhc3QtYW5ub3VuY2VtZW50cy13cmFwcGVyIC5jYXJvdXNlbC1jYXB0aW9uMSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDEwJTtcbiAgdG9wOiA1MHB4O1xuICBsZWZ0OiAtMzAlO1xuICB6LWluZGV4OiAxMDtcbiAgcGFkZGluZy10b3A6IDIwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4uYnJvYWRjYXN0LWFubm91bmNlbWVudHMtd3JhcHBlciAuY2Fyb3VzZWwtY2FwdGlvbjIge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMTAwcHg7XG4gIGxlZnQ6IDIyJTtcbiAgei1pbmRleDogMTA7XG4gIHBhZGRpbmctdG9wOiAyMHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLmJyb2FkY2FzdC1hbm5vdW5jZW1lbnRzLXdyYXBwZXIgLmNhcm91c2VsLWNhcHRpb24zIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogMTUlO1xuICBib3R0b206IDg3cHg7XG4gIGxlZnQ6IDEwJTtcbiAgei1pbmRleDogMTA7XG4gIHBhZGRpbmctdG9wOiAyMHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgY29sb3I6ICNmZmY7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5icm9hZGNhc3QtYW5ub3VuY2VtZW50cy13cmFwcGVyIGFuZ3VsYXIyLW11bHRpc2VsZWN0IC5jLWJ0biB7XG4gIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xufSJdfQ== */";
     /***/
   },
 
@@ -442,76 +473,60 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/controllers/Broadcast */
-    "./src/app/api/controllers/Broadcast.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/User */
-    "./src/app/api/controllers/User.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
-    "./src/app/api/controllers/Apartment.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/Staff */
-    "./src/app/api/controllers/Staff.ts");
-    /* harmony import */
-
-
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../shared/services/modal.service */
-    "./src/app/shared/services/modal.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../../api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
+    /* harmony import */
+
+
+    var _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../../api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
+    /* harmony import */
+
+
+    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
 
     var BroadcastAnnouncementsComponent =
     /*#__PURE__*/
     function () {
-      function BroadcastAnnouncementsComponent(broadcastService, sharedService, cookieService, userService, staffService, apartmentService, injector) {
+      function BroadcastAnnouncementsComponent(broadcastService, cookieService, userService, injector) {
         _classCallCheck(this, BroadcastAnnouncementsComponent);
 
         this.broadcastService = broadcastService;
-        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.userService = userService;
-        this.staffService = staffService;
-        this.apartmentService = apartmentService;
         this.injector = injector;
-        this.images = [944, 1011, 984].map(function (n) {
-          return "https://picsum.photos/id/".concat(n, "/900/500");
-        });
         this.imagePath = "../../../../../assets/images/announcement_background.jpeg";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.filterGroupCategory = {
+          "dropdownList": [],
+          "selectedItems": []
+        };
+        this.interestGroupCategory = {
+          "dropdownList": [],
+          "selectedItems": []
+        };
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
       _createClass(BroadcastAnnouncementsComponent, [{
@@ -521,6 +536,56 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.getAllCategory();
           this.getAllBroadcastMessage();
           this.getAllGroupCategory();
+          this.groupCategorySetting = {
+            singleSelection: true,
+            labelKey: 'name',
+            primaryKey: 'value',
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+          };
+          this.interestGroupCategorySetting = {
+            singleSelection: true,
+            labelKey: 'name',
+            primaryKey: 'value',
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+          };
+          this.filterGroupCategory.dropdownList = [{
+            name: "today",
+            value: 0
+          }, {
+            name: "yesterday",
+            value: 1
+          }, {
+            name: "Past Week",
+            value: 7
+          }, {
+            name: "Past 2 Week",
+            value: 14
+          }];
+          this.interestGroupCategory.dropdownList = [{
+            name: "today",
+            value: 0
+          }, {
+            name: "yesterday",
+            value: 1
+          }, {
+            name: "Past Week",
+            value: 7
+          }, {
+            name: "Past 2 Week",
+            value: 14
+          }];
+          this.filterGroupCategory.selectedItems = [{
+            name: "today",
+            value: 0
+          }];
+          this.interestGroupCategory.selectedItems = [{
+            name: "today",
+            value: 0
+          }];
         } //Get All Category
 
       }, {
@@ -528,10 +593,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllCategory() {
           var _this = this;
 
-          var apartmentID = {
+          var queryParamBase = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.broadcastService.getBroadCastMessageCategories(apartmentID).subscribe(function (res) {
+          this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
             _this.allCategory = res;
           });
         }
@@ -555,7 +620,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getCategoryName",
         value: function getCategoryName(name) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.allCategory, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.allCategory, function (item) {
             if (item.broadCastMessageCategoryId === name) return item;
           });
 
@@ -566,9 +631,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
         }
       }, {
+        key: "getBroadcastGroupCategory",
+        value: function getBroadcastGroupCategory(item) {}
+      }, {
         key: "getUserName",
         value: function getUserName(name) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.allUser, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.allUser, function (item) {
             if (item.userId === name) return item;
           });
 
@@ -585,12 +653,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var apartmentId = parseInt(this.cookieService.get('apartmentId'));
           var users$ = this.userService.getAllUsers();
-          var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["concatMap"])(function (users) {
+          var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])(function (users) {
             _this3.allUser = users;
-            var apartmentID = {
+            var queryParamBase = {
               apartmentId: parseInt(_this3.cookieService.get('apartmentId'))
             };
-            return _this3.broadcastService.getAllBroadcastMessages(apartmentID);
+            return _this3.broadcastService.getAllBroadcastMessages(queryParamBase);
           }));
           allBroadCastmessages$.subscribe(function (res) {
             _this3.broadCastMessages = res;
@@ -605,13 +673,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               element.UserName = _this3.getUserName(element.broadcastBy);
             });
 
-            _this3.broadCastBased = _this3.broadCastMessages.filter(function (obj) {
-              return obj.broadCastGroupcategoryId == null;
-            });
-            _this3.interestGroupBased = _this3.broadCastMessages.filter(function (obj) {
-              return obj.broadCastGroupcategoryId != null;
-            });
+            _this3.filterMessages({
+              name: "today",
+              value: 0
+            }, "interestGroup");
+
+            _this3.filterMessages({
+              name: "today",
+              value: 0
+            }, "broadcastGroup");
           });
+        }
+      }, {
+        key: "getDate",
+        value: function getDate(inDays) {
+          var today = new Date();
+          return new Date(today.getFullYear(), today.getMonth(), today.getDate() + inDays * -1);
+        }
+      }, {
+        key: "filterMessages",
+        value: function filterMessages(item, messageType) {
+          var numberOfDays = item.value;
+          var current = new Date();
+          var previousDate = this.getDate(numberOfDays);
+
+          if (messageType == "interestGroup") {
+            this.interestGroupBased = this.broadCastMessages.filter(function (obj) {
+              return obj.broadCastGroupcategoryId != null && current > new Date(Date.parse(obj.broadcastOn)) && previousDate < new Date(Date.parse(obj.broadcastOn));
+            });
+
+            if (this.interestGroupBased.length == 0) {
+              this.interestGroupBased = [{}];
+            }
+          }
+
+          if (messageType == "broadcastGroup") {
+            this.broadCastBased = this.broadCastMessages.filter(function (obj) {
+              return obj.broadCastGroupcategoryId == null && current > new Date(Date.parse(obj.broadcastOn)) && previousDate < new Date(Date.parse(obj.broadcastOn));
+            });
+
+            if (this.broadCastBased.length == 0) {
+              this.broadCastBased = [{}];
+            }
+          }
         }
       }]);
 
@@ -620,17 +724,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastAnnouncementsComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+        type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
-      }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
-      }, {
-        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"]
-      }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
@@ -644,7 +742,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-announcements.component.scss */
       "./src/app/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastAnnouncementsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"], _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastAnnouncementsComponent);
     /***/
   },
 
@@ -702,72 +800,65 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/controllers/Broadcast */
-    "./src/app/api/controllers/Broadcast.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/User */
-    "./src/app/api/controllers/User.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
-    "./src/app/api/controllers/Apartment.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/Staff */
-    "./src/app/api/controllers/Staff.ts");
-    /* harmony import */
-
-
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../shared/services/modal.service */
-    "./src/app/shared/services/modal.service.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../../api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
+    /* harmony import */
+
+
+    var _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../../../api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../../../shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     var BroadcastGroupAssignmentComponent =
     /*#__PURE__*/
     function () {
-      function BroadcastGroupAssignmentComponent(broadcastService, sharedService, cookieService, userService, staffService, apartmentService, injector) {
+      function BroadcastGroupAssignmentComponent(broadcastService, sharedService, cookieService, userService, apartmentService, injector) {
         _classCallCheck(this, BroadcastGroupAssignmentComponent);
 
         this.broadcastService = broadcastService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.userService = userService;
-        this.staffService = staffService;
         this.apartmentService = apartmentService;
         this.injector = injector;
-        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
+        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
         this.groupCategorySetting = {};
         this.users = {
           "dropdownList": [],
@@ -796,25 +887,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
         this.filterOptions = {
           "roleids": null,
-          "apartmentId": 0,
+          "ApartmentId": 0,
           "blockids": null,
           "searchText": ""
         };
-        this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"]();
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"]();
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
       }
 
       _createClass(BroadcastGroupAssignmentComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          // this.message={};
           this.loginUserId = parseInt(this.cookieService.get('userId'));
           this.groupUsercategory = {};
           this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
           this.getUsers();
-          this.assignUsers = []; // this.getAllUsers();
-          //this.getAllRoleTypesList();
-
+          this.assignUsers = [];
           this.getAllApartmentBlockList();
           this.getAllGroupCategory();
           this.dropdownSettings = {
@@ -849,7 +937,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             singleSelection: false,
             enableSearchFilter: true,
             labelKey: 'userFullName',
-            primaryKey: 'userFullDetail',
+            primaryKey: 'userId',
             enableFilterSelectAll: false,
             autoPosition: false,
             maxHeight: 240
@@ -879,112 +967,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }, {
             "name": "Owner",
             "value": 4
-          }]; // this.filteredOptions = this.myControl.valueChanges
-          // .pipe(
-          //   startWith(''),
-          //   map(val => this.filter(val))
-          // );
-          // this.subject.pipe(
-          //   debounceTime(1000),
-          //   map(searchText =>{
-          //     this.userService.getUserBykeyword(this.filterOptions);
-          //      })).subscribe((res:any)=>{
-          //       this.filteredUsers =res; 
-          //       console.log(this.filteredUsers);
-          //      },
-          //      error=>console.log(error)
-          //      );
-        } //   filter(val: string): any[] {
-        //     if(val.length>2){
-        //       this.filterOptions.apartmentId=this.apartmentID;
-        //       let roleIds= Array.prototype.map.call(this.roleCategory.selectedItems,function(item){ return item.value}).join(",");
-        //     if(roleIds.length>0)
-        //     {
-        //       this.filterOptions.roleids=roleIds;
-        //     }
-        //     let blockIds=Array.prototype.map.call(this.apartmentBlock.selectedItems,function(item){ return item.apartmentBlockId}).join(",");
-        //     if(blockIds.length>0)
-        //     {
-        //     this.filterOptions.blockids= blockIds
-        //     }
-        //    this.filterOptions.searchText=val;
-        //   this.userService.getUserBykeyword(this.filterOptions).subscribe((res:any)=>{
-        //      this.filteredUsers =res; 
-        //     },
-        //     error=>console.log(error)
-        //     );
-        //     }
-        //  }
-
+          }];
+        }
       }, {
         key: "getUsers",
         value: function getUsers() {
           var _this4 = this;
 
-          this.filterOptions.apartmentId = this.apartmentID;
+          this.filterOptions.ApartmentId = this.apartmentID;
           var roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
             return item.value;
           }).join(",");
-
-          if (roleIds.length > 0) {
-            this.filterOptions.roleids = roleIds;
-          }
-
+          this.filterOptions.roleids = roleIds;
           var blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) {
             return item.apartmentBlockId;
           }).join(",");
-
-          if (blockIds.length > 0) {
-            this.filterOptions.blockids = blockIds;
-          }
-
+          this.filterOptions.blockids = blockIds;
           this.filterOptions.searchText = null;
           this.userService.getUsersByKeyword(this.filterOptions).subscribe(function (res) {
             res.forEach(function (element) {
               element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
-              element.userFullDetail = element.userId + " " + element.roleId + " " + element.apartmentBlockId + " " + element.apartmentBlockUnitId;
             });
             _this4.allUsers = res;
             _this4.users.dropdownList = res;
           }, function (error) {
             return console.log(error);
           });
-        }
-      }, {
-        key: "search",
-        value: function search(evt) {
-          var _this5 = this;
-
-          // const searchText = evt.target.value
-          // if(searchText.length>2)
-          //     this.subject.next(searchText)
-          var searchText = evt.target.value;
-
-          if (searchText.length > 2) {
-            this.filterOptions.apartmentId = this.apartmentID;
-            var roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
-              return item.value;
-            }).join(",");
-
-            if (roleIds.length > 0) {
-              this.filterOptions.roleids = roleIds;
-            }
-
-            var blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) {
-              return item.apartmentBlockId;
-            }).join(",");
-
-            if (blockIds.length > 0) {
-              this.filterOptions.blockids = blockIds;
-            }
-
-            this.filterOptions.searchText = evt.target.value;
-            this.userService.getUsersByKeyword(this.filterOptions).subscribe(function (res) {
-              _this5.filteredUsers = res;
-            }, function (error) {
-              return console.log(error);
-            });
-          }
         }
       }, {
         key: "getIndexParams",
@@ -1009,60 +1017,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "isMobileView",
         value: function isMobileView() {
           return window.innerWidth <= 767 ? 'table-responsive' : '';
-        } //   getAllRoleTypesList(){
-        //     this.userService.getAllRoleTypes().subscribe((res:any) => {
-        //      this.roleTypeArr.dropdownList=res.filter(function(obj){
-        //            return ["OWNER","TENANT"].includes(obj.name.toUpperCase())
-        //      });
-        //   });
-        // }
-        // getAppartmentRole(item){
-        //   this.roleCategory.selectedItems=[];
-        //  // this.staffCategory.selectedItems=[];
-        //  let parms={
-        //   'RoleTypeId': item.value,
-        //   "ApartmentId": this.apartmentID
-        //  }
-        //   this.userService.getApartmentRolesByRoleTypeID(parms).subscribe((res:any) => {
-        //     this.roleCategory.dropdownList=res;
-        //        this.updateUsers();
-        //     });
-        // }
-
+        }
       }, {
         key: "getAllApartmentBlockList",
         value: function getAllApartmentBlockList() {
-          var _this6 = this;
+          var _this5 = this;
 
           this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe(function (res) {
-            _this6.apartmentBlock.dropdownList = res;
+            _this5.apartmentBlock.dropdownList = res;
           });
-        } // getAllUsers(){
-        //   this.userService.getUsersByApartmentId(this.apartmentID).subscribe(
-        //     (res)=>{
-        //       this.allUsers=res;
-        //       this.updateUsers();
-        //     }
-        //   );
-        // }
-
+        }
       }, {
         key: "assignUser",
         value: function assignUser() {
-          var _this7 = this;
+          var _this6 = this;
 
           var usersToInsert = this.users.selectedItems;
           var counter = 0;
           usersToInsert.forEach(function (element) {
             counter++;
-            _this7.isLast = counter == usersToInsert.length;
+            _this6.isLast = counter == usersToInsert.length;
 
-            _this7.insertGroupUser(element.userId, element.roleID, element.apartmentBlockID, element.apartmentBlockUnitID);
+            _this6.insertGroupUser(element.userId, element.roleID, element.apartmentBlockID, element.apartmentBlockUnitID);
 
-            _this7.assignUsers.push(element);
+            _this6.assignUsers.push(element);
 
-            _this7.users.dropdownList = _this7.users.dropdownList.filter(function (obj) {
-              return obj.userId !== element.userId || obj.roleID !== element.roleID || obj.apartmentBlockID !== element.apartmentBlockID || obj.unitId !== element.apartmentBlockUnitID;
+            _this6.users.dropdownList = _this6.users.dropdownList.filter(function (obj) {
+              return obj.userId !== element.userId || obj.roleID !== element.roleID || obj.apartmentBlockID !== element.apartmentBlockID || obj.apartmentBlockUnitID !== element.apartmentBlockUnitID;
             });
           });
           this.users.selectedItems = [];
@@ -1100,75 +1081,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.users.selectedItems = [];
         }
       }, {
-        key: "updateData",
-        value: function updateData(interestGroup) {
-          //ApartmentBlockIDs
-          //interestGroup
-          var blockIdArr = interestGroup.apartmentBlockIds.split(',');
-
-          if (blockIdArr.length > 0) {
-            this.apartmentBlock.selectedItems = this.apartmentBlock.dropdownList.filter(function (element) {
-              return blockIdArr.includes(element.apartmentBlockId.toString());
-            });
-          }
-
-          var roleTypeId = interestGroup.RoleTypeId;
-
-          if (roleTypeId > 0) {
-            this.roleTypeArr.selectedItems = this.roleTypeArr.dropdownList.filter(function (element) {
-              return element.value === roleTypeId;
-            });
-          }
-
-          var roleIdArr = interestGroup.RoleIds.split(',');
-
-          if (roleIdArr.length > 0) {
-            this.roleCategory.selectedItems = this.roleCategory.dropdownList.filter(function (element) {
-              return roleIdArr.includes(element.value.toString());
-            });
-          }
-        } // updateUsers(){
-        //   //this.tempUsers=[...this.allUsers];
-        //   this.getUserIds$().subscribe((res:any)=>{
-        //      if(res.length>0){
-        //      let fiterUsers =this.allUsers.filter(function(obj){
-        //       if(res.includes(obj.userId))
-        //       {
-        //         obj.fullName=obj.firstName+' '+obj.middleName+' '+obj.lastName;
-        //         return obj;
-        //       }
-        //     });
-        //     this.users.dropdownList=fiterUsers;
-        //     }else{
-        //       this.users.dropdownList=[];
-        //     }
-        //     console.log( this.users.dropdownList);
-        //   });
-        // }
-
+        key: "removeAllRole",
+        value: function removeAllRole() {
+          this.roleCategory.selectedItems = [];
+          this.getUsers();
+        }
       }, {
-        key: "getUserIds$",
-        value: function getUserIds$() {
-          var roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
-            return item.value;
-          }).join(",");
-          var blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) {
-            return item.apartmentBlockId;
-          }).join(",");
-          var params = {
-            'roleIds': roleIds,
-            'conditionIds': "",
-            'appartmentbBlockIds': blockIds,
-            'apartmentId': this.apartmentID,
-            'staffcategoryIds': "",
-            'staffSubCategoryIds': ''
-          };
-          return this.userService.getUsersByFilter(params);
+        key: "removeAllBlock",
+        value: function removeAllBlock() {
+          this.apartmentBlock.selectedItems = [];
+          this.getUsers();
         }
       }, {
         key: "submitMapGroupUserForm",
         value: function submitMapGroupUserForm(mapGroupUserForm) {
-          var _this8 = this;
+          var _this7 = this;
 
           var broadCastGroupCategoryID = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) {
             return item.broadCastGroupCategoryId;
@@ -1210,31 +1137,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             broadCastGroupCategoryUser.serialNumber = this.groupUsercategory.serialNo;
           }
 
-          var broadcast = {
-            broadcast: broadCastGroupCategoryUser
+          var upsertBroadCastGroupCategoryUserParams = {
+            'broadcast': broadCastGroupCategoryUser
           };
-          this.broadcastService.upsertBroadCastGroupCategoryUser(broadcast).subscribe(function (res) {
+          this.broadcastService.upsertBroadCastGroupCategoryUser(upsertBroadCastGroupCategoryUserParams).subscribe(function (res) {
             if (res.message) {
-              if (_this8.isEdit) {
-                _this8.sharedService.setAlertMessage("Interest groups mapping to user updated successfully");
+              if (_this7.isEdit) {
+                _this7.sharedService.setAlertMessage("Interest groups mapping to user updated successfully");
               } else {
-                _this8.sharedService.setAlertMessage("Interest groups mapping to user added successfully");
+                _this7.sharedService.setAlertMessage("Interest groups mapping to user added successfully");
               } //   this.getAllCategory();
 
 
-              _this8.groupUsercategory = {};
-              _this8.isEdit = false;
+              _this7.groupUsercategory = {};
+              _this7.isEdit = false;
 
-              _this8.reset();
+              _this7.reset();
 
-              _this8.getInterestGroupUsers();
+              _this7.getInterestGroupUsers();
             }
           });
         }
       }, {
         key: "insertGroupUser",
         value: function insertGroupUser(userId, roleId, blockId, unitId) {
-          var _this9 = this;
+          var _this8 = this;
 
           var broadCastGroupCategoryID = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) {
             return item.broadCastGroupCategoryId;
@@ -1254,15 +1181,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             'apartmentID': this.apartmentID,
             'serialNumber': 0
           };
-          var broadcast = {
-            broadcast: broadCastGroupCategoryUser
+          var upsertBroadCastGroupCategoryUserParams = {
+            'broadcast': broadCastGroupCategoryUser
           };
-          this.broadcastService.upsertBroadCastGroupCategoryUser(broadcast).subscribe(function (res) {
+          this.broadcastService.upsertBroadCastGroupCategoryUser(upsertBroadCastGroupCategoryUserParams).subscribe(function (res) {
             if (res.message) {
-              if (_this9.isLast) {
-                _this9.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
+              if (_this8.isLast) {
+                _this8.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
 
-                _this9.isLast = false;
+                _this8.isLast = false;
               }
             }
           });
@@ -1286,27 +1213,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllGroupCategory",
         value: function getAllGroupCategory() {
-          var _this10 = this;
+          var _this9 = this;
 
           this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe(function (res) {
-            _this10.broadCastGroupCategory.dropdownList = res;
+            _this9.broadCastGroupCategory.dropdownList = res;
           });
         }
       }, {
         key: "getInterestGroupUsers",
         value: function getInterestGroupUsers() {
-          var _this11 = this;
+          var _this10 = this;
 
           this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe(function (res) {
-            _this11.interestGroupUsers = res;
-            _this11.isDataLoaded = true;
-            _this11.totalItems = _this11.interestGroupUsers.length;
-
-            if (_this11.totalItems > _this11.itemLimit) {
-              _this11.ItemEndIndex = _this11.itemLimit;
-            } else {
-              _this11.ItemEndIndex = _this11.totalItems;
-            }
+            _this10.interestGroupUsers = res; // this.isDataLoaded = true;
+            // this.totalItems = this.interestGroupUsers.length;
+            // if(this.totalItems>this.itemLimit){
+            //   this.ItemEndIndex = this.itemLimit;
+            // }
+            // else {
+            //   this.ItemEndIndex = this.totalItems;
+            // }
           });
         }
       }]);
@@ -1316,17 +1242,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastGroupAssignmentComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+        type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
       }, {
-        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"]
-      }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
@@ -1340,7 +1264,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-group-assignment.component.scss */
       "./src/app/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastGroupAssignmentComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastGroupAssignmentComponent);
     /***/
   },
 
@@ -1398,20 +1322,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/controllers/Broadcast */
+    var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../../api/controllers/Broadcast */
     "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/Lookup */
+    var _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../../api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/User */
+    var _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../../api/controllers/User */
     "./src/app/api/controllers/User.ts");
     /* harmony import */
 
@@ -1494,36 +1418,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllGroup",
         value: function getAllGroup() {
-          var _this12 = this;
+          var _this11 = this;
 
           this.broadcastService.getAllBroadcastGroups().subscribe(function (res) {
-            _this12.allgroup = res;
+            _this11.allgroup = res;
           });
         } //Get All Category
 
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this13 = this;
+          var _this12 = this;
 
-          var apartmentID = {
+          var queryParamBase = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.broadcastService.getBroadCastMessageCategories(apartmentID).subscribe(function (res) {
-            _this13.allCategory = res;
+          this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
+            _this12.allCategory = res;
           });
         } //Get All Type
 
       }, {
         key: "getAllType",
         value: function getAllType() {
-          var _this14 = this;
+          var _this13 = this;
 
-          var params = {
+          var queryParamBase = {
             LookupTypeId: 11
           };
-          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this14.allType = res;
+          this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
+            _this13.allType = res;
           });
         } // getGroupName(name){
         //   var data = _.filter( this.allgroup, function( item ) {
@@ -1605,32 +1529,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllBroadcastMessage",
         value: function getAllBroadcastMessage() {
-          var _this15 = this;
+          var _this14 = this;
 
-          var apartmentID = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-          };
           var users$ = this.userService.getAllUsers();
           var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])(function (users) {
-            _this15.allUser = users;
-            return _this15.broadcastService.getAllBroadcastMessages(apartmentID);
+            _this14.allUser = users;
+            var queryParamBase = {
+              apartmentId: parseInt(_this14.cookieService.get('apartmentId'))
+            };
+            return _this14.broadcastService.getAllBroadcastMessages(queryParamBase);
           }));
           allBroadCastmessages$.subscribe(function (res) {
-            _this15.broadCastMessages = res;
+            _this14.broadCastMessages = res;
 
-            _this15.broadCastMessages.forEach(function (element) {
-              element.CategoryName = _this15.getCategoryName(element.broadcastMessageCategoryId);
-              element.BroadCastMode = _this15.getBroadCastMode(element.broadcastModeIds);
-              element.UserName = _this15.getUserName(element.broadcastBy);
+            _this14.broadCastMessages.forEach(function (element) {
+              element.CategoryName = _this14.getCategoryName(element.broadcastMessageCategoryId);
+              element.BroadCastMode = _this14.getBroadCastMode(element.broadcastModeIds);
+              element.UserName = _this14.getUserName(element.broadcastBy);
             });
 
-            _this15.isDataLoaded = true;
-            _this15.totalItems = _this15.broadCastMessages.length;
+            _this14.isDataLoaded = true;
+            _this14.totalItems = _this14.broadCastMessages.length;
 
-            if (_this15.totalItems > _this15.itemLimit) {
-              _this15.ItemEndIndex = _this15.itemLimit;
+            if (_this14.totalItems > _this14.itemLimit) {
+              _this14.ItemEndIndex = _this14.itemLimit;
             } else {
-              _this15.ItemEndIndex = _this15.totalItems;
+              _this14.ItemEndIndex = _this14.totalItems;
             }
           });
         }
@@ -1641,13 +1565,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastHistoryComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+        type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+        type: _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
@@ -1661,7 +1585,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-history.component.scss */
       "./src/app/ams/broadcast/components/broadcast-history/broadcast-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], BroadcastHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], BroadcastHistoryComponent);
     /***/
   },
 
@@ -1681,7 +1605,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtcmVtb3ZldXNlci9icm9hZGNhc3QtcmVtb3ZldXNlci5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = ".broadcast-removeuser-wrapper .card {\n  overflow: visible !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LXJlbW92ZXVzZXIvYnJvYWRjYXN0LXJlbW92ZXVzZXIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9icm9hZGNhc3QvY29tcG9uZW50cy9icm9hZGNhc3QtcmVtb3ZldXNlci9icm9hZGNhc3QtcmVtb3ZldXNlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLDRCQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9hbXMvYnJvYWRjYXN0L2NvbXBvbmVudHMvYnJvYWRjYXN0LXJlbW92ZXVzZXIvYnJvYWRjYXN0LXJlbW92ZXVzZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnJvYWRjYXN0LXJlbW92ZXVzZXItd3JhcHBlcntcbiAgLmNhcmR7XG4gICAgb3ZlcmZsb3c6IHZpc2libGUgIWltcG9ydGFudDtcbiAgfVxufSIsIi5icm9hZGNhc3QtcmVtb3ZldXNlci13cmFwcGVyIC5jYXJkIHtcbiAgb3ZlcmZsb3c6IHZpc2libGUgIWltcG9ydGFudDtcbn0iXX0= */";
     /***/
   },
 
@@ -1731,33 +1655,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/Broadcast */
+    var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../../api/controllers/Broadcast */
     "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/User */
+    var _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../api/controllers/User */
     "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
+    var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../../../api/controllers/Apartment */
     "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/api/controllers/Staff */
-    "./src/app/api/controllers/Staff.ts");
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../../../shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ../../../../shared/services/modal.service */
-    "./src/app/shared/services/modal.service.ts");
+    var _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../../../../api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
 
     var BroadcastRemoveuserComponent =
     /*#__PURE__*/
@@ -1776,13 +1700,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           "dropdownList": [],
           "selectedItems": []
         };
+        this.isDataLoaded = false;
         this.filterOptions = {
           "roleids": null,
-          "apartmentId": 0,
+          "ApartmentId": 0,
           "blockids": null,
           "searchText": ""
         };
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
       }
 
       _createClass(BroadcastRemoveuserComponent, [{
@@ -1802,35 +1727,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.getAllGroupCategory();
           this.getAllApartmentBlockList();
           this.getUsers();
-          this.getAllGoupUsers();
-        } // getUsers(Item){
-        //   //get All user based on apartmentId and broadCastGroupCategoryId
-        //   let params={
-        //     "aparmentId":this.apartmentID,
-        //     "broadCastGroupCategoryId":Item.broadCastGroupCategoryId
-        //   }
-        //  // this.allGroupUser=this.broadcastService.getBroadCastGroupCategoryUserResponse()
-        // }
-
+        }
       }, {
-        key: "removeUser",
-        value: function removeUser(user) {
-          var _this16 = this;
+        key: "removeMappedUser",
+        value: function removeMappedUser(index) {
+          var _this15 = this;
 
-          var params = {
-            broadCastGroupCategoryUserId: user.broadCastGroupCategoryUserId,
-            deleteBy: this.loginUserId
-          };
-          this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
-            _this16.sharedService.setAlertMessage("User has been removed from interest group successfully");
+          if (index != null) {
+            var params = {
+              broadCastGroupCategoryUserId: index,
+              deleteBy: this.loginUserId
+            };
+            this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
+              _this15.sharedService.setAlertMessage("User has been removed from interest group successfully");
 
-            _this16.allGroupUser = _this16.allGroupUser.filter(function (obj) {
-              return obj.broadCastGroupCategoryUserId !== user.broadCastGroupCategoryUserId;
+              _this15.allGroupUser = _this15.allGroupUser.filter(function (obj) {
+                return obj.broadCastGroupCategoryUserId !== index;
+              });
+              _this15.interestGroupUsers = _this15.interestGroupUsers.filter(function (obj) {
+                return obj.broadCastGroupCategoryUserId !== index;
+              });
             });
-            _this16.interestGroupUsers = _this16.interestGroupUsers.filter(function (obj) {
-              return obj.broadCastGroupCategoryUserId !== user.broadCastGroupCategoryUserId;
-            });
-          });
+          }
         }
       }, {
         key: "getIndexParams",
@@ -1859,22 +1777,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllGoupUsers",
         value: function getAllGoupUsers() {
-          var _this17 = this;
+          var _this16 = this;
 
+          this.isDataLoaded = false;
           this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe(function (res) {
-            _this17.interestGroupUsers = res;
+            _this16.interestGroupUsers = res;
 
-            _this17.interestGroupUsers.forEach(function (element) {
-              var currentUser = _this17.getUser(element.userId, element.roleId, element.apartmentBlockId, element.unitId);
+            _this16.interestGroupUsers.forEach(function (element) {
+              var currentUser = _this16.getUser(element.userId, element.roleId, element.apartmentBlockId, element.unitId);
 
-              element.role = currentUser.roleName;
-              element.block = currentUser.apartmentBlockNumber;
-              element.unit = currentUser.apartmentBlockUnitNumber;
-              element.user = currentUser.userName;
-              element.groupCategory = _this17.getGroupCategory(element.broadCastGroupCategoryId);
+              if (currentUser != undefined) {
+                element.role = currentUser.roleName;
+                element.block = currentUser.apartmentBlockNumber;
+                element.unit = currentUser.apartmentBlockUnitNumber;
+                element.user = currentUser.userName;
+              } else {
+                element.role = element.roleId;
+                element.block = element.apartmentBlockId;
+                element.unit = element.unitId;
+                element.user = element.userId;
+              }
+
+              element.groupCategory = _this16.getGroupCategory(element.broadCastGroupCategoryId);
             });
 
-            _this17.allGroupUser = _this17.interestGroupUsers;
+            _this16.allGroupUser = _toConsumableArray(_this16.interestGroupUsers);
+            _this16.isDataLoaded = true;
+            _this16.totalItems = _this16.allGroupUser.length;
+
+            if (_this16.totalItems > _this16.itemLimit) {
+              _this16.ItemEndIndex = _this16.itemLimit;
+            } else {
+              _this16.ItemEndIndex = _this16.totalItems;
+            }
           });
         }
       }, {
@@ -1888,23 +1823,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this18 = this;
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee() {
+            var data;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    this.filterOptions.ApartmentId = this.apartmentID;
+                    this.filterOptions.searchText = null;
+                    _context.next = 4;
+                    return this.userService.getUsersByKeyword(this.filterOptions).toPromise();
 
-          this.filterOptions.apartmentId = this.apartmentID;
-          this.filterOptions.searchText = null;
-          this.userService.getUsersByKeyword(this.filterOptions).subscribe(function (res) {
-            _this18.allUsers = res;
-          }, function (error) {
-            return console.log(error);
-          });
+                  case 4:
+                    data = _context.sent;
+                    this.allUsers = data;
+                    this.getAllGoupUsers(); // .subscribe((res:any)=>{
+                    //    this.allUsers=res;
+                    //   },
+                    //   error=>console.log(error)
+                    //   );
+
+                  case 7:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this);
+          }));
         }
       }, {
         key: "getAllApartmentBlockList",
         value: function getAllApartmentBlockList() {
-          var _this19 = this;
+          var _this17 = this;
 
           this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe(function (res) {
-            _this19.apartmentBlockList = res;
+            _this17.apartmentBlockList = res;
           });
         }
       }, {
@@ -1919,16 +1874,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllGroupCategory",
         value: function getAllGroupCategory() {
-          var _this20 = this;
+          var _this18 = this;
 
           this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe(function (res) {
-            _this20.broadCastGroupCategory.dropdownList = res;
+            _this18.broadCastGroupCategory.dropdownList = res;
           });
         }
       }, {
         key: "deSelectCategory",
         value: function deSelectCategory() {
-          this.allGroupUser = this.interestGroupUsers;
+          this.allGroupUser = _toConsumableArray(this.interestGroupUsers);
         }
       }, {
         key: "getUsersBycategory",
@@ -1945,17 +1900,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastRemoveuserComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
+        type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
+        type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
       }, {
-        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
+        type: _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+        type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
@@ -1969,7 +1924,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-removeuser.component.scss */
       "./src/app/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastRemoveuserComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastRemoveuserComponent);
     /***/
   },
 
@@ -2039,33 +1994,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/Broadcast */
+    var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../../api/controllers/Broadcast */
     "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/User */
+    var _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../api/controllers/User */
     "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
+    var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../../../api/controllers/Apartment */
     "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/api/controllers/Staff */
-    "./src/app/api/controllers/Staff.ts");
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../../../shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ../../../../shared/services/modal.service */
-    "./src/app/shared/services/modal.service.ts");
+    var _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../../../../api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
     /* harmony import */
 
 
@@ -2133,7 +2088,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.allBroadcastMessageGroup = [];
         this.isFlashNotice = false;
         this.editorPlacehorder = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.filterOptions = {
+          "roleids": null,
+          "ApartmentId": 0,
+          "blockids": null,
+          "searchText": ""
+        };
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
       }
 
       _createClass(BroadcastSendmessageComponent, [{
@@ -2144,6 +2105,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           this.message = {};
           this.IsBroadcast = true;
+          this.loginedUser = parseInt(this.cookieService.get('userId'));
           this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
           this.getAllUsers();
           this.getAllCategory();
@@ -2151,6 +2113,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.getAllApartmentBlockList();
           this.getAllGroupCategory();
           this.getInterestGroupUsers();
+          this.getAllInterestGroupUser();
           this.groupCategorySetting = {
             singleSelection: true,
             enableSearchFilter: true,
@@ -2206,6 +2169,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             autoPosition: false,
             maxHeight: 240
           };
+          this.selectedTab = 'role';
         }
       }, {
         key: "currentTab",
@@ -2229,44 +2193,60 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
         }
       }, {
+        key: "getAllInterestGroupUser",
+        value: function getAllInterestGroupUser() {
+          var _this19 = this;
+
+          this.filterOptions.ApartmentId = this.apartmentID;
+          this.filterOptions.searchText = null;
+          this.userService.getUsersByKeyword(this.filterOptions).subscribe(function (res) {
+            res.forEach(function (element) {
+              element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
+            });
+            _this19.allnterestGroupUsers = res;
+          }, function (error) {
+            return console.log(error);
+          });
+        }
+      }, {
         key: "getAllUsers",
         value: function getAllUsers() {
-          var _this21 = this;
+          var _this20 = this;
 
           this.userService.getUsersByApartmentId(this.apartmentID).subscribe(function (res) {
-            _this21.allUsers = res;
+            res.forEach(function (element) {
+              element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
+            });
+            _this20.allUsers = res;
 
-            _this21.updateUsers();
+            _this20.updateUsers();
           });
         }
       }, {
         key: "selectInterestGroup",
         value: function selectInterestGroup(item) {
-          var selectedGroup = this.interestGroupUsers.filter(function (element) {
-            return element.broadCastGroupCategoryId == item.broadCastGroupCategoryId;
+          var categoryUsers = this.interestGroupUsers.filter(function (obj) {
+            return obj.broadCastGroupCategoryId == item.broadCastGroupCategoryId;
           });
+          var tempAssignUsers = [];
 
-          if (selectedGroup.length > 0) {
-            var userIds = [];
-            selectedGroup.forEach(function (element) {
-              userIds.push(element.userId);
+          var tempUsers = _toConsumableArray(this.allnterestGroupUsers);
+
+          categoryUsers.forEach(function (element) {
+            tempUsers.forEach(function (obj) {
+              var isFound = obj.userId == element.userId && obj.roleID == element.roleId && obj.apartmentBlockID == element.apartmentBlockId && obj.apartmentBlockUnitID == element.unitId;
+
+              if (isFound) {
+                tempAssignUsers.push(obj);
+              }
             });
-
-            if (userIds.length > 0) {
-              this.users = this.allUsers.filter(function (obj) {
-                return userIds.includes(obj.userId);
-              });
-            } else {
-              this.users = [];
-            }
-          } else {
-            this.users = [];
-          }
+          });
+          this.AssignInterestUsers = [].concat(tempAssignUsers);
         }
       }, {
         key: "removeInterestGroup",
         value: function removeInterestGroup(item) {
-          this.users = [];
+          this.AssignInterestUsers = [];
         } //broadCastGroupCategoryId
 
       }, {
@@ -2291,10 +2271,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllApartmentBlockList",
         value: function getAllApartmentBlockList() {
-          var _this22 = this;
+          var _this21 = this;
 
           this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe(function (res) {
-            _this22.apartmentBlock.dropdownList = res;
+            _this21.apartmentBlock.dropdownList = res;
             var broadCastModeArr = [{
               "name": "General SMS",
               "value": 40
@@ -2305,45 +2285,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "name": "Email",
               "value": 42
             }];
-            _this22.broadModeArr.dropdownList = broadCastModeArr;
+            _this21.broadModeArr.dropdownList = broadCastModeArr;
           });
         } //Get All Broadcast Category
 
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this23 = this;
+          var _this22 = this;
 
           var apartmentID = parseInt(this.cookieService.get('apartmentId'));
           this.broadcastService.getBroadCastMessageCategories(this.apartmentID).subscribe(function (res) {
-            _this23.allcategory = res;
-            _this23.broadCastCategory.dropdownList = res;
+            _this22.allcategory = res;
+            _this22.broadCastCategory.dropdownList = res;
           });
         }
       }, {
         key: "getAllRoleTypesList",
         value: function getAllRoleTypesList() {
-          var _this24 = this;
+          var _this23 = this;
 
           this.userService.getAllRoleTypes().subscribe(function (res) {
-            _this24.roleTypeArr.dropdownList = res;
+            _this23.roleTypeArr.dropdownList = res;
           });
         }
       }, {
         key: "getAppartmentRole",
         value: function getAppartmentRole(item) {
-          var _this25 = this;
+          var _this24 = this;
 
           this.roleCategory.selectedItems = [];
           this.staffCategory.selectedItems = [];
           var params = {
-            RoleTypeId: item.value,
-            ApartmentId: this.apartmentID
+            'RoleTypeId': item.value,
+            'ApartmentId': this.apartmentID
           };
           this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-            _this25.condtionRequired = parseInt(item.value) == 2 || parseInt(item.value) == 4;
+            _this24.condtionRequired = parseInt(item.value) == 2 || parseInt(item.value) == 4;
             ;
-            _this25.roleCategory.dropdownList = res;
+            _this24.roleCategory.dropdownList = res;
             var conditinArr = [{
               "name": "IsLiving",
               "value": 1
@@ -2352,54 +2332,54 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "value": 2
             }];
 
-            if (_this25.condtionRequired) {
-              _this25.condition.dropdownList = conditinArr;
+            if (_this24.condtionRequired) {
+              _this24.condition.dropdownList = conditinArr;
             } else {
-              _this25.condition.dropdownList = [];
-              _this25.condition.selectedItems = [];
+              _this24.condition.dropdownList = [];
+              _this24.condition.selectedItems = [];
             }
 
-            _this25.updateUsers();
+            _this24.updateUsers();
           });
         }
       }, {
         key: "updateUsers",
         value: function updateUsers() {
-          var _this26 = this;
+          var _this25 = this;
 
           //this.tempUsers=[...this.allUsers];
           this.getUserIds$().subscribe(function (res) {
             if (res.length > 0) {
-              _this26.users = _this26.allUsers.filter(function (obj) {
+              _this25.users = _this25.allUsers.filter(function (obj) {
                 return res.includes(obj.userId);
               });
             } else {
-              _this26.users = [];
+              _this25.users = [];
             }
           });
         }
       }, {
         key: "getAllGroupCategory",
         value: function getAllGroupCategory() {
-          var _this27 = this;
+          var _this26 = this;
 
           this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe(function (res) {
-            _this27.broadCastGroupCategory.dropdownList = res;
+            _this26.broadCastGroupCategory.dropdownList = res;
           });
         }
       }, {
         key: "getInterestGroupUsers",
         value: function getInterestGroupUsers() {
-          var _this28 = this;
+          var _this27 = this;
 
           this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe(function (res) {
-            _this28.interestGroupUsers = res;
+            _this27.interestGroupUsers = res;
           });
         }
       }, {
         key: "getstaffCategories",
         value: function getstaffCategories(item) {
-          var _this29 = this;
+          var _this28 = this;
 
           this.isStaff = this.roleTypeArr.selectedItems[0].name.toLowerCase() == "staff";
 
@@ -2410,18 +2390,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 'apartmentId': this.apartmentID
               };
               this.staffService.getStaffCategoryByRole(params).subscribe(function (res) {
-                var temp = _toConsumableArray(_this29.staffCategory.dropdownList);
+                var temp = _toConsumableArray(_this28.staffCategory.dropdownList);
 
                 res.forEach(function (element) {
                   element.category = item.name;
                   temp.push(element);
                 });
 
-                _this29.staffCategoryMap.set(item.value, res);
+                _this28.staffCategoryMap.set(item.value, res);
 
-                _this29.staffCategory.dropdownList = temp;
+                _this28.staffCategory.dropdownList = temp;
 
-                _this29.updateUsers();
+                _this28.updateUsers();
               });
             } else {
               var temp = _toConsumableArray(this.staffCategory.dropdownList);
@@ -2439,10 +2419,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllStaffCategories",
         value: function getAllStaffCategories(items) {
-          var _this30 = this;
+          var _this29 = this;
 
           items.forEach(function (element) {
-            _this30.getstaffCategories(element);
+            _this29.getstaffCategories(element);
           });
         }
       }, {
@@ -2456,12 +2436,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "removeStaffCategories",
         value: function removeStaffCategories(item) {
-          var _this31 = this;
+          var _this30 = this;
 
           if (this.roleTypeArr.selectedItems[0].name.toLowerCase() == "staff") {
             var removeStaffCategory = this.staffCategoryMap.get(item.value);
             removeStaffCategory.forEach(function (element) {
-              _this31.staffCategory.dropdownList = _this31.staffCategory.dropdownList.filter(function (obj) {
+              _this30.staffCategory.dropdownList = _this30.staffCategory.dropdownList.filter(function (obj) {
                 return obj.value !== element.value;
               });
             });
@@ -2472,11 +2452,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "removeSubStaffCategories",
         value: function removeSubStaffCategories(item) {
-          var _this32 = this;
+          var _this31 = this;
 
           var removeSubStaffCategory = this.staffSubCategoryMap.get(item.value);
           removeSubStaffCategory.forEach(function (element) {
-            _this32.staffSubCategory.dropdownList = _this32.staffSubCategory.dropdownList.filter(function (obj) {
+            _this31.staffSubCategory.dropdownList = _this31.staffSubCategory.dropdownList.filter(function (obj) {
               return obj.value !== element.value;
             });
           });
@@ -2485,7 +2465,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getStaffSubCategories",
         value: function getStaffSubCategories(item) {
-          var _this33 = this;
+          var _this32 = this;
 
           if (this.staffSubCategoryMap.get(item.value) == undefined) {
             var params = {
@@ -2493,18 +2473,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               'apartmentId': this.apartmentID
             };
             this.staffService.getSubStaffCategoryByCategory(params).subscribe(function (res) {
-              var temp = _toConsumableArray(_this33.staffSubCategory.dropdownList);
+              var temp = _toConsumableArray(_this32.staffSubCategory.dropdownList);
 
               res.forEach(function (element) {
                 element.category = item.name;
                 temp.push(element);
               });
 
-              _this33.staffSubCategoryMap.set(item.value, res);
+              _this32.staffSubCategoryMap.set(item.value, res);
 
-              _this33.staffSubCategory.dropdownList = temp;
+              _this32.staffSubCategory.dropdownList = temp;
 
-              _this33.updateUsers();
+              _this32.updateUsers();
             });
           } else {
             var addSubStaffCategory = this.staffSubCategoryMap.get(item.value);
@@ -2521,10 +2501,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllSubStaffCategories",
         value: function getAllSubStaffCategories(items) {
-          var _this34 = this;
+          var _this33 = this;
 
           items.forEach(function (element) {
-            _this34.getStaffSubCategories(element);
+            _this33.getStaffSubCategories(element);
           });
         }
       }, {
@@ -2546,20 +2526,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "removeGroupSubStaffCategories",
         value: function removeGroupSubStaffCategories(items) {
-          var _this35 = this;
+          var _this34 = this;
 
           items.list.forEach(function (element) {
-            _this35.removeSubStaffCategories(element);
+            _this34.removeSubStaffCategories(element);
           });
           this.updateUsers();
         }
       }, {
         key: "getGroupSubStaffCategories",
         value: function getGroupSubStaffCategories(items) {
-          var _this36 = this;
+          var _this35 = this;
 
           items.list.forEach(function (element) {
-            _this36.getStaffSubCategories(element);
+            _this35.getStaffSubCategories(element);
           });
           this.updateUsers();
         }
@@ -2595,74 +2575,134 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "submitCreateBroadcastMessageForm",
         value: function submitCreateBroadcastMessageForm(form) {
-          var _this37 = this;
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee2() {
+            var _this36 = this;
 
-          var broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) {
-            return item.broadCastGroupCategoryId;
-          }).join(",");
-          var broadcastModeIds = Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) {
-            return item.value;
-          }).join(",");
-          var broadcastMessage = {
-            "broadCastMessageId": 0,
-            "apartmentId": this.apartmentID,
-            "subject": this.message.subject,
-            "broadcastMessage1": this.message.ckeditor,
-            "broadcastBy": parseInt(this.cookieService.get('userId')),
-            "broadcastOn": new Date().toISOString(),
-            "broadcastMessageCategoryId": 0,
-            "broadcastModeIds": broadcastModeIds,
-            "broadCastGroupcategoryId": null,
-            "userIds": null,
-            "isReadAllowed": false,
-            "isLater": true,
-            "laterDate": null,
-            "isFlashNotice": this.isFlashNotice,
-            "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
-            "insertedOn": new Date().toISOString(),
-            "updatedBy": null,
-            "updatedOn": null,
-            "serialNo": 0,
-            "description": "",
-            "filterId": null
-          }; // var addBoradcastMessage$;
+            var broadCastGroupCategoryIDs, broadcastModeIds, broadcastMessage, roleIds, blockIds, conditionIds, staffcategoryIds, staffSubCategoryIds, params, data, params2, _params;
 
-          if (this.selectedTab == 'interest') {
-            broadcastMessage.broadCastGroupcategoryId = parseInt(broadCastGroupCategoryIDs);
-            broadcastMessage.broadcastMessageCategoryId = null; // broadcastMessage.userIds= Array.prototype.map.call(this.users,function(item){ return item.userId}).join(",");
-            // addBoradcastMessage$=  this.broadcastService.addBroadCastMessage(broadcastMessage);
-          }
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) {
+                      return item.broadCastGroupCategoryId;
+                    }).join(",");
+                    broadcastModeIds = Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) {
+                      return item.value;
+                    }).join(",");
+                    broadcastMessage = {
+                      "broadCastMessageId": 0,
+                      "apartmentId": this.apartmentID,
+                      "subject": this.message.subject,
+                      "broadcastMessage1": this.message.ckeditor,
+                      "broadcastBy": this.loginedUser,
+                      "broadcastOn": new Date().toISOString(),
+                      "broadcastMessageCategoryId": 0,
+                      "broadcastModeIds": broadcastModeIds,
+                      "broadCastGroupcategoryId": null,
+                      "userIds": null,
+                      "isReadAllowed": false,
+                      "isLater": true,
+                      "laterDate": null,
+                      "isFlashNotice": this.isFlashNotice,
+                      "isActive": true,
+                      "insertedBy": this.loginedUser,
+                      "insertedOn": new Date().toISOString(),
+                      "updatedBy": null,
+                      "updatedOn": null,
+                      "serialNo": 0,
+                      "description": "",
+                      "filterId": null
+                    };
 
-          if (this.selectedTab == 'role') {
-            broadcastMessage.broadcastMessageCategoryId = this.broadCastCategory.selectedItems[0].broadCastMessageCategoryId;
-            broadcastMessage.broadCastGroupcategoryId = null; // var userId$=this.getUserIds$();
-            //  addBoradcastMessage$=userId$.pipe(
-            //     concatMap((userIds:any) =>{
-            //       if(userIds.length==0)
-            //       {
-            //         this.modalService.showErrorModal("No such Users exists to broadcast message.");
-            //         return never();
-            //       }
-            //     broadcastMessage.userIds=userIds.join(',');
-            //      return  this.broadcastService.addBroadCastMessage(broadcastMessage);
-            //     } )
-            //   )
-          }
+                    if (this.selectedTab == 'interest') {
+                      broadcastMessage.broadCastGroupcategoryId = parseInt(broadCastGroupCategoryIDs);
+                      broadcastMessage.broadcastMessageCategoryId = null;
+                      broadcastMessage.userIds = Array.prototype.map.call(this.AssignInterestUsers, function (item) {
+                        return item.userId;
+                      }).join(",");
+                    }
 
-          broadcastMessage.userIds = Array.prototype.map.call(this.users, function (item) {
-            return item.userId;
-          }).join(",");
-          var broadCastParams = {
-            sourceBroadCastMessage_model: broadcastMessage
-          };
-          this.broadcastService.addBroadCastMessage(broadCastParams).subscribe(function (res) {
-            if (res.message) {
-              _this37.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                    if (!(this.selectedTab == 'role')) {
+                      _context2.next = 19;
+                      break;
+                    }
 
-              _this37.ClearFormData();
-            }
-          }); // this.updateUsers();
+                    broadcastMessage.userIds = Array.prototype.map.call(this.users, function (item) {
+                      return item.userId;
+                    }).join(",");
+                    broadcastMessage.broadcastMessageCategoryId = this.broadCastCategory.selectedItems[0].broadCastMessageCategoryId;
+                    broadcastMessage.broadCastGroupcategoryId = null;
+                    roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
+                      return item.value;
+                    }).join(",");
+                    blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) {
+                      return item.apartmentBlockId;
+                    }).join(",");
+                    conditionIds = Array.prototype.map.call(this.condition.selectedItems, function (item) {
+                      return item.value;
+                    }).join(",");
+                    staffcategoryIds = Array.prototype.map.call(this.staffCategory.selectedItems, function (item) {
+                      return item.value;
+                    }).join(",");
+                    staffSubCategoryIds = Array.prototype.map.call(this.staffSubCategory.selectedItems, function (item) {
+                      return item.value;
+                    }).join(",");
+                    params = {
+                      'filterId': 0,
+                      'roleIds': roleIds,
+                      'conditions': conditionIds,
+                      'appartmentbBlockIds': blockIds,
+                      'apartmentId': this.apartmentID,
+                      'staffCategoryIds': staffcategoryIds,
+                      'subStaffCategoryIds': staffSubCategoryIds,
+                      "insertedBy": this.loginedUser,
+                      "insertedOn": new Date().toISOString(),
+                      "updatedBy": null,
+                      "updatedOn": null,
+                      'isActive': true,
+                      'roleTypeId': this.roleTypeArr.selectedItems[0].value
+                    };
+                    data = {
+                      "message": "0"
+                    };
+                    params2 = {
+                      "broadCastFilters_model": params
+                    }; //data = 
+
+                    _context2.next = 18;
+                    return this.broadcastService.upsertBroadCastFilters(params2).toPromise();
+
+                  case 18:
+                    broadcastMessage.filterId = parseInt(data.message); // .subscribe((res)=>{
+                    //       broadcastMessage.filterId=parseInt(res);
+                    //                   }).toPromise();
+
+                  case 19:
+                    if (broadcastMessage.userIds.length == 0) {
+                      this.modalService.showErrorModal("No such Users exists to broadcast message.");
+                    } else {
+                      _params = {
+                        "sourceBroadCastMessage_model": broadcastMessage
+                      };
+                      this.broadcastService.addBroadCastMessage(_params).subscribe(function (res) {
+                        if (res.message) {
+                          _this36.sharedService.setAlertMessage("Broadcast Message sent successfully");
+
+                          _this36.ClearFormData();
+                        }
+                      });
+                    }
+
+                  case 20:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
         }
       }, {
         key: "ClearFormData",
@@ -2690,17 +2730,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     BroadcastSendmessageComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
+        type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
+        type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
       }, {
-        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
+        type: _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+        type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
@@ -2714,7 +2754,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-sendmessage.component.scss */
       "./src/app/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastSendmessageComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], _api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], _api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], BroadcastSendmessageComponent);
     /***/
   },
 
@@ -2778,8 +2818,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/Broadcast */
+    var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../../api/controllers/Broadcast */
     "./src/app/api/controllers/Broadcast.ts");
     /* harmony import */
 
@@ -2854,7 +2894,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this38 = this;
+          var _this37 = this;
 
           this.loginUserId = parseInt(this.cookieService.get('userId'));
           this.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -2864,18 +2904,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.sharedService.unitlistdeleteindexcast.subscribe(function (index) {
             if (index != null) {
               var params = {
-                broadcastId: _this38.allBroadcastCategory[index].broadCastMessageCategoryId,
-                deleteBy: _this38.loginUserId
+                broadcastId: _this37.allBroadcastCategory[index].broadCastMessageCategoryId,
+                deleteBy: _this37.loginUserId
               };
-              _this38.isDataLoaded = false;
+              _this37.isDataLoaded = false;
 
-              _this38.broadcastService.deleteBroadCastCategory(params).subscribe(function (res) {
-                _this38.allBroadcastCategory.splice(index, 1);
+              _this37.broadcastService.deleteBroadCastCategory(params).subscribe(function (res) {
+                _this37.allBroadcastCategory.splice(index, 1);
 
-                _this38.totalItems = _this38.allBroadcastCategory.length;
-                _this38.isDataLoaded = true;
+                _this37.totalItems = _this37.allBroadcastCategory.length;
+                _this37.isDataLoaded = true;
 
-                _this38.sharedService.setUnitListDeleteIndex(null);
+                _this37.sharedService.setUnitListDeleteIndex(null);
               }, function (error) {
                 console.log(error);
               });
@@ -2898,24 +2938,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this39 = this;
+          var _this38 = this;
 
-          var params = {
+          var queryParamBase = {
             apartmentId: this.apartmentId
           };
-          this.broadcastService.getBroadCastMessageCategories(params).subscribe(function (res) {
+          this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
             var allBroadcastCategory = res; //filter active true items
 
-            _this39.allBroadcastCategory = allBroadcastCategory.filter(function (data) {
+            _this38.allBroadcastCategory = allBroadcastCategory.filter(function (data) {
               return data.isActive;
             });
-            _this39.isDataLoaded = true;
-            _this39.totalItems = _this39.allBroadcastCategory.length;
+            _this38.isDataLoaded = true;
+            _this38.totalItems = _this38.allBroadcastCategory.length;
 
-            if (_this39.totalItems > _this39.itemLimit) {
-              _this39.ItemEndIndex = _this39.itemLimit;
+            if (_this38.totalItems > _this38.itemLimit) {
+              _this38.ItemEndIndex = _this38.itemLimit;
             } else {
-              _this39.ItemEndIndex = _this39.totalItems;
+              _this38.ItemEndIndex = _this38.totalItems;
             }
           });
         } //Cancel
@@ -2930,7 +2970,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "UpsertBroadcastMessageCategory",
         value: function UpsertBroadcastMessageCategory(form) {
-          var _this40 = this;
+          var _this39 = this;
 
           var broadcastCategory = {
             "broadCastMessageCategoryId": 0,
@@ -2955,21 +2995,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             broadcastCategory.serialNo = this.category.serialNo;
           }
 
-          var broadCastMessageCategory = {
-            broadCastMessageCategory: broadcastCategory
+          var params = {
+            'broadCastMessageCategory': broadcastCategory
           };
-          this.broadcastService.upsertBroadCastMessageCategory(broadCastMessageCategory).subscribe(function (res) {
+          this.broadcastService.upsertBroadCastMessageCategory(params).subscribe(function (res) {
             if (res.message) {
-              if (_this40.isEdit) {
-                _this40.sharedService.setAlertMessage("Broadcast category updated successfully");
+              if (_this39.isEdit) {
+                _this39.sharedService.setAlertMessage("Broadcast category updated successfully");
               } else {
-                _this40.sharedService.setAlertMessage("Broadcast category added successfully");
+                _this39.sharedService.setAlertMessage("Broadcast category added successfully");
               }
 
-              _this40.getAllCategory();
+              _this39.getAllCategory();
 
-              _this40.category = {};
-              _this40.isEdit = false;
+              _this39.category = {};
+              _this39.isEdit = false;
             }
           });
         }
@@ -2984,7 +3024,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
+        type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
@@ -3000,7 +3040,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcast-setup.component.scss */
       "./src/app/ams/broadcast/components/broadcast-setup/broadcast-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], BroadcastSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], BroadcastSetupComponent);
     /***/
   },
 
@@ -3064,39 +3104,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/Broadcast */
-    "./src/app/api/controllers/Broadcast.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/User */
-    "./src/app/api/controllers/User.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
+    var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../../api/controllers/Apartment */
     "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../../../api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var _api_controllers_User__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../../../../api/controllers/User */
+    "./src/app/api/controllers/User.ts");
 
     var BroadcastgroupSetupComponent =
     /*#__PURE__*/
@@ -3128,7 +3168,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.isError = false;
         this.dropdownSettings = {};
         this.string = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(BroadcastgroupSetupComponent, [{
@@ -3161,7 +3201,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this41 = this;
+          var _this40 = this;
 
           this.groupCategory = {};
           this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
@@ -3181,18 +3221,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.sharedService.unitlistdeleteindexcast.subscribe(function (index) {
             if (index != null) {
               var params = {
-                broadCastGroupCategoryId: _this41.allBroadcastGroupCategory[index].broadCastGroupCategoryId,
-                deleteBy: _this41.userId
+                broadCastGroupCategoryId: _this40.allBroadcastGroupCategory[index].broadCastGroupCategoryId,
+                deleteBy: _this40.userId
               };
-              _this41.isDataLoaded = false;
+              _this40.isDataLoaded = false;
 
-              _this41.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
-                _this41.allBroadcastGroupCategory.splice(index, 1);
+              _this40.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
+                _this40.allBroadcastGroupCategory.splice(index, 1);
 
-                _this41.totalItems = _this41.allBroadcastGroupCategory.length;
-                _this41.isDataLoaded = true;
+                _this40.totalItems = _this40.allBroadcastGroupCategory.length;
+                _this40.isDataLoaded = true;
 
-                _this41.sharedService.setUnitListDeleteIndex(null);
+                _this40.sharedService.setUnitListDeleteIndex(null);
               }, function (error) {
                 console.log(error);
               });
@@ -3209,35 +3249,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllRoleTypesList",
         value: function getAllRoleTypesList() {
-          var _this42 = this;
+          var _this41 = this;
 
           this.userService.getAllRoleTypes().subscribe(function (res) {
-            _this42.allRoleTypesList = res;
+            _this41.allRoleTypesList = res;
           });
         }
       }, {
         key: "getAllApartmentBlockList",
         value: function getAllApartmentBlockList() {
-          var _this43 = this;
+          var _this42 = this;
 
-          var params = {
+          var queryParamBase = {
             apartmentId: this.apartmentID
           };
-          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this43.allApartmentBlockList = res;
+          this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
+            _this42.allApartmentBlockList = res;
           });
         }
       }, {
         key: "getAppartmentRole",
         value: function getAppartmentRole() {
-          var _this44 = this;
+          var _this43 = this;
 
           var params = {
-            RoleTypeId: this.roleType,
-            ApartmentId: this.apartmentID
+            'RoleTypeId': this.roleType,
+            'ApartmentId': this.apartmentID
           };
           this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-            _this44.allApartmentRolesList = res;
+            _this43.allApartmentRolesList = res;
           });
         }
       }, {
@@ -3263,24 +3303,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllGroupCategory",
         value: function getAllGroupCategory() {
-          var _this45 = this;
+          var _this44 = this;
 
-          var params = {
+          var queryParamBase = {
             apartmentId: this.apartmentID
           };
-          this.broadcastService.getAllBroadCastGroupCategory(params).subscribe(function (res) {
+          this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
             var allBroadcastGroupCategory = res; //filter active true items
 
-            _this45.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+            _this44.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
               return data.isActive;
             });
-            _this45.isDataLoaded = true;
-            _this45.totalItems = _this45.allBroadcastGroupCategory.length;
+            _this44.isDataLoaded = true;
+            _this44.totalItems = _this44.allBroadcastGroupCategory.length;
 
-            if (_this45.totalItems > _this45.itemLimit) {
-              _this45.ItemEndIndex = _this45.itemLimit;
+            if (_this44.totalItems > _this44.itemLimit) {
+              _this44.ItemEndIndex = _this44.itemLimit;
             } else {
-              _this45.ItemEndIndex = _this45.totalItems;
+              _this44.ItemEndIndex = _this44.totalItems;
             }
           });
         } //Submit Category
@@ -3288,7 +3328,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "submitcreateBroadcastGroupCategoryForm",
         value: function submitcreateBroadcastGroupCategoryForm(form) {
-          var _this46 = this;
+          var _this45 = this;
 
           var privileges = Array.prototype.map.call(this.privilageCategory.selectedItems, function (item) {
             return item.name;
@@ -3317,20 +3357,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           var params = {
-            broadcast: broadcastGroupCategory
+            'broadcast': broadcastGroupCategory
           };
           this.broadcastService.addBroadCastGroupCategory(params).subscribe(function (res) {
             if (res.message) {
-              if (_this46.isEdit) {
-                _this46.sharedService.setAlertMessage("Broadcast category updated successfully");
+              if (_this45.isEdit) {
+                _this45.sharedService.setAlertMessage("Broadcast category updated successfully");
               } else {
-                _this46.sharedService.setAlertMessage("Broadcast Group category added successfully");
+                _this45.sharedService.setAlertMessage("Broadcast Group category added successfully");
               }
 
-              _this46.getAllGroupCategory();
+              _this45.getAllGroupCategory();
 
-              _this46.groupCategory = {};
-              _this46.privilageCategory.selectedItems = [];
+              _this45.groupCategory = {};
+              _this45.privilageCategory.selectedItems = [];
             }
           });
         } //Cancel
@@ -3352,15 +3392,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
+        type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: _api_controllers_User__WEBPACK_IMPORTED_MODULE_8__["UserService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }];
     };
 
@@ -3372,7 +3412,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./broadcastgroup-setup.component.scss */
       "./src/app/ams/broadcast/components/broadcastgroup-setup/broadcastgroup-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]])], BroadcastgroupSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_4__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _api_controllers_User__WEBPACK_IMPORTED_MODULE_8__["UserService"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]])], BroadcastgroupSetupComponent);
     /***/
   }
 }]);

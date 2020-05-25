@@ -638,11 +638,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     _this2.isUserSubmitted = false;
                     _this2.isError = true;
                     _this2.errorMessage = res.errorMessage;
+                    var errorDetails = {
+                      msg: _this2.errorMessage,
+                      type: "Error"
+                    };
 
-                    _this2.SharedToaster.openSnackBar(_this2.errorMessage, '');
-
-                    console.log("error message ==> ", _this2.errorMessage); //valid
+                    _this2.sharedService.setCustomAlertMessage(errorDetails); //valid
                     // this.isInvalidLogin = true;
+
                   }
                 }, function (error) {});
               } else {
@@ -743,8 +746,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     _this2.isUserSubmitted = false;
                     _this2.isError = true;
                     _this2.errorMessage = res.errorMessage;
+                    var errorDetails = {
+                      msg: _this2.errorMessage,
+                      type: "Error"
+                    };
 
-                    _this2.SharedToaster.openSnackBar(_this2.errorMessage, '');
+                    _this2.sharedService.setCustomAlertMessage(errorDetails); //this.SharedToaster.openSnackBar(this.errorMessage,'');
+
                   }
                 }, function (error) {});
               }
@@ -823,16 +831,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.route.params['value'].id != undefined) {
             this.isEditUser = true;
-            this.userService.getUserById(this.route.params['value'].id).subscribe(function (res) {
+            var useridParam = {
+              userid: this.route.params['value'].id
+            };
+            this.userService.getUserById(useridParam).subscribe(function (res) {
               _this3.user = res[0];
               _this3.genderType = _this3.user.genderId.toString(); // get role
 
-              _this3.userService.getRolesByUserId(_this3.route.params['value'].id).subscribe(function (data) {
+              var userIdParam = {
+                userId: _this3.route.params['value'].id
+              };
+
+              _this3.userService.getRolesByUserId(userIdParam).subscribe(function (data) {
                 _this3.userType = data[0].roleId.toString();
               }, function (error) {}); //get block
 
 
-              _this3.apartmentService.getApartmentBlockByUserId(_this3.route.params['value'].id).subscribe(function (block) {
+              _this3.apartmentService.getApartmentBlockByUserId(userIdParam).subscribe(function (block) {
                 _this3.apartmentBlockId = block[0].apartmentBlockId.toString();
 
                 _this3.getUnits();
@@ -3205,6 +3220,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./components/signuprequest/signuprequest.component */
     "./src/app/ams/unit-users/components/signuprequest/signuprequest.component.ts");
+    /* harmony import */
+
+
+    var src_app_user_my_profile_components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component */
+    "./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.ts");
 
     var routes = [{
       path: '',
@@ -3234,6 +3255,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         path: 'propertymanager/:id',
         component: _user_my_profile_components_property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_12__["PropertyManagerComponent"]
+      }, {
+        path: 'propertymanager/create',
+        component: src_app_user_my_profile_components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_20__["PropertyManagerCreateComponent"]
       }, {
         path: 'family/:id',
         component: _user_my_profile_components_profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_10__["ProfileFamilyMembersComponent"]

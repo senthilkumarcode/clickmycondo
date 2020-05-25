@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-post-multi-invoice-fields-wrapper\">\n\n\t<form #postExpenseMultiInvoiceFieldsForm =\"ngForm\" name=\"postExpenseMultiInvoiceFieldsForm\">\n\t\n\t<div class=\"invoice-fields\" [ngClass]=\"postExpenseMultiInvoiceFieldsForm.valid ? 'valid' : ''\">\n\t\t\n\t\t<div class=\"float-close-wrapper\">\n\t\t\t\n\t\t\t<div class=\"float-close mb-3\" [ngClass]=\"isArrayOne() ? 'delete' : 'disabled'\" (click)=\"deleteBlock()\">\n    \t\t\t<i-feather class=\"icon rotate\" name=\"x\" width=\"18\"></i-feather>\n    \t\t</div>\n\n\t    \t<div class=\"float-close\" [ngClass]=\"this.invoiceForm.valid ? 'valid' : 'disabled'\">\n\t    \t\t<i-feather class=\"icon rotate\" name=\"check\" width=\"18\"></i-feather>\n\t    \t</div>\n\n\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t               <label>Account*</label>\n\t\t               <select \n\t\t\t\t\t        name=\"accountType\" \n\t\t\t\t\t        id=\"accountType\" \n\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t        [(ngModel)]=\"invoiceGLAccountsData.glaccountId\"  \n\t\t\t\t\t        (ngModelChange)=\"onAccountChange(invoiceGLAccountsData.glaccountId)\"\n\t\t\t\t\t        required>\n\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t        <option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">{{ item.glaccountName }}</option>\n\t\t\t\t\t    </select>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t                <label>Invoice Amount*</label>\n\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"invoiceAmount\" \n\t\t                [(ngModel)]=\"invoiceGLAccountsData.amount\" \n\t\t                (ngModelChange)=\"onInvoiceAmountChange(invoiceGLAccountsData.amount)\"\n\t\t                required>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t                <label>Comments</label>\n\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" \n\t\t                [(ngModel)]=\"invoiceGLAccountsData.comments\" \n\t\t                (ngModelChange)=\"onCommentChange(invoiceGLAccountsData.comments)\"\n\t\t                required>\n\t\t    \t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-post-multi-invoice-fields-wrapper\">\n\n\t\n\n</div>");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-multi-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isVendorDataLoaded\">\n\n\t\t<div class=\"card-header at-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<div class=\"sub-details\" *ngIf=\"isVendorDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Vendor Name: </span>{{vendorDataList[0].vendorName}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Vendor Category: </span>{{getCategoryName(vendorDataList[0].vendorCategoryId)}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{vendorDataList[0].contactPerson}}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isVendorDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorDataLoaded\">\n\n\t\t<form #postExpenseMultiInvoiceForm = \"ngForm\" name=\"postExpenseMultiInvoiceForm\" (ngSubmit)=\"submitExpenseMultiInvoiceForm(postExpenseMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t<owl-date-time #vendorInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"vendorInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t<div class=\"w-250 heads\">Account Type*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t<div class=\"w-200 heads\">Description*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t<div class=\"w-220 heads\">Withholding Tax*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Discount*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\" \n\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Input VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Withholding Tax</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" [readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountGenChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total Net Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postExpenseMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-multi-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isVendorDataLoaded\">\n\n\t\t<div class=\"card-header at-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<div class=\"sub-details\" *ngIf=\"isVendorDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Vendor Name: </span>{{vendorDataList[0].vendorName}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Vendor Category: </span>{{getCategoryName(vendorDataList[0].vendorCategoryId)}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{vendorDataList[0].contactPerson}}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isVendorDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorDataLoaded\">\n\n\t\t<form #postExpenseMultiInvoiceForm = \"ngForm\" name=\"postExpenseMultiInvoiceForm\" (ngSubmit)=\"submitExpenseMultiInvoiceForm(postExpenseMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t<owl-date-time #vendorInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"vendorInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t<div class=\"w-250 heads\">Account Type*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t<div class=\"w-200 heads\">Description*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t<div class=\"w-220 heads\">Withholding Tax*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Discount*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\" \n\t\t\t\t\t\t*ngFor=\"let invoiceVendorAccountsData of invoiceVendorAccountsArray; let i = index\" \n\t\t\t\t\t\tapp-expense-post-multi-invoice-fields\n\t\t\t\t\t\t[invoiceVendorAccountsArray] = \"invoiceVendorAccountsArray\" \n\t\t\t\t\t\t[invoiceVendorAccountsData] = \"invoiceVendorAccountsData\"\n\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Input VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Withholding Tax</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" [readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountGenChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total Net Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postExpenseMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -78,6 +78,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.html":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.html ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-tracker-reports-vendor-reports\">\n\t\n\t<h4 class=\"main-title-mini\">Vendor Journal Entries</h4>\n\n\t<div class=\"card clear\">\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<form #expenseReportsVendorForm = \"ngForm\" name=\"expenseReportsVendorForm\" (ngSubmit)=\"submitExpenseReportsVendorForm(expenseReportsVendorForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Document Date From</label>\n\t\t                    <input class=\"form-control\" name=\"documentDateFrom\" [owlDateTime]=\"documentDateFrom\" [owlDateTimeTrigger]=\"documentDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.documentDateFrom\">\n\t\t\t\t\t\t\t<owl-date-time #documentDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"documentDateFrom\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Document Date To</label>\n\t\t                    <input class=\"form-control\" name=\"documentDateTo\" [owlDateTime]=\"documentDateTo\" [owlDateTimeTrigger]=\"documentDateTo\" placeholder=\"Date\" [(ngModel)]=\"report.documentDateTo\">\n\t\t\t\t\t\t\t<owl-date-time #documentDateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"documentDateTo\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Posting Date From*</label>\n\t\t                    <input class=\"form-control\" name=\"PostingDateFrom\" [owlDateTime]=\"PostingDateFrom\" [owlDateTimeTrigger]=\"PostingDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateFrom\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Posting Date To*</label>\n\t\t                    <input class=\"form-control\" name=\"PostingdateTo\" [owlDateTime]=\"PostingdateTo\" [owlDateTimeTrigger]=\"PostingdateTo\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateTo\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingdateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingdateTo\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Vendor</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"vendorName\" \n\t\t\t\t\t\t        id=\"vendorName\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.vendorId\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of vendorData\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Gl Account</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"glAccountNo\" \n\t\t\t\t\t\t        id=\"glAccountNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.GLaccountID\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountsDataList\" [value]=\"item.glaccountId\">{{ item.glaccountName }} {{item.glaccountId}}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Gl Document Type*</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"glDocumentType\" \n\t\t\t\t\t\t        id=\"glDocumentType\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.GLDocumentTypeID\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of glDocumentTypeDataList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div> -->\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"expenseReportsVendorForm.invalid\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear mt-30\" *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"list-inline float-left\">\n    \t\t\t<h5>Reports <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p *ngIf=\"!isReportSubmitted\">Transactions From <span class=\"tc-blue m-bold\">{{getDate(report.documentDateFrom)}}</span> To <span class=\"tc-blue m-bold\">{{getDate(report.documentDateTo)}}</span> </p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" >\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\t\n\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      \n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('vendorName')\">Vendor Name<span [ngClass]=\"getFieldOrderBy('vendorName')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('vendorInvoiceId')\">Vendor Invoice Id<span [ngClass]=\"getFieldOrderBy('vendorInvoiceId')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('creditAmount')\">Credit Amount<span [ngClass]=\"getFieldOrderBy('creditAmount')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('debitAmount')\">Debit Amount<span [ngClass]=\"getFieldOrderBy('debitAmount')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('glaccountname')\">Gl Account Name<span [ngClass]=\"getFieldOrderBy('glaccountname')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('documentDate')\">Document Date<span [ngClass]=\"getFieldOrderBy('documentDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('documentNumber')\">Document No<span [ngClass]=\"getFieldOrderBy('documentNumber')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('enteredByName')\">Entered By<span [ngClass]=\"getFieldOrderBy('enteredByName')\"></span></th>\n\t\t\t\t       <th scope=\"col\" (click)=\"sortUnitData('entryDateTime')\">Entry Date & Time<span [ngClass]=\"getFieldOrderBy('entryDateTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posting Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('clearingDate')\">Clearing Date<span [ngClass]=\"getFieldOrderBy('clearingDate')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let report of reportsDataList | simpleSearch: reportsData | sort : unitFieldType: unitOrder| slice:ItemStartIndex:ItemEndIndex  ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{report.vendorName}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.vendorInvoiceId}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.creditAmount}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.debitAmount}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.glaccountname}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.documentDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.documentNumber}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.enteredByName}}</td>\n\t\t\t\t      <td class=\"grey\">{{getTimeFormat(report.entryDateTime)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.postingDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.clearingDate)}}</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports.component.html":
 /*!*****************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports.component.html ***!
@@ -87,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>expense-tracker-reports works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<h5 class=\"mb-3\">Select the reports</h5>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportsDataList; let i = index\">\n\t\t\t\t\n\t\t\t\t\t<div class=\"card report-card\">\n\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\"\n\t\t\t\t\t\trouterLink=\"/ams/expense/reports/{{report.type}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</ng-container>\n\t</div>\n");
 
 /***/ }),
 
@@ -701,65 +714,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpensePostMultiInvoiceFieldsComponent", function() { return ExpensePostMultiInvoiceFieldsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
-
-
 
 
 let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFieldsComponent {
-    constructor(accountsService, cookieService) {
-        this.accountsService = accountsService;
-        this.cookieService = cookieService;
-        this.invoiceId = "";
-        this.isEditInvoice = false;
-        this.isInvoiceSubmitted = true;
-        this.isError = false;
-        this.alertMessage = "";
-        this.glAccountIndicator = "Expenses";
+    constructor() {
         this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
-    deleteBlock() {
-        this.invoiceGLAccountsArray.splice(this.index, 1);
-        this.fieldParams.emit(this.invoiceGLAccountsArray);
-    }
-    isArrayOne() {
-        return this.invoiceGLAccountsArray.length > 1 ? true : false;
-    }
-    onAccountChange(id) {
-        this.invoiceGLAccountsArray[this.index].glaccountId = parseInt(id);
-        this.invoiceGLAccountsArray[this.index].form = this.invoiceForm.valid;
-        this.fieldParams.emit(this.invoiceGLAccountsArray);
-    }
-    onInvoiceAmountChange(value) {
-        this.invoiceGLAccountsArray[this.index].amount = parseInt(value);
-        this.invoiceGLAccountsArray[this.index].form = this.invoiceForm.valid;
-        this.fieldParams.emit(this.invoiceGLAccountsArray);
-    }
-    onCommentChange(value) {
-        this.invoiceGLAccountsArray[this.index].comments = value;
-        this.invoiceGLAccountsArray[this.index].form = this.invoiceForm.valid;
-        this.fieldParams.emit(this.invoiceGLAccountsArray);
-    }
     ngOnInit() {
-        this.invoiceGLAccountsData = this.invoiceGLAccountsArray[this.index];
-        this.accountsService.getAllGlAccounts().subscribe((res) => {
-            this.glAccountListData = res.filter(item => {
-                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
-            });
-        });
-    }
-    ngOnChanges(changes) {
-        this.invoiceGLAccountsData = this.invoiceGLAccountsArray[this.index];
-        console.log(this.invoiceGLAccountsArray);
     }
 };
-ExpensePostMultiInvoiceFieldsComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
-];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
@@ -767,23 +730,25 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], ExpensePostMultiInvoiceFieldsComponent.prototype, "invoiceGLAccountsArray", void 0);
+], ExpensePostMultiInvoiceFieldsComponent.prototype, "invoiceVendorAccountsData", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], ExpensePostMultiInvoiceFieldsComponent.prototype, "invoiceVendorAccountsArray", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], ExpensePostMultiInvoiceFieldsComponent.prototype, "isEditInvoice", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
 ], ExpensePostMultiInvoiceFieldsComponent.prototype, "fieldParams", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('postExpenseMultiInvoiceFieldsForm', { static: true }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"])
-], ExpensePostMultiInvoiceFieldsComponent.prototype, "invoiceForm", void 0);
 ExpensePostMultiInvoiceFieldsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-expense-post-multi-invoice-fields',
+        selector: '[app-expense-post-multi-invoice-fields]',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./expense-post-multi-invoice-fields.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-post-multi-invoice-fields/expense-post-multi-invoice-fields.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./expense-post-multi-invoice-fields.component.scss */ "./src/app/ams/expense-tracker/components/expense-post-multi-invoice-fields/expense-post-multi-invoice-fields.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+    })
 ], ExpensePostMultiInvoiceFieldsComponent);
 
 
@@ -848,8 +813,8 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
         this.isSingleInvoice = false;
         this.isNewInvoice = false;
         this.isInvoiceSubmitted = true;
-        this.isVendorDataLoaded = false;
         this.isFormInValid = true;
+        this.isVendorDataLoaded = false;
     }
     getCategoryName(id) {
         var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.vendorCategoryData, function (item) {
@@ -867,9 +832,8 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
         let details = {
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
             "invoiceId": 0,
-            "glaccountId": this.invoiceGLAccountsData.glaccountId,
-            "comments": "",
-            "form": false,
+            "glaccountId": this.invoiceVendorAccountsData.glaccountId,
+            "comments": this.invoiceVendorAccountsData.comments,
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
@@ -879,10 +843,30 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
             "tax2": 0,
             "tax3": 0,
             "deductTax": 0,
-            "amount": this.invoiceGLAccountsData.amount
+            "amount": parseFloat(this.invoiceVendorAccountsData.amount),
+            "vatamount": parseFloat(this.invoiceVendorAccountsData.vatamount),
+            "tax1Amount": parseFloat(this.invoiceVendorAccountsData.tax1Amount),
+            "tax2Amount": parseFloat(this.invoiceVendorAccountsData.tax2Amount),
+            "tax3Amount": parseFloat(this.invoiceVendorAccountsData.tax3Amount),
+            "vatid": "",
+            "tax1Id": "",
+            "tax2Id": "",
+            "tax3Id": "",
+            "discountId": "",
+            "discountAmount": parseFloat(this.invoiceVendorAccountsData.discountAmount),
+            "isDiscount": true,
+            "discountTypeId": "",
+            "discountDirectAmt": parseFloat(this.invoiceVendorAccountsData.discountDirectAmt),
+            "glaccountName": this.invoiceVendorAccountsData.glaccountName,
+            "isTax1Vat": true,
+            "tax1Vatid": "",
+            "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
+            "isWthtaxAmount": true,
+            "wthtaxAmountId": "",
+            "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount)
         };
-        this.invoiceGLAccountsArray.push(details);
-        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceGLAccountsArray, item => {
+        this.invoiceVendorAccountsArray.push(details);
+        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceVendorAccountsArray, item => {
             if (item.form) {
                 this.isFormInValid = false;
             }
@@ -892,8 +876,8 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
         });
     }
     getFieldParams(event) {
-        this.invoiceGLAccountsArray = event;
-        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceGLAccountsArray, item => {
+        this.invoiceVendorAccountsArray = event;
+        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceVendorAccountsArray, item => {
             if (item.form) {
                 this.isFormInValid = false;
             }
@@ -905,41 +889,42 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
     submitExpenseMultiInvoiceForm(form) {
         this.isInvoiceSubmitted = false;
         var self = this;
-        this.invoiceGLAccountsArray.map(function (item) {
+        this.invoiceVendorAccountsArray.map(function (item) {
             self.invoice.vendorInvoiceAmount = self.invoice.vendorInvoiceAmount + item.amount;
             delete item.form;
             return item;
         });
         let details = {
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-            "vendorId": parseInt(this.invoice.vendorId),
-            "vendorInvoiceNumber": this.invoice.vendorInvoiceNumber,
-            "vendorInvoiceAmount": this.invoice.vendorInvoiceAmount,
-            "vendorInvoiceDate": new Date().toISOString(),
-            "dueDate": this.invoice.vendorInvoiceDate,
-            "stateGst": 0,
-            "centralGst": 0,
-            "integratedGst": 0,
-            "isDeductTds": true,
-            "deductTds": 0,
-            "deductTdstypeId": 1,
-            "expenseHeadId": 1,
-            "payeeId": 1,
-            "isEmailSent": true,
-            "isSmssent": true,
-            "voucherNumber": null,
-            "vendorInvoiceStatusId": null,
-            "postedBy": parseInt(this.cookieService.get('userId')),
-            "postedOn": new Date().toISOString(),
-            "comments": this.invoice.comments || "",
+            "invoiceId": 0,
+            "glaccountId": this.invoiceVendorAccountsData.glaccountId,
+            "comments": this.invoiceVendorAccountsData.comments,
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
-            "updatedBy": 0,
+            "updatedBy": null,
             "updatedOn": new Date().toISOString(),
-            "transReference1": "string",
-            "transReference2": "string",
-            "vendorInvoiceGlaccount": this.invoiceGLAccountsArray
+            "tax1": 0,
+            "tax2": 0,
+            "tax3": 0,
+            "deductTax": 0,
+            "amount": parseFloat(this.invoiceVendorAccountsData.amount),
+            "vatamount": parseFloat(this.invoiceVendorAccountsData.vatamount),
+            "tax1Amount": parseFloat(this.invoiceVendorAccountsData.tax1Amount),
+            "tax2Amount": parseFloat(this.invoiceVendorAccountsData.tax2Amount),
+            "tax3Amount": parseFloat(this.invoiceVendorAccountsData.tax3Amount),
+            "vatid": "",
+            "tax1Id": "",
+            "tax2Id": "",
+            "tax3Id": "",
+            "discountId": "",
+            "discountAmount": parseFloat(this.invoiceVendorAccountsData.discountAmount),
+            "isDiscount": true,
+            "discountTypeId": "",
+            "discountDirectAmt": parseFloat(this.invoiceVendorAccountsData.discountDirectAmt),
+            "glaccountName": this.invoiceVendorAccountsData.glaccountName,
+            "isTax1Vat": true,
+            "tax1Vatid": "",
         };
         let params = {
             invoice: details
@@ -959,18 +944,32 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
     }
     ngOnInit() {
         this.invoice = {};
-        this.invoice.vendorId = this.route.params['value'].id;
         this.invoice.vendorInvoiceAmount = 0;
-        this.invoiceGLAccountsData = {};
-        this.invoiceGLAccountsData.glaccountId = "";
-        this.invoiceGLAccountsData.amount = "";
-        this.invoiceGLAccountsData.comments = "";
-        this.invoiceGLAccountsArray = [
+        this.invoiceVendorAccountsData = {};
+        this.invoiceVendorAccountsData.glaccountId = "";
+        this.invoiceVendorAccountsData.glaccountName = "";
+        this.invoiceVendorAccountsData.vatid = "";
+        this.invoiceVendorAccountsData.discountId = "";
+        this.invoiceVendorAccountsData.amount = 0;
+        this.invoiceVendorAccountsData.isTax1Vat = false;
+        this.invoiceVendorAccountsData.isDiscount = false;
+        this.invoiceVendorAccountsData.discountAmount = 0;
+        this.invoiceVendorAccountsData.discountDirectAmt = 0;
+        this.invoiceVendorAccountsData.vatamount = 0;
+        this.invoiceVendorAccountsData.lineAmountAfterDiscount = 0;
+        this.invoiceVendorAccountsData.comments = "";
+        this.invoiceVendorAccountsData.tax1Id = "";
+        this.invoiceVendorAccountsData.tax1Amount = 0;
+        this.invoiceVendorAccountsData.tax2Id = "";
+        this.invoiceVendorAccountsData.tax2Amount = 0;
+        this.invoiceVendorAccountsData.tax3Id = "";
+        this.invoiceVendorAccountsData.tax3Amount = 0;
+        this.invoiceVendorAccountsArray = [
             {
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
                 "invoiceId": 0,
-                "glaccountId": this.invoiceGLAccountsData.glaccountId,
-                "comments": this.invoiceGLAccountsData.comments,
+                "glaccountId": this.invoiceVendorAccountsData.glaccountId,
+                "comments": this.invoiceVendorAccountsData.comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.cookieService.get('userId')),
                 "insertedOn": new Date().toISOString(),
@@ -980,7 +979,63 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
                 "tax2": 0,
                 "tax3": 0,
                 "deductTax": 0,
-                "amount": this.invoiceGLAccountsData.amount
+                "amount": parseFloat(this.invoiceVendorAccountsData.amount),
+                "vatamount": parseFloat(this.invoiceVendorAccountsData.vatamount),
+                "tax1Amount": parseFloat(this.invoiceVendorAccountsData.tax1Amount),
+                "tax2Amount": parseFloat(this.invoiceVendorAccountsData.tax2Amount),
+                "tax3Amount": parseFloat(this.invoiceVendorAccountsData.tax3Amount),
+                "vatid": "",
+                "tax1Id": "",
+                "tax2Id": "",
+                "tax3Id": "",
+                "discountId": "",
+                "discountAmount": parseFloat(this.invoiceVendorAccountsData.discountAmount),
+                "isDiscount": true,
+                "discountTypeId": "",
+                "discountDirectAmt": parseFloat(this.invoiceVendorAccountsData.discountDirectAmt),
+                "glaccountName": this.invoiceVendorAccountsData.glaccountName,
+                "isTax1Vat": true,
+                "tax1Vatid": "",
+                "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
+                "isWthtaxAmount": true,
+                "wthtaxAmountId": "",
+                "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount)
+            },
+            {
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "invoiceId": 0,
+                "glaccountId": this.invoiceVendorAccountsData.glaccountId,
+                "comments": this.invoiceVendorAccountsData.comments,
+                "isActive": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": new Date().toISOString(),
+                "tax1": 0,
+                "tax2": 0,
+                "tax3": 0,
+                "deductTax": 0,
+                "amount": parseFloat(this.invoiceVendorAccountsData.amount),
+                "vatamount": parseFloat(this.invoiceVendorAccountsData.vatamount),
+                "tax1Amount": parseFloat(this.invoiceVendorAccountsData.tax1Amount),
+                "tax2Amount": parseFloat(this.invoiceVendorAccountsData.tax2Amount),
+                "tax3Amount": parseFloat(this.invoiceVendorAccountsData.tax3Amount),
+                "vatid": "",
+                "tax1Id": "",
+                "tax2Id": "",
+                "tax3Id": "",
+                "discountId": "",
+                "discountAmount": parseFloat(this.invoiceVendorAccountsData.discountAmount),
+                "isDiscount": true,
+                "discountTypeId": "",
+                "discountDirectAmt": parseFloat(this.invoiceVendorAccountsData.discountDirectAmt),
+                "glaccountName": this.invoiceVendorAccountsData.glaccountName,
+                "isTax1Vat": true,
+                "tax1Vatid": "",
+                "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
+                "isWthtaxAmount": true,
+                "wthtaxAmountId": "",
+                "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount)
             }
         ];
         let dateParams = {
@@ -1008,7 +1063,7 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
         });
         //for post single invoice
         if (this.route.params['value'].type == 'single' && this.route.params['value'].invoiceid == undefined) {
-            this.invoiceGLAccountsArray.splice(0, 1);
+            this.invoiceVendorAccountsData.splice(0, 1);
             this.isSingleInvoice = true;
             this.isEditInvoice = false;
         }
@@ -1021,6 +1076,7 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
             this.isInvoiceSubmitted = false;
             this.isFormInValid = false;
             this.isEditInvoice = true;
+            this.invoice.vendorId = this.route.params['value'].id;
         }
         let vendorParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
@@ -1454,6 +1510,191 @@ ExpenseSubLedgerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
 
 /***/ }),
 
+/***/ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.scss":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.scss ***!
+  \*****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9leHBlbnNlLXRyYWNrZXIvY29tcG9uZW50cy9leHBlbnNlLXRyYWNrZXItcmVwb3J0cy9leHBlbnNlLXRyYWNrZXItcmVwb3J0cy12ZW5kb3IvZXhwZW5zZS10cmFja2VyLXJlcG9ydHMtdmVuZG9yLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.ts":
+/*!***************************************************************************************************************************************************!*\
+  !*** ./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.ts ***!
+  \***************************************************************************************************************************************************/
+/*! exports provided: ExpenseTrackerReportsVendorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpenseTrackerReportsVendorComponent", function() { return ExpenseTrackerReportsVendorComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Vendor */ "./src/app/api/controllers/Vendor.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+
+
+
+
+
+
+
+
+
+let ExpenseTrackerReportsVendorComponent = class ExpenseTrackerReportsVendorComponent {
+    constructor(apartmentService, vendorService, accountsService, sharedService, lookupService, cookieService) {
+        this.apartmentService = apartmentService;
+        this.vendorService = vendorService;
+        this.accountsService = accountsService;
+        this.sharedService = sharedService;
+        this.lookupService = lookupService;
+        this.cookieService = cookieService;
+        this.glAccountIndicator = "Liability";
+        this.isBlockSelected = false;
+        this.isUnitSelected = false;
+        this.ItemStartIndex = 0;
+        this.itemLimit = 8;
+        this.unitFieldType = "unitno";
+        this.unitOrder = true;
+        this.isReportSubmitted = true;
+        this.isDataLoaded = true;
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
+    }
+    sortUnitData(type) {
+        this.unitFieldType = type;
+        this.unitOrder = !this.unitOrder;
+    }
+    getFieldOrderBy(type) {
+        if (this.unitFieldType == type) {
+            return this.unitOrder ? 'asc' : 'desc';
+        }
+        else
+            return '';
+    }
+    getDate(date) {
+        if (date != null)
+            return moment__WEBPACK_IMPORTED_MODULE_3__(date).format("MM-DD-YYYY");
+        else
+            return "";
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    isItemsAvailable() {
+        return this.totalItems > 0 ? true : false;
+    }
+    isNoItemsAvailable() {
+        return this.totalItems == 0 ? true : false;
+    }
+    getDateFormat(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_3__(date).format("YYYY-MM-DD");
+    }
+    getTimeFormat(dateTime) {
+        return moment__WEBPACK_IMPORTED_MODULE_3__(dateTime).format("YYYY-MM-DD HH:mm");
+    }
+    submitExpenseReportsVendorForm(form) {
+        this.isReportSubmitted = true;
+        this.isDataLoaded = false;
+        let details = {
+            BlockID: null,
+            DocumentdateFrom: this.getDateFormat(this.report.documentDateFrom),
+            DocumentdateTo: this.getDateFormat(this.report.documentDateTo),
+            PostingdateFrom: this.getDateFormat(this.report.PostingdateFrom),
+            PostingdateTo: this.getDateFormat(this.report.PostingdateTo),
+            VendorId: parseInt(this.report.vendorId),
+            GLaccountID: parseInt(this.report.GLaccountID),
+            GLDocumentTypeID: 149,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe((res) => {
+            this.reportsDataList = res;
+            console.log(this.reportsDataList);
+            this.totalItems = this.reportsDataList.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+            this.isDataLoaded = true;
+            this.isReportSubmitted = false;
+        }, error => {
+        });
+    }
+    ngOnInit() {
+        this.report = {};
+        this.report.apartmentBlockId = "";
+        this.report.vendorId = "";
+        this.report.GLaccountID = "";
+        this.report.GLDocumentTypeID = "";
+        let blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe((res) => {
+            this.blockData = res;
+        });
+        let vendorParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vendorService.getVendorByApartmentId(vendorParams).subscribe((res) => {
+            this.vendorData = res;
+        });
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
+            this.glAccountsDataList = res.filter(item => {
+                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
+            });
+        });
+        //Gl Document 
+        let documentParams = {
+            LookupTypeId: 31
+        };
+        this.lookupService.getLookupValueByLookupTypeId(documentParams).subscribe((res) => {
+            this.glDocumentTypeDataList = res;
+        }, error => {
+        });
+    }
+};
+ExpenseTrackerReportsVendorComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] }
+];
+ExpenseTrackerReportsVendorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-expense-tracker-reports-vendor',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./expense-tracker-reports-vendor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./expense-tracker-reports-vendor.component.scss */ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
+], ExpenseTrackerReportsVendorComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports.component.scss":
 /*!***************************************************************************************************************!*\
   !*** ./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports.component.scss ***!
@@ -1479,20 +1720,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpenseTrackerReportsComponent", function() { return ExpenseTrackerReportsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+
+
 
 
 let ExpenseTrackerReportsComponent = class ExpenseTrackerReportsComponent {
-    constructor() { }
+    constructor(sharedService, cookieService, lookupService) {
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.lookupService = lookupService;
+        this.isDataLoaded = true;
+    }
     ngOnInit() {
+        //     this.lookupService.getLookupValueByLookupTypeId(88).subscribe((res:any) => {
+        //   		this.reportsDataList = res.filter(item => {
+        //   			return item.isActive;
+        //   		});
+        // console.log('this.reportsDataList', this.reportsDataList)
+        //     });
+        this.reportsDataList = [
+            { lookupValueName: 'Vendor Journal Entires', description: 'List of users approved by the admin and relevant details submitted by the Use', type: 'vendor' },
+        ];
     }
 };
+ExpenseTrackerReportsComponent.ctorParameters = () => [
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] }
+];
 ExpenseTrackerReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-expense-tracker-reports',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./expense-tracker-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./expense-tracker-reports.component.scss */ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]])
 ], ExpenseTrackerReportsComponent);
 
 
@@ -1856,6 +2124,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_expense_pay_invoice_expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/expense-pay-invoice/expense-pay-invoice.component */ "./src/app/ams/expense-tracker/components/expense-pay-invoice/expense-pay-invoice.component.ts");
 /* harmony import */ var _components_expense_post_multi_invoice_expense_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/expense-post-multi-invoice/expense-post-multi-invoice.component */ "./src/app/ams/expense-tracker/components/expense-post-multi-invoice/expense-post-multi-invoice.component.ts");
 /* harmony import */ var _components_expense_tracker_reports_expense_tracker_reports_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/expense-tracker-reports/expense-tracker-reports.component */ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports.component.ts");
+/* harmony import */ var _components_expense_tracker_reports_expense_tracker_reports_vendor_expense_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component */ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.ts");
+
 
 
 
@@ -1874,6 +2144,7 @@ const routes = [
     { path: 'edit-invoice/:id/:invoiceid', component: _components_expense_post_multi_invoice_expense_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_7__["ExpensePostMultiInvoiceComponent"] },
     { path: 'post-payment/:id', component: _components_expense_pay_invoice_expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_6__["ExpensePayInvoiceComponent"] },
     { path: 'reports', component: _components_expense_tracker_reports_expense_tracker_reports_component__WEBPACK_IMPORTED_MODULE_8__["ExpenseTrackerReportsComponent"] },
+    { path: 'reports/vendor', component: _components_expense_tracker_reports_expense_tracker_reports_vendor_expense_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_9__["ExpenseTrackerReportsVendorComponent"] },
     { path: '**', redirectTo: 'subledger', pathMatch: 'full' }
 ];
 let ExpenseTrackerRoutingModule = class ExpenseTrackerRoutingModule {
@@ -1959,6 +2230,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_expense_post_multi_invoice_expense_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/expense-post-multi-invoice/expense-post-multi-invoice.component */ "./src/app/ams/expense-tracker/components/expense-post-multi-invoice/expense-post-multi-invoice.component.ts");
 /* harmony import */ var _components_expense_post_multi_invoice_fields_expense_post_multi_invoice_fields_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/expense-post-multi-invoice-fields/expense-post-multi-invoice-fields.component */ "./src/app/ams/expense-tracker/components/expense-post-multi-invoice-fields/expense-post-multi-invoice-fields.component.ts");
 /* harmony import */ var _components_expense_tracker_reports_expense_tracker_reports_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/expense-tracker-reports/expense-tracker-reports.component */ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports.component.ts");
+/* harmony import */ var _components_expense_tracker_reports_expense_tracker_reports_vendor_expense_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component */ "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.ts");
+
 
 
 
@@ -1989,6 +2262,7 @@ ExpenseTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
             _components_expense_post_multi_invoice_expense_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_12__["ExpensePostMultiInvoiceComponent"],
             _components_expense_post_multi_invoice_fields_expense_post_multi_invoice_fields_component__WEBPACK_IMPORTED_MODULE_13__["ExpensePostMultiInvoiceFieldsComponent"],
             _components_expense_tracker_reports_expense_tracker_reports_component__WEBPACK_IMPORTED_MODULE_14__["ExpenseTrackerReportsComponent"],
+            _components_expense_tracker_reports_expense_tracker_reports_vendor_expense_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_15__["ExpenseTrackerReportsVendorComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

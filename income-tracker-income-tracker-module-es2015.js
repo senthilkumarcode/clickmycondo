@@ -3333,7 +3333,6 @@ let IncomeTrackerReportsComponent = class IncomeTrackerReportsComponent {
     ngOnInit() {
         this.reportsDataList = [
             { lookupValueName: 'Customer Journal Report', description: 'Gives the overall residents in the condo', type: 'customer' },
-            { lookupValueName: 'Vendor Journal Entires', description: 'List of users approved by the admin and relevant details submitted by the Use', type: 'vendor' },
         ];
     }
 };

@@ -81,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"user-dashboard-wrapper\">\n\n\t\t<div class=\"message-box mb-4\">\n\t\t\t<h4>Hi <span class=\"text-capitialize\">{{userName}}</span></h4>\n\t\t\t<!-- <h5>We are here to help you.</h5> -->\n\t\t</div>\n\n\t\t<app-userdash-main-comp></app-userdash-main-comp>\n\t\t<app-userdash-messages-comp></app-userdash-messages-comp>\n\t\t<app-userdash-events-comp></app-userdash-events-comp>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"user-dashboard-wrapper\" *ngIf=\"isApartmentSelected\">\n\n\t\t<div class=\"message-box mb-4\">\n\t\t\t<h4>Hi <span class=\"text-capitialize\">{{userName}}</span></h4>\n\t\t\t<!-- <h5>We are here to help you.</h5> -->\n\t\t</div>\n\n\t\t<app-userdash-main-comp></app-userdash-main-comp>\n\t\t<app-userdash-messages-comp></app-userdash-messages-comp>\n\t\t<app-userdash-events-comp></app-userdash-events-comp>\n\n</div>";
     /***/
   },
 
@@ -500,19 +500,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var UserDashboardComponent =
     /*#__PURE__*/
     function () {
-      function UserDashboardComponent(userService, cookieService) {
+      function UserDashboardComponent(userService, sharedService, cookieService) {
         _classCallCheck(this, UserDashboardComponent);
 
         this.userService = userService;
+        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.userName = "";
+        this.isApartmentSelected = false;
       }
 
       _createClass(UserDashboardComponent, [{
@@ -520,6 +528,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this = this;
 
+          this.sharedService.apartmentselectedcast.subscribe(function (isApartmentSelected) {
+            return _this.isApartmentSelected = isApartmentSelected;
+          });
           var params = {
             userid: parseInt(this.cookieService.get('userId'))
           };
@@ -538,7 +549,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }];
     };
 
@@ -550,7 +563,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./user-dashboard.component.scss */
       "./src/app/user/user-dashboard/user-dashboard.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], UserDashboardComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], UserDashboardComponent);
     /***/
   },
 

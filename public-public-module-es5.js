@@ -5746,38 +5746,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.userService.getUserById(params).subscribe(function (res) {
             var user = res[0];
             if (user.resetPassword) _this17.cookieService.set('isReset', 'yes');else _this17.cookieService.set('isReset', 'no');
-            var params = {
-              userId: id
-            };
 
-            _this17.userService.getRolesByUserId(params).subscribe(function (data) {
-              user.roleName = data[0].roleName;
+            var userRole = _this17.cookieService.get('userRole');
 
-              _this17.sharedService.setUserDetails(user);
+            if (user.resetPassword) {
+              _this17.router.navigateByUrl('/profile/resetpassword/' + user.userId);
+            } else if (userRole == 'Admin' || userRole == 'SuperAdmin' || userRole == 'Staff' || userRole == 'Security') {
+              _this17.router.navigateByUrl('/ams');
+            } else if (userRole == 'Owner' || userRole == 'Tenant') {
+              _this17.router.navigateByUrl('/user');
+            } else {}
 
-              _this17.sharedService.isUserLogged(true);
-
-              _this17.sharedService.setUnitListDeleteIndex(null);
-
-              if (user.roleName != undefined) {
-                _this17.cookieService["delete"]('userRole');
-
-                _this17.cookieService.set('userRole', user.roleName);
-              }
-
-              if (user.resetPassword) {
-                _this17.router.navigateByUrl('/profile/resetpassword/' + user.userId);
-              } else if (user.roleName == 'Admin' || user.roleName == 'SuperAdmin' || user.roleName == 'Staff' || user.roleName == 'Security') {
-                _this17.router.navigateByUrl('/ams');
-              } else if (user.roleName == 'Owner' || user.roleName == 'Tenant') {
-                _this17.router.navigateByUrl('/user');
-              } else {}
-
-              _this17.isSubmitted = true;
-            }, function (error) {
-              console.log(error);
-              _this17.isSubmitted = true;
-            });
+            _this17.isSubmitted = true;
           }, function (error) {
             console.log(error);
           });
@@ -5801,6 +5781,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this18.cookieService.set('token', data.tokenString);
 
               _this18.cookieService.set('userId', data.userId);
+
+              _this18.cookieService.set('userRole', data.roleName);
 
               _this18.getUserDetails(data.userId);
             } else {

@@ -3750,34 +3750,19 @@ let LoginComponent = class LoginComponent {
                 this.cookieService.set('isReset', 'yes');
             else
                 this.cookieService.set('isReset', 'no');
-            let params = {
-                userId: id
-            };
-            this.userService.getRolesByUserId(params).subscribe((data) => {
-                user.roleName = data[0].roleName;
-                this.sharedService.setUserDetails(user);
-                this.sharedService.isUserLogged(true);
-                this.sharedService.setUnitListDeleteIndex(null);
-                if (user.roleName != undefined) {
-                    this.cookieService.delete('userRole');
-                    this.cookieService.set('userRole', user.roleName);
-                }
-                if (user.resetPassword) {
-                    this.router.navigateByUrl('/profile/resetpassword/' + user.userId);
-                }
-                else if (user.roleName == 'Admin' || user.roleName == 'SuperAdmin' || user.roleName == 'Staff' || user.roleName == 'Security') {
-                    this.router.navigateByUrl('/ams');
-                }
-                else if (user.roleName == 'Owner' || user.roleName == 'Tenant') {
-                    this.router.navigateByUrl('/user');
-                }
-                else {
-                }
-                this.isSubmitted = true;
-            }, error => {
-                console.log(error);
-                this.isSubmitted = true;
-            });
+            var userRole = this.cookieService.get('userRole');
+            if (user.resetPassword) {
+                this.router.navigateByUrl('/profile/resetpassword/' + user.userId);
+            }
+            else if (userRole == 'Admin' || userRole == 'SuperAdmin' || userRole == 'Staff' || userRole == 'Security') {
+                this.router.navigateByUrl('/ams');
+            }
+            else if (userRole == 'Owner' || userRole == 'Tenant') {
+                this.router.navigateByUrl('/user');
+            }
+            else {
+            }
+            this.isSubmitted = true;
         }, error => {
             console.log(error);
         });
@@ -3796,6 +3781,7 @@ let LoginComponent = class LoginComponent {
                 //store the tooken in cookie
                 this.cookieService.set('token', data.tokenString);
                 this.cookieService.set('userId', data.userId);
+                this.cookieService.set('userRole', data.roleName);
                 this.getUserDetails(data.userId);
             }
             else {

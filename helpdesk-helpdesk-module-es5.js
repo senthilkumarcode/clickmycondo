@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"helpdesk-setup-wrapper\">\n\n\t<h5 class=\"mb-3\">Add Ticket Category</h5>\n\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isStaffLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isStaffLoaded\">\n\n\t\t\t\t<form #addStaffForm = \"ngForm\" name=\"addStaffForm\" (ngSubmit)=\"submitStaffForm(addStaffForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Ticket Type*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"staffType\" \n\t\t\t\t\t\t\t        id=\"staffType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"staffType\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Ticket Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\" [(ngModel)]=\"staffCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<ul class=\"list-inline mt-25\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn lime-green mr-2\" [disabled]=\"addStaffForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Private Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\" [(ngModel)]=\"categoryPrivateData\" (ngModelChange)=\"selectColInput('ticketId')\" >\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t<table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Category <span (click)=\"sortUnitData('status')\" [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Supervisor <span (click)=\"sortUnitData('subcategory')\" [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-1 <span (click)=\"sortUnitData('level1')\" [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-2 <span (click)=\"sortUnitData('level2')\" [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L1 Escdays<span (click)=\"sortUnitData('l1day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L2 Escdays<span (click)=\"sortUnitData('l2day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryPrivateListData | simpleSearch: categoryPrivateData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.supervisor_name}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level2}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l1escdays}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l2escdays}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<!-- <a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t  </a> -->\n\t\t\t\t\t\t  <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"openDialog(category);\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=27;showConfirmModal(i);\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\n\t\t</div>\n\n\t</div>\n\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Common Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\" [(ngModel)]=\"categoryCommonData\">\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('status')\">Category <span [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('subcategory')\">Supervisor <span [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('level1')\">Level-1 <span [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('level2')\">Level-2 <span [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('l1day')\">Escalation to L1 day<span [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('l2day')\">Escalation to L2day<span [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryCommonListData | orderBy : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex | simpleSearch: categoryCommonData ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=26;showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\n\t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"helpdesk-setup-wrapper\">\n\n\t<h5 class=\"mb-3\">Add Ticket Category</h5>\n\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t<!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isStaffLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isStaffLoaded\">\n\n\t\t\t\t<form #addStaffForm = \"ngForm\" name=\"addStaffForm\" (ngSubmit)=\"submitStaffForm(addStaffForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Ticket Type*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"staffType\" \n\t\t\t\t\t\t\t        id=\"staffType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"staffType\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngIf = \"isError\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Ticket Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\" [(ngModel)]=\"staffCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<ul class=\"list-inline mt-25\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn lime-green mr-2\" [disabled]=\"addStaffForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Private Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\" [(ngModel)]=\"categoryPrivateData\" (ngModelChange)=\"selectColInput('ticketId')\" >\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t<table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Category <span (click)=\"sortUnitData('status')\" [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Supervisor <span (click)=\"sortUnitData('subcategory')\" [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-1 <span (click)=\"sortUnitData('level1')\" [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-2 <span (click)=\"sortUnitData('level2')\" [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L1 Escdays<span (click)=\"sortUnitData('l1day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L2 Escdays<span (click)=\"sortUnitData('l2day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryPrivateListData | simpleSearch: categoryPrivateData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.supervisor_name}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level2}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l1escdays}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l2escdays}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<!-- <a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t  </a> -->\n\t\t\t\t\t\t  <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"openDialog(category);\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=27;showConfirmModal(i);\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\n\t\t</div>\n\n\t</div>\n\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Common Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\" [(ngModel)]=\"categoryCommonData\">\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('status')\">Category <span [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('subcategory')\">Supervisor <span [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('level1')\">Level-1 <span [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('level2')\">Level-2 <span [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('l1day')\">Escalation to L1 day<span [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('l2day')\">Escalation to L2day<span [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryCommonListData | orderBy : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex | simpleSearch: categoryCommonData ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=26;showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\n\t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -484,6 +484,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
+    /* harmony import */
+
+
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
     var HelpdeskSetupComponent =
     /*#__PURE__*/
@@ -509,6 +515,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.errorMessage = "";
         this.isError = false;
         this.selectedInput = "";
+        this.result = '';
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
@@ -545,91 +552,167 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function submitStaffForm(form) {
           var _this3 = this;
 
-          this.isError = false; //common category
+          this.isError = false;
+          var message = "Are you sure you want to save this Ticket Category?";
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            _this3.result = dialogResult;
 
-          if (this.staffType == "26") {
-            this.staffTypeId = 17;
-            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.categoryCommonListData, function (item) {
-              return item.lookupValueName === _this3.staffCategory;
-            });
+            if (_this3.result) {
+              //common category
+              if (_this3.staffType == "26") {
+                _this3.staffTypeId = 17;
+                var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](_this3.categoryCommonListData, function (item) {
+                  return item.lookupValueName === _this3.staffCategory;
+                });
 
-            if (categoryAvailable) {
-              this.isError = true;
-              this.errorMessage = 'Category already available';
-              this.isStaffLoaded = true;
-            } else {
-              this.isStaffLoaded = false;
-              var details = {
-                "lookupTypeId": this.staffTypeId,
-                "lookupValueName": this.staffCategory,
-                "description": this.staffCategory,
-                "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
-                "insertedOn": "2019-11-16T14:50:08.217Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-16T14:50:08.217Z"
-              };
-              var params = {
-                lookupvalue: details
-              };
-              this.lookupService.addLookupValue(params).subscribe(function (res) {
+                if (categoryAvailable) {
+                  _this3.isError = true;
+                  _this3.errorMessage = 'Ticket Category already available';
+                  var errorDetails = {
+                    msg: _this3.errorMessage,
+                    type: "Error"
+                  };
+
+                  _this3.sharedService.setCustomAlertMessage(errorDetails);
+
+                  form.reset();
+                  _this3.isStaffLoaded = true;
+                } else {
+                  _this3.isStaffLoaded = false;
+                  var details = {
+                    "lookupTypeId": _this3.staffTypeId,
+                    "lookupValueName": _this3.staffCategory,
+                    "description": _this3.staffCategory,
+                    "isActive": true,
+                    "insertedBy": parseInt(_this3.cookieService.get('userId')),
+                    "insertedOn": "2019-11-16T14:50:08.217Z",
+                    "updatedBy": 0,
+                    "updatedOn": "2019-11-16T14:50:08.217Z"
+                  };
+                  var params = {
+                    lookupvalue: details
+                  };
+
+                  _this3.lookupService.addLookupValue(params).subscribe(function (res) {
+                    _this3.isStaffLoaded = true;
+                    _this3.isCategoryDataLoaded = false;
+
+                    if (res.message) {
+                      var errorDetails = {
+                        msg: 'Ticket Category added succesfully',
+                        type: "Success"
+                      };
+
+                      _this3.sharedService.setCustomAlertMessage(errorDetails);
+
+                      var _params = {
+                        LookupTypeId: _this3.staffTypeId
+                      };
+
+                      _this3.lookupService.getLookupValueByLookupTypeId(_params).subscribe(function (res) {
+                        var categoryCommonListData = res.filter(function (item) {
+                          return item.isActive;
+                        });
+                        _this3.categoryCommonListData = categoryCommonListData;
+                        _this3.isCategoryDataLoaded = true;
+                      }, function (error) {});
+                    } else {
+                      _this3.errorMessage = res.errorMessage;
+                      var errorDetails = {
+                        msg: _this3.errorMessage,
+                        type: "Error"
+                      };
+
+                      _this3.sharedService.setCustomAlertMessage(errorDetails);
+                    }
+                  }, function (error) {});
+                }
+
+                form.reset();
+                _this3.isError = true;
                 _this3.isStaffLoaded = true;
-                _this3.isCategoryDataLoaded = false;
-                var params = {
-                  LookupTypeId: _this3.staffTypeId
-                };
+              } else {
+                _this3.staffTypeId = 17;
+                var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](_this3.categoryPrivateListData, function (item) {
+                  return item.lookupValueName === _this3.staffCategory;
+                });
 
-                _this3.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-                  var categoryCommonListData = res.filter(function (item) {
-                    return item.isActive;
-                  });
-                  _this3.categoryCommonListData = categoryCommonListData;
-                  _this3.isCategoryDataLoaded = true;
-                }, function (error) {});
-              }, function (error) {});
-            }
-          } else {
-            this.staffTypeId = 17;
-            var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.categoryPrivateListData, function (item) {
-              return item.lookupValueName === _this3.staffCategory;
-            });
+                if (categoryAvailable) {
+                  _this3.isError = true;
+                  _this3.errorMessage = 'Ticket Category already available';
+                  var errorDetails = {
+                    msg: _this3.errorMessage,
+                    type: "Error"
+                  };
 
-            if (categoryAvailable) {
-              this.isError = true;
-              this.errorMessage = 'Category already available';
-              this.isStaffLoaded = true;
+                  _this3.sharedService.setCustomAlertMessage(errorDetails);
+
+                  form.reset();
+                  _this3.isStaffLoaded = true;
+                } else {
+                  _this3.isStaffLoaded = false;
+                  var details = {
+                    "lookupTypeId": _this3.staffTypeId,
+                    "lookupValueName": _this3.staffCategory,
+                    "description": _this3.staffCategory,
+                    "isActive": true,
+                    "insertedBy": parseInt(_this3.cookieService.get('userId')),
+                    "insertedOn": "2019-11-16T14:50:08.217Z",
+                    "updatedBy": 0,
+                    "updatedOn": "2019-11-16T14:50:08.217Z"
+                  };
+                  var _params2 = {
+                    lookupvalue: details
+                  };
+
+                  _this3.lookupService.addLookupValue(_params2).subscribe(function (res) {
+                    _this3.isStaffLoaded = true;
+                    _this3.isCategoryDataLoaded = false;
+                    var params = {
+                      LookupTypeId: _this3.staffTypeId
+                    };
+
+                    if (res.message) {
+                      var errorDetails = {
+                        msg: 'Ticket Category added succesfully',
+                        type: "Success"
+                      };
+
+                      _this3.sharedService.setCustomAlertMessage(errorDetails);
+
+                      _this3.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                        var categoryPrivateListData = res.filter(function (item) {
+                          return item.isActive;
+                        });
+                        _this3.categoryPrivateListData = categoryPrivateListData;
+                        _this3.isCategoryDataLoaded = true;
+                      }, function (error) {});
+                    } else {
+                      _this3.errorMessage = res.errorMessage;
+                      if (_this3.errorMessage == 'addLookupValue Not Added as it already exist.') var errorDetails = {
+                        msg: 'Ticket Category not added as it already exist',
+                        type: "Error"
+                      };
+
+                      _this3.sharedService.setCustomAlertMessage(errorDetails);
+                    }
+                  }, function (error) {});
+
+                  form.reset();
+                  _this3.isError = true;
+                  _this3.isStaffLoaded = true;
+                }
+              }
             } else {
-              this.isStaffLoaded = false;
-              var details = {
-                "lookupTypeId": this.staffTypeId,
-                "lookupValueName": this.staffCategory,
-                "description": this.staffCategory,
-                "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
-                "insertedOn": "2019-11-16T14:50:08.217Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-16T14:50:08.217Z"
-              };
-              var _params = {
-                lookupvalue: details
-              };
-              this.lookupService.addLookupValue(_params).subscribe(function (res) {
-                _this3.isStaffLoaded = true;
-                _this3.isCategoryDataLoaded = false;
-                var params = {
-                  LookupTypeId: _this3.staffTypeId
-                };
-
-                _this3.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-                  var categoryPrivateListData = res.filter(function (item) {
-                    return item.isActive;
-                  });
-                  _this3.categoryPrivateListData = categoryPrivateListData;
-                  _this3.isCategoryDataLoaded = true;
-                }, function (error) {});
-              }, function (error) {});
+              _this3.isStaffLoaded = true;
             }
-          }
+          });
         }
       }, {
         key: "selectColInput",

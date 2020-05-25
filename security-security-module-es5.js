@@ -21,7 +21,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"secuirty-active-alerts-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isAlertsLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAlertsLoaded\">\n\t\t\n\t\t<h3 class=\"main-title\">Active Alerts</h3>\n\n\t\t<div class=\"card mb-30\">\n\t\t\t\n\t\t\t<div class=\"card-body p-0\" id=\"accordion\">\n\t\t\t\t\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\n\t\t\t\t\t<ng-container *ngFor=\"let alert of alertList\">\n\t\t\t\t\t\t<li class=\"list-group-item collapsed {{getEmergencyType(alert.alertTypeId)}} \" data-toggle=\"collapse\" attr.data-target=\"#collapse{{alert.apartmentBlockUnitAlertId}}\" aria-expanded=\"true\" attr.aria-controls=\"collapseOne\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"s-circle {{getEmergencyType(alert.alertTypeId)}} text-center\">\n\t\t\t\t\t\t\t\t\t\t\t<img src=\"assets/images/{{getEmergencyType(alert.alertTypeId)}}-e-icon.svg\" width=\"14\" />\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t\t\t\t\t<h5>{{getAlertName(alert.alertTypeId)}}</h5>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"float-right mr-4\">\n\t\t\t\t\t\t\t\t\t<span class=\"badge small min ml-3 text-capitalize\" [ngClass]=\"getAlertStatus(alert.alertStatusId)\">{{getAlertStatus(alert.alertStatusId)}}</span>\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t<p><span class=\"mr-2\">Date:</span>{{getDate(alert.receivedDate)}}</p>\n\t\t\t\t\t\t\t\t<p><span class=\"mr-2\">Block:</span>{{getBlock(alert.apartmentBlockUnitId)}}</p>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<div id=\"collapse{{alert.apartmentBlockUnitAlertId}}\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<app-loader *ngIf=\"isAlertUpdated\"></app-loader>\n\n\t\t\t\t\t\t\t<div class=\"additional-desp\" *ngIf=\"!isAlertUpdated\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t\t\t\t\t\t\t<h5>Person Name</h5>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getUserName(alert.insertedBy)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t\t\t\t\t\t\t<h5>Phone Number</h5>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getContactNumber(alert.insertedBy)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t\t\t\t\t\t\t<h5>Alert Received Time</h5>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getDateTime(alert.receivedDate)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- <agm-map [latitude]='getLatitude(alert.insertedBy)' [longitude]='getLongitude(alert.insertedBy)'></agm-map> -->\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"row\" *ngIf=\"!isOpenStatus(alert.alertStatusId)\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 mt-4 mb-2\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\" *ngIf=\"!isInProgressStatus(alert.alertStatusId)\" [(ngModel)]=\"alert.notes\" [disabled]=\"true\"></textarea>\n\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\" *ngIf=\"isInProgressStatus(alert.alertStatusId)\" [(ngModel)]=\"alert.notes\" ></textarea>\n\t\t\t\t\t                \t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"btn-wrapper text-center\" *ngIf=\"isOpenStatus(alert.alertStatusId)\">\n\t\t\t\t\t\t\t\t\t<a class=\"btn blue mt-4 mb-4\" (click)=\"approveAlert(alert, 'approve')\">Acknowledge</a>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"btn-wrapper text-center\" *ngIf=\"isInProgressStatus(alert.alertStatusId)\">\n\t\t\t\t\t\t\t\t\t<a class=\"btn blue mt-4 mb-4\" (click)=\"approveAlert(alert, 'close')\">Close</a>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</ng-container>\n\n\n\t\t\t\t\t <ng-container *ngIf=\"isNoAlerts()\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card\">\n\t\t\t\t\t\t\t<div class=\"card-body gen-message\">\n\t\t\t\t\t\t\t\t<h4>No Active Alerts available</h4>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</ng-container>\n\n\t\t\t\t</ul>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\n\t</ng-container>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"secuirty-active-alerts-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isAlertsLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAlertsLoaded\">\n\t\t\n\t\t<h3 class=\"main-title\">Active Alerts</h3>\n\n\t\t<!-- <button (click) = sortAlerts()>Sort Alert</button> -->\n\n\t\t<div class=\"card mb-30\">\n\t\t\t\n\t\t\t<div class=\"card-body p-0\" id=\"accordion\">\n\t\t\t\t\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\n\t\t\t\t\t<ng-container *ngFor=\"let alert of alertList\">\n\t\t\t\t\t\t<li class=\"list-group-item collapsed {{getEmergencyType(alert.alertTypeId)}} \" data-toggle=\"collapse\" attr.data-target=\"#collapse{{alert.apartmentBlockUnitAlertId}}\" aria-expanded=\"true\" attr.aria-controls=\"collapseOne\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"s-circle {{getEmergencyType(alert.alertTypeId)}} text-center\">\n\t\t\t\t\t\t\t\t\t\t\t<img src=\"assets/images/{{getEmergencyType(alert.alertTypeId)}}-e-icon.svg\" width=\"14\" />\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t\t\t\t\t<h5>{{getAlertName(alert.alertTypeId)}}</h5>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"float-right mr-4\">\n\t\t\t\t\t\t\t\t\t<span class=\"badge small min ml-3 text-capitalize\" [ngClass]=\"getAlertStatus(alert.alertStatusId)\">{{getAlertStatus(alert.alertStatusId)}}</span>\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t<p><span class=\"mr-2\">Date:</span>{{getDate(alert.receivedDate)}}</p>\n\t\t\t\t\t\t\t\t<p><span class=\"mr-2\">Block:</span>{{getBlock(alert.apartmentBlockUnitId)}}</p>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<div id=\"collapse{{alert.apartmentBlockUnitAlertId}}\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<app-loader *ngIf=\"isAlertUpdated\"></app-loader>\n\n\t\t\t\t\t\t\t<div class=\"additional-desp\" *ngIf=\"!isAlertUpdated\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t\t\t\t\t\t\t<h5>Person Name</h5>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getUserName(alert.insertedBy)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t\t\t\t\t\t\t<h5>Phone Number</h5>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getContactNumber(alert.insertedBy)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t\t\t\t\t\t\t<h5>Alert Received Time</h5>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getDateTime(alert.receivedDate)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- <agm-map [latitude]='getLatitude(alert.insertedBy)' [longitude]='getLongitude(alert.insertedBy)'></agm-map> -->\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"row\" *ngIf=\"!isOpenStatus(alert.alertStatusId)\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 mt-4 mb-2\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t                    <label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\" *ngIf=\"!isInProgressStatus(alert.alertStatusId)\" [(ngModel)]=\"alert.notes\" [disabled]=\"true\"></textarea>\n\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\" *ngIf=\"isInProgressStatus(alert.alertStatusId)\" [(ngModel)]=\"alert.notes\" ></textarea>\n\t\t\t\t\t                \t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"btn-wrapper text-center\" *ngIf=\"isOpenStatus(alert.alertStatusId)\">\n\t\t\t\t\t\t\t\t\t<a class=\"btn blue mt-4 mb-4\" (click)=\"approveAlert(alert, 'approve')\">Acknowledge</a>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"btn-wrapper text-center\" *ngIf=\"isInProgressStatus(alert.alertStatusId)\">\n\t\t\t\t\t\t\t\t\t<a class=\"btn blue mt-4 mb-4\" (click)=\"approveAlert(alert, 'close')\">Close</a>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</ng-container>\n\n\n\t\t\t\t\t <ng-container *ngIf=\"isNoAlerts()\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card\">\n\t\t\t\t\t\t\t<div class=\"card-body gen-message\">\n\t\t\t\t\t\t\t\t<h4>No Active Alerts available</h4>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</ng-container>\n\n\t\t\t\t</ul>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\n\t</ng-container>\n\n</div>";
     /***/
   },
 
@@ -41,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>\n  security-history works!\n</p>\n";
+    __webpack_exports__["default"] = "<p>\n  security-history works!\n</p>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"historyData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n  \t\t\t \n\n  \t\t</div>";
     /***/
   },
 
@@ -402,7 +402,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           if (type == 'approve') {
-            this.confirmationMessage = "Are you sure, you want to Acknowledge?";
+            this.confirmationMessage = "Are you sure, you want to acknowledge this Alert?";
           }
 
           if (type == 'close') {
@@ -471,18 +471,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   }, function (error) {
                     console.log(error);
                   });
+
+                  var success = {
+                    msg: 'Alert Updated',
+                    type: "Success"
+                  };
+
+                  _this.sharedService.setCustomAlertMessage(success);
                 } else {
                   _this.isAlertUpdated = false;
+                  var errorMessage = res.errorMessage;
 
-                  _this.SharedToaster.openSnackBar(res.errorMessage, '');
+                  if (errorMessage == 'ApartmentBlockUnitAlert Not Updated as its not exist.') {
+                    errorMessage = "Alert not updated as its not exist";
+                  }
+
+                  var errorDetails = {
+                    msg: errorMessage,
+                    type: "Error"
+                  };
+
+                  _this.sharedService.setCustomAlertMessage(errorDetails);
                 }
               }, function (error) {
                 console.log(error);
               });
             } else {
               _this.isAlertUpdated = false;
-
-              _this.SharedToaster.openSnackBar('Alert updated', '');
             }
           });
         }
@@ -490,7 +505,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "isNoAlerts",
         value: function isNoAlerts() {
           return this.alertList.length == 0 ? true : false;
-        }
+        } // sortAlerts() {
+        //   // console.log(this.alertList);
+        //   // this.emergencyTypeList.sort(function (a, b) {
+        //   //   var nameA = a.lookupValueName.toLowerCase(), nameB = b.lookupValueName.toLowerCase()
+        //   //   if (nameA < nameB) //sort string ascending
+        //   //     return -1
+        //   //   if (nameA > nameB)
+        //   //     return 1
+        //   //   return 0 //default return value (no sorting)
+        //   // })
+        //   // this.emergencyTypeList.sort((a, b) => a.lookupValueName.localeCompare(b.lookupValueName)); 
+        //   console.log("emergency list = ", this.emergencyTypeList);
+        // }
+
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
@@ -514,9 +542,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               };
 
               _this2.userService.getUserById(params).subscribe(function (user) {
-                _this2.userDetails.push(user[0]);
+                _this2.userDetails.push(user[0]); //console.log(this.userDetails);
 
-                console.log(_this2.userDetails);
               }, function (error) {
                 console.log(error);
               });
@@ -647,21 +674,516 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Alert */
+    "./src/app/api/controllers/Alert.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! underscore */
+    "./node_modules/underscore/modules/index-all.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_8___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    /* harmony import */
+
+
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! src/app/shared/services/shared-toaster.service */
+    "./src/app/shared/services/shared-toaster.service.ts");
 
     var SecurityHistoryComponent =
     /*#__PURE__*/
     function () {
-      function SecurityHistoryComponent() {
+      function SecurityHistoryComponent(userService, apartmentService, alertService, lookupService, sharedService, cookieService, dialog, SharedToaster) {
         _classCallCheck(this, SecurityHistoryComponent);
+
+        this.userService = userService;
+        this.apartmentService = apartmentService;
+        this.alertService = alertService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.dialog = dialog;
+        this.SharedToaster = SharedToaster;
+        this.isAlertsLoaded = false;
+        this.isAlertUpdated = false;
+        this.userDetails = [];
+        this.blockDetails = [];
+        this.locationDetails = [];
+        this.result = '';
       }
 
       _createClass(SecurityHistoryComponent, [{
+        key: "getEmergencyType",
+        value: function getEmergencyType(id) {
+          //medical
+          if (id == 130) {
+            return 'medical';
+          } else if (id == 131) {
+            return 'theft';
+          } else if (id == 132) {
+            return 'fire';
+          } else if (id == 133) {
+            return 'shooter';
+          } else if (id == 134) {
+            return 'police';
+          } else {
+            return 'other';
+          }
+        }
+      }, {
+        key: "getAlertName",
+        value: function getAlertName(id) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.emergencyTypeList, function (item) {
+            if (item.lookupValueId === id) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            return data[0].lookupValueName.toLowerCase();
+          }
+        }
+      }, {
+        key: "getAlertStatus",
+        value: function getAlertStatus(id) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.alertTypeList, function (item) {
+            if (item.lookupValueId === id) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            return data[0].lookupValueName.toLowerCase();
+          }
+        }
+      }, {
+        key: "getBlock",
+        value: function getBlock(id) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.blockDetails, function (item) {
+            if (item.apartmentBlockUnitId === id) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            return data[0].apartmentBlockNumber + " " + data[0].apartmentBlockUnitNumber;
+          }
+        }
+      }, {
+        key: "getUserName",
+        value: function getUserName(id) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.userDetails, function (item) {
+            if (item.userId === id) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            return data[0].firstName;
+          }
+        }
+      }, {
+        key: "getContactNumber",
+        value: function getContactNumber(id) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.userDetails, function (item) {
+            if (item.userId === id) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            return data[0].phoneNumber;
+          }
+        }
+      }, {
+        key: "getDate",
+        value: function getDate(date) {
+          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM/DD/YYYY, h:mm A");
+        }
+      }, {
+        key: "getDateTime",
+        value: function getDateTime(date) {
+          return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM/DD/YYYY, h:mm A");
+        }
+      }, {
+        key: "isOpenStatus",
+        value: function isOpenStatus(id) {
+          return id == 135 ? true : false; // 135 - open status
+        }
+      }, {
+        key: "isInProgressStatus",
+        value: function isInProgressStatus(id) {
+          return id == 136 ? true : false; // 135 - inprogress status
+        }
+      }, {
+        key: "isClosedStatus",
+        value: function isClosedStatus(id) {
+          return id == 137 ? true : false; // 135 - closed status
+        }
+      }, {
+        key: "getLatitude",
+        value: function getLatitude(id) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.locationDetails, function (item) {
+            if (item.userId === id) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            var map = data[0].coords;
+            var latitude = map.split(',');
+            return parseFloat(latitude[0]);
+          }
+        }
+      }, {
+        key: "getLongitude",
+        value: function getLongitude(id) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.locationDetails, function (item) {
+            if (item.userId === id) return item;
+          });
+
+          if (data === undefined || data.length == 0) {
+            return '';
+          } else {
+            var map = data[0].coords;
+            var longitude = map.split(',');
+            return parseFloat(longitude[1]);
+          }
+        }
+      }, {
+        key: "approveAlert",
+        value: function approveAlert(alert, type) {
+          var _this3 = this;
+
+          this.isAlertUpdated = true;
+          var details = {};
+
+          if (alert.gpslocation == null) {
+            alert.gpslocation = " ";
+          }
+
+          if (type == 'approve') {
+            this.confirmationMessage = "Are you sure, you want to acknowledge this Alert?";
+          }
+
+          if (type == 'close') {
+            this.confirmationMessage = "Are you sure you want to close this Alert?";
+          }
+
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", this.confirmationMessage);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            _this3.result = dialogResult;
+
+            if (_this3.result) {
+              console.log("Checking", _this3.result);
+
+              if (type == 'approve') {
+                details = {
+                  "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
+                  "apartmentBlockUnitId": alert.apartmentBlockUnitId,
+                  "receivedDate": alert.receivedDate,
+                  "alertTypeId": alert.alertTypeId,
+                  "location": "string",
+                  "gpslocation": alert.gpslocation,
+                  "assignedTo": parseInt(_this3.cookieService.get('userId')),
+                  "alertStatusId": 136,
+                  "notes": alert.notes,
+                  "isActive": alert.isActive,
+                  "insertedBy": parseInt(_this3.cookieService.get('userId')),
+                  "insertedOn": "2019-12-06T13:45:09.296Z",
+                  "updatedBy": parseInt(_this3.cookieService.get('userId')),
+                  "updatedOn": "2019-12-06T13:45:09.296Z"
+                };
+              } else {
+                details = {
+                  "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
+                  "apartmentBlockUnitId": alert.apartmentBlockUnitId,
+                  "receivedDate": alert.receivedDate,
+                  "alertTypeId": alert.alertTypeId,
+                  "location": "string",
+                  "gpslocation": alert.gpslocation,
+                  "assignedTo": parseInt(_this3.cookieService.get('userId')),
+                  "alertStatusId": 137,
+                  "notes": alert.notes,
+                  "isActive": true,
+                  "insertedBy": parseInt(_this3.cookieService.get('userId')),
+                  "insertedOn": "2019-12-06T13:45:09.296Z",
+                  "updatedBy": parseInt(_this3.cookieService.get('userId')),
+                  "updatedOn": "2019-12-06T13:45:09.296Z"
+                };
+              }
+
+              _this3.alertService.updateApartmentBlockUnitAlert(details).subscribe(function (res) {
+                if (res.message) {
+                  var apartmentIdParams = {
+                    apartmentId: parseInt(_this3.cookieService.get('apartmentId'))
+                  };
+
+                  _this3.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe(function (alert) {
+                    _this3.alertList = alert.filter(function (item) {
+                      return item.isActive;
+                    });
+                    _this3.isAlertUpdated = false;
+                  }, function (error) {
+                    console.log(error);
+                  });
+
+                  var success = {
+                    msg: 'Alert Updated',
+                    type: "Success"
+                  };
+
+                  _this3.sharedService.setCustomAlertMessage(success);
+                } else {
+                  _this3.isAlertUpdated = false;
+                  var errorMessage = res.errorMessage;
+
+                  if (errorMessage == 'ApartmentBlockUnitAlert Not Updated as its not exist.') {
+                    errorMessage = "Alert not updated as its not exist";
+                  }
+
+                  var errorDetails = {
+                    msg: errorMessage,
+                    type: "Error"
+                  };
+
+                  _this3.sharedService.setCustomAlertMessage(errorDetails);
+                }
+              }, function (error) {
+                console.log(error);
+              });
+            } else {
+              _this3.isAlertUpdated = false;
+            }
+          });
+        }
+      }, {
+        key: "isNoAlerts",
+        value: function isNoAlerts() {
+          return this.alertList.length == 0 ? true : false;
+        }
+      }, {
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this4 = this;
+
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Category Name',
+            datafield: 'lookupValueName',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Date',
+            datafield: 'insertedOn',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Block Number',
+            datafield: 'apartmentBlockNumber',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Block Unit Number',
+            datafield: 'apartmentBlockUnitNumber',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Comments',
+            datafield: 'notes',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Person Name',
+            datafield: 'firstName',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Phone Number',
+            datafield: 'phoneNumber',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Assigned to',
+            datafield: 'assignedTo_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 150,
+            renderer: columnrenderer
+          }, {
+            text: 'Requested By',
+            datafield: 'raisedby_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 150,
+            renderer: columnrenderer
+          }];
+          this.alert = {};
+          this.alert.gpsLocation = " ";
+          this.alert.notes = " ";
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe(function (alert) {
+            _this4.alertList = alert.filter(function (item) {
+              return item.isActive;
+            });
+            _this4.isAlertsLoaded = true;
+            console.log(_this4.alertList);
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this4.alertList, function (item) {
+              var params = {
+                userid: parseInt(item.insertedBy)
+              };
+
+              _this4.userService.getUserById(params).subscribe(function (user) {
+                _this4.userDetails.push(user[0]); //console.log(this.userDetails);      
+
+              }, function (error) {
+                console.log(error);
+              });
+
+              var apartmentBlockUnitIdParam = {
+                apartmentBlockUnitId: item.apartmentBlockUnitId
+              };
+
+              _this4.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (user) {
+                _this4.blockDetails.push(user[0]);
+              }, function (error) {
+                console.log(error);
+              });
+
+              if (item.gpslocation === null || item.gpslocation === undefined || item.gpslocation.length == 0) {
+                item.gpslocation = "47.4925,19.0513";
+              }
+
+              _this4.locationDetails.push({
+                userId: item.insertedBy,
+                coords: item.gpslocation
+              }); // console.log(this.locationDetails);
+
+            });
+          }, function (error) {
+            console.log(error);
+          });
+          var emergencyParams = {
+            LookupTypeId: 29
+          }; //get emergency types
+
+          this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe(function (res) {
+            _this4.emergencyTypeList = res;
+            _this4.gridSourceData = {
+              localdata: _this4.emergencyTypeList,
+              datatype: "array"
+            };
+            _this4.historyData = new jqx.dataAdapter(_this4.gridSourceData);
+          });
+          var alertParams = {
+            LookupTypeId: 30
+          }; //get alert status types
+
+          this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe(function (res) {
+            _this4.alertTypeList = res;
+          });
+        }
       }]);
 
       return SecurityHistoryComponent;
     }();
+
+    SecurityHistoryComponent.ctorParameters = function () {
+      return [{
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
+      }, {
+        type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"]
+      }];
+    };
 
     SecurityHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-security-history',
@@ -671,7 +1193,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./security-history.component.scss */
       "./src/app/ams/security/components/security-history/security-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], SecurityHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"]])], SecurityHistoryComponent);
+
+    function getClassName(value) {
+      var name = value.split('-');
+      return name[0].toLowerCase();
+    }
+
+    window.getClassName = getClassName;
+
+    function showConfirmDeleteEvent(row) {
+      var event = new CustomEvent('onTicketDelete', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.showConfirmDeleteEvent = showConfirmDeleteEvent;
+
+    function editTicketEvent(row) {
+      var event = new CustomEvent('onEditTicket', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editTicketEvent = editTicketEvent;
     /***/
   },
 

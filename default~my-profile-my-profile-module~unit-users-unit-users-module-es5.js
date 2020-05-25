@@ -6603,7 +6603,27 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>\n  profile-interest-group works!\n</p>\n";
+    __webpack_exports__["default"] = "<div class=\"row profile-interest-Group-wrapper profile-section\">\n\n  <div class=\"col-sm-6\">\n    <h5>User previleged</h5>\n\n     <div *ngFor=\"let interestGroup of userInterestGroupCategory\" class=\"form-check mt-3\">\n        <input type=\"checkbox\" [checked]=\"interestGroup.IsAssigned\"  class=\"form-check-input\" [id]=\"interestGroup.groupName\" [name]=\"interestGroup.groupName\" (change)=ChangeInterestGroup(interestGroup.IsAssigned,interestGroup.broadCastGroupCategoryId)>\n      <label class=\"form-check-label\" [for]=\"interestGroup.groupName\">\n       {{interestGroup.groupName}}</label>\n     </div>\n  </div>\n  <div class=\"col-sm-6\">\n      <h5>Admin previleged</h5>\n      <div class=\"form-check mt-3\" *ngFor=\"let interestGroup of adminInterestGroupCategory\">\n          <input type=\"checkbox\" [checked]=\"interestGroup.IsAssigned\" class=\"form-check-input\" \n          [id]=\"interestGroup.groupName\" [name]=\"interestGroup.groupName\" disabled>\n      <label class=\"form-check-label\" [for]=\"interestGroup.groupName\">\n    {{interestGroup.groupName}}</label>\n       </div>\n  </div>\n\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.html":
+  /*!********************************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.html ***!
+    \********************************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppUserMyProfileComponentsProfileLeaseInfoCreateLeaseInfoCreateLeaseInfoComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"create-lease-info-wrapper\">\n    <div class=\"card mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t<span >Create Rental/Lease Information</span>\n    \t\t\t</h5>\n            </div>\n            <ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\" href=\"javascript:void(0)\" (click)=\"goBack();\">\n                        <i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n                    </a>\n    \t\t\t</li>\n    \t\t</ul>\n\t\t</div>\n <div class=\"card-body\">\n\t<ng-container>\n\t\t\n\t\t<form #leaseInfoForm = \"ngForm\" name=\"leaseInfoForm\" (ngSubmit)=\"submitLeaseInfoForm(leaseInfoForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Start Date*</label>\n             <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"rent.startDate\" required>\n            <owl-date-time #startDate></owl-date-time>\n            <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n              </div>\n                  </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Expiry Date*</label>\n             <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date Time\" [(ngModel)]=\"rent.expiryDate\" required>\n            <owl-date-time #endDate></owl-date-time>\n            <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n              </div>\n                  </div>\n        </div>\n        <div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Advance Amount*</label>\n\t                    <input  type=\"text\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\" [(ngModel)]=\"rent.advanceAmount\" required>\n            \t\t</div>\n        </div>\n        <div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Rent Amount*</label>\n\t                    <input  type=\"text\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\" [(ngModel)]=\"rent.rentAmount\" required>\n            \t\t</div>\n        </div>\n        <div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Lease Amount*</label>\n\t                    <input  type=\"text\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\" [(ngModel)]=\"rent.leaseAmount\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n      <div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"leaseInfoForm.invalid\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\n    </ng-container>\n    </div>\n </div>\n</div>";
     /***/
   },
 
@@ -6623,7 +6643,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>\n  profile-lease-info works!\n</p>\n";
+    __webpack_exports__["default"] = "<div class=\"profile-lease-info-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isDataLoaded && !isAddInfo\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>History <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"leaseData\" \n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\" (click)=\"showLeaseInfo()\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Rental/Lease Info</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"rentListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n  \t\t\t \n\n  \t\t</div>\n\n\t</div>\n\n</div>\n\n<app-create-lease-info *ngIf=\"isAddInfo\" [apartmentBlockUnitId]=\"apartmentBlockUnitId\" (outputParams)=\"getOutPutParams($event);\"></app-create-lease-info>";
     /***/
   },
 
@@ -6683,7 +6703,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"profile-unit wrapper profile-section\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isUserDataLoaded && !isEdit && isUnitSelected\">\n\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit\">\n\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<ng-container *ngIf=\"isUserDataLoaded && !isEdit\">\n\t\t\n\t\t<form #profileUnitForm = \"ngForm\" name=\"profileUnitForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Select Unit</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"userUnitId\" (ngModelChange)=\"showUnitDetails(userUnitId)\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of unitListData\" [value]=\"item.apartmentBlockUnitId\">{{ getUnitName(item.apartmentBlockUnitId) }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<ng-container *ngIf=\"isUnitSelected\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Unit Name</label>\n\t\t\t\t                <p>{{block.apartmentBlockUnitNumber}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Block Name</label>\n\t\t\t\t                <p>{{block.apartmentBlockNumber}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Unit Type</label>\n\t\t\t\t                <p>{{block.unitType}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Intercom</label>\n\t\t\t                    <p>{{block.intercom}}</p>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Car</label>\n\t\t\t\t                <p>{{block.cars}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isUserDataLoaded && isEdit\">\n\t\t\n\t\t<form #profileUnitForm = \"ngForm\" name=\"profileUnitForm\" (ngSubmit)=\"submitProfileUnitForm(profileUnitForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Block No*</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t        id=\"blockNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"block.apartmentBlockId\" (ngModelChange)=\"getUnits(block.apartmentBlockId)\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Unit No*</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"block.apartmentBlockUnitId\" required [disabled]=\"!isBlockSelected\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Unit Type*</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"unitType\" \n\t\t\t\t\t\t        id=\"unitType\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"block.unitType\" (ngModelChange)=\"getUnitType(block.unitType)\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of unitTypeData\" [value]=\"item.lookupValueName\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t    </select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Car (in number)*</label>\n\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitCar\" \n\t\t                    [(ngModel)]=\"block.cars\" required>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Intercom</label>\n\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"advanceAmount\" [(ngModel)]=\"block.intercom\" minlength=\"6\" maxlength=\"10\" required>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"profileUnitForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"profile-unit wrapper profile-section\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isUserDataLoaded && !isEdit\">\n\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit\">\n\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<ng-container *ngIf=\"isUserDataLoaded && !isEdit\">\n\t\t\n\t\t<form #profileUnitForm = \"ngForm\" name=\"profileUnitForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\t\t\n\t\t\t\t<ng-container>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Unit Name</label>\n\t\t\t\t                <p>{{block.apartmentBlockUnitNumber}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Block Name</label>\n\t\t\t\t                <p>{{block.apartmentBlockNumber}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Unit Type</label>\n\t\t\t\t                <p>{{block.unitType}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Intercom</label>\n\t\t\t                    <p>{{block.intercom}}</p>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Car</label>\n\t\t\t\t                <p>{{block.cars}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isUserDataLoaded && isEdit\">\n\t\t\n\t\t<form #profileUnitForm = \"ngForm\" name=\"profileUnitForm\" (ngSubmit)=\"submitProfileUnitForm(profileUnitForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Block No*</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t        id=\"blockNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"block.apartmentBlockId\" (ngModelChange)=\"getUnits(block.apartmentBlockId)\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Unit No*</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"block.apartmentBlockUnitId\" required [disabled]=\"!isBlockSelected\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Unit Type*</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"unitType\" \n\t\t\t\t\t\t        id=\"unitType\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"block.unitType\" (ngModelChange)=\"getUnitType(block.unitType)\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of unitTypeData\" [value]=\"item.lookupValueName\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t    </select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Car (in number)*</label>\n\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitCar\" \n\t\t                    [(ngModel)]=\"block.cars\" required>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Intercom</label>\n\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"advanceAmount\" [(ngModel)]=\"block.intercom\" minlength=\"6\" maxlength=\"10\" required>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"profileUnitForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>";
     /***/
   },
 
@@ -6723,7 +6743,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>\n  profile-user-absence works!\n</p>\n";
+    __webpack_exports__["default"] = "<div class=\"profile-basic wrapper profile-section\">\n  <ng-container *ngIf=\"!showHistory\">\n    <form #absenceForm=\"ngForm\" name=\"absenceForm\" (ngSubmit)=\"submitAbsenceForm(absenceForm)\"\n      novalidate>\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n          <div class=\"input-box\">\n            <h6>I will be out of Condo</h6>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>From Date*</label>\n            <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\"\n              [owlDateTimeTrigger]=\"fromDate\" placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n            <owl-date-time #fromDate></owl-date-time>\n            <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n              <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>To Date*</label>\n            <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\"\n              [owlDateTimeTrigger]=\"toDate\" placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n            <owl-date-time #toDate></owl-date-time>\n            <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n              <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-sm-12\">\n          <div class=\"input-box\">\n            <h6>Please contact my local representative given below</h6>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Local Representative Name 1*</label>\n            <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\"\n              [(ngModel)]=\"data.localContactP1\" required>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Phone/Mobile*</label>\n            <input type=\"text\" class=\"form-control\"\n              placeholder=\"Phoneno\" name=\"phoneNo\" [(ngModel)]=\"data.localContactP1phone\">\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Alternate Phone Number</label>\n            <input type=\"text\" class=\"form-control\"\n              placeholder=\"Phoneno\" name=\"phoneNo\" [(ngModel)]=\"data.localcontactP1alternatephone\">\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Email*</label>\n            <input  type=\"email\" class=\"form-control\" placeholder=\"Email\"\n              name=\"email\" [(ngModel)]=\"data.localcontactP1email\" required>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Local Representative Name 2*</label>\n            <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n              [(ngModel)]=\"data.localContactP2\"required>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Phone/Mobile*</label>\n            <input type=\"text\" class=\"form-control\"\n              placeholder=\"Phoneno\" name=\"phoneNo1\" [(ngModel)]=\"data.localContactP2phone\" required>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Alternate Phone Number</label>\n            <input type=\"text\" class=\"form-control\"\n              placeholder=\"Phoneno\" name=\"phoneNo1\" [(ngModel)]=\"data.localcontactP2alternatephone\">\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Email*</label>\n            <input type=\"email\" class=\"form-control\" placeholder=\"Email\"\n              name=\"email1\" [(ngModel)]=\"data.localcontactP2email\" required>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-sm-6\">\n          <div class=\"text-center mt-5\">\n            <button type=\"button\" class=\"btn lime-green\" (click)=\"showHistoryList()\">Show History</button>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"text-center mt-5\">\n            <button class=\"btn lime-green\" [disabled]=\"absenceForm.invalid\">Submit</button>\n          </div>\n        </div>\n      </div>\n\n    </form>\n\n  </ng-container>\n\n</div>\n\n<app-user-absence-history *ngIf=\"showHistory\" [apartmentBlockUnitId]=\"apartmentBlockUnitId\" (outputParams)=\"getOutPutParams($event);\"></app-user-absence-history>";
     /***/
   },
 
@@ -6763,7 +6783,27 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"profile-vehicles-wrapper profile-section\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\n\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Select Unit</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"userUnitId\" (ngModelChange)=\"showUnitDetails(userUnitId)\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of unitListData\" [value]=\"item.apartmentBlockUnitId\">{{ getUnitName(item.apartmentBlockUnitId) }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t\t\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isUnitSelected && isUserDataLoaded\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\">\n    \t\t\t\t<h6 class=\"mb-2\">Parking Slots Available</h6>\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-1\" *ngFor=\" let item of parkingSlotsDataList; let i = index; last as isLast\">\n\t\t\t\t\t\t{{item.slotName}}<span *ngIf=\"!isLast\">,</span>\n\t\t\t\t\t</p>\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-1\" *ngIf=\"isPlotNotAvailable()\">\n\t\t\t\t\t\tNot Allocated\n\t\t\t\t\t</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isUnitSelected && isUserDataLoaded && isVehicleNotAvailable()\">\n\t\t\n\t\t<div class=\"card-header at-header red\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\">\n    \t\t\t\t<h6 class=\"mb-2\">No Vehicle added yet</h6>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<ng-container *ngIf=\"isUnitSelected && isUserDataLoaded\">\n\t\t\n\t\t<div class=\"accor-special\" id=\"vehicleAccordion\">\n\n\t\t\t<div class=\"accor-box\" *ngFor=\"let item of vehicleDataList; let i = index\">\n\n\t\t\t\t<li class=\"accor-lists\" data-toggle=\"collapse\" attr.data-target=\"#vehicleCollapse{{i}}\" aria-expanded=\"true\" attr.aria-controls=\"Collapse{{i}}\" [ngClass]=\"item.isCollapsed ? '' : 'collapsed'\" (click)=\"item.isCollapsed = !item.isCollapsed\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h6>{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<div class=\"desp\">\n\t\t\t\t\t\t\t<p>Type: <span>{{getVehicleType(item.vehicle.vehicleTypeId)}}</span></p>\n\t\t\t\t\t\t\t<p>Manufacturer: <span>{{item.vehicle.vehicleManufacturer}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"vehicleCollapse{{i}}\" class=\"collapse details\" attr.aria-labelledby=\"Collapse{{i}}\" data-parent=\"#vehicleAccordion\">\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"accor-box\">\n\t\t\t\t\n\t\t\t\t<li class=\"accor-lists add-list collapsed\" data-toggle=\"collapse\" data-target=\"#addVehicleCollapse\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"addVehicleCollapse\" class=\"collapse details\" aria-labelledby=\"collapseOne\" data-parent=\"#vehicleAccordion\">\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"profile-vehicles-wrapper profile-section\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\t\t\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isUserDataLoaded\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\">\n    \t\t\t\t<h6 class=\"mb-2\">Parking Slots Available</h6>\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-1\" *ngFor=\" let item of parkingSlotsDataList; let i = index; last as isLast\">\n\t\t\t\t\t\t{{item.slotName}}<span *ngIf=\"!isLast\">,</span>\n\t\t\t\t\t</p>\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-1\" *ngIf=\"isPlotNotAvailable()\">\n\t\t\t\t\t\tNot Allocated\n\t\t\t\t\t</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isUserDataLoaded && isVehicleNotAvailable()\">\n\t\t\n\t\t<div class=\"card-header at-header red\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\">\n    \t\t\t\t<h6 class=\"mb-2\">No Vehicle added yet</h6>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t\n\t\t<div class=\"accor-special\" id=\"vehicleAccordion\">\n\n\t\t\t<div class=\"accor-box\" *ngFor=\"let item of vehicleDataList; let i = index\">\n\n\t\t\t\t<li class=\"accor-lists\" data-toggle=\"collapse\" attr.data-target=\"#vehicleCollapse{{i}}\" aria-expanded=\"true\" attr.aria-controls=\"Collapse{{i}}\" [ngClass]=\"item.isCollapsed ? '' : 'collapsed'\" (click)=\"item.isCollapsed = !item.isCollapsed\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h6>{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<div class=\"desp\">\n\t\t\t\t\t\t\t<p>Type: <span>{{getVehicleType(item.vehicle.vehicleTypeId)}}</span></p>\n\t\t\t\t\t\t\t<p>Manufacturer: <span>{{item.vehicle.vehicleManufacturer}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"vehicleCollapse{{i}}\" class=\"collapse details\" attr.aria-labelledby=\"Collapse{{i}}\" data-parent=\"#vehicleAccordion\">\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"accor-box\">\n\t\t\t\t\n\t\t\t\t<li class=\"accor-lists add-list collapsed\" data-toggle=\"collapse\" data-target=\"#addVehicleCollapse\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"addVehicleCollapse\" class=\"collapse details\" aria-labelledby=\"collapseOne\" data-parent=\"#vehicleAccordion\">\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.html":
+  /*!******************************************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.html ***!
+    \******************************************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppUserMyProfileComponentsPropertyManagerPropertyManagerCreatePropertyManagerCreateComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"profile-basic wrapper\">\n\t<div class=\"card mb-30\">\n\t<div class=\"card-header\">\n\t\t<div class=\"float-left\">\n\t\t\t<h5>\n\t\t\t\t<span >Create Rental/Lease Information</span>\n\t\t\t</h5>\n\t\t</div>\n\t\t<ul class=\"list-inline float-right\">\n\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t<a class=\"btn lime-green mt_5\" href=\"javascript:void(0)\" (click)=\"goBack();\">\n\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t</a>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"card-body\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\n\t\t<form #propertyManagerCreateForm = \"ngForm\" name=\"propertyManagerCreateForm\" (ngSubmit)=\"submitPropertyManagerCreateForm(propertyManagerCreateForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Property Company*</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Property Company\" name=\"propertyCompany\" [(ngModel)]=\"propertyData.propertyManagerName\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Contact Person*</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" name=\"contactPerson\" [(ngModel)]=\"propertyData.contactPerson\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Email*</label>\n\t                    <input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"propertyData.email\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Phone Number*</label>\n\t                    <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo1\" [(ngModel)]=\"propertyData.phone1\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Alternate Phone Number</label>\n\t                    <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo2\" [(ngModel)]=\"propertyData.phone2\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Address Line 1</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\" [(ngModel)]=\"propertyData.address1\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Address Line 2</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address2\" [(ngModel)]=\"propertyData.address2\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>City</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"City\" name=\"city\" [(ngModel)]=\"propertyData.city\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Province / Region</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Province / Region\" name=\"region\" [(ngModel)]=\"propertyData.state\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Zip</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Zip\" name=\"zip\" [(ngModel)]=\"propertyData.pin\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"propertyManagerCreateForm.invalid\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n</div>\n</div>\n</div>";
     /***/
   },
 
@@ -6783,7 +6823,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>\n  property-manager works!\n</p>\n";
+    __webpack_exports__["default"] = "<div class=\"profile-basic wrapper profile-section\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<div *ngIf=\"isDataLoaded && (propertyData == null || propertyData.length == 0) && !isCreate\">\n\t\t<div class=\"card mb-20 no-shadow\">\n\t\t\n\t\t\t<div class=\"card-header at-header red\">\n\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t<div class=\"sub-details\">\n\t\t\t\t\t\t<h6 class=\"mb-2\">No Property Manager added yet</h6>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t  </div>\n\t\n\t\t</div>\t\t  \n\t\t<div class=\"row\">\n\t\t<div class=\"col-sm-12\">\n\t\t<a class=\"btn lime-green mt_5\" (click)=\"showCreateManager()\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Property Manager</span>\n    \t\t\t\t</a></div></div>\n\t\t\t\t\t\t\t</div>\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isDataLoaded && propertyData != null && propertyData.length != 0 && !isEdit\">\n\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deletePropertyManager()\"></i-feather>\n\t</div>\t\t\t\t\t\t\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isDataLoaded && propertyData != null && propertyData.length != 0 && !isEdit\">\n\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit\">\n\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<ng-container *ngIf=\"isDataLoaded && propertyData != null && propertyData.length != 0 && !isEdit\">\n\t\t\n\t\t<form #propertyManagerForm = \"ngForm\" name=\"propertyManagerForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>Property Company</label>\n\t\t\t                <p>{{propertyData.propertyManagerName}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>Contact Person</label>\n\t\t\t                <p>{{propertyData.contactPerson}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Email</label>\n\t\t                    <p>{{propertyData.email}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Phone Number</label>\n\t\t                    <p>{{propertyData.phone1}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t<p>{{propertyData.phone2}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"select-box\">\n\t                   <label>Address Line 1</label>\n\t                   <p>{{propertyData.address1}}</p>\n            \t\t</div>\n        </div>\n        <div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"select-box\">\n\t                   <label>Address Line 2</label>\n\t                   <p>{{propertyData.address2}}</p>\n            \t\t</div>\n        </div>\n        <div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"select-box\">\n\t                   <label>City</label>\n\t                   <p>{{propertyData.city}}</p>\n            \t\t</div>\n        </div>\n        <div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"select-box\">\n\t                   <label>Province / Region</label>\n\t                   <p>{{propertyData.state}}</p>\n            \t\t</div>\n        </div>\n        <div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"select-box\">\n\t                   <label>Zip</label>\n\t                   <p>{{propertyData.pin}}</p>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isDataLoaded && propertyData != null && propertyData.length != 0 && isEdit\">\n\t\t\n\t\t<form #propertyManagerForm = \"ngForm\" name=\"propertyManagerForm\" (ngSubmit)=\"submitpropertyManagerForm(propertyManagerForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Property Company*</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Property Company\" name=\"propertyCompany\" [(ngModel)]=\"propertyData.propertyManagerName\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Contact Person*</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" name=\"contactPerson\" [(ngModel)]=\"propertyData.contactPerson\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Email*</label>\n\t                    <input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"propertyData.email\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Phone Number*</label>\n\t                    <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo1\" [(ngModel)]=\"propertyData.phone1\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Alternate Phone Number</label>\n\t                    <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo2\" [(ngModel)]=\"propertyData.phone2\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Address Line 1</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\" [(ngModel)]=\"propertyData.address1\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Address Line 2</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address2\" [(ngModel)]=\"propertyData.address2\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>City</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"City\" name=\"city\" [(ngModel)]=\"propertyData.city\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Province / Region</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Province / Region\" name=\"region\" [(ngModel)]=\"propertyData.state\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Zip</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Zip\" name=\"zip\" [(ngModel)]=\"propertyData.pin\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"propertyManagerForm.invalid\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>\n\n<app-property-manager-create *ngIf=\"isCreate\" (outputParams)=\"getOutPutParams();\"></app-property-manager-create>";
     /***/
   },
 
@@ -6803,7 +6843,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"my-profile-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"card user-card mb-20\" *ngIf=\"isUserDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\" [ngClass]=\"isNotAdmin() ? 'd-none' : ''\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\" (click)=\"closeUserInfo()\">\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<div class=\"float-left\">\n\t\t\t\t\n\t\t\t\t<div class=\"media\">\n\t\t\t\t  <div class=\"profile-icon\">\n\t\t\t\t  \t<img class=\"img-fluid\" src=\"https://randomuser.me/api/portraits/men/9.jpg\" id=\"userProfile\">\n\t\t\t\t  </div>\n\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t    <h5 class=\"mt-0\">{{user.firstName}} {{user.lastName}}</h5>\n\t\t\t\t    <p>{{userRole.roleName}}</p>\n\t\t\t\t    <ul class=\"other list-inline d-none d-sm-block\">\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t\t    \t\t<span>{{user.emailId}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t\t    \t\t<span>{{user.phoneNumber}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    </ul>\n\t\t\t\t  </div>\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"other list-inline d-block d-sm-none\">\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t    \t\t<span>{{user.emailId}}</span>\n\t\t\t    \t</li>\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t    \t\t<span>{{user.phoneNumber}}</span>\n\t\t\t    \t</li>\n\t\t\t\t</ul>\n\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<!-- <div class=\"card-body p-0\" [ngClass]=\"isNotAdmin() ? 'border-top' : ''\"> -->\n\t\t<div class=\"card-body p-0 border-top\"> \n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-3\">\n\t\t\t\t\t<div class=\"left-menubar\">\n\t\t\t\t\t\t<h4 [ngClass]=\"isNotAdmin() ? '' : 'd-none'\">Settings</h4>\n\t\t\t\t\t\t<ul class=\"list-group lists\">\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"basic/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/user-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"unit/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/unit-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Details</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"staffs/{{userId}}\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/staff-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Staffs</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"vehicles/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><i-feather class=\"truck\" name=\"truck\"></i-feather></span>\n\t\t\t\t\t\t\t\t<span>Unit Vehicles & Parking</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"pets/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\" \n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/dog-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Pets</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"propertymanager/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/manager-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Property Manager</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"family/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/family-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Family Members</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"lease/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/key-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Lease Information</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"interest/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/heart-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>My Interest Group</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"absence/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/moveout-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Out of Condo/Prolonged Absence</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-9 d-none d-md-block\">\n\t\t\t\t\t<div class=\"inner-content\">\n\t\t\t\t\t\t<router-outlet></router-outlet>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"my-profile-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"card user-card mb-20\" *ngIf=\"isUserDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\" [ngClass]=\"isNotAdmin() ? 'd-none' : ''\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\" (click)=\"closeUserInfo()\">\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<div class=\"float-left\">\n\t\t\t\t\n\t\t\t\t<div class=\"media\">\n\t\t\t\t  <div class=\"profile-icon\">\n\t\t\t\t  \t<img class=\"img-fluid\" src=\"https://randomuser.me/api/portraits/men/9.jpg\" id=\"userProfile\">\n\t\t\t\t  </div>\n\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t    <h5 class=\"mt-0\">{{user.firstName}} {{user.lastName}}</h5>\n\t\t\t\t    <p>{{userRole.roleName}}</p>\n\t\t\t\t    <ul class=\"other list-inline d-none d-sm-block\">\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t\t    \t\t<span>{{user.emailId}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t\t    \t\t<span>{{user.phoneNumber}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    </ul>\n\t\t\t\t  </div>\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"other list-inline d-block d-sm-none\">\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t    \t\t<span>{{user.emailId}}</span>\n\t\t\t    \t</li>\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t    \t\t<span>{{user.phoneNumber}}</span>\n\t\t\t    \t</li>\n\t\t\t\t</ul>\n\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<!-- <div class=\"card-body p-0\" [ngClass]=\"isNotAdmin() ? 'border-top' : ''\"> -->\n\t\t<div class=\"card-body p-0 border-top\"> \n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-3\">\n\t\t\t\t\t<div class=\"left-menubar\">\n\t\t\t\t\t\t<h4 [ngClass]=\"isNotAdmin() ? '' : 'd-none'\">Settings</h4>\n\t\t\t\t\t\t<ul class=\"list-group lists\">\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"basic/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/user-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"unit/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/unit-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Details</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"staffs/{{userId}}\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/staff-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Staffs</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"vehicles/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><i-feather class=\"truck\" name=\"truck\"></i-feather></span>\n\t\t\t\t\t\t\t\t<span>Unit Vehicles & Parking</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"pets/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\" \n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/dog-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Pets</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"propertymanager/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/manager-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Property Manager</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"family/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/family-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Family Members</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"lease/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/key-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Rental/Lease Information</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"interest/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/heart-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>My Interest Group</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"absence/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/moveout-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Out of Condo/Prolonged Absence</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-9 d-none d-md-block\">\n\t\t\t\t\t<div class=\"inner-content\">\n\t\t\t\t\t\t<router-outlet></router-outlet>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>";
     /***/
   },
 
@@ -7848,7 +7888,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           }
 
           this.isUserDataLoaded = false;
-          this.userService.getUserById(this.userId).subscribe(function (res) {
+          var queryParamBase = {
+            userid: this.userId
+          };
+          this.userService.getUserById(queryParamBase).subscribe(function (res) {
             _this31.user = res[0];
             _this31.genderType = '' + _this31.user.genderId;
             _this31.isUserDataLoaded = true;
@@ -8462,21 +8505,210 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../../api/controllers/Broadcast */
+    "./src/app/api/controllers/Broadcast.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
 
     var ProfileInterestGroupComponent =
     /*#__PURE__*/
     function () {
-      function ProfileInterestGroupComponent() {
+      // categories=['dance','cock','xyu'];
+      // adminCategories=['abc','pqr','ghj'];
+      function ProfileInterestGroupComponent(broadcastService, sharedService, cookieService, apartmentService) {
         _classCallCheck(this, ProfileInterestGroupComponent);
+
+        this.broadcastService = broadcastService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.apartmentService = apartmentService;
       }
 
       _createClass(ProfileInterestGroupComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
+          this.userId = parseInt(this.cookieService.get('userId'));
+          this.getAllGroupCategory(); // this.getUserDetails();
+          // this.getAllGoupUsers();
+        } //Get Category Type
+
+      }, {
+        key: "getAllGroupCategory",
+        value: function getAllGroupCategory() {
+          var _this37 = this;
+
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
+            var allBroadcastGroupCategory = res; //filter active true items
+
+            _this37.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+              return data.isActive;
+            });
+            _this37.adminInterestGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+              return data.privilege == "Admin";
+            });
+            _this37.userInterestGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+              return data.privilege.includes("All");
+            });
+
+            _this37.getAllGoupUsers();
+          });
+        }
+      }, {
+        key: "getAllGoupUsers",
+        value: function getAllGoupUsers() {
+          var _this38 = this;
+
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
+            _this38.interestGroupUsers = res;
+            _this38.assignedInterestGroupUsers = _this38.interestGroupUsers.filter(function (data) {
+              return data.userId == _this38.userId && data.isActive;
+            });
+            _this38.assignedInterestGroupsToUser = [];
+
+            _this38.assignedInterestGroupUsers.forEach(function (element) {
+              _this38.assignedInterestGroupsToUser.push(element.broadCastGroupCategoryId);
+            });
+
+            _this38.adminInterestGroupCategory.forEach(function (element) {
+              element.IsAssigned = _this38.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+            });
+
+            _this38.userInterestGroupCategory.forEach(function (element) {
+              element.IsAssigned = _this38.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+            });
+          });
+        }
+      }, {
+        key: "getUserDetails",
+        value: function getUserDetails() {
+          var _this39 = this;
+
+          var queryParamBase = {
+            userId: this.userId
+          };
+          this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe(function (res) {
+            _this39.userDetails = res.filter(function (obj) {
+              return obj.apartmentId == this.apartmentId && obj.userid == this.userId;
+            });
+          });
+        }
+      }, {
+        key: "ChangeInterestGroup",
+        value: function ChangeInterestGroup(isAssigned, broadCastGroupCategoryId) {
+          var _this40 = this;
+
+          if (isAssigned) {
+            this.removeUser(broadCastGroupCategoryId);
+          } else {
+            var queryParamBase = {
+              userId: this.userId
+            };
+            this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe(function (res) {
+              var currentAppUserUnits = res.filter(function (obj) {
+                return obj.apartmentId == _this40.apartmentID;
+              });
+
+              if (currentAppUserUnits != undefined && currentAppUserUnits.length > 0) {
+                var userAppUnit = currentAppUserUnits[0];
+
+                _this40.insertGroupUser(_this40.userId, userAppUnit.roleId, userAppUnit.apartmentBlockId, userAppUnit.apartmentBlockUnitId, broadCastGroupCategoryId);
+              }
+            });
+          }
+
+          this.getAllGoupUsers();
+        }
+      }, {
+        key: "removeUser",
+        value: function removeUser(broadCastGroupCategoryUserId) {
+          var _this41 = this;
+
+          var params = {
+            broadCastGroupCategoryUserId: broadCastGroupCategoryUserId,
+            deleteBy: this.userId
+          };
+          this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
+            _this41.sharedService.setAlertMessage("User has been removed from interest group successfully"); // this.allGroupUser= this.allGroupUser.filter(function(obj){
+            //          return obj.broadCastGroupCategoryUserId!==index;
+            // });
+            //   this.interestGroupUsers= this.interestGroupUsers.filter(function(obj){
+            //     return obj.broadCastGroupCategoryUserId!==index;
+            //  });
+
+          }); //}
+        }
+      }, {
+        key: "insertGroupUser",
+        value: function insertGroupUser(userId, roleId, blockId, unitId, broadCastGroupCategoryId) {
+          var _this42 = this;
+
+          var broadCastGroupCategoryUser = {
+            'broadCastGroupCategoryUserID': 0,
+            'broadCastGroupCategoryID': broadCastGroupCategoryId,
+            'userID': userId,
+            'roleID': roleId,
+            'apartmentBlockID': blockId,
+            'unitID': unitId,
+            'isActive': true,
+            'insertedBy': parseInt(this.cookieService.get('userId')),
+            'insertedOn': new Date().toISOString(),
+            'updatedBy': null,
+            'updatedOn': null,
+            'apartmentID': this.apartmentID,
+            'serialNumber': 0
+          };
+          var params = {
+            'broadcast': broadCastGroupCategoryUser
+          };
+          this.broadcastService.upsertBroadCastGroupCategoryUser(params).subscribe(function (res) {
+            if (res.message) {
+              _this42.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
+            }
+          });
+        }
       }]);
 
       return ProfileInterestGroupComponent;
     }();
+
+    ProfileInterestGroupComponent.ctorParameters = function () {
+      return [{
+        type: _api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+      }, {
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }, {
+        type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+      }];
+    };
 
     ProfileInterestGroupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-profile-interest-group',
@@ -8486,7 +8718,239 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-interest-group.component.scss */
       "./src/app/user/my-profile/components/profile-interest-group/profile-interest-group.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], ProfileInterestGroupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]])], ProfileInterestGroupComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.scss":
+  /*!******************************************************************************************************************!*\
+    !*** ./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.scss ***!
+    \******************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppUserMyProfileComponentsProfileLeaseInfoCreateLeaseInfoCreateLeaseInfoComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvbXktcHJvZmlsZS9jb21wb25lbnRzL3Byb2ZpbGUtbGVhc2UtaW5mby9jcmVhdGUtbGVhc2UtaW5mby9jcmVhdGUtbGVhc2UtaW5mby5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.ts":
+  /*!****************************************************************************************************************!*\
+    !*** ./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.ts ***!
+    \****************************************************************************************************************/
+
+  /*! exports provided: CreateLeaseInfoComponent */
+
+  /***/
+  function srcAppUserMyProfileComponentsProfileLeaseInfoCreateLeaseInfoCreateLeaseInfoComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CreateLeaseInfoComponent", function () {
+      return CreateLeaseInfoComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Rent */
+    "./src/app/api/controllers/Rent.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
+
+    var CreateLeaseInfoComponent =
+    /*#__PURE__*/
+    function () {
+      function CreateLeaseInfoComponent(router, route, injector, dialog, userService, rentService, apartmentService, lookupService, sharedService, cookieService) {
+        _classCallCheck(this, CreateLeaseInfoComponent);
+
+        this.router = router;
+        this.route = route;
+        this.injector = injector;
+        this.dialog = dialog;
+        this.userService = userService;
+        this.rentService = rentService;
+        this.apartmentService = apartmentService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isDataLoaded = true;
+        this.isError = false;
+        this.errorMessage = false;
+        this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
+      }
+
+      _createClass(CreateLeaseInfoComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.rent = {};
+          this.userId = this.route.params['value'].id;
+        }
+      }, {
+        key: "goBack",
+        value: function goBack() {
+          this.outputParams.emit('back');
+        }
+      }, {
+        key: "submitLeaseInfoForm",
+        value: function submitLeaseInfoForm(form) {
+          var _this43 = this;
+
+          var details = {
+            "apartmentBlockUnitId": this.apartmentBlockUnitId,
+            "startDate": this.rent.startDate,
+            "expiryDate": this.rent.expiryDate,
+            "rentAmount": parseInt(this.rent.rentAmount),
+            "advanceAmount": parseInt(this.rent.advanceAmount),
+            "leaseAmount": parseInt(this.rent.leaseAmount),
+            "rentTypeId": 0,
+            "notes": "string",
+            "field1": "string",
+            "field2": "string",
+            "isActive": true,
+            "insertedBy": this.userId,
+            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
+            "updatedBy": this.userId,
+            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString()
+          };
+          var AddApartmentBlockUnitRentParams = {
+            apartmentBlockUnitRent: details
+          };
+          this.rentService.addApartmentBlockUnitRent(AddApartmentBlockUnitRentParams).subscribe(function (res) {
+            if (res.message) {
+              _this43.sharedService.setAlertMessage("Lease Info added successfully");
+
+              _this43.isDataLoaded = true;
+
+              _this43.outputParams.emit('close');
+            }
+          }, function (error) {
+            console.log(error);
+          });
+        }
+      }]);
+
+      return CreateLeaseInfoComponent;
+    }();
+
+    CreateLeaseInfoComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
+      }, {
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"]
+      }, {
+        type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__["RentService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], CreateLeaseInfoComponent.prototype, "apartmentBlockUnitId", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], CreateLeaseInfoComponent.prototype, "outputParams", void 0);
+    CreateLeaseInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-create-lease-info',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./create-lease-info.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./create-lease-info.component.scss */
+      "./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"], src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__["RentService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], CreateLeaseInfoComponent);
     /***/
   },
 
@@ -8541,22 +9005,213 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/api/controllers/Rent */
+    "./src/app/api/controllers/Rent.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
 
     var ProfileLeaseInfoComponent =
     /*#__PURE__*/
     function () {
-      function ProfileLeaseInfoComponent() {
+      function ProfileLeaseInfoComponent(router, route, userService, rentService, apartmentService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, ProfileLeaseInfoComponent);
+
+        this.router = router;
+        this.route = route;
+        this.userService = userService;
+        this.rentService = rentService;
+        this.apartmentService = apartmentService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isAddInfo = false;
+        this.isDataLoaded = false;
+        this.isrentListData = false;
+        this.leaseData = "";
       }
 
       _createClass(ProfileLeaseInfoComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.getListData();
+        }
+      }, {
+        key: "getListData",
+        value: function getListData() {
+          var _this44 = this;
+
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Start Date',
+            datafield: 'startDate',
+            minwidth: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Expiry Date',
+            datafield: 'expiryDate',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }];
+          this.userId = this.route.params['value'].id;
+          this.apartmentService.getApartmentBlockUnitByUserId(this.userId).subscribe(function (res) {
+            var data = res[0] || {};
+            _this44.apartmentBlockUnitId = data.apartmentBlockUnitId;
+
+            _this44.rentService.getAllApartmentBlockUnitRents().subscribe(function (res) {
+              var sortData = res;
+              sortData.sort(function (a, b) {
+                return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+              });
+              var rentListData = sortData.filter(function (data) {
+                data.startDate = moment__WEBPACK_IMPORTED_MODULE_6__(data.startDate).format('MM/DD/YYYY');
+                data.expiryDate = moment__WEBPACK_IMPORTED_MODULE_6__(data.expiryDate).format('MM/DD/YYYY');
+                return data.isActive;
+              });
+              _this44.gridSourceData = {
+                localdata: rentListData,
+                datatype: "array"
+              };
+              _this44.rentListData = new jqx.dataAdapter(_this44.gridSourceData);
+              _this44.isDataLoaded = true;
+            }, function (error) {
+              console.log(error);
+            });
+          }, function (error) {
+            console.log(error);
+          });
+        }
+      }, {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this45 = this;
+
+          if (this.leaseData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.leaseData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this45.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "showLeaseInfo",
+        value: function showLeaseInfo() {
+          this.isAddInfo = true;
+        }
+      }, {
+        key: "getOutPutParams",
+        value: function getOutPutParams(params) {
+          if (params === "back") {
+            this.isAddInfo = false;
+          } else {
+            this.getListData();
+            this.isAddInfo = false;
+          }
+        }
       }]);
 
       return ProfileLeaseInfoComponent;
     }();
 
+    ProfileLeaseInfoComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"]
+      }, {
+        type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_8__["RentService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__["jqxGridComponent"])], ProfileLeaseInfoComponent.prototype, "datagrid", void 0);
     ProfileLeaseInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-profile-lease-info',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -8565,7 +9220,14 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-lease-info.component.scss */
       "./src/app/user/my-profile/components/profile-lease-info/profile-lease-info.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], ProfileLeaseInfoComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"], src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_8__["RentService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], ProfileLeaseInfoComponent);
+
+    function getClassName(value) {
+      var name = value.split('-');
+      return name[0].toLowerCase();
+    }
+
+    window.getClassName = getClassName;
     /***/
   },
 
@@ -8732,7 +9394,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "deletePet",
         value: function deletePet() {
-          var _this37 = this;
+          var _this46 = this;
 
           var params = {
             petId: parseInt(this.pet.petId),
@@ -8740,20 +9402,20 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           };
           this.petService.deletePet(params).subscribe(function (res) {
             if (res.message) {
-              _this37.isDataLoaded = true;
+              _this46.isDataLoaded = true;
 
-              _this37.sharedService.setAlertMessage("Pet deleted");
+              _this46.sharedService.setAlertMessage("Pet deleted");
 
-              _this37.outputParams.emit(true);
+              _this46.outputParams.emit(true);
             } else {
-              _this37.isDataLoaded = true;
+              _this46.isDataLoaded = true;
             }
           });
         }
       }, {
         key: "submitProfilPetForm",
         value: function submitProfilPetForm(form) {
-          var _this38 = this;
+          var _this47 = this;
 
           this.isDataLoaded = false;
 
@@ -8773,10 +9435,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             this.petService.addPet(params).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitId": parseInt(_this38.apartmentBlockUnitId),
+                  "apartmentBlockUnitId": parseInt(_this47.apartmentBlockUnitId),
                   "petId": res.message,
                   "isActive": true,
-                  "insertedBy": parseInt(_this38.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this47.cookieService.get('userId')),
                   "insertedOn": new Date().toISOString(),
                   "updatedBy": 0,
                   "updatedOn": "2020-03-27T07:52:53.767Z"
@@ -8785,19 +9447,19 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                   apartmentBlockUnitPet: unitDetails
                 };
 
-                _this38.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
+                _this47.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
                   if (res.message) {
-                    _this38.isDataLoaded = true;
+                    _this47.isDataLoaded = true;
 
-                    _this38.sharedService.setAlertMessage("Pet added successfully");
+                    _this47.sharedService.setAlertMessage("Pet added successfully");
 
-                    _this38.outputParams.emit(true);
+                    _this47.outputParams.emit(true);
                   } else {
-                    _this38.isDataLoaded = true;
+                    _this47.isDataLoaded = true;
                   }
                 });
               } else {
-                _this38.isDataLoaded = true;
+                _this47.isDataLoaded = true;
               }
             });
           } else {
@@ -8817,32 +9479,32 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             this.petService.updatePet(_params3).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitPetId": parseInt(_this38.petUnit.apartmentBlockUnitPetId),
-                  "apartmentBlockUnitId": parseInt(_this38.petUnit.apartmentBlockUnitId),
-                  "petId": parseInt(_this38.pet.petId),
-                  "isActive": _this38.petUnit.isActive,
-                  "insertedBy": _this38.petUnit.insertedBy,
-                  "insertedOn": _this38.petUnit.insertedOn,
-                  "updatedBy": parseInt(_this38.cookieService.get('userId')),
+                  "apartmentBlockUnitPetId": parseInt(_this47.petUnit.apartmentBlockUnitPetId),
+                  "apartmentBlockUnitId": parseInt(_this47.petUnit.apartmentBlockUnitId),
+                  "petId": parseInt(_this47.pet.petId),
+                  "isActive": _this47.petUnit.isActive,
+                  "insertedBy": _this47.petUnit.insertedBy,
+                  "insertedOn": _this47.petUnit.insertedOn,
+                  "updatedBy": parseInt(_this47.cookieService.get('userId')),
                   "updatedOn": new Date().toISOString()
                 };
                 var _params4 = {
                   apartmentBlockUnitPet: unitDetails
                 };
 
-                _this38.petService.updateApartmentBlockUnitPet(_params4).subscribe(function (res) {
+                _this47.petService.updateApartmentBlockUnitPet(_params4).subscribe(function (res) {
                   if (res.message) {
-                    _this38.isDataLoaded = true;
+                    _this47.isDataLoaded = true;
 
-                    _this38.sharedService.setAlertMessage("Pet updated successfully");
+                    _this47.sharedService.setAlertMessage("Pet updated successfully");
 
-                    _this38.outputParams.emit(true);
+                    _this47.outputParams.emit(true);
                   } else {
-                    _this38.isDataLoaded = true;
+                    _this47.isDataLoaded = true;
                   }
                 });
               } else {
-                _this38.isDataLoaded = true;
+                _this47.isDataLoaded = true;
               }
             });
           }
@@ -8850,7 +9512,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this39 = this;
+          var _this48 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -8872,7 +9534,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             LookupTypeId: 85
           };
           this.lookupService.getLookupValueByLookupTypeId(petTypeParams).subscribe(function (res) {
-            _this39.petTypeList = res;
+            _this48.petTypeList = res;
           });
         }
       }, {
@@ -9056,7 +9718,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       _createClass(ProfilePetComponent, [{
         key: "showUnitDetails",
         value: function showUnitDetails(id) {
-          var _this40 = this;
+          var _this49 = this;
 
           this.isUserDataLoaded = false;
           this.isUnitSelected = true;
@@ -9065,15 +9727,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           };
           this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
             if (res.length != 0) {
-              _this40.petDataList = res.filter(function (item) {
+              _this49.petDataList = res.filter(function (item) {
                 return item.pet.isActive;
               });
-              _this40.isPetsAvailable = true;
+              _this49.isPetsAvailable = true;
             } else {
-              _this40.isPetsAvailable = false;
+              _this49.isPetsAvailable = false;
             }
 
-            _this40.isUserDataLoaded = true;
+            _this49.isUserDataLoaded = true;
           });
         }
       }, {
@@ -9118,7 +9780,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "getParams",
         value: function getParams(event) {
-          var _this41 = this;
+          var _this50 = this;
 
           if (event) {
             var petListParams = {
@@ -9126,15 +9788,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             };
             this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
               if (res.length != 0) {
-                _this41.petDataList = res.filter(function (item) {
+                _this50.petDataList = res.filter(function (item) {
                   return item.pet.isActive;
                 });
-                _this41.isPetsAvailable = true;
+                _this50.isPetsAvailable = true;
               } else {
-                _this41.isPetsAvailable = false;
+                _this50.isPetsAvailable = false;
               }
 
-              _this41.isUserDataLoaded = true;
+              _this50.isUserDataLoaded = true;
             });
           }
         }
@@ -9146,7 +9808,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this42 = this;
+          var _this51 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -9159,27 +9821,27 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this42.blockData = res;
+            _this51.blockData = res;
           });
           var petParams = {
             LookupTypeId: 85
           };
           this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
-            _this42.petTypeList = res;
+            _this51.petTypeList = res;
           });
           var unitParams = {
             LookupTypeId: 1
           };
           this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
-            _this42.unitTypeData = res;
+            _this51.unitTypeData = res;
 
-            _this42.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this42.userId).subscribe(function (unit) {
-              _this42.unitListData = unit;
-              underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this42.unitListData, function (item) {
-                _this42.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
-                  _this42.unitNameList.push(data[0]);
+            _this51.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this51.userId).subscribe(function (unit) {
+              _this51.unitListData = unit;
+              underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this51.unitListData, function (item) {
+                _this51.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
+                  _this51.unitNameList.push(data[0]);
 
-                  _this42.isUserDataLoaded = true;
+                  _this51.isUserDataLoaded = true;
                 }, function (error) {});
               });
             }, function (error) {});
@@ -9348,14 +10010,14 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "getUnits",
         value: function getUnits(id) {
-          var _this43 = this;
+          var _this52 = this;
 
           var params = {
             apartmentBlockId: parseInt(id)
           };
           this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-            _this43.blockUnitData = res;
-            _this43.isBlockSelected = true;
+            _this52.blockUnitData = res;
+            _this52.isBlockSelected = true;
           });
         }
       }, {
@@ -9425,7 +10087,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "submitProfileUnitForm",
         value: function submitProfileUnitForm(form) {
-          var _this44 = this;
+          var _this53 = this;
 
           this.isUserDataLoaded = false;
           var apartmentBlockUnitUser = {
@@ -9446,58 +10108,58 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe(function (res) {
             if (res.message) {
               var details = {
-                "apartmentBlockUnitId": parseInt(_this44.block.apartmentBlockUnitId),
-                "apartmentBlockUnitNumber": _this44.block.apartmentBlockUnitNumber,
-                "apartmentBlockId": parseInt(_this44.block.apartmentBlockId),
-                "unitTypeId": _this44.unitTypeId,
-                "builtupArea": _this44.block.builtupArea,
-                "carpetArea": _this44.block.carpetArea,
-                "intercom": _this44.block.intercom,
-                "cars": parseInt(_this44.block.cars),
-                "isAvailableForRent": _this44.block.isAvailableForRent,
+                "apartmentBlockUnitId": parseInt(_this53.block.apartmentBlockUnitId),
+                "apartmentBlockUnitNumber": _this53.block.apartmentBlockUnitNumber,
+                "apartmentBlockId": parseInt(_this53.block.apartmentBlockId),
+                "unitTypeId": _this53.unitTypeId,
+                "builtupArea": _this53.block.builtupArea,
+                "carpetArea": _this53.block.carpetArea,
+                "intercom": _this53.block.intercom,
+                "cars": parseInt(_this53.block.cars),
+                "isAvailableForRent": _this53.block.isAvailableForRent,
                 "availableDate": "2019-12-13T07:07:59.550Z",
-                "rentAmount": _this44.block.rentAmount,
-                "advanceAmount": _this44.block.advanceAmount,
-                "isPetsAllowed": _this44.block.isPetsAllowed,
-                "isFurnished": _this44.block.isFurnished,
-                "isVacant": _this44.block.isVacant,
+                "rentAmount": _this53.block.rentAmount,
+                "advanceAmount": _this53.block.advanceAmount,
+                "isPetsAllowed": _this53.block.isPetsAllowed,
+                "isFurnished": _this53.block.isFurnished,
+                "isVacant": _this53.block.isVacant,
                 "propertyManagerId": null,
-                "isActive": _this44.block.isActive,
-                "insertedBy": _this44.block.insertedBy,
-                "insertedOn": _this44.block.insertedOn,
-                "updatedBy": parseInt(_this44.cookieService.get('userId')),
+                "isActive": _this53.block.isActive,
+                "insertedBy": _this53.block.insertedBy,
+                "insertedOn": _this53.block.insertedOn,
+                "updatedBy": parseInt(_this53.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
               };
               var apartmentBlockUnitParams = {
                 apartmentBlockUnit: details
               };
 
-              _this44.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
+              _this53.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
                 if (res.message) {
-                  _this44.isUserDataLoaded = true;
-                  _this44.isEdit = false;
+                  _this53.isUserDataLoaded = true;
+                  _this53.isEdit = false;
 
-                  _this44.sharedService.setAlertMessage("Unit updated successfully");
+                  _this53.sharedService.setAlertMessage("Unit updated successfully");
 
-                  _this44.isBlockSelected = false;
+                  _this53.isBlockSelected = false;
                 } else {
-                  _this44.isError = true;
-                  _this44.errorMessage = res.errorMessage;
+                  _this53.isError = true;
+                  _this53.errorMessage = res.errorMessage;
                 }
               }, function (error) {});
             } else {
-              _this44.isError = true;
-              _this44.errorMessage = res.errorMessage;
+              _this53.isError = true;
+              _this53.errorMessage = res.errorMessage;
             }
           }, function (error) {
-            _this44.isError = true;
-            _this44.errorMessage = "Some error occured";
+            _this53.isError = true;
+            _this53.errorMessage = "Some error occured";
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this45 = this;
+          var _this54 = this;
 
           this.block = {};
 
@@ -9512,25 +10174,38 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this45.blockData = res;
-          }); // get role
+            _this54.blockData = res;
+          });
+          var queryParamBase = {
+            userId: this.userId
+          }; // get role
 
-          this.userService.getRolesByUserId(this.userId).subscribe(function (data) {
-            _this45.userType = data[0].roleId.toString();
+          this.userService.getRolesByUserId(queryParamBase).subscribe(function (data) {
+            _this54.userType = data[0].roleId.toString();
           }, function (error) {});
           var unitTypeParams = {
             LookupTypeId: 1
           };
           this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-            _this45.unitTypeData = res;
+            _this54.unitTypeData = res;
+            var queryParamBase = {
+              userId: _this54.userId
+            };
 
-            _this45.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this45.userId).subscribe(function (unit) {
-              _this45.unitListData = unit;
-              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this45.unitListData, function (item) {
-                _this45.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
-                  _this45.unitNameList.push(data[0]);
+            _this54.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
+              _this54.unitListData = unit;
+              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this54.unitListData, function (item) {
+                var queryParamBase = {
+                  apartmentBlockUnitId: item.apartmentBlockUnitId
+                };
 
-                  _this45.isUserDataLoaded = true;
+                _this54.apartmentService.getApartmentBlockUnitById(queryParamBase).subscribe(function (data) {
+                  _this54.unitNameList.push(data[0]);
+
+                  _this54.isUserDataLoaded = true;
+                  var id = _this54.unitListData[0].apartmentBlockUnitId;
+
+                  _this54.showUnitDetails(id);
                 }, function (error) {});
               });
             }, function (error) {});
@@ -9702,21 +10377,141 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
 
     var ProfileUserAbsenceComponent =
     /*#__PURE__*/
     function () {
-      function ProfileUserAbsenceComponent() {
+      function ProfileUserAbsenceComponent(router, route, injector, apartmentService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, ProfileUserAbsenceComponent);
+
+        this.router = router;
+        this.route = route;
+        this.injector = injector;
+        this.apartmentService = apartmentService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.showHistory = false;
       }
 
       _createClass(ProfileUserAbsenceComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.data = {};
+          this.userId = this.route.params['value'].id; // this.apartmentService.getAllApartmentBlockUnitUsersByUserId(this.userId).subscribe((unit:any) => {
+          //   this.unitListData = unit;
+        }
+      }, {
+        key: "getOutPutParams",
+        value: function getOutPutParams(params) {
+          if (params === "back") {
+            this.showHistory = false;
+          }
+        }
+      }, {
+        key: "showHistoryList",
+        value: function showHistoryList() {
+          this.showHistory = true;
+        }
+      }, {
+        key: "submitAbsenceForm",
+        value: function submitAbsenceForm(form) {
+          var _this55 = this;
+
+          var details = {
+            "apartmentId": 0,
+            "apartmentBlockUnitId": 0,
+            "outFrom": this.data.outFrom,
+            "outTo": this.data.outTo,
+            "localContactP1": this.data.localContactP1,
+            "localContactP1phone": this.data.localContactP1phone,
+            "localcontactP1alternatephone": this.data.localcontactP1alternatephone,
+            "localcontactP1email": this.data.localcontactP1email,
+            "localContactP2": this.data.localContactP2,
+            "localContactP2phone": this.data.localContactP2phone,
+            "localcontactP2alternatephone": this.data.localcontactP2alternatephone,
+            "localcontactP2email": this.data.localcontactP2email,
+            "outofCondoStatusId": 0,
+            "isActive": true,
+            "insertedBy": this.userId,
+            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
+            "updatedBy": this.userId,
+            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
+            "apartmentBlockUnitUserId": 0
+          };
+          var params = {
+            apartmentLongAbsence: details
+          };
+          this.apartmentService.addApartmentLongAbsence(params).subscribe(function (data) {
+            if (data.message) {
+              _this55.data = {};
+            }
+          }, function (error) {});
+        }
       }]);
 
       return ProfileUserAbsenceComponent;
     }();
+
+    ProfileUserAbsenceComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }];
+    };
 
     ProfileUserAbsenceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-profile-user-absence',
@@ -9726,7 +10521,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./profile-user-absence.component.scss */
       "./src/app/user/my-profile/components/profile-user-absence/profile-user-absence.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], ProfileUserAbsenceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], ProfileUserAbsenceComponent);
     /***/
   },
 
@@ -9872,7 +10667,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "submitProfilVehicleForm",
         value: function submitProfilVehicleForm(form) {
-          var _this46 = this;
+          var _this56 = this;
 
           this.isDataLoaded = false;
 
@@ -9896,9 +10691,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitId": parseInt(_this46.apartmentBlockUnitId),
+                  "apartmentBlockUnitId": parseInt(_this56.apartmentBlockUnitId),
                   "vehicleId": res.message,
-                  "userId": parseInt(_this46.userId),
+                  "userId": parseInt(_this56.userId),
                   "documentId": null,
                   "parkingSlotId": null,
                   "stickerNumber": "string",
@@ -9907,7 +10702,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                   "toDate": "2020-03-26T20:30:26.576Z",
                   "isPassIssued": true,
                   "isActive": true,
-                  "insertedBy": parseInt(_this46.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this56.cookieService.get('userId')),
                   "insertedOn": new Date().toISOString(),
                   "updatedBy": 0,
                   "updatedOn": "2020-03-26T20:30:26.576Z"
@@ -9916,19 +10711,19 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this46.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this56.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this46.isDataLoaded = true;
+                    _this56.isDataLoaded = true;
 
-                    _this46.sharedService.setAlertMessage("Vehicle added successfully");
+                    _this56.sharedService.setAlertMessage("Vehicle added successfully");
 
-                    _this46.outputParams.emit(true);
+                    _this56.outputParams.emit(true);
                   } else {
-                    _this46.isDataLoaded = true;
+                    _this56.isDataLoaded = true;
                   }
                 });
               } else {
-                _this46.isDataLoaded = true;
+                _this56.isDataLoaded = true;
               }
             });
           } else {
@@ -9952,40 +10747,40 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             this.vehicleService.updateVehicle(_vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitVehicleId": parseInt(_this46.vehicleUnit.apartmentBlockUnitVehicleId),
-                  "apartmentBlockUnitId": parseInt(_this46.apartmentBlockUnitId),
-                  "vehicleId": parseInt(_this46.vehicle.vehicleId),
-                  "userId": parseInt(_this46.userId),
+                  "apartmentBlockUnitVehicleId": parseInt(_this56.vehicleUnit.apartmentBlockUnitVehicleId),
+                  "apartmentBlockUnitId": parseInt(_this56.apartmentBlockUnitId),
+                  "vehicleId": parseInt(_this56.vehicle.vehicleId),
+                  "userId": parseInt(_this56.userId),
                   "documentId": null,
                   "parkingSlotId": null,
                   "stickerNumber": "string",
                   "rfid": "string",
                   "fromDate": "2020-03-26T20:30:26.576Z",
                   "toDate": "2020-03-26T20:30:26.576Z",
-                  "isPassIssued": _this46.vehicle.isPassIssued,
-                  "isActive": _this46.vehicle.isActive,
-                  "insertedBy": _this46.vehicle.insertedBy,
-                  "insertedOn": _this46.vehicle.insertedOn,
-                  "updatedBy": parseInt(_this46.cookieService.get('userId')),
+                  "isPassIssued": _this56.vehicle.isPassIssued,
+                  "isActive": _this56.vehicle.isActive,
+                  "insertedBy": _this56.vehicle.insertedBy,
+                  "insertedOn": _this56.vehicle.insertedOn,
+                  "updatedBy": parseInt(_this56.cookieService.get('userId')),
                   "updatedOn": new Date().toISOString()
                 };
                 var unitParams = {
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this46.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this56.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this46.isDataLoaded = true;
+                    _this56.isDataLoaded = true;
 
-                    _this46.sharedService.setAlertMessage("Vehicle updated successfully");
+                    _this56.sharedService.setAlertMessage("Vehicle updated successfully");
 
-                    _this46.outputParams.emit(true);
+                    _this56.outputParams.emit(true);
                   } else {
-                    _this46.isDataLoaded = true;
+                    _this56.isDataLoaded = true;
                   }
                 });
               } else {
-                _this46.isDataLoaded = true;
+                _this56.isDataLoaded = true;
               }
             });
           }
@@ -9993,7 +10788,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this47 = this;
+          var _this57 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -10016,7 +10811,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             LookupTypeId: 2
           };
           this.lookupService.getLookupValueByLookupTypeId(vehcileTypeParams).subscribe(function (res) {
-            _this47.vehicleTypeList = res;
+            _this57.vehicleTypeList = res;
           });
         }
       }, {
@@ -10188,7 +10983,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       _createClass(ProfileVehiclesComponent, [{
         key: "showUnitDetails",
         value: function showUnitDetails(id) {
-          var _this48 = this;
+          var _this58 = this;
 
           this.isUserDataLoaded = false;
           this.isUnitSelected = true;
@@ -10196,14 +10991,14 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             apartmentBlockUnitId: parseInt(id)
           };
           this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-            _this48.vehicleDataList = res;
-            _this48.isUserDataLoaded = true;
+            _this58.vehicleDataList = res;
+            _this58.isUserDataLoaded = true;
           });
           var parkingListParams = {
             apartmentIdBlockUnitId: parseInt(id)
           };
           this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
-            _this48.parkingSlotsDataList = res;
+            _this58.parkingSlotsDataList = res;
           });
         }
       }, {
@@ -10239,15 +11034,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "getParams",
         value: function getParams(event) {
-          var _this49 = this;
+          var _this59 = this;
 
           if (event) {
             var params = {
               apartmentBlockUnitId: parseInt(this.userUnitId)
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(params).subscribe(function (res) {
-              _this49.vehicleDataList = res;
-              _this49.isUserDataLoaded = true;
+              _this59.vehicleDataList = res;
+              _this59.isUserDataLoaded = true;
             });
           }
         }
@@ -10264,7 +11059,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this50 = this;
+          var _this60 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -10277,27 +11072,30 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this50.blockData = res;
+            _this60.blockData = res;
           });
           var vehicleTypeParams = {
             LookupTypeId: 2
           };
           this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-            _this50.vehicleTypeList = res;
+            _this60.vehicleTypeList = res;
           });
           var unitTypeParams = {
             LookupTypeId: 1
           };
           this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-            _this50.unitTypeData = res;
+            _this60.unitTypeData = res;
 
-            _this50.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this50.userId).subscribe(function (unit) {
-              _this50.unitListData = unit;
-              underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this50.unitListData, function (item) {
-                _this50.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
-                  _this50.unitNameList.push(data[0]);
+            _this60.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this60.userId).subscribe(function (unit) {
+              _this60.unitListData = unit;
+              underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this60.unitListData, function (item) {
+                _this60.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
+                  _this60.unitNameList.push(data[0]);
 
-                  _this50.isUserDataLoaded = true;
+                  _this60.isUserDataLoaded = true;
+                  var id = _this60.unitListData[0].apartmentBlockUnitId;
+
+                  _this60.showUnitDetails(id);
                 }, function (error) {});
               });
             }, function (error) {});
@@ -10338,6 +11136,288 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       /*! ./profile-vehicles.component.scss */
       "./src/app/user/my-profile/components/profile-vehicles/profile-vehicles.component.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], ProfileVehiclesComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.scss":
+  /*!****************************************************************************************************************************!*\
+    !*** ./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.scss ***!
+    \****************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppUserMyProfileComponentsPropertyManagerPropertyManagerCreatePropertyManagerCreateComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvbXktcHJvZmlsZS9jb21wb25lbnRzL3Byb3BlcnR5LW1hbmFnZXIvcHJvcGVydHktbWFuYWdlci1jcmVhdGUvcHJvcGVydHktbWFuYWdlci1jcmVhdGUuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.ts":
+  /*!**************************************************************************************************************************!*\
+    !*** ./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.ts ***!
+    \**************************************************************************************************************************/
+
+  /*! exports provided: PropertyManagerCreateComponent */
+
+  /***/
+  function srcAppUserMyProfileComponentsPropertyManagerPropertyManagerCreatePropertyManagerCreateComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "PropertyManagerCreateComponent", function () {
+      return PropertyManagerCreateComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/PropertyManager */
+    "./src/app/api/controllers/PropertyManager.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
+
+    var PropertyManagerCreateComponent =
+    /*#__PURE__*/
+    function () {
+      function PropertyManagerCreateComponent(router, route, injector, dialog, userService, propertyManagerService, apartmentService, lookupService, sharedService, cookieService) {
+        _classCallCheck(this, PropertyManagerCreateComponent);
+
+        this.router = router;
+        this.route = route;
+        this.injector = injector;
+        this.dialog = dialog;
+        this.userService = userService;
+        this.propertyManagerService = propertyManagerService;
+        this.apartmentService = apartmentService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isDataLoaded = true;
+        this.isError = false;
+        this.errorMessage = false;
+        this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
+      }
+
+      _createClass(PropertyManagerCreateComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.propertyData = {};
+          this.userId = this.route.params['value'].id;
+        }
+      }, {
+        key: "IsValidEmail",
+        value: function IsValidEmail(val) {
+          var retVal = true;
+          var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+          var isValid = rex.test(val);
+
+          if (!isValid) {
+            retVal = false;
+            var errorDetails = {
+              msg: "Kindly enter proper email id",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          return retVal;
+        }
+      }, {
+        key: "IsvalidatePhoneNo",
+        value: function IsvalidatePhoneNo(val) {
+          var retVal = true;
+          var rex = new RegExp(/^[+]?\d+$/);
+          var isValid = rex.test(val);
+          console.log(val.length);
+
+          if (val.length > 13) {
+            retVal = false;
+            var errorDetails = {
+              msg: "phone no length should be within 13 characters",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          if (!isValid) {
+            retVal = false;
+            var errorDetails = {
+              msg: "Kindly enter proper phoneno",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          return retVal;
+        }
+      }, {
+        key: "isValueValid",
+        value: function isValueValid(val) {
+          return val === undefined || val == null || val.length <= 0 || val === "" ? true : false;
+        }
+      }, {
+        key: "submitPropertyManagerCreateForm",
+        value: function submitPropertyManagerCreateForm(form) {
+          var _this61 = this;
+
+          this.isDataLoaded = false;
+          var details = {
+            "propertyManagerName": this.propertyData.propertyManagerName,
+            "contactPerson": this.propertyData.contactPerson,
+            "email": this.propertyData.email,
+            "phone1": this.propertyData.phone1,
+            "phone2": this.propertyData.phone2,
+            "address1": this.propertyData.address1,
+            "address2": this.propertyData.address2,
+            "city": this.propertyData.city,
+            "state": this.propertyData.state,
+            "pin": this.propertyData.pin,
+            "isActive": true,
+            "insertedBy": this.userId,
+            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
+            "updatedBy": this.userId,
+            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString()
+          };
+          var params = {
+            propertyManager: details
+          };
+          this.propertyManagerService.addPropertyManager(params).subscribe(function (res) {
+            console.log('res', res);
+
+            if (res.message) {
+              _this61.sharedService.setAlertMessage("Property Manager added successfully");
+
+              _this61.propertyData = {};
+              _this61.isDataLoaded = true;
+
+              _this61.outputParams.emit('close');
+            }
+          }, function (error) {
+            _this61.isDataLoaded = true;
+            console.log(error);
+          });
+        }
+      }]);
+
+      return PropertyManagerCreateComponent;
+    }();
+
+    PropertyManagerCreateComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
+      }, {
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"]
+      }, {
+        type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__["PropertyManagerService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], PropertyManagerCreateComponent.prototype, "outputParams", void 0);
+    PropertyManagerCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-property-manager-create',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./property-manager-create.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./property-manager-create.component.scss */
+      "./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"], src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__["PropertyManagerService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyManagerCreateComponent);
     /***/
   },
 
@@ -10392,22 +11472,326 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+    /* harmony import */
+
+
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/api/controllers/PropertyManager */
+    "./src/app/api/controllers/PropertyManager.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/api/controllers/Vehicle */
+    "./src/app/api/controllers/Vehicle.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! src/app/shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
 
     var PropertyManagerComponent =
     /*#__PURE__*/
     function () {
-      function PropertyManagerComponent() {
+      function PropertyManagerComponent(router, route, injector, dialog, userService, propertyManagerService, apartmentService, vehicleService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, PropertyManagerComponent);
+
+        this.router = router;
+        this.route = route;
+        this.injector = injector;
+        this.dialog = dialog;
+        this.userService = userService;
+        this.propertyManagerService = propertyManagerService;
+        this.apartmentService = apartmentService;
+        this.vehicleService = vehicleService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isDataLoaded = false;
+        this.isError = false;
+        this.errorMessage = false;
+        this.isEdit = false;
+        this.isCreate = false;
+        this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_13__["ModalService"]);
       }
 
       _createClass(PropertyManagerComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this62 = this;
+
+          this.userId = this.route.params['value'].id;
+          this.apartmentService.getApartmentBlockUnitByUserId(this.userId).subscribe(function (res) {
+            var data = res[0] || {};
+            _this62.apartmentBlockUnitId = data.apartmentBlockUnitId;
+
+            _this62.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(_this62.apartmentBlockUnitId).subscribe(function (res) {
+              if (res[0] != null) {
+                _this62.propertyData = res.filter(function (item) {
+                  return item.isActive;
+                });
+              }
+
+              _this62.isDataLoaded = true;
+              console.log('propertyData', _this62.propertyData);
+            }, function (error) {
+              console.log(error);
+            });
+          }, function (error) {
+            console.log(error);
+          });
+        }
+      }, {
+        key: "showEditForm",
+        value: function showEditForm() {
+          this.isEdit = !this.isEdit;
+        }
+      }, {
+        key: "IsValidEmail",
+        value: function IsValidEmail(val) {
+          var retVal = true;
+          var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+          var isValid = rex.test(val);
+
+          if (!isValid) {
+            retVal = false;
+            var errorDetails = {
+              msg: "Kindly enter proper email id",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          return retVal;
+        }
+      }, {
+        key: "IsvalidatePhoneNo",
+        value: function IsvalidatePhoneNo(val) {
+          var retVal = true;
+          var rex = new RegExp(/^[+]?\d+$/);
+          var isValid = rex.test(val);
+          console.log(val.length);
+
+          if (val.length > 13) {
+            retVal = false;
+            var errorDetails = {
+              msg: "phone no length should be within 13 characters",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          if (!isValid) {
+            retVal = false;
+            var errorDetails = {
+              msg: "Kindly enter proper phoneno",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          return retVal;
+        }
+      }, {
+        key: "isValueValid",
+        value: function isValueValid(val) {
+          return val === undefined || val == null || val.length <= 0 || val === "" ? true : false;
+        }
+      }, {
+        key: "submitpropertyManagerForm",
+        value: function submitpropertyManagerForm(form) {
+          var _this63 = this;
+
+          this.isDataLoaded = false;
+          var details = {
+            "propertyManagerId": this.propertyData.propertyManagerId,
+            "propertyManagerName": this.propertyData.propertyManagerName,
+            "contactPerson": this.propertyData.contactPerson,
+            "email": this.propertyData.email,
+            "phone1": this.propertyData.phone1,
+            "phone2": this.propertyData.phone2,
+            "address1": this.propertyData.address1,
+            "address2": this.propertyData.address2,
+            "city": this.propertyData.city,
+            "state": this.propertyData.state,
+            "pin": this.propertyData.pin,
+            "isActive": this.propertyData.isActive,
+            "insertedBy": this.propertyData.insertedBy,
+            "insertedOn": this.propertyData.insertedOn,
+            "updatedBy": this.userId,
+            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString()
+          };
+          var propertyManagerParams = {
+            propertyManager: details
+          };
+          this.propertyManagerService.updatePropertyManager(propertyManagerParams).subscribe(function (res) {
+            console.log('res', res);
+
+            if (res.message) {
+              _this63.sharedService.setAlertMessage("Property Manager updated successfully");
+
+              _this63.isEdit = false;
+
+              _this63.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(_this63.apartmentBlockUnitId).subscribe(function (res) {
+                _this63.propertyData = res[0] || {};
+                _this63.isDataLoaded = true;
+                console.log('propertyData', _this63.propertyData);
+              }, function (error) {
+                console.log(error);
+              });
+            }
+          }, function (error) {
+            _this63.isDataLoaded = true;
+            console.log(error);
+          });
+        }
+      }, {
+        key: "deletePropertyManager",
+        value: function deletePropertyManager() {
+          var _this64 = this;
+
+          var message = "Are you sure want to delete?";
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            if (dialogResult) {
+              _this64.isDataLoaded = false;
+              var details = {
+                "propertyManagerId": _this64.propertyData.propertyManagerId,
+                "deleteBy": _this64.userId
+              };
+
+              _this64.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+                if (res.message) {
+                  _this64.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                }
+              }, function (error) {});
+            }
+          });
+        }
+      }, {
+        key: "showCreateManager",
+        value: function showCreateManager() {
+          this.isCreate = true;
+        }
+      }, {
+        key: "getOutPutParams",
+        value: function getOutPutParams() {
+          var _this65 = this;
+
+          this.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(this.apartmentBlockUnitId).subscribe(function (res) {
+            if (res[0] != null) {
+              _this65.propertyData = res.filter(function (item) {
+                return item.isActive;
+              });
+            }
+
+            _this65.isDataLoaded = true;
+            console.log('propertyData', _this65.propertyData);
+          }, function (error) {
+            console.log(error);
+          });
+          this.isCreate = false;
+          console.log('in');
+        }
       }]);
 
       return PropertyManagerComponent;
     }();
 
+    PropertyManagerComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
+      }, {
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"]
+      }, {
+        type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_8__["PropertyManagerService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_10__["VehicleService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], PropertyManagerComponent.prototype, "outputParams", void 0);
     PropertyManagerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-property-manager',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -10416,7 +11800,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./property-manager.component.scss */
       "./src/app/user/my-profile/components/property-manager/property-manager.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], PropertyManagerComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"], src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_8__["PropertyManagerService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_10__["VehicleService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], PropertyManagerComponent);
     /***/
   },
 
@@ -10523,6 +11907,12 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     var _components_profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./components/profile-user-absence/profile-user-absence.component */
     "./src/app/user/my-profile/components/profile-user-absence/profile-user-absence.component.ts");
+    /* harmony import */
+
+
+    var _components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! ./components/property-manager/property-manager-create/property-manager-create.component */
+    "./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.ts");
 
     var routes = [{
       path: '',
@@ -10552,6 +11942,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         path: 'propertymanager/:id',
         component: _components_property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_7__["PropertyManagerComponent"]
+      }, {
+        path: 'propertymanager/create',
+        component: _components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_14__["PropertyManagerCreateComponent"]
       }, {
         path: 'family/:id',
         component: _components_profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_5__["ProfileFamilyMembersComponent"]
@@ -10590,6 +11983,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     }, {
       path: 'myprofile/propertymanager/:id',
       component: _components_property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_7__["PropertyManagerComponent"]
+    }, {
+      path: 'myprofile/propertymanager/create',
+      component: _components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_14__["PropertyManagerCreateComponent"]
     }, {
       path: 'myprofile/family/:id',
       component: _components_profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_5__["ProfileFamilyMembersComponent"]
@@ -10712,7 +12108,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this66 = this;
 
           this.user = {};
 
@@ -10720,12 +12116,18 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             this.userId = parseInt(this.cookieService.get('userId'));
           }
 
-          this.userService.getUserById(this.userId).subscribe(function (res) {
-            _this51.user = res[0];
+          var queryParamBase = {
+            userid: this.userId
+          };
+          this.userService.getUserById(queryParamBase).subscribe(function (res) {
+            _this66.user = res[0];
+            var queryParamBase2 = {
+              userId: _this66.userId
+            };
 
-            _this51.userService.getRolesByUserId(_this51.userId).subscribe(function (role) {
-              _this51.userRole = role[0];
-              _this51.isUserDataLoaded = true;
+            _this66.userService.getRolesByUserId(queryParamBase2).subscribe(function (role) {
+              _this66.userRole = role[0];
+              _this66.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -10733,13 +12135,13 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
             console.log(error);
           });
           this.sharedService.userdetailscast.subscribe(function (user) {
-            return _this51.user = user;
+            return _this66.user = user;
           });
         }
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges(changes) {
-          var _this52 = this;
+          var _this67 = this;
 
           if (this.type != 'admin') {
             this.userId = parseInt(this.cookieService.get('userId'));
@@ -10747,12 +12149,12 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
           console.log(this.userId);
           this.userService.getUserById(this.userId).subscribe(function (res) {
-            _this52.user = res[0];
-            console.log(_this52.user);
+            _this67.user = res[0];
+            console.log(_this67.user);
 
-            _this52.userService.getRolesByUserId(_this52.userId).subscribe(function (role) {
-              _this52.userRole = role[0];
-              _this52.isUserDataLoaded = true;
+            _this67.userService.getRolesByUserId(_this67.userId).subscribe(function (role) {
+              _this67.userRole = role[0];
+              _this67.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -10936,13 +12338,25 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
     var _components_profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
     /*! ./components/profile-family-members-details/profile-family-members-details.component */
     "./src/app/user/my-profile/components/profile-family-members-details/profile-family-members-details.component.ts");
+    /* harmony import */
+
+
+    var _components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    /*! ./components/property-manager/property-manager-create/property-manager-create.component */
+    "./src/app/user/my-profile/components/property-manager/property-manager-create/property-manager-create.component.ts");
+    /* harmony import */
+
+
+    var _components_profile_lease_info_create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+    /*! ./components/profile-lease-info/create-lease-info/create-lease-info.component */
+    "./src/app/user/my-profile/components/profile-lease-info/create-lease-info/create-lease-info.component.ts");
 
     var MyProfileModule = function MyProfileModule() {
       _classCallCheck(this, MyProfileModule);
     };
 
     MyProfileModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_my_profile_component__WEBPACK_IMPORTED_MODULE_5__["MyProfileComponent"], _components_profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_6__["ProfileVehiclesComponent"], _components_profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_7__["ProfileFamilyMembersComponent"], _components_profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_8__["ProfilePetComponent"], _components_property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_9__["PropertyManagerComponent"], _components_emergency_contact_emergency_contact_component__WEBPACK_IMPORTED_MODULE_10__["EmergencyContactComponent"], _components_my_staffs_my_staffs_component__WEBPACK_IMPORTED_MODULE_11__["MyStaffsComponent"], _components_profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_12__["ProfileUnitDetailsComponent"], _components_profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_13__["ProfileUnitStaffsComponent"], _components_profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_14__["ProfileLeaseInfoComponent"], _components_profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_15__["ProfileInterestGroupComponent"], _components_profile_basic_profile_basic_component__WEBPACK_IMPORTED_MODULE_16__["ProfileBasicComponent"], _components_profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_17__["ProfileUserAbsenceComponent"], _components_profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehicleDetailsComponent"], _components_profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_19__["ProfilePetDetailsComponent"], _components_profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersDetailsComponent"]],
+      declarations: [_my_profile_component__WEBPACK_IMPORTED_MODULE_5__["MyProfileComponent"], _components_profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_6__["ProfileVehiclesComponent"], _components_profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_7__["ProfileFamilyMembersComponent"], _components_profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_8__["ProfilePetComponent"], _components_property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_9__["PropertyManagerComponent"], _components_property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_21__["PropertyManagerCreateComponent"], _components_profile_lease_info_create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_22__["CreateLeaseInfoComponent"], _components_emergency_contact_emergency_contact_component__WEBPACK_IMPORTED_MODULE_10__["EmergencyContactComponent"], _components_my_staffs_my_staffs_component__WEBPACK_IMPORTED_MODULE_11__["MyStaffsComponent"], _components_profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_12__["ProfileUnitDetailsComponent"], _components_profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_13__["ProfileUnitStaffsComponent"], _components_profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_14__["ProfileLeaseInfoComponent"], _components_profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_15__["ProfileInterestGroupComponent"], _components_profile_basic_profile_basic_component__WEBPACK_IMPORTED_MODULE_16__["ProfileBasicComponent"], _components_profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_17__["ProfileUserAbsenceComponent"], _components_profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehicleDetailsComponent"], _components_profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_19__["ProfilePetDetailsComponent"], _components_profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersDetailsComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _my_profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["MyProfileRoutingModule"]],
       exports: [_my_profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["MyProfileRoutingModule"], _my_profile_component__WEBPACK_IMPORTED_MODULE_5__["MyProfileComponent"]],
       bootstrap: [_my_profile_component__WEBPACK_IMPORTED_MODULE_5__["MyProfileComponent"]]

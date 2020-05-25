@@ -147,7 +147,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"inventory-view-wrapper\">\n\n\n\t<form #viewUtilityCategoryForm = \"ngForm\" name=\"viewUtilityCategoryForm\"  novalidate>\n\n\t\t<div class=\"card ov mb-30\">\n\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Select Category</h5>\n\t    \t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"card-body ov\">\n\n\t\t\t\t<div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n                        <label>Utility Category<span class=\"mandatory\">*</span></label>\n                        <select (change)=\"onUtilityCatregoryChange()\"\n                    name=\"utilityCategory\"\n                    id=\"utilityCategory\"\n                    class=\"form-control\"\n                    [(ngModel)]=\"selectedUtilityCategory\" required>\n                    <option value=\"undefined\" selected>Select</option>\n                    <option *ngFor=\"let item of utilityCategoryData\" [value]=\"item.category\">{{ item.category }}</option>\n                </select>\n            </div>\n          </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</form>\n\n\n\t<div *ngIf=\"selectedUtilityCategory\" class=\"card table-card\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All {{selectedUtilityCategory}} <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<app-loader *ngIf=\"!isUltilityInsuranceHisLoaded && !isUltilityWaterHisLoaded && !isUltilityElectricHisLoaded\"></app-loader>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<ng-container *ngIf=\"selectedUtilityCategory == 'Common Electricity Charges' && isUltilityElectricHisLoaded\">\n\n  \t\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">From\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('fromDate')\" [ngClass]=\"getFieldOrderBy('fromDate')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">To\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('toDate')\" [ngClass]=\"getFieldOrderBy('toDate')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Pre Reading\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('preReading')\" [ngClass]=\"getFieldOrderBy('preReading')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Curr Reading\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Apartment unit\n                  <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n\t\t\t\t\t\t  </th>\n              <th scope=\"col\">Cost Per Unit\n                <span (click)=\"sortUnitData('costPerUnit')\" [ngClass]=\"getFieldOrderBy('costPerUnit')\"></span>\n              </th>\n              <th scope=\"col\">Added By\n                <span (click)=\"sortUnitData('addedBy')\" [ngClass]=\"getFieldOrderBy('addedBy')\"></span>\n              </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let utility of utilityElecteicalListData | simpleSearch: utilitySearch | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"utility.isActive ? '' : 'notactive'\">\n\t\t\t\t\t      <td class=\"name\">{{getUtilityFromPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{getUtilityToPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{utility.prevReading}}</td>\n                <td class=\"grey\">{{utility.currReading}}</td>\n                <td class=\"grey\">{{utility.electricalUnitPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.insertedByUser}}</td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination\n\t\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n\n  \t\t\t</ng-container>\n\n\n        <ng-container *ngIf=\"this.selectedUtilityCategory == 'Water Meter Charges' && isUltilityWaterHisLoaded\">\n\n          <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n              <tr>\n                <th scope=\"col\">Block\n                  <span (click)=\"sortUnitData('block')\" [ngClass]=\"getFieldOrderBy('block')\"></span>\n                </th>\n                <th scope=\"col\">Apartment Unit\n                  <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n                </th>\n                <th scope=\"col\">Connection No\n                  <span (click)=\"sortUnitData('connectionNo')\" [ngClass]=\"getFieldOrderBy('connectionNo')\"></span>\n                </th>\n                <th scope=\"col\">Previous Reading\n                  <span (click)=\"sortUnitData('prevReading')\" [ngClass]=\"getFieldOrderBy('prevReading')\"></span>\n                </th>\n                <th scope=\"col\">Current Reading\n                  <span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let utility of utilityWaterListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n                <td class=\"grey\">{{utility.block}}</td>\n                <td class=\"grey\">{{utility.aptUnit}}</td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].connectionNo}}</span></td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].prevReading}}</span></td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].currReading}}</span></td>\n              </tr>\n            </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n            <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination\n          [totalItems]=\"totalItems\"\n          [ItemStartIndex]=\"ItemStartIndex\"\n          [ItemEndIndex] = \"ItemEndIndex\"\n          [itemLimit] = \"itemLimit\"\n          (outputParams) = \"getIndexParams($event)\">\n        </app-pagination>\n\n        </ng-container>\n\n        <ng-container *ngIf=\"this.selectedUtilityCategory == 'Common Insurance' && isUltilityInsuranceHisLoaded\">\n\n          <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n              <tr>\n                <th scope=\"col\">Insurance Number\n                  <span (click)=\"sortUnitData('insuranceNo')\" [ngClass]=\"getFieldOrderBy('insuranceNo')\"></span>\n                </th>\n                <th scope=\"col\">Apartment Unit Count\n                  <span (click)=\"sortUnitData('aptUnitCount')\" [ngClass]=\"getFieldOrderBy('aptUnitCount')\"></span>\n                </th>\n                <th scope=\"col\">Total Cost\n                  <span (click)=\"sortUnitData('totalCost')\" [ngClass]=\"getFieldOrderBy('totalCost')\"></span>\n                </th>\n                <th scope=\"col\">Cost Per Apartment\n                  <span (click)=\"sortUnitData('costPerApt')\" [ngClass]=\"getFieldOrderBy('costPerApt')\"></span>\n                </th>\n                <th scope=\"col\">Date Entered\n                  <span (click)=\"sortUnitData('dateEntered')\" [ngClass]=\"getFieldOrderBy('dateEntered')\"></span>\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let utility of utilityInsuranceListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n                <td class=\"grey\">{{utility.insuranceNumber}}</td>\n                <td class=\"grey\">{{utility.apartmentUnitCount}}</td>\n                <td class=\"grey\">{{utility.totalCost}}</td>\n                <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.dateEntered}}</td>\n              </tr>\n            </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n            <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination\n          [totalItems]=\"totalItems\"\n          [ItemStartIndex]=\"ItemStartIndex\"\n          [ItemEndIndex] = \"ItemEndIndex\"\n          [itemLimit] = \"itemLimit\"\n          (outputParams) = \"getIndexParams($event)\">\n        </app-pagination>\n\n        </ng-container>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"inventory-view-wrapper\">\n\n\n\t<form #viewUtilityCategoryForm = \"ngForm\" name=\"viewUtilityCategoryForm\"  novalidate>\n\n\t\t<div class=\"card ov mb-30\">\n\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Select Category</h5>\n\t    \t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"card-body ov\">\n\n\t\t\t\t<div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n                        <label>Utility Category<span class=\"mandatory\">*</span></label>\n                        <select (change)=\"onUtilityCatregoryChange()\"\n                    name=\"utilityCategory\"\n                    id=\"utilityCategory\"\n                    class=\"form-control\"\n                    [(ngModel)]=\"selectedUtilityCategory\" required>\n                    <option value=\"undefined\" selected>Select</option>\n                    <option *ngFor=\"let item of utilityCategoryData\" [value]=\"item.category\">{{ item.category }}</option>\n                </select>\n            </div>\n          </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</form>\n\n\n\t<div *ngIf=\"selectedUtilityCategory\" class=\"card table-card\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All {{selectedUtilityCategory}} <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n\t\t\t\t\t<li *ngIf=\"isWaterHistory()\" class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t    \t<select (change)=\"onFilterByTowerChange()\" name=\"utilityTowerFilter\" id=\"utilityTowerFilter\" class=\"form-control filter-width\" [(ngModel)]=\"selectedTower\" required>\n\t\t\t\t    \t<option value=\"All\" selected>Select Tower</option>\n\t\t\t\t    \t<option *ngFor=\"let tower of propertyTowerData\" [value]=\"tower.apartmentBlockNumber\">{{ tower.apartmentBlockNumber }}</option>\n\t\t\t    \t</select>\n\t\t    \t</li>\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<app-loader *ngIf=\"!isUltilityInsuranceHisLoaded && !isUltilityWaterHisLoaded && !isUltilityElectricHisLoaded\"></app-loader>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<ng-container *ngIf=\"selectedUtilityCategory == 'Common Electricity Charges' && isUltilityElectricHisLoaded\">\n\n  \t\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">From\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('fromDate')\" [ngClass]=\"getFieldOrderBy('fromDate')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">To\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('toDate')\" [ngClass]=\"getFieldOrderBy('toDate')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Pre Reading\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('preReading')\" [ngClass]=\"getFieldOrderBy('preReading')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Curr Reading\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Apartment unit\n                  <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n\t\t\t\t\t\t  </th>\n              <th scope=\"col\">Cost Per Unit\n                <span (click)=\"sortUnitData('costPerUnit')\" [ngClass]=\"getFieldOrderBy('costPerUnit')\"></span>\n              </th>\n              <th scope=\"col\">Added By\n                <span (click)=\"sortUnitData('addedBy')\" [ngClass]=\"getFieldOrderBy('addedBy')\"></span>\n              </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let utility of utilityElecteicalListData | simpleSearch: utilitySearch | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"utility.isActive ? '' : 'notactive'\">\n\t\t\t\t\t      <td class=\"name\">{{getUtilityFromPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{getUtilityToPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{utility.prevReading}}</td>\n                <td class=\"grey\">{{utility.currReading}}</td>\n                <td class=\"grey\">{{utility.electricalUnitPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.insertedByUser}}</td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination\n\t\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n\n  \t\t\t</ng-container>\n\n\n        <ng-container *ngIf=\"this.selectedUtilityCategory == 'Water Meter Charges' && isUltilityWaterHisLoaded\">\n\n          <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n              <tr>\n                <th scope=\"col\">Block\n                  <span (click)=\"sortUnitData('block')\" [ngClass]=\"getFieldOrderBy('block')\"></span>\n                </th>\n                <th scope=\"col\">Apartment Unit\n                  <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n                </th>\n                <th scope=\"col\">Connection No\n                  <span (click)=\"sortUnitData('connectionNo')\" [ngClass]=\"getFieldOrderBy('connectionNo')\"></span>\n                </th>\n                <th scope=\"col\">Previous Reading\n                  <span (click)=\"sortUnitData('prevReading')\" [ngClass]=\"getFieldOrderBy('prevReading')\"></span>\n                </th>\n                <th scope=\"col\">Current Reading\n                  <span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let utility of filteredUtilityWaterListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n                <td class=\"grey\">{{utility.block}}</td>\n                <td class=\"grey\">{{utility.aptUnit}}</td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].connectionNo}}</span></td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].prevReading}}</span></td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].currReading}}</span></td>\n              </tr>\n            </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n            <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination\n          [totalItems]=\"totalItems\"\n          [ItemStartIndex]=\"ItemStartIndex\"\n          [ItemEndIndex] = \"ItemEndIndex\"\n          [itemLimit] = \"itemLimit\"\n          (outputParams) = \"getIndexParams($event)\">\n        </app-pagination>\n\n        </ng-container>\n\n        <ng-container *ngIf=\"this.selectedUtilityCategory == 'Common Insurance' && isUltilityInsuranceHisLoaded\">\n\n          <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n              <tr>\n                <th scope=\"col\">Insurance Number\n                  <span (click)=\"sortUnitData('insuranceNo')\" [ngClass]=\"getFieldOrderBy('insuranceNo')\"></span>\n                </th>\n                <th scope=\"col\">Apartment Unit Count\n                  <span (click)=\"sortUnitData('aptUnitCount')\" [ngClass]=\"getFieldOrderBy('aptUnitCount')\"></span>\n                </th>\n                <th scope=\"col\">Total Cost\n                  <span (click)=\"sortUnitData('totalCost')\" [ngClass]=\"getFieldOrderBy('totalCost')\"></span>\n                </th>\n                <th scope=\"col\">Cost Per Apartment\n                  <span (click)=\"sortUnitData('costPerApt')\" [ngClass]=\"getFieldOrderBy('costPerApt')\"></span>\n                </th>\n                <th scope=\"col\">Date Entered\n                  <span (click)=\"sortUnitData('dateEntered')\" [ngClass]=\"getFieldOrderBy('dateEntered')\"></span>\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let utility of utilityInsuranceListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n                <td class=\"grey\">{{utility.insuranceNumber}}</td>\n                <td class=\"grey\">{{utility.apartmentUnitCount}}</td>\n                <td class=\"grey\">{{utility.totalCost}}</td>\n                <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.dateEntered}}</td>\n              </tr>\n            </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n            <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination\n          [totalItems]=\"totalItems\"\n          [ItemStartIndex]=\"ItemStartIndex\"\n          [ItemEndIndex] = \"ItemEndIndex\"\n          [itemLimit] = \"itemLimit\"\n          (outputParams) = \"getIndexParams($event)\">\n        </app-pagination>\n\n        </ng-container>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>\n";
     /***/
   },
 
@@ -1548,7 +1548,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".mandatory {\n  color: red;\n  font-size: 16px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdXRpbGl0eS9jb21wb25lbnRzL3V0aWxpdHktaGlzdG9yeS91dGlsaXR5LWhpc3RvcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy91dGlsaXR5L2NvbXBvbmVudHMvdXRpbGl0eS1oaXN0b3J5L3V0aWxpdHktaGlzdG9yeS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFVBQUE7RUFDQSxlQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvdXRpbGl0eS9jb21wb25lbnRzL3V0aWxpdHktaGlzdG9yeS91dGlsaXR5LWhpc3RvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFuZGF0b3J5e1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE2cHg7XG59XG4iLCIubWFuZGF0b3J5IHtcbiAgY29sb3I6IHJlZDtcbiAgZm9udC1zaXplOiAxNnB4O1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".mandatory {\n  color: red;\n  font-size: 16px;\n}\n\n.filter-width {\n  width: 150px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdXRpbGl0eS9jb21wb25lbnRzL3V0aWxpdHktaGlzdG9yeS91dGlsaXR5LWhpc3RvcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy91dGlsaXR5L2NvbXBvbmVudHMvdXRpbGl0eS1oaXN0b3J5L3V0aWxpdHktaGlzdG9yeS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFVBQUE7RUFDQSxlQUFBO0FDQ0Y7O0FERUE7RUFDRSxZQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvdXRpbGl0eS9jb21wb25lbnRzL3V0aWxpdHktaGlzdG9yeS91dGlsaXR5LWhpc3RvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFuZGF0b3J5e1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE2cHg7XG59XG5cbi5maWx0ZXItd2lkdGh7XG4gIHdpZHRoOiAxNTBweDtcbn1cbiIsIi5tYW5kYXRvcnkge1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE2cHg7XG59XG5cbi5maWx0ZXItd2lkdGgge1xuICB3aWR0aDogMTUwcHg7XG59Il19 */";
     /***/
   },
 
@@ -1607,15 +1607,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
 
     var UtilityHistoryComponent =
     /*#__PURE__*/
     function () {
-      function UtilityHistoryComponent(lookupService, sharedService, utilityTrackerService, cookieService) {
+      function UtilityHistoryComponent(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
         _classCallCheck(this, UtilityHistoryComponent);
 
         this.lookupService = lookupService;
         this.sharedService = sharedService;
+        this.apartmentService = apartmentService;
         this.utilityTrackerService = utilityTrackerService;
         this.cookieService = cookieService;
         this.utilityCategoryData = "";
@@ -1656,6 +1663,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "selectColInput",
         value: function selectColInput(value) {
           this.selectedInput = value;
+        }
+      }, {
+        key: "isWaterHistory",
+        value: function isWaterHistory() {
+          if (this.selectedUtilityCategory == 'Water Meter Charges') {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }, {
+        key: "onFilterByTowerChange",
+        value: function onFilterByTowerChange() {
+          var _this12 = this;
+
+          console.log("this.selectedTower", this.selectedTower);
+
+          if (this.selectedTower == 'All') {
+            this.filteredUtilityWaterListData = this.utilityWaterListData;
+          } else {
+            this.filteredUtilityWaterListData = this.utilityWaterListData.filter(function (x) {
+              return x.block == _this12.selectedTower;
+            });
+          }
+
+          this.totalItems = this.filteredUtilityWaterListData.length;
         }
       }, {
         key: "onUtilityCatregoryChange",
@@ -1711,36 +1744,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllElectricalUtiliy",
         value: function getAllElectricalUtiliy() {
-          var _this12 = this;
+          var _this13 = this;
 
           this.isUltilityElectricHisLoaded = false;
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.utilityTrackerService.getElectricityChargesByApartmentId(params).subscribe(function (res) {
-            _this12.utilityElecteicalListData = res.filter(function (item) {
+            _this13.utilityElecteicalListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this12.utilityElecteicalListPeriods = [];
+            _this13.utilityElecteicalListPeriods = [];
 
-            var _iterator2 = _createForOfIteratorHelper(_this12.utilityElecteicalListData),
+            var _iterator2 = _createForOfIteratorHelper(_this13.utilityElecteicalListData),
                 _step2;
 
             try {
               var _loop2 = function _loop2() {
                 var electrical_list = _step2.value;
                 var period_param = {
-                  "apartmentId": parseInt(_this12.cookieService.get('apartmentId')),
+                  "apartmentId": parseInt(_this13.cookieService.get('apartmentId')),
                   "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId
                 };
 
-                _this12.utilityTrackerService.getUtilityTrackerElectricityPeriodsById(period_param).subscribe(function (res) {
+                _this13.utilityTrackerService.getUtilityTrackerElectricityPeriodsById(period_param).subscribe(function (res) {
                   var period_data = {
                     "periods": res,
                     "period_id": electrical_list.utilityTrackerElectricityPeriodId
                   };
 
-                  _this12.utilityElecteicalListPeriods.push(period_data);
+                  _this13.utilityElecteicalListPeriods.push(period_data);
                 });
               };
 
@@ -1753,29 +1786,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _iterator2.f();
             }
 
-            _this12.totalItems = _this12.utilityElecteicalListData.length;
-
-            if (_this12.totalItems > _this12.itemLimit) {
-              _this12.ItemEndIndex = _this12.itemLimit;
-            } else {
-              _this12.ItemEndIndex = _this12.totalItems;
-            }
-
-            _this12.isUltilityElectricHisLoaded = true;
-          });
-        }
-      }, {
-        key: "getAllWaterUtiliy",
-        value: function getAllWaterUtiliy() {
-          var _this13 = this;
-
-          this.isUltilityWaterHisLoaded = false;
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-          };
-          this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe(function (res) {
-            _this13.utilityWaterListData = res;
-            _this13.totalItems = _this13.utilityWaterListData.length;
+            _this13.totalItems = _this13.utilityElecteicalListData.length;
 
             if (_this13.totalItems > _this13.itemLimit) {
               _this13.ItemEndIndex = _this13.itemLimit;
@@ -1783,23 +1794,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this13.ItemEndIndex = _this13.totalItems;
             }
 
-            _this13.isUltilityWaterHisLoaded = true;
+            _this13.isUltilityElectricHisLoaded = true;
           });
         }
       }, {
-        key: "getAllInsuranceUtiliy",
-        value: function getAllInsuranceUtiliy() {
+        key: "getAllWaterUtiliy",
+        value: function getAllWaterUtiliy() {
           var _this14 = this;
 
-          this.isUltilityInsuranceHisLoaded = false;
+          this.selectedTower = 'All';
+          this.isUltilityWaterHisLoaded = false;
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.utilityTrackerService.getUtilityTrackerInsuranceChargesByApartmentId(params).subscribe(function (res) {
-            _this14.utilityInsuranceListData = res.filter(function (item) {
-              return item.isActive;
-            });
-            _this14.totalItems = _this14.utilityInsuranceListData.length;
+          this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe(function (res) {
+            _this14.utilityWaterListData = res;
+            _this14.filteredUtilityWaterListData = _this14.utilityWaterListData;
+            _this14.totalItems = _this14.filteredUtilityWaterListData.length;
 
             if (_this14.totalItems > _this14.itemLimit) {
               _this14.ItemEndIndex = _this14.itemLimit;
@@ -1807,23 +1818,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this14.ItemEndIndex = _this14.totalItems;
             }
 
-            _this14.isUltilityInsuranceHisLoaded = true;
+            _this14.isUltilityWaterHisLoaded = true;
+          });
+        }
+      }, {
+        key: "getAllInsuranceUtiliy",
+        value: function getAllInsuranceUtiliy() {
+          var _this15 = this;
+
+          this.isUltilityInsuranceHisLoaded = false;
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.utilityTrackerService.getUtilityTrackerInsuranceChargesByApartmentId(params).subscribe(function (res) {
+            _this15.utilityInsuranceListData = res.filter(function (item) {
+              return item.isActive;
+            });
+
+            _this15.utilityInsuranceListData.sort(function (a, b) {
+              a = new Date(a.dateEntered);
+              b = new Date(b.dateEntered);
+              return a > b ? -1 : a < b ? 1 : 0;
+            });
+
+            _this15.totalItems = _this15.utilityInsuranceListData.length;
+
+            if (_this15.totalItems > _this15.itemLimit) {
+              _this15.ItemEndIndex = _this15.itemLimit;
+            } else {
+              _this15.ItemEndIndex = _this15.totalItems;
+            }
+
+            _this15.isUltilityInsuranceHisLoaded = true;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this15 = this;
+          var _this16 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-            _this15.utilityCategoryData = res.filter(function (item) {
+            _this16.utilityCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            _this15.isUtilityCategoryLoaded = true;
+            _this16.isUtilityCategoryLoaded = true;
           }, function (error) {});
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
+            _this16.propertyTowerData = res;
+          });
         }
       }]);
 
@@ -1835,6 +1880,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
       }, {
         type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"]
       }, {
@@ -1850,7 +1897,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./utility-history.component.scss */
       "./src/app/ams/utility/components/utility-history/utility-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], UtilityHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], UtilityHistoryComponent);
     /***/
   },
 
@@ -2058,7 +2105,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteUtilityCategory",
         value: function deleteUtilityCategory(item) {
-          var _this16 = this;
+          var _this17 = this;
 
           this.isUtilityCategoryLoaded = false;
           console.log(item);
@@ -2067,7 +2114,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             deleteBy: parseInt(this.cookieService.get('userId'))
           };
           this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
-            _this16.loadUtilityCategory();
+            _this17.loadUtilityCategory();
           });
         }
       }, {
@@ -2116,7 +2163,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addOrUpdateUtilityCategoryForm",
         value: function addOrUpdateUtilityCategoryForm(form) {
-          var _this17 = this;
+          var _this18 = this;
 
           this.isUtilityCategorySubmitted = false;
           this.isError = false;
@@ -2139,22 +2186,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe(function (res) {
               if (res.message) {
                 var _params2 = {
-                  apartmentId: parseInt(_this17.cookieService.get('apartmentId'))
+                  apartmentId: parseInt(_this18.cookieService.get('apartmentId'))
                 };
 
-                _this17.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
-                  _this17.isUtilityCategorySubmitted = true;
+                _this18.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
+                  _this18.isUtilityCategorySubmitted = true;
 
-                  _this17.sharedService.setAlertMessage("Category added Successfully!");
+                  _this18.sharedService.setAlertMessage("Category added Successfully!");
 
-                  _this17.utilityCategoryData = res.filter(function (item) {
+                  _this18.utilityCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
               } else {
-                _this17.isUtilityCategorySubmitted = true;
-                _this17.isError = true;
-                _this17.alertMessage = res.errorMessage;
+                _this18.isUtilityCategorySubmitted = true;
+                _this18.isError = true;
+                _this18.alertMessage = res.errorMessage;
               }
             });
           } else {
@@ -2176,24 +2223,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.utilityTrackerService.updateUtilityTrackerCategory(_params3).subscribe(function (res) {
               if (res.message) {
                 var _params4 = {
-                  apartmentId: parseInt(_this17.cookieService.get('apartmentId'))
+                  apartmentId: parseInt(_this18.cookieService.get('apartmentId'))
                 };
 
-                _this17.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
-                  _this17.isUtilityCategorySubmitted = true;
+                _this18.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
+                  _this18.isUtilityCategorySubmitted = true;
 
-                  _this17.sharedService.setAlertMessage("Category updated Successfully!");
+                  _this18.sharedService.setAlertMessage("Category updated Successfully!");
 
-                  _this17.utilityCategoryData = res.filter(function (item) {
+                  _this18.utilityCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
-                  _this17.isUtilityCategoryNew = false;
-                  _this17.isUtilityCategoryUpdate = false;
+                  _this18.isUtilityCategoryNew = false;
+                  _this18.isUtilityCategoryUpdate = false;
                 });
               } else {
-                _this17.isUtilityCategorySubmitted = true;
-                _this17.isError = true;
-                _this17.alertMessage = res.errorMessage;
+                _this18.isUtilityCategorySubmitted = true;
+                _this18.isError = true;
+                _this18.alertMessage = res.errorMessage;
               }
             });
           }
@@ -2201,33 +2248,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadUtilityCategory",
         value: function loadUtilityCategory() {
-          var _this18 = this;
+          var _this19 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-            _this18.utilityCategoryData = res.filter(function (item) {
+            _this19.utilityCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            _this18.isUtilityCategoryLoaded = true;
+            _this19.isUtilityCategoryLoaded = true;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this19 = this;
+          var _this20 = this;
 
           this.apartment_id = parseInt(this.cookieService.get('apartmentId'));
           this.loadUtilityCategory();
           this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
             if (is_category_form) {
-              _this19.submitUtilityCategoryForm(is_category_form);
+              _this20.submitUtilityCategoryForm(is_category_form);
             }
           });
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
             if (item_id) {
-              _this19.deleteUtilityCategory(item_id);
+              _this20.deleteUtilityCategory(item_id);
             }
           });
         }
