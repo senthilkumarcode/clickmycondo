@@ -350,16 +350,6 @@ let UserComponent = class UserComponent {
         this.isSidebarMini = false;
         this.isApartmentSelected = false;
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__["ModalService"]);
-        let bodyClassList = 'home';
-        this.router.events.subscribe((event) => {
-            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-                let path = this.router.url;
-                let name = path.split('/');
-                r.removeClass(document.body, bodyClassList);
-                r.addClass(document.body, 'user-' + name[name.length - 1]);
-                bodyClassList = document.body.classList.value;
-            }
-        });
     }
     showMiniSideBar() {
         return this.isSidebarMini ? 'mini' : '';

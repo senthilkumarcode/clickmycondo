@@ -712,8 +712,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function UserComponent(router, route, injector, r, sharedService, cookieService) {
-        var _this4 = this;
-
         _classCallCheck(this, UserComponent);
 
         this.router = router;
@@ -724,16 +722,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isSidebarMini = false;
         this.isApartmentSelected = false;
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__["ModalService"]);
-        var bodyClassList = 'home';
-        this.router.events.subscribe(function (event) {
-          if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-            var path = _this4.router.url;
-            var name = path.split('/');
-            r.removeClass(document.body, bodyClassList);
-            r.addClass(document.body, 'user-' + name[name.length - 1]);
-            bodyClassList = document.body.classList.value;
-          }
-        });
       }
 
       _createClass(UserComponent, [{
@@ -744,7 +732,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this4 = this;
 
           if (this.cookieService.get('apartmentId') != "") {
             this.sharedService.setApartmentSelected(true);
@@ -754,7 +742,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.sharedService.sidebarminicast.subscribe(function (isSidebarMini) {
-            return _this5.isSidebarMini = isSidebarMini;
+            return _this4.isSidebarMini = isSidebarMini;
           });
         }
       }]);
