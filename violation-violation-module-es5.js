@@ -121,7 +121,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card table-card mb-30\">\n\n\n    <div class=\"card-body p-0\">\n        <form [formGroup]=\"userTable\">\n            <table class=\"table rule\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">Violation Id<span></span></th>\n                        <th scope=\"col\" colspan=\"15\"></th>\n\n                        <th scope=\"col\" (click)=\"sortUnitData('phone')\">Rule No<span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                        <th scope=\"col\" colspan=\"15\"></th>\n\n                        <th scope=\"col\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n\n                        <tr *ngIf=\"!group.get('isEditable').value\">\n                            <td>\n                                {{group.get('category').value}}\n                            </td>\n                            <td colspan=\"15\">\n                                <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                    <thead>\n                                        <tr>\n\n\n                                            <th scope=\"col\">Unit Id<span></span></th>\n                                            <th scope=\"col\">Block Id<span></span></th>\n\n\n                                        </tr>\n                                    </thead>\n                                    <tbody>\n                                        <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                            <tr *ngIf=\"!group.get('isEditable').value\">\n                                                <td>\n\n                                                    <mat-form-field>\n                                                        <input matInput type=\"text\" value=\" {{violation?.get('descViolationNo').value}}\">\n                                                    </mat-form-field>\n                                                </td>\n                                                <td>\n\n                                                    <mat-form-field>\n                                                        <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                    </mat-form-field>\n                                                </td>\n\n\n                                            </tr>\n                                        </ng-container>\n                                    </tbody>\n                                </table>\n                                <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                    <thead>\n                                        <tr>\n                                            <th scope=\"col\">Resident<span></span></th>\n                                            <th scope=\"col\">Category<span></span></th>\n                                        </tr>\n                                    </thead>\n                                    <tbody>\n                                        <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                            <tr *ngIf=\"!group.get('isEditable').value\">\n                                                <td>\n                                                    {{violation?.get('descViolationNo').value}}\n                                                </td>\n                                                <td>\n                                                    <mat-form-field>\n                                                        <mat-select  value=\"{{group.get('category').value}}\">\n                                                            <mat-option *ngFor=\"let item of allViolationCategory\"\n                                                                [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</mat-option>\n                                                        </mat-select>\n                                                    </mat-form-field>\n\n                                                </td>\n\n\n                                            </tr>\n                                        </ng-container>\n                                    </tbody>\n                                </table>\n                            </td>\n\n                            <td>\n                                {{group.get('ruleno').value}}\n                            </td>\n\n\n                            <td colspan=\"15\">\n                                <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                    <thead>\n                                        <tr>\n\n\n                                            <th scope=\"col\">Stop What</th>\n                                            <th scope=\"col\">Until date</th>\n\n\n                                        </tr>\n                                    </thead>\n                                    <tbody>\n                                        <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                            <tr *ngIf=\"!group.get('isEditable').value\">\n                                                <td>\n                                                    <mat-form-field>\n                                                        <mat-select>\n                                                            <mat-option *ngFor=\"let item of allViolationPrivilege\"\n                                                                [value]=\"item.stopPriveldgeDays\">{{\n                                                                item.stopPriveldgeDays }}</mat-option>\n                                                        </mat-select>\n                                                    </mat-form-field>\n                                                </td>\n                                                <td>\n                                                    <mat-form-field>\n                                                        <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                    </mat-form-field>\n                                                </td>\n\n\n                                            </tr>\n                                        </ng-container>\n                                    </tbody>\n                                </table>\n                                <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                    <thead>\n                                        <tr>\n\n\n\n                                            <th scope=\"col\">Violation Comments</th>\n                                            <th scope=\"col\">Admin Comments</th>\n\n                                        </tr>\n                                    </thead>\n                                    <tbody>\n                                        <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                            <tr *ngIf=\"!group.get('isEditable').value\">\n                                                <td>\n\n                                                    <mat-form-field>\n                                                        <input matInput type=\"text\" value=\"{{violation?.get('descViolationNo').value}}\">\n                                                    </mat-form-field>\n                                                </td>\n                                                <td>\n\n                                                    <mat-form-field>\n                                                        <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                    </mat-form-field>\n                                                </td>\n\n\n                                            </tr>\n                                        </ng-container>\n                                    </tbody>\n                                </table>\n                            </td>\n                            <td>\n                                <div class=\"row\">\n                                    <button mat-raised-button class=\"col-6\" type=\"submit\" (click)=\"confirmPrivilege(i)\">Confirm </button>\n                                    <button mat-raised-button class=\"col-6\" type=\"submit\" (click)=\"cancelPrivilege(i)\">Cancel</button>\n                                </div>\n                            </td>\n\n\n                        </tr>\n                    </ng-container>\n                </tbody>\n\n            </table>\n\n        </form>\n\n\n    </div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"card table-card mb-30\">\n\n\n        <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n                <table class=\"table rule\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Violation Id<span></span></th>\n                            <th scope=\"col\" colspan=\"15\"></th>\n    \n                            <th scope=\"col\" (click)=\"sortUnitData('phone')\">Rule No<span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                            <th scope=\"col\" colspan=\"15\"></th>\n    \n                            <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n    \n                            <tr *ngIf=\"!group.get('isEditable').value\">\n                                <td>\n                                    {{group.get('category').value}}\n                                </td>\n                                <td colspan=\"15\">\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n                                                <th scope=\"col\">Unit Id<span></span></th>\n                                                <th scope=\"col\">Block Id<span></span></th>\n    \n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\" {{violation?.get('descViolationNo').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n                                                <th scope=\"col\">Resident<span></span></th>\n                                                <th scope=\"col\">Category<span></span></th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n                                                        {{violation?.get('descViolationNo').value}}\n                                                    </td>\n                                                    <td>\n                                                        <mat-form-field>\n                                                            <mat-select  value=\"{{group.get('category').value}}\">\n                                                                <mat-option *ngFor=\"let item of allViolationCategory\"\n                                                                    [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</mat-option>\n                                                            </mat-select>\n                                                        </mat-form-field>\n    \n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                </td>\n    \n                                <td>\n                                    {{group.get('ruleno').value}}\n                                </td>\n    \n    \n                                <td colspan=\"15\">\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n                                                <th scope=\"col\">Stop What</th>\n                                                <th scope=\"col\">Until date</th>\n    \n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n                                                        <mat-form-field>\n                                                            <mat-select>\n                                                                <mat-option *ngFor=\"let item of allViolationPrivilege\"\n                                                                    [value]=\"item.stopPriveldgeDays\">{{\n                                                                    item.stopPriveldgeDays }}</mat-option>\n                                                            </mat-select>\n                                                        </mat-form-field>\n                                                    </td>\n                                                    <td>\n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n    \n                                                <th scope=\"col\">Violation Comments</th>\n                                                <th scope=\"col\">Admin Comments</th>\n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{violation?.get('descViolationNo').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                </td>\n                                <td>\n                                    <div class=\"row\">\n                                        <button mat-raised-button class=\"col-6\" type=\"submit\" (click)=\"confirmPrivilege(i)\">Confirm </button>\n                                        <button mat-raised-button class=\"col-6\" type=\"submit\" (click)=\"cancelPrivilege(i)\">Cancel</button>\n                                    </div>\n                                </td>\n    \n    \n                            </tr>\n                        </ng-container>\n                    </tbody>\n    \n                </table>\n    \n            </form>\n    \n    \n        </div>\n    \n    </div>\n";
     /***/
   },
 
@@ -181,7 +181,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"workpermit-setup-wrapper\">\n\t\n\t<div class=\"card clear form-group\" id=\"accordion\">\n\t\t<div class=\"card-body p-0\">\n\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n\t\t\t\tCreate Violation Category &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n\t\t\t</li>\n\t\t\t<div id=\"typeCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t<div class=\"details-category\">\n\n\t\t\t<form #createCategoryTypeForm = \"ngForm\" name=\"createCategoryTypeForm\" (ngSubmit)=\"submitCreateCategoryTypeForm(createCategoryTypeForm)\"  novalidate>\n\t\t\t<div class=\"row p-category\">\n\t\t\t\t<div class=\"\n\t\t\t\tcol-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Category</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryname\" [(ngModel)]=\"category.categoryname\" value=\"{{category.categoryname}}\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t<textarea class=\"form-control\" placeholder=\"Enter\" name=\"Description\" [(ngModel)]=\"category.Description\" value=\"{{category.Description}}\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t<div class=\"input-box p-25\">\n\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"createCategoryTypeForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t</form>\n\n\t\t\t<table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('lookupValueId')\">Category ID<span [ngClass]=\"getFieldOrderBy('lookupValueId')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let violationcategory of allViolationCategory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: wpData ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{violationcategory.lookupValueId}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{violationcategory.lookupValueName}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{violationcategory.description}}</td>\n\t\t\t\t      <td class=\"grey\">\n\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"editViolationCategory(violationcategory)\"></i-feather></a>&nbsp;\n\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon delete\" name=\"trash\" (click)=\"deleteViolationCategory(violationcategory.lookupValueId)\"></i-feather></a>\n\t\t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t\t\t\t\n\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear form-group\" id=\"accordion\">\n\t\t<div class=\"card-body p-0\">\n\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#natureCollapseOne\" aria-expanded=\"true\" aria-controls=\"naturecollapseOne\">\n\t\t\t\tStop Privledge &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n\t\t\t</li>\n\t\t\t<div id=\"natureCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t<div class=\"details-privilege\">\n\n\t\t\t<form #createsStopPrivledgeForm = \"ngForm\" name=\"createsStopPrivledgeForm\" (ngSubmit)=\"submitCreatesStopPrivledgeForm(createsStopPrivledgeForm)\"  novalidate>\n\t\t\t<div class=\"row p-category\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Violation Name*</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"ViolationName\" [(ngModel)]=\"privledge.ViolationName\" valu=\"{{privledge.ViolationName}}\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Stopwhat Description</label>\n\t\t\t\t\t\t<textarea class=\"form-control\" placeholder=\"Enter\" name=\"ViolationDescription\" [(ngModel)]=\"privledge.ViolationDescription\" value=\"{{privledge.ViolationDescription}}\" required></textarea>\n\t\t\t\t\t</div>\n                </div>\n                <div class=\"col-sm-3\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Period of Stop Privledges</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"PeriodOfPrivledges\" [(ngModel)]=\"privledge.PeriodOfPrivledges\" value=\"{{privledge.PeriodOfPrivledges}}\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t<div class=\"input-box p-25\">\n\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"createsStopPrivledgeForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t</form>\n\n\t\t\t<table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" >StopPrivledgeID<span ></span></th>\n\t\t\t\t      <th scope=\"col\" >Violation Name <span ></span></th>\n                      <th scope=\"col\" >Stopwhat Description <span></span></th>\n                      <th scope=\"col\" >Period of Stop Privledge <span></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let privledge of allViolationPrivilege | orderBy : PunitFieldType: PunitOrder | slice:NWItemStartIndex:PItemEndIndex | simpleSearch: nwData ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{privledge.id}}</td>\n\t\t\t\t      <td class=\"grey\">{{privledge.name}}</td>\n                      <td class=\"grey\">{{privledge.description}}</td>\n                      <td class=\"grey\">{{privledge.stopPriveldgeDays}}</td>\n\t\t\t\t      <td class=\"grey\">\n\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"editViolationPrivilege(privledge)\"></i-feather></a>&nbsp;\n\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"PtotalItems\"  \n\t\t\t\t[ItemStartIndex]=\"PItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"PItemEndIndex\"\n\t\t\t\t[itemLimit] = \"NWitemLimit\"\n\t\t\t\t(outputParams) = \"getPIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t\t\t\t\n\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear form-group\" id=\"accordion\">\n\t\t<div class=\"card-body p-0\">\n\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#violationCollapseOne\" aria-expanded=\"true\" aria-controls=\"naturecollapseOne\">\n\t\t\t\tCreate Violation Rule &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n\t\t\t</li>\n\t\t\t<div id=\"violationCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t<div class=\"details\" id=\"details\">\n\n\t\t\n\t\t\t<app-loader *ngIf=\"!isViolationDataLoaded\"></app-loader>\n\n<div class=\"card table-card mb-30\" *ngIf=\"isViolationDataLoaded\">\n\n\n    <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n    <table class=\"table rule\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                  <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Category<span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('phone')\">Rule No<span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                  <th scope=\"col\" colspan=\"15\"></th>\n\n                  <th scope=\"col\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                  <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                    <td>\n                    <mat-form-field>\n                        <mat-select formControlName=\"category\">\n\t\t\t\t\t\t<mat-option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</mat-option>\n                        </mat-select>\n\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\n\t\t\t\t\t\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"text\" formControlName=\"ruleno\">\n                        \n                      </mat-form-field>\n                    </td>\n                    <td colspan=\"15\">\n\t\t\t\t\t\t<table class=\"table violation\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" >Violation No </th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" >Penalty Amount </th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" class=\"desc\" >Violation Description</th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" >Stop privilege</th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" ></th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<ng-container formArrayName=\"violationTable\" *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n\t\t\t\t\t\t\t\t  <tr  [formGroupName]=\"j\">\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"text-center label-index\">{{j + 1}}.</label>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"fineViolationNo\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t  <mat-form-field class=\"desc-content\">\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"descViolationNo\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t  </mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t  <mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<mat-select formControlName=\"stopprivledges\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.stopPriveldgeDays\">{{ item.stopPriveldgeDays }}</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-select>\n\t\t\t\t\t\t\t\t\t  </mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<div class=\"action-icon\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" (click)=\"clearviolationRow(i, j)\">close</mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" (click)=\"deleteviolationRow(i, j)\">delete_forever</mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t  </tr>\n\t\t\t\t\t\t\t\t  </ng-container>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t<tfoot>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<button mat-raised-button type=\"submit\" (click)=\"addRowViolation(i)\">Add row</button>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t</tfoot>\n\t\t\t\t\t\t\t</table>\n                    </td>\n                    \n                    \n                    <td>\n                      <mat-icon class=\"delete\" (click)=\"deleteRow(i)\">delete_forever</mat-icon>\n                      <mat-icon class=\"done\" (click)=\"doneRow(group, i)\">done</mat-icon>\n                      \n                    </td>\n                  </tr>\n                  <tr *ngIf=\"!group.get('isEditable').value\" >\n                    <td>\n                      {{group.get('category').value}}\n                    </td>\n                    <td>\n                      {{group.get('ruleno').value}}\n                    </td>\n                    <td colspan=\"8\">\n\t\t\t\t\t\t\t<table class=\"table violation\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t  <th scope=\"col\" >Violation No </th>\n\t\t\t\t\t\t\t\t\t\t  <th scope=\"col\" >Fine Violation No </th>\n\t\t\t\t\t\t\t\t\t\t  <th scope=\"col\" >Desc Violation No</th>\n\t\t\t\t\t\t\t\t\t\t  <th scope=\"col\" >Stop Privledges</th>\n\t\t\t\t\t\t\t\t\t\t  <th scope=\"col\" ></th>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n\t\t\t\t\t\t\t\t\t\t  <tr *ngIf=\"!group.get('isEditable').value\">\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"text-center label-index\">{{j + 1}}.</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{violation?.get('fineViolationNo').value}}\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{violation?.get('descViolationNo').value}}\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{violation?.get('stopprivledges').value}}\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t  </tr>\n\t\t\t\t\t\t\t\t\t\t  </ng-container>\n\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t\t</table>\n                    </td>\n                    \n                    \n                    <td>\n                            <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n                            \n                      \n                    </td>\n                  </tr>\n                </ng-container>\n              </tbody>\n            \n        </table>\n        <div class=\"action-container\">\n                <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n              </div>\n        </form>\n\n        <!-- <div class=\"output\">\n                <p>Form Data:  {{userTable.value | json}}</p>\n                  <p>Is Valid: {{userTable.valid}}</p>\n              </div> -->\n    </div>\n\n</div>\n\n\t\t\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"NWtotalItems\"  \n\t\t\t\t[ItemStartIndex]=\"NWItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"NWItemEndIndex\"\n\t\t\t\t[itemLimit] = \"NWitemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t\t\t\t\n\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"workpermit-setup-wrapper\">\n\t\n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n                    Create Violation Category &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"typeCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details-category\">\n    \n                <form #createCategoryTypeForm = \"ngForm\" name=\"createCategoryTypeForm\" (ngSubmit)=\"submitCreateCategoryTypeForm(createCategoryTypeForm)\"  novalidate>\n                <div class=\"row p-category\">\n                    <div class=\"\n                    col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Category</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryname\" [(ngModel)]=\"category.categoryname\" value=\"{{category.categoryname}}\" required>\n                        </div>\n                    </div>\n    \n                    <div class=\"col-sm-6\">\n                            <div class=\"input-box\">\n                                <label>Description</label>\n                                <textarea class=\"form-control\" placeholder=\"Enter\" name=\"Description\" [(ngModel)]=\"category.Description\" value=\"{{category.Description}}\" required></textarea>\n                            </div>\n                        </div>\n    \n                    <div class=\"col-sm-2\">\n                    <div class=\"input-box p-25\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"createCategoryTypeForm.invalid\">Submit</button>\n                    </div>\n                    </div>\n                </div>\n                </form>\n    \n                <table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                          <th scope=\"col\" (click)=\"sortUnitData('lookupValueId')\">Category ID<span [ngClass]=\"getFieldOrderBy('lookupValueId')\"></span></th>\n                          <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th>\n                          <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                          <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let violationcategory of allViolationCategory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: wpData ; let i = index\">\n                          <td class=\"name\">{{violationcategory.lookupValueId}}</td>\n                          <td class=\"grey\">{{violationcategory.lookupValueName}}</td>\n                          <td class=\"grey\">{{violationcategory.description}}</td>\n                          <td class=\"grey\">\n                            <a class=\"\" (click)=\"editViolationCategory(violationcategory)\"><i-feather class=\"icon edit\" name=\"edit\" ></i-feather></a>&nbsp;\n                            <a class=\"\" (click)=\"deleteViolationCategory(violationcategory.lookupValueId)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>\n                          </td>\n                        </tr>\n                    </tbody>\n                </table>\n                \n                <app-pagination \n                    [totalItems]=\"totalItems\"  \n                    [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex] = \"ItemEndIndex\"\n                    [itemLimit] = \"itemLimit\"\n                    (outputParams) = \"getIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#natureCollapseOne\" aria-expanded=\"true\" aria-controls=\"naturecollapseOne\">\n                    Stop Privledge &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"natureCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details-privilege\">\n    \n                <form #createsStopPrivledgeForm = \"ngForm\" name=\"createsStopPrivledgeForm\" (ngSubmit)=\"submitCreatesStopPrivledgeForm(createsStopPrivledgeForm)\"  novalidate>\n                <div class=\"row p-category\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Violation Name*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"ViolationName\" [(ngModel)]=\"privledge.ViolationName\" valu=\"{{privledge.ViolationName}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-3\">\n                        <div class=\"input-box\">\n                            <label>Stopwhat Description</label>\n                            <textarea class=\"form-control\" placeholder=\"Enter\" name=\"ViolationDescription\" [(ngModel)]=\"privledge.ViolationDescription\" value=\"{{privledge.ViolationDescription}}\" required></textarea>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-3\">\n                        <div class=\"input-box\">\n                            <label>Period of Stop Privledges</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"PeriodOfPrivledges\" [(ngModel)]=\"privledge.PeriodOfPrivledges\" value=\"{{privledge.PeriodOfPrivledges}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\">\n                    <div class=\"input-box p-25\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"createsStopPrivledgeForm.invalid\">Submit</button>\n                    </div>\n                    </div>\n                </div>\n                </form>\n    \n                <table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                          <th scope=\"col\" >StopPrivledgeID<span ></span></th>\n                          <th scope=\"col\" >Violation Name <span ></span></th>\n                          <th scope=\"col\" >Stopwhat Description <span></span></th>\n                          <th scope=\"col\" >Period of Stop Privledge <span></span></th>\n                          <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let privledge of allViolationPrivilege | orderBy : PunitFieldType: PunitOrder | slice:NWItemStartIndex:PItemEndIndex | simpleSearch: nwData ; let i = index\">\n                          <td class=\"name\">{{privledge.id}}</td>\n                          <td class=\"grey\">{{privledge.name}}</td>\n                          <td class=\"grey\">{{privledge.description}}</td>\n                          <td class=\"grey\">{{privledge.stopPriveldgeDays}}</td>\n                          <td class=\"grey\">\n                            <a class=\"\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"editViolationPrivilege(privledge)\"></i-feather></a>&nbsp;\n                            <a class=\"\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>\n                          </td>\n                        </tr>\n                    </tbody>\n                </table>\n                \n                <app-pagination \n                    [totalItems]=\"PtotalItems\"  \n                    [ItemStartIndex]=\"PItemStartIndex\"\n                    [ItemEndIndex] = \"PItemEndIndex\"\n                    [itemLimit] = \"NWitemLimit\"\n                    (outputParams) = \"getPIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#violationCollapseOne\" aria-expanded=\"true\" aria-controls=\"naturecollapseOne\">\n                    Create Violation Rule &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"violationCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details\" id=\"details\">\n    \n            \n                <app-loader *ngIf=\"!isViolationDataLoaded\"></app-loader>\n    \n    <div class=\"card table-card mb-30\" *ngIf=\"isViolationDataLoaded\">\n    \n    \n        <div class=\"card-body p-0\">\n                <form [formGroup]=\"userTable\">\n        <table class=\"table rule\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                      <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Category<span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                      <th scope=\"col\" (click)=\"sortUnitData('phone')\">Rule No<span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                      <th scope=\"col\" colspan=\"15\"></th>\n    \n                      <th scope=\"col\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                      <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                        <td>\n                        <mat-form-field>\n                            <mat-select formControlName=\"category\">\n                            <mat-option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</mat-option>\n                            </mat-select>\n                        </mat-form-field>\n                        \n                        \n                        </td>\n                        <td>\n                          <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"ruleno\">\n                            \n                          </mat-form-field>\n                        </td>\n                        <td colspan=\"15\">\n                            <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                <thead>\n                                    <tr>\n                                      <th scope=\"col\" >Violation No </th>\n                                      <th scope=\"col\" >Penalty Amount </th>\n                                      <th scope=\"col\" class=\"desc\" >Violation Description</th>\n                                      <th scope=\"col\" >Stop privilege</th>\n                                      <th scope=\"col\" ></th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <ng-container formArrayName=\"violationTable\" *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                      <tr  [formGroupName]=\"j\">\n                                            <td>\n                                                <label class=\"text-center label-index\">{{j + 1}}.</label>\n                                            </td>\n                                        <td>\n                                        <mat-form-field>\n                                            <input matInput type=\"text\" formControlName=\"fineViolationNo\">\n                                        </mat-form-field>\n                                        </td>\n                                        <td>\n                                          <mat-form-field class=\"desc-content\">\n                                                <input matInput type=\"text\" formControlName=\"descViolationNo\">\n                                            \n                                          </mat-form-field>\n                                        </td>\n                                        <td>\n                                          <mat-form-field>\n                                                \n                                                <mat-select formControlName=\"stopprivledges\">\n                                                    <mat-option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.stopPriveldgeDays\">{{ item.stopPriveldgeDays }}</mat-option>\n                                                    </mat-select>\n                                          </mat-form-field>\n                                        </td>\n                                        <td>\n                                            <div class=\"action-icon\">\n                                                <mat-icon class=\"delete\" (click)=\"clearviolationRow(i, j)\">close</mat-icon>\n                                                <mat-icon class=\"delete\" (click)=\"deleteviolationRow(i, j)\">delete_forever</mat-icon>\n                                            </div>\n                                        </td>\n                                      </tr>\n                                      </ng-container>\n                                </tbody>\n                                <tfoot>\n                                        \n                                                <button mat-raised-button type=\"submit\" (click)=\"addRowViolation(i)\">Add row</button>\n                                                \n                                             \n                                </tfoot>\n                                </table>\n                        </td>\n                        \n                        \n                        <td>\n                          <mat-icon class=\"delete\" (click)=\"deleteRow(i)\">delete_forever</mat-icon>\n                          <mat-icon class=\"done\" (click)=\"doneRow(group, i)\">done</mat-icon>\n                          \n                        </td>\n                      </tr>\n                      <tr *ngIf=\"!group.get('isEditable').value\" >\n                        <td>\n                          {{group.get('category').value}}\n                        </td>\n                        <td>\n                          {{group.get('ruleno').value}}\n                        </td>\n                        <td colspan=\"8\">\n                                <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n                                              <th scope=\"col\" >Violation No </th>\n                                              <th scope=\"col\" >Fine Violation No </th>\n                                              <th scope=\"col\" >Desc Violation No</th>\n                                              <th scope=\"col\" >Stop Privledges</th>\n                                              <th scope=\"col\" ></th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                              <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n                                                        <label class=\"text-center label-index\">{{j + 1}}.</label>\n                                                    \n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('fineViolationNo').value}}\n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('descViolationNo').value}}\n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('stopprivledges').value}}\n                                                    </td>\n                                                    <td>\n    \n                                                    </td>\n                                              </tr>\n                                              </ng-container>\n                                        </tbody>\n                                        </table>\n                        </td>\n                        \n                        \n                        <td>\n                                <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n                                \n                          \n                        </td>\n                      </tr>\n                    </ng-container>\n                  </tbody>\n                \n            </table>\n            <div class=\"action-container\">\n                    <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                    <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n                  </div>\n            </form>\n    \n            <!-- <div class=\"output\">\n                    <p>Form Data:  {{userTable.value | json}}</p>\n                      <p>Is Valid: {{userTable.valid}}</p>\n                  </div> -->\n        </div>\n    \n    </div>\n    \n            \n                \n                <app-pagination \n                    [totalItems]=\"NWtotalItems\"  \n                    [ItemStartIndex]=\"NWItemStartIndex\"\n                    [ItemEndIndex] = \"NWItemEndIndex\"\n                    [itemLimit] = \"NWitemLimit\"\n                    (outputParams) = \"getIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n    </div>\n    \n";
     /***/
   },
 
@@ -429,11 +429,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getViolationRule(violationCateogoryId) {
           var _this5 = this;
 
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+          var _apartment_Id = parseInt(this.cookieService.get('apartmentId'));
+
+          var params1 = {
+            apartmentId: _apartment_Id,
             ViolationCategoryId: violationCateogoryId
           };
-          this.violationService.getViolationRule(params).subscribe(function (rule) {
+          this.violationService.getViolationRule(params1).subscribe(function (rule) {
             _this5.ruleListData = rule;
           }, function (error) {
             _this5.isError = true;
@@ -595,15 +597,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/Facility */
-    "./src/app/api/controllers/Facility.ts");
+    var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/WorkPermit */
+    "./src/app/api/controllers/WorkPermit.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/WorkPermit */
-    "./src/app/api/controllers/WorkPermit.ts");
+    var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Facility */
+    "./src/app/api/controllers/Facility.ts");
     /* harmony import */
 
 
@@ -696,11 +698,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
         }]
       }, {
-        type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"]
+        type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }, {
-        type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"]
+        type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"]
       }];
     };
 
@@ -713,7 +715,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./searc-workpermits.component.scss */
       "./src/app/ams/violation/components/add-violation/searc-workpermits/searc-workpermits.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"]])], SearcWorkpermitsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"]])], SearcWorkpermitsComponent);
     /***/
   },
 
@@ -859,7 +861,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSelect",
         value: function onSelect(facility) {
-          console.log(facility);
+          // console.log(facility);
           this.outputEvent.emit(facility);
           this.dialogRef.close();
         }
@@ -1727,10 +1729,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getViolationPrivilege() {
           var _this20 = this;
 
-          var params = {
+          var privilegeparams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.violationService.getViolationPrivilege(params).subscribe(function (res) {
+          this.violationService.getViolationPrivilege(privilegeparams).subscribe(function (res) {
             _this20.allViolationPrivilege = res;
             _this20.isDataLoaded = true;
             _this20.PtotalItems = _this20.allViolationPrivilege.length;
@@ -1833,27 +1835,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/api/controllers/Violation */
-    "./src/app/api/controllers/Violation.ts");
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/Alert */
-    "./src/app/api/controllers/Alert.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    var src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Alert */
+    "./src/app/api/controllers/Alert.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Violation */
+    "./src/app/api/controllers/Violation.ts");
     /* harmony import */
 
 
@@ -1925,11 +1927,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var _apartment_Id = parseInt(this.cookieService.get('apartmentId'));
 
-          var params = {
+          var params1 = {
             apartmentId: _apartment_Id,
             ViolationCategoryId: violationCateogoryId
           };
-          this.violationService.getViolationRule(params).subscribe(function (rule) {
+          this.violationService.getViolationRule(params1).subscribe(function (rule) {
             _this21.ruleListData = rule;
           }, function (error) {
             _this21.isError = true;
@@ -2018,15 +2020,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     EditViolationComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_2__["ViolationService"]
+        type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"]
       }, {
         type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]
       }, {
-        type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"]
+        type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"]
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialogRef"]
       }, {
@@ -2047,7 +2049,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./edit-violation.component.scss */
       "./src/app/ams/violation/components/view-violation/edit-violation/edit-violation.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(6, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_2__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialogRef"], Object])], EditViolationComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(6, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialogRef"], Object])], EditViolationComponent);
     /***/
   },
 
@@ -2105,39 +2107,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material/dialog */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-    /* harmony import */
-
-
-    var _edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./edit-violation/edit-violation.component */
-    "./src/app/ams/violation/components/view-violation/edit-violation/edit-violation.component.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/Alert */
-    "./src/app/api/controllers/Alert.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! src/app/api/controllers/Apartment */
     "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var _edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./edit-violation/edit-violation.component */
+    "./src/app/ams/violation/components/view-violation/edit-violation/edit-violation.component.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Alert */
+    "./src/app/api/controllers/Alert.ts");
 
     var ViewViolationComponent =
     /*#__PURE__*/
@@ -2169,25 +2171,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             categoryname: '',
             Description: ''
           };
-          var blockParams = {
+          var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             _this25.blockListData = res;
 
             _this25.getAllBlockData();
           });
-          var params = {
+          var Lookupparams = {
             LookupTypeId: 78,
             active: 1
           };
-          this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
+          this.lookupService.getLookupValueByLookupTypeIdStatus(Lookupparams).subscribe(function (res) {
             _this25.allViolationCategory = res;
           });
-          var activeParams = {
+          var statusparams = {
             active: 1
           };
-          this.alertService.getAllViolationsByStatus(activeParams).subscribe(function (res) {
+          this.alertService.getAllViolationsByStatus(statusparams).subscribe(function (res) {
             var list = res;
             list.forEach(function (element, index) {
               // console.log(element);
@@ -2287,7 +2289,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditOpen",
         value: function onEditOpen(violationid) {
-          var dialogRef = this.dialog.open(_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_3__["EditViolationComponent"], {
+          var dialogRef = this.dialog.open(_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_6__["EditViolationComponent"], {
             // width: '900px',
             data: {
               type: 'edit violation',
@@ -2305,15 +2307,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     ViewViolationComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
-        type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"]
+        type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_7__["AlertService"]
       }, {
-        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]
       }];
     };
 
@@ -2325,7 +2327,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./view-violation.component.scss */
       "./src/app/ams/violation/components/view-violation/view-violation.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])], ViewViolationComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_7__["AlertService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])], ViewViolationComponent);
     /***/
   },
 
@@ -2389,33 +2391,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/Violation */
-    "./src/app/api/controllers/Violation.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Violation */
+    "./src/app/api/controllers/Violation.ts");
 
     var ViolationSetupComponent =
     /*#__PURE__*/
@@ -2532,27 +2534,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this27 = this;
 
           var lookupparams = {
-            lookupValueId: this.category.categoryId === 0 ? 0 : this.category.categoryId,
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            lookupTypeId: 78,
-            lookupValueName: this.category.categoryname,
-            description: this.category.Description,
-            isActive: true,
-            insertedBy: parseInt(this.cookieService.get('userId')),
-            insertedOn: new Date().toISOString(),
-            updatedBy: parseInt(this.cookieService.get('userId')),
-            updatedOn: new Date().toISOString(),
-            notes: 'string',
-            isCommon: true,
-            module: 'string',
-            subModule: 'string'
+            lookupvalue: {
+              lookupValueId: this.category.categoryId === 0 ? 0 : this.category.categoryId,
+              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              lookupTypeId: 78,
+              lookupValueName: this.category.categoryname,
+              description: this.category.Description,
+              isActive: true,
+              insertedBy: parseInt(this.cookieService.get('userId')),
+              insertedOn: new Date().toISOString(),
+              updatedBy: parseInt(this.cookieService.get('userId')),
+              updatedOn: new Date().toISOString(),
+              notes: '',
+              isCommon: true,
+              module: '',
+              subModule: ''
+            }
           };
 
           if (this.category.categoryId === 0) {
-            var params = {
-              lookupvalue: lookupparams
-            };
-            this.lookupService.addLookupValue(params).subscribe(function (res) {
+            this.lookupService.addLookupValue(lookupparams).subscribe(function (res) {
               if (res) {
                 _this27.sharedService.setAlertMessage(res.message);
 
@@ -2566,10 +2567,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               } else {}
             });
           } else {
-            var _params = {
-              lookupvalue: lookupparams
-            };
-            this.lookupService.updateLookupValue(_params).subscribe(function (res) {
+            this.lookupService.updateLookupValue(lookupparams).subscribe(function (res) {
               if (res) {
                 _this27.sharedService.setAlertMessage(res.message);
 
@@ -2873,8 +2871,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function initiateForm() {
           return this.fb.group({
             ruleId: ['0'],
-            category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-            ruleno: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+            category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            ruleno: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
             violationTable: this.fb.array([]),
             isEditable: [true]
           });
@@ -2883,9 +2881,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "initiateViolationForm",
         value: function initiateViolationForm() {
           return this.fb.group({
-            fineViolationNo: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-            descViolationNo: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
-            stopprivledges: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]]
+            fineViolationNo: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            descViolationNo: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+            stopprivledges: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
           });
         } //  //Get Work Type
         //  getDirectoryType(){
@@ -2924,10 +2922,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               formcontrol.push(_this32.fb.group({
                 directoryRecordId: [element.directoryRecordId],
-                serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-                email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
-                contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-                phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(10)]],
+                serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+                contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].maxLength(10)]],
                 isEditable: [false]
               }));
             });
@@ -2972,8 +2970,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   formcontrol.push(_this33.fb.group({
                     ruleId: [element.id],
-                    category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-                    ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+                    category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                    ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
                     violationTable: _this33.fb.array([]),
                     isEditable: [false]
                   }));
@@ -2998,9 +2996,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     var _descViolation = element['descViolationNo' + _index];
                     var _violationPrivilege = element['violationPrivilegeId' + _index];
                     violation.push(_this33.fb.group({
-                      fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-                      descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
-                      stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]]
+                      fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                      descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+                      stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
                     }));
                     console.log(violation);
                   });
@@ -3119,15 +3117,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }, {
-        type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_3__["ViolationService"]
+        type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_7__["ViolationService"]
       }, {
-        type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]
       }];
     };
 
@@ -3139,7 +3137,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./violation-setup.component.scss */
       "./src/app/ams/violation/components/violation-setup/violation-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_3__["ViolationService"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]])], ViolationSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_7__["ViolationService"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])], ViolationSetupComponent);
     /***/
   },
 
@@ -3371,33 +3369,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../shared/shared.module */
-    "./src/app/shared/shared.module.ts");
+    var _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./components/view-violation/view-violation.component */
+    "./src/app/ams/violation/components/view-violation/view-violation.component.ts");
     /* harmony import */
 
 
-    var _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _components_view_violation_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./components/view-violation/edit-violation/edit-violation.component */
+    "./src/app/ams/violation/components/view-violation/edit-violation/edit-violation.component.ts");
+    /* harmony import */
+
+
+    var _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./components/stop-privilege/stop-privilege.component */
+    "./src/app/ams/violation/components/stop-privilege/stop-privilege.component.ts");
+    /* harmony import */
+
+
+    var _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./components/add-violation/add-violation.component */
     "./src/app/ams/violation/components/add-violation/add-violation.component.ts");
     /* harmony import */
 
 
-    var _components_add_violation_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ./components/add-violation/search-facility/search-facility.component */
-    "./src/app/ams/violation/components/add-violation/search-facility/search-facility.component.ts");
-    /* harmony import */
-
-
-    var _components_add_violation_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _components_add_violation_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./components/add-violation/searc-workpermits/searc-workpermits.component */
     "./src/app/ams/violation/components/add-violation/searc-workpermits/searc-workpermits.component.ts");
-    /* harmony import */
-
-
-    var _components_add_violation_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! ./components/add-violation/search-parkingslots/search-parkingslots.component */
-    "./src/app/ams/violation/components/add-violation/search-parkingslots/search-parkingslots.component.ts");
     /* harmony import */
 
 
@@ -3407,29 +3405,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-    /*! ./components/view-violation/view-violation.component */
-    "./src/app/ams/violation/components/view-violation/view-violation.component.ts");
+    var _components_add_violation_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! ./components/add-violation/search-facility/search-facility.component */
+    "./src/app/ams/violation/components/add-violation/search-facility/search-facility.component.ts");
     /* harmony import */
 
 
-    var _components_view_violation_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
-    /*! ./components/view-violation/edit-violation/edit-violation.component */
-    "./src/app/ams/violation/components/view-violation/edit-violation/edit-violation.component.ts");
+    var _components_add_violation_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! ./components/add-violation/search-parkingslots/search-parkingslots.component */
+    "./src/app/ams/violation/components/add-violation/search-parkingslots/search-parkingslots.component.ts");
     /* harmony import */
 
 
-    var _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
-    /*! ./components/stop-privilege/stop-privilege.component */
-    "./src/app/ams/violation/components/stop-privilege/stop-privilege.component.ts");
+    var _shared_shared_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! ../../shared/shared.module */
+    "./src/app/shared/shared.module.ts");
 
     var ViolationModule = function ViolationModule() {
       _classCallCheck(this, ViolationModule);
     };
 
     ViolationModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_violation_component__WEBPACK_IMPORTED_MODULE_4__["ViolationComponent"], _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_5__["ViolationSetupComponent"], _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_7__["AddViolationComponent"], _components_add_violation_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_8__["SearchFacilityComponent"], _components_add_violation_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_9__["SearcWorkpermitsComponent"], _components_add_violation_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_10__["SearchParkingslotsComponent"], _components_add_violation_search_blockunit_search_blockunit_component__WEBPACK_IMPORTED_MODULE_11__["SearchBlockunitComponent"], _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_12__["ViewViolationComponent"], _components_view_violation_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_13__["EditViolationComponent"], _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_14__["StopPrivilegeComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _violation_routing_module__WEBPACK_IMPORTED_MODULE_3__["ViolationRoutingModule"]]
+      declarations: [_violation_component__WEBPACK_IMPORTED_MODULE_4__["ViolationComponent"], _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_5__["ViolationSetupComponent"], _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_6__["ViewViolationComponent"], _components_view_violation_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_7__["EditViolationComponent"], _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_8__["StopPrivilegeComponent"], _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_9__["AddViolationComponent"], _components_add_violation_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_10__["SearcWorkpermitsComponent"], _components_add_violation_search_blockunit_search_blockunit_component__WEBPACK_IMPORTED_MODULE_11__["SearchBlockunitComponent"], _components_add_violation_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_12__["SearchFacilityComponent"], _components_add_violation_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_13__["SearchParkingslotsComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_14__["SharedModule"], _violation_routing_module__WEBPACK_IMPORTED_MODULE_3__["ViolationRoutingModule"]]
     })], ViolationModule);
     /***/
   }

@@ -3789,6 +3789,8 @@ let LoginComponent = class LoginComponent {
         }, error => {
             this.isSubmitted = true;
         });
+        // this.cookieService.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1OTAwNzMzMTksImV4cCI6MTU5MDY3ODExOSwiaWF0IjoxNTkwMDczMzE5fQ.5_d0JmecsPwAfHvxPLo5EW6yPrWgL1ru5ODdgqjdROw');
+        // this.cookieService.set('userId', '1');
     }
     ngOnInit() {
         this.sharedService.clearCookies();
