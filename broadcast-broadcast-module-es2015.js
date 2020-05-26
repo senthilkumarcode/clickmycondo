@@ -303,7 +303,10 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
         });
     }
     getAllGroupCategory() {
-        this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe((res) => {
             this.broadCastGroupCategory = res;
         });
     }
@@ -340,7 +343,6 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
         }
     }
     getAllBroadcastMessage() {
-        let apartmentId = parseInt(this.cookieService.get('apartmentId'));
         var users$ = this.userService.getAllUsers();
         var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])((users) => {
             this.allUser = users;
@@ -495,10 +497,10 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             "selectedItems": []
         };
         this.filterOptions = {
-            "roleids": null,
+            "roleids": "",
             "ApartmentId": 0,
-            "blockids": null,
-            "searchText": ""
+            "blockids": "",
+            "keyword": ""
         };
         this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"]();
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
@@ -575,7 +577,6 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
         this.filterOptions.roleids = roleIds;
         let blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
         this.filterOptions.blockids = blockIds;
-        this.filterOptions.searchText = null;
         this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
             res.forEach(element => {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
@@ -603,7 +604,10 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     getAllApartmentBlockList() {
-        this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe((res) => {
             this.apartmentBlock.dropdownList = res;
         });
     }
@@ -745,12 +749,18 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
     }
     //Get Category Type
     getAllGroupCategory() {
-        this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe((res) => {
             this.broadCastGroupCategory.dropdownList = res;
         });
     }
     getInterestGroupUsers() {
-        this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe((res) => {
             this.interestGroupUsers = res;
             // this.isDataLoaded = true;
             // this.totalItems = this.interestGroupUsers.length;
@@ -1068,10 +1078,10 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         };
         this.isDataLoaded = false;
         this.filterOptions = {
-            "roleids": null,
+            "roleids": "",
             "ApartmentId": 0,
-            "blockids": null,
-            "searchText": ""
+            "blockids": "",
+            "keyword": ""
         };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
@@ -1128,7 +1138,10 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
     }
     getAllGoupUsers() {
         this.isDataLoaded = false;
-        this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe((res) => {
             this.interestGroupUsers = res;
             this.interestGroupUsers.forEach(element => {
                 let currentUser = this.getUser(element.userId, element.roleId, element.apartmentBlockId, element.unitId);
@@ -1166,7 +1179,6 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
     getUsers() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.filterOptions.ApartmentId = this.apartmentID;
-            this.filterOptions.searchText = null;
             var data = yield this.userService.getUsersByKeyword(this.filterOptions)
                 .toPromise();
             this.allUsers = data;
@@ -1179,7 +1191,10 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         });
     }
     getAllApartmentBlockList() {
-        this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe((res) => {
             this.apartmentBlockList = res;
         });
     }
@@ -1187,11 +1202,19 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         let groupCategory = this.broadCastGroupCategory.dropdownList.filter(function (obj) {
             return obj.broadCastGroupCategoryId == groupCategoryid;
         });
-        return groupCategory[0].groupName;
+        if (groupCategory != undefined) {
+            return groupCategory[0].groupName;
+        }
+        else {
+            return "";
+        }
     }
     //Get Category Type
     getAllGroupCategory() {
-        this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe((res) => {
             this.broadCastGroupCategory.dropdownList = res;
         });
     }
@@ -1333,10 +1356,10 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         this.isFlashNotice = false;
         this.editorPlacehorder = "";
         this.filterOptions = {
-            "roleids": null,
+            "roleids": "",
             "ApartmentId": 0,
-            "blockids": null,
-            "searchText": ""
+            "blockids": "",
+            "keyword": ""
         };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
@@ -1430,7 +1453,6 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
     }
     getAllInterestGroupUser() {
         this.filterOptions.ApartmentId = this.apartmentID;
-        this.filterOptions.searchText = null;
         this.userService.getUsersByKeyword(this.filterOptions).subscribe((res) => {
             res.forEach(element => {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
@@ -1439,7 +1461,10 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         }, error => console.log(error));
     }
     getAllUsers() {
-        this.userService.getUsersByApartmentId(this.apartmentID)
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.userService.getUsersByApartmentId(queryParamBase)
             .subscribe((res) => {
             res.forEach(element => {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
@@ -1485,7 +1510,10 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         }
     }
     getAllApartmentBlockList() {
-        this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe((res) => {
             this.apartmentBlock.dropdownList = res;
             var broadCastModeArr = [{ "name": "General SMS", "value": 40 },
                 { "name": "Whatsapp", "value": 41 },
@@ -1495,8 +1523,10 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
     }
     //Get All Broadcast Category
     getAllCategory() {
-        let apartmentID = parseInt(this.cookieService.get('apartmentId'));
-        this.broadcastService.getBroadCastMessageCategories(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe((res) => {
             this.allcategory = res;
             this.broadCastCategory.dropdownList = res;
         });
@@ -1543,12 +1573,18 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
         });
     }
     getAllGroupCategory() {
-        this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe((res) => {
             this.broadCastGroupCategory.dropdownList = res;
         });
     }
     getInterestGroupUsers() {
-        this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe((res) => {
+        let queryParamBase = {
+            apartmentId: this.apartmentID
+        };
+        this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe((res) => {
             this.interestGroupUsers = res;
         });
     }
@@ -1743,7 +1779,7 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
                     'isActive': true,
                     'roleTypeId': this.roleTypeArr.selectedItems[0].value
                 };
-                let data = { "message": "0" };
+                let data = { "message": "1" };
                 let params2 = {
                     "broadCastFilters_model": params
                 };

@@ -317,6 +317,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isEdit = false;
         this.isError = false;
         this.alertMessage = "";
+        this.params = {
+          apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
       }
 
       _createClass(AddInsuranceComponent, [{
@@ -541,6 +544,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isEdit = false;
         this.isError = false;
         this.alertMessage = "";
+        this.params = {
+          apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
       }
 
       _createClass(ElectricityReadingComponent, [{
@@ -839,6 +845,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.cookieService = cookieService;
         this.isUtilityCategoryLoaded = false;
         this.selected_utility_type = false;
+        this.params = {
+          apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
@@ -1009,6 +1018,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isUnitVacant = false;
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
+        this.params = {
+          apartmentBlockId: parseInt(this.tower.apartmentBlockId)
+        };
       }
 
       _createClass(TowerReadingInfoComponent, [{
@@ -1291,8 +1303,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this9 = this;
 
-          this.waterReading = {};
-          var apartment_id = parseInt(this.cookieService.get('apartmentId'));
+          this.waterReading = {}; //let apartment_id = parseInt(this.cookieService.get('apartmentId'));
 
           if (this.unit.water_charge == undefined) {
             this.unit.water_charge = {};
@@ -1451,6 +1462,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.onCancel = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isDataLoaded = false;
         this.isSetPeriod = true;
+        this.params = {
+          apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
       }
 
       _createClass(WaterReadingComponent, [{
@@ -1637,6 +1651,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.itemLimit = 10;
         this.selectedInput = "";
         this.columnField = {};
+        this.params = {
+          apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
       }
 
       _createClass(UtilityHistoryComponent, [{
@@ -2081,6 +2098,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.UtilityCategoryUpdateId = 0;
         this.alertMessage = "";
         this.isError = false;
+        this.params = {
+          apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 

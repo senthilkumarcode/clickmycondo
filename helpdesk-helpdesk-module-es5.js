@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"helpdesk-setup-wrapper\">\n\n\t<h5 class=\"mb-3\">Add Ticket Category</h5>\n\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t<!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isStaffLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isStaffLoaded\">\n\n\t\t\t\t<form #addStaffForm = \"ngForm\" name=\"addStaffForm\" (ngSubmit)=\"submitStaffForm(addStaffForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Ticket Type*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"staffType\" \n\t\t\t\t\t\t\t        id=\"staffType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"staffType\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngIf = \"isError\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Ticket Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\" [(ngModel)]=\"staffCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<ul class=\"list-inline mt-25\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn lime-green mr-2\" [disabled]=\"addStaffForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Private Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\" [(ngModel)]=\"categoryPrivateData\" (ngModelChange)=\"selectColInput('ticketId')\" >\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t<table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Category <span (click)=\"sortUnitData('status')\" [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Supervisor <span (click)=\"sortUnitData('subcategory')\" [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-1 <span (click)=\"sortUnitData('level1')\" [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-2 <span (click)=\"sortUnitData('level2')\" [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L1 Escdays<span (click)=\"sortUnitData('l1day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L2 Escdays<span (click)=\"sortUnitData('l2day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryPrivateListData | simpleSearch: categoryPrivateData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.supervisor_name}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level2}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l1escdays}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l2escdays}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<!-- <a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t  </a> -->\n\t\t\t\t\t\t  <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"openDialog(category);\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=27;showConfirmModal(i);\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\n\t\t</div>\n\n\t</div>\n\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Common Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\" [(ngModel)]=\"categoryCommonData\">\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('status')\">Category <span [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('subcategory')\">Supervisor <span [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('level1')\">Level-1 <span [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('level2')\">Level-2 <span [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('l1day')\">Escalation to L1 day<span [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('l2day')\">Escalation to L2day<span [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryCommonListData | orderBy : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex | simpleSearch: categoryCommonData ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=26;showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\n\t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"helpdesk-setup-wrapper\">\n\n\t<h5 class=\"mb-3\">Add Ticket Category</h5>\n\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t<!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isStaffLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isStaffLoaded\">\n\n\t\t\t\t<form #addStaffForm = \"ngForm\" name=\"addStaffForm\" (ngSubmit)=\"submitStaffForm(addStaffForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Ticket Type*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"staffType\" \n\t\t\t\t\t\t\t        id=\"staffType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"staffType\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngIf = \"isError\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Ticket Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\" [(ngModel)]=\"staffCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<ul class=\"list-inline mt-25\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn lime-green mr-2\" [disabled]=\"addStaffForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Private Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\" \n\t\t\t[(ngModel)]=\"categoryPrivateData\" \n\t\t\t(ngModelChange)=\"onGlSearchFilterPrivate()\">\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"categoryPrivateListData\"\n\t\t\t\t[columns]=\"privateData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#privatedatagrid>\n\t\t\t</jqxGrid> \n  \t\t\t \n\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Category <span (click)=\"sortUnitData('status')\" [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Supervisor <span (click)=\"sortUnitData('subcategory')\" [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-1 <span (click)=\"sortUnitData('level1')\" [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-2 <span (click)=\"sortUnitData('level2')\" [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L1 Escdays<span (click)=\"sortUnitData('l1day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L2 Escdays<span (click)=\"sortUnitData('l2day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryPrivateListData | simpleSearch: categoryPrivateData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.supervisor_name}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level2}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l1escdays}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l2escdays}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t  </a>\n\t\t\t\t\t\t  <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"openDialog(category);\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=27;showConfirmModal(i);\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table> -->\n\n\t\t</div>\n\n\t</div>\n\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Common Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\" \n\t\t\t[(ngModel)]=\"categoryCommonData\"\n\t\t\t(ngModelChange)=\"onGlSearchFilterCommon()\">\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"categoryCommonListData\"\n\t\t\t\t[columns]=\"commonData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#commondatagrid>\n\t\t\t</jqxGrid> \n\t\t<!-- <table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('status')\">Category <span [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('subcategory')\">Supervisor <span [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('level1')\">Level-1 <span [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('level2')\">Level-2 <span [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('l1day')\">Escalation to L1 day<span [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('l2day')\">Escalation to L2day<span [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryCommonListData | orderBy : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex | simpleSearch: categoryCommonData ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td class=\"grey\"></td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=26;showConfirmModal(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table> -->\n\n\t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -481,20 +481,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
     "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
     var HelpdeskSetupComponent =
     /*#__PURE__*/
     function () {
-      function HelpdeskSetupComponent(injector, dialog, userService, lookupService, sharedService, cookieService) {
+      function HelpdeskSetupComponent(injector, dialog, userService, lookupService, sharedService, cookieService, router) {
         _classCallCheck(this, HelpdeskSetupComponent);
 
         this.injector = injector;
@@ -503,6 +515,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
+        this.router = router;
         this.categoryPrivateData = "";
         this.categoryCommonData = "";
         this.isCategoryDataLoaded = false;
@@ -554,8 +567,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.isError = false;
           var message = "Are you sure you want to save this Ticket Category?";
-          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
-          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["ConfirmDialogModel"]("Confirm Action", message);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["CommonConfirmModalComponent"], {
             panelClass: 'material',
             disableClose: true,
             data: dialogData
@@ -567,7 +580,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               //common category
               if (_this3.staffType == "26") {
                 _this3.staffTypeId = 17;
-                var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](_this3.categoryCommonListData, function (item) {
+                var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_9__["some"](_this3.categoryCommonListData, function (item) {
                   return item.lookupValueName === _this3.staffCategory;
                 });
 
@@ -639,7 +652,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 _this3.isStaffLoaded = true;
               } else {
                 _this3.staffTypeId = 17;
-                var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](_this3.categoryPrivateListData, function (item) {
+                var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_9__["some"](_this3.categoryPrivateListData, function (item) {
                   return item.lookupValueName === _this3.staffCategory;
                 });
 
@@ -720,17 +733,207 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.selectedInput = type;
         }
       }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
+        key: "onGlSearchFilterPrivate",
+        value: function onGlSearchFilterPrivate() {
           var _this4 = this;
 
-          var params = {
-            LookupTypeId: 7
-          }; //get all staff type
+          if (this.categoryPrivateData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.categoryPrivateData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.privatedatagrid.showfiltercolumnbackground(false);
+            this.privateData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this4.privatedatagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.privatedatagrid.applyfilters();
+          } else {
+            this.privatedatagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "onGlSearchFilterCommon",
+        value: function onGlSearchFilterCommon() {
+          var _this5 = this;
 
-          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this4.staffTypeData = res;
-            _this4.isStaffLoaded = true;
+          if (this.categoryCommonData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.categoryCommonData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.commondatagrid.showfiltercolumnbackground(false);
+            this.commonData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this5.commondatagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.commondatagrid.applyfilters();
+          } else {
+            this.commondatagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "onPrivateCatEdit",
+        value: function onPrivateCatEdit(detail) {
+          var dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
+          var lookupValueId = dataRecord.lookupValueId;
+          this.router.navigateByUrl('/ams/helpdesk/edit-staff/' + lookupValueId);
+        }
+      }, {
+        key: "onCommonCatEdit",
+        value: function onCommonCatEdit(detail) {
+          var dataRecord = this.commondatagrid.getrowdata(detail.rowId);
+          var lookupValueId = dataRecord.lookupValueId;
+          this.router.navigateByUrl('/ams/helpdesk/edit-staff/' + lookupValueId);
+        }
+      }, {
+        key: "onPrivateCatDelete",
+        value: function onPrivateCatDelete(detail) {
+          var dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
+          var lookupValueId = dataRecord.lookupValueId;
+          this.modalService.showConfirmModal(lookupValueId);
+        }
+      }, {
+        key: "onCommonCatDelete",
+        value: function onCommonCatDelete(detail) {
+          var dataRecord = this.commondatagrid.getrowdata(detail.rowId);
+          var lookupValueId = dataRecord.lookupValueId;
+          this.modalService.showConfirmModal(lookupValueId);
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this6 = this;
+
+          //private
+          var cellsrendererPrivate = function cellsrendererPrivate(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrendererPrivate = function columnrendererPrivate(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          }; //private
+
+
+          this.privateData = [{
+            text: 'Category',
+            datafield: 'description',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrendererPrivate,
+            renderer: columnrendererPrivate
+          }, {
+            text: 'Supervisor',
+            datafield: 'ticketTypeId_Label',
+            cellsrenderer: cellsrendererPrivate,
+            minwidth: 80,
+            renderer: columnrendererPrivate
+          }, {
+            text: 'Level-1',
+            datafield: 'level1',
+            cellsrenderer: cellsrendererPrivate,
+            minwidth: 170,
+            renderer: columnrendererPrivate
+          }, {
+            text: 'Level-2',
+            datafield: 'level12',
+            cellsrenderer: cellsrendererPrivate,
+            minwidth: 170,
+            renderer: columnrendererPrivate
+          }, {
+            text: 'L1 escdays',
+            datafield: 'l1escdays',
+            cellsrenderer: cellsrendererPrivate,
+            minwidth: 80,
+            renderer: columnrendererPrivate
+          }, {
+            text: 'L2 escdays',
+            datafield: 'l2escdays',
+            cellsrenderer: cellsrendererPrivate,
+            minwidth: 170,
+            renderer: columnrendererPrivate
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editPrivateCatEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEventPrivate(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+            },
+            renderer: columnrendererPrivate
+          }]; //common
+
+          var cellsrendererCommon = function cellsrendererCommon(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrendererCommon = function columnrendererCommon(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          }; // common
+
+
+          this.commonData = [{
+            text: 'Category',
+            datafield: 'lookupValueName',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrendererCommon,
+            renderer: columnrendererCommon
+          }, {
+            text: 'Supervisor',
+            datafield: 'ticketTypeId_Label',
+            cellsrenderer: cellsrendererCommon,
+            minwidth: 80,
+            renderer: columnrendererCommon
+          }, {
+            text: 'Level-1',
+            datafield: 'level1',
+            cellsrenderer: cellsrendererCommon,
+            minwidth: 170,
+            renderer: columnrendererCommon
+          }, {
+            text: 'Level-2',
+            datafield: 'level12',
+            cellsrenderer: cellsrendererCommon,
+            minwidth: 170,
+            renderer: columnrendererCommon
+          }, {
+            text: 'Escalation to l1 day',
+            datafield: 'l1escdays',
+            cellsrenderer: cellsrendererCommon,
+            minwidth: 80,
+            renderer: columnrendererCommon
+          }, {
+            text: 'Escalation to l1 day',
+            datafield: 'l2escdays',
+            cellsrenderer: cellsrendererCommon,
+            minwidth: 170,
+            renderer: columnrendererCommon
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editCommonCatEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEventCommon(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+            },
+            renderer: columnrendererCommon
+          }]; //get all staff type
+
+          var staffParams = {
+            LookupTypeId: 16
+          };
+          this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
+            _this6.staffTypeData = res;
+            _this6.isStaffLoaded = true;
           }, function (error) {});
           var categoryParams = {
             LookupTypeId: 16
@@ -744,47 +947,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               element.lookupValueName === "Electrical" ? (element.supervisor_name = "David", element.level1 = "john", element.level2 = "daniel", element.l1escdays = 8, element.l2escdays = 5) : element.lookupValueName === "Painting" ? element.supervisor_name = "John" : element.lookupValueName === "Refrigerator" ? element.supervisor_name = "Sam" : '';
             });
             console.log(categoryPrivateListData);
-            _this4.categoryPrivateListData = categoryPrivateListData; //get all common category
+            _this6.categoryPrivateListData = categoryPrivateListData;
+            _this6.gridSourceDataPrivate = {
+              localdata: _this6.categoryPrivateListData,
+              datatype: "array"
+            };
+            _this6.categoryPrivateListData = new jqx.dataAdapter(_this6.gridSourceDataPrivate); //get all common category
 
             var commonListParams = {
               LookupTypeId: 17
             };
 
-            _this4.lookupService.getLookupValueByLookupTypeId(commonListParams).subscribe(function (res) {
+            _this6.lookupService.getLookupValueByLookupTypeId(commonListParams).subscribe(function (res) {
               var categoryCommonListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this4.categoryCommonListData = categoryCommonListData;
-              _this4.isCategoryDataLoaded = true;
+              _this6.categoryCommonListData = categoryCommonListData;
+              _this6.gridSourceDataCommon = {
+                localdata: _this6.categoryCommonListData,
+                datatype: "array"
+              };
+              _this6.categoryCommonListData = new jqx.dataAdapter(_this6.gridSourceDataCommon);
+              _this6.isCategoryDataLoaded = true;
             }, function (error) {});
           }, function (error) {}); // delete lookupvalue
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (index) {
             if (index != null) {
-              if (_this4.staffDeleteTypeId == "27") {
+              if (_this6.staffDeleteTypeId == "27") {
                 var params = {
-                  lookupValueId: _this4.categoryPrivateListData[index].id,
-                  updateUserId: parseInt(_this4.cookieService.get('userId'))
+                  lookupValueId: _this6.categoryPrivateListData[index].id,
+                  updateUserId: parseInt(_this6.cookieService.get('userId'))
                 };
               } else {
                 var params = {
-                  lookupValueId: _this4.categoryCommonListData[index].id,
-                  updateUserId: parseInt(_this4.cookieService.get('userId'))
+                  lookupValueId: _this6.categoryCommonListData[index].id,
+                  updateUserId: parseInt(_this6.cookieService.get('userId'))
                 };
               }
 
-              _this4.isCategoryDataLoaded = false;
+              _this6.isCategoryDataLoaded = false;
 
-              _this4.userService.deleteUserById(params).subscribe(function (res) {
-                if (_this4.staffDeleteTypeId == "26") {
-                  _this4.categoryPrivateListData.splice(index, 1);
+              _this6.userService.deleteUserById(params).subscribe(function (res) {
+                if (_this6.staffDeleteTypeId == "26") {
+                  _this6.categoryPrivateListData.splice(index, 1);
                 } else {
-                  _this4.categoryCommonListData.splice(index, 1);
+                  _this6.categoryCommonListData.splice(index, 1);
                 }
 
-                _this4.isCategoryDataLoaded = true;
+                _this6.isCategoryDataLoaded = true;
 
-                _this4.sharedService.setUnitListDeleteIndex(null);
+                _this6.sharedService.setUnitListDeleteIndex(null);
               }, function (error) {
                 console.log(error);
               });
@@ -809,9 +1022,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('privatedatagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])], HelpdeskSetupComponent.prototype, "privatedatagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('commondatagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])], HelpdeskSetupComponent.prototype, "commondatagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onPrivateCatEdit', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], HelpdeskSetupComponent.prototype, "onPrivateCatEdit", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCommonCatEdit', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], HelpdeskSetupComponent.prototype, "onCommonCatEdit", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onPrivateCatDelete', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], HelpdeskSetupComponent.prototype, "onPrivateCatDelete", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCommonCatDelete', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], HelpdeskSetupComponent.prototype, "onCommonCatDelete", null);
     HelpdeskSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-helpdesk-setup',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -820,7 +1045,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./helpdesk-setup.component.scss */
       "./src/app/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], HelpdeskSetupComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]])], HelpdeskSetupComponent);
+
+    function showConfirmDeleteEventPrivate(row) {
+      var event = new CustomEvent('onPrivateCatDelete', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.showConfirmDeleteEventPrivate = showConfirmDeleteEventPrivate;
+
+    function showConfirmDeleteEventCommon(row) {
+      var event = new CustomEvent('onCommonCatDelete', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.showConfirmDeleteEventCommon = showConfirmDeleteEventCommon;
+
+    function editCommonCatEvent(row) {
+      var event = new CustomEvent('onCommonCatEdit', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editCommonCatEvent = editCommonCatEvent;
+
+    function editPrivateCatEvent(row) {
+      var event = new CustomEvent('onPrivateCatEdit', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editPrivateCatEvent = editPrivateCatEvent;
     /***/
   },
 

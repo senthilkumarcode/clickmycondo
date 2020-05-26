@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"document-setup-wrapper\">\n\t<h5 class=\"mb-3\">Configuration - Towers, Floors and Units</h5>\n\t<div class=\"card mb-3\">\n\t\t<div class=\"card-body\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>No of Towers*</label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"No of Towers\" name=\"noOfTower\" [(ngModel)]=\"noOfTowers\" (ngModelChange)=\"towerSubject.next($event)\" [disabled]=\"pageType == 'edit' ? true : false\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div class=\"card\" *ngIf=\"tableInfo\">\n\t\t<div class=\"card-body\">\n\t\t\t<form [formGroup]=\"floorTable\">\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\"></th>\n\t\t\t\t\t\t\t<th scope=\"col\">Tower Name</th>\n\t\t\t\t\t\t\t<th scope=\"col\">No of Floors</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Total of Units</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container formArrayName=\"floor\" *ngFor=\"let group of floorControlArray.controls ; let i=index\">\n\t\t\t\t\t\t\t<tr [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t<td>{{group.get('apartmentBlock').value}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalnofloors\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalNounits\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t<div class=\"mt-5\" *ngFor=\"let data of formData;let i=index\">\n\t\t\t\t<h5 class=\"mb-5 font-weight-bold\">{{data[0].apartmentBlockNumber}}</h5>\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th class=\"floor-no-width \">Floor No</th>\n\t\t\t\t\t\t\t<th class=\"floor-name-width\">Floor Name</th>\n\t\t\t\t\t\t\t<th class=\"floor-no-width\">Unit</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Unit No</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container *ngFor=\"let child of data;let j=index;\">\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width \">Floor {{child.floorno}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-name-width\">\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.floorLabel\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width\">{{child.unit}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.apartmentBlockUnitNumber\" (keyup)=\"calculate(child.apartmentBlockUnitNumber,i,j)\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"data[0].button\" type=\"submit\" (click)=\"towerSubmit(data)\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"document-setup-wrapper\">\n\t<h5 class=\"mb-3\">Configuration - Towers, Floors and Units</h5>\n\t<div class=\"card mb-3\">\n\t\t<div class=\"card-body\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>No of Towers*</label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"No of Towers\" name=\"noOfTower\" [(ngModel)]=\"noOfTowers\" (ngModelChange)=\"towerSubject.next($event)\" [disabled]=\"pageType == 'edit' ? true : false\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div class=\"card\" *ngIf=\"tableInfo\">\n\t\t<div class=\"card-body\">\n\t\t\t<form [formGroup]=\"floorTable\">\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\"></th>\n\t\t\t\t\t\t\t<th scope=\"col\">Tower Name</th>\n\t\t\t\t\t\t\t<th scope=\"col\">No of Floors</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Total of Units</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container formArrayName=\"floor\" *ngFor=\"let group of floorControlArray.controls ; let i=index\">\n\t\t\t\t\t\t\t<tr [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t<td>{{group.get('apartmentBlock').value}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalnofloors\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalNounits\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType == 'create'\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"towerSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"action-container\" *ngIf=\"pageType == 'edit'\">\n\t\t\t\t\t<button mat-raised-button type=\"submit\" (click)=\"addNewTower()\">Add row</button>\n\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"towerSubmit()\">Update</button>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"newTower\">\n\t\t\t\t\t<table class=\"table mt-3\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\"></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">Tower Name</th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">No of Floors</th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">Total of Units</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<ng-container formArrayName=\"addFloor\" *ngFor=\"let group of floorTable.get('addFloor')['controls'] ; let i=index\">\n\t\t\t\t\t\t\t\t<tr [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t\t<td>{{group.get('apartmentBlock').value}}</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalnofloors\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalNounits\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<div class=\"action-container float-right\">\n\t\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"newTowerSubmit()\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t<div class=\"mt-5\" *ngFor=\"let data of formData;let i=index\">\n\t\t\t\t<h5 class=\"mb-5 font-weight-bold\" *ngIf=\"data\"><span>{{data[0].apartmentBlockNumber}}</span></h5>\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th class=\"floor-no-width \">Floor No</th>\n\t\t\t\t\t\t\t<th class=\"floor-name-width\">Floor Name</th>\n\t\t\t\t\t\t\t<th class=\"floor-no-width\">Unit</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Unit No</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container *ngFor=\"let child of data;let j=index;\">\n\t\t\t\t\t\t\t<tr *ngIf=\"!data[0].edit\">\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width \">Floor {{child.floorno}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-name-width\">\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.floorLabel\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width\">{{child.unit}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.apartmentBlockUnitNumber\" (keyup)=\"calculateUnit(child.apartmentBlockUnitNumber,i,j)\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr *ngIf=\"data[0].edit\">\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width \">Floor {{child.floorno}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-name-width\">{{child.floorLabel}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width\">{{child.unit}}</td>\n\t\t\t\t\t\t\t\t<td>{{child.apartmentBlockUnitNumber}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType=='create'\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"data[0].button\" type=\"submit\" (click)=\"floorSubmit(data)\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType=='edit'\">\n\t\t\t\t\t<button mat-raised-button class=\"mr-2\" type=\"submit\" (click)=\"editMode(data[0].edit,i)\">\n\t\t\t\t\t\t<span *ngIf=\"data[0].edit\">Edit</span>\n\t\t\t\t\t\t<span *ngIf=\"!data[0].edit\">Non Edit</span>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button mat-raised-button [disabled]=\"data[0].button\" type=\"submit\" (click)=\"floorSubmit(data)\">Update</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n");
 
 /***/ }),
 
@@ -305,10 +305,11 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
         this.cookieService = cookieService;
         this.towerSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.tableInfo = false;
-        this.error = false;
         this.pageType = 'create';
+        this.newTower = false;
         this.floorTable = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            'floor': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormArray"]([])
+            'floor': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormArray"]([]),
+            'addFloor': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormArray"]([])
         });
     }
     isMobileView() {
@@ -317,27 +318,21 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
     get floorControlArray() {
         return this.floorTable.get('floor');
     }
-    increaseTower() {
-        this.formData = [];
-        if (this.noOfTowers > 0) {
-            this.tableInfo = true;
-            if (this.floorControlArray.length > 0) {
-                this.deleteAllFloor();
-                for (let i = 0; i < this.noOfTowers; i++) {
-                    this.addFloor(i);
-                }
-            }
-            else {
-                for (let i = 0; i < this.noOfTowers; i++) {
-                    this.addFloor(i);
-                }
-            }
-        }
-        else {
-            this.tableInfo = false;
-        }
+    addNewTower() {
+        this.newTower = true;
+        let addNewTower = this.floorTable.get('addFloor');
+        let length = this.floorControlArray.length + 1;
+        this.noOfTowers = length;
+        addNewTower.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            'apartmentBlock': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]({ value: `Tower${length}`, disabled: true }),
+            'apartmentBlockId': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](0),
+            'apartmentBlockNumber': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            'totalNounits': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            'totalnofloors': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
+        }));
     }
-    addFloor(index) {
+    addTower(index) {
+        this.noOfTowers = this.floorControlArray.length + 1;
         this.floorControlArray.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             'apartmentBlock': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]({ value: `Tower${index + 1}`, disabled: true }),
             'apartmentBlockId': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](0),
@@ -346,12 +341,7 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
             'totalnofloors': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
         }));
     }
-    deleteAllFloor() {
-        while (this.floorControlArray.length != 0) {
-            this.floorControlArray.removeAt(0);
-        }
-    }
-    calculate(value, i, j) {
+    calculateUnit(value, i, j) {
         if (value.length > 0) {
             let unitSplit = value.split(',');
             this.formData[i][j].unit = unitSplit.length;
@@ -369,9 +359,95 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
             this.formData[i][0].button = true;
         }
     }
-    submitForm() {
+    editMode(editdata, index) {
+        if (editdata) {
+            this.formData[index][0].edit = false;
+        }
+        else {
+            this.formData[index][0].edit = true;
+        }
+    }
+    getApartmentTowerAndFloor(pagetype) {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
+            if (res.length > 0) {
+                this.pageType = pagetype;
+                this.noOfTowers = res.length;
+                this.tableInfo = true;
+                this.formData = [];
+                for (var i = 0; i < res.length; i++) {
+                    this.floorControlArray.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+                        'apartmentBlock': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]({ value: `Tower${i + 1}`, disabled: true }),
+                        'apartmentBlockId': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](res[i].apartmentBlockId),
+                        'apartmentBlockNumber': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](res[i].apartmentBlockNumber, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+                        'totalNounits': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](res[i].totalNounits, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+                        'totalnofloors': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](res[i].totalnofloors, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
+                    }));
+                    let blockId = {
+                        apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                        apartmentBlockId: res[i].apartmentBlockId
+                    };
+                    this.initalFloor(blockId, res[i], i);
+                }
+            }
+            else {
+                this.pageType = 'create';
+            }
+        });
+    }
+    initalFloor(blockId, tower, index) {
+        this.apartmentService.getViewFloorNoBlockUnitNumberByApartmentId(blockId).subscribe((res) => {
+            if (res.length > 0) {
+                res[0].apartmentBlockNumber = tower.apartmentBlockNumber;
+                res[0].button = false;
+                res[0].edit = this.pageType == 'create' ? false : true;
+                res.forEach((data) => {
+                    data.apartmentBlockUnitNumber = data.apartmentBlockUnitNumbers;
+                    let unitSplit = data.apartmentBlockUnitNumbers.split(',');
+                    data.unit = unitSplit.length;
+                    data.totalNounits = tower.totalNounits;
+                });
+                if (res.length != tower.totalnofloors) {
+                    for (let i = res.length; i < tower.totalnofloors; i++) {
+                        let entity = {
+                            "apartmentBlockId": tower.apartmentBlockId,
+                            "totalNounits": tower.totalNounits,
+                            "unit": 0,
+                            "floorno": i + 1,
+                            "apartmentBlockUnitNumber": '',
+                            "floorLabel": ''
+                        };
+                        res.push(entity);
+                    }
+                }
+                this.formData.splice(index, 0, res);
+            }
+            else {
+                for (let i = 0; i < tower.totalnofloors; i++) {
+                    let entity = {
+                        "apartmentBlockId": tower.apartmentBlockId,
+                        "totalNounits": tower.totalNounits,
+                        "unit": 0,
+                        "floorno": i + 1,
+                        "apartmentBlockUnitNumber": '',
+                        "floorLabel": ''
+                    };
+                    if (i == 0) {
+                        entity.apartmentBlockNumber = tower.apartmentBlockNumber;
+                        entity.button = false;
+                        entity.edit = false;
+                    }
+                    res.push(entity);
+                }
+                this.formData.splice(index, 0, res);
+            }
+        });
+    }
+    towerSubmit() {
         let params = {};
-        params.apartmentBlock = [];
+        params.apartmentBlocks = [];
         for (let i = 0; i < this.floorControlArray.length; i++) {
             let createTowers = {
                 'apartmentBlockId': this.floorControlArray.at(i).get('apartmentBlockId').value,
@@ -384,65 +460,16 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
                 "insertedBy": parseInt(this.cookieService.get('userId')),
                 "updatedBy": this.pageType == 'edit' ? parseInt(this.cookieService.get('userId')) : null,
             };
-            params.apartmentBlock.push(createTowers);
+            params.apartmentBlocks.push(createTowers);
         }
-        this.formData = [];
-        let dupObject = {};
-        for (let i = 0; i < this.floorControlArray.length; i++) {
-            let floor = this.floorControlArray.at(i).get('totalnofloors').value;
-            let key = `floor${i + 1}`;
-            dupObject[key] = [];
-            for (let j = 0; j < floor; j++) {
-                let entity = {
-                    "apartmentBlockId": 0,
-                    "totalNounits": this.floorControlArray.at(i).get('totalNounits').value,
-                    "apartmentBlockNumber": this.floorControlArray.at(i).get('apartmentBlockNumber').value,
-                    "unit": '',
-                    "floorno": j + 1,
-                    "apartmentBlockUnitNumber": '',
-                    "floorLabel": ''
-                };
-                dupObject[key].push(entity);
-            }
-        }
-        for (let floorNumber in dupObject) {
-            this.formData.push(dupObject[floorNumber]);
-        }
-        // let apiMethod = this.pageType == 'create' ? 'addApartmentBlock' : 'updateApartmentBlock';
-        // this.apartmentService[apiMethod](params).subscribe((res: any) => {
-        //   let resSplit = res.message.split(',');
-        //   if(resSplit && resSplit.length > 0) {
-        //     this.formData = [];
-        //     let dupObject:any = {};
-        //     for(let i=0; i < this.floorControlArray.length; i++) {
-        //       for(let r=0; r<resSplit.length; r++) {
-        //         if(i == r) {
-        //           let floor = this.floorControlArray.at(i).get('totalnofloors').value;
-        //           let key = `floor${i+1}`;
-        //           dupObject[key] = [];
-        //           for(let j=0; j < floor; j++) {
-        //             let entity = {
-        //               "apartmentBlockId": parseInt(resSplit[r]),
-        //               "totalNounits":  this.floorControlArray.at(i).get('totalNounits').value,
-        //               "apartmentBlockNumber":  this.floorControlArray.at(i).get('apartmentBlockNumber').value,
-        //               "unit": '',
-        //               "floorno": j+1,
-        //               "apartmentBlockUnitNumber": '',
-        //               "floorLabel": ''
-        //             }  
-        //             dupObject[key].push(entity);
-        //           }
-        //         }
-        //       }
-        //     }
-        //     for(let floorNumber in dupObject) {
-        //       this.formData.push(dupObject[floorNumber])
-        //     }
-        //   }
-        // });
+        let apiMethod = this.pageType == 'create' ? 'addApartmentBlock' : 'updateApartmentBlock';
+        this.apartmentService[apiMethod](params).subscribe((res) => {
+            this.getApartmentTowerAndFloor(this.pageType);
+        });
     }
-    towerSubmit(data) {
-        let tower = [];
+    floorSubmit(data) {
+        let params = {};
+        params.apartmentBlockUnits = [];
         for (let i = 0; i < data.length; i++) {
             let entity = {
                 apartmentBlockUnitNumber: data[i].apartmentBlockUnitNumber,
@@ -453,42 +480,58 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
                 insertedBy: parseInt(this.cookieService.get('userId')),
                 insertedOn: new Date().toISOString(),
             };
-            tower.push(entity);
+            params.apartmentBlockUnits.push(entity);
         }
-        // this.apartmentService.addApartmentBlockUnit(tower).subscribe((res:any) => {
-        //   console.log(res);
-        // });
+        let apiMethod = this.pageType == 'create' ? 'addApartmentBlockUnit' : 'updateApartmentBlock';
+        this.apartmentService.addApartmentBlockUnit(params).subscribe((res) => {
+            console.log(res);
+        });
+    }
+    newTowerSubmit() {
+        let params = {};
+        params.apartmentBlocks = [];
+        let addNewTower = this.floorTable.get('addFloor');
+        for (let i = 0; i < addNewTower.length; i++) {
+            let createTowers = {
+                'apartmentBlockId': addNewTower.at(i).get('apartmentBlockId').value,
+                "apartmentBlockNumber": addNewTower.at(i).get('apartmentBlockNumber').value,
+                "totalNounits": addNewTower.at(i).get('totalNounits').value,
+                "totalnofloors": addNewTower.at(i).get('totalnofloors').value,
+                "description": addNewTower.at(i).get('apartmentBlockNumber').value,
+                "apartmentId": Number(this.cookieService.get('apartmentId')),
+                "isActive": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+            };
+            params.apartmentBlocks.push(createTowers);
+        }
+        this.apartmentService.addApartmentBlock(params).subscribe((res) => {
+            this.getApartmentTowerAndFloor('edit');
+            this.newTower = false;
+        });
     }
     ngOnInit() {
-        let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-        };
-        // this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res:any) => {
-        //   if(res.length > 0) {
-        //     this.pageType = 'edit';
-        //     this.noOfTowers = res.length;
-        //     this.tableInfo = true;
-        //     this.formData = []
-        //     for(var i=0; i < res.length; i++) {
-        //       this.floorControlArray.push(new FormGroup({
-        //         'apartmentBlock': new FormControl({value: `Tower${i+1}`, disabled: true}),
-        //         'apartmentBlockId': new FormControl(res[i].apartmentBlockId),
-        //         'apartmentBlockNumber': new FormControl(res[i].apartmentBlockNumber,Validators.required),
-        //         'totalNounits': new FormControl(res[i].totalNounits,Validators.required),
-        //         'totalnofloors': new FormControl(res[i].totalnofloors,Validators.required)
-        //       }));
-        //       let blockId = {
-        //         apartmentId : parseInt(this.cookieService.get('apartmentId')),
-        //         apartmentBlockId : res[i].apartmentBlockId
-        //       }
-        //       // this.apartmentService.getApartmentBlockByApartmentId(blockId).subscribe((res:any) => {
-        //       // })
-        //     }
-        //   }
-        // });
-        this.towerSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["distinctUntilChanged"])())
-            .subscribe(value => {
-            this.increaseTower();
+        this.getApartmentTowerAndFloor('edit');
+        this.towerSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["distinctUntilChanged"])()).subscribe(value => {
+            this.formData = [];
+            if (this.noOfTowers > 0) {
+                this.tableInfo = true;
+                if (this.floorControlArray.length > 0) {
+                    while (this.floorControlArray.length != 0) {
+                        this.floorControlArray.removeAt(0);
+                    }
+                    for (let i = 0; i < this.noOfTowers; i++) {
+                        this.addTower(i);
+                    }
+                }
+                else {
+                    for (let i = 0; i < this.noOfTowers; i++) {
+                        this.addTower(i);
+                    }
+                }
+            }
+            else {
+                this.tableInfo = false;
+            }
         });
     }
 };

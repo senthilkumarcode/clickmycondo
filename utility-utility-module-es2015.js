@@ -183,6 +183,9 @@ let AddInsuranceComponent = class AddInsuranceComponent {
         this.isEdit = false;
         this.isError = false;
         this.alertMessage = "";
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
     }
     Cancel() {
         this.onCancel.emit(false);
@@ -336,6 +339,9 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
         this.isEdit = false;
         this.isError = false;
         this.alertMessage = "";
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
     }
     Cancel() {
         this.onCancel.emit(false);
@@ -556,6 +562,9 @@ let UtilityAddReadingComponent = class UtilityAddReadingComponent {
         this.cookieService = cookieService;
         this.isUtilityCategoryLoaded = false;
         this.selected_utility_type = false;
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     loadUtilityCategory() {
@@ -659,6 +668,9 @@ let TowerReadingInfoComponent = class TowerReadingInfoComponent {
         this.isUnitVacant = false;
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
+        this.params = {
+            apartmentBlockId: parseInt(this.tower.apartmentBlockId)
+        };
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -851,7 +863,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
     }
     ngOnInit() {
         this.waterReading = {};
-        let apartment_id = parseInt(this.cookieService.get('apartmentId'));
+        //let apartment_id = parseInt(this.cookieService.get('apartmentId'));
         if (this.unit.water_charge == undefined) {
             this.unit.water_charge = {};
         }
@@ -966,6 +978,9 @@ let WaterReadingComponent = class WaterReadingComponent {
         this.onCancel = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isDataLoaded = false;
         this.isSetPeriod = true;
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
     }
     cancel() {
         this.onCancel.emit(false);
@@ -1092,6 +1107,9 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
         this.itemLimit = 10;
         this.selectedInput = "";
         this.columnField = {};
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1373,6 +1391,9 @@ let UtilitySetupComponent = class UtilitySetupComponent {
         this.UtilityCategoryUpdateId = 0;
         this.alertMessage = "";
         this.isError = false;
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     addNewUtilityCategory() {

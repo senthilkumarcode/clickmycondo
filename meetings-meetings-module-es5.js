@@ -33,7 +33,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card\">\n        <div class=\"card-header\">\n            <div class=\"row\">\n                <div class=\"col-sm-8\">\n                    <h5 *ngIf=\"isAddMeeting\">Create Meeting</h5>\n                    <h5 *ngIf=\"!isAddMeeting\">Edit Meeting</h5>\n                </div>\n            <div class=\"col-sm-4\"> \n                <button class=\"btn lime-green\" (click)=\"Goback()\" style=\"float: right;\" >\n                    <i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n                </button>\n             </div>\n            </div>\n        </div>\n        <div class=\"card-body\">\n            <ng-container>\n                <form #addmeetingForm = \"ngForm\" name=\"addmeetingForm\" (ngSubmit)=\"submitAddmeetingForm(addmeetingForm)\"  novalidate>\n                    <div class=\"row\">\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Role Type</label>\n                                <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Apartment Block</label>\n                                <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                [settings]=\"blockdropdownSettings\"\n                                (onSelect)=\"updateUsers()\"></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                [(ngModel)]=\"condition.selectedItems\"\n                                [settings]=\"roleDropdownSettings\" \n                                (onSelect)=\"updateUsers()\"\n                                ></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                [(ngModel)]=\"roleCategory.selectedItems\"\n                                [settings]=\"roleDropdownSettings\"\n                                (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                                (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                                ></angular2-multiselect>\n                            </div>  \n                         </div>\n                         <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                            <div class=\"select-box\">\n                                <label>Staff Category</label>\n                                <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                                [(ngModel)]=\"staffCategory.selectedItems\"\n                                [settings]=\"dropdownSettings\"\n                                (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                                (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                    (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                                </angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                            <div class=\"select-box\">\n                                <label>Staff SubCategory</label>\n                                <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                                [(ngModel)]=\"staffSubCategory.selectedItems\"\n                                [settings]=\"dropdownSettings\"\n                                (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                                (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                                (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                                ></angular2-multiselect>\n                            </div>  \n                        </div>\n                    </div>\n                    <div class=\"row recipentsDiv\" > \n                        <div class=\"col-sm-12\">\n                            <label>Recipients</label>\n                            <div  class=\"col-sm-12 box\" >\n                                <label *ngFor=\"let user of users\" >\n                                    {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                                </label>\n                            </div> \n                        </div> \n                    </div>\n                    <div class=\"row mt-5\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Meeting Type*</label>\n                                <select \n                                    name=\"meetingCategory\" \n                                    id=\"meetingCategory\" \n                                    class=\"form-control\"\n                                    placeholder = \"Meeting Type\"\n                                    [(ngModel)]=\"meeting.meetingTypeId\"\n                                    (ngModelChange)=\"showTable()\" required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option *ngFor=\"let item of meetingCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\" *ngIf=\"showTableContent\">\n                            <table  class=\"table table-borderless table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                                <thead>\n                                    <tr>\n                                        <th scope=\"col\">Select Date</th>\n                                        <th scope=\"col\">Start Time</th>\n                                        <th scope=\"col\">End Time</th>\n                                        <th scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td class=\"select w-30\">\n                                            <input class=\"form-control\" name=\"meetingDate\" [owlDateTime]=\"meetingDate\"\n                                                [owlDateTimeTrigger]=\"meetingDate\" placeholder=\"Date\" [(ngModel)]=\"subMeetingField.meetingDate\">\n                                                <owl-date-time #meetingDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                            <!-- <div class=\"date-btn\">\n                                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                            </div> -->\n                                        </td>\n                                        <td class=\"select w-30\">\n                                            <div class=\"form-group\">\n                                                <input class=\"form-control\" name=\"meetingStartTime\" [owlDateTime]=\"meetingStartTime\" [owlDateTimeTrigger]=\"meetingStartTime\" placeholder=\"Start Time\" [(ngModel)]=\"subMeetingField.meetingStartTime\">\n                                                <owl-date-time [pickerType]=\"'timer'\" #meetingStartTime></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingStartTime\">\n                                                    <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                                </div>\n                                            </div>\n                                        </td>\n                                        <td class=\"select w-30\">\n                                            <div class=\"form-group\">\n                                                <input class=\"form-control\" name=\"meetingEndTime\" [owlDateTime]=\"meetingEndTime\" [owlDateTimeTrigger]=\"meetingEndTime\" placeholder=\"End Time\" [(ngModel)]=\"subMeetingField.meetingEndTime\">\n                                                <owl-date-time [pickerType]=\"'timer'\" #meetingEndTime></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingEndTime\">\n                                                    <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                                </div>\n                                            </div> \n                                        </td>\n                                        <td class=\"select w-10\">\n                                            <button class=\"btn lime-green create-row\" (click)=\"addMeetingSchedule()\" >\n                                                <i class=\"fa fa-plus\" aria-hidden=\"true\"> Add Row</i>\n                                            </button>\n                                            <a class=\"lime-green add-row\" (click)=\"addMeetingSchedule()\" >\n                                                <i class=\"fa fa-plus lime-green mt-3\" (click)=\"addMeetingSchedule()\" aria-hidden=\"true\"></i>\n                                            </a>\n                                        </td>\n                                    </tr>\n                                    <tr *ngFor=\"let item of subMeeting;let i = index\">\n                                        <td class=\"select w-30\">{{item.meetingDate | date : 'dd-MM-yyyy'}}</td>\n                                        <td class=\"select w-30\">{{item.meetingStartTime}}</td>\n                                        <td class=\"select w-30\">{{item.meetingEndTime}}</td>\n                                        <td class=\"select w-10\">\n                                            <a href=\"javascript:void(0)\" (click)=\"editMeetingScheduleRow(item,i)\"><i-feather class=\"icon edit mr-3\" name=\"edit\"></i-feather></a>\n                                            <a href=\"javascript:void(0)\" (click)=\"deleteMeetingScheduleRow(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                    <br>\n                    <div class=\"row\">\n                        <div class=\"col-sm-9 col-10\">\n                            <div class=\"input-box\">\n                                <label>Subject*</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Subject\" name=\"meetingSubject\" [(ngModel)]=\"meeting.meetingSubject\" required>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Message*</label>\n                                <quill-editor\n                                class=\"quill-editor\"\n                                name=\"ckeditor\"\n                                placeholder=\"Message Description\"\n                                [(ngModel)]=\"meeting.meetingMessage\">\n                                </quill-editor>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-right\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\">Submit</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                </form>\n            </ng-container>\n        </div>\n    </div>\n    ";
+    __webpack_exports__["default"] = "<div class=\"card\">\n        <div class=\"card-header\">\n            <div class=\"row\">\n                <div class=\"col-sm-8\">\n                    <h5 *ngIf=\"isAddMeeting\">Create Meeting</h5>\n                    <h5 *ngIf=\"!isAddMeeting\">Edit Meeting</h5>\n                </div>\n            <div class=\"col-sm-4\"> \n                <button class=\"btn lime-green\" (click)=\"Goback()\" style=\"float: right;\" >\n                    <i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n                </button>\n             </div>\n            </div>\n        </div>\n        <div class=\"card-body\">\n            <ng-container>\n                <form #addmeetingForm = \"ngForm\" name=\"addmeetingForm\" (ngSubmit)=\"submitAddmeetingForm(addmeetingForm)\"  novalidate>\n                    <div class=\"row\">\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Role Type</label>\n                                <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Apartment Block</label>\n                                <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                [settings]=\"blockdropdownSettings\"\n                                (onSelect)=\"updateUsers()\"></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                [(ngModel)]=\"condition.selectedItems\"\n                                [settings]=\"roleDropdownSettings\" \n                                (onSelect)=\"updateUsers()\"\n                                ></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                [(ngModel)]=\"roleCategory.selectedItems\"\n                                [settings]=\"roleDropdownSettings\"\n                                (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                                (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                                ></angular2-multiselect>\n                            </div>  \n                         </div>\n                         <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                            <div class=\"select-box\">\n                                <label>Staff Category</label>\n                                <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                                [(ngModel)]=\"staffCategory.selectedItems\"\n                                [settings]=\"dropdownSettings\"\n                                (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                                (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                    (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                                </angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                            <div class=\"select-box\">\n                                <label>Staff SubCategory</label>\n                                <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                                [(ngModel)]=\"staffSubCategory.selectedItems\"\n                                [settings]=\"dropdownSettings\"\n                                (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                                (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                                (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                                ></angular2-multiselect>\n                            </div>  \n                        </div>\n                    </div>\n                    <div class=\"row recipentsDiv\" > \n                        <div class=\"col-sm-12\">\n                            <label>Recipients</label>\n                            <div  class=\"col-sm-12 box\" >\n                                <label *ngFor=\"let user of users\" >\n                                    {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                                </label>\n                            </div> \n                        </div> \n                    </div>\n                    <div class=\"row mt-5\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Meeting Type*</label>\n                                <select \n                                    name=\"meetingCategory\" \n                                    id=\"meetingCategory\" \n                                    class=\"form-control\"\n                                    placeholder = \"Meeting Type\"\n                                    [(ngModel)]=\"meeting.meetingTypeId\"\n                                    (ngModelChange)=\"showTable()\" required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option *ngFor=\"let item of meetingCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\" *ngIf=\"showTableContent\">\n                            <table  class=\"table table-borderless table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                                <thead>\n                                    <tr>\n                                        <th scope=\"col\">Select Date</th>\n                                        <th scope=\"col\">Start Time</th>\n                                        <th scope=\"col\">End Time</th>\n                                        <th scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td class=\"select w-30\">\n                                            <input class=\"form-control\" name=\"meetingDate\" [owlDateTime]=\"meetingDate\"\n                                                [owlDateTimeTrigger]=\"meetingDate\" placeholder=\"Date\" [(ngModel)]=\"subMeetingField.meetingDate\">\n                                                <owl-date-time #meetingDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                            <!-- <div class=\"date-btn\">\n                                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                            </div> -->\n                                        </td>\n                                        <td class=\"select w-30\">\n                                            <div class=\"form-group\">\n                                                <input class=\"form-control\" name=\"meetingStartTime\" [owlDateTime]=\"meetingStartTime\" [owlDateTimeTrigger]=\"meetingStartTime\" placeholder=\"Start Time\" [(ngModel)]=\"subMeetingField.meetingStartTime\">\n                                                <owl-date-time [pickerType]=\"'timer'\" #meetingStartTime></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingStartTime\">\n                                                    <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                                </div>\n                                            </div>\n                                        </td>\n                                        <td class=\"select w-30\">\n                                            <div class=\"form-group\">\n                                                <input class=\"form-control\" name=\"meetingEndTime\" [owlDateTime]=\"meetingEndTime\" [owlDateTimeTrigger]=\"meetingEndTime\" placeholder=\"End Time\" [(ngModel)]=\"subMeetingField.meetingEndTime\">\n                                                <owl-date-time [pickerType]=\"'timer'\" #meetingEndTime></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingEndTime\">\n                                                    <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                                </div>\n                                            </div> \n                                        </td>\n                                        <td class=\"select w-10\">\n                                            <a class=\"btn lime-green create-row\" (click)=\"addMeetingSchedule()\" >\n                                                <i class=\"fa fa-plus\"> Add Row</i>\n                                            </a>\n                                            <a class=\"lime-green add-row\" (click)=\"addMeetingSchedule()\" >\n                                                <i class=\"fa fa-plus lime-green mt-3\" (click)=\"addMeetingSchedule()\"></i>\n                                            </a>\n                                        </td>\n                                    </tr>\n                                    <tr *ngFor=\"let item of subMeeting;let i = index\">\n                                        <td class=\"select w-30\">{{item.meetingDate | date : 'dd-MM-yyyy'}}</td>\n                                        <td class=\"select w-30\">{{item.meetingStartTime}}</td>\n                                        <td class=\"select w-30\">{{item.meetingEndTime}}</td>\n                                        <td class=\"select w-10\">\n                                            <a href=\"javascript:void(0)\" (click)=\"editMeetingScheduleRow(item,i)\"><i-feather class=\"icon edit mr-3\" name=\"edit\"></i-feather></a>\n                                            <a href=\"javascript:void(0)\" (click)=\"deleteMeetingScheduleRow(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                    <br>\n                    <div class=\"row\">\n                        <div class=\"col-sm-9 col-10\">\n                            <div class=\"input-box\">\n                                <label>Subject*</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Subject\" name=\"meetingSubject\" [(ngModel)]=\"meeting.meetingSubject\" required>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Message*</label>\n                                <quill-editor\n                                class=\"quill-editor\"\n                                name=\"ckeditor\"\n                                placeholder=\"Message Description\"\n                                [(ngModel)]=\"meeting.meetingMessage\">\n                                </quill-editor>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-right\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\">Submit</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                </form>\n            </ng-container>\n        </div>\n    </div>\n    ";
     /***/
   },
 
@@ -93,7 +93,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5>Scheduled List</h5>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <jqxScheduler #scheduler\n                    [width]=\"getWidth()\" [height]=\"600\"\n                    [date]=\"date\"\n                    [source]=\"dataAdapter\"\n                    [dayNameFormat]=\"'abbr'\"\n                    [showLegend]=\"true\"\n                    [view]=\"'agendaView'\"\n                    [resources]=\"resources\"\n                    [views]=\"views\"\n                    [appointmentDataFields]=\"appointmentDataFields\">\n                </jqxScheduler>\n            </div>\n        </div>\n    </div>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5>Scheduled List</h5>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <jqxScheduler #scheduler\n                    [width]=\"getWidth()\" [height]=\"600\"\n                    [date]=\"date\"\n                    [source]=\"dataAdapter\"\n                    [dayNameFormat]=\"'abbr'\"\n                    [showLegend]=\"true\"\n                    [view]=\"'agendaView'\"\n                    [resources]=\"resources\"\n                    [views]=\"views\"\n                    (onAppointmentClick)=\"appointmentClick($event)\"\n                    (onEditDialogOpen)=\"appointmentAdd($event)\"\n                    [appointmentDataFields]=\"appointmentDataFields\">\n                </jqxScheduler>\n            </div>\n        </div>\n    </div>\n</div>\n\n";
     /***/
   },
 
@@ -318,22 +318,405 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       _createClass(MeetingsCreateComponent, [{
+        key: "Goback",
+        value: function Goback() {
+          this.router.navigate(['ams/meetings/list']);
+        }
+      }, {
+        key: "isMobileView",
+        value: function isMobileView() {
+          return window.innerWidth <= 767 ? 'table-responsive' : '';
+        }
+      }, {
+        key: "getAppartmentRole",
+        value: function getAppartmentRole(item) {
+          var _this = this;
+
+          this.roleCategory.selectedItems = [];
+          this.staffCategory.selectedItems = [];
+          var params = {
+            'ApartmentId': parseInt(this.cookieService.get('apartmentId')),
+            'RoleTypeId': item.value
+          };
+          this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
+            _this.roleCategory.dropdownList = res;
+            var conditinArr = [{
+              "name": "IsLiving",
+              "value": 1
+            }, {
+              "name": "IsPrimaryContact",
+              "value": 2
+            }];
+
+            if (parseInt(item.value) == 2 || parseInt(item.value) == 4) {
+              _this.condition.dropdownList = conditinArr;
+            } else {
+              _this.condition.dropdownList = [];
+              _this.condition.selectedItems = [];
+            }
+
+            _this.updateUsers();
+          });
+        }
+      }, {
+        key: "getUserIds$",
+        value: function getUserIds$() {
+          var roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
+            return item.value;
+          }).join(",");
+          var blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) {
+            return item.apartmentBlockId;
+          }).join(",");
+          var conditionIds = Array.prototype.map.call(this.condition.selectedItems, function (item) {
+            return item.value;
+          }).join(",");
+          var staffcategoryIds = Array.prototype.map.call(this.staffCategory.selectedItems, function (item) {
+            return item.value;
+          }).join(",");
+          var staffSubCategoryIds = Array.prototype.map.call(this.staffSubCategory.selectedItems, function (item) {
+            return item.value;
+          }).join(",");
+          var params = {
+            'roleIds': roleIds,
+            'conditionIds': conditionIds,
+            'appartmentbBlockIds': blockIds,
+            'apartmentId': parseInt(this.cookieService.get('apartmentId')),
+            'staffcategoryIds': staffcategoryIds,
+            'staffSubCategoryIds': staffSubCategoryIds
+          };
+          return this.userService.getUsersByFilter(params);
+        }
+      }, {
+        key: "updateUsers",
+        value: function updateUsers() {
+          var _this2 = this;
+
+          this.getUserIds$().subscribe(function (res) {
+            if (res.length > 0) {
+              _this2.users = _this2.allUsers.filter(function (obj) {
+                return res.includes(obj.userId);
+              });
+            } else {
+              _this2.users = [];
+            }
+          });
+        }
+      }, {
+        key: "getstaffCategories",
+        value: function getstaffCategories(item) {
+          var _this3 = this;
+
+          if (this.roleTypeArr.selectedItems[0].name.toLowerCase() == "staff") {
+            if (this.staffCategoryMap.get(item.value) == undefined) {
+              var params = {
+                'roleId': item.value,
+                'apartmentId': parseInt(this.cookieService.get('apartmentId'))
+              };
+              this.staffService.getStaffCategoryByRole(params).subscribe(function (res) {
+                var temp = _toConsumableArray(_this3.staffCategory.dropdownList);
+
+                res.forEach(function (element) {
+                  element.category = item.name;
+                  temp.push(element);
+                });
+
+                _this3.staffCategoryMap.set(item.value, res);
+
+                _this3.staffCategory.dropdownList = temp;
+
+                _this3.updateUsers();
+              });
+            } else {
+              var temp = _toConsumableArray(this.staffCategory.dropdownList);
+
+              var addStaffCategory = this.staffCategoryMap.get(item.value);
+              addStaffCategory.forEach(function (element) {
+                temp.push(element);
+              });
+              this.staffCategory.dropdownList = temp;
+            }
+          }
+
+          this.updateUsers();
+        }
+      }, {
+        key: "getAllStaffCategories",
+        value: function getAllStaffCategories(items) {
+          var _this4 = this;
+
+          items.forEach(function (element) {
+            _this4.getstaffCategories(element);
+          });
+        }
+      }, {
+        key: "getStaffSubCategories",
+        value: function getStaffSubCategories(item) {
+          var _this5 = this;
+
+          if (this.staffSubCategoryMap.get(item.value) == undefined) {
+            var params = {
+              'categoryId': item.value,
+              'apartmentId': parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.staffService.getSubStaffCategoryByCategory(params).subscribe(function (res) {
+              var temp = _toConsumableArray(_this5.staffSubCategory.dropdownList);
+
+              res.forEach(function (element) {
+                element.category = item.name;
+                temp.push(element);
+              });
+
+              _this5.staffSubCategoryMap.set(item.value, res);
+
+              _this5.staffSubCategory.dropdownList = temp;
+
+              _this5.updateUsers();
+            });
+          } else {
+            var addSubStaffCategory = this.staffSubCategoryMap.get(item.value);
+
+            var temp = _toConsumableArray(this.staffSubCategory.dropdownList);
+
+            addSubStaffCategory.forEach(function (element) {
+              temp.push(element);
+            });
+            this.staffSubCategory.dropdownList = temp;
+            this.updateUsers();
+          }
+        }
+      }, {
+        key: "removeStaffCategories",
+        value: function removeStaffCategories(item) {
+          var _this6 = this;
+
+          if (this.roleTypeArr.selectedItems[0].name.toLowerCase() == "staff") {
+            var removeStaffCategory = this.staffCategoryMap.get(item.value);
+            removeStaffCategory.forEach(function (element) {
+              _this6.staffCategory.dropdownList = _this6.staffCategory.dropdownList.filter(function (obj) {
+                return obj.value !== element.value;
+              });
+            });
+          }
+
+          this.updateUsers();
+        }
+      }, {
+        key: "removeAllStaffCategories",
+        value: function removeAllStaffCategories(items) {
+          this.roleCategory.selectedItems = [];
+          this.staffCategory.dropdownList = [];
+          this.staffCategory.selectedItems = [];
+          this.updateUsers();
+        }
+      }, {
+        key: "removeRole",
+        value: function removeRole(item) {
+          this.roleCategory.dropdownList = [];
+          this.condition.dropdownList = [];
+          this.condition.selectedItems = [];
+          this.removeAllStaffCategories([]);
+          this.removeAllSubStaffCategories([]);
+        }
+      }, {
+        key: "removeAllSubStaffCategories",
+        value: function removeAllSubStaffCategories(items) {
+          this.staffSubCategory.dropdownList = [];
+          this.staffCategory.selectedItems = [];
+          this.updateUsers();
+        }
+      }, {
+        key: "removeSubStaffCategories",
+        value: function removeSubStaffCategories(item) {
+          var _this7 = this;
+
+          var removeSubStaffCategory = this.staffSubCategoryMap.get(item.value);
+          removeSubStaffCategory.forEach(function (element) {
+            _this7.staffSubCategory.dropdownList = _this7.staffSubCategory.dropdownList.filter(function (obj) {
+              return obj.value !== element.value;
+            });
+          });
+          this.updateUsers();
+        }
+      }, {
+        key: "removeGroupSubStaffCategories",
+        value: function removeGroupSubStaffCategories(items) {
+          var _this8 = this;
+
+          items.list.forEach(function (element) {
+            _this8.removeSubStaffCategories(element);
+          });
+          this.updateUsers();
+        }
+      }, {
+        key: "getAllSubStaffCategories",
+        value: function getAllSubStaffCategories(items) {
+          var _this9 = this;
+
+          items.forEach(function (element) {
+            _this9.getStaffSubCategories(element);
+          });
+        }
+      }, {
+        key: "getGroupSubStaffCategories",
+        value: function getGroupSubStaffCategories(items) {
+          var _this10 = this;
+
+          items.list.forEach(function (element) {
+            _this10.getStaffSubCategories(element);
+          });
+          this.updateUsers();
+        }
+      }, {
+        key: "showTable",
+        value: function showTable() {
+          this.showTableContent = true;
+        }
+      }, {
+        key: "addMeetingSchedule",
+        value: function addMeetingSchedule() {
+          if (this.subMeetingField.meetingDate && this.subMeetingField.meetingStartTime && this.subMeetingField.meetingEndTime) {
+            var entity = {
+              meetingDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingDate).format(),
+              meetingStartTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingStartTime).format('hh:mm'),
+              meetingEndTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingEndTime).format('hh:mm')
+            };
+            this.subMeeting.push(entity);
+            this.subMeetingField.meetingDate = '';
+            this.subMeetingField.meetingStartTime = '';
+            this.subMeetingField.meetingEndTime = '';
+          }
+        }
+      }, {
+        key: "editMeetingScheduleRow",
+        value: function editMeetingScheduleRow(data, index) {
+          this.subMeetingField.meetingDate = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingDate).format();
+          this.subMeetingField.meetingStartTime = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingStartTime, 'hh:mm a').format();
+          this.subMeetingField.meetingEndTime = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingEndTime, 'hh:mm a').format();
+          ;
+          this.subMeeting.splice(index, 1);
+        }
+      }, {
+        key: "deleteMeetingScheduleRow",
+        value: function deleteMeetingScheduleRow(index) {
+          this.subMeeting.splice(index, 1);
+        }
+      }, {
+        key: "submitAddmeetingForm",
+        value: function submitAddmeetingForm(data) {
+          var _this11 = this;
+
+          var apartment = this.apartmentBlock.selectedItems.reduce(function (acc, data, index) {
+            if (index == 0) {
+              return JSON.stringify(data.apartmentBlockId);
+            } else {
+              return acc + ',' + JSON.stringify(data.apartmentBlockId);
+            }
+          }, '');
+          var condition = this.condition.selectedItems.reduce(function (acc, data, index) {
+            if (index == 0) {
+              return JSON.stringify(data.value);
+            } else {
+              return acc + ',' + JSON.stringify(data.value);
+            }
+          }, '');
+          var roleIds = this.roleCategory.selectedItems.reduce(function (acc, data, index) {
+            if (index == 0) {
+              return JSON.stringify(data.value);
+            } else {
+              return acc + ',' + JSON.stringify(data.value);
+            }
+          }, '');
+          var params = {};
+          params.meetingFilters_model = {
+            "filterId": 0,
+            "roleTypeId": Number(this.roleTypeArr.selectedItems.length > 0 ? this.roleTypeArr.selectedItems[0].value : 0),
+            "apartmentBlockIds": String(apartment ? apartment : '0'),
+            "conditions": String(condition ? condition : '0'),
+            "roleIds": String(roleIds),
+            "staffCategoryIds": '0',
+            "subStaffCategoryIds": '0',
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null
+          };
+          this.meetingService.upsertMeetingFilters(params).subscribe(function (res) {
+            if (typeof res.message == 'number') {
+              var users = _this11.users.reduce(function (acc, data, i) {
+                if (i == 0) {
+                  return JSON.stringify(data.userId);
+                } else {
+                  return acc + ',' + JSON.stringify(data.userId);
+                }
+              }, '');
+
+              var _params = {};
+
+              for (var i = 0; i < _this11.subMeeting.length; i++) {
+                _params.meetings = {
+                  meetingId: 0,
+                  filterId: res.message,
+                  apartmentId: parseInt(_this11.cookieService.get('apartmentId')),
+                  meetingTypeId: parseInt(_this11.meeting.meetingTypeId),
+                  meetingCategoryId: null,
+                  meetingRecipientsIds: users,
+                  meetingDate: _this11.subMeeting[i].meetingDate,
+                  fromTime: _this11.subMeeting[i].meetingStartTime,
+                  toTime: _this11.subMeeting[i].meetingEndTime,
+                  subject: _this11.meeting.meetingSubject,
+                  message: _this11.meeting.meetingMessage,
+                  comments: "string",
+                  isActive: true,
+                  insertedBy: parseInt(_this11.cookieService.get('userId')),
+                  insertedOn: new Date().toISOString(),
+                  updatedBy: null,
+                  updatedOn: null,
+                  meetingStatusId: null,
+                  meetingAttendees: "string",
+                  meetingminutes: "string",
+                  actionitems: "string"
+                };
+
+                _this11.meetingService.addMeeting(_params).subscribe(function (res) {
+                  console.log(res);
+                });
+              }
+            }
+          });
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this = this;
+          var _this12 = this;
 
           this.meeting = {};
           var params = {
             LookupTypeId: 21
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this.meetingCategoryData = res.filter(function (item) {
+            _this12.meetingCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
-          this.getAllUsers();
-          this.getAllRoleTypesList();
-          this.getAllApartmentBlockList();
+          this.userService.getAllRoleTypes().subscribe(function (res) {
+            _this12.roleTypeArr.dropdownList = res;
+          });
+          var users = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.userService.getUsersByApartmentId(users).subscribe(function (res) {
+            _this12.allUsers = res;
+
+            _this12.updateUsers();
+          });
+          var apartmentBlock = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(apartmentBlock).subscribe(function (res) {
+            _this12.apartmentBlock.dropdownList = res;
+          });
           this.roleTypedropdownSettings = {
             singleSelection: true,
             primaryKey: 'value',
@@ -371,386 +754,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             autoPosition: false,
             maxHeight: 240
           };
-        }
-      }, {
-        key: "Goback",
-        value: function Goback() {
-          this.router.navigate(['ams/meetings/list']);
-        }
-      }, {
-        key: "isMobileView",
-        value: function isMobileView() {
-          return window.innerWidth <= 767 ? 'table-responsive' : '';
-        }
-      }, {
-        key: "getAllRoleTypesList",
-        value: function getAllRoleTypesList() {
-          var _this2 = this;
-
-          this.userService.getAllRoleTypes().subscribe(function (res) {
-            _this2.roleTypeArr.dropdownList = res;
-          });
-        }
-      }, {
-        key: "getAppartmentRole",
-        value: function getAppartmentRole(item) {
-          var _this3 = this;
-
-          this.roleCategory.selectedItems = [];
-          this.staffCategory.selectedItems = [];
-          var params = {
-            'ApartmentId': parseInt(this.cookieService.get('apartmentId')),
-            'RoleTypeId': item.value
-          };
-          this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-            _this3.roleCategory.dropdownList = res;
-            var conditinArr = [{
-              "name": "IsLiving",
-              "value": 1
-            }, {
-              "name": "IsPrimaryContact",
-              "value": 2
-            }];
-
-            if (parseInt(item.value) == 2 || parseInt(item.value) == 4) {
-              _this3.condition.dropdownList = conditinArr;
-            } else {
-              _this3.condition.dropdownList = [];
-              _this3.condition.selectedItems = [];
-            }
-
-            _this3.updateUsers();
-          });
-        }
-      }, {
-        key: "getAllApartmentBlockList",
-        value: function getAllApartmentBlockList() {
-          var _this4 = this;
-
-          var params = {
-            apartmentId: 21
-          };
-          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this4.apartmentBlock.dropdownList = res;
-          });
-        }
-      }, {
-        key: "getUserIds$",
-        value: function getUserIds$() {
-          var roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
-            return item.value;
-          }).join(",");
-          var blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) {
-            return item.apartmentBlockId;
-          }).join(",");
-          var conditionIds = Array.prototype.map.call(this.condition.selectedItems, function (item) {
-            return item.value;
-          }).join(",");
-          var staffcategoryIds = Array.prototype.map.call(this.staffCategory.selectedItems, function (item) {
-            return item.value;
-          }).join(",");
-          var staffSubCategoryIds = Array.prototype.map.call(this.staffSubCategory.selectedItems, function (item) {
-            return item.value;
-          }).join(",");
-          var params = {
-            'roleIds': roleIds,
-            'conditionIds': conditionIds,
-            'appartmentbBlockIds': blockIds,
-            'apartmentId': parseInt(this.cookieService.get('apartmentId')),
-            'staffcategoryIds': staffcategoryIds,
-            'staffSubCategoryIds': staffSubCategoryIds
-          };
-          return this.userService.getUsersByFilter(params);
-        }
-      }, {
-        key: "getAllUsers",
-        value: function getAllUsers() {
-          var _this5 = this;
-
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-          };
-          this.userService.getUsersByApartmentId(params).subscribe(function (res) {
-            _this5.allUsers = res;
-
-            _this5.updateUsers();
-          });
-        }
-      }, {
-        key: "updateUsers",
-        value: function updateUsers() {
-          var _this6 = this;
-
-          this.getUserIds$().subscribe(function (res) {
-            if (res.length > 0) {
-              _this6.users = _this6.allUsers.filter(function (obj) {
-                return res.includes(obj.userId);
-              });
-            } else {
-              _this6.users = [];
-            }
-          });
-        }
-      }, {
-        key: "getstaffCategories",
-        value: function getstaffCategories(item) {
-          var _this7 = this;
-
-          if (this.roleTypeArr.selectedItems[0].name.toLowerCase() == "staff") {
-            if (this.staffCategoryMap.get(item.value) == undefined) {
-              var params = {
-                'roleId': item.value,
-                'apartmentId': parseInt(this.cookieService.get('apartmentId'))
-              };
-              this.staffService.getStaffCategoryByRole(params).subscribe(function (res) {
-                var temp = _toConsumableArray(_this7.staffCategory.dropdownList);
-
-                res.forEach(function (element) {
-                  element.category = item.name;
-                  temp.push(element);
-                });
-
-                _this7.staffCategoryMap.set(item.value, res);
-
-                _this7.staffCategory.dropdownList = temp;
-
-                _this7.updateUsers();
-              });
-            } else {
-              var temp = _toConsumableArray(this.staffCategory.dropdownList);
-
-              var addStaffCategory = this.staffCategoryMap.get(item.value);
-              addStaffCategory.forEach(function (element) {
-                temp.push(element);
-              });
-              this.staffCategory.dropdownList = temp;
-            }
-          }
-
-          this.updateUsers();
-        }
-      }, {
-        key: "getAllStaffCategories",
-        value: function getAllStaffCategories(items) {
-          var _this8 = this;
-
-          items.forEach(function (element) {
-            _this8.getstaffCategories(element);
-          });
-        }
-      }, {
-        key: "getStaffSubCategories",
-        value: function getStaffSubCategories(item) {
-          var _this9 = this;
-
-          if (this.staffSubCategoryMap.get(item.value) == undefined) {
-            var params = {
-              'categoryId': item.value,
-              'apartmentId': parseInt(this.cookieService.get('apartmentId'))
-            };
-            this.staffService.getSubStaffCategoryByCategory(params).subscribe(function (res) {
-              var temp = _toConsumableArray(_this9.staffSubCategory.dropdownList);
-
-              res.forEach(function (element) {
-                element.category = item.name;
-                temp.push(element);
-              });
-
-              _this9.staffSubCategoryMap.set(item.value, res);
-
-              _this9.staffSubCategory.dropdownList = temp;
-
-              _this9.updateUsers();
-            });
-          } else {
-            var addSubStaffCategory = this.staffSubCategoryMap.get(item.value);
-
-            var temp = _toConsumableArray(this.staffSubCategory.dropdownList);
-
-            addSubStaffCategory.forEach(function (element) {
-              temp.push(element);
-            });
-            this.staffSubCategory.dropdownList = temp;
-            this.updateUsers();
-          }
-        }
-      }, {
-        key: "removeStaffCategories",
-        value: function removeStaffCategories(item) {
-          var _this10 = this;
-
-          if (this.roleTypeArr.selectedItems[0].name.toLowerCase() == "staff") {
-            var removeStaffCategory = this.staffCategoryMap.get(item.value);
-            removeStaffCategory.forEach(function (element) {
-              _this10.staffCategory.dropdownList = _this10.staffCategory.dropdownList.filter(function (obj) {
-                return obj.value !== element.value;
-              });
-            });
-          }
-
-          this.updateUsers();
-        }
-      }, {
-        key: "removeAllStaffCategories",
-        value: function removeAllStaffCategories(items) {
-          this.roleCategory.selectedItems = [];
-          this.staffCategory.dropdownList = [];
-          this.staffCategory.selectedItems = [];
-          this.updateUsers();
-        }
-      }, {
-        key: "removeRole",
-        value: function removeRole(item) {
-          this.roleCategory.dropdownList = [];
-          this.condition.dropdownList = [];
-          this.condition.selectedItems = [];
-          this.removeAllStaffCategories([]);
-          this.removeAllSubStaffCategories([]);
-        }
-      }, {
-        key: "removeAllSubStaffCategories",
-        value: function removeAllSubStaffCategories(items) {
-          this.staffSubCategory.dropdownList = [];
-          this.staffCategory.selectedItems = [];
-          this.updateUsers();
-        }
-      }, {
-        key: "removeSubStaffCategories",
-        value: function removeSubStaffCategories(item) {
-          var _this11 = this;
-
-          var removeSubStaffCategory = this.staffSubCategoryMap.get(item.value);
-          removeSubStaffCategory.forEach(function (element) {
-            _this11.staffSubCategory.dropdownList = _this11.staffSubCategory.dropdownList.filter(function (obj) {
-              return obj.value !== element.value;
-            });
-          });
-          this.updateUsers();
-        }
-      }, {
-        key: "removeGroupSubStaffCategories",
-        value: function removeGroupSubStaffCategories(items) {
-          var _this12 = this;
-
-          items.list.forEach(function (element) {
-            _this12.removeSubStaffCategories(element);
-          });
-          this.updateUsers();
-        }
-      }, {
-        key: "getAllSubStaffCategories",
-        value: function getAllSubStaffCategories(items) {
-          var _this13 = this;
-
-          items.forEach(function (element) {
-            _this13.getStaffSubCategories(element);
-          });
-        }
-      }, {
-        key: "getGroupSubStaffCategories",
-        value: function getGroupSubStaffCategories(items) {
-          var _this14 = this;
-
-          items.list.forEach(function (element) {
-            _this14.getStaffSubCategories(element);
-          });
-          this.updateUsers();
-        }
-      }, {
-        key: "showTable",
-        value: function showTable() {
-          this.showTableContent = true;
-        }
-      }, {
-        key: "addMeetingSchedule",
-        value: function addMeetingSchedule() {
-          if (this.subMeetingField.meetingDate) {
-            var entity = {
-              meetingDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingDate).format(),
-              meetingStartTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingStartTime).format('hh:mm a'),
-              meetingEndTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingEndTime).format('hh:mm a')
-            };
-            this.subMeeting.push(entity);
-            this.subMeetingField.meetingDate = '';
-            this.subMeetingField.meetingStartTime = '';
-            this.subMeetingField.meetingEndTime = '';
-          }
-        }
-      }, {
-        key: "editMeetingScheduleRow",
-        value: function editMeetingScheduleRow(data, index) {
-          this.subMeetingField.meetingDate = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingDate).format();
-          this.subMeetingField.meetingStartTime = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingStartTime, 'hh:mm a').format();
-          this.subMeetingField.meetingEndTime = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingEndTime, 'hh:mm a').format();
-          ;
-          this.subMeeting.splice(index, 1);
-        }
-      }, {
-        key: "deleteMeetingScheduleRow",
-        value: function deleteMeetingScheduleRow(index) {
-          this.subMeeting.splice(index, 1);
-        }
-      }, {
-        key: "submitAddmeetingForm",
-        value: function submitAddmeetingForm(data) {
-          var apartment = this.apartmentBlock.selectedItems.reduce(function (acc, data, index) {
-            if (index == 0) {
-              return JSON.stringify(data.apartmentBlockId);
-            } else {
-              return acc + ',' + JSON.stringify(data.apartmentBlockId);
-            }
-          }, '');
-          var condition = this.condition.selectedItems.reduce(function (acc, data, index) {
-            if (index == 0) {
-              return JSON.stringify(data.value);
-            } else {
-              return acc + ',' + JSON.stringify(data.value);
-            }
-          }, '');
-          var roleIds = this.roleCategory.selectedItems.reduce(function (acc, data, index) {
-            if (index == 0) {
-              return JSON.stringify(data.value);
-            } else {
-              return acc + ',' + JSON.stringify(data.value);
-            }
-          }, '');
-          var params = {
-            "filterId": 0,
-            "roleTypeId": Number(this.roleTypeArr.selectedItems.length > 0 ? this.roleTypeArr.selectedItems[0].value : 0),
-            "apartmentBlockIds": String(apartment ? apartment : '0'),
-            "conditions": String(condition ? condition : '0'),
-            "roleIds": String(roleIds),
-            "staffCategoryIds": '0',
-            "subStaffCategoryIds": '0',
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-            "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
-            "insertedOn": new Date().toISOString(),
-            "updatedBy": 0,
-            "updatedOn": ''
-          }; // this.meetingService.upsertMeetingFilters(params).subscribe((res)=>{
-          //   console.log(res);
-          //   this.addMeetingForm(res.message);
-          // })
-        }
-      }, {
-        key: "addMeetingForm",
-        value: function addMeetingForm(filterId) {
-          var params = {};
-          params.meetings = {
-            meetingId: 0,
-            filterId: filterId,
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            meetingTypeId: this.meeting.meetingTypeId,
-            meetingRecipientsId: 0,
-            subject: this.meeting.meetingSubject,
-            message: this.meeting.meetingMessage,
-            insertedBy: parseInt(this.cookieService.get('userId')),
-            insertedOn: new Date().toISOString()
-          };
-          this.meetingService.addMeeting(params).subscribe(function (res) {
-            console.log(res);
-          });
         }
       }]);
 
@@ -861,37 +864,44 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/api/controllers/Meeting */
     "./src/app/api/controllers/Meeting.ts");
     /* harmony import */
 
 
-    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/material/dialog */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
     /* harmony import */
 
 
-    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
     "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
     var MeetingsListComponent =
     /*#__PURE__*/
     function () {
-      function MeetingsListComponent(router, meetingService, injector, dialog) {
+      function MeetingsListComponent(router, meetingService, injector, cookieService, dialog) {
         _classCallCheck(this, MeetingsListComponent);
 
         this.router = router;
         this.meetingService = meetingService;
         this.injector = injector;
+        this.cookieService = cookieService;
         this.dialog = dialog;
         this.isMeetingDataLoaded = false;
         this.meetingFieldType = "meetingId";
@@ -901,7 +911,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isMobile = false;
         this.ItemMeetingStartIndex = 0;
         this.itemMeetingLimit = 15;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(MeetingsListComponent, [{
@@ -967,34 +977,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             cellsrenderer: cellsrenderer,
             minwidth: 80,
             renderer: columnrenderer
-          }, {
-            text: 'Actions',
-            cellsalign: 'center',
-            align: 'center',
-            width: 120,
-            cellsrenderer: function cellsrenderer(row) {
-              return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a></div>';
-            },
-            renderer: columnrenderer
           }];
         }
       }, {
         key: "getMeetingList",
         value: function getMeetingList() {
-          var _this15 = this;
+          var _this13 = this;
 
           if (window.innerWidth <= 991) this.isMobile = true;else this.isMobile = false;
           var params = {
-            apartmentId: 4
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
-            _this15.lstMeetingData = res;
+            _this13.lstMeetingData = res;
             console.log(res);
-            _this15.gridSourceData = {
-              localdata: _this15.lstMeetingData,
+            _this13.gridSourceData = {
+              localdata: _this13.lstMeetingData,
               datatype: "array"
             };
-            _this15.lstMeetingData = new jqx.dataAdapter(_this15.gridSourceData); // this.totalMeetingItems = this.lstMeetingData.length;
+            _this13.lstMeetingData = new jqx.dataAdapter(_this13.gridSourceData); // this.totalMeetingItems = this.lstMeetingData.length;
             // if(this.totalMeetingItems>this.itemMeetingLimit){
             //   this.ItemMeetingEndIndex = this.itemMeetingLimit;
             // }
@@ -1002,7 +1003,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             //   this.ItemMeetingEndIndex = this.totalMeetingItems;
             // }
 
-            _this15.isMeetingDataLoaded = true;
+            _this13.isMeetingDataLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -1043,17 +1044,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
-        type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"]
+        type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
       }];
     };
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__["jqxGridComponent"])], MeetingsListComponent.prototype, "datagrid", void 0);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])], MeetingsListComponent.prototype, "datagrid", void 0);
     MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-meetings-list',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1062,7 +1065,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./meetings-list.component.scss */
       "./src/app/ams/meetings/components/meetings-list/meetings-list.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])], MeetingsListComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])], MeetingsListComponent);
     /***/
   },
 
@@ -1161,7 +1164,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9tZWV0aW5ncy9jb21wb25lbnRzL21lZXRpbmdzLXNjaGVkdWxlZC1saXN0L21lZXRpbmdzLXNjaGVkdWxlZC1saXN0LmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "::ng-deep .cdk-overlay-container .cdk-global-overlay-wrapper {\n  top: 37px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvbWVldGluZ3MvY29tcG9uZW50cy9tZWV0aW5ncy1zY2hlZHVsZWQtbGlzdC9tZWV0aW5ncy1zY2hlZHVsZWQtbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL21lZXRpbmdzL2NvbXBvbmVudHMvbWVldGluZ3Mtc2NoZWR1bGVkLWxpc3QvbWVldGluZ3Mtc2NoZWR1bGVkLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxvQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvYW1zL21lZXRpbmdzL2NvbXBvbmVudHMvbWVldGluZ3Mtc2NoZWR1bGVkLWxpc3QvbWVldGluZ3Mtc2NoZWR1bGVkLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgLmNkay1vdmVybGF5LWNvbnRhaW5lciAuY2RrLWdsb2JhbC1vdmVybGF5LXdyYXBwZXIge1xuICAgIHRvcCA6MzdweCAhaW1wb3J0YW50O1xufVxuXG4iLCI6Om5nLWRlZXAgLmNkay1vdmVybGF5LWNvbnRhaW5lciAuY2RrLWdsb2JhbC1vdmVybGF5LXdyYXBwZXIge1xuICB0b3A6IDM3cHggIWltcG9ydGFudDtcbn0iXX0= */";
     /***/
   },
 
@@ -1202,14 +1205,54 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxscheduler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxscheduler */
     "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxscheduler.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Meeting */
+    "./src/app/api/controllers/Meeting.ts");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../meeting-edit-display/meeting-edit-display.component */
+    "./src/app/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
 
     var MeetingsScheduledListComponent =
     /*#__PURE__*/
     function () {
-      function MeetingsScheduledListComponent() {
+      function MeetingsScheduledListComponent(meetingService, cookieService, injector, dialog) {
         _classCallCheck(this, MeetingsScheduledListComponent);
 
-        this.date = new jqx.date(2020, 11, 23);
+        this.meetingService = meetingService;
+        this.cookieService = cookieService;
+        this.injector = injector;
+        this.dialog = dialog;
+        this.date = new jqx.date(new Date());
         this.source = {
           dataType: 'array',
           dataFields: [{
@@ -1234,10 +1277,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             name: 'end',
             type: 'date'
           }],
-          id: 'id',
-          localData: this.generateAppointments()
+          id: 'id'
         };
-        this.dataAdapter = new jqx.dataAdapter(this.source);
+        this.printButton = null;
         this.resources = {
           colorScheme: 'scheme05',
           dataField: 'calendar',
@@ -1256,93 +1298,115 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       _createClass(MeetingsScheduledListComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }, {
-        key: "ngAfterViewInit",
-        value: function ngAfterViewInit() {
-          this.myScheduler.ensureAppointmentVisible('id1');
-        }
-      }, {
         key: "getWidth",
         value: function getWidth() {
           if (document.body.offsetWidth < 800) {
             return '90%';
           }
 
-          return 800;
+          return 950;
         }
       }, {
-        key: "generateAppointments",
-        value: function generateAppointments() {
-          console.log(1);
-          var appointments = new Array();
-          var appointment1 = {
-            id: 'id1',
-            description: 'George brings projector for presentations.',
-            location: '',
-            subject: 'Quarterly Project Review Meeting',
-            calendar: 'Room 1',
-            start: new Date(2020, 10, 23, 9, 0, 0),
-            end: new Date(2020, 10, 23, 16, 0, 0)
+        key: "appointmentClick",
+        value: function appointmentClick(event) {
+          var _this14 = this;
+
+          var data = event.args.appointment.originalData;
+          data.type = 'edit';
+          var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
+            width: 'aito',
+            height: '700px',
+            data: data
+          });
+          dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+              _this14.getMeetingList();
+            }
+          });
+        }
+      }, {
+        key: "appointmentAdd",
+        value: function appointmentAdd(event) {
+          var _this15 = this;
+
+          this.myScheduler.closeDialog();
+          var data = {
+            type: 'create'
           };
-          var appointment2 = {
-            id: 'id2',
-            description: '',
-            location: '',
-            subject: 'IT Group Mtg.',
-            calendar: 'Room 2',
-            start: new Date(2020, 10, 24, 10, 0, 0),
-            end: new Date(2020, 10, 24, 15, 0, 0)
+          var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
+            width: 'aito',
+            height: '700px',
+            data: data
+          });
+          dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+              _this15.getMeetingList();
+            }
+          });
+        }
+      }, {
+        key: "getMeetingList",
+        value: function getMeetingList() {
+          var _this16 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          var appointment3 = {
-            id: 'id3',
-            description: '',
-            location: '',
-            subject: 'Course Social Media',
-            calendar: 'Room 3',
-            start: new Date(2020, 10, 21, 11, 0, 0),
-            end: new Date(2020, 10, 21, 13, 0, 0)
-          };
-          var appointment4 = {
-            id: 'id4',
-            description: '',
-            location: '',
-            subject: 'New Projects Planning',
-            calendar: 'Room 2',
-            start: new Date(2020, 10, 23, 16, 0, 0),
-            end: new Date(2020, 10, 23, 18, 0, 0)
-          };
-          var appointment5 = {
-            id: 'id5',
-            description: '',
-            location: '',
-            subject: 'Interview with James',
-            calendar: 'Room 1',
-            start: new Date(2020, 10, 25, 15, 0, 0),
-            end: new Date(2020, 10, 25, 17, 0, 0)
-          };
-          var appointment6 = {
-            id: 'id6',
-            description: '',
-            location: '',
-            subject: 'Interview with Nancy',
-            calendar: 'Room 4',
-            start: new Date(2020, 10, 26, 14, 0, 0),
-            end: new Date(2020, 10, 26, 16, 0, 0)
-          };
-          appointments.push(appointment1);
-          appointments.push(appointment2);
-          appointments.push(appointment3);
-          appointments.push(appointment4);
-          appointments.push(appointment5);
-          appointments.push(appointment6);
-          return appointments;
+          this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
+            if (res.length > 0) {
+              _this16.schedulerList = [];
+              res.forEach(function (data, i) {
+                var year = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).year();
+                var month = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).month();
+                var date = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).date();
+                var startHours = moment__WEBPACK_IMPORTED_MODULE_5__(data.fromTime, 'HH:mm').hour();
+                var startMin = moment__WEBPACK_IMPORTED_MODULE_5__(data.fromTime, 'HH:mm').minute();
+                var endHours = moment__WEBPACK_IMPORTED_MODULE_5__(data.toTime, 'HH:mm').hour();
+                var endMin = moment__WEBPACK_IMPORTED_MODULE_5__(data.toTime, 'HH:mm').minute();
+                var day = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).day();
+                var entity = {
+                  id: data.meetingId,
+                  description: '',
+                  location: '',
+                  subject: data.subject,
+                  calendar: "Room ".concat(day),
+                  start: new Date(year, month, date, startHours, startMin),
+                  end: new Date(year, month, date, endHours, endMin)
+                };
+
+                _this16.schedulerList.push(entity);
+              });
+              _this16.source.localdata = _this16.schedulerList;
+              _this16.dataAdapter = new jqx.dataAdapter(_this16.source); //this.resources.source = new jqx.dataAdapter(this.source);
+            }
+          });
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.getMeetingList();
+        }
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          this.myScheduler.ensureAppointmentVisible('id1');
         }
       }]);
 
       return MeetingsScheduledListComponent;
     }();
+
+    MeetingsScheduledListComponent.ctorParameters = function () {
+      return [{
+        type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
+      }];
+    };
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('scheduler', {
       "static": false
@@ -1355,7 +1419,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./meetings-scheduled-list.component.scss */
       "./src/app/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], MeetingsScheduledListComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])], MeetingsScheduledListComponent);
     /***/
   },
 
@@ -1488,7 +1552,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteMeetingCategory",
         value: function deleteMeetingCategory(item, index) {
-          var _this16 = this;
+          var _this17 = this;
 
           this.isMeetingCategoryLoaded = false;
           console.log(item);
@@ -1497,9 +1561,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             updateUserId: parseInt(this.cookieService.get('userId'))
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-            _this16.meetingCategoryData.splice(index, 1);
+            _this17.meetingCategoryData.splice(index, 1);
 
-            _this16.isMeetingCategoryLoaded = true;
+            _this17.isMeetingCategoryLoaded = true;
           });
         }
       }, {
@@ -1514,7 +1578,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitMeetingCategoryForm",
         value: function submitMeetingCategoryForm(form) {
-          var _this17 = this;
+          var _this18 = this;
 
           this.isMeetingCategorySubmitted = false;
 
@@ -1534,26 +1598,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.addLookupValue(params).subscribe(function (res) {
               if (res.message) {
-                var _params = {
+                var _params2 = {
                   LookupTypeId: 21
                 };
 
-                _this17.lookupService.getLookupValueByLookupTypeId(_params).subscribe(function (res) {
-                  _this17.isMeetingCategorySubmitted = true;
-                  _this17.isCategorySuccess = true;
+                _this18.lookupService.getLookupValueByLookupTypeId(_params2).subscribe(function (res) {
+                  _this18.isMeetingCategorySubmitted = true;
+                  _this18.isCategorySuccess = true;
 
-                  _this17.sharedService.setAlertMessage("Meeting Type Added Successfully!");
+                  _this18.sharedService.setAlertMessage("Meeting Type Added Successfully!");
 
-                  _this17.meetingCategoryData = res.filter(function (item) {
+                  _this18.meetingCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
 
-                _this17.removeCategoryBox();
+                _this18.removeCategoryBox();
               } else {
-                _this17.isMeetingCategorySubmitted = true;
-                _this17.isCategoryError = true;
-                _this17.alertMeetingMessage = res.errorMessage;
+                _this18.isMeetingCategorySubmitted = true;
+                _this18.isCategoryError = true;
+                _this18.alertMeetingMessage = res.errorMessage;
               }
             });
           } else {
@@ -1568,31 +1632,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": "2019-11-20T16:51:24.105Z"
             };
-            var _params2 = {
+            var _params3 = {
               lookupvalue: _details
             };
-            this.lookupService.updateLookupValue(_params2).subscribe(function (res) {
+            this.lookupService.updateLookupValue(_params3).subscribe(function (res) {
               if (res.message) {
-                var _params3 = {
+                var _params4 = {
                   LookupTypeId: 21
                 };
 
-                _this17.lookupService.getLookupValueByLookupTypeId(_params3).subscribe(function (res) {
-                  _this17.isMeetingCategorySubmitted = true;
-                  _this17.isCategorySuccess = true;
+                _this18.lookupService.getLookupValueByLookupTypeId(_params4).subscribe(function (res) {
+                  _this18.isMeetingCategorySubmitted = true;
+                  _this18.isCategorySuccess = true;
 
-                  _this17.sharedService.setAlertMessage("Meeting Type Updated Successfully!");
+                  _this18.sharedService.setAlertMessage("Meeting Type Updated Successfully!");
 
-                  _this17.meetingCategoryData = res.filter(function (item) {
+                  _this18.meetingCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
 
-                _this17.removeCategoryBox();
+                _this18.removeCategoryBox();
               } else {
-                _this17.isMeetingCategorySubmitted = true;
-                _this17.isCategoryError = true;
-                _this17.alertMeetingMessage = res.errorMessage;
+                _this18.isMeetingCategorySubmitted = true;
+                _this18.isCategoryError = true;
+                _this18.alertMeetingMessage = res.errorMessage;
               }
             });
           }
@@ -1600,15 +1664,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this18 = this;
+          var _this19 = this;
 
           this.meeting = {};
           var params = {
             LookupTypeId: 21
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this18.isMeetingCategoryLoaded = true;
-            _this18.meetingCategoryData = res.filter(function (item) {
+            _this19.isMeetingCategoryLoaded = true;
+            _this19.meetingCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -1616,8 +1680,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 22
           };
           this.lookupService.getLookupValueByLookupTypeId(meetingParams).subscribe(function (res) {
-            _this18.isMeetingCategoryLoaded = true;
-            _this18.recepientsTypeData = res.filter(function (item) {
+            _this19.isMeetingCategoryLoaded = true;
+            _this19.recepientsTypeData = res.filter(function (item) {
               return item.isActive;
             });
           });

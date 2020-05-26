@@ -605,7 +605,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllGroupCategory() {
           var _this2 = this;
 
-          this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
             _this2.broadCastGroupCategory = res;
           });
         }
@@ -651,7 +654,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllBroadcastMessage() {
           var _this3 = this;
 
-          var apartmentId = parseInt(this.cookieService.get('apartmentId'));
           var users$ = this.userService.getAllUsers();
           var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])(function (users) {
             _this3.allUser = users;
@@ -886,10 +888,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           "selectedItems": []
         };
         this.filterOptions = {
-          "roleids": null,
+          "roleids": "",
           "ApartmentId": 0,
-          "blockids": null,
-          "searchText": ""
+          "blockids": "",
+          "keyword": ""
         };
         this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"]();
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
@@ -983,7 +985,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return item.apartmentBlockId;
           }).join(",");
           this.filterOptions.blockids = blockIds;
-          this.filterOptions.searchText = null;
           this.userService.getUsersByKeyword(this.filterOptions).subscribe(function (res) {
             res.forEach(function (element) {
               element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
@@ -1023,7 +1024,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllApartmentBlockList() {
           var _this5 = this;
 
-          this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
             _this5.apartmentBlock.dropdownList = res;
           });
         }
@@ -1215,7 +1219,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllGroupCategory() {
           var _this9 = this;
 
-          this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
             _this9.broadCastGroupCategory.dropdownList = res;
           });
         }
@@ -1224,7 +1231,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getInterestGroupUsers() {
           var _this10 = this;
 
-          this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
             _this10.interestGroupUsers = res; // this.isDataLoaded = true;
             // this.totalItems = this.interestGroupUsers.length;
             // if(this.totalItems>this.itemLimit){
@@ -1702,10 +1712,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
         this.isDataLoaded = false;
         this.filterOptions = {
-          "roleids": null,
+          "roleids": "",
           "ApartmentId": 0,
-          "blockids": null,
-          "searchText": ""
+          "blockids": "",
+          "keyword": ""
         };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
       }
@@ -1780,7 +1790,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this16 = this;
 
           this.isDataLoaded = false;
-          this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
             _this16.interestGroupUsers = res;
 
             _this16.interestGroupUsers.forEach(function (element) {
@@ -1832,11 +1845,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context.prev = _context.next) {
                   case 0:
                     this.filterOptions.ApartmentId = this.apartmentID;
-                    this.filterOptions.searchText = null;
-                    _context.next = 4;
+                    _context.next = 3;
                     return this.userService.getUsersByKeyword(this.filterOptions).toPromise();
 
-                  case 4:
+                  case 3:
                     data = _context.sent;
                     this.allUsers = data;
                     this.getAllGoupUsers(); // .subscribe((res:any)=>{
@@ -1845,7 +1857,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     //   error=>console.log(error)
                     //   );
 
-                  case 7:
+                  case 6:
                   case "end":
                     return _context.stop();
                 }
@@ -1858,7 +1870,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllApartmentBlockList() {
           var _this17 = this;
 
-          this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
             _this17.apartmentBlockList = res;
           });
         }
@@ -1868,7 +1883,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var groupCategory = this.broadCastGroupCategory.dropdownList.filter(function (obj) {
             return obj.broadCastGroupCategoryId == groupCategoryid;
           });
-          return groupCategory[0].groupName;
+
+          if (groupCategory != undefined) {
+            return groupCategory[0].groupName;
+          } else {
+            return "";
+          }
         } //Get Category Type
 
       }, {
@@ -1876,7 +1896,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllGroupCategory() {
           var _this18 = this;
 
-          this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
             _this18.broadCastGroupCategory.dropdownList = res;
           });
         }
@@ -2089,10 +2112,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.isFlashNotice = false;
         this.editorPlacehorder = "";
         this.filterOptions = {
-          "roleids": null,
+          "roleids": "",
           "ApartmentId": 0,
-          "blockids": null,
-          "searchText": ""
+          "blockids": "",
+          "keyword": ""
         };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
       }
@@ -2198,7 +2221,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this19 = this;
 
           this.filterOptions.ApartmentId = this.apartmentID;
-          this.filterOptions.searchText = null;
           this.userService.getUsersByKeyword(this.filterOptions).subscribe(function (res) {
             res.forEach(function (element) {
               element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
@@ -2213,7 +2235,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllUsers() {
           var _this20 = this;
 
-          this.userService.getUsersByApartmentId(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.userService.getUsersByApartmentId(queryParamBase).subscribe(function (res) {
             res.forEach(function (element) {
               element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
             });
@@ -2273,7 +2298,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllApartmentBlockList() {
           var _this21 = this;
 
-          this.apartmentService.getApartmentBlockByApartmentId(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
             _this21.apartmentBlock.dropdownList = res;
             var broadCastModeArr = [{
               "name": "General SMS",
@@ -2294,8 +2322,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllCategory() {
           var _this22 = this;
 
-          var apartmentID = parseInt(this.cookieService.get('apartmentId'));
-          this.broadcastService.getBroadCastMessageCategories(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
             _this22.allcategory = res;
             _this22.broadCastCategory.dropdownList = res;
           });
@@ -2363,7 +2393,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllGroupCategory() {
           var _this26 = this;
 
-          this.broadcastService.getAllBroadCastGroupCategory(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
             _this26.broadCastGroupCategory.dropdownList = res;
           });
         }
@@ -2372,7 +2405,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getInterestGroupUsers() {
           var _this27 = this;
 
-          this.broadcastService.getBroadCastGroupCategoryUser(this.apartmentID).subscribe(function (res) {
+          var queryParamBase = {
+            apartmentId: this.apartmentID
+          };
+          this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
             _this27.interestGroupUsers = res;
           });
         }
@@ -2666,7 +2702,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       'roleTypeId': this.roleTypeArr.selectedItems[0].value
                     };
                     data = {
-                      "message": "0"
+                      "message": "1"
                     };
                     params2 = {
                       "broadCastFilters_model": params

@@ -101,7 +101,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"staff-manager-inactive-staff-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isStaffDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Inactive Staffs <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"staffData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Staff Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Email ID\n\t\t\t\t      \t<span (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email ID\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('staffCategory')\" [ngClass]=\"getFieldOrderBy('staffCategory')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffCategory', 'lookupValueName')\">\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Sub Category\n\t\t\t\t       \t<span (click)=\"sortUnitData('staffSubCategory')\" [ngClass]=\"getFieldOrderBy('staffSubCategory')\"></span>\n\t\t\t\t       \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffSubCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffSubCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffOfficalCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffSubCategory', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Phone Number \n\t\t\t\t      \t<span (click)=\"sortUnitData('contactNumber')\" [ngClass]=\"getFieldOrderBy('contactNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone Number\" [(ngModel)]=\"columnField['contactNumber']\" (ngModelChange)=\"selectColInput('contactNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let staff of staffListData | simpleSearch: staffData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex; let i = index\">\n\t\t\t\t      <td class=\"name\">{{staff.firstName}}</td>\n\t\t\t\t      <td class=\"name\">{{staff.emailId}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getStaffCategory(staff, staff.staffCategoryId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getStaffSubCategory(staff, staff.staffSubCategoryId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{staff.contactNumber}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-staff/{{staff.staffId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"staff-manager-inactive-staff-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isStaffDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Inactive Staffs <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t[(ngModel)]=\"staffData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"staffListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t\n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Staff Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Email ID\n\t\t\t\t      \t<span (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email ID\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('staffCategory')\" [ngClass]=\"getFieldOrderBy('staffCategory')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffCategory', 'lookupValueName')\">\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Sub Category\n\t\t\t\t       \t<span (click)=\"sortUnitData('staffSubCategory')\" [ngClass]=\"getFieldOrderBy('staffSubCategory')\"></span>\n\t\t\t\t       \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffSubCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffSubCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffOfficalCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffSubCategory', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Phone Number \n\t\t\t\t      \t<span (click)=\"sortUnitData('contactNumber')\" [ngClass]=\"getFieldOrderBy('contactNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone Number\" [(ngModel)]=\"columnField['contactNumber']\" (ngModelChange)=\"selectColInput('contactNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let staff of staffListData | simpleSearch: staffData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex; let i = index\">\n\t\t\t\t      <td class=\"name\">{{staff.firstName}}</td>\n\t\t\t\t      <td class=\"name\">{{staff.emailId}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getStaffCategory(staff, staff.staffCategoryId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getStaffSubCategory(staff, staff.staffSubCategoryId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{staff.contactNumber}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-staff/{{staff.staffId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -121,7 +121,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"staff-manager-maintain-staff-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isStaffDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Staffs <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"staffData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-staff\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Staff</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Staff Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Email ID\n\t\t\t\t      \t<span (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email ID\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('staffCategory_Label')\" [ngClass]=\"getFieldOrderBy('staffCategory_Label')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffCategory_Label\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffCategory_Label', 'lookupValueName')\">\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Sub Category\n\t\t\t\t       \t<span (click)=\"sortUnitData('staffSubcategory_Label')\" [ngClass]=\"getFieldOrderBy('staffSubcategory_Label')\"></span>\n\t\t\t\t       \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffSubcategory_Label\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffSubCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffOfficalCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffSubcategory_Label', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Phone Number \n\t\t\t\t      \t<span (click)=\"sortUnitData('contactNumber')\" [ngClass]=\"getFieldOrderBy('contactNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone Number\" [(ngModel)]=\"columnField['contactNumber']\" (ngModelChange)=\"selectColInput('contactNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let staff of staffListData | simpleSearch: staffData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex; let i = index\" [ngClass]=\"staff.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td class=\"name\">{{staff.firstName}}</td>\n\t\t\t\t      <td class=\"name\">{{staff.emailId}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{staff.staffCategory_Label}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{staff.staffSubcategory_Label}}</td>\n\t\t\t\t      <td class=\"grey\">{{staff.contactNumber}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-staff/{{staff.staffId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showConfirmModal(staff.staffId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"staff-manager-maintain-staff-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isStaffDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Staffs <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\"\n\t\t\t\t\t [(ngModel)]=\"staffData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-staff\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Staff</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"staffListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t   \n\t\t\t\n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Staff Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Email ID\n\t\t\t\t      \t<span (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email ID\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('staffCategory_Label')\" [ngClass]=\"getFieldOrderBy('staffCategory_Label')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffCategory_Label\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffCategory_Label', 'lookupValueName')\">\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Sub Category\n\t\t\t\t       \t<span (click)=\"sortUnitData('staffSubcategory_Label')\" [ngClass]=\"getFieldOrderBy('staffSubcategory_Label')\"></span>\n\t\t\t\t       \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffSubcategory_Label\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffSubCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffOfficalCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffSubcategory_Label', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Phone Number \n\t\t\t\t      \t<span (click)=\"sortUnitData('contactNumber')\" [ngClass]=\"getFieldOrderBy('contactNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone Number\" [(ngModel)]=\"columnField['contactNumber']\" (ngModelChange)=\"selectColInput('contactNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let staff of staffListData | simpleSearch: staffData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex; let i = index\" [ngClass]=\"staff.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td class=\"name\">{{staff.firstName}}</td>\n\t\t\t\t      <td class=\"name\">{{staff.emailId}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{staff.staffCategory_Label}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{staff.staffSubcategory_Label}}</td>\n\t\t\t\t      <td class=\"grey\">{{staff.contactNumber}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-staff/{{staff.staffId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showConfirmModal(staff.staffId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>\n\n\n";
     /***/
   },
 
@@ -1870,44 +1870,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/api/controllers/Staff */
     "./src/app/api/controllers/Staff.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
     var StaffInactiveStaffComponent =
     /*#__PURE__*/
     function () {
-      function StaffInactiveStaffComponent(staffService, lookupService, sharedService, cookieService) {
+      function StaffInactiveStaffComponent(staffService, lookupService, sharedService, cookieService, router) {
         _classCallCheck(this, StaffInactiveStaffComponent);
 
         this.staffService = staffService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
+        this.router = router;
         this.isStaffDataLoaded = false;
         this.unitFieldType = "unitno";
         this.unitOrder = true;
@@ -1916,6 +1929,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.staffData = "";
         this.selectedInput = "";
         this.columnField = {};
+        this.params = {
+          apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
       }
 
       _createClass(StaffInactiveStaffComponent, [{
@@ -1946,7 +1962,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSelectChange",
         value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_6__["isEmpty"](event)) {
+          if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
           } else {
@@ -1961,7 +1977,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getStaffCategory",
         value: function getStaffCategory(id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.staffTypeData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffTypeData, function (item) {
             if (item.lookupValueId === id) return item;
           });
 
@@ -1976,7 +1992,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getStaffSubCategory",
         value: function getStaffSubCategory(id) {
           if (this.staffTypeId == 115) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.staffOfficalCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffOfficalCategoryData, function (item) {
               if (item.lookupValueId === id) return item;
             });
 
@@ -1986,7 +2002,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return data[0].lookupValueName;
             }
           } else {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.staffPersonalCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffPersonalCategoryData, function (item) {
               if (item.lookupValueId === id) return item;
             });
 
@@ -1998,18 +2014,77 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "onEditMainstaff",
+        value: function onEditMainstaff(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var staffId = dataRecord.staffId;
+          this.router.navigateByUrl('/ams/staff/edit-staff/' + staffId);
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
           var _this14 = this;
 
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
           };
-          this.staffService.getAllStaffsByApartmentId(params).subscribe(function (res) {
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Staff Name',
+            datafield: 'ticketId',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Email ID',
+            datafield: 'ticketTypeId_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Category',
+            datafield: 'ticketStatusId_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Sub Category',
+            datafield: 'ticketCategoryId_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Phone Number',
+            datafield: 'ticketPriorityId_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
+            },
+            renderer: columnrenderer
+          }];
+          this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
             //filter inactive true items
             _this14.staffListData = res.filter(function (data) {
               return !data.isActive;
             });
+            _this14.gridSourceData = {
+              localdata: _this14.staffListData,
+              datatype: "array"
+            };
+            _this14.staffListData = new jqx.dataAdapter(_this14.gridSourceData);
+            console.log("staffListData Inactive", _this14.staffListData);
             _this14.totalItems = _this14.staffListData.length;
 
             if (_this14.totalItems > _this14.itemLimit) {
@@ -2056,16 +2131,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     StaffInactiveStaffComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"]
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])], StaffInactiveStaffComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditMainstaff', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], StaffInactiveStaffComponent.prototype, "onEditMainstaff", null);
     StaffInactiveStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-staff-inactive-staff',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -2074,7 +2155,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-inactive-staff.component.scss */
       "./src/app/ams/staff-manager/components/staff-inactive-staff/staff-inactive-staff.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], StaffInactiveStaffComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffInactiveStaffComponent);
+
+    function editMainstaff(row) {
+      var event = new CustomEvent('onEditMainstaff', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editMainstaff = editMainstaff;
     /***/
   },
 
@@ -2132,56 +2224,68 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/api/controllers/Staff */
     "./src/app/api/controllers/Staff.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_8___default =
+    var moment__WEBPACK_IMPORTED_MODULE_9___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
     var StaffMaintainStaffComponent =
     /*#__PURE__*/
     function () {
-      function StaffMaintainStaffComponent(injector, staffService, lookupService, sharedService, cookieService) {
+      function StaffMaintainStaffComponent(injector, staffService, lookupService, sharedService, cookieService, router) {
         _classCallCheck(this, StaffMaintainStaffComponent);
 
         this.injector = injector;
@@ -2189,6 +2293,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
+        this.router = router;
         this.isStaffDataLoaded = false;
         this.unitFieldType = "unitno";
         this.unitOrder = true;
@@ -2197,7 +2302,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.staffData = "";
         this.selectedInput = "";
         this.columnField = {};
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
+        this.params = {
+          apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(StaffMaintainStaffComponent, [{
@@ -2228,7 +2336,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSelectChange",
         value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
+          if (!underscore__WEBPACK_IMPORTED_MODULE_8__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
           } else {
@@ -2248,12 +2356,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getTimeFormat",
         value: function getTimeFormat(dateTime) {
-          return moment__WEBPACK_IMPORTED_MODULE_8__(dateTime).format("YYYY-MM-DD HH:mm");
+          return moment__WEBPACK_IMPORTED_MODULE_9__(dateTime).format("YYYY-MM-DD HH:mm");
         }
       }, {
         key: "getStaffCategory",
         value: function getStaffCategory(staff, id) {
-          var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffTypeData, function (item) {
+          var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffTypeData, function (item) {
             if (item.lookupValueId === id) return item;
           });
 
@@ -2272,7 +2380,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getStaffSubCategory",
         value: function getStaffSubCategory(staff, id) {
           if (this.staffTypeId == 115) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffOfficalCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffOfficalCategoryData, function (item) {
               if (item.lookupValueId === id) return item;
             });
 
@@ -2287,7 +2395,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return data[0].lookupValueName;
             }
           } else {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffPersonalCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.staffPersonalCategoryData, function (item) {
               if (item.lookupValueId === id) return item;
             });
 
@@ -2304,34 +2412,118 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
           var _this15 = this;
 
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          if (this.staffData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.staffData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this15.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "onEditMainstaff",
+        value: function onEditMainstaff(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var staffId = dataRecord.staffId;
+          this.router.navigateByUrl('/ams/staff/edit-staff/' + staffId);
+        }
+      }, {
+        key: "onAllStaffDelete",
+        value: function onAllStaffDelete(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var staffId = dataRecord.staffId;
+          this.modalService.showConfirmModal(staffId);
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this16 = this;
+
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
           };
-          this.staffService.getAllStaffsByApartmentId(params).subscribe(function (res) {
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Staff Name',
+            datafield: 'firstName',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Email Id',
+            datafield: 'emailId',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Category',
+            datafield: 'staffCategory_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Phone Number',
+            datafield: 'phoneNumber_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil edit" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
+            },
+            renderer: columnrenderer
+          }];
+          this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
             //filter active true items
-            _this15.staffListData = res.filter(function (data) {
+            _this16.staffListData = res.filter(function (data) {
               return data.isActive;
             });
-            _this15.totalItems = _this15.staffListData.length;
+            _this16.gridSourceData = {
+              localdata: _this16.staffListData,
+              datatype: "array"
+            };
+            _this16.staffListData = new jqx.dataAdapter(_this16.gridSourceData);
+            console.log("staffListData", _this16.staffListData);
+            _this16.totalItems = _this16.staffListData.length;
 
-            if (_this15.totalItems > _this15.itemLimit) {
-              _this15.ItemEndIndex = _this15.itemLimit;
+            if (_this16.totalItems > _this16.itemLimit) {
+              _this16.ItemEndIndex = _this16.itemLimit;
             } else {
-              _this15.ItemEndIndex = _this15.totalItems;
+              _this16.ItemEndIndex = _this16.totalItems;
             }
 
-            _this15.isStaffDataLoaded = true;
+            _this16.isStaffDataLoaded = true;
           });
           var staffParams = {
             LookupTypeId: 25
           }; //staff type
 
           this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
-            _this15.staffTypeData = res.filter(function (item) {
+            _this16.staffTypeData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -2340,17 +2532,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //offical category type
 
           this.lookupService.getLookupValueByLookupTypeId(officialParams).subscribe(function (res) {
-            _this15.staffOfficalCategoryData = res.filter(function (item) {
+            _this16.staffOfficalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            console.log(_this15.staffOfficalCategoryData);
+            console.log(_this16.staffOfficalCategoryData);
           }, function (error) {});
           var officialCategoryParams = {
             LookupTypeId: 27
           }; //personal category type
 
           this.lookupService.getLookupValueByLookupTypeId(officialCategoryParams).subscribe(function (res) {
-            _this15.staffPersonalCategoryData = res.filter(function (item) {
+            _this16.staffPersonalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {}); // delete item
@@ -2359,24 +2551,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (id != null) {
               var params = {
                 staffId: id,
-                deleteBy: parseInt(_this15.cookieService.get('userId'))
+                deleteBy: parseInt(_this16.cookieService.get('userId'))
               };
 
-              _this15.staffService.deleteStaff(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this15.staffListData, function (type) {
+              _this16.staffService.deleteStaff(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this16.staffListData, function (type) {
                   if (type.staffId == id) {
                     type.isActive = false;
                   }
                 });
                 setTimeout(function () {
-                  _this15.staffListData = _this15.staffListData.filter(function (type) {
+                  _this16.staffListData = _this16.staffListData.filter(function (type) {
                     return type.staffId !== id;
                   });
-                  _this15.totalItems = _this15.staffListData.length;
+                  _this16.totalItems = _this16.staffListData.length;
 
-                  _this15.sharedService.setAlertMessage("Staff deleted");
+                  _this16.sharedService.setAlertMessage("Staff deleted");
 
-                  _this15.sharedService.setUnitListDeleteIndex(null);
+                  _this16.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -2393,16 +2585,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
-        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"]
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__["jqxGridComponent"])], StaffMaintainStaffComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditMainstaff', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], StaffMaintainStaffComponent.prototype, "onEditMainstaff", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onAllStaffDelete', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], StaffMaintainStaffComponent.prototype, "onAllStaffDelete", null);
     StaffMaintainStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-staff-maintain-staff',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -2411,7 +2610,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-maintain-staff.component.scss */
       "./src/app/ams/staff-manager/components/staff-maintain-staff/staff-maintain-staff.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], StaffMaintainStaffComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffMaintainStaffComponent);
+
+    function editMainstaff(row) {
+      var event = new CustomEvent('onEditMainstaff', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editMainstaff = editMainstaff;
+
+    function showConfirmDeleteEvent(row) {
+      var event = new CustomEvent('onAllStaffDelete', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.showConfirmDeleteEvent = showConfirmDeleteEvent;
     /***/
   },
 
@@ -2799,14 +3020,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitStaffForm",
         value: function submitStaffForm(form) {
-          var _this16 = this;
+          var _this17 = this;
 
           this.isError = false; //offical category
 
           if (this.staffType == "115") {
             this.staffTypeId = 26;
             var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryOffcialData, function (item) {
-              return item.lookupValueName === _this16.staffCategory;
+              return item.lookupValueName === _this17.staffCategory;
             });
 
             if (categoryAvailable) {
@@ -2831,18 +3052,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: details
                 };
                 this.lookupService.addLookupValue(params).subscribe(function (res) {
-                  _this16.isStaffLoaded = true;
-                  _this16.isCategoryDataLoaded = false;
+                  _this17.isStaffLoaded = true;
+                  _this17.isCategoryDataLoaded = false;
                   var params = {
-                    LookupTypeId: _this16.staffTypeId
+                    LookupTypeId: _this17.staffTypeId
                   };
 
-                  _this16.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryOffcialListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this16.categoryOffcialListData = categoryOffcialListData;
-                    _this16.isCategoryDataLoaded = true;
+                    _this17.categoryOffcialListData = categoryOffcialListData;
+                    _this17.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               } else {
@@ -2861,19 +3082,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details3
                 };
                 this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
-                  _this16.isStaffLoaded = true;
-                  _this16.isCategoryDataLoaded = false;
-                  _this16.isEditStaffCategory = false;
+                  _this17.isStaffLoaded = true;
+                  _this17.isCategoryDataLoaded = false;
+                  _this17.isEditStaffCategory = false;
                   var params = {
-                    LookupTypeId: _this16.staffTypeId
+                    LookupTypeId: _this17.staffTypeId
                   };
 
-                  _this16.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryOffcialListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this16.categoryOffcialListData = categoryOffcialListData;
-                    _this16.isCategoryDataLoaded = true;
+                    _this17.categoryOffcialListData = categoryOffcialListData;
+                    _this17.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               }
@@ -2881,7 +3102,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.staffTypeId = 27;
             var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryPersonalData, function (item) {
-              return item.lookupValueName === _this16.staffCategory;
+              return item.lookupValueName === _this17.staffCategory;
             });
 
             if (categoryAvailable) {
@@ -2906,18 +3127,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details4
                 };
                 this.lookupService.addLookupValue(_params5).subscribe(function (res) {
-                  _this16.isStaffLoaded = true;
-                  _this16.isCategoryDataLoaded = false;
+                  _this17.isStaffLoaded = true;
+                  _this17.isCategoryDataLoaded = false;
                   var params = {
-                    LookupTypeId: _this16.staffTypeId
+                    LookupTypeId: _this17.staffTypeId
                   };
 
-                  _this16.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryPersonalListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this16.categoryPersonalListData = categoryPersonalListData;
-                    _this16.isCategoryDataLoaded = true;
+                    _this17.categoryPersonalListData = categoryPersonalListData;
+                    _this17.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               } else {
@@ -2936,19 +3157,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details5
                 };
                 this.lookupService.updateLookupValue(_params6).subscribe(function (res) {
-                  _this16.isStaffLoaded = true;
-                  _this16.isCategoryDataLoaded = false;
-                  _this16.isEditStaffCategory = false;
+                  _this17.isStaffLoaded = true;
+                  _this17.isCategoryDataLoaded = false;
+                  _this17.isEditStaffCategory = false;
                   var params = {
-                    LookupTypeId: _this16.staffTypeId
+                    LookupTypeId: _this17.staffTypeId
                   };
 
-                  _this16.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryPersonalListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this16.categoryPersonalListData = categoryPersonalListData;
-                    _this16.isCategoryDataLoaded = true;
+                    _this17.categoryPersonalListData = categoryPersonalListData;
+                    _this17.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               }
@@ -2958,15 +3179,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this17 = this;
+          var _this18 = this;
 
           var params = {
             LookupTypeId: 25
           }; //get all staff type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this17.staffCategoryData = res;
-            _this17.isStaffLoaded = true;
+            _this18.staffCategoryData = res;
+            _this18.isStaffLoaded = true;
           }, function (error) {});
           var categoryParams = {
             LookupTypeId: 26
@@ -2976,46 +3197,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var categoryOffcialListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this17.categoryOffcialListData = categoryOffcialListData;
+            _this18.categoryOffcialListData = categoryOffcialListData;
             var categoryPersonalParams = {
               LookupTypeId: 27
             }; //get all personal category
 
-            _this17.lookupService.getLookupValueByLookupTypeId(categoryPersonalParams).subscribe(function (res) {
+            _this18.lookupService.getLookupValueByLookupTypeId(categoryPersonalParams).subscribe(function (res) {
               var categoryPersonalListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this17.categoryPersonalListData = categoryPersonalListData;
-              _this17.isCategoryDataLoaded = true;
+              _this18.categoryPersonalListData = categoryPersonalListData;
+              _this18.isCategoryDataLoaded = true;
             }, function (error) {});
           }, function (error) {}); // delete lookupvalue
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (index) {
             if (index != null) {
-              if (_this17.staffDeleteTypeId == "115") {
+              if (_this18.staffDeleteTypeId == "115") {
                 var params = {
-                  lookupValueId: _this17.categoryOffcialListData[index].lookupValueId,
-                  updateUserId: parseInt(_this17.cookieService.get('userId'))
+                  lookupValueId: _this18.categoryOffcialListData[index].lookupValueId,
+                  updateUserId: parseInt(_this18.cookieService.get('userId'))
                 };
               } else {
                 var params = {
-                  lookupValueId: _this17.categoryPersonalListData[index].lookupValueId,
-                  updateUserId: parseInt(_this17.cookieService.get('userId'))
+                  lookupValueId: _this18.categoryPersonalListData[index].lookupValueId,
+                  updateUserId: parseInt(_this18.cookieService.get('userId'))
                 };
               }
 
-              _this17.isCategoryDataLoaded = false;
+              _this18.isCategoryDataLoaded = false;
 
-              _this17.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                if (_this17.staffDeleteTypeId == "115") {
-                  _this17.categoryOffcialListData.splice(index, 1);
+              _this18.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                if (_this18.staffDeleteTypeId == "115") {
+                  _this18.categoryOffcialListData.splice(index, 1);
                 } else {
-                  _this17.categoryPersonalListData.splice(index, 1);
+                  _this18.categoryPersonalListData.splice(index, 1);
                 }
 
-                _this17.isCategoryDataLoaded = true;
+                _this18.isCategoryDataLoaded = true;
 
-                _this17.sharedService.setUnitListDeleteIndex(null);
+                _this18.sharedService.setUnitListDeleteIndex(null);
               }, function (error) {
                 console.log(error);
               });
@@ -3229,7 +3450,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitShiftsForm",
         value: function submitShiftsForm(form) {
-          var _this18 = this;
+          var _this19 = this;
 
           this.isShiftsLoaded = false;
 
@@ -3250,11 +3471,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.staffService.addShift(params).subscribe(function (res) {
               if (res.message) {
-                _this18.isShiftsLoaded = true;
+                _this19.isShiftsLoaded = true;
 
-                _this18.sharedService.setAlertMessage("Shift added Successfully!");
+                _this19.sharedService.setAlertMessage("Shift added Successfully!");
 
-                _this18.getAllShifts();
+                _this19.getAllShifts();
               }
             }, function (error) {});
           } else {
@@ -3275,11 +3496,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.staffService.updateShift(_params7).subscribe(function (res) {
               if (res.message) {
-                _this18.isShiftsLoaded = true;
+                _this19.isShiftsLoaded = true;
 
-                _this18.sharedService.setAlertMessage("Shift updated Successfully!");
+                _this19.sharedService.setAlertMessage("Shift updated Successfully!");
 
-                _this18.getAllShifts();
+                _this19.getAllShifts();
               }
             }, function (error) {});
           }
@@ -3287,12 +3508,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addShift",
         value: function addShift() {
-          var _this19 = this;
+          var _this20 = this;
 
           this.isEditShift = false;
           this.isAddShiftLoaded = false;
           setTimeout(function () {
-            _this19.isAddShiftLoaded = true;
+            _this20.isAddShiftLoaded = true;
           }, 10);
           setTimeout(function () {
             var elem = document.querySelector('.add-shift-card');
@@ -3306,11 +3527,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editShift",
         value: function editShift(shift) {
-          var _this20 = this;
+          var _this21 = this;
 
           this.isAddShiftLoaded = false;
           setTimeout(function () {
-            _this20.isAddShiftLoaded = true;
+            _this21.isAddShiftLoaded = true;
           }, 10);
           this.isEditShift = true;
           this.shiftTypeId = shift.shiftTypeId;
@@ -3339,31 +3560,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllShifts",
         value: function getAllShifts() {
-          var _this21 = this;
+          var _this22 = this;
 
           this.isShiftTableLoaded = false;
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.staffService.getAllShiftsByApartmentId(params).subscribe(function (res) {
-            _this21.shiftsListData = res.filter(function (item) {
+            _this22.shiftsListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this21.totalItems = _this21.shiftsListData.length;
+            _this22.totalItems = _this22.shiftsListData.length;
 
-            if (_this21.totalItems > _this21.itemLimit) {
-              _this21.ItemEndIndex = _this21.itemLimit;
+            if (_this22.totalItems > _this22.itemLimit) {
+              _this22.ItemEndIndex = _this22.itemLimit;
             } else {
-              _this21.ItemEndIndex = _this21.totalItems;
+              _this22.ItemEndIndex = _this22.totalItems;
             }
 
-            _this21.isShiftTableLoaded = true;
+            _this22.isShiftTableLoaded = true;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this22 = this;
+          var _this23 = this;
 
           this.shift = {};
           this.getAllShifts();
@@ -3372,7 +3593,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //shift type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this22.shiftTypeList = res.filter(function (item) {
+            _this23.shiftTypeList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {}); // delete item
@@ -3381,18 +3602,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (item != null) {
               var params = {
                 shiftId: item.shiftId,
-                deleteBy: parseInt(_this22.cookieService.get('userId'))
+                deleteBy: parseInt(_this23.cookieService.get('userId'))
               };
-              _this22.isShiftTableLoaded = false;
+              _this23.isShiftTableLoaded = false;
 
-              _this22.staffService.deleteShift(params).subscribe(function (res) {
-                _this22.shiftsListData = _this22.shiftsListData.filter(function (type) {
+              _this23.staffService.deleteShift(params).subscribe(function (res) {
+                _this23.shiftsListData = _this23.shiftsListData.filter(function (type) {
                   return type.shiftId !== item.shiftId;
                 });
 
-                _this22.sharedService.setUnitListDeleteIndex(null);
+                _this23.sharedService.setUnitListDeleteIndex(null);
 
-                _this22.isShiftTableLoaded = true;
+                _this23.isShiftTableLoaded = true;
               }, function (error) {
                 console.log(error);
               });

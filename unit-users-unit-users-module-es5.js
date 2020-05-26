@@ -141,7 +141,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"deactivated-wrapper\">\n\t\t\n    <app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>De Activated Resident Accounts <span class=\"badge lime-green\">{{totalUserItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Activate documents</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"deActivatedData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body p-0\">\n\t\t\t\n\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" class=\"select\">\n\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t    id=\"selectAllDeactivatedUser\" \n\t\t\t\t\t\t\t    name=\"selectAllDeactivatedUser\" \n\t\t\t\t\t\t\t    [(ngModel)]=\"selectAllDeactivatedUser\"\n                            \t(ngModelChange)=\"getAllDeactivatedUser()\" >\n\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"selectAllDeactivatedUser\"></label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t      \t</div>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('name')\">Name <span [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No <span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('unitNo')\">Unit No <span [ngClass]=\"getFieldOrderBy('unitNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let unit of deActivatedListData | simpleSearch: deActivatedData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\" [ngClass]=\"unit.checked ? 'selected' : ''\">\n\t\t\t\t      <td class=\"select\">\n\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t    id=\"{{unit.id}}\" \n\t                            name=\"{{unit.id}}\"\n\t                            [(ngModel)]=\"unit.checked\"\n\t                            (ngModelChange)=\"getSelectedDeActivatedUser(unit)\"\n\t\t\t\t\t\t\t    >\n\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"{{unit.id}}\"></label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t      \t</div>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t      \t{{unit.name}}</a>\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Status/Notes</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{getNotes(unit.apartmentBlockUnit)}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Owner/Tenant</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{getUserRole(unit.userRole, i)}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Status/Notes</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{getNotes(unit.apartmentBlockUnit)}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Verification Status</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{unit.status}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t  \t  </td>\n\t\t\t\t      <td class=\"grey\">{{unit.phone}}</td>\n\t\t\t\t      <td class=\"grey\">{{unit.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBlockNo(unit.apartmentBlockUnit, i)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBlockUnitNo(unit.apartmentBlockUnit, i)}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"showUserInfo(i)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/unit&users/edit-user/{{unit.id}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\n\t\t\t<div class=\"button-wrapper border-top\">\n\t\t\t\t<a class=\"btn lime-green sf\"\n\t\t\t\t\t(click)=\"activateUser()\"\n\t\t\t\t\t[ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n\t\t\t\t\t<span>Activate Selected User</span>\n    \t\t\t</a>\n\t\t\t\t<a class=\"btn lime-green sf\"\n\t\t\t\t\t(click)=\"activateUser()\"\n\t\t\t\t\t[ngClass]=\"!isBulkActivate ? 'disabled' : ''\">\n\t\t\t\t\t<span>Bulk Activate</span>\n    \t\t\t</a>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalUserItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemUserStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemUserEndIndex\"\n\t\t\t\t[itemLimit] = \"itemUserLimit\"\n\t\t\t\t(outputParams) = \"getUserIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\t</div>\n\n\t<ng-template #viewDeactivatedUserRef let-user>\n    \t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{user.firstName}} {{user.lastName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{user.roleName}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t<p>{{user.userId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Block No</h6>\n\t\t\t\t\t\t\t<p>{{user.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t<p>{{user.address1}} {{user.address2}} {{user.zipCode}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t</div>\n\t</ng-template>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"deactivated-wrapper\">\n\t\t\n    <app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>De Activated Resident Accounts <span class=\"badge lime-green\">{{totalUserItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Activate documents</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t[(ngModel)]=\"deActivatedData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body p-0\">\n\t\t\t\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"deActivatedListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t\t<!-- <table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" class=\"select\">\n\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t    id=\"selectAllDeactivatedUser\" \n\t\t\t\t\t\t\t    name=\"selectAllDeactivatedUser\" \n\t\t\t\t\t\t\t    [(ngModel)]=\"selectAllDeactivatedUser\"\n                            \t(ngModelChange)=\"getAllDeactivatedUser()\" >\n\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"selectAllDeactivatedUser\"></label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t      \t</div>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('name')\">Name <span [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No <span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('unitNo')\">Unit No <span [ngClass]=\"getFieldOrderBy('unitNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let unit of deActivatedListData | simpleSearch: deActivatedData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\" [ngClass]=\"unit.checked ? 'selected' : ''\">\n\t\t\t\t      <td class=\"select\">\n\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t    id=\"{{unit.id}}\" \n\t                            name=\"{{unit.id}}\"\n\t                            [(ngModel)]=\"unit.checked\"\n\t                            (ngModelChange)=\"getSelectedDeActivatedUser(unit)\"\n\t\t\t\t\t\t\t    >\n\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"{{unit.id}}\"></label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t      \t</div>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t      \t{{unit.name}}</a>\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Status/Notes</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{getNotes(unit.apartmentBlockUnit)}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Owner/Tenant</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{getUserRole(unit.userRole, i)}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Status/Notes</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{getNotes(unit.apartmentBlockUnit)}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Verification Status</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{unit.status}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t  \t  </td>\n\t\t\t\t      <td class=\"grey\">{{unit.phone}}</td>\n\t\t\t\t      <td class=\"grey\">{{unit.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBlockNo(unit.apartmentBlockUnit, i)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBlockUnitNo(unit.apartmentBlockUnit, i)}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"showUserInfo(i)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/unit&users/edit-user/{{unit.id}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table> -->\n\n\t\t\t<!-- <div class=\"button-wrapper border-top\">\n\t\t\t\t<a class=\"btn lime-green sf\"\n\t\t\t\t\t(click)=\"activateUser()\"\n\t\t\t\t\t[ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n\t\t\t\t\t<span>Activate Selected User</span>\n    \t\t\t</a>\n\t\t\t\t<a class=\"btn lime-green sf\"\n\t\t\t\t\t(click)=\"activateUser()\"\n\t\t\t\t\t[ngClass]=\"!isBulkActivate ? 'disabled' : ''\">\n\t\t\t\t\t<span>Bulk Activate</span>\n    \t\t\t</a>\n\t\t\t</div> -->\n\t\t\t<!-- <app-pagination \n\t\t\t\t[totalItems]=\"totalUserItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemUserStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemUserEndIndex\"\n\t\t\t\t[itemLimit] = \"itemUserLimit\"\n\t\t\t\t(outputParams) = \"getUserIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n\t\t</div>\n\t</div>\n\n\t<ng-template #viewDeactivatedUserRef let-user>\n    \t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{user.firstName}} {{user.lastName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{user.roleName}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t<p>{{user.userId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Block No</h6>\n\t\t\t\t\t\t\t<p>{{user.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t<p>{{user.address1}} {{user.address2}} {{user.zipCode}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t</div>\n\t</ng-template>\n\n</div>";
     /***/
   },
 
@@ -161,7 +161,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\n    <app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isUserDataLoaded\">\n\n        <div class=\"card clear table-card\">\n\n            <div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Self Sign Up Users <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t    \t\t</ul>\n              </div>\n              \n              <div class=\"card-body p-0\">\n\n                <jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\n              </div>\n\n        </div>\n\n\n    </ng-container>\n\n\n   <!--  <div class=\"card ov card-table\" *ngIf=\"isUserDataLoaded\">\n        \n        <div class=\"card-body ov p-0\">\n            <table class=\"table table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">\n                            RequestID \n                            <span (click)=\"sortUnitData('signupUserRequestId')\" [ngClass]=\"getFieldOrderBy('signupUserRequestId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"RequstID\" [(ngModel)]=\"columnField['signupUserRequestId']\" (ngModelChange)=\"selectColInput('signupUserRequestId')\" >\n                        </th>\n                      <th scope=\"col\">\n                          Name \n                          <span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Phone <span (click)=\"sortUnitData('phoneNumber')\" [ngClass]=\"getFieldOrderBy('phoneNumber')\"></span>\n                           <input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phoneNumber']\" (ngModelChange)=\"selectColInput('phoneNumber')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Email <span  (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n                           <input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Block No <span  (click)=\"sortUnitData('apartmentId')\" [ngClass]=\"getFieldOrderBy('apartmentId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Block No\" [(ngModel)]=\"columnField['apartmentId']\" (ngModelChange)=\"selectColInput('apartmentId')\" >\n                      </th>\n                      <th scope=\"col\">Unit No <span  (click)=\"sortUnitData('apartmentId')\" [ngClass]=\"getFieldOrderBy('apartmentId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Unit No\" [(ngModel)]=\"columnField['apartmentId']\" (ngModelChange)=\"selectColInput('apartmentId')\">\n                      </th>\n                      <th scope=\"col\">Requested On \n                        <span (click)=\"sortUnitData('insertedOn')\" [ngClass]=\"getFieldOrderBy('insertedOn')\"></span>\n                        <app-simple-date-box \n                          [dateModel]=\"insertedOn\"\n                          (inputChange) = \"onDateChange($event, 'insertedOn')\"\n                          ></app-simple-date-box>\n                    </th>\n                      <th scope=\"col\" class=\"simple-actions\">\n                      Actions\n                      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n                        </th>\n                    </tr>\n                </thead>\n                <tbody>\n                 <tr *ngFor=\"let unit of unitListData  columnField:selectedInput | simpleSearch: unitData ; let i = index\">\n                    <td class=\"grey\">{{unit.signupUserRequestId}}</td>   \n                      <td class=\"name\">\n                          <a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n                          {{unit.firstName}}</a>\n                          <ng-template #popContent>\n                            <div class=\"pop-desp\">\n                                <ul>\n                                    <li>\n                                        <h6>Status/Notes</h6>\n                                        <p>{{unit.notes}}</p>\n                                    </li>\n                                    <li>\n                                        <h6>Owner/Tenant</h6>\n                                        <p>{{unit.comments}}</p>\n                                    </li>\n                                </ul>\n                            </div>\n                        </ng-template>\n                        </td>\n                      <td class=\"grey\">{{unit.phoneNumber}}</td>\n                      <td class=\"grey\">{{unit.emailId}}</td>\n                      <td class=\"grey\">{{unit.signupSubNotes[0].blockUnit}}</td>\n                      <td class=\"grey\">{{unit.signupSubNotes[0].unit}}</td>\n                      <td class=\"grey\">{{getBookedDate(unit.insertedOn)}}</td>\n                      <td class=\"simple-actions\">\n                        <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"EditUserInfo(unit)\"><i-feather class=\"icon plus\" name=\"plus\"></i-feather></a>\n                          <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"viewSignup(unit)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n                         \n                          <a href=\"javascript:void(0)\" (click)=\"showConfirmModal(unit)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                    </td>\n                    </tr> \n                </tbody>\n            </table>\n            <app-pagination \n                [totalItems]=\"totalUserItems\"  \n                [ItemStartIndex]=\"ItemUserStartIndex\"\n                [ItemEndIndex] = \"ItemUserEndIndex\"\n                [itemLimit] = \"itemUserLimit\"\n                (outputParams) = \"getUserIndexParams($event)\">\t\n            </app-pagination>\n    \n        </div>\n    </div> -->\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\n    <app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isUserDataLoaded\">\n\n        <div class=\"card clear table-card\">\n\n            <div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Self Sign Up Users <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t    \t\t</ul>\n              </div>\n              \n              <div class=\"card-body p-0\">\n\n                <jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\n              </div>\n\n        </div>\n\n\n    </ng-container>\n\n\n   <!--  <div class=\"card ov card-table\" *ngIf=\"isUserDataLoaded\">\n        \n        <div class=\"card-body ov p-0\">\n\n                <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n            </jqxGrid> \n            \n             <table class=\"table table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">\n                            RequestID \n                            <span (click)=\"sortUnitData('signupUserRequestId')\" [ngClass]=\"getFieldOrderBy('signupUserRequestId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"RequstID\" [(ngModel)]=\"columnField['signupUserRequestId']\" (ngModelChange)=\"selectColInput('signupUserRequestId')\" >\n                        </th>\n                      <th scope=\"col\">\n                          Name \n                          <span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Phone <span (click)=\"sortUnitData('phoneNumber')\" [ngClass]=\"getFieldOrderBy('phoneNumber')\"></span>\n                           <input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phoneNumber']\" (ngModelChange)=\"selectColInput('phoneNumber')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Email <span  (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n                           <input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n                      </th>\n                      <th scope=\"col\">\n                          Block No <span  (click)=\"sortUnitData('apartmentId')\" [ngClass]=\"getFieldOrderBy('apartmentId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Block No\" [(ngModel)]=\"columnField['apartmentId']\" (ngModelChange)=\"selectColInput('apartmentId')\" >\n                      </th>\n                      <th scope=\"col\">Unit No <span  (click)=\"sortUnitData('apartmentId')\" [ngClass]=\"getFieldOrderBy('apartmentId')\"></span>\n                          <input type=\"text\" class=\"form-control\" placeholder=\"Unit No\" [(ngModel)]=\"columnField['apartmentId']\" (ngModelChange)=\"selectColInput('apartmentId')\">\n                      </th>\n                      <th scope=\"col\">Requested On \n                        <span (click)=\"sortUnitData('insertedOn')\" [ngClass]=\"getFieldOrderBy('insertedOn')\"></span>\n                        <app-simple-date-box \n                          [dateModel]=\"insertedOn\"\n                          (inputChange) = \"onDateChange($event, 'insertedOn')\"\n                          ></app-simple-date-box>\n                    </th>\n                      <th scope=\"col\" class=\"simple-actions\">\n                      Actions\n                      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n                        </th>\n                    </tr>\n                </thead>\n                <tbody>\n                 <tr *ngFor=\"let unit of unitListData  columnField:selectedInput | simpleSearch: unitData ; let i = index\">\n                    <td class=\"grey\">{{unit.signupUserRequestId}}</td>   \n                      <td class=\"name\">\n                          <a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n                          {{unit.firstName}}</a>\n                          <ng-template #popContent>\n                            <div class=\"pop-desp\">\n                                <ul>\n                                    <li>\n                                        <h6>Status/Notes</h6>\n                                        <p>{{unit.notes}}</p>\n                                    </li>\n                                    <li>\n                                        <h6>Owner/Tenant</h6>\n                                        <p>{{unit.comments}}</p>\n                                    </li>\n                                </ul>\n                            </div>\n                        </ng-template>\n                        </td>\n                      <td class=\"grey\">{{unit.phoneNumber}}</td>\n                      <td class=\"grey\">{{unit.emailId}}</td>\n                      <td class=\"grey\">{{unit.signupSubNotes[0].blockUnit}}</td>\n                      <td class=\"grey\">{{unit.signupSubNotes[0].unit}}</td>\n                      <td class=\"grey\">{{getBookedDate(unit.insertedOn)}}</td>\n                      <td class=\"simple-actions\">\n                        <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"EditUserInfo(unit)\"><i-feather class=\"icon plus\" name=\"plus\"></i-feather></a>\n                          <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"viewSignup(unit)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n                         \n                          <a href=\"javascript:void(0)\" (click)=\"showConfirmModal(unit)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                    </td>\n                    </tr> \n                </tbody>\n            </table>\n            <app-pagination \n                [totalItems]=\"totalUserItems\"  \n                [ItemStartIndex]=\"ItemUserStartIndex\"\n                [ItemEndIndex] = \"ItemUserEndIndex\"\n                [itemLimit] = \"itemUserLimit\"\n                (outputParams) = \"getUserIndexParams($event)\">\t\n            </app-pagination> -->\n    \n        </div>\n    </div> \n</div>\n";
     /***/
   },
 
@@ -1845,38 +1845,50 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/api/controllers/User */
     "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
     var DeActivatedComponent =
     /*#__PURE__*/
     function () {
-      function DeActivatedComponent(injector, dialog, userService, sharedService, cookieService) {
+      function DeActivatedComponent(injector, dialog, userService, sharedService, cookieService, router) {
         _classCallCheck(this, DeActivatedComponent);
 
         this.injector = injector;
@@ -1884,6 +1896,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.userService = userService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
+        this.router = router;
         this.deActivatedData = "";
         this.ItemUserStartIndex = 0;
         this.itemUserLimit = 20;
@@ -1893,14 +1906,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isUserSelected = false;
         this.isBulkActivate = false;
         this.isUserDataLoaded = false;
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(DeActivatedComponent, [{
         key: "getSelectedDeActivatedUser",
         value: function getSelectedDeActivatedUser(unit) {
           var length = 0;
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.deActivatedListData, function (item) {
+          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.deActivatedListData, function (item) {
             if (item.checked) {
               length++;
             }
@@ -1931,12 +1944,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getAllDeactivatedUser",
         value: function getAllDeactivatedUser() {
           if (this.selectAllDeactivatedUser) {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.deActivatedListData, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.deActivatedListData, function (item) {
               item.checked = true;
             });
             this.isBulkActivate = true;
           } else {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.deActivatedListData, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.deActivatedListData, function (item) {
               item.checked = false;
             });
             this.isBulkActivate = false;
@@ -2053,7 +2066,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this11 = this;
 
           this.isUserDataLoaded = false;
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.deActivatedListData, function (item, index) {
+          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.deActivatedListData, function (item, index) {
             if (item.checked) {
               _this11.userService.getUserById(item.id).subscribe(function (res) {
                 var user = res[0];
@@ -2070,26 +2083,117 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
           var _this12 = this;
 
+          if (this.deActivatedData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.deActivatedData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this12.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "onEditDeActivateResident",
+        value: function onEditDeActivateResident(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var Id = dataRecord.Id;
+          this.router.navigateByUrl('/ams/unit&users/edit-user/' + Id);
+        }
+      }, {
+        key: "onShowUserInfoView",
+        value: function onShowUserInfoView(detail) {
+          this.showUserInfo(detail.rowId);
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this13 = this;
+
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Name',
+            datafield: 'firstName',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Phone',
+            datafield: 'emailId',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Email',
+            datafield: 'staffCategory_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Block No',
+            datafield: 'jobTitleId',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Unit No',
+            datafield: 'lastttt',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="showUserInfo(' + row + ')"><i-feather class="icon view" name="eye"></i-feather></a> <a href="javascript:void(0)" class="mr-2" onClick="editDeActivateResident(' + row + ')" <i class="fa fa-pencil icon edit" aria-hidden="true"></i> </a></div>';
+            },
+            renderer: columnrenderer
+          }];
           this.userService.getAllUnApprovedUsers().subscribe(function (res) {
             var deActivatedListData = res;
             console.log(res); //filter active true items
 
-            _this12.deActivatedListData = deActivatedListData.filter(function (data) {
+            _this13.deActivatedListData = deActivatedListData.filter(function (data) {
               return !data.active;
             });
-            _this12.totalUserItems = _this12.deActivatedListData.length;
+            _this13.gridSourceData = {
+              localdata: _this13.deActivatedListData,
+              datatype: "array"
+            };
+            _this13.deActivatedListData = new jqx.dataAdapter(_this13.gridSourceData);
+            console.log("deActivatedListData", _this13.deActivatedListData);
+            _this13.totalUserItems = _this13.deActivatedListData.length;
 
-            if (_this12.totalUserItems > _this12.itemUserLimit) {
-              _this12.ItemUserEndIndex = _this12.itemUserLimit;
+            if (_this13.totalUserItems > _this13.itemUserLimit) {
+              _this13.ItemUserEndIndex = _this13.itemUserLimit;
             } else {
-              _this12.ItemUserEndIndex = _this12.totalUserItems;
+              _this13.ItemUserEndIndex = _this13.totalUserItems;
             }
 
-            _this12.isUserDataLoaded = true;
+            _this13.isUserDataLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -2105,17 +2209,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__["jqxGridComponent"])], DeActivatedComponent.prototype, "datagrid", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("viewDeactivatedUserRef", {
       "static": false
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])], DeActivatedComponent.prototype, "viewDeactivatedUserRef", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditDeActivateResident', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], DeActivatedComponent.prototype, "onEditDeActivateResident", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onShowUserInfoView', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], DeActivatedComponent.prototype, "onShowUserInfoView", null);
     DeActivatedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-de-activated',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -2124,7 +2235,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./de-activated.component.scss */
       "./src/app/ams/unit-users/components/de-activated/de-activated.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], DeActivatedComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])], DeActivatedComponent);
+
+    function editDeActivateResident(row) {
+      var event = new CustomEvent('onEditDeActivateResident', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editDeActivateResident = editDeActivateResident;
+
+    function showUserInfo(row) {
+      var event = new CustomEvent('onShowUserInfoView', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.showUserInfo = showUserInfo;
     /***/
   },
 
@@ -2269,7 +2402,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this13 = this;
+          var _this14 = this;
 
           if (this.unitData != "") {
             var filtergroup = new jqx.filter();
@@ -2282,7 +2415,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this14.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2298,11 +2431,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "viewUserInfo",
         value: function viewUserInfo(id) {
-          var _this14 = this;
+          var _this15 = this;
 
           this.isProfile = false;
           setTimeout(function () {
-            _this14.isProfile = true;
+            _this15.isProfile = true;
           }, 10);
           setTimeout(function () {
             var elem = document.querySelector('.user-info-card');
@@ -2318,7 +2451,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "showConfirmModal",
         value: function showConfirmModal(data) {
-          var _this15 = this;
+          var _this16 = this;
 
           this.modalService.showConfirmModal(data.signupUserRequestId);
           var params = {
@@ -2327,9 +2460,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
             if (res.message) {
-              _this15.sharedService.setAlertMessage("Signup deleted successfully.");
+              _this16.sharedService.setAlertMessage("Signup deleted successfully.");
 
-              _this15.router.navigate(['ams/unit&users/usersignuprequest', _this15.viewUserId]);
+              _this16.router.navigate(['ams/unit&users/usersignuprequest', _this16.viewUserId]);
             }
           }, function (error) {
             console.log(error);
@@ -2369,7 +2502,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this16 = this;
+          var _this17 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2384,13 +2517,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.userService.getAllSignupUserRequestByApartmentId(params).subscribe(function (res) {
             var unitListData = res;
-            _this16.gridSourceData = {
+            _this17.gridSourceData = {
               localdata: unitListData,
               datatype: "array"
             };
-            _this16.unitListData = new jqx.dataAdapter(_this16.gridSourceData);
-            _this16.totalItems = unitListData.length;
-            _this16.columnData = [{
+            _this17.unitListData = new jqx.dataAdapter(_this17.gridSourceData);
+            _this17.totalItems = unitListData.length;
+            _this17.columnData = [{
               text: 'Request ID',
               datafield: 'signupUserRequestId',
               width: 100,
@@ -2426,7 +2559,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datafield: 'insertedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this16.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this17.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2439,30 +2572,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               },
               renderer: columnrenderer
             }];
-            _this16.isUserDataLoaded = true;
+            _this17.isUserDataLoaded = true;
           }, function (error) {
             console.log(error);
           }); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
-              var dataRecord = _this16.datagrid.getrowdata(id);
+              var dataRecord = _this17.datagrid.getrowdata(id);
 
               var signupUserId = dataRecord.signupUserRequestId;
               var _params = {
                 signupUserId: signupUserId,
-                apartmentId: parseInt(_this16.cookieService.get('apartmentId'))
+                apartmentId: parseInt(_this17.cookieService.get('apartmentId'))
               };
 
-              _this16.userService.updateSignupUserRequestByApartmentId(_params).subscribe(function (res) {
+              _this17.userService.updateSignupUserRequestByApartmentId(_params).subscribe(function (res) {
                 setTimeout(function () {
-                  _this16.datagrid.deleterow(id);
+                  _this17.datagrid.deleterow(id);
 
-                  _this16.totalItems = _this16.unitListData.length;
+                  _this17.totalItems = _this17.unitListData.length;
 
-                  _this16.sharedService.setAlertMessage("Signup deleted successfully.");
+                  _this17.sharedService.setAlertMessage("Signup deleted successfully.");
 
-                  _this16.sharedService.setUnitListDeleteIndex(null);
+                  _this17.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -2820,7 +2953,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getBlockDetails",
         value: function getBlockDetails() {
-          var _this17 = this;
+          var _this18 = this;
 
           this.isDataLoaded = false;
           var blockId;
@@ -2843,45 +2976,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.isListOfResidents()) {
             this.userService.getReportUnitUserResidentsbyApartmentIdBlockId(details).subscribe(function (res) {
-              _this17.userReportDataList = res;
-              _this17.isDataLoaded = true;
+              _this18.userReportDataList = res;
+              _this18.isDataLoaded = true;
 
-              _this17.showItems();
+              _this18.showItems();
             });
           } else if (this.isListOfApprovedUsers()) {
             this.userService.getReportApprovedUnitUserbyApartmentIdBlockId(details).subscribe(function (res) {
-              _this17.userReportDataList = res;
-              _this17.isDataLoaded = true;
+              _this18.userReportDataList = res;
+              _this18.isDataLoaded = true;
 
-              _this17.showItems();
+              _this18.showItems();
             });
           } else if (this.isListOfDeactivatedUsers()) {
             this.userService.getReportDeActivatedUnitUserbyApartmentIdBlockId(details).subscribe(function (res) {
-              _this17.userReportDataList = res;
-              _this17.isDataLoaded = true;
+              _this18.userReportDataList = res;
+              _this18.isDataLoaded = true;
 
-              _this17.showItems();
+              _this18.showItems();
             });
           } else if (this.isListOfResidentsVehicleInfo()) {
             this.userService.getReportUnitUserResidentsVehicleInfobyApartmentIdBlockId(details).subscribe(function (res) {
-              _this17.userReportDataList = res;
-              _this17.isDataLoaded = true;
+              _this18.userReportDataList = res;
+              _this18.isDataLoaded = true;
 
-              _this17.showItems();
+              _this18.showItems();
             });
           } else if (this.isListOfExpiringRental()) {
             this.userService.getReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(details).subscribe(function (res) {
-              _this17.userReportDataList = res;
-              _this17.isDataLoaded = true;
+              _this18.userReportDataList = res;
+              _this18.isDataLoaded = true;
 
-              _this17.showItems();
+              _this18.showItems();
             });
           } else if (this.isListOfUsersWithPets()) {
             this.userService.getReportUnitUserPetInfobyApartmentIdBlockId(details).subscribe(function (res) {
-              _this17.userReportDataList = res;
-              _this17.isDataLoaded = true;
+              _this18.userReportDataList = res;
+              _this18.isDataLoaded = true;
 
-              _this17.showItems();
+              _this18.showItems();
             });
           }
         }
@@ -2899,24 +3032,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this18 = this;
+          var _this19 = this;
 
           this.pageName = this.route.params['value'].name;
           var unitBlockParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-            _this18.unitBlocksData = res;
+            _this19.unitBlocksData = res;
           });
           var params = {
             LookupTypeId: 87
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             var data = res.filter(function (item) {
-              return item.lookupValueId == _this18.route.params['value'].id;
+              return item.lookupValueId == _this19.route.params['value'].id;
             });
-            _this18.pageName = res[0].lookupValueName;
-            _this18.pageDesp = res[0].description;
+            _this19.pageName = res[0].lookupValueName;
+            _this19.pageDesp = res[0].description;
           });
           this.getBlockDetails();
         }
@@ -3038,7 +3171,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this19 = this;
+          var _this20 = this;
 
           var details = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -3046,8 +3179,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             MenuName: 'UnitUser'
           };
           this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-            _this19.reportDataList = res;
-            _this19.isDataLoaded = true;
+            _this20.reportDataList = res;
+            _this20.isDataLoaded = true;
           });
         }
       }]);

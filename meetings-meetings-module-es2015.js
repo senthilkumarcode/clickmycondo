@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n        <div class=\"card-header\">\n            <div class=\"row\">\n                <div class=\"col-sm-8\">\n                    <h5 *ngIf=\"isAddMeeting\">Create Meeting</h5>\n                    <h5 *ngIf=\"!isAddMeeting\">Edit Meeting</h5>\n                </div>\n            <div class=\"col-sm-4\"> \n                <button class=\"btn lime-green\" (click)=\"Goback()\" style=\"float: right;\" >\n                    <i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n                </button>\n             </div>\n            </div>\n        </div>\n        <div class=\"card-body\">\n            <ng-container>\n                <form #addmeetingForm = \"ngForm\" name=\"addmeetingForm\" (ngSubmit)=\"submitAddmeetingForm(addmeetingForm)\"  novalidate>\n                    <div class=\"row\">\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Role Type</label>\n                                <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Apartment Block</label>\n                                <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                [settings]=\"blockdropdownSettings\"\n                                (onSelect)=\"updateUsers()\"></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                [(ngModel)]=\"condition.selectedItems\"\n                                [settings]=\"roleDropdownSettings\" \n                                (onSelect)=\"updateUsers()\"\n                                ></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                [(ngModel)]=\"roleCategory.selectedItems\"\n                                [settings]=\"roleDropdownSettings\"\n                                (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                                (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                                ></angular2-multiselect>\n                            </div>  \n                         </div>\n                         <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                            <div class=\"select-box\">\n                                <label>Staff Category</label>\n                                <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                                [(ngModel)]=\"staffCategory.selectedItems\"\n                                [settings]=\"dropdownSettings\"\n                                (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                                (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                    (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                                </angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                            <div class=\"select-box\">\n                                <label>Staff SubCategory</label>\n                                <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                                [(ngModel)]=\"staffSubCategory.selectedItems\"\n                                [settings]=\"dropdownSettings\"\n                                (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                                (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                                (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                                ></angular2-multiselect>\n                            </div>  \n                        </div>\n                    </div>\n                    <div class=\"row recipentsDiv\" > \n                        <div class=\"col-sm-12\">\n                            <label>Recipients</label>\n                            <div  class=\"col-sm-12 box\" >\n                                <label *ngFor=\"let user of users\" >\n                                    {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                                </label>\n                            </div> \n                        </div> \n                    </div>\n                    <div class=\"row mt-5\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Meeting Type*</label>\n                                <select \n                                    name=\"meetingCategory\" \n                                    id=\"meetingCategory\" \n                                    class=\"form-control\"\n                                    placeholder = \"Meeting Type\"\n                                    [(ngModel)]=\"meeting.meetingTypeId\"\n                                    (ngModelChange)=\"showTable()\" required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option *ngFor=\"let item of meetingCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\" *ngIf=\"showTableContent\">\n                            <table  class=\"table table-borderless table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                                <thead>\n                                    <tr>\n                                        <th scope=\"col\">Select Date</th>\n                                        <th scope=\"col\">Start Time</th>\n                                        <th scope=\"col\">End Time</th>\n                                        <th scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td class=\"select w-30\">\n                                            <input class=\"form-control\" name=\"meetingDate\" [owlDateTime]=\"meetingDate\"\n                                                [owlDateTimeTrigger]=\"meetingDate\" placeholder=\"Date\" [(ngModel)]=\"subMeetingField.meetingDate\">\n                                                <owl-date-time #meetingDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                            <!-- <div class=\"date-btn\">\n                                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                            </div> -->\n                                        </td>\n                                        <td class=\"select w-30\">\n                                            <div class=\"form-group\">\n                                                <input class=\"form-control\" name=\"meetingStartTime\" [owlDateTime]=\"meetingStartTime\" [owlDateTimeTrigger]=\"meetingStartTime\" placeholder=\"Start Time\" [(ngModel)]=\"subMeetingField.meetingStartTime\">\n                                                <owl-date-time [pickerType]=\"'timer'\" #meetingStartTime></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingStartTime\">\n                                                    <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                                </div>\n                                            </div>\n                                        </td>\n                                        <td class=\"select w-30\">\n                                            <div class=\"form-group\">\n                                                <input class=\"form-control\" name=\"meetingEndTime\" [owlDateTime]=\"meetingEndTime\" [owlDateTimeTrigger]=\"meetingEndTime\" placeholder=\"End Time\" [(ngModel)]=\"subMeetingField.meetingEndTime\">\n                                                <owl-date-time [pickerType]=\"'timer'\" #meetingEndTime></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingEndTime\">\n                                                    <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                                </div>\n                                            </div> \n                                        </td>\n                                        <td class=\"select w-10\">\n                                            <button class=\"btn lime-green create-row\" (click)=\"addMeetingSchedule()\" >\n                                                <i class=\"fa fa-plus\" aria-hidden=\"true\"> Add Row</i>\n                                            </button>\n                                            <a class=\"lime-green add-row\" (click)=\"addMeetingSchedule()\" >\n                                                <i class=\"fa fa-plus lime-green mt-3\" (click)=\"addMeetingSchedule()\" aria-hidden=\"true\"></i>\n                                            </a>\n                                        </td>\n                                    </tr>\n                                    <tr *ngFor=\"let item of subMeeting;let i = index\">\n                                        <td class=\"select w-30\">{{item.meetingDate | date : 'dd-MM-yyyy'}}</td>\n                                        <td class=\"select w-30\">{{item.meetingStartTime}}</td>\n                                        <td class=\"select w-30\">{{item.meetingEndTime}}</td>\n                                        <td class=\"select w-10\">\n                                            <a href=\"javascript:void(0)\" (click)=\"editMeetingScheduleRow(item,i)\"><i-feather class=\"icon edit mr-3\" name=\"edit\"></i-feather></a>\n                                            <a href=\"javascript:void(0)\" (click)=\"deleteMeetingScheduleRow(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                    <br>\n                    <div class=\"row\">\n                        <div class=\"col-sm-9 col-10\">\n                            <div class=\"input-box\">\n                                <label>Subject*</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Subject\" name=\"meetingSubject\" [(ngModel)]=\"meeting.meetingSubject\" required>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Message*</label>\n                                <quill-editor\n                                class=\"quill-editor\"\n                                name=\"ckeditor\"\n                                placeholder=\"Message Description\"\n                                [(ngModel)]=\"meeting.meetingMessage\">\n                                </quill-editor>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-right\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\">Submit</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                </form>\n            </ng-container>\n        </div>\n    </div>\n    ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n        <div class=\"card-header\">\n            <div class=\"row\">\n                <div class=\"col-sm-8\">\n                    <h5 *ngIf=\"isAddMeeting\">Create Meeting</h5>\n                    <h5 *ngIf=\"!isAddMeeting\">Edit Meeting</h5>\n                </div>\n            <div class=\"col-sm-4\"> \n                <button class=\"btn lime-green\" (click)=\"Goback()\" style=\"float: right;\" >\n                    <i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n                </button>\n             </div>\n            </div>\n        </div>\n        <div class=\"card-body\">\n            <ng-container>\n                <form #addmeetingForm = \"ngForm\" name=\"addmeetingForm\" (ngSubmit)=\"submitAddmeetingForm(addmeetingForm)\"  novalidate>\n                    <div class=\"row\">\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Role Type</label>\n                                <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                                [(ngModel)]=\"roleTypeArr.selectedItems\"\n                                [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                                (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Apartment Block</label>\n                                <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                [(ngModel)]=\"apartmentBlock.selectedItems\"\n                                [settings]=\"blockdropdownSettings\"\n                                (onSelect)=\"updateUsers()\"></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                [(ngModel)]=\"condition.selectedItems\"\n                                [settings]=\"roleDropdownSettings\" \n                                (onSelect)=\"updateUsers()\"\n                                ></angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                                [(ngModel)]=\"roleCategory.selectedItems\"\n                                [settings]=\"roleDropdownSettings\"\n                                (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                                (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                                ></angular2-multiselect>\n                            </div>  \n                         </div>\n                         <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                            <div class=\"select-box\">\n                                <label>Staff Category</label>\n                                <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                                [(ngModel)]=\"staffCategory.selectedItems\"\n                                [settings]=\"dropdownSettings\"\n                                (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                                (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                    (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                                </angular2-multiselect>\n                            </div>  \n                        </div>\n                        <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                            <div class=\"select-box\">\n                                <label>Staff SubCategory</label>\n                                <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                                [(ngModel)]=\"staffSubCategory.selectedItems\"\n                                [settings]=\"dropdownSettings\"\n                                (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                                (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                                (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                                ></angular2-multiselect>\n                            </div>  \n                        </div>\n                    </div>\n                    <div class=\"row recipentsDiv\" > \n                        <div class=\"col-sm-12\">\n                            <label>Recipients</label>\n                            <div  class=\"col-sm-12 box\" >\n                                <label *ngFor=\"let user of users\" >\n                                    {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                                </label>\n                            </div> \n                        </div> \n                    </div>\n                    <div class=\"row mt-5\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"select-box\">\n                                <label>Meeting Type*</label>\n                                <select \n                                    name=\"meetingCategory\" \n                                    id=\"meetingCategory\" \n                                    class=\"form-control\"\n                                    placeholder = \"Meeting Type\"\n                                    [(ngModel)]=\"meeting.meetingTypeId\"\n                                    (ngModelChange)=\"showTable()\" required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option *ngFor=\"let item of meetingCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\" *ngIf=\"showTableContent\">\n                            <table  class=\"table table-borderless table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                                <thead>\n                                    <tr>\n                                        <th scope=\"col\">Select Date</th>\n                                        <th scope=\"col\">Start Time</th>\n                                        <th scope=\"col\">End Time</th>\n                                        <th scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td class=\"select w-30\">\n                                            <input class=\"form-control\" name=\"meetingDate\" [owlDateTime]=\"meetingDate\"\n                                                [owlDateTimeTrigger]=\"meetingDate\" placeholder=\"Date\" [(ngModel)]=\"subMeetingField.meetingDate\">\n                                                <owl-date-time #meetingDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                            <!-- <div class=\"date-btn\">\n                                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                            </div> -->\n                                        </td>\n                                        <td class=\"select w-30\">\n                                            <div class=\"form-group\">\n                                                <input class=\"form-control\" name=\"meetingStartTime\" [owlDateTime]=\"meetingStartTime\" [owlDateTimeTrigger]=\"meetingStartTime\" placeholder=\"Start Time\" [(ngModel)]=\"subMeetingField.meetingStartTime\">\n                                                <owl-date-time [pickerType]=\"'timer'\" #meetingStartTime></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingStartTime\">\n                                                    <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                                </div>\n                                            </div>\n                                        </td>\n                                        <td class=\"select w-30\">\n                                            <div class=\"form-group\">\n                                                <input class=\"form-control\" name=\"meetingEndTime\" [owlDateTime]=\"meetingEndTime\" [owlDateTimeTrigger]=\"meetingEndTime\" placeholder=\"End Time\" [(ngModel)]=\"subMeetingField.meetingEndTime\">\n                                                <owl-date-time [pickerType]=\"'timer'\" #meetingEndTime></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingEndTime\">\n                                                    <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                                </div>\n                                            </div> \n                                        </td>\n                                        <td class=\"select w-10\">\n                                            <a class=\"btn lime-green create-row\" (click)=\"addMeetingSchedule()\" >\n                                                <i class=\"fa fa-plus\"> Add Row</i>\n                                            </a>\n                                            <a class=\"lime-green add-row\" (click)=\"addMeetingSchedule()\" >\n                                                <i class=\"fa fa-plus lime-green mt-3\" (click)=\"addMeetingSchedule()\"></i>\n                                            </a>\n                                        </td>\n                                    </tr>\n                                    <tr *ngFor=\"let item of subMeeting;let i = index\">\n                                        <td class=\"select w-30\">{{item.meetingDate | date : 'dd-MM-yyyy'}}</td>\n                                        <td class=\"select w-30\">{{item.meetingStartTime}}</td>\n                                        <td class=\"select w-30\">{{item.meetingEndTime}}</td>\n                                        <td class=\"select w-10\">\n                                            <a href=\"javascript:void(0)\" (click)=\"editMeetingScheduleRow(item,i)\"><i-feather class=\"icon edit mr-3\" name=\"edit\"></i-feather></a>\n                                            <a href=\"javascript:void(0)\" (click)=\"deleteMeetingScheduleRow(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                    <br>\n                    <div class=\"row\">\n                        <div class=\"col-sm-9 col-10\">\n                            <div class=\"input-box\">\n                                <label>Subject*</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Subject\" name=\"meetingSubject\" [(ngModel)]=\"meeting.meetingSubject\" required>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Message*</label>\n                                <quill-editor\n                                class=\"quill-editor\"\n                                name=\"ckeditor\"\n                                placeholder=\"Message Description\"\n                                [(ngModel)]=\"meeting.meetingMessage\">\n                                </quill-editor>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-right\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\">Submit</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                </form>\n            </ng-container>\n        </div>\n    </div>\n    ");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5>Scheduled List</h5>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <jqxScheduler #scheduler\n                    [width]=\"getWidth()\" [height]=\"600\"\n                    [date]=\"date\"\n                    [source]=\"dataAdapter\"\n                    [dayNameFormat]=\"'abbr'\"\n                    [showLegend]=\"true\"\n                    [view]=\"'agendaView'\"\n                    [resources]=\"resources\"\n                    [views]=\"views\"\n                    [appointmentDataFields]=\"appointmentDataFields\">\n                </jqxScheduler>\n            </div>\n        </div>\n    </div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5>Scheduled List</h5>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <jqxScheduler #scheduler\n                    [width]=\"getWidth()\" [height]=\"600\"\n                    [date]=\"date\"\n                    [source]=\"dataAdapter\"\n                    [dayNameFormat]=\"'abbr'\"\n                    [showLegend]=\"true\"\n                    [view]=\"'agendaView'\"\n                    [resources]=\"resources\"\n                    [views]=\"views\"\n                    (onAppointmentClick)=\"appointmentClick($event)\"\n                    (onEditDialogOpen)=\"appointmentAdd($event)\"\n                    [appointmentDataFields]=\"appointmentDataFields\">\n                </jqxScheduler>\n            </div>\n        </div>\n    </div>\n</div>\n\n");
 
 /***/ }),
 
@@ -184,67 +184,11 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
             "selectedItems": []
         };
     }
-    ngOnInit() {
-        this.meeting = {};
-        let params = {
-            LookupTypeId: 21
-        };
-        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
-            this.meetingCategoryData = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        this.getAllUsers();
-        this.getAllRoleTypesList();
-        this.getAllApartmentBlockList();
-        this.roleTypedropdownSettings = {
-            singleSelection: true,
-            primaryKey: 'value',
-            labelKey: 'name',
-            enableSearchFilter: true,
-            enableFilterSelectAll: false,
-            autoPosition: false,
-            maxHeight: 240
-        };
-        this.blockdropdownSettings = {
-            singleSelection: false,
-            primaryKey: 'apartmentBlockId',
-            labelKey: 'apartmentBlockNumber',
-            enableSearchFilter: true,
-            enableFilterSelectAll: false,
-            autoPosition: false,
-            maxHeight: 240
-        };
-        this.roleDropdownSettings = {
-            singleSelection: false,
-            enableSearchFilter: true,
-            labelKey: 'name',
-            primaryKey: 'value',
-            enableFilterSelectAll: false,
-            autoPosition: false,
-            maxHeight: 240
-        };
-        this.dropdownSettings = {
-            singleSelection: false,
-            enableSearchFilter: true,
-            labelKey: 'name',
-            primaryKey: 'value',
-            groupBy: "category",
-            enableFilterSelectAll: false,
-            autoPosition: false,
-            maxHeight: 240
-        };
-    }
     Goback() {
         this.router.navigate(['ams/meetings/list']);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    getAllRoleTypesList() {
-        this.userService.getAllRoleTypes().subscribe((res) => {
-            this.roleTypeArr.dropdownList = res;
-        });
     }
     getAppartmentRole(item) {
         this.roleCategory.selectedItems = [];
@@ -267,14 +211,6 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
             this.updateUsers();
         });
     }
-    getAllApartmentBlockList() {
-        let params = {
-            apartmentId: 21
-        };
-        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
-            this.apartmentBlock.dropdownList = res;
-        });
-    }
     getUserIds$() {
         let roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) { return item.value; }).join(",");
         let blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
@@ -290,15 +226,6 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
             'staffSubCategoryIds': staffSubCategoryIds
         };
         return this.userService.getUsersByFilter(params);
-    }
-    getAllUsers() {
-        let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-        };
-        this.userService.getUsersByApartmentId(params).subscribe((res) => {
-            this.allUsers = res;
-            this.updateUsers();
-        });
     }
     updateUsers() {
         this.getUserIds$().subscribe((res) => {
@@ -432,11 +359,11 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
         this.showTableContent = true;
     }
     addMeetingSchedule() {
-        if (this.subMeetingField.meetingDate) {
+        if (this.subMeetingField.meetingDate && this.subMeetingField.meetingStartTime && this.subMeetingField.meetingEndTime) {
             let entity = {
                 meetingDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingDate).format(),
-                meetingStartTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingStartTime).format('hh:mm a'),
-                meetingEndTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingEndTime).format('hh:mm a'),
+                meetingStartTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingStartTime).format('hh:mm'),
+                meetingEndTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingEndTime).format('hh:mm'),
             };
             this.subMeeting.push(entity);
             this.subMeetingField.meetingDate = '';
@@ -479,7 +406,8 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
                 return acc + ',' + JSON.stringify(data.value);
             }
         }, '');
-        let params = {
+        let params = {};
+        params.meetingFilters_model = {
             "filterId": 0,
             "roleTypeId": Number(this.roleTypeArr.selectedItems.length > 0 ? this.roleTypeArr.selectedItems[0].value : 0),
             "apartmentBlockIds": String(apartment ? apartment : '0'),
@@ -491,30 +419,114 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
-            "updatedBy": 0,
-            "updatedOn": ''
+            "updatedBy": null,
+            "updatedOn": null
         };
-        // this.meetingService.upsertMeetingFilters(params).subscribe((res)=>{
-        //   console.log(res);
-        //   this.addMeetingForm(res.message);
-        // })
-    }
-    addMeetingForm(filterId) {
-        let params = {};
-        params.meetings = {
-            meetingId: 0,
-            filterId: filterId,
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            meetingTypeId: this.meeting.meetingTypeId,
-            meetingRecipientsId: 0,
-            subject: this.meeting.meetingSubject,
-            message: this.meeting.meetingMessage,
-            insertedBy: parseInt(this.cookieService.get('userId')),
-            insertedOn: new Date().toISOString(),
-        };
-        this.meetingService.addMeeting(params).subscribe((res) => {
-            console.log(res);
+        this.meetingService.upsertMeetingFilters(params).subscribe((res) => {
+            if (typeof (res.message) == 'number') {
+                let users = this.users.reduce((acc, data, i) => {
+                    if (i == 0) {
+                        return JSON.stringify(data.userId);
+                    }
+                    else {
+                        return acc + ',' + JSON.stringify(data.userId);
+                    }
+                }, '');
+                let params = {};
+                for (let i = 0; i < this.subMeeting.length; i++) {
+                    params.meetings = {
+                        meetingId: 0,
+                        filterId: res.message,
+                        apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                        meetingTypeId: parseInt(this.meeting.meetingTypeId),
+                        meetingCategoryId: null,
+                        meetingRecipientsIds: users,
+                        meetingDate: this.subMeeting[i].meetingDate,
+                        fromTime: this.subMeeting[i].meetingStartTime,
+                        toTime: this.subMeeting[i].meetingEndTime,
+                        subject: this.meeting.meetingSubject,
+                        message: this.meeting.meetingMessage,
+                        comments: "string",
+                        isActive: true,
+                        insertedBy: parseInt(this.cookieService.get('userId')),
+                        insertedOn: new Date().toISOString(),
+                        updatedBy: null,
+                        updatedOn: null,
+                        meetingStatusId: null,
+                        meetingAttendees: "string",
+                        meetingminutes: "string",
+                        actionitems: "string"
+                    };
+                    this.meetingService.addMeeting(params).subscribe((res) => {
+                        console.log(res);
+                    });
+                }
+            }
         });
+    }
+    ngOnInit() {
+        this.meeting = {};
+        let params = {
+            LookupTypeId: 21
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
+            this.meetingCategoryData = res.filter(item => {
+                return item.isActive;
+            });
+        });
+        this.userService.getAllRoleTypes().subscribe((res) => {
+            this.roleTypeArr.dropdownList = res;
+        });
+        let users = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.userService.getUsersByApartmentId(users).subscribe((res) => {
+            this.allUsers = res;
+            this.updateUsers();
+        });
+        let apartmentBlock = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(apartmentBlock).subscribe((res) => {
+            this.apartmentBlock.dropdownList = res;
+        });
+        this.roleTypedropdownSettings = {
+            singleSelection: true,
+            primaryKey: 'value',
+            labelKey: 'name',
+            enableSearchFilter: true,
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+        };
+        this.blockdropdownSettings = {
+            singleSelection: false,
+            primaryKey: 'apartmentBlockId',
+            labelKey: 'apartmentBlockNumber',
+            enableSearchFilter: true,
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+        };
+        this.roleDropdownSettings = {
+            singleSelection: false,
+            enableSearchFilter: true,
+            labelKey: 'name',
+            primaryKey: 'value',
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+        };
+        this.dropdownSettings = {
+            singleSelection: false,
+            enableSearchFilter: true,
+            labelKey: 'name',
+            primaryKey: 'value',
+            groupBy: "category",
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+        };
     }
 };
 MeetingsCreateComponent.ctorParameters = () => [
@@ -574,10 +586,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+
 
 
 
@@ -587,10 +601,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MeetingsListComponent = class MeetingsListComponent {
-    constructor(router, meetingService, injector, dialog) {
+    constructor(router, meetingService, injector, cookieService, dialog) {
         this.router = router;
         this.meetingService = meetingService;
         this.injector = injector;
+        this.cookieService = cookieService;
         this.dialog = dialog;
         this.isMeetingDataLoaded = false;
         this.meetingFieldType = "meetingId";
@@ -600,7 +615,7 @@ let MeetingsListComponent = class MeetingsListComponent {
         this.isMobile = false;
         this.ItemMeetingStartIndex = 0;
         this.itemMeetingLimit = 15;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     ngOnInit() {
         this.getMeetingList();
@@ -660,19 +675,8 @@ let MeetingsListComponent = class MeetingsListComponent {
                 cellsrenderer: cellsrenderer,
                 minwidth: 80,
                 renderer: columnrenderer
-            }, {
-                text: 'Actions',
-                cellsalign: 'center',
-                align: 'center',
-                width: 120,
-                cellsrenderer: (row) => {
-                    return '<div class="simple-actions">'
-                        + '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>'
-                        + '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
-                        + '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a></div>';
-                },
-                renderer: columnrenderer
-            }];
+            },
+        ];
     }
     getMeetingList() {
         if (window.innerWidth <= 991)
@@ -680,7 +684,7 @@ let MeetingsListComponent = class MeetingsListComponent {
         else
             this.isMobile = false;
         let params = {
-            apartmentId: 4
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
         this.meetingService.getMeetingByApartmentId(params).subscribe((res) => {
             this.lstMeetingData = res;
@@ -722,13 +726,14 @@ let MeetingsListComponent = class MeetingsListComponent {
 };
 MeetingsListComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"] },
+    { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__["jqxGridComponent"])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])
 ], MeetingsListComponent.prototype, "datagrid", void 0);
 MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -737,9 +742,10 @@ MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./meetings-list.component.scss */ "./src/app/ams/meetings/components/meetings-list/meetings-list.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"],
+        src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
 ], MeetingsListComponent);
 
 
@@ -800,7 +806,7 @@ MeetingsReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9tZWV0aW5ncy9jb21wb25lbnRzL21lZXRpbmdzLXNjaGVkdWxlZC1saXN0L21lZXRpbmdzLXNjaGVkdWxlZC1saXN0LmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .cdk-overlay-container .cdk-global-overlay-wrapper {\n  top: 37px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvbWVldGluZ3MvY29tcG9uZW50cy9tZWV0aW5ncy1zY2hlZHVsZWQtbGlzdC9tZWV0aW5ncy1zY2hlZHVsZWQtbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL21lZXRpbmdzL2NvbXBvbmVudHMvbWVldGluZ3Mtc2NoZWR1bGVkLWxpc3QvbWVldGluZ3Mtc2NoZWR1bGVkLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxvQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvYW1zL21lZXRpbmdzL2NvbXBvbmVudHMvbWVldGluZ3Mtc2NoZWR1bGVkLWxpc3QvbWVldGluZ3Mtc2NoZWR1bGVkLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgLmNkay1vdmVybGF5LWNvbnRhaW5lciAuY2RrLWdsb2JhbC1vdmVybGF5LXdyYXBwZXIge1xuICAgIHRvcCA6MzdweCAhaW1wb3J0YW50O1xufVxuXG4iLCI6Om5nLWRlZXAgLmNkay1vdmVybGF5LWNvbnRhaW5lciAuY2RrLWdsb2JhbC1vdmVybGF5LXdyYXBwZXIge1xuICB0b3A6IDM3cHggIWltcG9ydGFudDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -817,12 +823,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxscheduler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxscheduler */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxscheduler.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../meeting-edit-display/meeting-edit-display.component */ "./src/app/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
+
+
+
+
+
 
 
 
 let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
-    constructor() {
-        this.date = new jqx.date(2020, 11, 23);
+    constructor(meetingService, cookieService, injector, dialog) {
+        this.meetingService = meetingService;
+        this.cookieService = cookieService;
+        this.injector = injector;
+        this.dialog = dialog;
+        this.date = new jqx.date(new Date());
         this.source = {
             dataType: 'array',
             dataFields: [
@@ -835,9 +856,8 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
                 { name: 'end', type: 'date' }
             ],
             id: 'id',
-            localData: this.generateAppointments()
         };
-        this.dataAdapter = new jqx.dataAdapter(this.source);
+        this.printButton = null;
         this.resources = {
             colorScheme: 'scheme05',
             dataField: 'calendar',
@@ -859,84 +879,86 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
             'agendaView'
         ];
     }
-    ngOnInit() {
-    }
-    ngAfterViewInit() {
-        this.myScheduler.ensureAppointmentVisible('id1');
-    }
     getWidth() {
         if (document.body.offsetWidth < 800) {
             return '90%';
         }
-        return 800;
+        return 950;
     }
-    generateAppointments() {
-        console.log(1);
-        let appointments = new Array();
-        let appointment1 = {
-            id: 'id1',
-            description: 'George brings projector for presentations.',
-            location: '',
-            subject: 'Quarterly Project Review Meeting',
-            calendar: 'Room 1',
-            start: new Date(2020, 10, 23, 9, 0, 0),
-            end: new Date(2020, 10, 23, 16, 0, 0)
-        };
-        let appointment2 = {
-            id: 'id2',
-            description: '',
-            location: '',
-            subject: 'IT Group Mtg.',
-            calendar: 'Room 2',
-            start: new Date(2020, 10, 24, 10, 0, 0),
-            end: new Date(2020, 10, 24, 15, 0, 0)
-        };
-        let appointment3 = {
-            id: 'id3',
-            description: '',
-            location: '',
-            subject: 'Course Social Media',
-            calendar: 'Room 3',
-            start: new Date(2020, 10, 21, 11, 0, 0),
-            end: new Date(2020, 10, 21, 13, 0, 0)
-        };
-        let appointment4 = {
-            id: 'id4',
-            description: '',
-            location: '',
-            subject: 'New Projects Planning',
-            calendar: 'Room 2',
-            start: new Date(2020, 10, 23, 16, 0, 0),
-            end: new Date(2020, 10, 23, 18, 0, 0)
-        };
-        let appointment5 = {
-            id: 'id5',
-            description: '',
-            location: '',
-            subject: 'Interview with James',
-            calendar: 'Room 1',
-            start: new Date(2020, 10, 25, 15, 0, 0),
-            end: new Date(2020, 10, 25, 17, 0, 0)
-        };
-        let appointment6 = {
-            id: 'id6',
-            description: '',
-            location: '',
-            subject: 'Interview with Nancy',
-            calendar: 'Room 4',
-            start: new Date(2020, 10, 26, 14, 0, 0),
-            end: new Date(2020, 10, 26, 16, 0, 0)
-        };
-        appointments.push(appointment1);
-        appointments.push(appointment2);
-        appointments.push(appointment3);
-        appointments.push(appointment4);
-        appointments.push(appointment5);
-        appointments.push(appointment6);
-        return appointments;
+    appointmentClick(event) {
+        let data = event.args.appointment.originalData;
+        data.type = 'edit';
+        const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
+            width: 'aito',
+            height: '700px',
+            data: data
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getMeetingList();
+            }
+        });
     }
-    ;
+    appointmentAdd(event) {
+        this.myScheduler.closeDialog();
+        let data = { type: 'create' };
+        const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
+            width: 'aito',
+            height: '700px',
+            data: data
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getMeetingList();
+            }
+        });
+    }
+    getMeetingList() {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.meetingService.getMeetingByApartmentId(params).subscribe((res) => {
+            if (res.length > 0) {
+                this.schedulerList = [];
+                res.forEach((data, i) => {
+                    let year = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).year();
+                    let month = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).month();
+                    let date = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).date();
+                    let startHours = moment__WEBPACK_IMPORTED_MODULE_5__(data.fromTime, 'HH:mm').hour();
+                    let startMin = moment__WEBPACK_IMPORTED_MODULE_5__(data.fromTime, 'HH:mm').minute();
+                    let endHours = moment__WEBPACK_IMPORTED_MODULE_5__(data.toTime, 'HH:mm').hour();
+                    let endMin = moment__WEBPACK_IMPORTED_MODULE_5__(data.toTime, 'HH:mm').minute();
+                    let day = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).day();
+                    let entity = {
+                        id: data.meetingId,
+                        description: '',
+                        location: '',
+                        subject: data.subject,
+                        calendar: `Room ${day}`,
+                        start: new Date(year, month, date, startHours, startMin),
+                        end: new Date(year, month, date, endHours, endMin)
+                    };
+                    this.schedulerList.push(entity);
+                });
+                this.source.localdata = this.schedulerList;
+                this.dataAdapter = new jqx.dataAdapter(this.source);
+                //this.resources.source = new jqx.dataAdapter(this.source);
+            }
+        });
+    }
+    ngOnInit() {
+        this.getMeetingList();
+    }
+    ngAfterViewInit() {
+        this.myScheduler.ensureAppointmentVisible('id1');
+    }
 };
+MeetingsScheduledListComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
+];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('scheduler', { static: false }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxscheduler__WEBPACK_IMPORTED_MODULE_2__["jqxSchedulerComponent"])
@@ -947,7 +969,10 @@ MeetingsScheduledListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./meetings-scheduled-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./meetings-scheduled-list.component.scss */ "./src/app/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
 ], MeetingsScheduledListComponent);
 
 

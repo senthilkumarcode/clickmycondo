@@ -1140,7 +1140,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t<form novalidate>\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\t\t\t\n\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance Asset</span>\n    \t\t<span *ngIf=\"isEdit\">Edit Maintenance Asset</span>\n\t\t</h4>\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Current Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Type</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t         >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <!-- <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option> -->\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Subtype</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainSubType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <!-- <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option> -->\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"asset.maitainPlannedDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" [(ngModel)]=\"asset.actualMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maintenace performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"staff\" id=\"inactive\" [(ngModel)]=\"AssociationStaff\"   [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"staff\" id=\"active\" [(ngModel)]=\"AssociationStaff\"  [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" *ngIf=\"AssociationStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n                                        name=\"staffName\" [(ngModel)]=\"staffName\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" *ngIf=\"AssociationStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n                                        name=\"Company\" [(ngModel)]=\"Company\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n                                            <input name=\"performedBy\" id=\"Company\" [(ngModel)]=\"Company\"  [value]=\"true\"\n                                             type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Company</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"Enter Notes\" name=\"notes\" [(ngModel)]=\"notes\" ></textarea>\n\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n                                </div>                                \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"labourCost\" [(ngModel)]=\"labourCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"partCost\" [(ngModel)]=\"part\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Vat</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"vat\" [(ngModel)]=\"vat\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"withHoldingTax\" [(ngModel)]=\"WithHoldingTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Discount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Discount\" \n                                        name=\"totalTax\" [(ngModel)]=\"totalTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"TotalBilledAmount\" [(ngModel)]=\"TotalBilledAmount\" >\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"asset.plannedDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"nextPlannedDate\" [owlDateTime]=\"nextPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"nextPlannedDate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"asset.nextPlannedDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                       \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"  #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\">Submit</button>\n                    </li>\n                    <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t<form #addMaintForm = \"ngForm\" name=\"addAssetForm\" (ngSubmit)=\"addMaintenance(addMaintForm)\"   novalidate>\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\t\t\t\n\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance Asset</span>\n    \t\t<span *ngIf=\"isEdit\">Edit Maintenance Asset</span>\n\t\t</h4>\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Current Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Type</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintenance.maintenanceTypeId\" \n\t\t\t\t\t\t\t\t\t       (change)=\"setMainSubType(maintenance.maintenanceTypeId)\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of mainType\" [value]=\"item\" >{{ item.name }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Subtype</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainSubType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintenance.maintenanceSubtypeId\"\n\t\t\t\t\t\t\t\t\t        >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of mainSubType\" [value]=\"item.id\">{{ item.name }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"maintenance.maitainPlannedDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" [(ngModel)]=\"maintenance.actualMaintDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maintenace performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"   [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"staff\" id=\"active\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"  (change)=\"maintenance.isMaintainedbyStaff = false\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" *ngIf=\"maintenance?.isMaintainedbyStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n                                        name=\"staffName\" [(ngModel)]=\"maintenance.maintainedbyStaff\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" *ngIf=\"maintenance?.maintainedbyStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintenance.maintenanceByCompany\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"Enter Notes\" name=\"notes\" [(ngModel)]=\"maintenance.notes\" ></textarea>\n\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n                                </div>                                \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"maintLaborCost\" [(ngModel)]=\"maintenance.maintLaborCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"maintPartsCost\" [(ngModel)]=\"maintenance.maintPartsCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Vat</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"maintVat\" [(ngModel)]=\"maintenance.maintVat\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"maintWithTax\" [(ngModel)]=\"maintenance.maintWithTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Discount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Discount\" \n                                        name=\"totalTax\" [(ngModel)]=\"totalTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"maintenanceTotalBilledAmt\" [(ngModel)]=\"maintenance.maintenanceTotalBilledAmt\" >\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"maintenance.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"nextPlannedDate\" [owlDateTime]=\"nextPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"nextPlannedDate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"maintenance.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                       \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"  #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" name=\"file\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button type=\"submit\"  name=\"name\" class=\"btn blue mr-2\">Submit</button>\n                    </li>\n                    <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</form>\n</div>";
     /***/
   },
 
@@ -1160,7 +1160,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t\n\t<form #addAssetForm = \"ngForm\" name=\"addAssetForm\" (ngSubmit)=\"submitAddAssetForm(addAssetForm)\"  novalidate>\n\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\n\t\t\t<span *ngIf=\"!isEditAsset\">Create Asset</span>\n    \t\t<span *ngIf=\"isEditAsset\">Edit Asset</span>\n\n\t\t</h4>\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset tag No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"assetTagNo\" [(ngModel)]=\"asset.assetTagNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Asset Category*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetCategoryId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset Name*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"assetName\" [(ngModel)]=\"asset.assetName\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Manufacturer Details*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"ManufacturerDetails\" [(ngModel)]=\"asset.manufacturerDetails\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Model No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"modelNo\" [(ngModel)]=\"asset.modelNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Condition*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"used\" [(ngModel)]=\"asset.assetConditionId\"  value=\"103\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"used\">Used</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"new\" [(ngModel)]=\"asset.assetConditionId\" value=\"105\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"new\">New</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset Location</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"assetLocation\" [(ngModel)]=\"asset.assetLocation\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation (in percentage)*</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"depreciation\" [(ngModel)]=\"asset.depreciationPercentage\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Installation Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"installationDate\" [owlDateTimeTrigger]=\"installationDate\" placeholder=\"Date\" [(ngModel)]=\"asset.installationDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #installationDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"installationDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Status*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"asset.isActive\"  [value]=\"true\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"asset.isActive\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Retired No</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"retiredOnDate\" [owlDateTime]=\"retiredOnDate\" [owlDateTimeTrigger]=\"retiredOnDate\" placeholder=\"Date\" [(ngModel)]=\"asset.retiredOn\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #retiredOnDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"retiredOnDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Comments</label>\n\t\t\t\t\t                    <textarea placeholder=\"some text here\" name=\"staffComments\" [(ngModel)]=\"asset.comments\"></textarea>\n\t\t\t\t\t                </div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"  #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"asset.file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Purchase Details</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Vendor Name*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        id=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.vendorId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorDataList\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Order No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"purchaseOrderNo\" [(ngModel)]=\"asset.purchaseOrderNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"purchaseDate\" [owlDateTimeTrigger]=\"purchaseDate\" placeholder=\"Date\" [(ngModel)]=\"asset.purchaseDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #purchaseDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Cost*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"purchaseCost\" [(ngModel)]=\"asset.purchaseCost\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Warranty Months*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"warrantyMonths\" [(ngModel)]=\"asset.warrantyMonths\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Serial Number*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"serialNo\" [(ngModel)]=\"asset.serialNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Is Leased*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"Yes\" [(ngModel)]=\"asset.isLeased\"  [value]=\"true\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"No\" [(ngModel)]=\"asset.isLeased\" [value]=\"false\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" \n\t\t\t\t\tdata-target=\"#assetCollapseThree\" aria-expanded=\"true\" \n\t\t\t\t\taria-controls=\"collapseOne\">Insurance Information</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" \n\t\t\t\t\tdata-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Provider</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"provider\" [(ngModel)]=\"insuranceProvider\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance No</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"InsuranceNo\" [(ngModel)]=\"insuranceNo\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Exp. Date</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"insuranceExpDate\" [owlDateTime]=\"insuranceExpDate\" [owlDateTimeTrigger]=\"insuranceExpDate\" placeholder=\"Date\" [(ngModel)]=\"asset.insuranceExpDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #insuranceExpDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Notes</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"insuranceNotes\"  [(ngModel)]=\"insuranceNotes\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Status</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"status\" [(ngModel)]=\"status\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addAssetForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t\n\t<form #addAssetForm = \"ngForm\" name=\"addAssetForm\" (ngSubmit)=\"submitAddAssetForm(addAssetForm)\"  novalidate>\n\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\n\t\t\t<span *ngIf=\"!isEditAsset\">Create Asset</span>\n    \t\t<span *ngIf=\"isEditAsset\">Edit Asset</span>\n\n\t\t</h4>\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset tag No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\" [(ngModel)]=\"asset.assetTagNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Asset Category*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetCategoryId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset Name*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"assetName\" [(ngModel)]=\"asset.assetName\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Manufacturer Details*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Manufacturer Details\" name=\"ManufacturerDetails\" [(ngModel)]=\"asset.manufacturerDetails\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Model No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Model No\" name=\"modelNo\" [(ngModel)]=\"asset.modelNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Condition*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"used\" [(ngModel)]=\"asset.assetConditionId\"  value=\"103\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"used\">Used</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"new\" [(ngModel)]=\"asset.assetConditionId\" value=\"105\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"new\">New</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset Location</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Asset Location\" name=\"assetLocation\" [(ngModel)]=\"asset.assetLocation\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation (in percentage)*</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter percentage value\" name=\"depreciation\" [(ngModel)]=\"asset.depreciationPercentage\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Installation Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"installationDate\" [owlDateTimeTrigger]=\"installationDate\" placeholder=\"Installation Date\" [(ngModel)]=\"asset.installationDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #installationDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"installationDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Status*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"asset.isActive\"  [value]=\"true\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"asset.isActive\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Retired No</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"retiredOnDate\" [owlDateTime]=\"retiredOnDate\" [owlDateTimeTrigger]=\"retiredOnDate\" placeholder=\"Retired No\" [(ngModel)]=\"asset.retiredOn\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #retiredOnDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"retiredOnDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Comments</label>\n\t\t\t\t\t                    <textarea placeholder=\"some text here\" name=\"staffComments\" [(ngModel)]=\"asset.comments\"></textarea>\n\t\t\t\t\t                </div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"  name=\"file\" #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"asset.file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Purchase Details</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Vendor Name*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        id=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.vendorId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorDataList\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Order No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Order No\" name=\"purchaseOrderNo\" [(ngModel)]=\"asset.purchaseOrderNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"purchaseDate\" [owlDateTimeTrigger]=\"purchaseDate\" placeholder=\"Purchase Date\" [(ngModel)]=\"asset.purchaseDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #purchaseDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Cost*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Cost\" name=\"purchaseCost\" [(ngModel)]=\"asset.purchaseCost\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Warranty Months*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Warranty Months\" name=\"warrantyMonths\" [(ngModel)]=\"asset.warrantyMonths\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Serial Number*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Serial Number\" name=\"serialNo\" [(ngModel)]=\"asset.serialNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Is Leased*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"Yes\" [(ngModel)]=\"asset.isLeased\"  [value]=\"true\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"No\" [(ngModel)]=\"asset.isLeased\" [value]=\"false\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" \n\t\t\t\t\tdata-target=\"#assetCollapseThree\" aria-expanded=\"true\" \n\t\t\t\t\taria-controls=\"collapseOne\">Insurance Information</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" \n\t\t\t\t\tdata-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Provider</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance Provider\" name=\"provider\" [(ngModel)]=\"insurance.insuranceProvider\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance No</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance No\" name=\"InsuranceNo\" [(ngModel)]=\"insurance.insuranceNo\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Exp. Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"insuranceExpDate\" [owlDateTimeTrigger]=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Insurance Exp. Date\" [(ngModel)]=\"insurance.insuranceExpDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #insuranceExpDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Notes</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Note\" name=\"insuranceNotes\"  [(ngModel)]=\"insurance.notes\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Status</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Insurance Status\" name=\"status\" [(ngModel)]=\"insurance.insuranceStatus\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addAssetForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
     /***/
   },
 
@@ -1280,7 +1280,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"helpdesk-all-tickets-wrapper\">\t\n\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t<!-- <ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots common\"></span><span>Common</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots private\"></span>Private</li>\n\t</ul>\n\t<ul class=\"legends ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span><span>High</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots medium\"></span>Medium</li>\n\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots low\"></span>Low</li>\n\t</ul> -->\n\t<div class=\"card clear table-card\" *ngIf=\"isTicketDataLoaded\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n\t\t\t\t\n    \t\t\t<h5>Last Maintenance <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" \n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<!-- <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown> -->\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Maintenance</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"[]\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n  \t\t\t \n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"helpdesk-all-tickets-wrapper\" *ngIf=\"dummmy\">\t\n\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t<!-- <ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots common\"></span><span>Common</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots private\"></span>Private</li>\n\t</ul>\n\t<ul class=\"legends ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span><span>High</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots medium\"></span>Medium</li>\n\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots low\"></span>Low</li>\n\t</ul> -->\n\t<div class=\"card clear table-card\" *ngIf=\"isTicketDataLoaded\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n\t\t\t\t\n    \t\t\t<h5>Last Maintenance <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" \n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<!-- <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown> -->\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Maintenance</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"[]\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n  \t\t\t \n\n  \t\t</div>\n\n\t</div>\n\n</div>\n\n\n\n<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"card table-card clear mt-3\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left pt-4\">\n    \t\t\t<h5>View Last Maintenance <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\">\n    \t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-filter fs-4 filter\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filter\"></i>  \n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" \n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<!-- <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown> -->\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Maintenance</span>\n\t\t\t\t\t</a>\n\n    \t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n  \t\t</div>\n\t\t  <div  id=\"filter\"  class=\"collapse mb-3 filter-card\">\n            <mat-card class=\"example-card\" >\n                <div class=\"row wd-100\">\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Assets</h6> \n                        <angular2-multiselect [data]=\"assetList\" \n                        [(ngModel)]=\"search.assets\" \n                        [settings]=\"assetSettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                    </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Category</h6>\n                        <angular2-multiselect [data]=\"categoryList\" \n                        [(ngModel)]=\"search.categorys\" \n                        [settings]=\"categorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Sub Category</h6>\n                        <angular2-multiselect [data]=\"subCategoryList\" \n                        [(ngModel)]=\"selectedItems\" \n                        [settings]=\"subCategorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>                \n            </div>\n            \n        \n\n            </mat-card>\n      </div> \n\n        <div class=\"card-body p-0\">\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" \n\t\t\t    [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" \n\t\t\t\t[source]=\"[]\" \n\t\t\t\t[columns]=\"columnData\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n";
     /***/
   },
 
@@ -1300,7 +1300,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"helpdesk-all-tickets-wrapper\">\t\n\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t<!-- <ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots common\"></span><span>Common</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots private\"></span>Private</li>\n\t</ul>\n\t<ul class=\"legends ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span><span>High</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots medium\"></span>Medium</li>\n\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots low\"></span>Low</li>\n\t</ul> -->\n\t<div class=\"card clear table-card\" *ngIf=\"isTicketDataLoaded\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Maintenance History <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\">\n    \t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-filter fs-4 filter\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filter\"></i>  \n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" \n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<!-- <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown> -->\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Maintenance</span>\n\t\t\t\t\t</a>\n\n    \t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n  \t\t</div>\n\n\n\t\t  <div  id=\"filter\" class=\"collapse mb-3\">\n            <mat-card class=\"example-card\" >\n                <div class=\"row wd-100\">\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Assets</h6> \n                        <angular2-multiselect [data]=\"assetList\" \n                        [(ngModel)]=\"search.assets\" \n                        [settings]=\"assetSettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                    </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Category</h6>\n                        <angular2-multiselect [data]=\"categoryList\" \n                        [(ngModel)]=\"search.categorys\" \n                        [settings]=\"categorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Sub Category</h6>\n                        <angular2-multiselect [data]=\"subCategoryList\" \n                        [(ngModel)]=\"selectedItems\" \n                        [settings]=\"subCategorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>                \n            </div>\n            \n        \n\n            </mat-card>\n      </div> \n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"[]\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n  \t\t\t \n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "\n<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"card table-card clear mt-3\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left pt-4\">\n    \t\t\t<h5>Maintenance History <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\">\n    \t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-filter fs-4 filter\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filter\"></i>  \n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" \n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<!-- <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown> -->\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Maintenance</span>\n\t\t\t\t\t</a>\n\n    \t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n  \t\t</div>\n\t\t  <div  id=\"filter\"  class=\"collapse mb-3 filter-card\">\n            <mat-card class=\"example-card\" >\n                <div class=\"row wd-100\">\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Assets</h6> \n                        <angular2-multiselect [data]=\"assetList\" \n                        [(ngModel)]=\"search.assets\" \n                        [settings]=\"assetSettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                    </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Category</h6>\n                        <angular2-multiselect [data]=\"categoryList\" \n                        [(ngModel)]=\"search.categorys\" \n                        [settings]=\"categorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Sub Category</h6>\n                        <angular2-multiselect [data]=\"subCategoryList\" \n                        [(ngModel)]=\"selectedItems\" \n                        [settings]=\"subCategorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>                \n            </div>\n            \n        \n\n            </mat-card>\n      </div> \n\n        <div class=\"card-body p-0\">\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" \n\t\t\t    [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" \n\t\t\t\t[source]=\"assetsHistoryData\" \n\t\t\t\t[columns]=\"columnData\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
     /***/
   },
 
@@ -1434,6 +1434,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       component: _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_7__["AddAssetMaintenanceComponent"]
     }, {
       path: 'create-maintenance',
+      component: _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_8__["AddMaintenanceComponent"]
+    }, {
+      path: 'create-maintenance/:id',
       component: _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_8__["AddMaintenanceComponent"]
     }, {
       path: 'last-Maintenance',
@@ -2100,15 +2103,46 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Asset */
+    "./src/app/api/controllers/Asset.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
 
     var AddMaintenanceComponent =
     /*#__PURE__*/
     function () {
-      function AddMaintenanceComponent() {
+      function AddMaintenanceComponent(route, assetService, lookupService, cookieService) {
         _classCallCheck(this, AddMaintenanceComponent);
 
+        this.route = route;
+        this.assetService = assetService;
+        this.lookupService = lookupService;
+        this.cookieService = cookieService;
         this.asset = {};
         this.AssociationStaff = true;
+        this.maintenance = {};
+        this.addMaintForm = {};
+        this.mainSubType = [];
         this.isFileAdded = false;
         this.fileList = [];
         this.listOfFiles = [];
@@ -2116,7 +2150,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(AddMaintenanceComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this5 = this;
+
+          this.route.paramMap.subscribe(function (params) {
+            if (params) {
+              _this5.assetId = params.get('id');
+            }
+          });
+          this.getAllMaintenance();
+        }
+      }, {
+        key: "setMainSubType",
+        value: function setMainSubType(val) {
+          console.log(val);
+          this.mainSubType = val.subCategory;
+        }
       }, {
         key: "uploadFile",
         value: function uploadFile(event) {
@@ -2144,10 +2193,109 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.isFileAdded = false;
           }
         }
+      }, {
+        key: "addMaintenance",
+        value: function addMaintenance() {
+          var _this6 = this;
+
+          var reqObj = {};
+          reqObj.assetMaintenancePlanId = 0;
+          reqObj.apartmentId = parseInt(this.cookieService.get('apartmentId'));
+          reqObj.assetId = this.assetId;
+          reqObj.notes = this.maintenance.notes;
+          reqObj.maintenanceStatusId = 0;
+          reqObj.isActive = true;
+          reqObj.insertedBy = parseInt(this.cookieService.get('userId')), reqObj.insertedOn = new Date().toISOString;
+          reqObj.updatedBy = 0, reqObj.updatedOn = new Date().toISOString;
+          reqObj.actualMaintDate = this.maintenance.actualMaintDate;
+          reqObj.lastMaintenanceDate = this.maintenance.lastMaintenanceDate;
+          reqObj.nextPlannedMaintenance = this.maintenance.nextPlannedMaintenance;
+          reqObj.maintenanceTypeId = this.maintenance.maintenanceTypeId;
+          reqObj.maintenanceByCompany = this.maintenance.maintenanceTypeId;
+          reqObj.maintenanceByPerson = null, reqObj.maintenanceCompanyContactNo = null, reqObj.maintLaborCost = this.maintenance.maintLaborCost;
+          reqObj.maintPartsCost = this.maintenance.maintPartsCost;
+          reqObj.maintVat = this.maintenance.maintVat;
+          reqObj.maintWithTax = 0, reqObj.maintenanceTotalBilledAmt = this.maintenance.maintenanceTotalBilledAmt;
+          reqObj.isMaintainedbyStaff = true, reqObj.maintainedbyStaff = this.maintenance.maintainedbyStaff;
+          reqObj.maintenanceSubtypeId = 0;
+          this.isAssetLoaded = true; // for( const key in reqObj){
+          //   if(reqObj[key] == '')  {
+          //      delete reqObj[key];
+          //   }
+          // }
+
+          reqObj = {
+            "assetMaintenancePlanId": 0,
+            "apartmentId": 2,
+            "assetId": 1,
+            "notes": "good",
+            "maintenanceStatusId": 1,
+            "isActive": true,
+            "insertedBy": 1,
+            "insertedOn": "2020-05-19T06:54:33.948Z",
+            "updatedBy": 1,
+            "updatedOn": "2020-05-19T06:54:33.948Z",
+            "actualMaintDate": "2020-05-19T06:54:33.948Z",
+            "lastMaintenanceDate": "2020-05-19T06:54:33.948Z",
+            "nextPlannedMaintenance": "2020-05-19T06:54:33.948Z",
+            "maintenanceTypeId": 877,
+            "maintenanceByCompany": "tech net",
+            "maintenanceByPerson": "raja",
+            "maintenanceCompanyContactNo": "9876545533",
+            "maintLaborCost": 10,
+            "maintPartsCost": 10,
+            "maintVat": 10,
+            "maintWithTax": 10,
+            "maintenanceTotalBilledAmt": 50,
+            "isMaintainedbyStaff": true,
+            "maintainedbyStaff": 'raja',
+            "maintenanceSubtypeId": 878
+          };
+          var params = {};
+          params.assetMaintenancePlan = reqObj;
+          this.assetService.addAssetMaintenancePlan(params).subscribe(function (res) {
+            console.log(res);
+
+            if (res && res.body) {
+              _this6.isAssetLoaded = false;
+            }
+          });
+        }
+      }, {
+        key: "getAllMaintenance",
+        value: function getAllMaintenance() {
+          var _this7 = this;
+
+          var queryParamBase = {};
+          queryParamBase = {
+            apartmentId: this.cookieService.get('apartmentId'),
+            lookupTypeId: 167,
+            subCategoryLookupTypeId: 168
+          };
+          this.isAssetLoaded = true;
+          this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
+            if (res) {
+              _this7.isAssetLoaded = false;
+              _this7.mainType = res ? res : [];
+            }
+          });
+        }
       }]);
 
       return AddMaintenanceComponent;
     }();
+
+    AddMaintenanceComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+      }];
+    };
 
     AddMaintenanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-add-maintenance',
@@ -2157,7 +2305,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-maintenance.component.scss */
       "./src/app/ams/assets/components/add-maintenance/add-maintenance.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], AddMaintenanceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], AddMaintenanceComponent);
     /***/
   },
 
@@ -2262,6 +2410,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
+        this.insurance = {};
         this.isFileAdded = false;
         this.fileList = [];
         this.listOfFiles = [];
@@ -2307,7 +2456,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "submitAddAssetForm",
         value: function submitAddAssetForm(form) {
-          var _this5 = this;
+          var _this8 = this;
 
           if (!this.isEditAsset) {
             var addAssetDetails = {
@@ -2359,20 +2508,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
             this.assetService.addAsset(addAssetParams).subscribe(function (res) {
               if (res.message) {
-                _this5.isAssetSubmitted = false;
+                _this8.isAssetSubmitted = false;
 
-                _this5.sharedService.setAlertMessage("Asset added successfully");
+                _this8.sharedService.setAlertMessage("Asset added successfully");
 
-                _this5.router.navigate(['ams/assets/view']);
+                _this8.addInsurance(res.message); //this.router.navigate(['ams/assets/view']);
+
               } else {
-                _this5.isAssetSubmitted = false;
-                _this5.isError = true;
-                _this5.alertMessage = res.errorMessage;
+                _this8.isAssetSubmitted = false;
+                _this8.isError = true;
+                _this8.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this5.isAssetSubmitted = false;
-              _this5.isError = true;
-              _this5.alertMessage = "Some error occured";
+              _this8.isAssetSubmitted = false;
+              _this8.isError = true;
+              _this8.alertMessage = "Some error occured";
             });
           } else {
             var editAssetDetails = {
@@ -2425,27 +2575,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
             this.assetService.updateAsset(editAssetParams).subscribe(function (res) {
               if (res.message) {
-                _this5.isAssetSubmitted = false;
+                _this8.isAssetSubmitted = false;
 
-                _this5.sharedService.setAlertMessage("Asset updated successfully");
+                _this8.sharedService.setAlertMessage("Asset updated successfully"); // this.router.navigate(['ams/assets/view']);
 
-                _this5.router.navigate(['ams/assets/view']);
+
+                _this8.updateInsurance(res.message);
               } else {
-                _this5.isAssetSubmitted = false;
-                _this5.isError = true;
-                _this5.alertMessage = res.errorMessage;
+                _this8.isAssetSubmitted = false;
+                _this8.isError = true;
+                _this8.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this5.isAssetSubmitted = false;
-              _this5.isError = true;
-              _this5.alertMessage = "Some error occured";
+              _this8.isAssetSubmitted = false;
+              _this8.isError = true;
+              _this8.alertMessage = "Some error occured";
             });
           }
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this6 = this;
+          var _this9 = this;
 
           this.asset = {};
           this.asset.assetCategoryId = "";
@@ -2458,7 +2609,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               assetId: this.route.params['value'].id
             };
             this.assetService.getAllAssetByAssetId(params).subscribe(function (res) {
-              _this6.asset = res[0];
+              _this9.asset = res[0];
+            });
+            var reqInsuranceParam = {};
+            reqInsuranceParam.AssetId = params.assetId;
+            this.assetService.getAllAssetInsurancePlanByAssetId(reqInsuranceParam).subscribe(function (res) {
+              _this9.insurance = res[0] ? res[0] : {};
             });
           }
 
@@ -2466,7 +2622,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             LookupTypeId: 19
           };
           this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
-            _this6.assetCategoryData = res.filter(function (item) {
+            _this9.assetCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -2474,7 +2630,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendprParams).subscribe(function (res) {
-            _this6.vendorDataList = res.filter(function (item) {
+            _this9.vendorDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -2483,8 +2639,76 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }; //maintenance status 
 
           this.lookupService.getLookupValueByLookupTypeId(assetStatusParams).subscribe(function (res) {
-            _this6.statusTypeData = res;
+            _this9.statusTypeData = res;
           }, function (error) {});
+        }
+      }, {
+        key: "updateInsurance",
+        value: function updateInsurance(assetId) {
+          var _this10 = this;
+
+          var reqObj = {};
+          reqObj = {
+            "assetInsurancePlanId": this.insurance.assetInsurancePlanId,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "assetId": this.asset.assetId,
+            "insuranceProvider": this.insurance.insuranceProvider,
+            "insuranceNo": this.insurance.insuranceNo,
+            "insuranceExpDate": this.insurance.insuranceExpDate,
+            "notes": this.insurance.notes,
+            "insuranceStatus": this.insurance.insuranceStatus,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString()
+          };
+          var params = {};
+          params.assetInsurancePlan = reqObj;
+          this.assetService.updateAssetInsurancePlan(params).subscribe(function (res) {
+            if (res) {
+              console.log(res);
+            }
+          }, function (error) {
+            _this10.isAssetSubmitted = false;
+            _this10.isError = true;
+            _this10.alertMessage = "Some error occured";
+          });
+          this.router.navigate(['ams/assets/view']);
+        }
+      }, {
+        key: "addInsurance",
+        value: function addInsurance(assetId) {
+          var _this11 = this;
+
+          var reqObj = {};
+          reqObj = {
+            "assetInsurancePlanId": 0,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "assetId": assetId,
+            "insuranceProvider": this.insurance.insuranceProvider,
+            "insuranceNo": this.insurance.insuranceNo,
+            "insuranceExpDate": this.insurance.insuranceExpDate,
+            "notes": this.insurance.notes,
+            "insuranceStatus": parseInt(this.insurance.insuranceStatus),
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": 0,
+            "updatedOn": new Date().toISOString()
+          };
+          var params = {};
+          params.assetInsurancePlan = reqObj;
+          this.assetService.addAssetInsurancePlan(params).subscribe(function (res) {
+            if (res) {
+              console.log(res);
+            }
+          }, function (error) {
+            _this11.isAssetSubmitted = false;
+            _this11.isError = true;
+            _this11.alertMessage = "Some error occured";
+          });
+          this.router.navigate(['ams/assets/view']);
         }
       }]);
 
@@ -2670,25 +2894,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this7 = this;
+          var _this12 = this;
 
           this.assetService.getAllAssetMaintenancePlanByAssetId(this.assetId).subscribe(function (res) {
-            _this7.isAssetMaintenanceLoaded = true;
-            _this7.maintenanceDataList = res;
+            _this12.isAssetMaintenanceLoaded = true;
+            _this12.maintenanceDataList = res;
 
-            if (_this7.totalItems > _this7.itemLimit) {
-              _this7.ItemEndIndex = _this7.itemLimit;
+            if (_this12.totalItems > _this12.itemLimit) {
+              _this12.ItemEndIndex = _this12.itemLimit;
             } else {
-              _this7.ItemEndIndex = _this7.totalItems;
+              _this12.ItemEndIndex = _this12.totalItems;
             }
 
-            _this7.totalItems = _this7.maintenanceDataList.length;
+            _this12.totalItems = _this12.maintenanceDataList.length;
           });
           var params = {
             LookupTypeId: 64
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this7.statusTypeData = res;
+            _this12.statusTypeData = res;
           }, function (error) {});
         }
       }]);
@@ -2929,7 +3153,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AssetsSetupComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this13 = this;
 
           this.getAllCategory();
           this.getAllMaintenance();
@@ -2938,27 +3162,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var param = {};
               param = {
                 categoryId: id,
-                deletedBy: parseInt(_this8.cookieService.get('userId'))
+                deletedBy: parseInt(_this13.cookieService.get('userId'))
               };
 
-              _this8.lookupService.deleteCategory(param).subscribe(function (res) {
+              _this13.lookupService.deleteCategory(param).subscribe(function (res) {
                 // _.each(this.categoryList, (type) => {
                 // 	if (type.id == id) {
                 // 		type.isActive = false;
                 // 	}
                 // })
-                _this8.getAllCategory();
+                _this13.getAllCategory();
 
-                _this8.getAllMaintenance();
+                _this13.getAllMaintenance();
 
                 setTimeout(function () {
-                  if (_this8.delType == "maintenance") {
-                    _this8.sharedService.setAlertMessage("Maintenance type deleted successfully");
+                  if (_this13.delType == "maintenance") {
+                    _this13.sharedService.setAlertMessage("Maintenance type deleted successfully");
                   } else {
-                    _this8.sharedService.setAlertMessage("Asset Category deleted successfully");
+                    _this13.sharedService.setAlertMessage("Asset Category deleted successfully");
                   }
 
-                  _this8.sharedService.setUnitListDeleteIndex(null);
+                  _this13.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -2969,7 +3193,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addSetUp",
         value: function addSetUp(name, type, value, e) {
-          var _this9 = this;
+          var _this14 = this;
 
           // let data:any={};
           // data.name=type;
@@ -2987,9 +3211,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(result);
 
             if (result) {
-              _this9.getAllCategory();
+              _this14.getAllCategory();
 
-              _this9.getAllMaintenance();
+              _this14.getAllMaintenance();
             }
           });
         }
@@ -3025,7 +3249,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllMaintenance",
         value: function getAllMaintenance() {
-          var _this10 = this;
+          var _this15 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3036,9 +3260,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this10.isAssetLoaded = false;
-              _this10.mainType = res ? res : [];
-              _this10.tempMainType = _this10.mainType; // if (this.data && this.data.type === 'addSubType') {
+              _this15.isAssetLoaded = false;
+              _this15.mainType = res ? res : [];
+              _this15.tempMainType = _this15.mainType; // if (this.data && this.data.type === 'addSubType') {
               // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
               // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
               // 	// console.log(this.category);
@@ -3054,7 +3278,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this11 = this;
+          var _this16 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3065,9 +3289,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this11.isAssetLoaded = false;
-              _this11.categoryList = res ? res : [];
-              _this11.tempCategoryList = _this11.categoryList;
+              _this16.isAssetLoaded = false;
+              _this16.categoryList = res ? res : [];
+              _this16.tempCategoryList = _this16.categoryList;
             }
           });
         }
@@ -3541,7 +3765,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function AssetsViewComponent(injector, dialog, router, route, assetService, vendorService, lookupService, sharedService, cookieService) {
-        var _this12 = this;
+        var _this17 = this;
 
         _classCallCheck(this, AssetsViewComponent);
 
@@ -3572,12 +3796,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               LookupTypeId: 19
             };
 
-            _this12.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this12.assetCategoryData = res.filter(function (item) {
+            _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+              _this17.assetCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this12.getAssetCategoryData(_this12.assetCategoryId);
+              _this17.getAssetCategoryData(_this17.assetCategoryId);
             });
           }
         });
@@ -3704,16 +3928,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAssetCategoryData",
         value: function getAssetCategoryData(id) {
-          var _this13 = this;
+          var _this18 = this;
 
           this.isAssetLoaded = false;
           underscore__WEBPACK_IMPORTED_MODULE_11__["each"](this.assetCategoryData, function (item, index) {
             if (id != "All") {
               if (item.lookupValueId == parseInt(id)) {
-                _this13.assetCategoryName = item.lookupValueName;
+                _this18.assetCategoryName = item.lookupValueName;
               }
             } else {
-              _this13.assetCategoryName = "";
+              _this18.assetCategoryName = "";
             }
           });
           var params = {
@@ -3721,24 +3945,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
             if (id != "All") {
-              _this13.assetListData = res.filter(function (item) {
+              _this18.assetListData = res.filter(function (item) {
                 return item.assetCategoryId == parseInt(id) && item.isActive;
               });
             } else {
-              _this13.assetListData = res.filter(function (item) {
+              _this18.assetListData = res.filter(function (item) {
                 return item.isActive;
               });
             }
 
-            _this13.totalItems = _this13.assetListData.length;
+            _this18.totalItems = _this18.assetListData.length;
 
-            if (_this13.totalItems > _this13.itemLimit) {
-              _this13.ItemEndIndex = _this13.itemLimit;
+            if (_this18.totalItems > _this18.itemLimit) {
+              _this18.ItemEndIndex = _this18.itemLimit;
             } else {
-              _this13.ItemEndIndex = _this13.totalItems;
+              _this18.ItemEndIndex = _this18.totalItems;
             }
 
-            _this13.isAssetLoaded = true;
+            _this18.isAssetLoaded = true;
           });
         }
       }, {
@@ -3782,7 +4006,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this19 = this;
 
           this.asset = {};
 
@@ -3792,19 +4016,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
-              _this14.isAssetLoaded = false;
-              _this14.assetListData = res.filter(function (item) {
+              _this19.isAssetLoaded = false;
+              _this19.assetListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this14.totalItems = _this14.assetListData.length;
+              _this19.totalItems = _this19.assetListData.length;
 
-              if (_this14.totalItems > _this14.itemLimit) {
-                _this14.ItemEndIndex = _this14.itemLimit;
+              if (_this19.totalItems > _this19.itemLimit) {
+                _this19.ItemEndIndex = _this19.itemLimit;
               } else {
-                _this14.ItemEndIndex = _this14.totalItems;
+                _this19.ItemEndIndex = _this19.totalItems;
               }
 
-              _this14.isAssetLoaded = true;
+              _this19.isAssetLoaded = true;
             });
           } else {
             this.assetCategoryId = "" + this.route.params['value'].id;
@@ -3815,7 +4039,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }; //asset condition
 
           this.lookupService.getLookupValueByLookupTypeId(assetContparams).subscribe(function (res) {
-            _this14.assetConditionData = res.filter(function (item) {
+            _this19.assetConditionData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -3823,7 +4047,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this14.vendorDataList = res.filter(function (item) {
+            _this19.vendorDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -3831,7 +4055,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.assetService.getAllAssetMaintenancePlanByApartmentId(assetParams).subscribe(function (res) {
-            _this14.assetMaintenaceDataList = res.filter(function (item) {
+            _this19.assetMaintenaceDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -3839,31 +4063,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             LookupTypeId: 64
           };
           this.lookupService.getLookupValueByLookupTypeId(statusparams).subscribe(function (res) {
-            _this14.statusTypeData = res;
+            _this19.statusTypeData = res;
           }, function (error) {}); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
               var params = {
                 assetId: id,
-                deleteBy: parseInt(_this14.cookieService.get('userId'))
+                deleteBy: parseInt(_this19.cookieService.get('userId'))
               };
 
-              _this14.assetService.deleteAsset(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this14.assetListData, function (type) {
+              _this19.assetService.deleteAsset(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this19.assetListData, function (type) {
                   if (type.assetId == id) {
                     type.isActive = false;
                   }
                 });
                 setTimeout(function () {
-                  _this14.assetListData = _this14.assetListData.filter(function (type) {
+                  _this19.assetListData = _this19.assetListData.filter(function (type) {
                     return type.assetId !== id;
                   });
-                  _this14.totalItems = _this14.assetListData.length;
+                  _this19.totalItems = _this19.assetListData.length;
 
-                  _this14.sharedService.setAlertMessage("Asset deleted");
+                  _this19.sharedService.setAlertMessage("Asset deleted");
 
-                  _this14.sharedService.setUnitListDeleteIndex(null);
+                  _this19.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -3926,7 +4150,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9hc3NldHMvY29tcG9uZW50cy9sYXN0LW1haW50ZW5hbmNlL2xhc3QtbWFpbnRlbmFuY2UuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".filter-icon {\n  font-size: 2.5rem;\n}\n\n.filter {\n  position: relative !important;\n  left: -4px !important;\n  padding-bottom: 8px;\n  font-size: 21px !important;\n  top: 0px !important;\n}\n\n.search-icon {\n  padding-top: 18px;\n  font-size: 2rem;\n}\n\n.wd-30 {\n  width: 30%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYXNzZXRzL2NvbXBvbmVudHMvbGFzdC1tYWludGVuYW5jZS9sYXN0LW1haW50ZW5hbmNlLmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwic3JjL2FwcC9hbXMvYXNzZXRzL2NvbXBvbmVudHMvbGFzdC1tYWludGVuYW5jZS9sYXN0LW1haW50ZW5hbmNlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VDNEVFLGlCQUFBO0FDNUVGOztBRkdBO0VBQ0ksNkJBQUE7RUFDQSxxQkFBQTtFQUNBLG1CQUFBO0VBQ0EsMEJBQUE7RUFDQSxtQkFBQTtBRUFKOztBRkdBO0VBQ0csaUJBQUE7RUNnRUQsZUFBQTtBQy9ERjs7QUZHQTtFQUNJLFVBQUE7QUVBSiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9hc3NldHMvY29tcG9uZW50cy9sYXN0LW1haW50ZW5hbmNlL2xhc3QtbWFpbnRlbmFuY2UuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0ICcuLi8uLi8uLi8uLi8uLi9zY3NzL2ZvbnRzLnNjc3MnO1xuXG4uZmlsdGVyLWljb24ge1xuICAgIEBpbmNsdWRlIGZ0LWNhbGMoMjUpO1xufVxuLmZpbHRlcntcbiAgICBwb3NpdGlvbjogcmVsYXRpdmUgIWltcG9ydGFudDtcbiAgICBsZWZ0OiAtNHB4ICFpbXBvcnRhbnQ7XG4gICAgcGFkZGluZy1ib3R0b206IDhweDtcbiAgICBmb250LXNpemU6IDIxcHggIWltcG9ydGFudDtcbiAgICB0b3A6IDBweCAhaW1wb3J0YW50O1xufVxuXG4uc2VhcmNoLWljb24ge1xuICAgcGFkZGluZy10b3A6IDE4cHg7XG4gICBAaW5jbHVkZSBmdC1jYWxjKDIwKTtcbn1cblxuLndkLTMwIHtcbiAgICB3aWR0aDogMzAlO1xufVxuXG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuQG1peGluIHB1YmxpYy1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIGhlYWQtbGlnaHQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbn1cblxuQG1peGluIGhlYWQtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNzAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiIsIi5maWx0ZXItaWNvbiB7XG4gIGZvbnQtc2l6ZTogMi41cmVtO1xufVxuXG4uZmlsdGVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlICFpbXBvcnRhbnQ7XG4gIGxlZnQ6IC00cHggIWltcG9ydGFudDtcbiAgcGFkZGluZy1ib3R0b206IDhweDtcbiAgZm9udC1zaXplOiAyMXB4ICFpbXBvcnRhbnQ7XG4gIHRvcDogMHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5zZWFyY2gtaWNvbiB7XG4gIHBhZGRpbmctdG9wOiAxOHB4O1xuICBmb250LXNpemU6IDJyZW07XG59XG5cbi53ZC0zMCB7XG4gIHdpZHRoOiAzMCU7XG59Il19 */";
     /***/
   },
 
@@ -3964,132 +4188,249 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! src/app/api/controllers/Asset */
     "./src/app/api/controllers/Asset.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! underscore */
-    "./node_modules/underscore/modules/index-all.js");
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
 
     var LastMaintenanceComponent =
     /*#__PURE__*/
     function () {
-      function LastMaintenanceComponent(injector, router, route, cookieService, assetService) {
+      function LastMaintenanceComponent(assetService, cookieService, lookupService) {
         _classCallCheck(this, LastMaintenanceComponent);
 
-        this.injector = injector;
-        this.router = router;
-        this.route = route;
-        this.cookieService = cookieService;
         this.assetService = assetService;
-        this.assetCategoryId = "";
-        this.isAssetLoaded = false; // assetData:string = "";
-
-        this.unitFieldType = "assetTagNo";
-        this.unitOrder = true;
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10; // assetCategoryName:string = "";
-        // assetMaintenaceDataList:any;
-        // maintenanceData:any;
-        // statusTypeData:any;
-
-        this.selectedInput = "";
-        this.columnField = {};
+        this.cookieService = cookieService;
+        this.lookupService = lookupService;
+        this.categoryList = [];
+        this.assetList = [];
+        this.subCategoryList = [];
+        this.search = {};
+        this.assetSettings = {
+          singleSelection: true,
+          text: "Search Asset",
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          enableSearchFilter: true,
+          badgeShowLimit: 3
+        };
+        this.categorySettings = {
+          singleSelection: true,
+          text: "Search Category",
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          enableSearchFilter: true,
+          badgeShowLimit: 3
+        };
+        this.subCategorySettings = {
+          singleSelection: true,
+          text: "Search Sub Category",
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          enableSearchFilter: true,
+          badgeShowLimit: 3
+        };
       }
 
       _createClass(LastMaintenanceComponent, [{
-        key: "getIndexParams",
-        value: function getIndexParams(event) {
-          this.ItemStartIndex = event.ItemStartIndex;
-          this.ItemEndIndex = event.ItemEndIndex;
-          this.itemLimit = event.itemLimit;
-        }
-      }, {
-        key: "sortUnitData",
-        value: function sortUnitData(type) {
-          this.unitFieldType = type;
-          this.unitOrder = !this.unitOrder;
-        }
-      }, {
-        key: "getFieldOrderBy",
-        value: function getFieldOrderBy(type) {
-          if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-          } else return '';
-        }
-      }, {
-        key: "selectColInput",
-        value: function selectColInput(value) {
-          this.selectedInput = value;
-        }
-      }, {
-        key: "onSelectChange",
-        value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_5__["isEmpty"](event)) {
-            this.selectedInput = type;
-            this.columnField[type] = event[name];
-          } else {
-            this.columnField = {};
-          }
-        }
-      }, {
-        key: "isMobileView",
-        value: function isMobileView() {
-          return window.innerWidth <= 767 ? 'table-responsive' : '';
-        } // isItemsAvailable(){
-        //   return this.totalItems > 0 ? true : false;
-        // }
-
-      }, {
-        key: "isNoItemsAvailable",
-        value: function isNoItemsAvailable() {
-          return this.totalItems == 0 ? true : false;
-        }
-      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this15 = this;
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
 
-          this.asset = {};
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
 
-          if (this.route.params['value'].id == undefined) {
-            this.assetCategoryId = "All";
-            var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
-            };
-            this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
-              _this15.isAssetLoaded = false;
-              _this15.assetListData = res.filter(function (item) {
-                return item.isActive;
-              });
-              _this15.totalItems = _this15.assetListData.length;
+          this.columnData = [{
+            text: 'Last Maint. Date',
+            datafield: 'assetId',
+            width: 200,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Maint type',
+            datafield: 'maintWithTax',
+            minwidth: 200,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Maint Subtype',
+            datafield: 'maintLaborCost',
+            cellsrenderer: cellsrenderer,
+            minwidth: 250,
+            renderer: columnrenderer
+          }, {
+            ext: 'Next Planned Maintenance date',
+            datafield: 'maintenanceSubtypeId',
+            cellsrenderer: cellsrenderer,
+            minwidth: 250,
+            renderer: columnrenderer
+          }, {
+            text: 'Remind me before next planned Date',
+            datafield: 'assetTypeId',
+            cellsrenderer: cellsrenderer,
+            minwidth: 250,
+            renderer: columnrenderer
+          }, {
+            text: 'Planned Maintenance Date',
+            datafield: 'nextPlannedMaintenance',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }, {
+            text: 'Actual Maintenance Date',
+            datafield: 'actualMaintDate',
+            cellsrenderer: cellsrenderer,
+            minwidth: 200,
+            renderer: columnrenderer
+          }, {
+            text: 'Ontime/Delayed',
+            datafield: 'maintVat',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }, {
+            text: 'Cost',
+            datafield: 'maintenanceTotalBilledAmt',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }]; //  var ticketListData = res.filter(data => {
+          //   return data.isActive
+          // })
 
-              if (_this15.totalItems > _this15.itemLimit) {
-                _this15.ItemEndIndex = _this15.itemLimit;
-              } else {
-                _this15.ItemEndIndex = _this15.totalItems;
+          this.getMaintenaceHistory();
+          this.getAllCategory();
+          this.getSubCategory();
+          this.getAsset();
+        }
+      }, {
+        key: "onItemSelect",
+        value: function onItemSelect(item) {
+          console.log(item); // console.log(this.selectedItems);
+        }
+      }, {
+        key: "OnItemDeSelect",
+        value: function OnItemDeSelect(item) {
+          console.log(item); // console.log(this.selectedItems);
+        }
+      }, {
+        key: "onSelectAll",
+        value: function onSelectAll(items) {
+          console.log(items);
+        }
+      }, {
+        key: "onDeSelectAll",
+        value: function onDeSelectAll(items) {
+          console.log(items);
+        }
+      }, {
+        key: "getMaintenaceHistory",
+        value: function getMaintenaceHistory() {
+          var _this20 = this;
+
+          var params = {};
+          params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
+          this.assetService.getAllAssetMaintenancePlanByApartmentId(params).subscribe(function (res) {
+            console.log(res);
+
+            if (res) {
+              _this20.gridSourceData = {
+                localdata: res.length > 0 ? res : [],
+                datatype: "array"
+              };
+              _this20.assetsHistoryData = new jqx.dataAdapter(_this20.gridSourceData);
+            }
+          });
+        }
+      }, {
+        key: "getAllCategory",
+        value: function getAllCategory() {
+          var _this21 = this;
+
+          var params = {};
+          params.LookupTypeId = 19;
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            console.log(res, 'res:::::');
+
+            if (res) {
+              // this.categoryList = res;
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this21.categoryList.push({
+                    'id': val.lookupValueId,
+                    'itemName': val.lookupValueName
+                  });
+                });
               }
+            }
+          });
+        }
+      }, {
+        key: "getSubCategory",
+        value: function getSubCategory() {
+          var _this22 = this;
 
-              _this15.isAssetLoaded = true;
-            });
-          } else {
-            this.assetCategoryId = "" + this.route.params['value'].id;
-          }
+          var params = {};
+          params.LookupTypeId = 68;
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            if (res) {
+              // this.subCategoryList = res;
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this22.subCategoryList.push({
+                    'id': val.lookupValueId,
+                    'itemName': val.lookupValueName
+                  });
+                });
+              }
+            }
+          });
+        }
+        /**
+         * get Asset list
+         * @param
+         */
+
+      }, {
+        key: "getAsset",
+        value: function getAsset() {
+          var _this23 = this;
+
+          var params = {};
+          params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
+          this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
+            if (res) {
+              // this.assetList = res;
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this23.assetList.push({
+                    'id': val.assetId,
+                    'itemName': val.assetName
+                  });
+                });
+              }
+            }
+          });
         }
       }]);
 
@@ -4098,18 +4439,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     LastMaintenanceComponent.ctorParameters = function () {
       return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_2__["AssetService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
-      }, {
-        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__["jqxGridComponent"])], LastMaintenanceComponent.prototype, "datagrid", void 0);
     LastMaintenanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-last-maintenance',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -4118,7 +4458,97 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./last-maintenance.component.scss */
       "./src/app/ams/assets/components/last-maintenance/last-maintenance.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])], LastMaintenanceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_2__["AssetService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]])], LastMaintenanceComponent); //      assetCategoryId:string = "";
+    //     isAssetLoaded:boolean = false;
+    //     // assetData:string = "";
+    //     unitFieldType:string = "assetTagNo";
+    //     unitOrder:boolean = true;
+    //     ItemStartIndex:any = 0;
+    //     ItemEndIndex:any;
+    //     totalItems:any;
+    //     itemLimit:any = 10;
+    //     totalFilterItems:any;
+    //     // modalService:any;
+    //     asset:any;
+    //     assetListData:any;
+    //     // assetCategoryName:string = "";
+    //     // assetMaintenaceDataList:any;
+    //     // maintenanceData:any;
+    //     // statusTypeData:any;
+    //     selectedInput:string = "";
+    //     columnField: any = {}
+    //     constructor(
+    //       private injector: Injector,
+    //       private router: Router,
+    //       private route: ActivatedRoute,
+    //       private cookieService:CookieService,
+    //       private assetService: AssetService
+    //     ) { 
+    //     }
+    //     getIndexParams(event){
+    //       this.ItemStartIndex = event.ItemStartIndex;
+    //       this.ItemEndIndex = event.ItemEndIndex;
+    //       this.itemLimit = event.itemLimit;
+    //     }
+    //     sortUnitData(type){
+    //       this.unitFieldType = type;
+    //       this.unitOrder = !this.unitOrder;
+    //     }
+    //     getFieldOrderBy(type) {
+    //       if(this.unitFieldType == type){
+    //         return this.unitOrder ? 'asc' : 'desc';
+    //       }
+    //       else return '';
+    //     }
+    //     selectColInput(value){
+    //       this.selectedInput = value;
+    //     }
+    //     onSelectChange(event, type, name){
+    //       if(!_.isEmpty(event)){
+    //         this.selectedInput = type;
+    //         this.columnField[type] = event[name];
+    //       }
+    //       else {
+    //          this.columnField = {};
+    //       }
+    //     }
+    //     isMobileView() {
+    //       return window.innerWidth <= 767 ? 'table-responsive' : '';
+    //     }
+    //     // isItemsAvailable(){
+    //     //   return this.totalItems > 0 ? true : false;
+    //     // }
+    //     isNoItemsAvailable(){
+    //       return this.totalItems == 0 ? true : false;
+    //     }
+    //     ngOnInit() {
+    //       this.asset = {};
+    //       if(this.route.params['value'].id == undefined) {
+    //         this.assetCategoryId = "All"; 
+    //         let params = {
+    //           apartmentId: parseInt(this.cookieService.get('apartmentId'))
+    //         }
+    //         this.assetService.getAllAssetByApartmentId(params).subscribe((res:any) => {
+    //           this.isAssetLoaded = false;
+    //           this.assetListData = res.filter(item => {
+    //             return item.isActive
+    //           })
+    //           this.totalItems = this.assetListData.length;
+    //           if(this.totalItems>this.itemLimit){
+    //             this.ItemEndIndex = this.itemLimit;
+    //           }
+    //           else {
+    //             this.ItemEndIndex = this.totalItems;
+    //           }
+    //           this.isAssetLoaded = true;
+    //         });
+    //       }
+    //       else {
+    //         this.assetCategoryId = ""+this.route.params['value'].id; 
+    //       }
+    //     }
+    //  }
+
     /***/
   },
 
@@ -4138,7 +4568,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9hc3NldHMvY29tcG9uZW50cy9tYWludGVuYW5jZS1oaXN0b3J5L21haW50ZW5hbmNlLWhpc3RvcnkuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".filter-icon {\n  font-size: 2.5rem;\n}\n\n.filter {\n  position: relative !important;\n  left: -4px !important;\n  padding-bottom: 8px;\n  font-size: 21px !important;\n  top: 0px !important;\n}\n\n.search-icon {\n  padding-top: 18px;\n  font-size: 2rem;\n}\n\n.wd-30 {\n  width: 30%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYXNzZXRzL2NvbXBvbmVudHMvbWFpbnRlbmFuY2UtaGlzdG9yeS9tYWludGVuYW5jZS1oaXN0b3J5LmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwic3JjL2FwcC9hbXMvYXNzZXRzL2NvbXBvbmVudHMvbWFpbnRlbmFuY2UtaGlzdG9yeS9tYWludGVuYW5jZS1oaXN0b3J5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VDNEVFLGlCQUFBO0FDNUVGOztBRkdBO0VBQ0ksNkJBQUE7RUFDQSxxQkFBQTtFQUNBLG1CQUFBO0VBQ0EsMEJBQUE7RUFDQSxtQkFBQTtBRUFKOztBRkdBO0VBQ0csaUJBQUE7RUNnRUQsZUFBQTtBQy9ERjs7QUZHQTtFQUNJLFVBQUE7QUVBSiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9hc3NldHMvY29tcG9uZW50cy9tYWludGVuYW5jZS1oaXN0b3J5L21haW50ZW5hbmNlLWhpc3RvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0ICcuLi8uLi8uLi8uLi8uLi9zY3NzL2ZvbnRzLnNjc3MnO1xuXG4uZmlsdGVyLWljb24ge1xuICAgIEBpbmNsdWRlIGZ0LWNhbGMoMjUpO1xufVxuLmZpbHRlcntcbiAgICBwb3NpdGlvbjogcmVsYXRpdmUgIWltcG9ydGFudDtcbiAgICBsZWZ0OiAtNHB4ICFpbXBvcnRhbnQ7XG4gICAgcGFkZGluZy1ib3R0b206IDhweDtcbiAgICBmb250LXNpemU6IDIxcHggIWltcG9ydGFudDtcbiAgICB0b3A6IDBweCAhaW1wb3J0YW50O1xufVxuXG4uc2VhcmNoLWljb24ge1xuICAgcGFkZGluZy10b3A6IDE4cHg7XG4gICBAaW5jbHVkZSBmdC1jYWxjKDIwKTtcbn1cblxuLndkLTMwIHtcbiAgICB3aWR0aDogMzAlO1xufVxuXG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuQG1peGluIHB1YmxpYy1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIGhlYWQtbGlnaHQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbn1cblxuQG1peGluIGhlYWQtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNzAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiIsIi5maWx0ZXItaWNvbiB7XG4gIGZvbnQtc2l6ZTogMi41cmVtO1xufVxuXG4uZmlsdGVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlICFpbXBvcnRhbnQ7XG4gIGxlZnQ6IC00cHggIWltcG9ydGFudDtcbiAgcGFkZGluZy1ib3R0b206IDhweDtcbiAgZm9udC1zaXplOiAyMXB4ICFpbXBvcnRhbnQ7XG4gIHRvcDogMHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5zZWFyY2gtaWNvbiB7XG4gIHBhZGRpbmctdG9wOiAxOHB4O1xuICBmb250LXNpemU6IDJyZW07XG59XG5cbi53ZC0zMCB7XG4gIHdpZHRoOiAzMCU7XG59Il19 */";
     /***/
   },
 
@@ -4176,9 +4606,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
     /* harmony import */
 
 
@@ -4194,300 +4624,244 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! underscore */
-    "./node_modules/underscore/modules/index-all.js"); // import { MatDialog } from '@angular/material/dialog';
-    // import { MatDialogRef } from "@angular/material/dialog";
-    // import { AssetsMaintenanceHistoryComponent } from './../assets-maintenance-history/assets-maintenance-history.component';
-    // import { VendorService } from '../../../.././api/services/vendor.service';
-    // import { LookupService } from '../../../../api/services/lookup.service';
-    // import { SharedService } from '../../../../shared/services/shared.service';
-    // import { ModalService } from '../../../../shared/services/modal.service';
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts"); // import { Component, OnInit, Injector, ViewChild, TemplateRef } from '@angular/core';
+    // import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
+    // // import { MatDialog } from '@angular/material/dialog';
+    // // import { MatDialogRef } from "@angular/material/dialog";
+    // // import { AssetsMaintenanceHistoryComponent } from './../assets-maintenance-history/assets-maintenance-history.component';
+    // import { AssetService } from 'src/app/api/controllers/Asset';
+    // // import { VendorService } from '../../../.././api/services/vendor.service';
+    // // import { LookupService } from '../../../../api/services/lookup.service';
+    // // import { SharedService } from '../../../../shared/services/shared.service';
+    // // import { ModalService } from '../../../../shared/services/modal.service';
+    // import { CookieService } from 'ngx-cookie-service';
+    // import * as _ from 'underscore';
+    // import * as moment from 'moment';
 
 
     var MaintenanceHistoryComponent =
     /*#__PURE__*/
     function () {
-      function MaintenanceHistoryComponent(injector, router, route, cookieService, assetService) {
+      function MaintenanceHistoryComponent(assetService, cookieService, lookupService) {
         _classCallCheck(this, MaintenanceHistoryComponent);
 
-        // this.modalService = this.injector.get(ModalService);
-        this.injector = injector;
-        this.router = router;
-        this.route = route;
-        this.cookieService = cookieService;
         this.assetService = assetService;
-        this.assetCategoryId = "";
-        this.isAssetCategorySelected = false;
-        this.isAssetLoaded = false;
-        this.assetData = "";
-        this.unitFieldType = "assetTagNo";
-        this.unitOrder = true;
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
-        this.assetCategoryName = "";
-        this.selectedInput = "";
-        this.columnField = {}; //  router.events.forEach((event) => {
-        //   if(event instanceof NavigationEnd) {
-        //     this.lookupService.getLookupValueByLookupTypeId(19).subscribe((res:any) => {
-        //       this.assetCategoryData = res.filter(item => {
-        //         return item.isActive;
-        //       });
-        //       this.getAssetCategoryData(this.assetCategoryId);
-        //     });
-        //   }
-        // });
+        this.cookieService = cookieService;
+        this.lookupService = lookupService;
+        this.categoryList = [];
+        this.assetList = [];
+        this.subCategoryList = [];
+        this.search = {};
+        this.assetSettings = {
+          singleSelection: true,
+          text: "Search Asset",
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          enableSearchFilter: true,
+          badgeShowLimit: 3
+        };
+        this.categorySettings = {
+          singleSelection: true,
+          text: "Search Category",
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          enableSearchFilter: true,
+          badgeShowLimit: 3
+        };
+        this.subCategorySettings = {
+          singleSelection: true,
+          text: "Search Sub Category",
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          enableSearchFilter: true,
+          badgeShowLimit: 3
+        };
       }
 
       _createClass(MaintenanceHistoryComponent, [{
-        key: "getIndexParams",
-        value: function getIndexParams(event) {
-          this.ItemStartIndex = event.ItemStartIndex;
-          this.ItemEndIndex = event.ItemEndIndex;
-          this.itemLimit = event.itemLimit;
-        }
-      }, {
-        key: "sortUnitData",
-        value: function sortUnitData(type) {
-          this.unitFieldType = type;
-          this.unitOrder = !this.unitOrder;
-        }
-      }, {
-        key: "getFieldOrderBy",
-        value: function getFieldOrderBy(type) {
-          if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-          } else return '';
-        }
-      }, {
-        key: "selectColInput",
-        value: function selectColInput(value) {
-          this.selectedInput = value;
-        }
-      }, {
-        key: "onSelectChange",
-        value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_5__["isEmpty"](event)) {
-            this.selectedInput = type;
-            this.columnField[type] = event[name];
-          } else {
-            this.columnField = {};
-          }
-        }
-      }, {
-        key: "isMobileView",
-        value: function isMobileView() {
-          return window.innerWidth <= 767 ? 'table-responsive' : '';
-        } // isItemsAvailable(){
-        //   return this.totalItems > 0 ? true : false;
-        // }
-
-      }, {
-        key: "isNoItemsAvailable",
-        value: function isNoItemsAvailable() {
-          return this.totalItems == 0 ? true : false;
-        } // getAssetCondition(asset, id){
-        //   var data = _.filter( this.assetConditionData, function( item ) {
-        //     if(item.lookupValueId === id)
-        //       return item;
-        //   });
-        //   if(data === undefined || data.length == 0){
-        //     return '';
-        //   }
-        //   else {
-        //     this.assetListData.map(obj=> {
-        //       if(obj.assetId == asset.assetId){
-        //         obj.assetCondition = data[0].lookupValueName.toLowerCase();
-        //       }
-        //     });
-        //     return data[0].lookupValueName.toLowerCase();
-        //   }
-        // }
-        // getAssetCategoryName(asset, id){
-        //   var data = _.filter( this.assetCategoryData, function( item ) {
-        //     if(item.lookupValueId === id)
-        //       return item;
-        //   });
-        //   if(data === undefined || data.length == 0){
-        //     return '';
-        //   }
-        //   else {
-        //     this.assetListData.map(obj=> {
-        //       if(obj.assetId == asset.assetId){
-        //         obj.assetCategory = data[0].lookupValueName.toLowerCase();
-        //       }
-        //     });
-        //     return data[0].lookupValueName.toLowerCase();
-        //   }
-        // }
-        // getvendorName(asset, id){
-        //   var data = _.filter( this.vendorDataList, function( item ) {
-        //     if(item.vendorId === id)
-        //       return item;
-        //   });
-        //   if(data === undefined || data.length == 0){
-        //     return '';
-        //   }
-        //   else {
-        //     this.assetListData.map(obj=> {
-        //       if(obj.assetId == asset.assetId){
-        //         obj.vendorTypeName = data[0].vendorName;
-        //       }
-        //     });
-        //     return data[0].vendorName;
-        //   }
-        // }
-        // getAssetCategory(){
-        //   if(this.assetCategoryId != "All"){
-        //     this.router.navigateByUrl('/ams/assets/view/'+parseInt(this.assetCategoryId));
-        //   }
-        //   else {
-        //     this.router.navigate(['/ams/assets/view/']);
-        //   }
-        // }
-        // getAssetCategoryData(id){
-        //   this.isAssetLoaded = false;
-        //   _.each(this.assetCategoryData, (item, index) => {
-        //     if(id != "All"){
-        //       if(item.lookupValueId == parseInt(id)){
-        //         this.assetCategoryName = item.lookupValueName;
-        //       }
-        //     }
-        //     else {
-        //       this.assetCategoryName = "";
-        //     }
-        //   });
-        //   this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
-        //     if(id != "All"){
-        //       this.assetListData = res.filter(item => {
-        //         return (item.assetCategoryId == parseInt(id)) && item.isActive
-        //       });
-        //     }
-        //     else {
-        //       this.assetListData = res.filter(item => {
-        //         return item.isActive
-        //       })
-        //     }
-        //     this.totalItems = this.assetListData.length;
-        //     if(this.totalItems>this.itemLimit){
-        //       this.ItemEndIndex = this.itemLimit;
-        //     }
-        //     else {
-        //       this.ItemEndIndex = this.totalItems;
-        //     }
-        //     this.isAssetLoaded = true;
-        //   });
-        // }
-        // showMaintenanceHistory(id){
-        //   this.dialog.open(AssetsMaintenanceHistoryComponent, {
-        //     panelClass: [ 'material', 'medium-02' ],
-        //     disableClose: true,
-        //     data: id
-        //   });
-        // }
-        // isMaintenanceAvailable(id){
-        //   var data = _.filter( this.assetMaintenaceDataList, function( item ) {
-        //     if(item.assetId === id)
-        //       return item;
-        //   });
-        //   if(data === undefined || data.length == 0){
-        //     return false;
-        //   }
-        //   else {
-        //     return true;
-        //   }
-        // }
-        // isMaintenanceDue(id){
-        //   var data = _.filter( this.assetMaintenaceDataList, function( item ) {
-        //     if(item.assetId === id)
-        //       return item;
-        //   });
-        //   if(data === undefined || data.length == 0){
-        //     return false;
-        //   }
-        //   else {
-        //    var check = _.some(data, item => {
-        //       return item.maintenanceStatusId == 273
-        //     });
-        //     return check ? true : false;
-        //   }
-        // }
-
-      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this16 = this;
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
 
-          this.asset = {};
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
 
-          if (this.route.params['value'].id == undefined) {
-            this.assetCategoryId = "All";
-            var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
-            };
-            this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
-              _this16.isAssetLoaded = false;
-              _this16.assetListData = res.filter(function (item) {
-                return item.isActive;
-              });
-              _this16.totalItems = _this16.assetListData.length;
-
-              if (_this16.totalItems > _this16.itemLimit) {
-                _this16.ItemEndIndex = _this16.itemLimit;
-              } else {
-                _this16.ItemEndIndex = _this16.totalItems;
-              }
-
-              _this16.isAssetLoaded = true;
-            });
-          } else {
-            this.assetCategoryId = "" + this.route.params['value'].id;
-          } //asset condition
-          // this.lookupService.getLookupValueByLookupTypeId(23).subscribe((res:any) => {
-          //   this.assetConditionData = res.filter(item => {
-          //       return item.isActive;
-          //   });
-          // });
-          // this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
-          //   this.vendorDataList = res.filter(item => {
-          //     return item.isActive;
-          //   });
-          // });
-          // this.assetService.getAllAssetMaintenancePlanByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
-          //   this.assetMaintenaceDataList = res.filter(item => {
-          //     return item.isActive;
-          //   })
+          this.columnData = [{
+            text: 'Asset Name',
+            datafield: 'assetId',
+            width: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Asset Tag',
+            datafield: 'maintWithTax',
+            minwidth: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Category',
+            datafield: 'maintLaborCost',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }, {
+            ext: 'Subcategory',
+            datafield: 'maintenanceSubtypeId',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }, {
+            text: 'Maint type',
+            datafield: 'assetTypeId',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }, {
+            text: 'Planned Maintenance Date',
+            datafield: 'nextPlannedMaintenance',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }, {
+            text: 'Actual Maintenance Date',
+            datafield: 'actualMaintDate',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }, {
+            text: 'Ontime/Delayed',
+            datafield: 'maintVat',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }, {
+            text: 'Cost',
+            datafield: 'maintenanceTotalBilledAmt',
+            cellsrenderer: cellsrenderer,
+            minwidth: 100,
+            renderer: columnrenderer
+          }]; //  var ticketListData = res.filter(data => {
+          //   return data.isActive
           // })
-          // this.lookupService.getLookupValueByLookupTypeId(64).subscribe((res:any) => {
-          //   this.statusTypeData = res;
-          // },
-          // error => {
-          // });
-          // delete item
-          // this.sharedService.unitlistdeleteindexcast.subscribe( id => {
-          // if(id != null){
-          // var params = {
-          //   assetId: id,
-          //   deleteBy: parseInt(this.cookieService.get('userId'))
-          // }
-          // this.assetService.deleteAsset(params).subscribe((res:any) => {
-          //   _.each(this.assetListData, (type)=>{
-          //     if(type.assetId == id){
-          //       type.isActive = false;
-          //     }
-          //   })
-          //       setTimeout(() => {
-          //         this.assetListData = this.assetListData.filter((type) => type.assetId !== id);
-          //         this.totalItems = this.assetListData.length;
-          //         // this.sharedService.setAlertMessage("Asset deleted");
-          //         // this.sharedService.setUnitListDeleteIndex(null);
-          //       }, 500)
-          //     }, error => {
-          //       console.log(error);
-          //     });
-          //   }
-          // });
 
+          this.getMaintenaceHistory();
+          this.getAllCategory();
+          this.getSubCategory();
+          this.getAsset();
+        }
+      }, {
+        key: "onItemSelect",
+        value: function onItemSelect(item) {
+          console.log(item); // console.log(this.selectedItems);
+        }
+      }, {
+        key: "OnItemDeSelect",
+        value: function OnItemDeSelect(item) {
+          console.log(item); // console.log(this.selectedItems);
+        }
+      }, {
+        key: "onSelectAll",
+        value: function onSelectAll(items) {
+          console.log(items);
+        }
+      }, {
+        key: "onDeSelectAll",
+        value: function onDeSelectAll(items) {
+          console.log(items);
+        }
+      }, {
+        key: "getMaintenaceHistory",
+        value: function getMaintenaceHistory() {
+          var _this24 = this;
+
+          var params = {};
+          params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
+          this.assetService.getAllAssetMaintenancePlanByApartmentId(params).subscribe(function (res) {
+            console.log(res);
+
+            if (res) {
+              _this24.gridSourceData = {
+                localdata: res.length > 0 ? res : [],
+                datatype: "array"
+              };
+              _this24.assetsHistoryData = new jqx.dataAdapter(_this24.gridSourceData);
+            }
+          });
+        }
+      }, {
+        key: "getAllCategory",
+        value: function getAllCategory() {
+          var _this25 = this;
+
+          var params = {};
+          params.LookupTypeId = 19;
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            console.log(res, 'res:::::');
+
+            if (res) {
+              // this.categoryList = res;
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this25.categoryList.push({
+                    'id': val.lookupValueId,
+                    'itemName': val.lookupValueName
+                  });
+                });
+              }
+            }
+          });
+        }
+      }, {
+        key: "getSubCategory",
+        value: function getSubCategory() {
+          var _this26 = this;
+
+          var params = {};
+          params.LookupTypeId = 68;
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            if (res) {
+              // this.subCategoryList = res;
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this26.subCategoryList.push({
+                    'id': val.lookupValueId,
+                    'itemName': val.lookupValueName
+                  });
+                });
+              }
+            }
+          });
+        }
+        /**
+         * get Asset list
+         * @param
+         */
+
+      }, {
+        key: "getAsset",
+        value: function getAsset() {
+          var _this27 = this;
+
+          var params = {};
+          params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
+          this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
+            if (res) {
+              // this.assetList = res;
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this27.assetList.push({
+                    'id': val.assetId,
+                    'itemName': val.assetName
+                  });
+                });
+              }
+            }
+          });
         }
       }]);
 
@@ -4496,18 +4870,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     MaintenanceHistoryComponent.ctorParameters = function () {
       return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }, {
-        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__["jqxGridComponent"])], MaintenanceHistoryComponent.prototype, "datagrid", void 0);
     MaintenanceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-maintenance-history',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -4516,7 +4889,283 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./maintenance-history.component.scss */
       "./src/app/ams/assets/components/maintenance-history/maintenance-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])], MaintenanceHistoryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]])], MaintenanceHistoryComponent); // assetCategoryData:any;
+    // assetCategoryId:string = "";
+    // vendorDataList:any;
+    // assetConditionData:any;
+    // isAssetCategorySelected:boolean = false;
+    // isAssetLoaded:boolean = false;
+    // assetData:string = "";
+    // unitFieldType:string = "assetTagNo";
+    // unitOrder:boolean = true;
+    // ItemStartIndex:any = 0;
+    // ItemEndIndex:any;
+    // totalItems:any;
+    // itemLimit:any = 10;
+    // totalFilterItems:any;
+    // modalService:any;
+    // asset:any;
+    // assetListData:any;
+    // assetCategoryName:string = "";
+    // assetMaintenaceDataList:any;
+    // maintenanceData:any;
+    // statusTypeData:any;
+    // selectedInput:string = "";
+    // columnField: any = {}
+    // constructor(
+    //   private injector: Injector,
+    //   private router: Router,
+    //   private route: ActivatedRoute,
+    //   private cookieService:CookieService,
+    //   private assetService: AssetService
+    // ) { 
+    //   // this.modalService = this.injector.get(ModalService);
+    //   //  router.events.forEach((event) => {
+    //   //   if(event instanceof NavigationEnd) {
+    //   //     this.lookupService.getLookupValueByLookupTypeId(19).subscribe((res:any) => {
+    //   //       this.assetCategoryData = res.filter(item => {
+    //   //         return item.isActive;
+    //   //       });
+    //   //       this.getAssetCategoryData(this.assetCategoryId);
+    //   //     });
+    //   //   }
+    //   // });
+    // }
+    // getIndexParams(event){
+    //   this.ItemStartIndex = event.ItemStartIndex;
+    //   this.ItemEndIndex = event.ItemEndIndex;
+    //   this.itemLimit = event.itemLimit;
+    // }
+    // sortUnitData(type){
+    //   this.unitFieldType = type;
+    //   this.unitOrder = !this.unitOrder;
+    // }
+    // getFieldOrderBy(type) {
+    //   if(this.unitFieldType == type){
+    //     return this.unitOrder ? 'asc' : 'desc';
+    //   }
+    //   else return '';
+    // }
+    // selectColInput(value){
+    //   this.selectedInput = value;
+    // }
+    // onSelectChange(event, type, name){
+    //   if(!_.isEmpty(event)){
+    //     this.selectedInput = type;
+    //     this.columnField[type] = event[name];
+    //   }
+    //   else {
+    //      this.columnField = {};
+    //   }
+    // }
+    // isMobileView() {
+    //   return window.innerWidth <= 767 ? 'table-responsive' : '';
+    // }
+    // // isItemsAvailable(){
+    // //   return this.totalItems > 0 ? true : false;
+    // // }
+    // isNoItemsAvailable(){
+    //   return this.totalItems == 0 ? true : false;
+    // }
+    // getAssetCondition(asset, id){
+    //   var data = _.filter( this.assetConditionData, function( item ) {
+    //     if(item.lookupValueId === id)
+    //       return item;
+    //   });
+    //   if(data === undefined || data.length == 0){
+    //     return '';
+    //   }
+    //   else {
+    //     this.assetListData.map(obj=> {
+    //       if(obj.assetId == asset.assetId){
+    //         obj.assetCondition = data[0].lookupValueName.toLowerCase();
+    //       }
+    //     });
+    //     return data[0].lookupValueName.toLowerCase();
+    //   }
+    // }
+    // getAssetCategoryName(asset, id){
+    //   var data = _.filter( this.assetCategoryData, function( item ) {
+    //     if(item.lookupValueId === id)
+    //       return item;
+    //   });
+    //   if(data === undefined || data.length == 0){
+    //     return '';
+    //   }
+    //   else {
+    //     this.assetListData.map(obj=> {
+    //       if(obj.assetId == asset.assetId){
+    //         obj.assetCategory = data[0].lookupValueName.toLowerCase();
+    //       }
+    //     });
+    //     return data[0].lookupValueName.toLowerCase();
+    //   }
+    // }
+    // getvendorName(asset, id){
+    //   var data = _.filter( this.vendorDataList, function( item ) {
+    //     if(item.vendorId === id)
+    //       return item;
+    //   });
+    //   if(data === undefined || data.length == 0){
+    //     return '';
+    //   }
+    //   else {
+    //     this.assetListData.map(obj=> {
+    //       if(obj.assetId == asset.assetId){
+    //         obj.vendorTypeName = data[0].vendorName;
+    //       }
+    //     });
+    //     return data[0].vendorName;
+    //   }
+    // }
+    // getAssetCategory(){
+    //   if(this.assetCategoryId != "All"){
+    //     this.router.navigateByUrl('/ams/assets/view/'+parseInt(this.assetCategoryId));
+    //   }
+    //   else {
+    //     this.router.navigate(['/ams/assets/view/']);
+    //   }
+    // }
+    // getAssetCategoryData(id){
+    //   this.isAssetLoaded = false;
+    //   _.each(this.assetCategoryData, (item, index) => {
+    //     if(id != "All"){
+    //       if(item.lookupValueId == parseInt(id)){
+    //         this.assetCategoryName = item.lookupValueName;
+    //       }
+    //     }
+    //     else {
+    //       this.assetCategoryName = "";
+    //     }
+    //   });
+    //   this.assetService.getAllAssetByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
+    //     if(id != "All"){
+    //       this.assetListData = res.filter(item => {
+    //         return (item.assetCategoryId == parseInt(id)) && item.isActive
+    //       });
+    //     }
+    //     else {
+    //       this.assetListData = res.filter(item => {
+    //         return item.isActive
+    //       })
+    //     }
+    //     this.totalItems = this.assetListData.length;
+    //     if(this.totalItems>this.itemLimit){
+    //       this.ItemEndIndex = this.itemLimit;
+    //     }
+    //     else {
+    //       this.ItemEndIndex = this.totalItems;
+    //     }
+    //     this.isAssetLoaded = true;
+    //   });
+    // }
+    // showMaintenanceHistory(id){
+    //   this.dialog.open(AssetsMaintenanceHistoryComponent, {
+    //     panelClass: [ 'material', 'medium-02' ],
+    //     disableClose: true,
+    //     data: id
+    //   });
+    // }
+    // isMaintenanceAvailable(id){
+    //   var data = _.filter( this.assetMaintenaceDataList, function( item ) {
+    //     if(item.assetId === id)
+    //       return item;
+    //   });
+    //   if(data === undefined || data.length == 0){
+    //     return false;
+    //   }
+    //   else {
+    //     return true;
+    //   }
+    // }
+    // isMaintenanceDue(id){
+    //   var data = _.filter( this.assetMaintenaceDataList, function( item ) {
+    //     if(item.assetId === id)
+    //       return item;
+    //   });
+    //   if(data === undefined || data.length == 0){
+    //     return false;
+    //   }
+    //   else {
+    //    var check = _.some(data, item => {
+    //       return item.maintenanceStatusId == 273
+    //     });
+    //     return check ? true : false;
+    //   }
+    // }
+    // ngOnInit() {
+    //   this.asset = {};
+    //   if(this.route.params['value'].id == undefined) {
+    //     this.assetCategoryId = "All"; 
+    //     let params = {
+    //       apartmentId: parseInt(this.cookieService.get('apartmentId'))
+    //     }
+    //     this.assetService.getAllAssetByApartmentId(params).subscribe((res:any) => {
+    //       this.isAssetLoaded = false;
+    //       this.assetListData = res.filter(item => {
+    //         return item.isActive
+    //       })
+    //       this.totalItems = this.assetListData.length;
+    //       if(this.totalItems>this.itemLimit){
+    //         this.ItemEndIndex = this.itemLimit;
+    //       }
+    //       else {
+    //         this.ItemEndIndex = this.totalItems;
+    //       }
+    //       this.isAssetLoaded = true;
+    //     });
+    //   }
+    //   else {
+    //     this.assetCategoryId = ""+this.route.params['value'].id; 
+    //   }
+    //asset condition
+    // this.lookupService.getLookupValueByLookupTypeId(23).subscribe((res:any) => {
+    //   this.assetConditionData = res.filter(item => {
+    //       return item.isActive;
+    //   });
+    // });
+    // this.vendorService.getVendorByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
+    //   this.vendorDataList = res.filter(item => {
+    //     return item.isActive;
+    //   });
+    // });
+    // this.assetService.getAllAssetMaintenancePlanByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
+    //   this.assetMaintenaceDataList = res.filter(item => {
+    //     return item.isActive;
+    //   })
+    // })
+    // this.lookupService.getLookupValueByLookupTypeId(64).subscribe((res:any) => {
+    //   this.statusTypeData = res;
+    // },
+    // error => {
+    // });
+    // delete item
+    // this.sharedService.unitlistdeleteindexcast.subscribe( id => {
+    // if(id != null){
+    // var params = {
+    //   assetId: id,
+    //   deleteBy: parseInt(this.cookieService.get('userId'))
+    // }
+    // this.assetService.deleteAsset(params).subscribe((res:any) => {
+    //   _.each(this.assetListData, (type)=>{
+    //     if(type.assetId == id){
+    //       type.isActive = false;
+    //     }
+    //   })
+    //       setTimeout(() => {
+    //         this.assetListData = this.assetListData.filter((type) => type.assetId !== id);
+    //         this.totalItems = this.assetListData.length;
+    //         // this.sharedService.setAlertMessage("Asset deleted");
+    //         // this.sharedService.setUnitListDeleteIndex(null);
+    //       }, 500)
+    //     }, error => {
+    //       console.log(error);
+    //     });
+    //   }
+    // });
+    //     }
+    //  }
+
     /***/
   },
 
@@ -4628,11 +5277,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this17 = this;
+          var _this28 = this;
 
           this.route.paramMap.subscribe(function (params) {
             if (params) {
-              _this17.assetId = params.get('id');
+              _this28.assetId = params.get('id');
             }
           }); // this.search.assetId = 17;
           // this.getAllCategory();
