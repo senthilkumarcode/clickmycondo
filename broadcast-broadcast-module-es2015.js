@@ -256,7 +256,7 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
         this.cookieService = cookieService;
         this.userService = userService;
         this.injector = injector;
-        this.imagePath = "../../../../../assets/images/announcement_background.jpeg";
+        this.imagePath = "/assets/images/announcement_background.jpeg";
         this.filterGroupCategory = {
             "dropdownList": [],
             "selectedItems": []
@@ -1754,6 +1754,20 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
                 broadcastMessage.broadCastGroupcategoryId = parseInt(broadCastGroupCategoryIDs);
                 broadcastMessage.broadcastMessageCategoryId = null;
                 broadcastMessage.userIds = Array.prototype.map.call(this.AssignInterestUsers, function (item) { return item.userId; }).join(",");
+                if (broadcastMessage.userIds.length == 0) {
+                    this.modalService.showErrorModal("No such Users exists to broadcast message.");
+                }
+                else {
+                    let params = {
+                        "sourceBroadCastMessage_model": broadcastMessage
+                    };
+                    this.broadcastService.addBroadCastMessage(params).subscribe((res) => {
+                        if (res.message) {
+                            this.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                            this.ClearFormData();
+                        }
+                    });
+                }
             }
             if (this.selectedTab == 'role') {
                 broadcastMessage.userIds = Array.prototype.map.call(this.users, function (item) { return item.userId; }).join(",");
@@ -1779,31 +1793,29 @@ let BroadcastSendmessageComponent = class BroadcastSendmessageComponent {
                     'isActive': true,
                     'roleTypeId': this.roleTypeArr.selectedItems[0].value
                 };
-                let data = { "message": "1" };
                 let params2 = {
                     "broadCastFilters_model": params
                 };
-                //data = 
-                yield this.broadcastService.upsertBroadCastFilters(params2).
-                    toPromise();
-                broadcastMessage.filterId = parseInt(data.message);
+                this.broadcastService.upsertBroadCastFilters(params2).subscribe((res) => {
+                    broadcastMessage.filterId = parseInt(res.message);
+                    if (broadcastMessage.userIds.length == 0) {
+                        this.modalService.showErrorModal("No such Users exists to broadcast message.");
+                    }
+                    else {
+                        let params = {
+                            "sourceBroadCastMessage_model": broadcastMessage
+                        };
+                        this.broadcastService.addBroadCastMessage(params).subscribe((res) => {
+                            if (res.message) {
+                                this.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                                this.ClearFormData();
+                            }
+                        });
+                    }
+                });
                 // .subscribe((res)=>{
                 //       broadcastMessage.filterId=parseInt(res);
                 //                   }).toPromise();
-            }
-            if (broadcastMessage.userIds.length == 0) {
-                this.modalService.showErrorModal("No such Users exists to broadcast message.");
-            }
-            else {
-                let params = {
-                    "sourceBroadCastMessage_model": broadcastMessage
-                };
-                this.broadcastService.addBroadCastMessage(params).subscribe((res) => {
-                    if (res.message) {
-                        this.sharedService.setAlertMessage("Broadcast Message sent successfully");
-                        this.ClearFormData();
-                    }
-                });
             }
         });
     }

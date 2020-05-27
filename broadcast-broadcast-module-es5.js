@@ -517,7 +517,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.cookieService = cookieService;
         this.userService = userService;
         this.injector = injector;
-        this.imagePath = "../../../../../assets/images/announcement_background.jpeg";
+        this.imagePath = "/assets/images/announcement_background.jpeg";
         this.filterGroupCategory = {
           "dropdownList": [],
           "selectedItems": []
@@ -2616,7 +2616,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           regeneratorRuntime.mark(function _callee2() {
             var _this36 = this;
 
-            var broadCastGroupCategoryIDs, broadcastModeIds, broadcastMessage, roleIds, blockIds, conditionIds, staffcategoryIds, staffSubCategoryIds, params, data, params2, _params;
+            var broadCastGroupCategoryIDs, broadcastModeIds, broadcastMessage, params, roleIds, blockIds, conditionIds, staffcategoryIds, staffSubCategoryIds, _params, params2;
 
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
               while (1) {
@@ -2659,80 +2659,86 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       broadcastMessage.userIds = Array.prototype.map.call(this.AssignInterestUsers, function (item) {
                         return item.userId;
                       }).join(",");
+
+                      if (broadcastMessage.userIds.length == 0) {
+                        this.modalService.showErrorModal("No such Users exists to broadcast message.");
+                      } else {
+                        params = {
+                          "sourceBroadCastMessage_model": broadcastMessage
+                        };
+                        this.broadcastService.addBroadCastMessage(params).subscribe(function (res) {
+                          if (res.message) {
+                            _this36.sharedService.setAlertMessage("Broadcast Message sent successfully");
+
+                            _this36.ClearFormData();
+                          }
+                        });
+                      }
                     }
 
-                    if (!(this.selectedTab == 'role')) {
-                      _context2.next = 19;
-                      break;
-                    }
-
-                    broadcastMessage.userIds = Array.prototype.map.call(this.users, function (item) {
-                      return item.userId;
-                    }).join(",");
-                    broadcastMessage.broadcastMessageCategoryId = this.broadCastCategory.selectedItems[0].broadCastMessageCategoryId;
-                    broadcastMessage.broadCastGroupcategoryId = null;
-                    roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
-                      return item.value;
-                    }).join(",");
-                    blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) {
-                      return item.apartmentBlockId;
-                    }).join(",");
-                    conditionIds = Array.prototype.map.call(this.condition.selectedItems, function (item) {
-                      return item.value;
-                    }).join(",");
-                    staffcategoryIds = Array.prototype.map.call(this.staffCategory.selectedItems, function (item) {
-                      return item.value;
-                    }).join(",");
-                    staffSubCategoryIds = Array.prototype.map.call(this.staffSubCategory.selectedItems, function (item) {
-                      return item.value;
-                    }).join(",");
-                    params = {
-                      'filterId': 0,
-                      'roleIds': roleIds,
-                      'conditions': conditionIds,
-                      'appartmentbBlockIds': blockIds,
-                      'apartmentId': this.apartmentID,
-                      'staffCategoryIds': staffcategoryIds,
-                      'subStaffCategoryIds': staffSubCategoryIds,
-                      "insertedBy": this.loginedUser,
-                      "insertedOn": new Date().toISOString(),
-                      "updatedBy": null,
-                      "updatedOn": null,
-                      'isActive': true,
-                      'roleTypeId': this.roleTypeArr.selectedItems[0].value
-                    };
-                    data = {
-                      "message": "1"
-                    };
-                    params2 = {
-                      "broadCastFilters_model": params
-                    }; //data = 
-
-                    _context2.next = 18;
-                    return this.broadcastService.upsertBroadCastFilters(params2).toPromise();
-
-                  case 18:
-                    broadcastMessage.filterId = parseInt(data.message); // .subscribe((res)=>{
-                    //       broadcastMessage.filterId=parseInt(res);
-                    //                   }).toPromise();
-
-                  case 19:
-                    if (broadcastMessage.userIds.length == 0) {
-                      this.modalService.showErrorModal("No such Users exists to broadcast message.");
-                    } else {
+                    if (this.selectedTab == 'role') {
+                      broadcastMessage.userIds = Array.prototype.map.call(this.users, function (item) {
+                        return item.userId;
+                      }).join(",");
+                      broadcastMessage.broadcastMessageCategoryId = this.broadCastCategory.selectedItems[0].broadCastMessageCategoryId;
+                      broadcastMessage.broadCastGroupcategoryId = null;
+                      roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
+                        return item.value;
+                      }).join(",");
+                      blockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) {
+                        return item.apartmentBlockId;
+                      }).join(",");
+                      conditionIds = Array.prototype.map.call(this.condition.selectedItems, function (item) {
+                        return item.value;
+                      }).join(",");
+                      staffcategoryIds = Array.prototype.map.call(this.staffCategory.selectedItems, function (item) {
+                        return item.value;
+                      }).join(",");
+                      staffSubCategoryIds = Array.prototype.map.call(this.staffSubCategory.selectedItems, function (item) {
+                        return item.value;
+                      }).join(",");
                       _params = {
-                        "sourceBroadCastMessage_model": broadcastMessage
+                        'filterId': 0,
+                        'roleIds': roleIds,
+                        'conditions': conditionIds,
+                        'appartmentbBlockIds': blockIds,
+                        'apartmentId': this.apartmentID,
+                        'staffCategoryIds': staffcategoryIds,
+                        'subStaffCategoryIds': staffSubCategoryIds,
+                        "insertedBy": this.loginedUser,
+                        "insertedOn": new Date().toISOString(),
+                        "updatedBy": null,
+                        "updatedOn": null,
+                        'isActive': true,
+                        'roleTypeId': this.roleTypeArr.selectedItems[0].value
                       };
-                      this.broadcastService.addBroadCastMessage(_params).subscribe(function (res) {
-                        if (res.message) {
-                          _this36.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                      params2 = {
+                        "broadCastFilters_model": _params
+                      };
+                      this.broadcastService.upsertBroadCastFilters(params2).subscribe(function (res) {
+                        broadcastMessage.filterId = parseInt(res.message);
 
-                          _this36.ClearFormData();
+                        if (broadcastMessage.userIds.length == 0) {
+                          _this36.modalService.showErrorModal("No such Users exists to broadcast message.");
+                        } else {
+                          var _params2 = {
+                            "sourceBroadCastMessage_model": broadcastMessage
+                          };
+
+                          _this36.broadcastService.addBroadCastMessage(_params2).subscribe(function (res) {
+                            if (res.message) {
+                              _this36.sharedService.setAlertMessage("Broadcast Message sent successfully");
+
+                              _this36.ClearFormData();
+                            }
+                          });
                         }
-                      });
+                      }); // .subscribe((res)=>{
+                      //       broadcastMessage.filterId=parseInt(res);
+                      //                   }).toPromise();
                     }
 
-                  case 20:
+                  case 5:
                   case "end":
                     return _context2.stop();
                 }

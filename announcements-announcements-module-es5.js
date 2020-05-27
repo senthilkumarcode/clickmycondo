@@ -179,7 +179,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.broadcastService = broadcastService;
         this.cookieService = cookieService;
         this.userService = userService;
-        this.imagePath = "../../../../../assets/images/announcement_background.jpeg";
+        this.imagePath = "/assets/images/announcement_background.jpeg";
         this.filterGroupCategory = {
           "dropdownList": [],
           "selectedItems": []

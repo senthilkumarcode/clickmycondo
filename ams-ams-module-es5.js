@@ -8336,6 +8336,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
+        path: 'parcel-delivery',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | parcel-delivery-parcel-delivery-module */
+          "parcel-delivery-parcel-delivery-module").then(__webpack_require__.bind(null,
+          /*! ./parcel-delivery/parcel-delivery.module */
+          "./src/app/ams/parcel-delivery/parcel-delivery.module.ts")).then(function (m) {
+            return m.ParcelDeliveryModule;
+          });
+        }
+      }, {
         path: 'parking-management',
         loadChildren: function loadChildren() {
           return __webpack_require__.e(

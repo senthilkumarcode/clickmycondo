@@ -41,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>\n\t\t\t\t\t<span *ngIf=\"!isCheckout()\">Edit Expected Visitor</span>\n\t\t\t\t\t<span *ngIf=\"isCheckout()\">Check Out</span>\n\t\t\t\t</h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\">\n\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/visitor/expected-visitor\" routerLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"isVisitorSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"!isVisitorSubmitted\">\n\n\t\t\t\t<form #addVisitorForm=\"ngForm\" name=\"addVisitorForm\" (ngSubmit)=\"submitAddVisitorForm(addVisitorForm)\"\n\t\t\t\t\tnovalidate>\n\n\t\t\t\t\t<div class=\"row\" *ngIf=\"!isCheckout()\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Name*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorName\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Count*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Count\"\n\t\t\t\t\t\t\t\t\tname=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Number\"\n\t\t\t\t\t\t\t\t\tname=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor In-time*</label>\n\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"visitorInTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorInTime\"\n\t\t\t\t\t\t\t\t\t[disabled]=\"true\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Actual Visitor In-time*</label>\n\t\t\t\t\t\t\t <input class=\"form-control\" name=\"actualVisitorInTime\" [owlDateTime]=\"actualVisitorInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"actualVisitorInTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"actualInTime\"\n\t\t\t\t\t\t\t\t\t[disabled]=\"true\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #actualVisitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"actualVisitorInTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Out-time*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"visitorOutTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"expectedDurationChange(actualInTime, visitor.expectedVisitorOutTime)\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Duration*</label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Duration\"\n\t\t\t\t\t\t\t\t\tname=\"visitorDuration\" [(ngModel)]=\"expectedDuration\" [disabled]=\"true\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Pass Number*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\"\n\t\t\t\t\t\t\t\t\tname=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visit Type*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitTypeId\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"changeVisitorType(visitTypeId)\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitByData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visit Category*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitCategoryId\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Tenant block-No*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitorblock-No\" id=\"visitorblock-No\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockNumber\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Tenant Unit-No*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitorUnit-No\" id=\"visitorUnit-No\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockUnitNumber\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitNumber\">\n\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"iscommunityVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Staff Id*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Staff-id\"\n\t\t\t\t\t\t\t\t\tname=\"staffId\" [(ngModel)]=\"visitor.staffId\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Purpose</label>\n\t\t\t\t\t\t\t\t<textarea type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\"\n\t\t\t\t\t\t\t\t\tname=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\" *ngIf=\"isCheckout()\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Visitor Name*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.visitorName\" [disabled]='true' required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Visitor Count*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Count\"\n\t\t\t\t\t\t\t\t\tname=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\" [disabled]='true' required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Number\"\n\t\t\t\t\t\t\t\t\tname=\"phoneNo\" [(ngModel)]=\"visitor.visitorPhone\" [disabled]='true' required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Visitor In-time*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"visitorInTime\" [min]=\"minDate\" [max]=\"minDate\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [disabled]=\"true\" [(ngModel)]=\"visitor.visitorInTime\"\n\t\t\t\t\t\t\t\t\t[disabled]='true' required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime [min]=\"minDate\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Visitor Out-time</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"visitorOutTime\" [min]=\"minDate\" [max]=\"minDate\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorOutTime\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"expectedDurationChange(visitor.visitorInTime, visitor.visitorOutTime)\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime [min]=\"minDate\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Duration*</label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Duration\"\n\t\t\t\t\t\t\t\t\tname=\"visitorDuration\" [(ngModel)]=\"expectedDuration\" [disabled]='true' required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Pass Number*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\"\n\t\t\t\t\t\t\t\t\tname=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" [disabled]='true'\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Visit Type*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitTypeId\"\n\t\t\t\t\t\t\t\t\t[disabled]='true' required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitByData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Visit Category*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitCategoryId\" [disabled]='true'>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVisitorForm.invalid\"\n\t\t\t\t\t\t\t\t\t\t*ngIf=\"!isCheckout()\">Check In</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" *ngIf=\"isCheckout()\">Check Out</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\t\t\n\t\t</div>\n\t</div>\n\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>\n\t\t\t\t\t<span *ngIf=\"!isCheckout()\">Edit Expected Visitor</span>\n\t\t\t\t\t<span *ngIf=\"isCheckout()\">Check Out</span>\n\t\t\t\t</h5>\n\t\t\t</div>\n\t\t\t<div *ngIf=\"!isCheckout()\" class=\"float-right\">\n\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn lime-green mt_5\" routerLink=\"/ams/visitor/expected-visitor\" routerLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t\t<div *ngIf=\"isCheckout()\" class=\"float-right\">\n\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn lime-green mt_5\" routerLink=\"/ams/visitor/checkout\" routerLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"isVisitorSubmitted && !isVisitorAdded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"!isVisitorSubmitted && !isVisitorAdded\">\n\n\t\t\t\t<form #addVisitorForm=\"ngForm\" name=\"addVisitorForm\" (ngSubmit)=\"submitAddVisitorForm(addVisitorForm)\"\n\t\t\t\t\tnovalidate>\n\n\t\t\t\t\t<div class=\"row\" *ngIf=\"!isCheckout()\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Name*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorName\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Count*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Count\"\n\t\t\t\t\t\t\t\t\tname=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Number\"\n\t\t\t\t\t\t\t\t\tname=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Date/Time of Visit*</label>\n\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"visitorInTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorInTime\"\n\t\t\t\t\t\t\t\t\t[disabled]=\"true\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Actual Visitor In-time*</label>\n\t\t\t\t\t\t\t <input class=\"form-control\" name=\"actualVisitorInTime\" [owlDateTime]=\"actualVisitorInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"actualVisitorInTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"actualInTime\"\n\t\t\t\t\t\t\t\t\t[disabled]=\"true\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #actualVisitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"actualVisitorInTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Time-out*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"visitorOutTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorOutTime\" [min]=\"minExOutTime\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"expectedDurationChange(actualInTime, visitor.expectedVisitorOutTime)\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Duration*</label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Duration\"\n\t\t\t\t\t\t\t\t\tname=\"visitorDuration\" [(ngModel)]=\"expectedDuration\" [disabled]=\"true\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Pass Number*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\"\n\t\t\t\t\t\t\t\t\tname=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visit Type*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitTypeId\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"changeVisitorType(visitTypeId)\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitByData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visit Category*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitCategoryId\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Tenant block-No*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitorblock-No\" id=\"visitorblock-No\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockNumber\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Tenant Unit-No*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitorUnit-No\" id=\"visitorUnit-No\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockUnitNumber\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitNumber\">\n\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"iscommunityVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Staff Id*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Staff-id\"\n\t\t\t\t\t\t\t\t\tname=\"staffId\" [(ngModel)]=\"visitor.staffId\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Purpose</label>\n\t\t\t\t\t\t\t\t<textarea type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\"\n\t\t\t\t\t\t\t\t\tname=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\" *ngIf=\"isCheckout()\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Visitor Name*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.visitorName\" [disabled]='true' required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Visitor Count*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Count\"\n\t\t\t\t\t\t\t\t\tname=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\" [disabled]='true' required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Number\"\n\t\t\t\t\t\t\t\t\tname=\"phoneNo\" [(ngModel)]=\"visitor.visitorPhone\" [disabled]='true' required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Visitor In-time*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"visitorInTime\" [min]=\"minDate\" [max]=\"minDate\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [disabled]=\"true\" [(ngModel)]=\"visitor.visitorInTime\"\n\t\t\t\t\t\t\t\t\t[disabled]='true' required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime [min]=\"minDate\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Visitor Out-time</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"visitorOutTime\" [min]=\"minOutDate\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorOutTime\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"expectedDurationChange(visitor.visitorInTime, visitor.visitorOutTime)\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime ></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Duration*</label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Duration\"\n\t\t\t\t\t\t\t\t\tname=\"visitorDuration\" [(ngModel)]=\"expectedDuration\" [disabled]='true' required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Pass Number*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\"\n\t\t\t\t\t\t\t\t\tname=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" [disabled]='true'\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Visit Type*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitTypeId\"\n\t\t\t\t\t\t\t\t\t[disabled]='true' required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitByData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Visit Category*</label>\n\t\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"visitCategoryId\" [disabled]='true'>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVisitorForm.invalid\"\n\t\t\t\t\t\t\t\t\t\t*ngIf=\"!isCheckout()\">Check In</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" *ngIf=\"isCheckout()\">Check Out</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\t\t\n            <div class=\"message\" *ngIf=\"isVisitorAdded\">\n\t\t\t\t<div class=\"row\">\n                <div class=\"icon-wrapper float-left\">\n                    <i-feather class=\"icon float-left\" name=\"check\" width=\"20\"></i-feather>\n                </div>\n                <h5 class=\"float-left\" *ngIf=\"!isCheckout()\">Visitor Checked In successfully!</h5>\n\t\t\t\t<h5 class=\"float-left\" *ngIf=\"isCheckout()\">Visitor Checked Out successfully!</h5>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"navigateTo(isCheckout)\">Ok</button>\n\t\t\t</div>\n            </div>\n\n\n\t\t</div>\n\t</div>\n\n</div>\n\n";
     /***/
   },
 
@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"checkedout-visitor-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Checked-in Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorName')\">Visitor Name <span [ngClass]=\"getFieldOrderBy('visitorName')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorPhone')\">Phone Number <span [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorInTime')\">In-time <span [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorOutTime')\">Out-time <span [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No<span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockUnitNo')\">Unit No <span [ngClass]=\"getFieldOrderBy('blockUnitNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.visitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.visitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorInTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorOutTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockNo}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockUnitNo}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckOutContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/visitor/edit-visitor/{{visitor.visitorId}}/checkout\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<img src=\"assets/images/checkout-icon.svg\" width=\"20\" />\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<ng-template #popAddCheckOutContent>\n\t\t\t\t      \t\t<div class=\"pop-desp\">\n\t\t\t\t      \t\t\t<h5>CheckOut</h5>\n\t\t\t\t      \t\t</div>\n\t\t\t\t      \t</ng-template>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"checkedout-visitor-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Checked-in Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\" (click) = \"print()\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorName')\">Visitor Name <span [ngClass]=\"getFieldOrderBy('visitorName')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorPhone')\">Phone Number <span [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorInTime')\">In-time <span [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorOutTime')\">Out-time <span [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No<span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockUnitNo')\">Unit No <span [ngClass]=\"getFieldOrderBy('blockUnitNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.visitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.visitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorInTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorOutTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockNo}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockUnitNo}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckOutContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/visitor/edit-visitor/{{visitor.visitorId}}/checkout\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<img src=\"assets/images/checkout-icon.svg\" width=\"20\" />\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<ng-template #popAddCheckOutContent>\n\t\t\t\t      \t\t<div class=\"pop-desp\">\n\t\t\t\t      \t\t\t<h5>CheckOut</h5>\n\t\t\t\t      \t\t</div>\n\t\t\t\t      \t</ng-template>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
     /***/
   },
 
@@ -81,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"create-visitor-wrapper\">\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t<span >Create Expected Visitor</span>\n    \t\t\t</h5>\n    \t\t</div>\n    \t\t<div class=\"float-right\">\n    \t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/visitor/expected-visitor\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t</a>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n            \n            <app-loader *ngIf=\"isVisitorSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"!isVisitorSubmitted\">\n\n\t\t\t\t<form #addVisitorForm = \"ngForm\" name=\"addVisitorForm\" (ngSubmit)=\"submitAddVisitorForm(addVisitorForm)\"  novalidate>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Visitor Name*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Visitor Count*</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Phone/Mobile*</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor In-time*</label>\n\t\t\t\t\t\t\t\t\n\t\t\t                    <input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" placeholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" (ngModelChange)=\"expectedDurationChange()\" [disabled]='true' required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Visitor Out-time*</label>\n\t\t\t                    <input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\" placeholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Duration*</label>\n\t\t\t                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Duration\" name=\"visitorDuration\" [(ngModel)]=\"visitor.expectedDuration\" [disabled]=\"true\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Pass Number*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visit Type*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t        name=\"visitBy\" \n\t\t\t\t\t\t\t        id=\"visitBy\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"visitTypeId\" (ngModelChange)=\"changeVisitorType(visitTypeId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of visitByData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visit Category*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t        name=\"visitByCategory\" \n\t\t\t\t\t\t\t        id=\"visitByCategory\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"visitCategoryId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of visitCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Tenant block-No*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"visitorblock-No\" \n\t\t\t\t\t\t\t\tid=\"visitorblock-No\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockNumber\" required>\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockNumber\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Tenant Unit-No*</label>\n\t\t\t                   \t<select \n\t\t\t\t\t\t\t\tname=\"visitorUnit-No\" \n\t\t\t\t\t\t\t\tid=\"visitorUnit-No\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockUnitNumber\" required>\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitNumber\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"iscommunityVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Staff Id*</label>\n\t\t\t                    <input type=\"text\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Staff-id\" name=\"staffId\" [(ngModel)]=\"visitor.staffId\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Purpose</label>\n\t\t\t                    <textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\"></textarea>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVisitorForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\t\t\t\n\t\t</div>\n\t</div>\n\t\n</div>";
+    __webpack_exports__["default"] = "<div class=\"create-visitor-wrapper\">\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t<span >Create Expected Visitor</span>\n    \t\t\t</h5>\n    \t\t</div>\n    \t\t<div class=\"float-right\">\n    \t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/visitor/expected-visitor\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t</a>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n            \n            <app-loader *ngIf=\"isVisitorSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"!isVisitorSubmitted\">\n\n\t\t\t\t<form #addVisitorForm = \"ngForm\" name=\"addVisitorForm\" (ngSubmit)=\"submitAddVisitorForm(addVisitorForm)\"  novalidate>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Visitor Name*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Visitor Count*</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Phone/Mobile*</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor In-time*</label>\n\t\t\t\t\t\t\t\t\n\t\t\t                    <input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" placeholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" (ngModelChange)=\"expectedDurationChange()\"  [min]=\"min\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Visitor Out-time*</label>\n\t\t\t                    <input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\" placeholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" (ngModelChange)=\"expectedDurationChange()\" [min]=\"minOutDate\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Duration*</label>\n\t\t\t                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Duration\" name=\"visitorDuration\" [(ngModel)]=\"visitor.expectedDuration\" [disabled]=\"true\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Pass Number*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visit Type*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t        name=\"visitBy\" \n\t\t\t\t\t\t\t        id=\"visitBy\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"visitTypeId\" (ngModelChange)=\"changeVisitorType(visitTypeId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of visitByData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visit Category*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t        name=\"visitByCategory\" \n\t\t\t\t\t\t\t        id=\"visitByCategory\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"visitCategoryId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of visitCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Tenant block-No*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"visitorblock-No\" \n\t\t\t\t\t\t\t\tid=\"visitorblock-No\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockNumber\" required>\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockNumber\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Tenant Unit-No*</label>\n\t\t\t                   \t<select \n\t\t\t\t\t\t\t\tname=\"visitorUnit-No\" \n\t\t\t\t\t\t\t\tid=\"visitorUnit-No\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockUnitNumber\" required>\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitNumber\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"iscommunityVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Staff Id*</label>\n\t\t\t                    <input type=\"text\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Staff-id\" name=\"staffId\" [(ngModel)]=\"visitor.staffId\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Purpose</label>\n\t\t\t                    <textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\"></textarea>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVisitorForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\t\t\t\n\t\t</div>\n\t</div>\n\t\n</div>";
     /***/
   },
 
@@ -392,6 +392,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.visitor = {};
           var visitParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 15
           }; //visit type
 
@@ -399,6 +400,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this2.visitByData = res;
           }, function (error) {});
           var visitCategoryParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 100
           }; //visit type
 
@@ -637,7 +639,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.SharedToaster = SharedToaster;
-        this.isVisitorSubmitted = false;
+        this.isVisitorSubmitted = true;
+        this.isVisitorAdded = false;
         this.isError = false;
         this.errorMessage = "";
         this.visitTypeId = "";
@@ -662,49 +665,53 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isError = false;
 
           if (!this.isCheckout()) {
+            this.visitor.expectedDurationInHours = this.getDurationInHours(this.actualInTime, this.visitor.expectedVisitorOutTime);
             var visitorDetails = {
+              "visitorId": null,
               "expectedVisitorId": this.route.params['value'].id,
               "apartmentUnitId": this.apartmentUnitId,
               "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-              "expectedVisitorName": this.visitor.expectedVisitorName,
-              "expectedVisitorCount": this.visitor.expectedVisitorCount,
-              "expectedVisitorPhone": this.visitor.expectedVisitorPhone.toString(),
-              "expectedVisitorInTime": this.visitor.expectedVisitorInTime,
+              "visitorName": this.visitor.expectedVisitorName,
+              "visitorCount": this.visitor.expectedVisitorCount,
+              "visitorPhone": this.visitor.expectedVisitorPhone.toString(),
+              "visitingPlaceId": 1,
+              "expectedVisitorInTime": this.actualInTime,
               "expectedVisitorOutTime": this.visitor.expectedVisitorOutTime,
               "visitorInTime": this.actualInTime,
-              "visitorOutTime": null,
+              "visitorOutTime": this.visitor.expectedVisitorOutTime,
               "expectedDuration": this.visitor.expectedDurationInHours,
-              "expectedVisitorDuration": null,
+              "expectedVisitorDuration": this.visitor.expectedDurationInHours,
               "meetingPersonId": 1,
               "visitTypeId": parseInt(this.visitTypeId),
-              "expectedVisitorsOrg": "string",
-              "entryGateId": null,
+              "visitorCategoryId": parseInt(this.visitCategoryId),
+              "entryGateId": 1,
               "exitGateId": null,
               "purpose": this.visitor.purpose,
               "enteredBy": parseInt(this.cookieService.get('userId')),
               "isActive": true,
-              "insertedBy": 0,
-              "insertedOn": "2019-11-18T15:27:41.030Z",
-              "updatedBy": parseInt(this.cookieService.get('userId')),
-              "updatedOn": "2019-11-18T15:27:41.030Z",
+              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": null,
+              "updatedOn": null,
               "isCheckedIn": true,
               "isCheckedOut": false
             };
             var params = {
-              expectedVisitor: visitorDetails
+              visitor: visitorDetails
             };
-            this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
+            this.visitorService.addVisitor(params).subscribe(function (res) {
               if (res.message) {
-                _this3.sharedService.setAlertMessage("Visitor Checked In successfully");
-
-                _this3.router.navigate(['/ams/visitor/expected-visitor']);
+                _this3.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor Checked In successfully");
+                // this.router.navigate(['/ams/visitor/expected-visitor'])
               } else {
                 _this3.isVisitorSubmitted = false;
+                _this3.isVisitorAdded = false;
                 _this3.isError = true;
                 _this3.errorMessage = res.errorMessage;
               }
             }, function (error) {
               _this3.isVisitorSubmitted = false;
+              _this3.isVisitorAdded = false;
               _this3.isError = true;
               _this3.errorMessage = error;
             });
@@ -716,18 +723,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.visitorService.checkOutVisitor(_visitorDetails).subscribe(function (res) {
               if (res.message) {
-                _this3.sharedService.setAlertMessage("Visitor checked out successfully");
-
-                _this3.router.navigate(['/ams/visitor/checkout']);
+                _this3.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor checked out successfully");
               } else {
                 _this3.isVisitorSubmitted = false;
                 _this3.isError = true;
+                _this3.isVisitorAdded = false;
                 _this3.errorMessage = res.errorMessage;
               }
             }, function (error) {
               _this3.isVisitorSubmitted = false;
               _this3.isError = true;
               _this3.errorMessage = error;
+              _this3.isVisitorAdded = false;
             });
           }
         }
@@ -757,6 +764,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   var outDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this4.visitor.visitorOutTime);
                   var diffDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
                   _this4.expectedDuration = diffDuration.days() + " days " + _this4.isSingleDigit(diffDuration.hours()) + ":" + _this4.isSingleDigit(diffDuration.minutes()) + " hours";
+                  _this4.isVisitorSubmitted = false;
+                  _this4.minOutDate = new Date();
                 }, function (error) {});
               });
             } else if (this.visitorStatus == 'checkin') {
@@ -770,11 +779,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 _this4.visitTypeId = _this4.visitor.visitTypeId;
                 _this4.visitCategoryId = _this4.visitor.visitorCategoryId;
                 _this4.actualInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
+                _this4.isVisitorSubmitted = false;
+                _this4.minExOutTime = new Date(_this4.actualInTime);
               }, function (error) {});
             }
           }
 
           var visitParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 15
           }; //visit type
 
@@ -782,6 +794,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this4.visitByData = res;
           }, function (error) {});
           var categoryParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 100
           }; //visit type
 
@@ -801,6 +814,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
             _this4.blockUnitData = res;
           });
+        }
+      }, {
+        key: "navigateTo",
+        value: function navigateTo(param) {
+          if (param) {
+            this.router.navigate(['/ams/visitor/checkout']);
+          } else {
+            this.router.navigate(['/ams/visitor/expected-visitor']);
+          }
         }
       }, {
         key: "changeVisitorType",
@@ -988,14 +1010,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
 
     var VisitorCheckoutComponent =
     /*#__PURE__*/
     function () {
-      function VisitorCheckoutComponent(injector, apartmentService, visitorService, lookupService, cookieService) {
+      function VisitorCheckoutComponent(injector, apartmentService, visitorService, lookupService, cookieService, dialog) {
         _classCallCheck(this, VisitorCheckoutComponent);
 
         this.injector = injector;
@@ -1003,12 +1037,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.visitorService = visitorService;
         this.lookupService = lookupService;
         this.cookieService = cookieService;
+        this.dialog = dialog;
         this.visitorData = "";
         this.isVisitorDataLoaded = false;
         this.unitFieldType = "unitno";
         this.unitOrder = true;
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
+        this.result = '';
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
@@ -1047,48 +1083,69 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "getVisitorType",
-        value: function getVisitorType() {}
+        value: function getVisitorType() {} //print button
+
+      }, {
+        key: "print",
+        value: function print() {
+          var _this5 = this;
+
+          var confirmationMessage = "Are you sure, you want to Print?";
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            _this5.result = dialogResult;
+
+            if (_this5.result) {//code
+            }
+          });
+        }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this6 = this;
 
           var visitParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 15
           }; //get visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this5.visitTypeData = res;
+            _this6.visitTypeData = res;
           }, function (error) {});
           var apartmentParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe(function (res) {
             //filter active true items
-            _this5.visitorListData = res.filter(function (item) {
+            _this6.visitorListData = res.filter(function (item) {
               return item.isActive && !item.isCheckedOut;
             }); // console.log(this.visitorListData);
             //get block and unit details
 
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this5.visitorListData, function (item, index) {
+            underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this6.visitorListData, function (item, index) {
               var apartmentBlockUnitIdParam = {
                 apartmentBlockUnitId: item.apartmentUnitId
               };
 
-              _this5.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (res) {
-                _this5.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
-                _this5.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
+              _this6.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (res) {
+                _this6.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
+                _this6.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
               }, function (error) {});
             });
-            _this5.totalItems = _this5.visitorListData.length;
+            _this6.totalItems = _this6.visitorListData.length;
 
-            if (_this5.totalItems > _this5.itemLimit) {
-              _this5.ItemEndIndex = _this5.itemLimit;
+            if (_this6.totalItems > _this6.itemLimit) {
+              _this6.ItemEndIndex = _this6.itemLimit;
             } else {
-              _this5.ItemEndIndex = _this5.totalItems;
+              _this6.ItemEndIndex = _this6.totalItems;
             }
 
-            _this5.isVisitorDataLoaded = true;
+            _this6.isVisitorDataLoaded = true;
           });
         }
       }]);
@@ -1107,6 +1164,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
       }];
     };
 
@@ -1118,7 +1177,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./visitor-checkout.component.scss */
       "./src/app/ams/visitor/components/visitor-checkout/visitor-checkout.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], VisitorCheckoutComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], VisitorCheckoutComponent);
     /***/
   },
 
@@ -1262,7 +1321,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddVisitorForm",
         value: function submitAddVisitorForm(form) {
-          var _this6 = this;
+          var _this7 = this;
 
           this.isVisitorSubmitted = true;
           var visitorDetails = {
@@ -1277,7 +1336,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "passNumber": this.visitor.passNumber,
             "meetingPersonId": 1,
             "visitTypeId": parseInt(this.visitTypeId),
-            "visitCategoryId": parseInt(this.visitCategoryId),
+            "visitorCategoryId": parseInt(this.visitCategoryId),
             "visitorsOrg": "string",
             "entryGateId": null,
             'apartmentBlockNumber': this.visitor.apartmentBlockNumber,
@@ -1287,50 +1346,52 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "enteredBy": parseInt(this.cookieService.get('userId')),
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
-            "insertedOn": "2019-11-18T17:08:51.188Z",
+            "insertedOn": new Date().toISOString(),
             "updatedBy": 0,
-            "updatedOn": "2019-11-18T17:08:51.188Z"
+            "updatedOn": new Date().toISOString()
           };
           var params = {
             expectedVisitor: visitorDetails
           };
           this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
             if (res.message) {
-              _this6.isVisitorSubmitted = true;
+              _this7.isVisitorSubmitted = true;
 
-              _this6.sharedService.setAlertMessage("Visitor added successfully");
+              _this7.sharedService.setAlertMessage("Visitor added successfully");
 
-              _this6.router.navigate(['/ams/visitor/expected-visitor']);
+              _this7.router.navigate(['/ams/visitor/expected-visitor']);
             } else {
-              _this6.isVisitorSubmitted = false;
-              _this6.isError = true;
-              _this6.errorMessage = res.errorMessage;
+              _this7.isVisitorSubmitted = false;
+              _this7.isError = true;
+              _this7.errorMessage = res.errorMessage;
             }
           }, function (error) {
-            _this6.isVisitorSubmitted = false;
-            _this6.isError = true;
-            _this6.errorMessage = error;
+            _this7.isVisitorSubmitted = false;
+            _this7.isError = true;
+            _this7.errorMessage = error;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this7 = this;
+          var _this8 = this;
 
           this.visitor = {};
           var params = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 15
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this7.visitByData = res;
+            _this8.visitByData = res;
           }, function (error) {});
           var visitParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 100
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this7.visitCategoryData = res.filter(function (item) {
+            _this8.visitCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -1338,14 +1399,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             userId: parseInt(this.cookieService.get('userId'))
           };
           this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe(function (res) {
-            _this7.apartmentUnitId = res[0].apartmentBlockUnitId;
+            _this8.apartmentUnitId = res[0].apartmentBlockUnitId;
           }, function (error) {});
           this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_9__(new Date());
+          this.min = new Date(this.visitor.expectedVisitorInTime);
+          this.minOutDate = new Date(this.visitor.expectedVisitorInTime);
           var blockParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockUnitByApartmentId(blockParams).subscribe(function (res) {
-            _this7.blockUnitData = res;
+            _this8.blockUnitData = res;
             console.log('this.blockUnitData', res);
           });
         }
@@ -1363,6 +1426,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "expectedDurationChange",
         value: function expectedDurationChange() {
+          this.minOutDate = new Date(this.visitor.expectedVisitorInTime);
+
           if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_9__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD')) {
             this.visitor.expectedVisitorInTime = undefined;
             this.SharedToaster.openSnackBar("Please Select valid Date", '');
@@ -1626,82 +1691,73 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this9 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe(function (res) {
-            _this8.visitorListData = res;
-            console.log("visitorListData", _this8.visitorListData[0].visitTypeId); //filter active true items
+            _this9.visitorListData = res;
+            console.log("visitorListData", _this9.visitorListData[0].visitTypeId); //filter active true items
 
-            _this8.visitorListData = res.filter(function (data) {
+            _this9.visitorListData = res.filter(function (data) {
               return data.isActive;
-            }); //get block and unit details
-
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this8.visitorListData, function (item, index) {
-              var apartmentBlockUnitIdParam = {
-                apartmentBlockUnitId: item.apartmentUnitId
-              };
-
-              _this8.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (res) {
-                _this8.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
-                _this8.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber; // console.log(res[0]);
-              }, function (error) {});
             });
             var visitParams = {
+              ApartmentId: parseInt(_this9.cookieService.get('apartmentId')),
               LookupTypeId: 15
             }; //get visit type
 
-            _this8.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this8.visitTypeData = res;
+            _this9.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
+              _this9.visitTypeData = res;
 
-              _this8.checkVisitTypeData();
+              _this9.checkVisitTypeData();
             }, function (error) {});
 
             var categoryParams = {
+              ApartmentId: parseInt(_this9.cookieService.get('apartmentId')),
               LookupTypeId: 100
             }; //get visit category
 
-            _this8.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this8.visitCategoryData = res.filter(function (data) {
+            _this9.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+              _this9.visitCategoryData = res.filter(function (data) {
                 return data.isActive;
               });
 
-              _this8.checkVisitCategoryData();
+              _this9.checkVisitCategoryData();
             }, function (error) {});
 
-            _this8.totalItems = _this8.visitorListData.length;
+            _this9.totalItems = _this9.visitorListData.length;
 
-            if (_this8.totalItems > _this8.itemLimit) {
-              _this8.ItemEndIndex = _this8.itemLimit;
+            if (_this9.totalItems > _this9.itemLimit) {
+              _this9.ItemEndIndex = _this9.itemLimit;
             } else {
-              _this8.ItemEndIndex = _this8.totalItems;
+              _this9.ItemEndIndex = _this9.totalItems;
             }
 
-            _this8.isVisitorDataLoaded = true;
+            _this9.isVisitorDataLoaded = true;
           });
         }
       }, {
         key: "checkVisitTypeData",
         value: function checkVisitTypeData() {
-          var _this9 = this;
+          var _this10 = this;
 
           this.visitTypeData.forEach(function (element) {
-            if (element.lookupValueId == _this9.visitorListData[0].visitTypeId) {
-              _this9.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
+            if (element.lookupValueId == _this10.visitorListData[0].visitTypeId) {
+              _this10.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
             }
           });
         }
       }, {
         key: "checkVisitCategoryData",
         value: function checkVisitCategoryData() {
-          var _this10 = this;
+          var _this11 = this;
 
           console.log(this.visitorListData[0]);
           this.visitCategoryData.forEach(function (element) {
-            if (element.lookupValueId == _this10.visitorListData[0].visitorCategoryId) {
-              _this10.visitorListData[0].visitCategoryName = element.lookupValueName.toLowerCase();
+            if (element.lookupValueId == _this11.visitorListData[0].visitorCategoryId) {
+              _this11.visitorListData[0].visitCategoryName = element.lookupValueName.toLowerCase();
             }
           });
         } //print button
@@ -1709,7 +1765,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "print",
         value: function print() {
-          var _this11 = this;
+          var _this12 = this;
 
           var confirmationMessage = "Are you sure, you want to Print?";
           var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -1719,9 +1775,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             data: dialogData
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this11.result = dialogResult;
+            _this12.result = dialogResult;
 
-            if (_this11.result) {//code
+            if (_this12.result) {//code
             }
           });
         }
@@ -1912,40 +1968,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this13 = this;
 
           var visitTypeParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 15
           }; //get visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitTypeParams).subscribe(function (res) {
-            _this12.visitTypeData = res;
+            _this13.visitTypeData = res;
           }, function (error) {});
           var visitListParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getVisitorsByApartmentId(visitListParams).subscribe(function (res) {
             //filter active true items
-            _this12.visitorListData = res.filter(function (item) {
+            _this13.visitorListData = res.filter(function (item) {
               return item.isActive && item.isCheckedOut;
             }); // console.log(this.visitorListData);
             //get block and unit details
 
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this12.visitorListData, function (item, index) {
-              _this12.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe(function (res) {
-                _this12.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
-                _this12.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this13.visitorListData, function (item, index) {
+              _this13.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe(function (res) {
+                _this13.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
+                _this13.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
               }, function (error) {});
             });
-            _this12.totalItems = _this12.visitorListData.length;
+            _this13.totalItems = _this13.visitorListData.length;
 
-            if (_this12.totalItems > _this12.itemLimit) {
-              _this12.ItemEndIndex = _this12.itemLimit;
+            if (_this13.totalItems > _this13.itemLimit) {
+              _this13.ItemEndIndex = _this13.itemLimit;
             } else {
-              _this12.ItemEndIndex = _this12.totalItems;
+              _this13.ItemEndIndex = _this13.totalItems;
             }
 
-            _this12.isVisitorDataLoaded = true;
+            _this13.isVisitorDataLoaded = true;
           });
         }
       }]);
@@ -2066,7 +2123,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(VisitorReportsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this13 = this;
+          var _this14 = this;
 
           var details = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -2074,8 +2131,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             MenuName: 'VisitorManagement'
           };
           this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-            _this13.reportDataList = res;
-            _this13.isDataLoaded = true;
+            _this14.reportDataList = res;
+            _this14.isDataLoaded = true;
           });
         }
       }]);
@@ -2279,26 +2336,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteCategoryType",
         value: function deleteCategoryType(item) {
-          var _this14 = this;
+          var _this15 = this;
 
           this.modalService.showConfirmModal(item); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
             if (item != null) {
-              _this14.isDataLoaded = false;
+              _this15.isDataLoaded = false;
               var params = {
                 lookupValueId: item.lookupValueId,
-                updateUserId: parseInt(_this14.cookieService.get('userId'))
+                updateUserId: parseInt(_this15.cookieService.get('userId'))
               };
 
-              _this14.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                _this14.categoryDataList = _this14.categoryDataList.filter(function (type) {
+              _this15.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this15.categoryDataList = _this15.categoryDataList.filter(function (type) {
                   return type.lookupValueId !== item.lookupValueId;
                 });
 
-                _this14.sharedService.setUnitListDeleteIndex(null);
+                _this15.sharedService.setUnitListDeleteIndex(null);
 
-                _this14.isDataLoaded = true;
+                _this15.isDataLoaded = true;
               });
 
               var errorDetails = {
@@ -2306,7 +2363,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 type: "Success"
               };
 
-              _this14.sharedService.setCustomAlertMessage(errorDetails);
+              _this15.sharedService.setCustomAlertMessage(errorDetails);
             }
           });
         }
@@ -2328,7 +2385,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCategoryTypeForm",
         value: function submitCategoryTypeForm(form) {
-          var _this15 = this;
+          var _this16 = this;
 
           var confirmationMessage = "Are you sure you want to save this settings?";
           var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -2338,19 +2395,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             data: dialogData
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this15.result = dialogResult;
+            _this16.result = dialogResult;
 
-            if (_this15.result) {
+            if (_this16.result) {
               //code
-              _this15.isCategoryTypeSubmitted = false;
+              _this16.isCategoryTypeSubmitted = false;
 
-              if (_this15.isCategoryTypeNew) {
+              if (_this16.isCategoryTypeNew) {
                 var details = {
                   "lookupTypeId": 100,
-                  "lookupValueName": _this15.categoryType,
+                  "lookupValueName": _this16.categoryType,
                   "description": 'Visitor Category',
                   "isActive": true,
-                  "insertedBy": parseInt(_this15.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this16.cookieService.get('userId')),
                   "insertedOn": "2019-11-20T16:51:24.105Z",
                   "updatedBy": 0,
                   "updatedOn": "2019-11-20T16:51:24.105Z"
@@ -2359,105 +2416,108 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: details
                 };
 
-                _this15.lookupService.addLookupValue(params).subscribe(function (res) {
+                _this16.lookupService.addLookupValue(params).subscribe(function (res) {
                   if (res.message) {
                     var categoryParams = {
+                      ApartmentId: parseInt(_this16.cookieService.get('apartmentId')),
                       LookupTypeId: 100
                     };
 
-                    _this15.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                      _this15.isCategoryTypeNew = false;
-                      _this15.isCategoryTypeSubmitted = true;
+                    _this16.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this16.isCategoryTypeNew = false;
+                      _this16.isCategoryTypeSubmitted = true;
 
-                      _this15.sharedService.setAlertMessage("Visitor Category added successfully");
+                      _this16.sharedService.setAlertMessage("Visitor Category added successfully");
 
-                      _this15.categoryDataList = res.filter(function (item) {
+                      _this16.categoryDataList = res.filter(function (item) {
                         return item.isActive;
                       });
                     });
                   } else {
-                    _this15.isCategoryTypeSubmitted = true;
-                    _this15.isError = true;
-                    _this15.alertMessage = res.errorMessage;
+                    _this16.isCategoryTypeSubmitted = true;
+                    _this16.isError = true;
+                    _this16.alertMessage = res.errorMessage;
                     var errorDetails = {
-                      msg: _this15.alertMessage,
+                      msg: _this16.alertMessage,
                       type: "Error"
                     };
 
-                    _this15.sharedService.setCustomAlertMessage(errorDetails);
+                    _this16.sharedService.setCustomAlertMessage(errorDetails);
                   }
                 });
               } else {
                 var _details = {
-                  "lookupValueId": _this15.categoryUpdateId,
+                  "lookupValueId": _this16.categoryUpdateId,
                   "lookupTypeId": 100,
-                  "lookupValueName": _this15.categoryType,
-                  "description": _this15.categoryType,
+                  "lookupValueName": _this16.categoryType,
+                  "description": _this16.categoryType,
                   "isActive": true,
                   "insertedBy": 0,
                   "insertedOn": "2019-11-20T16:51:24.105Z",
-                  "updatedBy": parseInt(_this15.cookieService.get('userId')),
+                  "updatedBy": parseInt(_this16.cookieService.get('userId')),
                   "updatedOn": "2019-11-20T16:51:24.105Z"
                 };
                 var _params = {
                   lookupvalue: _details
                 };
 
-                _this15.lookupService.updateLookupValue(_params).subscribe(function (res) {
+                _this16.lookupService.updateLookupValue(_params).subscribe(function (res) {
                   if (res.message) {
                     var categoryParams = {
+                      ApartmentId: parseInt(_this16.cookieService.get('apartmentId')),
                       LookupTypeId: 100
                     };
 
-                    _this15.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                      _this15.isCategoryTypeUpdate = false;
-                      _this15.isCategoryTypeSubmitted = true;
+                    _this16.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this16.isCategoryTypeUpdate = false;
+                      _this16.isCategoryTypeSubmitted = true;
 
-                      _this15.sharedService.setAlertMessage("Visitor Category updated successfully");
+                      _this16.sharedService.setAlertMessage("Visitor Category updated successfully");
 
-                      _this15.categoryDataList = res.filter(function (item) {
+                      _this16.categoryDataList = res.filter(function (item) {
                         return item.isActive;
                       });
                     });
                   } else {
-                    _this15.isCategoryTypeSubmitted = true;
-                    _this15.isError = true;
-                    _this15.alertMessage = res.errorMessage;
+                    _this16.isCategoryTypeSubmitted = true;
+                    _this16.isError = true;
+                    _this16.alertMessage = res.errorMessage;
                     var errorDetails = {
-                      msg: _this15.alertMessage,
+                      msg: _this16.alertMessage,
                       type: "Error"
                     };
 
-                    _this15.sharedService.setCustomAlertMessage(errorDetails);
+                    _this16.sharedService.setCustomAlertMessage(errorDetails);
                   }
                 });
               }
             } else {
-              _this15.isCategoryTypeSubmitted = true;
+              _this16.isCategoryTypeSubmitted = true;
             }
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this16 = this;
+          var _this17 = this;
 
           var categoryListParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 100
           };
           this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe(function (res) {
-            _this16.categoryDataList = res.filter(function (item) {
+            _this17.categoryDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this16.totalItems = _this16.categoryDataList.length;
+            _this17.totalItems = _this17.categoryDataList.length;
 
-            if (_this16.totalItems > _this16.itemLimit) {
-              _this16.ItemEndIndex = _this16.itemLimit;
+            if (_this17.totalItems > _this17.itemLimit) {
+              _this17.ItemEndIndex = _this17.itemLimit;
             } else {
-              _this16.ItemEndIndex = _this16.totalItems;
+              _this17.ItemEndIndex = _this17.totalItems;
             }
 
-            _this16.isDataLoaded = true;
+            _this17.isDataLoaded = true;
           });
         }
       }]);

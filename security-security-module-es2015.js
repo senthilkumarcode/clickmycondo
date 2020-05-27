@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  security-history works!\n</p>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"historyData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n  \t\t\t \n\n  \t\t</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"secuirty-closed-alerts-wrapper\">\n\n  <app-loader *ngIf=\"!isAlertsLoaded\"></app-loader>\n\n  <ng-container *ngIf=\"isAlertsLoaded\">\n\n    <h3 class=\"main-title\">Closed Alerts</h3>\n\n    <div class=\"card mb-30\">\n\n      <div class=\"card-body p-0\" id=\"accordion\">\n\n        <ul class=\"list-group tabs clear\">\n\n          <ng-container *ngFor=\"let alert of alertList\">\n            <li class=\"list-group-item collapsed {{getEmergencyType(alert.alertTypeId)}} \" data-toggle=\"collapse\" attr.data-target=\"#collapse{{alert.apartmentBlockUnitAlertId}}\" aria-expanded=\"true\" attr.aria-controls=\"collapseOne\">\n\n              <div class=\"details\">\n\n                <div class=\"float-left\">\n\n                  <div class=\"media\">\n                    <div class=\"s-circle {{getEmergencyType(alert.alertTypeId)}} text-center\">\n                      <img src=\"assets/images/{{getEmergencyType(alert.alertTypeId)}}-e-icon.svg\" width=\"14\" />\n                    </div>\n                    <div class=\"media-body\">\n                      <h5>{{getAlertName(alert.alertTypeId)}}</h5>\n                    </div>\n                  </div>\n\n                </div>\n\n                <div class=\"float-right mr-4\">\n                  <span class=\"badge small min ml-3 text-capitalize\" [ngClass]=\"getAlertStatus(alert.alertStatusId)\">{{getAlertStatus(alert.alertStatusId)}}</span>\n                </div>\n\n\n              </div>\n\n              <div class=\"info\">\n                <p><span class=\"mr-2\">Date:</span>{{getDate(alert.receivedDate)}}</p>\n                <p><span class=\"mr-2\">Block:</span>{{getBlock(alert.apartmentBlockUnitId)}}</p>\n              </div>\n\n\n            </li>\n            <div id=\"collapse{{alert.apartmentBlockUnitAlertId}}\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\n              <app-loader *ngIf=\"isAlertUpdated\"></app-loader>\n\n              <div class=\"additional-desp\" *ngIf=\"!isAlertUpdated\">\n\n                <div class=\"row\">\n\n                  <div class=\"col-sm-6\">\n\n                    <div class=\"lists\">\n                      <h5>Person Name</h5>\n                      <p>{{getUserName(alert.insertedBy)}}</p>\n                    </div>\n\n                    <div class=\"lists\">\n                      <h5>Phone Number</h5>\n                      <p>{{getContactNumber(alert.insertedBy)}}</p>\n                    </div>\n\n                    <div class=\"lists\">\n                      <h5>Alert Received Time</h5>\n                      <p>{{getDateTime(alert.receivedDate)}}</p>\n                    </div>\n\n                  </div>\n                  <div class=\"col-sm-6\">\n\n                    <!-- <agm-map [latitude]='getLatitude(alert.insertedBy)' [longitude]='getLongitude(alert.insertedBy)'></agm-map> -->\n\n                  </div>\n\n                </div>\n\n                <div class=\"row\" *ngIf=\"!isOpenStatus(alert.alertStatusId)\">\n\n                  <div class=\"col-sm-12 mt-4 mb-2\">\n\n                    <div class=\"input-box\">\n                      <label>Comments</label>\n                      <textarea placeholder=\"some text here\" name=\"healthIssue\" *ngIf=\"!isInProgressStatus(alert.alertStatusId)\" [(ngModel)]=\"alert.notes\" [disabled]=\"true\"></textarea>\n                      <textarea placeholder=\"some text here\" name=\"healthIssue\" *ngIf=\"isInProgressStatus(alert.alertStatusId)\" [(ngModel)]=\"alert.notes\"></textarea>\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n            </div>\n          </ng-container>\n\n\n          <ng-container *ngIf=\"isNoAlerts()\">\n\n            <div class=\"card\">\n              <div class=\"card-body gen-message\">\n                <h4>No Closed Alerts available</h4>\n              </div>\n            </div>\n\n          </ng-container>\n\n        </ul>\n\n      </div>\n\n    </div>\n\n\n  </ng-container>\n\n</div>\n\n\n  \t\t<!-- <div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid\n\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\"\n\t\t\t\t[source]=\"historyData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n        #datagrid>\n        </jqxGrid>\n\n      </div> -->\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  security-reports works!\n</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-tracker-reports-customer-reports\">\n\n\t<h4 class=\"main-title-mini\">Security Alert Reports</h4>\n\n\t<div class=\"card clear\">\n\n\t\t<div class=\"card-body\">\n\n\t\t\t<form #alertReportsCustomerForm = \"ngForm\" name=\"alertReportsCustomerForm\" (ngSubmit)=\"submitSecurityAlertReports(alertReportsCustomerForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Block No</label>\n\t\t                    <select\n\t\t\t\t\t\t        name=\"blockNo\"\n\t\t\t\t\t\t        id=\"blockNo\"\n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.apartmentBlockID\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n          <div class=\"col-sm-4\">\n            <div class=\"select-box\">\n                        <label>Emergency Category</label>\n                        <select\n                    name=\"emergencyType\"\n                    id=\"emergencyType\"\n                    class=\"form-control\"\n                    [(ngModel)]=\"report.emergencyCategoryTypeID\">\n                    <option value=\"\" disabled selected>Select</option>\n                    <option *ngFor=\"let item of securityCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n              </select>\n                  </div>\n          </div>\n\n          <div class=\"col-sm-4\">\n            <div class=\"select-box\">\n                        <label>Alert Type</label>\n                        <select\n                    name=\"alertType\"\n                    id=\"alertType\"\n                    class=\"form-control\"\n                    [(ngModel)]=\"report.alertTypeStatusID\">\n                    <option value=\"\" disabled selected>Select</option>\n                    <option *ngFor=\"let item of alertTypeStatus\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }} </option>\n              </select>\n                  </div>\n          </div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box mb-3\">\n\t\t                    <label>Start Date</label>\n\t\t                    <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\">\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>End Date</label>\n\t\t                    <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\">\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"alertReportsCustomerForm.invalid\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear mt-30\" *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"list-inline float-left\">\n    \t\t\t<h5>Reports <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p *ngIf=\"!isReportSubmitted\">Transactions From <span class=\"tc-blue m-bold\">{{getDate(report.startDate)}}</span> To <span class=\"tc-blue m-bold\">{{getDate(report.endDate)}}</span> </p>\n    \t\t</div>\n    \t\t<!-- <ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" >\n    \t\t\t</li>\n    \t\t</ul> -->\n  \t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No<span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('category')\"> Category<span [ngClass]=\"getFieldOrderBy('category')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('creationDate')\">Date of Creation<span [ngClass]=\"getFieldOrderBy('creationDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('alertStatus')\">Status<span [ngClass]=\"getFieldOrderBy('alertStatus')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('notes')\">Note<span [ngClass]=\"getFieldOrderBy('notes')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let report of alertReportsDataList | slice:ItemStartIndex:ItemEndIndex | simpleSearch: reportsData | orderBy : unitFieldType: unitOrder ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{report.blockNo}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.category}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDateFormat(report.creationDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.alertStatus}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.notes}}</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination\n\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  security-setup works!\n</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inventorys-setup-wrapper\">\n\n\t<app-loader *ngIf=\"!isSecurityCategoryLoaded\"></app-loader>\n\n\t<div class=\"category-list list-boxes\" *ngIf=\"isSecurityCategoryLoaded\">\n\t\t<h4 class=\"main-title-mini\">Security Alert Categories</h4>\n\t\t<ng-container *ngFor=\"let item of securityCategoryData; let i = index\">\n\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-body nohover\">\n\t\t\t\t\t\t<div class=\"icons\">\n\t\t\t\t\t\t\t<!-- <a href=\"javascript:void(0)\" routerLink=\"/ams/security/view/{{item.lookupValueId}}\"\n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a> -->\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"updateSecurityCategory(item, i)\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"d-none\"><i-feather class=\"icon del\" name=\"x\" (click)=\"deleteSecurityCategory(item)\"></i-feather></a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<h6>{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t<!-- <p>{{getSecurityList(item.lookupValueId)}} Inventorie(s) added</p> -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t</ng-container>\n\t\t<li class=\"list-inline-item\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body new text-center\">\n\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"rounded-btn green\" (click)=\"addNewSecurityCategory()\">\n\t\t\t\t\t\t<div class=\"icon\">+</div>\n\t\t\t\t\t</a>\n\t\t\t\t\t<h6 class=\"tc-green\">Add New Category</h6>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t</div>\n\n\t<div class=\"card mt-30\" *ngIf=\"isSecurityCategoryNew || isSecurityCategoryUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isSecurityCategoryNew\">Add Security Category</h6>\n    \t\t\t<h6 *ngIf=\"!isSecurityCategoryNew\">Update Security Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\n\t\t\t<app-alert-message [message]=\"alertTicketMessage\" [isError]=\"isCategoryError\" [isSuccess]=\"isCategorySuccess\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isSecurityCategorySubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isSecurityCategorySubmitted\">\n\n\t\t\t\t<form #addSecurityCategoryForm = \"ngForm\" name=\"addSecurityCategoryForm\" (ngSubmit)=\"submitSecurityCategoryForm(addSecurityCategoryForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Category Type*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"securityCategory\" [(ngModel)]=\"securityCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addSecurityCategoryForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\t</div>\n\n</div>\n");
 
 /***/ }),
 
@@ -321,7 +321,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
                         };
                         this.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe((alert) => {
                             this.alertList = alert.filter(item => {
-                                return item.isActive;
+                                return (item.alertStatusId == 135 || item.alertStatusId == 136);
                             });
                             this.isAlertUpdated = false;
                         }, error => {
@@ -367,7 +367,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
     //   //     return 1
     //   //   return 0 //default return value (no sorting)
     //   // })
-    //   // this.emergencyTypeList.sort((a, b) => a.lookupValueName.localeCompare(b.lookupValueName)); 
+    //   // this.emergencyTypeList.sort((a, b) => a.lookupValueName.localeCompare(b.lookupValueName));
     //   console.log("emergency list = ", this.emergencyTypeList);
     // }
     ngOnInit() {
@@ -379,7 +379,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         };
         this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe((alert) => {
             this.alertList = alert.filter(item => {
-                return item.isActive;
+                return (item.alertStatusId == 135 || item.alertStatusId == 136);
             });
             this.isAlertsLoaded = true;
             console.log(this.alertList);
@@ -465,7 +465,7 @@ SecurityActiveAlertsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9zZWN1cml0eS9jb21wb25lbnRzL3NlY3VyaXR5LWhpc3Rvcnkvc2VjdXJpdHktaGlzdG9yeS5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".secuirty-closed-alerts-wrapper .tabs li {\n  position: relative;\n}\n.secuirty-closed-alerts-wrapper .tabs li:before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 3px;\n  height: 100% !important;\n}\n.secuirty-closed-alerts-wrapper .tabs li.medical:before {\n  background-color: #00bcd4;\n}\n.secuirty-closed-alerts-wrapper .tabs li.theft:before {\n  background-color: #ef60a5;\n}\n.secuirty-closed-alerts-wrapper .tabs li.fire:before {\n  background-color: #FF9800;\n}\n.secuirty-closed-alerts-wrapper .tabs li.shooter:before {\n  background-color: #9100ff;\n}\n.secuirty-closed-alerts-wrapper .tabs li.police:before {\n  background-color: #06bf58;\n}\n.secuirty-closed-alerts-wrapper .tabs li .details {\n  padding: 0 20px;\n  width: 100% !important;\n  float: left;\n  border: none;\n}\n.secuirty-closed-alerts-wrapper .tabs li .details h5 {\n  font-size: 1.8rem;\n  color: #373946;\n  text-transform: capitalize;\n  margin: 2px 0 0 0;\n}\n.secuirty-closed-alerts-wrapper .tabs li .info {\n  padding: 0 20px;\n  width: 100% !important;\n  float: left;\n  margin: 10px 0 0 0;\n}\n@media (max-width: 576px) {\n  .secuirty-closed-alerts-wrapper .tabs li .info {\n    margin: 12px 0 0 0;\n  }\n}\n.secuirty-closed-alerts-wrapper .tabs li .info p {\n  font-size: 1.4rem;\n  color: #373946;\n  display: inline-block;\n}\n.secuirty-closed-alerts-wrapper .tabs li .info p:not(:last-child) {\n  margin: 0 40px 0 0 !important;\n}\n@media (max-width: 576px) {\n  .secuirty-closed-alerts-wrapper .tabs li .info p {\n    margin: 0 0 8px 0;\n  }\n}\n.secuirty-closed-alerts-wrapper .tabs li .info p span {\n  color: #8391a1;\n}\n.secuirty-closed-alerts-wrapper .tabs li:first-child {\n  border-top: none;\n}\n.secuirty-closed-alerts-wrapper .tabs .additional-desp {\n  padding: 20px 35px;\n}\n.secuirty-closed-alerts-wrapper .tabs .additional-desp .lists:not(:last-child) {\n  margin: 0 0 20px 0;\n}\n.secuirty-closed-alerts-wrapper .tabs .additional-desp .lists h5 {\n  font-size: 1.6rem;\n  padding: 0 0 4px 0;\n  color: #191c1e;\n}\n.secuirty-closed-alerts-wrapper .tabs .additional-desp .lists p {\n  font-size: 1.4rem;\n  color: #8391a1;\n}\n.secuirty-closed-alerts-wrapper .tabs .additional-desp label {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  font-size: 1.6rem;\n  color: #191c1e;\n  margin: 0 0 7px 0;\n}\n.secuirty-closed-alerts-wrapper agm-map {\n  height: 300px;\n}\n@media (max-width: 991px) {\n  .secuirty-closed-alerts-wrapper agm-map {\n    margin: 15px 0 0 0;\n    display: block;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvc2VjdXJpdHkvY29tcG9uZW50cy9zZWN1cml0eS1oaXN0b3J5L3NlY3VyaXR5LWhpc3RvcnkuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwic3JjL2FwcC9hbXMvc2VjdXJpdHkvY29tcG9uZW50cy9zZWN1cml0eS1oaXN0b3J5L3NlY3VyaXR5LWhpc3RvcnkuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL2ZvbnRzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT0U7RUFDQyxrQkNIRTtBQ0hMO0FGT0c7RUFDQyxXQUFBO0VBQ0Esa0JDUEM7RURRRCxPQUFBO0VBQ0EsTUFBQTtFQUNBLFVBQUE7RUFDQSx1QkNrSkU7QUN2Sk47QUZRSTtFQUNDLHlCQ3VETTtBQzdEWDtBRlVJO0VBQ0MseUJDc0RLO0FDOURWO0FGWUk7RUFDQyx5QkNtREs7QUM3RFY7QUZjSTtFQUNDLHlCQ2tETTtBQzlEWDtBRmdCSTtFQUNDLHlCQ2dESztBQzlEVjtBRmlCRztFQUNDLGVBQUE7RUFDRyxzQkNxSEQ7RURwSEMsV0FBQTtFQUNBLFlBQUE7QUVmUDtBRmdCTztFRytCTCxpQkFBQTtFSDdCRyxjQzZDTTtFRDVDTiwwQkFBQTtFQUNBLGlCQUFBO0FFZEw7QUZpQkc7RUFDQyxlQUFBO0VBQ0csc0JDeUdEO0VEeEdDLFdBQUE7RUFDQSxrQkFBQTtBRWZQO0FGZ0JPO0VBTEo7SUFNSyxrQkFBQTtFRWJOO0FBQ0Y7QUZjSTtFR2dCRixpQkFBQTtFSGRHLGNDOEJNO0VEN0JOLHFCQUFBO0FFWkw7QUZhSztFQUNDLDZCQUFBO0FFWE47QUZhSztFQVBEO0lBUUssaUJBQUE7RUVWUDtBQUNGO0FGV0s7RUFDQyxjQzlETztBQ3FEYjtBRmFHO0VBQ0MsZ0JBQUE7QUVYSjtBRmNFO0VBQ0Msa0JBQUE7QUVaSDtBRmNJO0VBQ0Msa0JBQUE7QUVaTDtBRmNJO0VHVEYsaUJBQUE7RUhXTyxrQkFBQTtFQUNBLGNDRUU7QUNkWDtBRmNPO0VHZEwsaUJBQUE7RUhnQk8sY0NuRkk7QUN1RWI7QUZlRztFR2xERCxxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUE2QkEsaUJBQUE7RUhzQkcsY0NSTTtFRFNOLGlCQUFBO0FFWEw7QUZlQztFQUNDLGFBQUE7QUViRjtBRmNFO0VBRkQ7SUFHRSxrQkFBQTtJQUNBLGNBQUE7RUVYRDtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYW1zL3NlY3VyaXR5L2NvbXBvbmVudHMvc2VjdXJpdHktaGlzdG9yeS9zZWN1cml0eS1oaXN0b3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIge1xuXG5cdC50YWJzIHtcblx0XHRsaSB7XG5cdFx0XHRwb3NpdGlvbjogJHJlbDtcblx0XHRcdCY6YmVmb3JlIHtcblx0XHRcdFx0Y29udGVudDogXCJcIjtcblx0XHRcdFx0cG9zaXRpb246ICRhYnM7XG5cdFx0XHRcdGxlZnQ6IDA7XG5cdFx0XHRcdHRvcDogMDtcblx0XHRcdFx0d2lkdGg6IDNweDtcblx0XHRcdFx0aGVpZ2h0OiAkZnVsbDtcblx0XHRcdH1cblx0XHRcdCYubWVkaWNhbCB7XG5cdFx0XHRcdCY6YmVmb3JlIHtcblx0XHRcdFx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkZS1tZWQtMDE7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHRcdCYudGhlZnQge1xuXHRcdFx0XHQmOmJlZm9yZSB7XG5cdFx0XHRcdFx0YmFja2dyb3VuZC1jb2xvcjogJGUtdGgtMDI7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHRcdCYuZmlyZSB7XG5cdFx0XHRcdCY6YmVmb3JlIHtcblx0XHRcdFx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkZS1mZS0wMTtcblx0XHRcdFx0fVxuXHRcdFx0fVxuXHRcdFx0Ji5zaG9vdGVyIHtcblx0XHRcdFx0JjpiZWZvcmUge1xuXHRcdFx0XHRcdGJhY2tncm91bmQtY29sb3I6ICRlLXNoci0wMjtcblx0XHRcdFx0fVxuXHRcdFx0fVxuXHRcdFx0Ji5wb2xpY2Uge1xuXHRcdFx0XHQmOmJlZm9yZSB7XG5cdFx0XHRcdFx0YmFja2dyb3VuZC1jb2xvcjogJGUtcGMtMDI7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHRcdC5kZXRhaWxzIHtcblx0XHRcdFx0cGFkZGluZzogMCAyMHB4O1xuXHRcdFx0ICAgIHdpZHRoOiAkZnVsbDtcblx0XHRcdCAgICBmbG9hdDogbGVmdDtcblx0XHRcdCAgICBib3JkZXI6IG5vbmU7XG5cdFx0XHQgICAgaDUge1xuXHRcdFx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtYmFzZSk7XG5cdFx0XHRcdFx0Y29sb3I6ICRncmV5LTgwMDtcblx0XHRcdFx0XHR0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcblx0XHRcdFx0XHRtYXJnaW46IDJweCAwIDAgMDtcblx0XHRcdCAgICB9XG5cdFx0XHR9XG5cdFx0XHQuaW5mbyB7XG5cdFx0XHRcdHBhZGRpbmc6IDAgMjBweDtcblx0XHRcdCAgICB3aWR0aDogJGZ1bGw7XG5cdFx0XHQgICAgZmxvYXQ6IGxlZnQ7XG5cdFx0XHQgICAgbWFyZ2luOiAxMHB4IDAgMCAwO1xuXHRcdFx0ICAgIEBtZWRpYSAobWF4LXdpZHRoOiA1NzZweCkge1xuXHRcdFx0ICAgIFx0bWFyZ2luOiAxMnB4IDAgMCAwO1xuXHRcdFx0ICAgIH1cblx0XHRcdFx0cCB7XG5cdFx0XHRcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1zbWFsbCk7XG5cdFx0XHRcdFx0Y29sb3I6ICRncmV5LTgwMDtcblx0XHRcdFx0XHRkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG5cdFx0XHRcdFx0Jjpub3QoOmxhc3QtY2hpbGQpe1xuXHRcdFx0XHRcdFx0bWFyZ2luOiAwIDQwcHggMCAwICFpbXBvcnRhbnQ7XG5cdFx0XHRcdFx0fVxuXHRcdFx0XHRcdEBtZWRpYSAobWF4LXdpZHRoOiA1NzZweCkge1xuXHRcdFx0ICAgIFx0XHRtYXJnaW46IDAgMCA4cHggMDtcblx0XHRcdCAgICBcdH1cblx0XHRcdFx0XHRzcGFuIHtcblx0XHRcdFx0XHRcdGNvbG9yOiAkbGlnaHQtYmx1ZTtcblx0XHRcdFx0XHR9XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHRcdCY6Zmlyc3QtY2hpbGQge1xuXHRcdFx0XHRib3JkZXItdG9wOiBub25lO1xuXHRcdFx0fVxuXHRcdH1cblx0XHQuYWRkaXRpb25hbC1kZXNwIHtcblx0XHRcdHBhZGRpbmc6IDIwcHggMzVweDtcblx0XHRcdC5saXN0cyB7XG5cdFx0XHRcdCY6bm90KDpsYXN0LWNoaWxkKXtcblx0XHRcdFx0XHRtYXJnaW46IDAgMCAyMHB4IDA7XG5cdFx0XHRcdH1cblx0XHRcdFx0aDUge1xuXHRcdFx0ICAgICAgQGluY2x1ZGUgZnQtY2FsYygkZm9udC1ub3JtYWwpO1xuXHRcdFx0ICAgICAgcGFkZGluZzogMCAwIDRweCAwO1xuXHRcdFx0ICAgICAgY29sb3I6ICRncmV5LTkwMDtcblx0XHRcdCAgICB9XG5cdFx0XHQgICAgcCB7XG5cdFx0XHQgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcblx0XHRcdCAgICAgIGNvbG9yOiAkbGlnaHQtYmx1ZTtcblx0XHRcdCAgICB9XG5cdFx0XHR9XG5cdFx0XHRsYWJlbCB7XG5cdFx0XHQgIEBpbmNsdWRlIGhlYWQtbWVkaXVtO1xuXHRcdFx0ICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW5vcm1hbCk7XG5cdFx0XHQgIGNvbG9yOiAkZ3JleS05MDA7XG5cdFx0XHQgIG1hcmdpbjogMCAwIDdweCAwO1xuXHRcdFx0fVxuXHRcdH1cblx0fVxuXHRhZ20tbWFwIHtcblx0XHRoZWlnaHQ6IDMwMHB4O1xuXHRcdEBtZWRpYSAobWF4LXdpZHRoOiA5OTFweCkge1xuXHRcdFx0bWFyZ2luOiAxNXB4IDAgMCAwO1xuXHRcdFx0ZGlzcGxheTogYmxvY2s7XG5cdFx0fVxuXHR9XG59XG4iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiLnNlY3VpcnR5LWNsb3NlZC1hbGVydHMtd3JhcHBlciAudGFicyBsaSB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgbGk6YmVmb3JlIHtcbiAgY29udGVudDogXCJcIjtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAzcHg7XG4gIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xufVxuLnNlY3VpcnR5LWNsb3NlZC1hbGVydHMtd3JhcHBlciAudGFicyBsaS5tZWRpY2FsOmJlZm9yZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMGJjZDQ7XG59XG4uc2VjdWlydHktY2xvc2VkLWFsZXJ0cy13cmFwcGVyIC50YWJzIGxpLnRoZWZ0OmJlZm9yZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlZjYwYTU7XG59XG4uc2VjdWlydHktY2xvc2VkLWFsZXJ0cy13cmFwcGVyIC50YWJzIGxpLmZpcmU6YmVmb3JlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI0ZGOTgwMDtcbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgbGkuc2hvb3RlcjpiZWZvcmUge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjOTEwMGZmO1xufVxuLnNlY3VpcnR5LWNsb3NlZC1hbGVydHMtd3JhcHBlciAudGFicyBsaS5wb2xpY2U6YmVmb3JlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzA2YmY1ODtcbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgbGkgLmRldGFpbHMge1xuICBwYWRkaW5nOiAwIDIwcHg7XG4gIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gIGZsb2F0OiBsZWZ0O1xuICBib3JkZXI6IG5vbmU7XG59XG4uc2VjdWlydHktY2xvc2VkLWFsZXJ0cy13cmFwcGVyIC50YWJzIGxpIC5kZXRhaWxzIGg1IHtcbiAgZm9udC1zaXplOiAxLjhyZW07XG4gIGNvbG9yOiAjMzczOTQ2O1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbiAgbWFyZ2luOiAycHggMCAwIDA7XG59XG4uc2VjdWlydHktY2xvc2VkLWFsZXJ0cy13cmFwcGVyIC50YWJzIGxpIC5pbmZvIHtcbiAgcGFkZGluZzogMCAyMHB4O1xuICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICBmbG9hdDogbGVmdDtcbiAgbWFyZ2luOiAxMHB4IDAgMCAwO1xufVxuQG1lZGlhIChtYXgtd2lkdGg6IDU3NnB4KSB7XG4gIC5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgbGkgLmluZm8ge1xuICAgIG1hcmdpbjogMTJweCAwIDAgMDtcbiAgfVxufVxuLnNlY3VpcnR5LWNsb3NlZC1hbGVydHMtd3JhcHBlciAudGFicyBsaSAuaW5mbyBwIHtcbiAgZm9udC1zaXplOiAxLjRyZW07XG4gIGNvbG9yOiAjMzczOTQ2O1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uc2VjdWlydHktY2xvc2VkLWFsZXJ0cy13cmFwcGVyIC50YWJzIGxpIC5pbmZvIHA6bm90KDpsYXN0LWNoaWxkKSB7XG4gIG1hcmdpbjogMCA0MHB4IDAgMCAhaW1wb3J0YW50O1xufVxuQG1lZGlhIChtYXgtd2lkdGg6IDU3NnB4KSB7XG4gIC5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgbGkgLmluZm8gcCB7XG4gICAgbWFyZ2luOiAwIDAgOHB4IDA7XG4gIH1cbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgbGkgLmluZm8gcCBzcGFuIHtcbiAgY29sb3I6ICM4MzkxYTE7XG59XG4uc2VjdWlydHktY2xvc2VkLWFsZXJ0cy13cmFwcGVyIC50YWJzIGxpOmZpcnN0LWNoaWxkIHtcbiAgYm9yZGVyLXRvcDogbm9uZTtcbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgLmFkZGl0aW9uYWwtZGVzcCB7XG4gIHBhZGRpbmc6IDIwcHggMzVweDtcbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgLmFkZGl0aW9uYWwtZGVzcCAubGlzdHM6bm90KDpsYXN0LWNoaWxkKSB7XG4gIG1hcmdpbjogMCAwIDIwcHggMDtcbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgLmFkZGl0aW9uYWwtZGVzcCAubGlzdHMgaDUge1xuICBmb250LXNpemU6IDEuNnJlbTtcbiAgcGFkZGluZzogMCAwIDRweCAwO1xuICBjb2xvcjogIzE5MWMxZTtcbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgLmFkZGl0aW9uYWwtZGVzcCAubGlzdHMgcCB7XG4gIGZvbnQtc2l6ZTogMS40cmVtO1xuICBjb2xvcjogIzgzOTFhMTtcbn1cbi5zZWN1aXJ0eS1jbG9zZWQtYWxlcnRzLXdyYXBwZXIgLnRhYnMgLmFkZGl0aW9uYWwtZGVzcCBsYWJlbCB7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xuICBmb250LXNpemU6IDEuNnJlbTtcbiAgY29sb3I6ICMxOTFjMWU7XG4gIG1hcmdpbjogMCAwIDdweCAwO1xufVxuLnNlY3VpcnR5LWNsb3NlZC1hbGVydHMtd3JhcHBlciBhZ20tbWFwIHtcbiAgaGVpZ2h0OiAzMDBweDtcbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA5OTFweCkge1xuICAuc2VjdWlydHktY2xvc2VkLWFsZXJ0cy13cmFwcGVyIGFnbS1tYXAge1xuICAgIG1hcmdpbjogMTVweCAwIDAgMDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgfVxufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */");
 
 /***/ }),
 
@@ -489,11 +489,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
-
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
 
 
 
@@ -522,6 +520,9 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
         this.blockDetails = [];
         this.locationDetails = [];
         this.result = '';
+        this.tableData = {
+            alertlist: []
+        };
     }
     getEmergencyType(id) {
         //medical
@@ -647,104 +648,6 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
             return parseFloat(longitude[1]);
         }
     }
-    approveAlert(alert, type) {
-        this.isAlertUpdated = true;
-        let details = {};
-        if (alert.gpslocation == null) {
-            alert.gpslocation = " ";
-        }
-        if (type == 'approve') {
-            this.confirmationMessage = `Are you sure, you want to acknowledge this Alert?`;
-        }
-        if (type == 'close') {
-            this.confirmationMessage = `Are you sure you want to close this Alert?`;
-        }
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", this.confirmationMessage);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
-            panelClass: 'material',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            this.result = dialogResult;
-            if (this.result) {
-                console.log("Checking", this.result);
-                if (type == 'approve') {
-                    details = {
-                        "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
-                        "apartmentBlockUnitId": alert.apartmentBlockUnitId,
-                        "receivedDate": alert.receivedDate,
-                        "alertTypeId": alert.alertTypeId,
-                        "location": "string",
-                        "gpslocation": alert.gpslocation,
-                        "assignedTo": parseInt(this.cookieService.get('userId')),
-                        "alertStatusId": 136,
-                        "notes": alert.notes,
-                        "isActive": alert.isActive,
-                        "insertedBy": parseInt(this.cookieService.get('userId')),
-                        "insertedOn": "2019-12-06T13:45:09.296Z",
-                        "updatedBy": parseInt(this.cookieService.get('userId')),
-                        "updatedOn": "2019-12-06T13:45:09.296Z"
-                    };
-                }
-                else {
-                    details = {
-                        "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
-                        "apartmentBlockUnitId": alert.apartmentBlockUnitId,
-                        "receivedDate": alert.receivedDate,
-                        "alertTypeId": alert.alertTypeId,
-                        "location": "string",
-                        "gpslocation": alert.gpslocation,
-                        "assignedTo": parseInt(this.cookieService.get('userId')),
-                        "alertStatusId": 137,
-                        "notes": alert.notes,
-                        "isActive": true,
-                        "insertedBy": parseInt(this.cookieService.get('userId')),
-                        "insertedOn": "2019-12-06T13:45:09.296Z",
-                        "updatedBy": parseInt(this.cookieService.get('userId')),
-                        "updatedOn": "2019-12-06T13:45:09.296Z"
-                    };
-                }
-                this.alertService.updateApartmentBlockUnitAlert(details).subscribe((res) => {
-                    if (res.message) {
-                        let apartmentIdParams = {
-                            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-                        };
-                        this.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe((alert) => {
-                            this.alertList = alert.filter(item => {
-                                return item.isActive;
-                            });
-                            this.isAlertUpdated = false;
-                        }, error => {
-                            console.log(error);
-                        });
-                        var success = {
-                            msg: 'Alert Updated',
-                            type: "Success"
-                        };
-                        this.sharedService.setCustomAlertMessage(success);
-                    }
-                    else {
-                        this.isAlertUpdated = false;
-                        var errorMessage = res.errorMessage;
-                        if (errorMessage == 'ApartmentBlockUnitAlert Not Updated as its not exist.') {
-                            errorMessage = "Alert not updated as its not exist";
-                        }
-                        var errorDetails = {
-                            msg: errorMessage,
-                            type: "Error"
-                        };
-                        this.sharedService.setCustomAlertMessage(errorDetails);
-                    }
-                }, error => {
-                    console.log(error);
-                });
-            }
-            else {
-                this.isAlertUpdated = false;
-            }
-        });
-    }
     isNoAlerts() {
         return this.alertList.length == 0 ? true : false;
     }
@@ -821,7 +724,7 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
         };
         this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe((alert) => {
             this.alertList = alert.filter(item => {
-                return item.isActive;
+                return (item.alertStatusId == 137);
             });
             this.isAlertsLoaded = true;
             console.log(this.alertList);
@@ -831,7 +734,7 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
                 };
                 this.userService.getUserById(params).subscribe((user) => {
                     this.userDetails.push(user[0]);
-                    //console.log(this.userDetails);      
+                    //console.log(this.userDetails);
                 }, error => {
                     console.log(error);
                 });
@@ -849,6 +752,13 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
                 this.locationDetails.push({ userId: item.insertedBy, coords: item.gpslocation });
                 // console.log(this.locationDetails);
             });
+            this.tableData.alertlist = this.alertList;
+            console.log("Table data  == ", this.tableData);
+            this.gridSourceData = {
+                localdata: this.tableData,
+                datatype: "array"
+            };
+            this.historyData = new jqx.dataAdapter(this.gridSourceData);
         }, error => {
             console.log(error);
         });
@@ -858,11 +768,11 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
         //get emergency types
         this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe((res) => {
             this.emergencyTypeList = res;
-            this.gridSourceData = {
-                localdata: this.emergencyTypeList,
-                datatype: "array"
-            };
-            this.historyData = new jqx.dataAdapter(this.gridSourceData);
+            // this.gridSourceData = {
+            //   localdata: this.emergencyTypeList,
+            //   datatype: "array"
+            // }
+            // this.historyData = new jqx.dataAdapter(this.gridSourceData);
         });
         let alertParams = {
             LookupTypeId: 30
@@ -878,10 +788,10 @@ SecurityHistoryComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] },
-    { type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
+    { type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"] }
 ];
 SecurityHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -893,10 +803,10 @@ SecurityHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"],
-        src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+        src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]])
 ], SecurityHistoryComponent);
 
 function getClassName(value) {
@@ -951,20 +861,142 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SecurityReportsComponent", function() { return SecurityReportsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Alert */ "./src/app/api/controllers/Alert.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
 
 
 let SecurityReportsComponent = class SecurityReportsComponent {
-    constructor() { }
+    constructor(apartmentService, alertService, lookupService, cookieService) {
+        this.apartmentService = apartmentService;
+        this.alertService = alertService;
+        this.lookupService = lookupService;
+        this.cookieService = cookieService;
+        this.ItemStartIndex = 0;
+        this.itemLimit = 8;
+        this.unitFieldType = "unitno";
+        this.unitOrder = false;
+        this.isReportSubmitted = true;
+        this.isDataLoaded = true;
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
+    }
+    sortUnitData(type) {
+        this.unitFieldType = type;
+        this.unitOrder = !this.unitOrder;
+    }
+    getFieldOrderBy(type) {
+        if (this.unitFieldType == type) {
+            return this.unitOrder ? 'desc' : 'asc';
+        }
+        else
+            return '';
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    isItemsAvailable() {
+        return this.totalItems > 0 ? true : false;
+    }
+    isNoItemsAvailable() {
+        return this.totalItems == 0 ? true : false;
+    }
+    getDate(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+    }
+    getDateFormat(date) {
+        if (date) {
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("YYYY-MM-DD");
+        }
+        else {
+            return undefined;
+        }
+    }
+    getTimeFormat(dateTime) {
+        return moment__WEBPACK_IMPORTED_MODULE_6__(dateTime).format("YYYY-MM-DD HH:mm");
+    }
+    submitSecurityAlertReports(form) {
+        this.isReportSubmitted = true;
+        this.isDataLoaded = false;
+        let details = {
+            ApartmentBlockID: parseInt(this.report.apartmentBlockID),
+            StartDate: this.getDateFormat(this.report.startDate),
+            EndDate: this.getDateFormat(this.report.endDate),
+            ApartmentID: parseInt(this.cookieService.get('apartmentId')),
+            EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
+            AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
+        };
+        this.alertService.getReportsForSecurityPanicAlertMultiFilter(details).subscribe((res) => {
+            this.alertReportsDataList = res;
+            this.totalItems = this.alertReportsDataList.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+            this.isDataLoaded = true;
+            this.isReportSubmitted = false;
+        }, error => {
+        });
+    }
     ngOnInit() {
+        this.report = {};
+        this.report.apartmentID = "";
+        this.report.apartmentBlockID = "";
+        this.report.emergencyCategoryTypeID = "";
+        this.report.alertTypeStatusID = "";
+        let apartment_params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe((res) => {
+            this.blockData = res;
+        });
+        let sec_params = {
+            LookupTypeId: 29
+        };
+        this.lookupService.getLookupValueByLookupTypeId(sec_params).subscribe((res) => {
+            this.securityCategoryData = res.filter(item => {
+                return item.isActive;
+            });
+        });
+        let alert_params = {
+            LookupTypeId: 30
+        };
+        this.lookupService.getLookupValueByLookupTypeId(alert_params).subscribe((res) => {
+            this.alertTypeStatus = res.filter(item => {
+                return item.isActive;
+            });
+        });
     }
 };
+SecurityReportsComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+];
 SecurityReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-security-reports',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./security-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/security/components/security-reports/security-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./security-reports.component.scss */ "./src/app/ams/security/components/security-reports/security-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], SecurityReportsComponent);
 
 
@@ -996,20 +1028,183 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SecuritySetupComponent", function() { return SecuritySetupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Alert */ "./src/app/api/controllers/Alert.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+
+
+
+
+
 
 
 let SecuritySetupComponent = class SecuritySetupComponent {
-    constructor() { }
+    constructor(alertService, lookupService, sharedService, cookieService) {
+        this.alertService = alertService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isSecurityCategoryLoaded = false;
+        this.isSecurityCategorySubmitted = true;
+        this.isSecurityCategoryNew = false;
+        this.isSecurityCategoryUpdate = false;
+        this.securityCategory = "";
+        this.securityCategoryUpdateId = 0;
+        this.alertTicketMessage = "";
+        this.isCategoryError = false;
+        this.isCategorySuccess = false;
+    }
+    addNewSecurityCategory() {
+        this.isSecurityCategoryNew = true;
+        this.isSecurityCategoryUpdate = false;
+    }
+    updateSecurityCategory(item) {
+        this.isSecurityCategoryUpdate = true;
+        this.isSecurityCategoryNew = false;
+        this.securityCategory = item.lookupValueName;
+        this.securityCategoryUpdateId = item.lookupValueId;
+    }
+    deleteSecurityCategory(item, index) {
+        this.isSecurityCategoryLoaded = false;
+        var params = {
+            lookupValueId: item.lookupValueId,
+            updateUserId: parseInt(this.cookieService.get('userId'))
+        };
+        this.lookupService.deleteLookupvalue(params).subscribe((res) => {
+            this.securityCategoryData.splice(index, 1);
+            this.isSecurityCategoryLoaded = true;
+        });
+    }
+    removeCategoryBox() {
+        this.isSecurityCategoryNew = false;
+        this.isSecurityCategoryUpdate = false;
+        this.isCategoryError = false;
+    }
+    getSecurityList(id) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.securityDataList, function (item) {
+            if (item.securityCategoryId === id)
+                return item;
+        });
+        if (data === undefined || data.length == 0) {
+            return 0;
+        }
+        else {
+            return data.length;
+        }
+    }
+    submitSecurityCategoryForm(form) {
+        this.isSecurityCategorySubmitted = false;
+        if (this.isSecurityCategoryNew) {
+            let details = {
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "lookupTypeId": 29,
+                "lookupValueName": this.securityCategory,
+                "description": this.securityCategory,
+                "isActive": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": new Date().toISOString(),
+            };
+            let add_param = {
+                lookupvalue: details
+            };
+            this.lookupService.addLookupValue(add_param).subscribe((res) => {
+                if (res.message) {
+                    let param = {
+                        LookupTypeId: 29
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+                        this.isSecurityCategorySubmitted = true;
+                        this.isCategorySuccess = true;
+                        this.alertTicketMessage = "Category Added Successfully!";
+                        this.securityCategoryData = res.filter(item => {
+                            return item.isActive;
+                        });
+                    });
+                }
+                else {
+                    this.isSecurityCategorySubmitted = true;
+                    this.isCategoryError = true;
+                    this.alertTicketMessage = res.errorMessage;
+                }
+            });
+        }
+        else {
+            let details = {
+                "lookupValueId": this.securityCategoryUpdateId,
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "lookupTypeId": 29,
+                "lookupValueName": this.securityCategory,
+                "description": this.securityCategory,
+                "isActive": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": new Date().toISOString(),
+            };
+            let update_param = {
+                lookupvalue: details
+            };
+            this.lookupService.updateLookupValue(update_param).subscribe((res) => {
+                if (res.message) {
+                    let param = {
+                        LookupTypeId: 29
+                    };
+                    this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+                        this.isSecurityCategorySubmitted = true;
+                        this.isCategorySuccess = true;
+                        this.alertTicketMessage = "Category Updated Successfully!";
+                        this.securityCategoryData = res.filter(item => {
+                            return item.isActive;
+                        });
+                    });
+                }
+                else {
+                    this.isSecurityCategorySubmitted = true;
+                    this.isCategoryError = true;
+                    this.alertTicketMessage = res.errorMessage;
+                }
+            });
+        }
+    }
     ngOnInit() {
+        let param = {
+            LookupTypeId: 29
+        };
+        this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+            this.isSecurityCategoryLoaded = true;
+            this.securityCategoryData = res.filter(item => {
+                return item.isActive;
+            });
+        });
+        // // this.securityService.getAllSecurityByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
+        // //
+        // //   this.securityDataList = res.filter(item => {
+        // //       return item.isActive;
+        // //   });
+        //
+        // });
     }
 };
+SecuritySetupComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_2__["AlertService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+];
 SecuritySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-security-setup',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./security-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/security/components/security-setup/security-setup.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./security-setup.component.scss */ "./src/app/ams/security/components/security-setup/security-setup.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_2__["AlertService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], SecuritySetupComponent);
 
 
