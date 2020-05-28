@@ -5770,7 +5770,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             emailId: this.userEmailId
           };
           this.loginCheckService.authenticateUserByIdPassword(params).subscribe(function (res) {
-            if (res != undefined) {
+            if (res.errorMessage == undefined) {
               _this18.isInvalidLogin = false;
               _this18.isInvalidPassword = false;
               var data = res; //store the tooken in cookie
@@ -5783,13 +5783,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               _this18.getUserDetails(data.userId);
             } else {
-              _this18.isInvalidLogin = true;
               _this18.isSubmitted = true;
+
+              if (res.errorMessage.indexOf('password') != -1) {
+                _this18.isInvalidPassword = true;
+                _this18.isInvalidLogin = false;
+              } else {
+                _this18.isInvalidLogin = true;
+                _this18.isInvalidPassword = false;
+              }
             }
           }, function (error) {
             _this18.isSubmitted = true;
-          }); // this.cookieService.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1OTAwNzMzMTksImV4cCI6MTU5MDY3ODExOSwiaWF0IjoxNTkwMDczMzE5fQ.5_d0JmecsPwAfHvxPLo5EW6yPrWgL1ru5ODdgqjdROw');
-          // this.cookieService.set('userId', '1');
+          });
         }
       }, {
         key: "ngOnInit",

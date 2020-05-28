@@ -3772,7 +3772,7 @@ let LoginComponent = class LoginComponent {
             emailId: this.userEmailId,
         };
         this.loginCheckService.authenticateUserByIdPassword(params).subscribe((res) => {
-            if (res != undefined) {
+            if (res.errorMessage == undefined) {
                 this.isInvalidLogin = false;
                 this.isInvalidPassword = false;
                 var data = res;
@@ -3783,14 +3783,19 @@ let LoginComponent = class LoginComponent {
                 this.getUserDetails(data.userId);
             }
             else {
-                this.isInvalidLogin = true;
                 this.isSubmitted = true;
+                if (res.errorMessage.indexOf('password') != -1) {
+                    this.isInvalidPassword = true;
+                    this.isInvalidLogin = false;
+                }
+                else {
+                    this.isInvalidLogin = true;
+                    this.isInvalidPassword = false;
+                }
             }
         }, error => {
             this.isSubmitted = true;
         });
-        // this.cookieService.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1OTAwNzMzMTksImV4cCI6MTU5MDY3ODExOSwiaWF0IjoxNTkwMDczMzE5fQ.5_d0JmecsPwAfHvxPLo5EW6yPrWgL1ru5ODdgqjdROw');
-        // this.cookieService.set('userId', '1');
     }
     ngOnInit() {
         this.sharedService.clearCookies();
