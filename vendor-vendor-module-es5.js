@@ -752,8 +752,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddVendorForm",
         value: function submitAddVendorForm(form) {
-          var _this4 = this;
-
           this.isVendorSubmitted = true;
           this.isError = false;
 
@@ -815,24 +813,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             var vendorParams = {
               vendor: details
-            };
-            this.vendorService.addVendor(vendorParams).subscribe(function (res) {
-              if (res.message) {
-                _this4.isVendorSubmitted = false;
-
-                _this4.sharedService.setAlertMessage("Vendor added successfully");
-
-                _this4.router.navigate(['ams/vendor/all-vendors', parseInt(_this4.vendor.vendorCategoryId)]);
-              } else {
-                _this4.isVendorSubmitted = false;
-                _this4.isError = true;
-                _this4.alertMessage = res.errorMessage;
-              }
-            }, function (error) {
-              _this4.isVendorSubmitted = false;
-              _this4.isError = true;
-              _this4.alertMessage = "Some error occured";
-            });
+            }; // this.vendorService.addVendor(vendorParams).subscribe((res:any) => {
+            //   if(res.message) {
+            //     this.isVendorSubmitted = false;
+            //     this.sharedService.setAlertMessage("Vendor added successfully");
+            //     this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
+            //   }
+            //   else {
+            //     this.isVendorSubmitted = false;
+            //     this.isError = true;
+            //     this.alertMessage = res.errorMessage;
+            //   }
+            // },
+            // error => {
+            //   this.isVendorSubmitted = false;
+            //   this.isError = true;
+            //   this.alertMessage = "Some error occured";
+            // });
           } else {
             var _bank_details = {
               "bankAccountDetailsId": this.vendor.bankAccountDetailsId,
@@ -887,33 +884,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "insertedOn": new Date().toISOString(),
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString()
-            };
-            var _vendorParams = {
-              vendor: _details
-            };
-            this.vendorService.updateVendor(_vendorParams).subscribe(function (res) {
-              if (res.message) {
-                _this4.isVendorSubmitted = false;
-
-                _this4.sharedService.setAlertMessage("Vendor updated successfully");
-
-                _this4.router.navigate(['ams/vendor/all-vendors', parseInt(_this4.vendor.vendorCategoryId)]);
-              } else {
-                _this4.isVendorSubmitted = false;
-                _this4.isError = true;
-                _this4.alertMessage = res.errorMessage;
-              }
-            }, function (error) {
-              _this4.isVendorSubmitted = false;
-              _this4.isError = true;
-              _this4.alertMessage = "Some error occured";
-            });
+            }; // this.vendorService.updateVendor(vendorParams).subscribe((res:any) => {
+            //   if(res.message) {
+            //     this.isVendorSubmitted = false;
+            //     this.sharedService.setAlertMessage("Vendor updated successfully");
+            //     this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
+            //   }
+            //   else {
+            //     this.isVendorSubmitted = false;
+            //     this.isError = true;
+            //     this.alertMessage = res.errorMessage;
+            //   }
+            // },
+            // error => {
+            //   this.isVendorSubmitted = false;
+            //   this.isError = true;
+            //   this.alertMessage = "Some error occured";
+            // });
           }
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this4 = this;
 
           this.vendor = {};
           this.vendor.glaccountTypeId = "";
@@ -926,21 +919,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.isVendorSubmitted = true;
             this.sharedService.vendorupdate.subscribe(function (id) {
               if (id) {
-                _this5.submitAddVendorForm(id);
+                _this4.submitAddVendorForm(id);
               }
             });
             var vendorIdParam = {
               vendorId: this.route.params['value'].id
             };
             this.vendorService.getVendorById(vendorIdParam).subscribe(function (res) {
-              _this5.vendor = res[0];
-              _this5.vendorTypeId = "" + _this5.vendor.vendorTypeId;
+              _this4.vendor = res[0];
+              _this4.vendorTypeId = "" + _this4.vendor.vendorTypeId;
 
-              if (_this5.vendor.email == " ") {
-                _this5.vendor.email = undefined;
+              if (_this4.vendor.email == " ") {
+                _this4.vendor.email = undefined;
               }
 
-              _this5.isVendorSubmitted = false;
+              _this4.isVendorSubmitted = false;
             }, function (error) {});
 
             if (this.vendor.bankAccountDetailsId) {
@@ -957,14 +950,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             groupId: 3
           };
           this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
-            _this5.glAccountListData = res;
+            _this4.glAccountListData = res;
           });
           var params = {
             LookupTypeId: 57
           }; //vendor Category
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this5.vendorCategoryList = res.filter(function (item) {
+            _this4.vendorCategoryList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -973,7 +966,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //vendor type
 
           this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
-            _this5.vendorTypeList = res.filter(function (item) {
+            _this4.vendorTypeList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -1201,7 +1194,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this6 = this;
+          var _this5 = this;
 
           this.vendor = {};
           this.vendorCategoryId = "All";
@@ -1217,14 +1210,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
-            _this6.allVendorListData = res;
-            _this6.isVendorLoaded = true;
+            _this5.allVendorListData = res;
+            _this5.isVendorLoaded = true;
           }, function (error) {});
           var vendorParams = {
             LookupTypeId: 57
           };
           this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
-            _this6.vendorCategoryData = res.filter(function (item) {
+            _this5.vendorCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -1383,7 +1376,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteVendorCategory",
         value: function deleteVendorCategory(item) {
-          var _this7 = this;
+          var _this6 = this;
 
           this.isVendorCategoryLoaded = false;
           console.log(item);
@@ -1393,7 +1386,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
             //this.vendorCategoryData.splice(index, 1);
-            _this7.loadVendorCategory();
+            _this6.loadVendorCategory();
           });
         }
       }, {
@@ -1434,7 +1427,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitVendorCategoryForm",
         value: function submitVendorCategoryForm(form) {
-          var _this8 = this;
+          var _this7 = this;
 
           this.isVendorCategorySubmitted = false;
           this.isError = false;
@@ -1459,22 +1452,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   LookupTypeId: 57
                 };
 
-                _this8.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                  _this8.isVendorCategorySubmitted = true;
+                _this7.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                  _this7.isVendorCategorySubmitted = true;
 
-                  _this8.sharedService.setAlertMessage("Category added Successfully!");
+                  _this7.sharedService.setAlertMessage("Category added Successfully!");
 
-                  _this8.vendorCategoryData = res.filter(function (item) {
+                  _this7.vendorCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
               } else {
-                _this8.isVendorCategorySubmitted = true;
-                _this8.isError = true;
-                _this8.alertMessage = res.errorMessage;
+                _this7.isVendorCategorySubmitted = true;
+                _this7.isError = true;
+                _this7.alertMessage = res.errorMessage;
 
-                if (_this8.alertMessage === "addLookupValue Not Added as it already exist.") {
-                  _this8.alertMessage = "Invalid action. " + details.lookupValueName + " vendor category already exist.";
+                if (_this7.alertMessage === "addLookupValue Not Added as it already exist.") {
+                  _this7.alertMessage = "Invalid action. " + details.lookupValueName + " vendor category already exist.";
                 }
               }
             });
@@ -1499,19 +1492,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   LookupTypeId: 57
                 };
 
-                _this8.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                  _this8.isVendorCategorySubmitted = true;
+                _this7.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                  _this7.isVendorCategorySubmitted = true;
 
-                  _this8.sharedService.setAlertMessage("Category updated Successfully!");
+                  _this7.sharedService.setAlertMessage("Category updated Successfully!");
 
-                  _this8.vendorCategoryData = res.filter(function (item) {
+                  _this7.vendorCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
               } else {
-                _this8.isVendorCategorySubmitted = true;
-                _this8.isError = true;
-                _this8.alertMessage = res.errorMessage;
+                _this7.isVendorCategorySubmitted = true;
+                _this7.isError = true;
+                _this7.alertMessage = res.errorMessage;
               }
             });
           }
@@ -1521,40 +1514,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadVendorCategory",
         value: function loadVendorCategory() {
-          var _this9 = this;
+          var _this8 = this;
 
           var categoryParams = {
             LookupTypeId: 57
           };
           this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
             console.log("vendor category resp", res);
-            _this9.vendorCategoryData = res.filter(function (item) {
+            _this8.vendorCategoryData = res.filter(function (item) {
               return item.isActive;
             });
             var vendorListParams = {
-              apartmentId: parseInt(_this9.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this8.cookieService.get('apartmentId'))
             };
 
-            _this9.vendorService.getVendorByApartmentId(vendorListParams).subscribe(function (res) {
-              _this9.vendorListData = res;
-              _this9.isVendorCategoryLoaded = true;
+            _this8.vendorService.getVendorByApartmentId(vendorListParams).subscribe(function (res) {
+              _this8.vendorListData = res;
+              _this8.isVendorCategoryLoaded = true;
             }, function (error) {});
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this9 = this;
 
           this.loadVendorCategory();
           this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
             if (is_category_form) {
-              _this10.submitVendorCategoryForm(is_category_form);
+              _this9.submitVendorCategoryForm(is_category_form);
             }
           });
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
             if (item_id) {
-              _this10.deleteVendorCategory(item_id);
+              _this9.deleteVendorCategory(item_id);
             }
           }); //vendor category
         }

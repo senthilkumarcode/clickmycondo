@@ -602,22 +602,23 @@ let CreateVendorComponent = class CreateVendorComponent {
             let vendorParams = {
                 vendor: details
             };
-            this.vendorService.addVendor(vendorParams).subscribe((res) => {
-                if (res.message) {
-                    this.isVendorSubmitted = false;
-                    this.sharedService.setAlertMessage("Vendor added successfully");
-                    this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
-                }
-                else {
-                    this.isVendorSubmitted = false;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
-                }
-            }, error => {
-                this.isVendorSubmitted = false;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
-            });
+            // this.vendorService.addVendor(vendorParams).subscribe((res:any) => {
+            //   if(res.message) {
+            //     this.isVendorSubmitted = false;
+            //     this.sharedService.setAlertMessage("Vendor added successfully");
+            //     this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
+            //   }
+            //   else {
+            //     this.isVendorSubmitted = false;
+            //     this.isError = true;
+            //     this.alertMessage = res.errorMessage;
+            //   }
+            // },
+            // error => {
+            //   this.isVendorSubmitted = false;
+            //   this.isError = true;
+            //   this.alertMessage = "Some error occured";
+            // });
         }
         else {
             let bank_details = {
@@ -676,25 +677,23 @@ let CreateVendorComponent = class CreateVendorComponent {
                 "updatedBy": parseInt(this.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString(),
             };
-            let vendorParams = {
-                vendor: details
-            };
-            this.vendorService.updateVendor(vendorParams).subscribe((res) => {
-                if (res.message) {
-                    this.isVendorSubmitted = false;
-                    this.sharedService.setAlertMessage("Vendor updated successfully");
-                    this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
-                }
-                else {
-                    this.isVendorSubmitted = false;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
-                }
-            }, error => {
-                this.isVendorSubmitted = false;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
-            });
+            // this.vendorService.updateVendor(vendorParams).subscribe((res:any) => {
+            //   if(res.message) {
+            //     this.isVendorSubmitted = false;
+            //     this.sharedService.setAlertMessage("Vendor updated successfully");
+            //     this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
+            //   }
+            //   else {
+            //     this.isVendorSubmitted = false;
+            //     this.isError = true;
+            //     this.alertMessage = res.errorMessage;
+            //   }
+            // },
+            // error => {
+            //   this.isVendorSubmitted = false;
+            //   this.isError = true;
+            //   this.alertMessage = "Some error occured";
+            // });
         }
     }
     ngOnInit() {

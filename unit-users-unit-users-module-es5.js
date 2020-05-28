@@ -41,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"add-resident-wrapper\">\n\n\t<h5 class=\"mb-3\">\n\t\t<span *ngIf=\"!isEditUser\">Add User</span>\n\t\t<span *ngIf=\"isEditUser\">Edit User</span>\n\t</h5>\n\t<div class=\"card clear mb-30\">\n\t\t<!-- <div class=\"card-header\">\n\t\t\t\n    \t\t<div class=\"float-right\" *ngIf=\"!isArrayOne()\">\n    \t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/unapproved\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t</a>\n    \t\t</div> \n\t\t</div>-->\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\t\t\t<form #CheckingEmailForm = \"ngForm\" name=\"CheckingEmailForm\"   novalidate>\n                <div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<!-- <input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\" [(ngModel)]=\"emailToRegister\"> -->\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\" [(ngModel)]=\"emailToRegister\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\" style=\"padding-top: 23px;\">\n\t\t\t\t\t\t<button class=\"btn green mr-2\" (click)=\"checkEmail(CheckingEmailForm)\">Check</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<hr/>\n                <div class=\"row\" *ngIf=\"isValidEmail\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ng-container *ngIf=\"!isUserSubmitted\">\n\t\t\t\t<form #addResidentForm = \"ngForm\" name=\"addResidentForm\" (ngSubmit)=\"submitAddResidentForm(addResidentForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"admin\" [(ngModel)]=\"userType\"  value=\"1\" type=\"radio\" required>\n\t\t                            <label class=\"radio-inline\" for=\"admin\">Admin</label>\n\t                     \t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"owner\" [(ngModel)]=\"userType\"  value=\"4\" type=\"radio\" required>\n\t\t                            <label class=\"radio-inline\" for=\"owner\">Owner</label>\n\t                     \t\t</div>\n\t\t                    \t<div class=\"form-group\">\n\t\t                            <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"tenant\" [(ngModel)]=\"userType\" value=\"2\" type=\"radio\" required>\n\t\t                            <label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n\t\t                         </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>First Name*</label>\n\t\t\t                    <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\" placeholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Last Name*</label>\n\t\t\t                    <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\" placeholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\"  value=\"43\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"male\">Male</label>\n\t                     \t\t</div>\n\t\t                    \t<div class=\"form-group\">\n\t\t                            <input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t                         </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf =\"!isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Block No*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Block\"\n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockId\" (ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isBlockSelected && !isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Unit No*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockUnitId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of unitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Admin Role</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"userRole\" \n\t\t\t\t\t\t\t        id=\"userRole\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Role\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"userRoleId\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">{{ item.roleName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Phone/Mobile*</label>\n\t\t\t                    <!-- <input type=\"number\" [disabled]=\"isExistingUSer\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"PhoneNo\" name=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\"> -->\n\t\t\t\t\t\t\t\t<!-- <input type=\"number\" [disabled]=\"isExistingUSer\" #phoneNo=\"ngModel\" pattern=\"^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[789]\\d{9}$\" class=\"form-control\" name=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\" placeholder=\"phone Number\" required [ngClass]=\"isInvalidLogin ? 'error' :''\" >\n\t\t\t\t\t\t\t\t<span *ngIf=\"phoneNo.errors && phoneNo.dirty\" class = \"error-message\" >Invalid input</span> -->\n\t\t\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" [disabled]=\"isExistingUSer\" type=\"number\" class=\"form-control\" placeholder=\"Phoneno\" name=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditUser \">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Password*</label>\n\t\t\t                    <input type=\"password\" [disabled]=\"isAutoGenPassword || isExistingUSer\" class=\"form-control\" placeholder=\"Password\" name=\"password\" [(ngModel)]=\"user.password\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditUser || isExistingUSer\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\" style=\"padding-top: 28px;\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" [disabled]=\"isExistingUSer\" (change)=\"changeAutoGenPass($event)\" class=\"form-check-input\" id=\"autoGenPassword\" name=\"autoGenPassword\" [(ngModel)]=\"isAutoGenPassword\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"autoGenPassword\">Auto Generate Password & Send To User's Email</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"input-box\" style=\"padding-top: 25px;padding-left: 16px;\">\n\t\t\t\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\" name=\"livingcondo\" [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"livingcondo\">Is Redisiding In Condo</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\" name=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is Primary Contact</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Email*</label>\n\t\t\t                    <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"user.emailId\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t<label>Notification</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\" name=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n\t\t\t\t\t\t\t\t\t    disabled=\"true\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"emailNotify\">Email</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\" name=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"flashNotify\" name=\"flashNotify\" [(ngModel)]=\"user.isFlashNotify\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"flashNotify\">Flash Notice</label>\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Is Primary Contact</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"isPrimary\" id=\"yesPrimary\" [(ngModel)]=\"isPrimary\"  value=\"Yes\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"yesPrimary\">Yes</label>\n\t                     \t\t</div>\n\t\t                    \t<div class=\"form-group\">\n\t\t                            <input name=\"isPrimary\" id=\"NoPrimary\" [(ngModel)]=\"isPrimary\" value=\"No\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"NoPrimary\">No</label>\n\t\t                         </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addResidentForm.invalid || !this.isValidphoneNumber\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\n\t\t</div>\n\t</div>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"add-resident-wrapper\">\n\n\t<h5 class=\"mb-3\">\n\t\t<span *ngIf=\"!isEditUser\">Add User</span>\n\t\t<span *ngIf=\"isEditUser\">Edit User</span>\n\t</h5>\n\t<div class=\"card clear mb-30\">\n\t\t<!-- <div class=\"card-header\">\n\t\t\t\n    \t\t<div class=\"float-right\" *ngIf=\"!isArrayOne()\">\n    \t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/unapproved\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t</a>\n    \t\t</div> \n\t\t</div>-->\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\t\t\t<form #CheckingEmailForm = \"ngForm\" name=\"CheckingEmailForm\"   novalidate>\n                <div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\" [(ngModel)]=\"emailToRegister\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\" style=\"padding-top: 23px;\">\n\t\t\t\t\t\t<button class=\"btn green mr-2\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<hr/>\n                <div class=\"row\" *ngIf=\"isValidEmail\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ng-container *ngIf=\"!isUserSubmitted\">\n\t\t\t\t<form #addResidentForm = \"ngForm\" name=\"addResidentForm\" (ngSubmit)=\"submitAddResidentForm(addResidentForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"admin\" [(ngModel)]=\"userType\"  value=\"1\" type=\"radio\" required>\n\t\t                            <label class=\"radio-inline\" for=\"admin\">Admin</label>\n\t                     \t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"owner\" [(ngModel)]=\"userType\"  value=\"4\" type=\"radio\" required>\n\t\t                            <label class=\"radio-inline\" for=\"owner\">Owner</label>\n\t                     \t\t</div>\n\t\t                    \t<div class=\"form-group\">\n\t\t                            <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"tenant\" [(ngModel)]=\"userType\" value=\"2\" type=\"radio\" required>\n\t\t                            <label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n\t\t                         </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>First Name*</label>\n\t\t\t                    <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\" placeholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Last Name*</label>\n\t\t\t                    <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\" placeholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\"  value=\"43\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"male\">Male</label>\n\t                     \t\t</div>\n\t\t                    \t<div class=\"form-group\">\n\t\t                            <input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t                         </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf =\"!isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Block No*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Block\"\n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockId\" (ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isBlockSelected && !isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Unit No*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockUnitId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of unitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Admin Role</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"userRole\" \n\t\t\t\t\t\t\t        id=\"userRole\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Role\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"userRoleId\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">{{ item.roleName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Mobile*</label>\n\t\t\t                    <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" [disabled]=\"isExistingUSer\"  class=\"form-control\" placeholder=\"Mobile No\" name=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\">\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditUser \">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Password*</label>\n\t\t\t                    <input type=\"password\" [disabled]=\"isAutoGenPassword || isExistingUSer\" class=\"form-control\" placeholder=\"Password\" name=\"password\" [(ngModel)]=\"user.password\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditUser || isExistingUSer\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\" style=\"padding-top: 28px;\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" [disabled]=\"isExistingUSer\" (change)=\"changeAutoGenPass($event)\" class=\"form-check-input\" id=\"autoGenPassword\" name=\"autoGenPassword\" [(ngModel)]=\"isAutoGenPassword\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"autoGenPassword\">Auto Generate Password & Send To User's Email</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"input-box\" style=\"padding-top: 25px;padding-left: 16px;\">\n\t\t\t\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\" name=\"livingcondo\" [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"livingcondo\">{{risidingCondoLabel | lowercase}}</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\" name=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is Primary Contact</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Email*</label>\n\t\t\t                    <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"user.emailId\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t<label>Notification</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\" name=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n\t\t\t\t\t\t\t\t\t    disabled=\"true\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"emailNotify\">Email</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\" name=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"flashNotify\" name=\"flashNotify\" [(ngModel)]=\"user.isFlashNotify\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"flashNotify\">Flash Notice</label>\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Is Primary Contact</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"isPrimary\" id=\"yesPrimary\" [(ngModel)]=\"isPrimary\"  value=\"Yes\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"yesPrimary\">Yes</label>\n\t                     \t\t</div>\n\t\t                    \t<div class=\"form-group\">\n\t\t                            <input name=\"isPrimary\" id=\"NoPrimary\" [(ngModel)]=\"isPrimary\" value=\"No\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"NoPrimary\">No</label>\n\t\t                         </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addResidentForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\n\t\t</div>\n\t</div>\n</div>\n\n";
     /***/
   },
 
@@ -340,7 +340,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".error-message {\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdW5pdC11c2Vycy9jb21wb25lbnRzL2FkZC11c2Vycy9hZGQtcmVzaWRlbnQvYWRkLXJlc2lkZW50LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvdW5pdC11c2Vycy9jb21wb25lbnRzL2FkZC11c2Vycy9hZGQtcmVzaWRlbnQvYWRkLXJlc2lkZW50LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVNBO0VBQ0ksVUFBQTtBQ1JKIiwiZmlsZSI6InNyYy9hcHAvYW1zL3VuaXQtdXNlcnMvY29tcG9uZW50cy9hZGQtdXNlcnMvYWRkLXJlc2lkZW50L2FkZC1yZXNpZGVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cblxuLy8gLmNvbmZpcm0tbW9kYWwtd3JhcHBlciB7XG5cdFxuLy8gfVxuLmVycm9yLW1lc3NhZ2V7XG4gICAgY29sb3I6cmVkO1xufSIsIi5lcnJvci1tZXNzYWdlIHtcbiAgY29sb3I6IHJlZDtcbn0iXX0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy91bml0LXVzZXJzL2NvbXBvbmVudHMvYWRkLXVzZXJzL2FkZC1yZXNpZGVudC9hZGQtcmVzaWRlbnQuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -384,62 +384,56 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/User */
-    "./src/app/api/controllers/User.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
-    "./src/app/api/controllers/Apartment.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/EmailSend */
-    "./src/app/api/controllers/EmailSend.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-    /* harmony import */
-
-
-    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/material/dialog */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
     /* harmony import */
 
 
-    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
-    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! src/app/shared/services/shared-toaster.service */
-    "./src/app/shared/services/shared-toaster.service.ts");
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/EmailSend */
+    "./src/app/api/controllers/EmailSend.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../../../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+    "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
     var AddResidentComponent =
     /*#__PURE__*/
     function () {
-      function AddResidentComponent(dialog, router, route, userService, emailSendService, apartmentService, lookupService, sharedService, cookieService, cd, SharedToaster) {
+      function AddResidentComponent(dialog, router, route, userService, emailSendService, apartmentService, lookupService, sharedService, cookieService, cd) {
         _classCallCheck(this, AddResidentComponent);
 
         this.dialog = dialog;
@@ -452,7 +446,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.cd = cd;
-        this.SharedToaster = SharedToaster;
+        this.risidingCondoLabel = "Is Residing In Condo";
         this.userType = null;
         this.genderType = null;
         this.apartmentBlockId = "";
@@ -465,9 +459,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isError = false;
         this.errorMessage = "";
         this.isValidEmail = false;
-        this.isValidphoneNumber = false; //valid
-        // isInvalidLogin: boolean = false;
-
         this.emailToRegister = "";
         this.isAdminRegister = false;
         this.isAutoGenPassword = false;
@@ -504,78 +495,86 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }, function (error) {
             console.log(error);
           });
-        } // isNotification
-
+        }
       }, {
         key: "submitAddResidentForm",
         value: function submitAddResidentForm(form) {
           var _this2 = this;
 
-          if (!this.IsvalidatePhoneNo(this.user.phoneNumber)) {
-            return true;
-          }
+          if (!this.IsvalidatePhoneNo(this.user.phoneNumber)) return true; // if(!this.IsValidEmail(this.user.emailId))
+          // return true;
 
-          var message = "Are you sure you want to submit/save this ticket";
-          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
-          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
-            panelClass: 'material',
-            disableClose: true,
-            data: dialogData
-          });
-          dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this2.result = dialogResult;
-            console.log(_this2.result);
+          console.log(this.user);
+          console.log(this.isAutoGenPassword);
+          console.log(this.genderType);
+          console.log(this.isAdminRegister);
+          console.log(this.isEditUser);
+          this.isUserSubmitted = true;
+          this.isError = false;
 
-            if (_this2.result) {
-              _this2.isUserSubmitted = true;
-              _this2.isError = false;
+          if (!this.isEditUser) {
+            //add user
+            var _userDetails = {
+              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "firstName": this.user.firstName,
+              "middleName": "",
+              "lastName": this.user.lastName,
+              "emailId": this.isValueValid(this.emailToRegister) ? "" : this.emailToRegister,
+              "password": this.isAutoGenPassword ? "" : this.user.password,
+              "salt": "",
+              "address1": "",
+              "address2": "",
+              "city": "",
+              "state": "",
+              "country": "",
+              "zipCode": "",
+              "genderId": parseInt(this.genderType),
+              "dob": "2019-11-10T09:58:08.934Z",
+              "joinedOn": "2019-11-10T09:58:08.934Z",
+              "bloodGroup": "",
+              "phoneNumber": this.user.phoneNumber.toString(),
+              "emergencyContactNumber": "",
+              "emergencyContactPerson": "",
+              "emergencyContactNumberSecondary": "",
+              "emergencyContactPersonSecondary": "",
+              "accessCardNumber": "",
+              "notes": "",
+              "profilePictureId": null,
+              "isLiving": this.user.isLiving,
+              "isActive": true,
+              "isApproved": this.isAdminRegister,
+              "resetPassword": true,
+              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "updatedBy": 0,
+              "isDocSubmitted": false,
+              "readyForApproval": false
+            };
+            var params = {
+              user: _userDetails
+            }; //add user 
 
-              if (!_this2.isEditUser) {
-                //add user
-                var _userDetails = {
-                  "apartmentId": parseInt(_this2.cookieService.get('apartmentId')),
-                  "firstName": _this2.user.firstName,
-                  "middleName": "",
-                  "lastName": _this2.user.lastName,
-                  "emailId": _this2.user.emailId,
-                  "password": _this2.user.password,
-                  "salt": "",
-                  "address1": "",
-                  "address2": "",
-                  "city": "",
-                  "state": "",
-                  "country": "",
-                  "zipCode": "",
-                  "genderId": parseInt(_this2.genderType),
-                  "dob": "2019-11-10T09:58:08.934Z",
-                  "joinedOn": "2019-11-10T09:58:08.934Z",
-                  "bloodGroup": "",
-                  "phoneNumber": _this2.user.phoneNumber.toString(),
-                  "emergencyContactNumber": "",
-                  "emergencyContactPerson": "",
-                  "emergencyContactNumberSecondary": "",
-                  "emergencyContactPersonSecondary": "",
-                  "accessCardNumber": "",
-                  "notes": "",
-                  "profilePictureId": null,
-                  "isLiving": true,
+            this.userService.addUser(params).subscribe(function (res) {
+              console.log('user added', res);
+
+              if (res.message) {
+                var userId = res.message;
+                var apartmentBlockUnitUser = {
+                  "apartmentBlockUnitId": parseInt(_this2.apartmentBlockUnitId),
+                  "userId": userId,
+                  "isPrimaryContact": _this2.user.isPrimaryContact,
+                  "userTypeId": parseInt(_this2.userType),
                   "isActive": true,
-                  "isApproved": _this2.isAdminRegister,
-                  "resetPassword": true,
                   "insertedBy": parseInt(_this2.cookieService.get('userId')),
+                  "insertedOn": "2019-11-10T10:38:46.060Z",
                   "updatedBy": 0,
-                  "isDocSubmitted": false,
-                  "readyForApproval": false
+                  "updatedOn": "2019-11-10T10:38:46.060Z"
                 };
-                var params = {
-                  user: _userDetails
-                }; //add user 
+                var apartmentParams = {
+                  apartmentBlockUnitUser: apartmentBlockUnitUser
+                };
 
-                _this2.userService.addUser(params).subscribe(function (res) {
+                _this2.apartmentService.addApartmentBlockUnitUser(apartmentParams).subscribe(function (res) {
                   if (res.message) {
-                    //valid
-                    // this.isInvalidLogin = false;
-                    var userId = res.message;
                     var userRole = {
                       "userId": userId,
                       "roleId": parseInt(_this2.userType),
@@ -583,117 +582,113 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       "insertedBy": parseInt(_this2.cookieService.get('userId')),
                       "insertedOn": "2019-11-10T10:00:28.212Z",
                       "updatedBy": 0,
+                      "apartmentBlockUnitUserId": res.message,
                       "updatedOn": "2019-11-10T10:00:28.212Z"
                     };
-                    var userRoleParam = {
+                    var _params = {
                       userRole: userRole
                     };
 
-                    _this2.userService.addUserRole(userRoleParam).subscribe(function (res) {
-                      var apartmentBlockUnitUser = {
-                        "apartmentBlockUnitId": parseInt(_this2.apartmentBlockUnitId),
-                        "userId": userId,
-                        "isPrimaryContact": _this2.user.isPrimaryContact,
-                        "userTypeId": parseInt(_this2.userType),
-                        "isActive": true,
-                        "insertedBy": parseInt(_this2.cookieService.get('userId')),
-                        "insertedOn": "2019-11-10T10:38:46.060Z",
-                        "updatedBy": 0,
-                        "updatedOn": "2019-11-10T10:38:46.060Z"
-                      };
-                      var apartmentBlockUnitUserParams = {
-                        apartmentBlockUnitUser: apartmentBlockUnitUser
-                      };
-
-                      _this2.apartmentService.addApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe(function (res) {
+                    _this2.userService.addUserRole(_params).subscribe(function (res) {
+                      if (res.message) {
                         _this2.isUserSubmitted = false;
+                        var emailDetails = {
+                          emailAddress: _this2.user.emailId,
+                          Name: _this2.user.firstName,
+                          Subject: 'User Created',
+                          TextMessage: 'User Created'
+                        };
 
-                        if (res.message) {
-                          var emailDetails = {
-                            emailAddress: _this2.user.emailId,
-                            Name: _this2.user.firstName,
-                            Subject: 'User Created',
-                            TextMessage: 'User Created'
-                          };
+                        _this2.emailSendService.sendEmail(emailDetails).subscribe(function (res) {
+                          console.log('user email');
 
-                          _this2.emailSendService.sendEmail(emailDetails).subscribe(function (res) {
-                            _this2.sharedService.setAlertMessage("Account has been created. User notified via Email ");
+                          _this2.sharedService.setAlertMessage("Account has been created. User notified via Email ");
 
-                            _this2.router.navigate(['ams/unit&users/unapproved']);
-                          }, function (error) {
-                            console.log(error);
-                          });
-                        } else {
-                          _this2.isError = true;
-                          _this2.errorMessage = res.errorMessage; //valid
-                          // this.isInvalidLogin = true;
-                        }
-                      }, function (error) {
-                        console.log(error);
-                      });
+                          _this2.router.navigate(['ams/unit&users/unapproved']);
+                        }, function (error) {
+                          console.log(error);
+                        });
+                      }
                     }, function (error) {
                       console.log(error);
                     });
                   } else {
-                    _this2.isUserSubmitted = false;
                     _this2.isError = true;
                     _this2.errorMessage = res.errorMessage;
-                    var errorDetails = {
-                      msg: _this2.errorMessage,
-                      type: "Error"
-                    };
-
-                    _this2.sharedService.setCustomAlertMessage(errorDetails); //valid
-                    // this.isInvalidLogin = true;
-
                   }
-                }, function (error) {});
+                }, function (error) {
+                  console.log(error);
+                });
               } else {
-                //edit user
-                var userDetails = {
-                  "userId": _this2.route.params['value'].id,
-                  "apartmentId": parseInt(_this2.cookieService.get('apartmentId')),
-                  "firstName": _this2.user.firstName,
-                  "middleName": _this2.user.middleName,
-                  "lastName": _this2.user.lastName,
-                  "emailId": _this2.user.emailId,
-                  "password": _this2.user.password,
-                  "salt": _this2.user.salt,
-                  "address1": _this2.user.address1,
-                  "address2": _this2.user.address2,
-                  "city": _this2.user.city,
-                  "state": _this2.user.state,
-                  "country": _this2.user.country,
-                  "zipCode": _this2.user.zipCode,
-                  "genderId": parseInt(_this2.genderType),
-                  "dob": _this2.user.dob,
-                  "joinedOn": _this2.user.joinedOn,
-                  "bloodGroup": _this2.user.bloodGroup,
-                  "phoneNumber": _this2.user.phoneNumber.toString(),
-                  "emergencyContactNumber": _this2.user.emergencyContactNumber,
-                  "emergencyContactPerson": _this2.user.emergencyContactPerson,
-                  "emergencyContactNumberSecondary": _this2.user.emergencyContactNumberSecondary,
-                  "emergencyContactPersonSecondary": _this2.user.emergencyContactPersonSecondary,
-                  "accessCardNumber": _this2.user.accessCardNumber,
-                  "notes": _this2.user.notes,
-                  "profilePictureId": null,
-                  "isLiving": true,
-                  "isActive": true,
-                  "isApproved": _this2.isAdminRegister,
-                  "resetPassword": _this2.user.resetPassword,
-                  "insertedBy": _this2.user.insertedBy,
-                  "updatedBy": parseInt(_this2.cookieService.get('userId')),
-                  "isDocSubmitted": _this2.user.isDocSubmitted,
-                  "readyForApproval": _this2.user.readyForApproval
-                }; //edit user 
+                _this2.isUserSubmitted = false;
+                _this2.isError = true;
+                _this2.errorMessage = res.errorMessage;
+              }
+            }, function (error) {});
+          } else {
+            //edit user
+            var userDetails = {
+              "userId": this.route.params['value'].id,
+              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "firstName": this.user.firstName,
+              "middleName": this.user.middleName,
+              "lastName": this.user.lastName,
+              "emailId": this.user.emailId,
+              "password": this.user.password,
+              "salt": this.user.salt,
+              "address1": this.user.address1,
+              "address2": this.user.address2,
+              "city": this.user.city,
+              "state": this.user.state,
+              "country": this.user.country,
+              "zipCode": this.user.zipCode,
+              "genderId": parseInt(this.genderType),
+              "dob": this.user.dob,
+              "joinedOn": this.user.joinedOn,
+              "bloodGroup": this.user.bloodGroup,
+              "phoneNumber": this.user.phoneNumber.toString(),
+              "emergencyContactNumber": this.user.emergencyContactNumber,
+              "emergencyContactPerson": this.user.emergencyContactPerson,
+              "emergencyContactNumberSecondary": this.user.emergencyContactNumberSecondary,
+              "emergencyContactPersonSecondary": this.user.emergencyContactPersonSecondary,
+              "accessCardNumber": this.user.accessCardNumber,
+              "notes": this.user.notes,
+              "profilePictureId": null,
+              "isLiving": this.user.isLiving,
+              "isActive": true,
+              "isApproved": this.isAdminRegister,
+              "resetPassword": this.user.resetPassword,
+              "insertedBy": this.user.insertedBy,
+              "updatedBy": parseInt(this.cookieService.get('userId')),
+              "isDocSubmitted": this.user.isDocSubmitted,
+              "readyForApproval": this.user.readyForApproval
+            };
+            var _params2 = {
+              user: userDetails
+            }; //edit user 
 
-                var userDetailsParams = {
-                  user: userDetails
+            this.userService.updateUser(_params2).subscribe(function (res) {
+              if (res.message) {
+                var userId = res.message;
+                var apartmentBlockUnitUser = {
+                  "apartmentBlockUnitId": parseInt(_this2.apartmentBlockUnitId),
+                  "userId": userId,
+                  "isPrimaryContact": _this2.user.isPrimaryContact,
+                  "userTypeId": parseInt(_this2.userType),
+                  "isActive": _this2.user.isActive,
+                  "insertedBy": parseInt(_this2.cookieService.get('userId')),
+                  "insertedOn": _this2.user.insertedOn,
+                  "updatedBy": _this2.user.updatedBy,
+                  "updatedOn": _this2.user.updatedOn
+                };
+                var apartmentParams = {
+                  apartmentBlockUnitUser: apartmentBlockUnitUser
                 };
 
-                _this2.userService.updateUser(userDetailsParams).subscribe(function (res) {
+                _this2.apartmentService.addApartmentBlockUnitUser(apartmentParams).subscribe(function (res) {
+                  _this2.isUserSubmitted = false;
+
                   if (res.message) {
-                    var userId = res.message;
                     var userRole = {
                       "userId": userId,
                       "roleId": parseInt(_this2.userType),
@@ -701,120 +696,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       "insertedBy": parseInt(_this2.cookieService.get('userId')),
                       "insertedOn": _this2.user.insertedOn,
                       "updatedBy": _this2.user.updatedBy,
-                      "updatedOn": _this2.user.updatedOn
+                      "updatedOn": _this2.user.updatedOn,
+                      "apartmentBlockUnitUserId": res.message
                     };
-                    var userRoleParam = {
+                    var _params3 = {
                       userRole: userRole
                     };
 
-                    _this2.userService.addUserRole(userRoleParam).subscribe(function (res) {
-                      var apartmentBlockUnitUser = {
-                        "apartmentBlockUnitId": parseInt(_this2.apartmentBlockUnitId),
-                        "userId": userId,
-                        "isPrimaryContact": _this2.user.isPrimaryContact,
-                        "userTypeId": parseInt(_this2.userType),
-                        "isActive": _this2.user.isActive,
-                        "insertedBy": parseInt(_this2.cookieService.get('userId')),
-                        "insertedOn": _this2.user.insertedOn,
-                        "updatedBy": _this2.user.updatedBy,
-                        "updatedOn": _this2.user.updatedOn
-                      };
-                      var apartmentBlockUnitUserParams = {
-                        apartmentBlockUnitUser: apartmentBlockUnitUser
-                      };
+                    _this2.userService.addUserRole(_params3).subscribe(function (res) {
+                      _this2.sharedService.setAlertMessage("User updated successfully");
 
-                      _this2.apartmentService.addApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe(function (res) {
-                        _this2.isUserSubmitted = false;
-
-                        if (res.message) {
-                          _this2.sharedService.setAlertMessage("User updated successfully");
-
-                          _this2.router.navigate(['ams/unit&users/unapproved']);
-                        } else {
-                          _this2.isError = true;
-                          _this2.errorMessage = res.errorMessage;
-
-                          _this2.SharedToaster.openSnackBar(_this2.errorMessage, '');
-                        }
-                      }, function (error) {
-                        console.log(error);
-                      });
+                      _this2.router.navigate(['ams/unit&users/unapproved']);
                     }, function (error) {
                       console.log(error);
                     });
                   } else {
-                    _this2.isUserSubmitted = false;
                     _this2.isError = true;
                     _this2.errorMessage = res.errorMessage;
-                    var errorDetails = {
-                      msg: _this2.errorMessage,
-                      type: "Error"
-                    };
-
-                    _this2.sharedService.setCustomAlertMessage(errorDetails); //this.SharedToaster.openSnackBar(this.errorMessage,'');
-
                   }
-                }, function (error) {});
+                }, function (error) {
+                  console.log(error);
+                });
+              } else {
+                _this2.isUserSubmitted = false;
+                _this2.isError = true;
+                _this2.errorMessage = res.errorMessage;
               }
-            } else {
-              _this2.isUserSubmitted = false;
-              _this2.isError = false;
-            }
-          }); //dialogclosed
+            }, function (error) {});
+          }
         }
-      }, {
-        key: "IsvalidatePhoneNo",
-        value: function IsvalidatePhoneNo(val) {
-          var retVal = true; // var rex =new RegExp(/^[+]?\d+$/);
-
-          var rex = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/);
-          var isValid = rex.test(val);
-          console.log(val.length);
-
-          if (val.length > 13) {
-            retVal = false;
-            var errorDetails = {
-              msg: "phone no length should be within 13 characters",
-              type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails); //  this.sharedService.setAlertMessage(errorDetails);
-          }
-
-          if (!isValid && val.length < 13) {
-            retVal = false;
-            var errorDetails = {
-              msg: "Kindly enter proper phoneno",
-              type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails); //  this.sharedService.setAlertMessage(errorDetails);
-          }
-
-          this.isValidphoneNumber = retVal;
-
-          if (!this.isValidphoneNumber) {
-            console.log("retval ==== ", retVal);
-          }
-
-          return retVal;
-        } // isValueValid(val) {
-        //   return (val === undefined || val == null || val.length <= 0 || val === "") ? true : false;
-        // }
-
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
           var _this3 = this;
 
           this.user = {};
-          this.user.isEmailNotify = true; //get apartment blocks
-          // this.apartmentService.getApartmentBlockByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res: any) => {
-          //   this.blocksData = res;
-          // });
-          // this.userService.getAllRoles(parseInt(this.cookieService.get('apartmentId'))).subscribe((res: any) => {
-          //   console.log(res);
-          //   this.userRolesData = res;
-          // });
-
+          this.user.isEmailNotify = true;
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           }; //get apartment blocks
@@ -822,32 +739,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             _this3.blocksData = res;
           });
-          var roleParams = {
+          var paramsRoles = {
+            RoleTypeId: 1,
             ApartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
-          this.userService.getAllRoles(roleParams).subscribe(function (res) {
+          this.userService.getAllRolesByRoleTypeIdByApartmentId(paramsRoles).subscribe(function (res) {
+            console.log(res);
             _this3.userRolesData = res;
           });
 
           if (this.route.params['value'].id != undefined) {
             this.isEditUser = true;
-            var useridParam = {
-              userid: this.route.params['value'].id
-            };
-            this.userService.getUserById(useridParam).subscribe(function (res) {
+            this.userService.getUserById(this.route.params['value'].id).subscribe(function (res) {
+              console.log(res);
               _this3.user = res[0];
               _this3.genderType = _this3.user.genderId.toString(); // get role
 
-              var userIdParam = {
-                userId: _this3.route.params['value'].id
-              };
-
-              _this3.userService.getRolesByUserId(userIdParam).subscribe(function (data) {
+              _this3.userService.getRolesByUserId(_this3.route.params['value'].id).subscribe(function (data) {
                 _this3.userType = data[0].roleId.toString();
               }, function (error) {}); //get block
 
 
-              _this3.apartmentService.getApartmentBlockByUserId(userIdParam).subscribe(function (block) {
+              _this3.apartmentService.getApartmentBlockByUserId(_this3.route.params['value'].id).subscribe(function (block) {
                 _this3.apartmentBlockId = block[0].apartmentBlockId.toString();
 
                 _this3.getUnits();
@@ -857,126 +770,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "checkEmail",
-        value: function checkEmail(form) {
+        value: function checkEmail() {
           var _this4 = this;
 
-          if (!this.IsValidEmail(this.emailToRegister)) return true; // this.isValidEmail = false;
-          // // var rex =new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
-          // //  var rex = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
-          // var rex = new RegExp("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-          //   + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-          // var isValid = rex.test(this.emailToRegister);
-          // Validate Email
+          this.isValidEmail = false;
+          var isValid = this.IsValidEmail(this.emailToRegister);
 
-          var emailIdParams = {
-            emailId: this.emailToRegister
-          };
-          this.userService.checkUserEmailExists(emailIdParams).subscribe(function (data) {
-            console.log(data);
+          if (isValid) {
+            var params = {
+              emailId: this.emailToRegister
+            }; // Validate Email
 
-            if (data.ErrorMessage == 'EmailId Not Exists.') {
-              _this4.isValidEmail = true;
-              _this4.isExistingUSer = false;
-              _this4.user = {};
-              _this4.user.isEmailNotify = true;
-            } else {
-              var message = "The user Id already exists Do you want to add this user to this condo?";
-              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
+            this.userService.checkUserEmailExists(params).subscribe(function (data) {
+              if (data == null || data.ErrorMessage == 'EmailId Not Exists.') {
+                _this4.isValidEmail = true;
+                _this4.isExistingUSer = false;
+                _this4.user = {};
+                _this4.user.isEmailNotify = true;
+              } else {
+                var message = "The user Id already exists Do you want to add this user to this condo?";
+                var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
 
-              var dialogRef = _this4.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
-                panelClass: 'material',
-                disableClose: true,
-                data: dialogData
-              });
+                var dialogRef = _this4.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                  panelClass: 'material',
+                  disableClose: true,
+                  data: dialogData
+                });
 
-              dialogRef.afterClosed().subscribe(function (dialogResult) {
-                _this4.result = dialogResult;
+                dialogRef.afterClosed().subscribe(function (dialogResult) {
+                  _this4.result = dialogResult;
 
-                if (_this4.result) {
-                  _this4.isValidEmail = _this4.isExistingUSer = true;
-                  _this4.user = data;
-                  _this4.user.isEmailNotify = true;
-                  _this4.genderType = _this4.user.genderId;
-                } else {
-                  _this4.isValidEmail = _this4.isExistingUSer = false;
-                }
-              });
-            }
-          }, function (error) {
-            _this4.isValidEmail = false;
-            _this4.isError = true;
-          });
+                  if (_this4.result) {
+                    _this4.isValidEmail = _this4.isExistingUSer = true;
+                    _this4.user = data;
+                    _this4.user.isEmailNotify = true;
+                    _this4.genderType = _this4.user.genderId;
+                  } else {
+                    _this4.isValidEmail = _this4.isExistingUSer = false;
+                  }
+                });
+              }
+            }, function (error) {
+              _this4.isValidEmail = false;
+              _this4.isError = true;
+              _this4.errorMessage = 'Kindly enter proper email...!';
+            });
+          } else {
+            this.sharedService.setAlertMessage("Kindly enter proper email...!");
+            this.isError = true;
+            this.errorMessage = 'Kindly enter proper email...!';
+            this.cd.markForCheck();
+          }
         }
-      }, {
-        key: "IsValidEmail",
-        value: function IsValidEmail(val) {
-          var retVal = true; // var rex =new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
-          //  var rex = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/); 
-
-          var rex = new RegExp("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-          var isValid = rex.test(val);
-
-          if (!isValid) {
-            retVal = false;
-            var errorDetails = {
-              msg: "Kindly enter proper email id",
-              type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
-          } // this.isValidemail = retVal;
-
-
-          return retVal;
-        } // checkEmail(form) {
-        //   this.isValidEmail = false;
-        //   // var rex =new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
-        //   //  var rex = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
-        //   var rex = new RegExp("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-        //     + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        //   var isValid = rex.test(this.emailToRegister);
-        //   if (isValid) {
-        //     // Validate Email
-        //     this.userService.checkUserEmailExists(this.emailToRegister).subscribe((data: any) => {
-        //       console.log(data);
-        //       if (data.ErrorMessage == 'EmailId Not Exists.') {
-        //         this.isValidEmail = true;
-        //         this.isExistingUSer = false;
-        //         this.user = {};
-        //         this.user.isEmailNotify = true;
-        //       } else {
-        //         const message = `The user Id already exists Do you want to add this user to this condo?`;
-        //         const dialogData = new ConfirmDialogModel("Confirm Action", message);
-        //         const dialogRef = this.dialog.open(CommonConfirmModalComponent, {
-        //           panelClass: 'material',
-        //           disableClose: true,
-        //           data: dialogData
-        //         });
-        //         dialogRef.afterClosed().subscribe(dialogResult => {
-        //           this.result = dialogResult;
-        //           if (this.result) {
-        //             this.isValidEmail = this.isExistingUSer = true;
-        //             this.user = data;
-        //             this.user.isEmailNotify = true;
-        //             this.genderType = this.user.genderId;
-        //           } else {
-        //             this.isValidEmail = this.isExistingUSer = false;
-        //           }
-        //         });
-        //       }
-        //     },
-        //       error => {
-        //         this.isValidEmail = false;
-        //         this.isError = true;
-        //         this.errorMessage = 'Kindly enter proper email...!';
-        //       });
-        //   } else {
-        //     this.sharedService.setAlertMessage("Kindly enter proper email...!");
-        //     this.isError = true;
-        //     this.errorMessage = 'Kindly enter proper email...!';
-        //     this.cd.markForCheck();
-        //   }
-        // }
-
       }, {
         key: "changeUserType",
         value: function changeUserType(evt) {
@@ -996,6 +841,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.user.password = "";
           }
         }
+      }, {
+        key: "IsValidEmail",
+        value: function IsValidEmail(val) {
+          var retVal = true;
+          var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+          var isValid = rex.test(val);
+
+          if (!isValid) {
+            retVal = false;
+            var errorDetails = {
+              msg: "Please correct your email id",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          return retVal;
+        }
+      }, {
+        key: "IsvalidatePhoneNo",
+        value: function IsvalidatePhoneNo(val) {
+          var retVal = true;
+          var rex = new RegExp(/^[+]?\d+$/);
+          var isValid = rex.test(val);
+          console.log(val.length);
+
+          if (val.length > 13) {
+            retVal = false;
+            var errorDetails = {
+              msg: "mobile no length should be within 13 characters",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          if (!isValid) {
+            retVal = false;
+            var errorDetails = {
+              msg: "Please correct your mobile",
+              type: "Error"
+            };
+            this.sharedService.setCustomAlertMessage(errorDetails);
+          }
+
+          return retVal;
+        }
+      }, {
+        key: "isValueValid",
+        value: function isValueValid(val) {
+          return val === undefined || val == null || val.length <= 0 || val === "" ? true : false;
+        }
       }]);
 
       return AddResidentComponent;
@@ -1003,27 +899,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AddResidentComponent.ctorParameters = function () {
       return [{
-        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
       }, {
-        type: src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_5__["EmailSendService"]
+        type: src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_6__["EmailSendService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-      }, {
-        type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_10__["SharedToasterService"]
       }];
     };
 
@@ -1038,7 +932,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-resident.component.scss */
       "./src/app/ams/unit-users/components/add-users/add-resident/add-resident.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_5__["EmailSendService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_10__["SharedToasterService"]])], AddResidentComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_6__["EmailSendService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddResidentComponent);
     /***/
   },
 
@@ -1529,15 +1423,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
-    "./src/app/api/controllers/Apartment.ts");
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
@@ -1686,9 +1580,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }];
@@ -1702,7 +1596,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./approved.component.scss */
       "./src/app/ams/unit-users/components/approved/approved.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ApprovedComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], ApprovedComponent);
     /***/
   },
 
@@ -2582,12 +2476,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var dataRecord = _this17.datagrid.getrowdata(id);
 
               var signupUserId = dataRecord.signupUserRequestId;
-              var _params = {
+              var _params4 = {
                 signupUserId: signupUserId,
                 apartmentId: parseInt(_this17.cookieService.get('apartmentId'))
               };
 
-              _this17.userService.updateSignupUserRequestByApartmentId(_params).subscribe(function (res) {
+              _this17.userService.updateSignupUserRequestByApartmentId(_params4).subscribe(function (res) {
                 setTimeout(function () {
                   _this17.datagrid.deleterow(id);
 

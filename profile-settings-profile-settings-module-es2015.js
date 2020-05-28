@@ -26,6 +26,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.html":
+/*!****************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.html ***!
+  \****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poiManagement\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower</label>\n          <select class=\"form-control\" >\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" >\n            <!--<option value=\"\">None</option>-->\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" (click)=\"browseFile()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/poiAdd.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/brand-jpg.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/brand-png.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" (change)=\"mapUpload($event)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.html":
 /*!************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.html ***!
@@ -257,6 +270,109 @@ AddBlockComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], AddBlockComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.scss":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.scss ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9wcm9maWxlLXNldHRpbmdzL2NvbXBvbmVudHMvYWRkLWZsb29yLXVuaXQtZ3JhcGhpYy9hZGQtZmxvb3ItdW5pdC1ncmFwaGljLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts":
+/*!************************************************************************************************************!*\
+  !*** ./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts ***!
+  \************************************************************************************************************/
+/*! exports provided: AddFloorUnitGraphicComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddFloorUnitGraphicComponent", function() { return AddFloorUnitGraphicComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+var graph;
+let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
+    constructor(element) {
+        this.element = element;
+        this.loading = true;
+        this.isShowBuilder = false;
+        this.bNo = 0;
+        this.fNo = 0;
+    }
+    ngOnInit() {
+        this.bootMe();
+    }
+    bootMe() {
+        let docEl = document.documentElement, bodyEl = document.getElementsByTagName('body')[0];
+        let width = window.innerWidth || docEl.clientWidth || bodyEl.clientWidth, height = window.innerHeight || docEl.clientHeight || bodyEl.clientHeight;
+        // initial node data
+        var nodes = [];
+        var edges = [];
+        /** MAIN SVG **/
+        var svg = d3.select("#lcanvas").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+        graph = new GraphCreator(svg, nodes, edges);
+        graph.setIdCt(0);
+        // this.graph.updateGraph();
+    }
+    mapUpload(event) {
+        // if(event && event[0] && event[0].name && (event[0].type == 'image/png' || event[0].type == 'image/jpeg')){
+        var reader = new FileReader();
+        reader.onload = (e) => {
+            graph.customImageUpdalod(reader.result);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+        this.isShowBuilder = true;
+        // }else{
+        // var fileUpload = $(this.element.nativeElement).find("input[id='hidden-bg-upload']");
+        // fileUpload.trigger("click");
+        // this.isShowBuilder = true;
+        // setTimeout(() =>{
+        //   this.isShowBuilder = false;
+        // },300)
+        // }
+    }
+    browseFile() {
+        var fileUpload = $(this.element.nativeElement).find("input[id='hidden-bg-upload']");
+        fileUpload.trigger("click");
+    }
+};
+AddFloorUnitGraphicComponent.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('poiId'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+], AddFloorUnitGraphicComponent.prototype, "poiId", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('nodeId'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+], AddFloorUnitGraphicComponent.prototype, "nodeId", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('nodeKind'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+], AddFloorUnitGraphicComponent.prototype, "nodeKind", void 0);
+AddFloorUnitGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-add-floor-unit-graphic',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-floor-unit-graphic.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-floor-unit-graphic.component.scss */ "./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], AddFloorUnitGraphicComponent);
 
 
 
@@ -785,6 +901,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/add-block-wrapper/add-block-wrapper.component */ "./src/app/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.ts");
 /* harmony import */ var _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit-wrapper.component */ "./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts");
 /* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
+/* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
+
 
 
 
@@ -796,6 +914,7 @@ const routes = [
     { path: 'add-block', component: _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_3__["AddBlockWrapperComponent"] },
     { path: 'add-unit', component: _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_4__["AddUnitWrapperComponent"] },
     { path: 'add-floor-unit', component: _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_5__["AddFloorUnitComponent"] },
+    { path: 'add-floor-unit-graphic', component: _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_6__["AddFloorUnitGraphicComponent"] },
     { path: '**', redirectTo: 'add-block', pathMatch: 'full' }
 ];
 let ProfileSettingsRoutingModule = class ProfileSettingsRoutingModule {
@@ -877,6 +996,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/add-block-wrapper/add-block/add-block.component */ "./src/app/ams/profile-settings/components/add-block-wrapper/add-block/add-block.component.ts");
 /* harmony import */ var _components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit/add-unit.component */ "./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.ts");
 /* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
+/* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
+
 
 
 
@@ -898,7 +1019,8 @@ ProfileSettingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
             _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_7__["AddUnitWrapperComponent"],
             _profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"],
             _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_8__["AddBlockComponent"],
-            _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__["AddFloorUnitComponent"]
+            _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__["AddFloorUnitComponent"],
+            _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__["AddFloorUnitGraphicComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

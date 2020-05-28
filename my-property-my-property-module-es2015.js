@@ -1829,7 +1829,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-grid\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <mat-card>\n                <h4 class=\"property-grid-head\">Towers</h4>\n                <mat-card>\n                    <owl-carousel-o [options]=\"customOptions\">\n                        <ng-container *ngFor=\"let tower of towerList; let i = index\" style=\"position:relative;\">\n                            <ng-template carouselSlide>\n                                <div class=\"towerDetail d-flex align-items-center justify-content-center flex-column\"\n                                    (click)=\"selectedTower(tower.towerName)\">\n                                    <img [src]=\"tower.towerModel\" alt=\"\">\n                                    <label class=\"tower-name\"\n                                        [style.color]=\"selectedTowerData == tower.towerName ? '#419fd5': '#757575ad'\">\n                                        {{tower?.towerName}}\n                                    </label>\n                                    <span>No of Floors<span class=\"total\"\n                                            [style.color]=\"selectedTowerData == tower.towerName ? '#ffffff': '#383737'\"\n                                            [style.background-color]=\"selectedTowerData == tower.towerName ? '#000c93': '#eaeaea'\">{{tower?.noOfFloor}}</span></span>\n                                    <span>No of Units<span class=\"total\"\n                                            [style.color]=\"selectedTowerData == tower.towerName ? '#ffffff': '#383737'\"\n                                            [style.background-color]=\"selectedTowerData == tower.towerName ? '#000c93': '#eaeaea'\">{{tower?.noOfUnit}}</span></span>\n                                </div>\n                            </ng-template>\n                        </ng-container>\n                    </owl-carousel-o>\n                </mat-card>\n                <mat-card class=\"property-filter mt-12\">\n                    <div class=\"row\">\n                        <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">\n                            <h6> <img src=\"../../../../../../assets/images/office-block.svg\" alt=\"\"> Tower A Details\n                            </h6>\n                        </div>\n                        <!-- <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12 peoprty-actions\">\n                           \n                        </div> -->\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-lg-5 col-md-5 col-sm-12 col-xs-12\">\n                            <label class=\"mt-12\">Filter</label>\n                            <div class=\"form-group d-flex justify-content-between\">\n                                <select class=\"form-control w-75\" name=\"category\" [(ngModel)]=\"selectedFilter\">\n                                    <option value=\"\">Select</option>\n                                    <option *ngFor=\"let item of filterCategory\" [value]=\"item.name\">{{item.name}}\n                                    </option>\n                                </select>\n                                <button mat-stroked-button>Apply</button>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-wrap\">\n                            <div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 filtered\" *ngFor=\"let item of filterList\">\n                                <div class=\"legend\" [style.background-color]=\"item.color\"></div>\n                                <span>{{item?.name}}</span>\n                                <div class=\"total-count\">{{item?.count}}</div>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-1 col-md-1 col-sm-12 col-xs-12 peoprty-actions flex-column align-items-center\">\n                            <img src=\"../../../../../../assets/images/refresh-ccw.svg\" alt=\"\">\n                            <!-- <img (click)=\"zoomIn()\" src=\"../../../../../../assets/images/plus.svg\" alt=\"\">\n                            <img (click)=\"zoomOut()\" src=\"../../../../../../assets/images/minus.svg\" alt=\"\"> -->\n                            <img class=\"mt-12\" src=\"../../../../../../assets/images/download.svg\" alt=\"\">\n                        </div>\n                    </div>\n                </mat-card>\n                <pinch-zoom #scene=\"pinchZoom\">\n                    <div class=\"property-view mt-12\">\n                        <div class=\"row\">\n                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\n                                <div class=\"property-view-head\">\n                                    <label>Floors</label>\n                                    <label>Individual Units</label>\n                                </div>\n                                <div class=\"property-view-content\" *ngFor=\"let floor of floorData\">\n                                    <div>\n                                        <span class=\"property-floors\">{{floor?.floorName}}</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"property-units\" *ngFor=\"let unit of floor.units\"\n                                            [style.background-color]=\"getSelectedUnits(selectedFilter,unit.type)\"\n                                            ngbTooltip=\"{{unit?.type}}\"></span>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </pinch-zoom>\n            </mat-card>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-grid\" id=\"property-view\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <mat-card>\n                <h4 class=\"property-grid-head\">Towers</h4>\n                <mat-card>\n                    <owl-carousel-o [options]=\"customOptions\">\n                        <ng-container *ngFor=\"let tower of towerList; let i = index\" style=\"position:relative;\">\n                            <ng-template carouselSlide>\n                                <div class=\"towerDetail d-flex align-items-center justify-content-center flex-column\"\n                                    (click)=\"selectedTower(tower.apartmentBlockId,tower.description)\">\n                                    <svg version=\"1.1\" class=\"fill-property-svg\" [style.fill]=\"selectedBlockId == tower.apartmentBlockId ? '#000c93': ''\" width=\"60%\" height=\"60%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 291.958 291.958\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" enable-background=\"new 0 0 291.958 291.958\">\n                                        <g>\n                                          <path d=\"m215.56,18.25h-13.082v-12.25c0-3.314-2.686-6-6-6h-101c-3.314,0-6,2.686-6,6v12.25h-13.081c-3.313,0-6,2.687-6,6v261.708c0,3.313 2.687,6 6,6h54.217 30.729 54.217c3.313,0 6-2.687 6-6v-261.708c0-3.313-2.686-6-6-6zm-60.216,261.708h-18.729v-41.278h18.729v41.278zm54.216,0h-42.217v-47.278c0-3.313-2.687-6-6-6h-30.729c-3.313,0-6,2.687-6,6v47.278h-42.217v-249.708h127.163v249.708zm-19.081-267.958v6.25h-89v-6.25h89z\"/>\n                                          <path d=\"m110.237,58.409c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m134.065,58.409c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m157.893,58.409c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m181.721,58.409c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m110.237,88.051c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m134.065,88.051c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m157.893,88.051c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m181.721,88.051c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m110.237,117.693c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m134.065,117.693c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m157.893,117.693c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m181.721,117.693c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m110.237,147.335c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.313-2.687-6-6-6z\"/>\n                                          <path d=\"m134.065,147.335c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.313-2.687-6-6-6z\"/>\n                                          <path d=\"m157.893,147.335c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.313-2.687-6-6-6z\"/>\n                                          <path d=\"m181.721,147.335c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.313-2.687-6-6-6z\"/>\n                                          <path d=\"m110.237,176.978c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m134.065,176.978c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m157.893,176.978c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                          <path d=\"m181.721,176.978c-3.313,0-6,2.687-6,6v8.614c0,3.313 2.687,6 6,6s6-2.687 6-6v-8.614c0-3.314-2.687-6-6-6z\"/>\n                                        </g>\n                                      </svg>\n                                    <!-- <img class=\"fill-property-svg\" [src]=\"tower.towerModel\" alt=\"\"> -->\n                                    <label class=\"tower-name\"\n                                        [style.color]=\"selectedBlockId == tower.apartmentBlockId ? '#419fd5': '#757575ad'\">\n                                        {{tower?.description}}\n                                    </label>\n                                    <span>No of Floors<span class=\"total\"\n                                            [style.color]=\"selectedBlockId == tower.apartmentBlockId ? '#ffffff': '#383737'\"\n                                            [style.background-color]=\"selectedBlockId == tower.apartmentBlockId ? '#000c93': '#eaeaea'\">{{tower?.totalnofloors ? tower?.totalnofloors : 0 }}</span></span>\n                                    <span>No of Units<span class=\"total\"\n                                            [style.color]=\"selectedBlockId == tower.apartmentBlockId ? '#ffffff': '#383737'\"\n                                            [style.background-color]=\"selectedBlockId == tower.apartmentBlockId ? '#000c93': '#eaeaea'\">{{tower?.totalNounits ? tower?.totalNounits : 0}}</span></span>\n                                </div>\n                            </ng-template>\n                        </ng-container>\n                    </owl-carousel-o>\n                </mat-card>\n                <mat-card class=\"property-filter mt-12\"   >\n                    <div class=\"row\">\n                        <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">\n                            <h6> <img src=\"../../../../../../assets/images/office-block.svg\" alt=\"\"> Tower A Details\n                            </h6>\n                        </div>\n                        <!-- <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12 peoprty-actions\">\n                           \n                        </div> -->\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-lg-5 col-md-5 col-sm-12 col-xs-12\">\n                            <label class=\"mt-12\">Filter</label>\n                            <div class=\"form-group d-flex justify-content-between\">\n                                <select class=\"form-control w-75\" name=\"category\" [(ngModel)]=\"selectedFilter\">\n                                    <option value=\"\">Select</option>\n                                    <option *ngFor=\"let item of filterCategory\" [value]=\"item.id\">{{item.name}}\n                                    </option>\n                                </select>\n                                <!-- <button mat-stroked-button>Apply</button> -->\n                            </div>\n                        </div>\n                        <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-wrap\">\n                            <div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 filtered\" *ngFor=\"let item of filterList\">\n                                <div class=\"legend\" [style.background-color]=\"item.color\"></div>\n                                <span ngbTooltip=\"{{item?.name}}\">{{item?.name}}</span>\n                                <div class=\"total-count\">{{item?.count}}</div>\n                            </div>\n                        </div>\n                        <div\n                            class=\"col-lg-1 col-md-1 col-sm-12 col-xs-12 peoprty-actions flex-column align-items-center\">\n                            <img src=\"../../../../../../assets/images/refresh-ccw.svg\" alt=\"\">\n                            <!-- <img (click)=\"zoomIn()\" src=\"../../../../../../assets/images/plus.svg\" alt=\"\">\n                            <img (click)=\"zoomOut()\" src=\"../../../../../../assets/images/minus.svg\" alt=\"\"> -->\n                            <img (click)=\"downloadPdf()\" class=\"mt-12\" src=\"../../../../../../assets/images/download.svg\" alt=\"\">\n                        </div>\n                    </div>\n                </mat-card>\n                <pinch-zoom #scene=\"pinchZoom\"  *ngIf=\"floorData.length\">\n                    <div class=\"property-view mt-12\"  >\n                        <div class=\"row\">\n                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\n                                <div class=\"property-view-head\">\n                                    <label>Floors</label>\n                                    <label>Individual Units</label>\n                                </div>\n                                <div class=\"property-view-content\" *ngFor=\"let floor of floorData\">\n                                    <div>\n                                        <span class=\"property-floors\" [ngbTooltip]=\"floorInfo\" tooltipClass=\"floorDetails\">{{floor?.floorLabel}}</span>\n                                    </div>\n                                    <div>\n                                        <ng-template #floorInfo>\n                                            <div>\n                                                <span>Floor Name</span>\n                                                <span>{{floor?.floorLabel}}</span>\n                                            </div>\n                                        </ng-template>\n                                        <span class=\"property-units\" *ngFor=\"let unit of floor.blockUnits;let i=index\"\n                                            [style.background-color]=\"selectedFilter != '' ? getSelectedUnits(selectedFilter,unit) : '#eaeaea' \"\n                                            [ngbTooltip]=\"unitInfo\" tooltipClass=\"floorDetails\" >{{unit.apartmentBlockUnitNumber}}\n                                            <ng-template #unitInfo>\n                                                <div>\n                                                    <span>Unit</span>\n                                                    <span>{{unit?.apartmentBlockUnitNumber}}</span>\n                                                </div>\n                                                <div>\n                                                    <span>Primary Contact</span>\n                                                    <span>--</span>\n                                                </div>\n                                                <div>\n                                                    <span>Role</span>\n                                                    <span>--</span>\n                                                </div>\n                                                <div>\n                                                    <span>Phone Number</span>\n                                                    <span>{{unit?.intercom}}</span>\n                                                </div>\n                                            </ng-template>\n                                        </span>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </pinch-zoom>\n                <div class=\"property-view mt-12\" *ngIf=\"!floorData.length\" >\n                    <label for=\"\">Please Add Foors and Units in Profile Settings</label>\n                </div>\n            </mat-card>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -8655,7 +8655,7 @@ PropertyViewGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".property-grid {\n  width: 100%;\n}\n.property-grid .property-grid-head {\n  color: #000b86;\n  font-family: \"Lato\", sans-serif;\n  margin-bottom: 12px;\n}\n.property-grid .towerDetail {\n  width: 100%;\n  padding: 12px;\n}\n.property-grid .towerDetail span {\n  margin-top: 12px;\n  color: #757575ad;\n}\n.property-grid .towerDetail > img {\n  width: 120px;\n}\n.property-grid .towerDetail .tower-name {\n  color: #757575ad;\n  font-weight: 700;\n  font-size: 12px;\n  font-family: \"Lato\", sans-serif;\n  margin-top: 12px;\n}\n.property-grid .towerDetail .total {\n  margin-left: 12px;\n  width: auto;\n  border-radius: 50%;\n  background-color: #eaeaea;\n  color: #797979;\n  font-size: 10px;\n  padding: 6px;\n}\n.property-grid .property-filter h6 {\n  color: #000b86;\n  font-weight: 600;\n  display: flex;\n  align-items: center;\n}\n.property-grid .property-filter h6 img {\n  width: 3.7%;\n}\n.property-grid .property-filter .peoprty-actions {\n  display: flex;\n  justify-content: flex-end;\n}\n.property-grid .property-filter .peoprty-actions img {\n  background-color: #eaeaea;\n  width: 22px;\n  padding: 4px;\n  margin-right: 12px;\n}\n.property-grid .property-filter label {\n  color: #419fd5;\n}\n.property-grid .property-filter .filtered {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n.property-grid .property-filter .filtered .legend {\n  width: 16px;\n  height: 16px;\n  border-radius: 4px;\n}\n.property-grid .property-filter .filtered span {\n  color: #757575ad;\n  font-size: 12px;\n  font-family: \"Lato\", sans-serif;\n}\n.property-grid .property-filter .filtered .total-count {\n  background-color: #eaeaea;\n  color: #383737;\n  font-size: 12px;\n  padding: 2px 6px;\n  font-weight: 600;\n}\n.property-grid .property-view {\n  width: 100%;\n  max-height: 100%;\n  padding: 12px;\n  transition: transform 0.25s ease;\n}\n.property-grid .property-view .property-view-head {\n  width: 100%;\n}\n.property-grid .property-view .property-view-head label {\n  color: #419fd5;\n}\n.property-grid .property-view .property-view-head label:first-child {\n  width: 10%;\n}\n.property-grid .property-view .property-view-head label:last-child {\n  width: 90%;\n}\n.property-grid .property-view .property-view-content {\n  width: 100%;\n  display: flex;\n}\n.property-grid .property-view .property-view-content div:first-child {\n  width: 10%;\n}\n.property-grid .property-view .property-view-content div:last-child {\n  width: 90%;\n  display: flex;\n  justify-content: flex-start;\n}\n.property-grid .property-view .property-view-content div .property-floors {\n  color: #757575ad;\n  font-family: \"Lato\", sans-serif;\n}\n.property-grid .property-view .property-view-content div .property-units {\n  width: 10px;\n  height: 10px;\n  background-color: #eaeaea;\n  margin-right: 10px;\n  border-radius: 2px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvbXktcHJvcGVydHkvY29tcG9uZW50cy9wcm9wZXJ0eS12aWV3L3Byb3BlcnR5LXZpZXctZ3JpZC9wcm9wZXJ0eS12aWV3LWdyaWQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9teS1wcm9wZXJ0eS9jb21wb25lbnRzL3Byb3BlcnR5LXZpZXcvcHJvcGVydHktdmlldy1ncmlkL3Byb3BlcnR5LXZpZXctZ3JpZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUNDSjtBREFJO0VBQ0ksY0FBQTtFQUNBLCtCQUFBO0VBQ0EsbUJBQUE7QUNFUjtBREFJO0VBQ0ksV0FBQTtFQUNBLGFBQUE7QUNFUjtBRERRO0VBQ0ksZ0JBQUE7RUFDQSxnQkFBQTtBQ0daO0FERFE7RUFDSSxZQUFBO0FDR1o7QUREUTtFQUNJLGdCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQkFBQTtBQ0daO0FERFE7RUFDSSxpQkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLHlCQUFBO0VBQ0EsY0FBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FDR1o7QURDUTtFQUNJLGNBQUE7RUFDQSxnQkFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtBQ0NaO0FEQVk7RUFDSSxXQUFBO0FDRWhCO0FEQ1E7RUFDSSxhQUFBO0VBQ0EseUJBQUE7QUNDWjtBREFZO0VBQ0kseUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FDRWhCO0FEQ1E7RUFDSSxjQUFBO0FDQ1o7QURDUTtFQUNJLFdBQUE7RUFDQSxhQUFBO0VBQ0EsNkJBQUE7RUFDQSxtQkFBQTtBQ0NaO0FEQVk7RUFDSSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FDRWhCO0FEQVk7RUFDSSxnQkFBQTtFQUNBLGVBQUE7RUFDQSwrQkFBQTtBQ0VoQjtBREFZO0VBQ0kseUJBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7QUNFaEI7QURFSTtFQUNJLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGFBQUE7RUFDQSxnQ0FBQTtBQ0FSO0FEQ1E7RUFDSSxXQUFBO0FDQ1o7QURBWTtFQUNJLGNBQUE7QUNFaEI7QUREZ0I7RUFDSSxVQUFBO0FDR3BCO0FERGdCO0VBQ0ksVUFBQTtBQ0dwQjtBRENRO0VBQ0ksV0FBQTtFQUNBLGFBQUE7QUNDWjtBRENnQjtFQUNJLFVBQUE7QUNDcEI7QURDZ0I7RUFDSSxVQUFBO0VBQ0EsYUFBQTtFQUNBLDJCQUFBO0FDQ3BCO0FEQ2dCO0VBQ0ksZ0JBQUE7RUFDQSwrQkFBQTtBQ0NwQjtBRENnQjtFQUNJLFdBQUE7RUFDQSxZQUFBO0VBQ0EseUJBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FDQ3BCIiwiZmlsZSI6InNyYy9hcHAvYW1zL215LXByb3BlcnR5L2NvbXBvbmVudHMvcHJvcGVydHktdmlldy9wcm9wZXJ0eS12aWV3LWdyaWQvcHJvcGVydHktdmlldy1ncmlkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnByb3BlcnR5LWdyaWR7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgLnByb3BlcnR5LWdyaWQtaGVhZHtcbiAgICAgICAgY29sb3I6ICMwMDBiODY7XG4gICAgICAgIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMTJweDtcbiAgICB9XG4gICAgLnRvd2VyRGV0YWlse1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgcGFkZGluZzogMTJweDtcbiAgICAgICAgc3BhbntcbiAgICAgICAgICAgIG1hcmdpbi10b3A6IDEycHg7XG4gICAgICAgICAgICBjb2xvcjojNzU3NTc1YWQ7XG4gICAgICAgIH1cbiAgICAgICAgPmltZ3tcbiAgICAgICAgICAgIHdpZHRoOiAxMjBweDtcbiAgICAgICAgfVxuICAgICAgICAudG93ZXItbmFtZXtcbiAgICAgICAgICAgIGNvbG9yOiAjNzU3NTc1YWQ7XG4gICAgICAgICAgICBmb250LXdlaWdodDogNzAwO1xuICAgICAgICAgICAgZm9udC1zaXplOiAxMnB4O1xuICAgICAgICAgICAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICAgICAgICAgICAgbWFyZ2luLXRvcDogMTJweDtcbiAgICAgICAgfVxuICAgICAgICAudG90YWx7XG4gICAgICAgICAgICBtYXJnaW4tbGVmdDogMTJweDtcbiAgICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgICAgICAgICAgIGNvbG9yOiAjNzk3OTc5O1xuICAgICAgICAgICAgZm9udC1zaXplOiAxMHB4O1xuICAgICAgICAgICAgcGFkZGluZzogNnB4O1xuICAgICAgICB9XG4gICAgfVxuICAgIC5wcm9wZXJ0eS1maWx0ZXJ7XG4gICAgICAgIGg2e1xuICAgICAgICAgICAgY29sb3I6IzAwMGI4NjtcbiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAgICAgIGltZ3tcbiAgICAgICAgICAgICAgICB3aWR0aDogMy43JTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICAucGVvcHJ0eS1hY3Rpb25ze1xuICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG4gICAgICAgICAgICBpbWd7XG4gICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDIzNCwgMjM0LCAyMzQpO1xuICAgICAgICAgICAgICAgIHdpZHRoOiAyMnB4O1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6NHB4O1xuICAgICAgICAgICAgICAgIG1hcmdpbi1yaWdodDogMTJweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICBsYWJlbHtcbiAgICAgICAgICAgIGNvbG9yOiM0MTlmZDU7XG4gICAgICAgIH1cbiAgICAgICAgLmZpbHRlcmVke1xuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG4gICAgICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICAgICAgLmxlZ2VuZHtcbiAgICAgICAgICAgICAgICB3aWR0aDogMTZweDtcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IDE2cHg7XG4gICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgc3BhbntcbiAgICAgICAgICAgICAgICBjb2xvcjogIzc1NzU3NWFkO1xuICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICAgICAgICAgICAgICBmb250LWZhbWlseTogXCJMYXRvXCIsIHNhbnMtc2VyaWY7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICAudG90YWwtY291bnR7XG4gICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgICAgICAgICAgICAgICBjb2xvcjogIzM4MzczNztcbiAgICAgICAgICAgICAgICBmb250LXNpemU6IDEycHg7XG4gICAgICAgICAgICAgICAgcGFkZGluZzogMnB4IDZweDtcbiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogNjAwO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxuICAgIC5wcm9wZXJ0eS12aWV3e1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgbWF4LWhlaWdodDogMTAwJTtcbiAgICAgICAgcGFkZGluZzogMTJweDtcbiAgICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMjVzIGVhc2U7XG4gICAgICAgIC5wcm9wZXJ0eS12aWV3LWhlYWR7XG4gICAgICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgICAgIGxhYmVse1xuICAgICAgICAgICAgICAgIGNvbG9yOiM0MTlmZDU7XG4gICAgICAgICAgICAgICAgJjpmaXJzdC1jaGlsZHtcbiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEwJTtcbiAgICAgICAgICAgICAgICB9IFxuICAgICAgICAgICAgICAgICY6bGFzdC1jaGlsZHtcbiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDkwJTtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICAgLnByb3BlcnR5LXZpZXctY29udGVudHtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgIGRpdntcbiAgICAgICAgICAgICAgICAmOmZpcnN0LWNoaWxke1xuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMTAlO1xuICAgICAgICAgICAgICAgIH0gXG4gICAgICAgICAgICAgICAgJjpsYXN0LWNoaWxke1xuICAgICAgICAgICAgICAgICAgICB3aWR0aDogOTAlO1xuICAgICAgICAgICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIC5wcm9wZXJ0eS1mbG9vcnN7XG4gICAgICAgICAgICAgICAgICAgIGNvbG9yOiM3NTc1NzVhZDtcbiAgICAgICAgICAgICAgICAgICAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAucHJvcGVydHktdW5pdHN7XG4gICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxMHB4O1xuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IDEwcHg7XG4gICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNlYWVhZWE7XG4gICAgICAgICAgICAgICAgICAgIG1hcmdpbi1yaWdodDogMTBweDtcbiAgICAgICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMnB4O1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn1cblxuIiwiLnByb3BlcnR5LWdyaWQge1xuICB3aWR0aDogMTAwJTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS1ncmlkLWhlYWQge1xuICBjb2xvcjogIzAwMGI4NjtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICBtYXJnaW4tYm90dG9tOiAxMnB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnRvd2VyRGV0YWlsIHtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6IDEycHg7XG59XG4ucHJvcGVydHktZ3JpZCAudG93ZXJEZXRhaWwgc3BhbiB7XG4gIG1hcmdpbi10b3A6IDEycHg7XG4gIGNvbG9yOiAjNzU3NTc1YWQ7XG59XG4ucHJvcGVydHktZ3JpZCAudG93ZXJEZXRhaWwgPiBpbWcge1xuICB3aWR0aDogMTIwcHg7XG59XG4ucHJvcGVydHktZ3JpZCAudG93ZXJEZXRhaWwgLnRvd2VyLW5hbWUge1xuICBjb2xvcjogIzc1NzU3NWFkO1xuICBmb250LXdlaWdodDogNzAwO1xuICBmb250LXNpemU6IDEycHg7XG4gIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgbWFyZ2luLXRvcDogMTJweDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC50b3dlckRldGFpbCAudG90YWwge1xuICBtYXJnaW4tbGVmdDogMTJweDtcbiAgd2lkdGg6IGF1dG87XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgY29sb3I6ICM3OTc5Nzk7XG4gIGZvbnQtc2l6ZTogMTBweDtcbiAgcGFkZGluZzogNnB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciBoNiB7XG4gIGNvbG9yOiAjMDAwYjg2O1xuICBmb250LXdlaWdodDogNjAwO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciBoNiBpbWcge1xuICB3aWR0aDogMy43JTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS1maWx0ZXIgLnBlb3BydHktYWN0aW9ucyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIC5wZW9wcnR5LWFjdGlvbnMgaW1nIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgd2lkdGg6IDIycHg7XG4gIHBhZGRpbmc6IDRweDtcbiAgbWFyZ2luLXJpZ2h0OiAxMnB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciBsYWJlbCB7XG4gIGNvbG9yOiAjNDE5ZmQ1O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciAuZmlsdGVyZWQge1xuICB3aWR0aDogMTAwJTtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIC5maWx0ZXJlZCAubGVnZW5kIHtcbiAgd2lkdGg6IDE2cHg7XG4gIGhlaWdodDogMTZweDtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciAuZmlsdGVyZWQgc3BhbiB7XG4gIGNvbG9yOiAjNzU3NTc1YWQ7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciAuZmlsdGVyZWQgLnRvdGFsLWNvdW50IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgY29sb3I6ICMzODM3Mzc7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgcGFkZGluZzogMnB4IDZweDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IHtcbiAgd2lkdGg6IDEwMCU7XG4gIG1heC1oZWlnaHQ6IDEwMCU7XG4gIHBhZGRpbmc6IDEycHg7XG4gIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjI1cyBlYXNlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctaGVhZCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctaGVhZCBsYWJlbCB7XG4gIGNvbG9yOiAjNDE5ZmQ1O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctaGVhZCBsYWJlbDpmaXJzdC1jaGlsZCB7XG4gIHdpZHRoOiAxMCU7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1oZWFkIGxhYmVsOmxhc3QtY2hpbGQge1xuICB3aWR0aDogOTAlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctY29udGVudCB7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctY29udGVudCBkaXY6Zmlyc3QtY2hpbGQge1xuICB3aWR0aDogMTAlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctY29udGVudCBkaXY6bGFzdC1jaGlsZCB7XG4gIHdpZHRoOiA5MCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWNvbnRlbnQgZGl2IC5wcm9wZXJ0eS1mbG9vcnMge1xuICBjb2xvcjogIzc1NzU3NWFkO1xuICBmb250LWZhbWlseTogXCJMYXRvXCIsIHNhbnMtc2VyaWY7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1jb250ZW50IGRpdiAucHJvcGVydHktdW5pdHMge1xuICB3aWR0aDogMTBweDtcbiAgaGVpZ2h0OiAxMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWFlYWVhO1xuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDJweDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".property-grid {\n  width: 100%;\n}\n.property-grid .property-grid-head {\n  color: #000b86;\n  font-family: \"Lato\", sans-serif;\n  margin-bottom: 12px;\n}\n.property-grid .towerDetail {\n  width: 100%;\n  padding: 12px;\n}\n.property-grid .towerDetail span {\n  margin-top: 12px;\n  color: #757575ad;\n}\n.property-grid .towerDetail .fill-property-svg {\n  fill: #ebebeb;\n}\n.property-grid .towerDetail > img {\n  width: 120px;\n}\n.property-grid .towerDetail .tower-name {\n  color: #757575ad;\n  font-weight: 700;\n  font-size: 12px;\n  font-family: \"Lato\", sans-serif;\n  margin-top: 12px;\n}\n.property-grid .towerDetail .total {\n  margin-left: 12px;\n  width: auto;\n  border-radius: 50%;\n  background-color: #eaeaea;\n  color: #797979;\n  font-size: 10px;\n  padding: 6px;\n}\n.property-grid .property-filter h6 {\n  color: #000b86;\n  font-weight: 600;\n  display: flex;\n  align-items: center;\n}\n.property-grid .property-filter h6 img {\n  width: 3.7%;\n}\n.property-grid .property-filter .peoprty-actions {\n  display: flex;\n  justify-content: flex-end;\n}\n.property-grid .property-filter .peoprty-actions img {\n  background-color: #eaeaea;\n  width: 22px;\n  padding: 4px;\n  margin-right: 12px;\n}\n.property-grid .property-filter label {\n  color: #419fd5;\n}\n.property-grid .property-filter .filtered {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n.property-grid .property-filter .filtered .legend {\n  width: 16px;\n  height: 16px;\n  border-radius: 4px;\n}\n.property-grid .property-filter .filtered span {\n  color: #757575ad;\n  font-size: 12px;\n  font-family: \"Lato\", sans-serif;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  max-width: 100px;\n  min-width: 100px;\n}\n.property-grid .property-filter .filtered .total-count {\n  background-color: #eaeaea;\n  color: #383737;\n  font-size: 12px;\n  padding: 2px 6px;\n  font-weight: 600;\n}\n.property-grid .property-view {\n  width: 100%;\n  min-height: 500px;\n  padding: 12px;\n  transition: transform 0.25s ease;\n}\n.property-grid .property-view .property-view-head {\n  width: 100%;\n}\n.property-grid .property-view .property-view-head label {\n  color: #419fd5;\n}\n.property-grid .property-view .property-view-head label:first-child {\n  width: 10%;\n}\n.property-grid .property-view .property-view-head label:last-child {\n  width: 90%;\n}\n.property-grid .property-view .property-view-content {\n  width: 100%;\n  display: flex;\n}\n.property-grid .property-view .property-view-content div:first-child {\n  width: 10%;\n}\n.property-grid .property-view .property-view-content div:last-child {\n  width: 90%;\n  display: flex;\n  justify-content: flex-start;\n}\n.property-grid .property-view .property-view-content div .property-floors {\n  color: #757575ad;\n  font-family: \"Lato\", sans-serif;\n}\n.property-grid .property-view .property-view-content div .property-units {\n  width: 10px;\n  height: 10px;\n  background-color: #eaeaea;\n  margin-right: 10px;\n  border-radius: 2px;\n  color: white;\n  font-size: 4px;\n  text-align: center;\n  align-items: center;\n  display: flex;\n  justify-content: center;\n}\n.property-grid .property-view .property-view-content div .floorDetails {\n  z-index: 99999;\n}\n.property-grid .property-view .property-view-content div .floorDetails .tooltip-inner {\n  z-index: 99999;\n  width: 200px;\n  display: flex;\n  flex-direction: column;\n}\n.property-grid .property-view .property-view-content div .floorDetails .tooltip-inner div {\n  width: 100%;\n  display: flex;\n}\n.property-grid .property-view .property-view-content div .floorDetails .tooltip-inner div span {\n  width: 50%;\n}\n.property-grid .property-view .property-view-content div .floorDetails .tooltip-inner div span:first-child {\n  color: white;\n  text-align: left;\n}\n.property-grid .property-view .property-view-content div .floorDetails .tooltip-inner div span:last-child {\n  color: #419fd5;\n  text-align: left;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvbXktcHJvcGVydHkvY29tcG9uZW50cy9wcm9wZXJ0eS12aWV3L3Byb3BlcnR5LXZpZXctZ3JpZC9wcm9wZXJ0eS12aWV3LWdyaWQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9teS1wcm9wZXJ0eS9jb21wb25lbnRzL3Byb3BlcnR5LXZpZXcvcHJvcGVydHktdmlldy1ncmlkL3Byb3BlcnR5LXZpZXctZ3JpZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUNDSjtBREFJO0VBQ0ksY0FBQTtFQUNBLCtCQUFBO0VBQ0EsbUJBQUE7QUNFUjtBREFJO0VBQ0ksV0FBQTtFQUNBLGFBQUE7QUNFUjtBRERRO0VBQ0ksZ0JBQUE7RUFDQSxnQkFBQTtBQ0daO0FERFE7RUFDSSxhQUFBO0FDR1o7QUREUTtFQUNJLFlBQUE7QUNHWjtBRERRO0VBQ0ksZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7RUFDQSwrQkFBQTtFQUNBLGdCQUFBO0FDR1o7QUREUTtFQUNJLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0VBQ0EseUJBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7QUNHWjtBRENRO0VBQ0ksY0FBQTtFQUNBLGdCQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0FDQ1o7QURBWTtFQUNJLFdBQUE7QUNFaEI7QURDUTtFQUNJLGFBQUE7RUFDQSx5QkFBQTtBQ0NaO0FEQVk7RUFDSSx5QkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7QUNFaEI7QURDUTtFQUNJLGNBQUE7QUNDWjtBRENRO0VBQ0ksV0FBQTtFQUNBLGFBQUE7RUFDQSw2QkFBQTtFQUNBLG1CQUFBO0FDQ1o7QURBWTtFQUNJLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7QUNFaEI7QURBWTtFQUNJLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtBQ0VoQjtBREFZO0VBQ0kseUJBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7QUNFaEI7QURFSTtFQUNJLFdBQUE7RUFDQSxpQkFBQTtFQUNBLGFBQUE7RUFDQSxnQ0FBQTtBQ0FSO0FEQ1E7RUFDSSxXQUFBO0FDQ1o7QURBWTtFQUNJLGNBQUE7QUNFaEI7QUREZ0I7RUFDSSxVQUFBO0FDR3BCO0FERGdCO0VBQ0ksVUFBQTtBQ0dwQjtBRENRO0VBQ0ksV0FBQTtFQUNBLGFBQUE7QUNDWjtBRENnQjtFQUNJLFVBQUE7QUNDcEI7QURDZ0I7RUFDSSxVQUFBO0VBQ0EsYUFBQTtFQUNBLDJCQUFBO0FDQ3BCO0FEQ2dCO0VBQ0ksZ0JBQUE7RUFDQSwrQkFBQTtBQ0NwQjtBRENnQjtFQUNJLFdBQUE7RUFDQSxZQUFBO0VBQ0EseUJBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGNBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0FDQ3BCO0FEQ2dCO0VBQ0ksY0FBQTtBQ0NwQjtBREFvQjtFQUNJLGNBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHNCQUFBO0FDRXhCO0FERHdCO0VBQ0ksV0FBQTtFQUNBLGFBQUE7QUNHNUI7QURGNEI7RUFDSSxVQUFBO0FDSWhDO0FESGdDO0VBQ0ksWUFBQTtFQUNBLGdCQUFBO0FDS3BDO0FESGdDO0VBQ0ksY0FBQTtFQUNBLGdCQUFBO0FDS3BDIiwiZmlsZSI6InNyYy9hcHAvYW1zL215LXByb3BlcnR5L2NvbXBvbmVudHMvcHJvcGVydHktdmlldy9wcm9wZXJ0eS12aWV3LWdyaWQvcHJvcGVydHktdmlldy1ncmlkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnByb3BlcnR5LWdyaWR7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgLnByb3BlcnR5LWdyaWQtaGVhZHtcbiAgICAgICAgY29sb3I6ICMwMDBiODY7XG4gICAgICAgIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMTJweDtcbiAgICB9XG4gICAgLnRvd2VyRGV0YWlse1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgcGFkZGluZzogMTJweDtcbiAgICAgICAgc3BhbntcbiAgICAgICAgICAgIG1hcmdpbi10b3A6IDEycHg7XG4gICAgICAgICAgICBjb2xvcjojNzU3NTc1YWQ7XG4gICAgICAgIH1cbiAgICAgICAgLmZpbGwtcHJvcGVydHktc3Zne1xuICAgICAgICAgICAgZmlsbDojZWJlYmViO1xuICAgICAgICB9XG4gICAgICAgID5pbWd7XG4gICAgICAgICAgICB3aWR0aDogMTIwcHg7XG4gICAgICAgIH1cbiAgICAgICAgLnRvd2VyLW5hbWV7XG4gICAgICAgICAgICBjb2xvcjogIzc1NzU3NWFkO1xuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICAgICAgICAgIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgICAgICAgICAgIG1hcmdpbi10b3A6IDEycHg7XG4gICAgICAgIH1cbiAgICAgICAgLnRvdGFse1xuICAgICAgICAgICAgbWFyZ2luLWxlZnQ6IDEycHg7XG4gICAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNlYWVhZWE7XG4gICAgICAgICAgICBjb2xvcjogIzc5Nzk3OTtcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogMTBweDtcbiAgICAgICAgICAgIHBhZGRpbmc6IDZweDtcbiAgICAgICAgfVxuICAgIH1cbiAgICAucHJvcGVydHktZmlsdGVye1xuICAgICAgICBoNntcbiAgICAgICAgICAgIGNvbG9yOiMwMDBiODY7XG4gICAgICAgICAgICBmb250LXdlaWdodDogNjAwO1xuICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgICAgICBpbWd7XG4gICAgICAgICAgICAgICAgd2lkdGg6IDMuNyU7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICAgLnBlb3BydHktYWN0aW9uc3tcbiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xuICAgICAgICAgICAgaW1ne1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMzQsIDIzNCwgMjM0KTtcbiAgICAgICAgICAgICAgICB3aWR0aDogMjJweDtcbiAgICAgICAgICAgICAgICBwYWRkaW5nOjRweDtcbiAgICAgICAgICAgICAgICBtYXJnaW4tcmlnaHQ6IDEycHg7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICAgbGFiZWx7XG4gICAgICAgICAgICBjb2xvcjojNDE5ZmQ1O1xuICAgICAgICB9XG4gICAgICAgIC5maWx0ZXJlZHtcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kO1xuICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAgICAgIC5sZWdlbmR7XG4gICAgICAgICAgICAgICAgd2lkdGg6IDE2cHg7XG4gICAgICAgICAgICAgICAgaGVpZ2h0OiAxNnB4O1xuICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHNwYW57XG4gICAgICAgICAgICAgICAgY29sb3I6ICM3NTc1NzVhZDtcbiAgICAgICAgICAgICAgICBmb250LXNpemU6IDEycHg7XG4gICAgICAgICAgICAgICAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICAgICAgICAgICAgICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgICAgICAgICAgICAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gICAgICAgICAgICAgICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgICAgICAgICAgICAgICBtYXgtd2lkdGg6IDEwMHB4O1xuICAgICAgICAgICAgICAgIG1pbi13aWR0aDogMTAwcHg7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICAudG90YWwtY291bnR7XG4gICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgICAgICAgICAgICAgICBjb2xvcjogIzM4MzczNztcbiAgICAgICAgICAgICAgICBmb250LXNpemU6IDEycHg7XG4gICAgICAgICAgICAgICAgcGFkZGluZzogMnB4IDZweDtcbiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogNjAwO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxuICAgIC5wcm9wZXJ0eS12aWV3e1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgbWluLWhlaWdodDogNTAwcHg7XG4gICAgICAgIHBhZGRpbmc6IDEycHg7XG4gICAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjI1cyBlYXNlO1xuICAgICAgICAucHJvcGVydHktdmlldy1oZWFke1xuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICBsYWJlbHtcbiAgICAgICAgICAgICAgICBjb2xvcjojNDE5ZmQ1O1xuICAgICAgICAgICAgICAgICY6Zmlyc3QtY2hpbGR7XG4gICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxMCU7XG4gICAgICAgICAgICAgICAgfSBcbiAgICAgICAgICAgICAgICAmOmxhc3QtY2hpbGR7XG4gICAgICAgICAgICAgICAgICAgIHdpZHRoOiA5MCU7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgIC5wcm9wZXJ0eS12aWV3LWNvbnRlbnR7XG4gICAgICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgICAgICBkaXZ7XG4gICAgICAgICAgICAgICAgJjpmaXJzdC1jaGlsZHtcbiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEwJTtcbiAgICAgICAgICAgICAgICB9IFxuICAgICAgICAgICAgICAgICY6bGFzdC1jaGlsZHtcbiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDkwJTtcbiAgICAgICAgICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgICAgICAgICAganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0O1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAucHJvcGVydHktZmxvb3Jze1xuICAgICAgICAgICAgICAgICAgICBjb2xvcjojNzU3NTc1YWQ7XG4gICAgICAgICAgICAgICAgICAgIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgLnByb3BlcnR5LXVuaXRze1xuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMTBweDtcbiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OiAxMHB4O1xuICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWFlYWVhO1xuICAgICAgICAgICAgICAgICAgICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG4gICAgICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDJweDtcbiAgICAgICAgICAgICAgICAgICAgY29sb3I6IHdoaXRlO1xuICAgICAgICAgICAgICAgICAgICBmb250LXNpemU6IDRweDtcbiAgICAgICAgICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICAgICAgICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICAgICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgLmZsb29yRGV0YWlsc3tcbiAgICAgICAgICAgICAgICAgICAgei1pbmRleDogOTk5OTk7XG4gICAgICAgICAgICAgICAgICAgIC50b29sdGlwLWlubmVyIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIHotaW5kZXg6IDk5OTk5O1xuICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDIwMHB4O1xuICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgICAgICAgICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgICAgICAgICAgICAgICAgICAgICBkaXZ7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcGFue1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogNTAlO1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAmOmZpcnN0LWNoaWxke1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3I6IHdoaXRlO1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAmOmxhc3QtY2hpbGR7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjojNDE5ZmQ1O1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgfSBcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn1cblxuIiwiLnByb3BlcnR5LWdyaWQge1xuICB3aWR0aDogMTAwJTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS1ncmlkLWhlYWQge1xuICBjb2xvcjogIzAwMGI4NjtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICBtYXJnaW4tYm90dG9tOiAxMnB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnRvd2VyRGV0YWlsIHtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6IDEycHg7XG59XG4ucHJvcGVydHktZ3JpZCAudG93ZXJEZXRhaWwgc3BhbiB7XG4gIG1hcmdpbi10b3A6IDEycHg7XG4gIGNvbG9yOiAjNzU3NTc1YWQ7XG59XG4ucHJvcGVydHktZ3JpZCAudG93ZXJEZXRhaWwgLmZpbGwtcHJvcGVydHktc3ZnIHtcbiAgZmlsbDogI2ViZWJlYjtcbn1cbi5wcm9wZXJ0eS1ncmlkIC50b3dlckRldGFpbCA+IGltZyB7XG4gIHdpZHRoOiAxMjBweDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC50b3dlckRldGFpbCAudG93ZXItbmFtZSB7XG4gIGNvbG9yOiAjNzU3NTc1YWQ7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICBtYXJnaW4tdG9wOiAxMnB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnRvd2VyRGV0YWlsIC50b3RhbCB7XG4gIG1hcmdpbi1sZWZ0OiAxMnB4O1xuICB3aWR0aDogYXV0bztcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWFlYWVhO1xuICBjb2xvcjogIzc5Nzk3OTtcbiAgZm9udC1zaXplOiAxMHB4O1xuICBwYWRkaW5nOiA2cHg7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIGg2IHtcbiAgY29sb3I6ICMwMDBiODY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIGg2IGltZyB7XG4gIHdpZHRoOiAzLjclO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciAucGVvcHJ0eS1hY3Rpb25zIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS1maWx0ZXIgLnBlb3BydHktYWN0aW9ucyBpbWcge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWFlYWVhO1xuICB3aWR0aDogMjJweDtcbiAgcGFkZGluZzogNHB4O1xuICBtYXJnaW4tcmlnaHQ6IDEycHg7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIGxhYmVsIHtcbiAgY29sb3I6ICM0MTlmZDU7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIC5maWx0ZXJlZCB7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS1maWx0ZXIgLmZpbHRlcmVkIC5sZWdlbmQge1xuICB3aWR0aDogMTZweDtcbiAgaGVpZ2h0OiAxNnB4O1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktZmlsdGVyIC5maWx0ZXJlZCBzcGFuIHtcbiAgY29sb3I6ICM3NTc1NzVhZDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBmb250LWZhbWlseTogXCJMYXRvXCIsIHNhbnMtc2VyaWY7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICBtYXgtd2lkdGg6IDEwMHB4O1xuICBtaW4td2lkdGg6IDEwMHB4O1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LWZpbHRlciAuZmlsdGVyZWQgLnRvdGFsLWNvdW50IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgY29sb3I6ICMzODM3Mzc7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgcGFkZGluZzogMnB4IDZweDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IHtcbiAgd2lkdGg6IDEwMCU7XG4gIG1pbi1oZWlnaHQ6IDUwMHB4O1xuICBwYWRkaW5nOiAxMnB4O1xuICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4yNXMgZWFzZTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWhlYWQge1xuICB3aWR0aDogMTAwJTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWhlYWQgbGFiZWwge1xuICBjb2xvcjogIzQxOWZkNTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWhlYWQgbGFiZWw6Zmlyc3QtY2hpbGQge1xuICB3aWR0aDogMTAlO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctaGVhZCBsYWJlbDpsYXN0LWNoaWxkIHtcbiAgd2lkdGg6IDkwJTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWNvbnRlbnQge1xuICB3aWR0aDogMTAwJTtcbiAgZGlzcGxheTogZmxleDtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWNvbnRlbnQgZGl2OmZpcnN0LWNoaWxkIHtcbiAgd2lkdGg6IDEwJTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWNvbnRlbnQgZGl2Omxhc3QtY2hpbGQge1xuICB3aWR0aDogOTAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1jb250ZW50IGRpdiAucHJvcGVydHktZmxvb3JzIHtcbiAgY29sb3I6ICM3NTc1NzVhZDtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xufVxuLnByb3BlcnR5LWdyaWQgLnByb3BlcnR5LXZpZXcgLnByb3BlcnR5LXZpZXctY29udGVudCBkaXYgLnByb3BlcnR5LXVuaXRzIHtcbiAgd2lkdGg6IDEwcHg7XG4gIGhlaWdodDogMTBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhZWFlYTtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xuICBib3JkZXItcmFkaXVzOiAycHg7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZm9udC1zaXplOiA0cHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1jb250ZW50IGRpdiAuZmxvb3JEZXRhaWxzIHtcbiAgei1pbmRleDogOTk5OTk7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1jb250ZW50IGRpdiAuZmxvb3JEZXRhaWxzIC50b29sdGlwLWlubmVyIHtcbiAgei1pbmRleDogOTk5OTk7XG4gIHdpZHRoOiAyMDBweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWNvbnRlbnQgZGl2IC5mbG9vckRldGFpbHMgLnRvb2x0aXAtaW5uZXIgZGl2IHtcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1jb250ZW50IGRpdiAuZmxvb3JEZXRhaWxzIC50b29sdGlwLWlubmVyIGRpdiBzcGFuIHtcbiAgd2lkdGg6IDUwJTtcbn1cbi5wcm9wZXJ0eS1ncmlkIC5wcm9wZXJ0eS12aWV3IC5wcm9wZXJ0eS12aWV3LWNvbnRlbnQgZGl2IC5mbG9vckRldGFpbHMgLnRvb2x0aXAtaW5uZXIgZGl2IHNwYW46Zmlyc3QtY2hpbGQge1xuICBjb2xvcjogd2hpdGU7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG59XG4ucHJvcGVydHktZ3JpZCAucHJvcGVydHktdmlldyAucHJvcGVydHktdmlldy1jb250ZW50IGRpdiAuZmxvb3JEZXRhaWxzIC50b29sdGlwLWlubmVyIGRpdiBzcGFuOmxhc3QtY2hpbGQge1xuICBjb2xvcjogIzQxOWZkNTtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -8671,27 +8671,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyViewGridComponent", function() { return PropertyViewGridComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
 
 
 let PropertyViewGridComponent = class PropertyViewGridComponent {
-    constructor() {
+    constructor(apartmentService, cookieService) {
+        this.apartmentService = apartmentService;
+        this.cookieService = cookieService;
         this.towerList = [];
         this.filterList = [];
         this.floorData = [];
-        this.selectedTowerData = "Tower A";
         this.scaleIndexValue = 1;
         this.scaleIndex = `scale(${this.scaleIndexValue})`;
-        this.filterCategory = [
-            {
-                name: '1BHK',
-            },
-            {
-                name: '2BHK',
-            },
-            {
-                name: '3BHK',
-            }
-        ];
+        this.filterCategory = [];
         this.selectedFilter = "";
         this.customOptions = {
             // loop: true,
@@ -8720,1263 +8721,183 @@ let PropertyViewGridComponent = class PropertyViewGridComponent {
         };
     }
     ngOnInit() {
-        this.towerList = [
-            {
-                towerModel: '../../../../../../assets/images/office-block.svg',
-                towerName: 'Tower A',
-                noOfFloor: 2,
-                noOfUnit: 350
-            },
-            {
-                towerModel: '../../../../../../assets/images/office-block.svg',
-                towerName: 'Tower B',
-                noOfFloor: 2,
-                noOfUnit: 350
-            },
-            {
-                towerModel: '../../../../../../assets/images/office-block.svg',
-                towerName: 'Tower C',
-                noOfFloor: 2,
-                noOfUnit: 350
-            },
-            {
-                towerModel: '../../../../../../assets/images/office-block.svg',
-                towerName: 'Tower D',
-                noOfFloor: 2,
-                noOfUnit: 350
-            },
-            {
-                towerModel: '../../../../../../assets/images/office-block.svg',
-                towerName: 'Tower E',
-                noOfFloor: 2,
-                noOfUnit: 350
-            }
-        ];
         this.filterList = [
             {
-                color: "#feb0bd",
+                color: "#9c27b0",
                 name: "1BHK Units",
-                count: 100
+                count: 0
             },
             {
-                color: "#3777ce",
+                color: "#2196f3",
                 name: "2BHK Units",
-                count: 100
+                count: 0
             },
             {
-                color: "#feb0bd",
-                name: "1BHK Units",
-                count: 100
+                color: "#ff558f",
+                name: "3BHK Units",
+                count: 0
+            },
+        ];
+        this.filterCategory = [
+            {
+                name: 'Unit Status- Vacant,Sale,Occupied,Construction',
+                id: 'isVacant',
+                isClubbed: true,
+                color: '#3777ce'
             },
             {
-                color: "#3777ce",
-                name: "2BHK Units",
-                count: 100
+                name: 'Unit Resident type- Owner/Tenant',
+                id: 'isAvailableForRent',
+                isClubbed: true,
+                color: '#e91e63'
             },
             {
-                color: "#3bbe9e",
-                name: "Party Hall Units",
-                count: 100
+                name: 'Unit Size Type 1BHK, 2BHK, 3BHK',
+                id: 'lookupValueName',
+                isClubbed: true,
+                typeList: [
+                    {
+                        type: '1BHK',
+                        color: '#9c27b0'
+                    },
+                    {
+                        type: '2 BR',
+                        color: '#2196f3'
+                    },
+                    {
+                        type: '3BHK',
+                        color: '#ff558f'
+                    }
+                ]
+            },
+            {
+                name: 'Units with Parking Status',
+                id: '',
+                isClubbed: false,
+                color: '#2196f3'
+            },
+            {
+                name: 'Units with Pets',
+                id: 'isPetsAllowed',
+                isClubbed: false,
+                color: '#009688'
+            },
+            {
+                name: 'Units with Elderly residents (Age 60+)',
+                id: '',
+                isClubbed: false,
+                color: '#8bc34a'
+            },
+            {
+                name: 'Units with Kids',
+                id: '',
+                isClubbed: false,
+                color: '#ffc107'
+            },
+            {
+                name: 'Units with rental Agreement expiring in 30 days',
+                id: '',
+                isClubbed: false,
+                color: '#795548'
+            },
+            {
+                name: 'Units with moveout scheduled in 7 days',
+                id: '',
+                isClubbed: false,
+                color: '#607d8b'
+            },
+            {
+                name: 'Units with outofcondo Status',
+                id: 'isActive',
+                isClubbed: false,
+                color: '#f44336'
             }
         ];
-        this.floorData = [
-            {
-                floorName: 'F1',
-                units: [
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    }
-                ]
-            },
-            {
-                floorName: 'F2',
-                units: [
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    }
-                ]
-            },
-            {
-                floorName: 'F3',
-                units: [
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    }
-                ]
-            },
-            {
-                floorName: 'F4',
-                units: [
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    }
-                ]
-            },
-            {
-                floorName: 'F5',
-                units: [
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    }
-                ]
-            },
-            {
-                floorName: 'F6',
-                units: [
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '3BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    }
-                ]
-            },
-            {
-                floorName: 'F7',
-                units: [
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    }
-                ]
-            },
-            {
-                floorName: 'F8',
-                units: [
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '1BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    }
-                ]
-            },
-            {
-                floorName: 'F9',
-                units: [
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    },
-                    {
-                        type: '2BHK',
-                        category: 'unit'
-                    }
-                ]
-            }
-        ];
+        this.getBlockList();
     }
-    getSelectedUnits(category, type) {
-        if (category === type) {
-            if (category == '1BHK') {
-                return '#feb0bd';
-            }
-            else if (category == '2BHK') {
-                return '#3777ce';
+    getSelectedUnits(category, unitObj) {
+        console.log(unitObj[category]);
+        if (category != '' && unitObj[category]) {
+            let selectedCategoryObj = this.filterCategory.find(key => { if (key.id == category)
+                return key; });
+            if (selectedCategoryObj.isClubbed) {
+                let selectedColor = selectedCategoryObj.typeList.filter(item => {
+                    if (item.type == unitObj[category]) {
+                        return item.color;
+                    }
+                });
+                return selectedColor[0].color;
             }
             else {
-                return '#3bbe9e';
+                return selectedCategoryObj.color;
             }
         }
-        else {
-            return '#eaeaea';
+    }
+    getBlockList() {
+        let param = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(param).subscribe((resp) => {
+            this.towerList = resp;
+            this.selectedBlockId = this.towerList[0].apartmentBlockId;
+            this.selectedTowerName = this.towerList[0].description;
+            this.getTowerDetails();
+        }, error => {
+        });
+    }
+    getTowerDetails() {
+        let param = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentBlockId: this.selectedBlockId
+        };
+        this.apartmentService.getViewUnitTypeByApartmentId(param).subscribe((resp) => {
+            this.floorData = resp;
+            this.getTotalCount();
+        }, error => {
+        });
+    }
+    getTotalCount() {
+        if (this.floorData && this.floorData.length) {
+            this.floorData.filter(key => {
+                if (key.lookupValueName == '1BHK') {
+                    this.filterList[0].count += 1;
+                }
+                else if (key.lookupValueName == '2BHK') {
+                    this.filterList[1].count += 1;
+                }
+                else if (key.lookupValueName == '3BHK') {
+                    this.filterList[2].count += 1;
+                }
+            });
         }
     }
-    selectedTower(name) {
-        this.selectedTowerData = name;
+    selectedTower(blockId, name) {
+        this.selectedBlockId = blockId;
+        this.selectedTowerName = name;
+        this.getTowerDetails();
     }
-    zoomIn() {
-        this.scene.zoomIn();
-    }
-    zoomOut() {
-        this.scene.zoomOut();
+    downloadPdf() {
+        setTimeout(() => {
+            var data = document.getElementById('property-view');
+            html2canvas__WEBPACK_IMPORTED_MODULE_4___default()(data).then(canvas => {
+                // Few necessary setting options  
+                var imgWidth = 208;
+                // var pageHeight = 295;    
+                var imgHeight = canvas.height * imgWidth / canvas.width;
+                // var heightLeft = imgHeight;  
+                const contentDataURL = canvas.toDataURL('image/png');
+                let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_5__('p', 'mm', 'a4'); // A4 size page of PDF  
+                var position = 0;
+                pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+                pdf.save(`${this.selectedTowerName}.pdf`);
+            });
+        }, 1000);
     }
 };
+PropertyViewGridComponent.ctorParameters = () => [
+    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
+];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('scene', { static: false }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
@@ -9985,9 +8906,11 @@ PropertyViewGridComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-property-view-grid',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./property-view-grid.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./property-view-grid.component.scss */ "./src/app/ams/my-property/components/property-view/property-view-grid/property-view-grid.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
 ], PropertyViewGridComponent);
 
 
