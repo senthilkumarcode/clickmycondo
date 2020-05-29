@@ -52,19 +52,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.html":
-/*!********************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.html ***!
-  \********************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\">\n\t\t<span *ngIf=\"!isEditInvoice && isNewInvoice\">Post Single Invoice</span>\n\t\t<span *ngIf=\"isEditInvoice && !isNewInvoice\">Edit Single Invoice</span>\n\t</h5>\n\n\t<div class=\"card no-shadow mb-3\" *ngIf=\"isAccountDataLoaded\">\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\">\n\t\t\t\t\t<p class=\"d-inline-block ft\">\n\t\t\t\t\t<span>Bill to party: </span>\n\t\t\t\t\t{{accountDataList | isdefined:'billToParty' }}</p>\n\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\">\n\t\t\t\t\t<span>Contact Person: </span>\n\t\t\t\t\t{{accountDataList | isdefined:'primayContact' }}</p>\n\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\">\n\t\t\t\t\t<span>Block: </span>\n\t\t\t\t\t{{accountDataList | isdefined:'apartmentBlockNumber' }}</p>\n\t\t\t\t\t\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\">\n\t\t\t\t\t<span>Unit: </span>\n\t\t\t\t\t{{accountDataList | isdefined:'apartmentBlockUnitNumber' }}</p>\n\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\t</div>\n\n\t<div class=\"card clear mb-30\">\n\n\t\t<form #postIncomeInvoiceForm = \"ngForm\" name=\"postIncomeInvoiceForm\" (ngSubmit)=\"submitIncomeInvoiceForm(postIncomeInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Invoice Amount*</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"invoiceAmount\" [(ngModel)]=\"invoice.custInvoiceAmount\" \n\t\t\t                    (ngModelChange)=\"onInvoiceAmountChange(invoice.custInvoiceAmount)\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                   <label>Account*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"accountType\" \n\t\t\t\t\t\t\t        id=\"accountType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"invoice.glaccountId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">{{ item.glaccountName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Invoice Date*</label>\n\t\t\t                    <input class=\"form-control\" name=\"invoiceDueDate\" [owlDateTime]=\"invoiceDueDate\" [owlDateTimeTrigger]=\"invoiceDueDate\" placeholder=\"Date\" [(ngModel)]=\"invoice.dueDate\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Comments</label>\n\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"invoice.comments\">\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t<div class=\"form-group mt-sm-35\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"GSTInvoiceChecked\" name=\"GSTInvoiceChecked\" [(ngModel)]=\"invoice.isTax\" (ngModelChange)=\"onVatChange(invoice.isTax)\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"GSTInvoiceChecked\">VAT</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<ng-container *ngIf=\"invoice.isTax\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                <label>VAT</label>\n\t\t\t\t\t                <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"\" name=\"invoiceVatPercent\" \n\t\t\t\t\t                [(ngModel)]=\"invoice.vatPercent\" \n\t\t\t\t\t                readonly>\n\t\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                <label>Discount</label>\n\t\t\t\t\t                <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"\" name=\"invoiceDiscount\" \n\t\t\t\t\t                [(ngModel)]=\"invoice.discount\" \n\t\t\t\t\t                readonly>\n\t\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                <label>Total Amount</label>\n\t\t\t\t\t                <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"\" name=\"totalAmount\" \n\t\t\t\t\t                [(ngModel)]=\"invoice.totalAmount\" \n\t\t\t\t\t                readonly>\n\t\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</ng-container>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"postIncomeInvoiceForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-post-multi-invoice-fields/income-post-multi-invoice-fields.component.html":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-post-multi-invoice-fields/income-post-multi-invoice-fields.component.html ***!
@@ -1120,336 +1107,6 @@ IncomePostCollectionComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], IncomePostCollectionComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.scss":
-/*!******************************************************************************************************!*\
-  !*** ./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.scss ***!
-  \******************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1wb3N0LWludm9pY2UvaW5jb21lLXBvc3QtaW52b2ljZS5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.ts":
-/*!****************************************************************************************************!*\
-  !*** ./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.ts ***!
-  \****************************************************************************************************/
-/*! exports provided: IncomePostInvoiceComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomePostInvoiceComponent", function() { return IncomePostInvoiceComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
-
-
-
-
-
-
-
-
-
-let IncomePostInvoiceComponent = class IncomePostInvoiceComponent {
-    constructor(router, route, accountsService, userService, apartmentService, sharedService, lookupService, cookieService) {
-        this.router = router;
-        this.route = route;
-        this.accountsService = accountsService;
-        this.userService = userService;
-        this.apartmentService = apartmentService;
-        this.sharedService = sharedService;
-        this.lookupService = lookupService;
-        this.cookieService = cookieService;
-        this.invoiceId = "";
-        this.isEditInvoice = false;
-        this.isNewInvoice = false;
-        this.isInvoiceSubmitted = true;
-        this.isError = false;
-        this.alertMessage = "";
-        this.isAccountDataLoaded = false;
-        this.glAccountIndicator = "Income";
-    }
-    submitIncomeInvoiceForm(form) {
-        this.isInvoiceSubmitted = false;
-        if (!this.isEditInvoice) {
-            let details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-                "custInvoiceAmount": parseInt(this.invoice.totalAmount),
-                "custInvoiceDate": new Date().toISOString(),
-                "dueDate": this.invoice.dueDate,
-                "tax1": 0,
-                "tax2": 0,
-                "tax3": 0,
-                "isTax": this.invoice.isTax,
-                "isRecurCustInvoice": this.invoice.isRecurCustInvoice,
-                "isEmailSent": false,
-                "isSmssent": false,
-                "custInvoiceStatusId": 1,
-                "postedBy": parseInt(this.cookieService.get('userId')),
-                "postedOn": new Date().toISOString(),
-                "billToPay": "string",
-                "comments": this.invoice.comments || "",
-                "penaltyAmount": 0,
-                "penaltyComment": "string",
-                "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": null,
-                "updatedOn": new Date().toISOString(),
-                "transReference1": "string",
-                "transReference2": "string",
-                "invoiceGLAccounts": [
-                    {
-                        "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-                        "invoiceId": 0,
-                        "glaccountId": parseInt(this.invoice.glaccountId),
-                        "comments": "string",
-                        "isActive": true,
-                        "insertedBy": parseInt(this.cookieService.get('userId')),
-                        "insertedOn": new Date().toISOString(),
-                        "updatedBy": null,
-                        "updatedOn": new Date().toISOString(),
-                        "amount": parseInt(this.invoice.totalAmount)
-                    }
-                ]
-            };
-            let params = {
-                invoice: details
-            };
-            this.accountsService.addCustInvoice(params).subscribe((res) => {
-                if (res.message) {
-                    this.isInvoiceSubmitted = true;
-                    this.sharedService.setAlertMessage("Invoice added successfully");
-                    this.router.navigate(['ams/income/subledger']);
-                }
-                else {
-                    this.isInvoiceSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
-                }
-            }, error => {
-                this.isInvoiceSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
-            });
-        }
-        else {
-            let details = {
-                "custInvoiceId": this.invoice.custInvoiceId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-                "apartmentBlockUnitId": this.invoice.apartmentBlockUnitId,
-                "custInvoiceAmount": parseInt(this.invoice.totalAmount),
-                "custInvoiceDate": new Date().toISOString(),
-                "dueDate": this.invoice.dueDate,
-                "tax1": 0,
-                "tax2": 0,
-                "tax3": 0,
-                "isTax": this.invoice.isTax,
-                "isRecurCustInvoice": this.invoice.isRecurCustInvoice,
-                "isEmailSent": false,
-                "isSmssent": false,
-                "custInvoiceStatusId": 1,
-                "postedBy": parseInt(this.cookieService.get('userId')),
-                "postedOn": new Date().toISOString(),
-                "billToPay": "string",
-                "comments": this.invoice.comments || "",
-                "penaltyAmount": 0,
-                "penaltyComment": "string",
-                "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
-                "updatedOn": new Date().toISOString(),
-                "transReference1": "string",
-                "transReference2": "string",
-                "invoiceGLAccounts": [
-                    {
-                        "invoiceGlaccountId": this.invoice.invoiceGlaccountId,
-                        "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-                        "invoiceId": 0,
-                        "glaccountId": parseInt(this.invoice.glaccountId),
-                        "comments": "string",
-                        "isActive": true,
-                        "insertedBy": parseInt(this.cookieService.get('userId')),
-                        "insertedOn": new Date().toISOString(),
-                        "updatedBy": parseInt(this.cookieService.get('userId')),
-                        "updatedOn": new Date().toISOString(),
-                        "amount": parseInt(this.invoice.totalAmount)
-                    }
-                ]
-            };
-            let params = {
-                invoice: details
-            };
-            this.accountsService.updateCustInvoice(params).subscribe((res) => {
-                if (res.message) {
-                    this.isInvoiceSubmitted = true;
-                    this.sharedService.setAlertMessage("Invoice updated successfully");
-                    this.router.navigate(['ams/income/subledger']);
-                }
-                else {
-                    this.isInvoiceSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
-                }
-            }, error => {
-                this.isInvoiceSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
-            });
-        }
-    }
-    onInvoiceAmountChange(value) {
-        if (this.invoice.isTax) {
-            var percent = (this.invoice.vatPercent - this.invoice.discount) / 100;
-            this.invoice.totalAmount = value + (value * percent);
-        }
-        else {
-            this.invoice.totalAmount = value;
-        }
-    }
-    onVatChange(value) {
-        var percent = (this.invoice.vatPercent - this.invoice.discount) / 100;
-        this.invoice.totalAmount = this.invoice.custInvoiceAmount + (this.invoice.custInvoiceAmount * percent);
-    }
-    ngOnInit() {
-        this.invoice = {};
-        this.invoice.primaryContact = "";
-        this.invoice.glaccountId = "";
-        this.invoice.isRecurCustInvoice = true;
-        this.invoice.isTax = false;
-        if (this.route.params['value'].id != undefined && this.route.params['value'].type == undefined) {
-            this.isEditInvoice = true;
-            var params = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId')),
-                invoiceId: this.route.params['value'].id
-            };
-            this.accountsService.getCustInvoiceById(params).subscribe((res) => {
-                this.invoice = res[0];
-                console.log(this.invoice);
-                this.invoice.invoiceGlaccountId = this.invoice.invoiceGLAccounts[0].invoiceGlaccountId;
-                this.invoice.glaccountId = this.invoice.invoiceGLAccounts[0].glaccountId;
-                this.apartmentBlockUnitId = this.invoice.apartmentBlockUnitId;
-                /*this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
-        
-                  this.accountDataList = res.filter(item => {
-                    return item.apartmentBlockUnitId == this.apartmentBlockUnitId;
-                  });
-        
-                  this.isAccountDataLoaded = true;
-        
-        
-                });*/
-            }, error => {
-            });
-            let userListParams = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
-            };
-            this.userService.getAllUsersByApartmentId(userListParams).subscribe((res) => {
-                this.userDataList = res.filter(item => {
-                    return item.isActive;
-                });
-                this.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(this.apartmentBlockUnitId).subscribe((res) => {
-                    var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.userDataList, item => {
-                        return item.userId == res[0].userId;
-                    });
-                    this.invoice.primaryContact = data[0].firstName + ' ' + data[0].lastName;
-                });
-            });
-        }
-        else {
-            this.isNewInvoice = true;
-            let accountListParams = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
-            };
-            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe((res) => {
-                this.accountDataList = res.filter(item => {
-                    return item.apartmentBlockUnitId == this.route.params['value'].id;
-                });
-                this.isAccountDataLoaded = true;
-            });
-            let userListParams = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
-            };
-            this.userService.getAllUsersByApartmentId(userListParams).subscribe((res) => {
-                this.userDataList = res.filter(item => {
-                    return item.isActive;
-                });
-                this.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(this.route.params['value'].id).subscribe((res) => {
-                    var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.userDataList, item => {
-                        return item.userId == res[0].userId;
-                    });
-                    this.invoice.primaryContact = data[0].firstName + ' ' + data[0].lastName;
-                });
-            });
-        }
-        this.accountsService.getAllGlAccounts().subscribe((res) => {
-            this.glAccountListData = res.filter(item => {
-                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
-            });
-        });
-        let vatListParams = {
-            LookupTypeId: 77
-        };
-        //VAT types
-        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
-            this.vatTypeDataList = res;
-            this.invoice.vatPercent = parseFloat(this.vatTypeDataList[0].lookupValueName);
-        });
-        let disListParams = {
-            LookupTypeId: 75
-        };
-        //discount types
-        this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe((res) => {
-            this.discountTypeDataList = res;
-            this.invoice.discount = parseFloat(this.discountTypeDataList[0].lookupValueName);
-        });
-    }
-};
-IncomePostInvoiceComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
-];
-IncomePostInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-income-post-invoice',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-post-invoice.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-post-invoice.component.scss */ "./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
-], IncomePostInvoiceComponent);
 
 
 
@@ -5161,20 +4818,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_view_invoice_income_view_invoice_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/income-view-invoice/income-view-invoice.component */ "./src/app/ams/income-tracker/components/income-view-invoice/income-view-invoice.component.ts");
 /* harmony import */ var _components_income_view_invoice_history_income_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/income-view-invoice-history/income-view-invoice-history.component */ "./src/app/ams/income-tracker/components/income-view-invoice-history/income-view-invoice-history.component.ts");
 /* harmony import */ var _components_income_view_defaulters_income_view_defaulters_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/income-view-defaulters/income-view-defaulters.component */ "./src/app/ams/income-tracker/components/income-view-defaulters/income-view-defaulters.component.ts");
-/* harmony import */ var _components_income_post_invoice_income_post_invoice_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/income-post-invoice/income-post-invoice.component */ "./src/app/ams/income-tracker/components/income-post-invoice/income-post-invoice.component.ts");
-/* harmony import */ var _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/income-post-multi-invoice/income-post-multi-invoice.component */ "./src/app/ams/income-tracker/components/income-post-multi-invoice/income-post-multi-invoice.component.ts");
-/* harmony import */ var _components_income_post_multi_invoice_fields_income_post_multi_invoice_fields_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/income-post-multi-invoice-fields/income-post-multi-invoice-fields.component */ "./src/app/ams/income-tracker/components/income-post-multi-invoice-fields/income-post-multi-invoice-fields.component.ts");
-/* harmony import */ var _components_income_post_collection_income_post_collection_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/income-post-collection/income-post-collection.component */ "./src/app/ams/income-tracker/components/income-post-collection/income-post-collection.component.ts");
-/* harmony import */ var _components_income_pay_invoice_income_pay_invoice_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/income-pay-invoice/income-pay-invoice.component */ "./src/app/ams/income-tracker/components/income-pay-invoice/income-pay-invoice.component.ts");
-/* harmony import */ var _components_income_tracker_ageing_income_tracker_ageing_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/income-tracker-ageing/income-tracker-ageing.component */ "./src/app/ams/income-tracker/components/income-tracker-ageing/income-tracker-ageing.component.ts");
-/* harmony import */ var _components_income_add_credit_income_add_credit_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/income-add-credit/income-add-credit.component */ "./src/app/ams/income-tracker/components/income-add-credit/income-add-credit.component.ts");
-/* harmony import */ var _components_income_invoice_reverse_income_invoice_reverse_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/income-invoice-reverse/income-invoice-reverse.component */ "./src/app/ams/income-tracker/components/income-invoice-reverse/income-invoice-reverse.component.ts");
-/* harmony import */ var _components_income_tracker_reports_income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports.component.ts");
-/* harmony import */ var _components_income_tracker_setup_income_tracker_setup_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.ts");
-/* harmony import */ var _components_income_tracker_reports_income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.ts");
-/* harmony import */ var _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component.ts");
-/* harmony import */ var _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/income-tracker-filter/income-tracker-filter.component */ "./src/app/ams/income-tracker/components/income-tracker-filter/income-tracker-filter.component.ts");
-
+/* harmony import */ var _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/income-post-multi-invoice/income-post-multi-invoice.component */ "./src/app/ams/income-tracker/components/income-post-multi-invoice/income-post-multi-invoice.component.ts");
+/* harmony import */ var _components_income_post_multi_invoice_fields_income_post_multi_invoice_fields_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/income-post-multi-invoice-fields/income-post-multi-invoice-fields.component */ "./src/app/ams/income-tracker/components/income-post-multi-invoice-fields/income-post-multi-invoice-fields.component.ts");
+/* harmony import */ var _components_income_post_collection_income_post_collection_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/income-post-collection/income-post-collection.component */ "./src/app/ams/income-tracker/components/income-post-collection/income-post-collection.component.ts");
+/* harmony import */ var _components_income_pay_invoice_income_pay_invoice_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/income-pay-invoice/income-pay-invoice.component */ "./src/app/ams/income-tracker/components/income-pay-invoice/income-pay-invoice.component.ts");
+/* harmony import */ var _components_income_tracker_ageing_income_tracker_ageing_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/income-tracker-ageing/income-tracker-ageing.component */ "./src/app/ams/income-tracker/components/income-tracker-ageing/income-tracker-ageing.component.ts");
+/* harmony import */ var _components_income_add_credit_income_add_credit_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/income-add-credit/income-add-credit.component */ "./src/app/ams/income-tracker/components/income-add-credit/income-add-credit.component.ts");
+/* harmony import */ var _components_income_invoice_reverse_income_invoice_reverse_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/income-invoice-reverse/income-invoice-reverse.component */ "./src/app/ams/income-tracker/components/income-invoice-reverse/income-invoice-reverse.component.ts");
+/* harmony import */ var _components_income_tracker_reports_income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports.component.ts");
+/* harmony import */ var _components_income_tracker_setup_income_tracker_setup_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.ts");
+/* harmony import */ var _components_income_tracker_reports_income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.ts");
+/* harmony import */ var _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component.ts");
+/* harmony import */ var _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/income-tracker-filter/income-tracker-filter.component */ "./src/app/ams/income-tracker/components/income-tracker-filter/income-tracker-filter.component.ts");
 
 
 
@@ -5211,19 +4866,18 @@ IncomeTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_income_view_invoice_income_view_invoice_component__WEBPACK_IMPORTED_MODULE_9__["IncomeViewInvoiceComponent"],
             _components_income_view_invoice_history_income_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_10__["IncomeViewInvoiceHistoryComponent"],
             _components_income_view_defaulters_income_view_defaulters_component__WEBPACK_IMPORTED_MODULE_11__["IncomeViewDefaultersComponent"],
-            _components_income_post_invoice_income_post_invoice_component__WEBPACK_IMPORTED_MODULE_12__["IncomePostInvoiceComponent"],
-            _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_13__["IncomePostMultiInvoiceComponent"],
-            _components_income_post_multi_invoice_fields_income_post_multi_invoice_fields_component__WEBPACK_IMPORTED_MODULE_14__["IncomePostMultiInvoiceFieldsComponent"],
-            _components_income_post_collection_income_post_collection_component__WEBPACK_IMPORTED_MODULE_15__["IncomePostCollectionComponent"],
-            _components_income_pay_invoice_income_pay_invoice_component__WEBPACK_IMPORTED_MODULE_16__["IncomePayInvoiceComponent"],
-            _components_income_add_credit_income_add_credit_component__WEBPACK_IMPORTED_MODULE_18__["IncomeAddCreditComponent"],
-            _components_income_invoice_reverse_income_invoice_reverse_component__WEBPACK_IMPORTED_MODULE_19__["IncomeInvoiceReverseComponent"],
-            _components_income_tracker_ageing_income_tracker_ageing_component__WEBPACK_IMPORTED_MODULE_17__["IncomeTrackerAgeingComponent"],
-            _components_income_tracker_reports_income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_20__["IncomeTrackerReportsComponent"],
-            _components_income_tracker_setup_income_tracker_setup_component__WEBPACK_IMPORTED_MODULE_21__["IncomeTrackerSetupComponent"],
-            _components_income_tracker_reports_income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_22__["IncomeTrackerReportsCustomerComponent"],
-            _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_23__["IncomeTrackerReportsVendorComponent"],
-            _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_24__["IncomeTrackerFilterComponent"]
+            _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_12__["IncomePostMultiInvoiceComponent"],
+            _components_income_post_multi_invoice_fields_income_post_multi_invoice_fields_component__WEBPACK_IMPORTED_MODULE_13__["IncomePostMultiInvoiceFieldsComponent"],
+            _components_income_post_collection_income_post_collection_component__WEBPACK_IMPORTED_MODULE_14__["IncomePostCollectionComponent"],
+            _components_income_pay_invoice_income_pay_invoice_component__WEBPACK_IMPORTED_MODULE_15__["IncomePayInvoiceComponent"],
+            _components_income_add_credit_income_add_credit_component__WEBPACK_IMPORTED_MODULE_17__["IncomeAddCreditComponent"],
+            _components_income_invoice_reverse_income_invoice_reverse_component__WEBPACK_IMPORTED_MODULE_18__["IncomeInvoiceReverseComponent"],
+            _components_income_tracker_ageing_income_tracker_ageing_component__WEBPACK_IMPORTED_MODULE_16__["IncomeTrackerAgeingComponent"],
+            _components_income_tracker_reports_income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_19__["IncomeTrackerReportsComponent"],
+            _components_income_tracker_setup_income_tracker_setup_component__WEBPACK_IMPORTED_MODULE_20__["IncomeTrackerSetupComponent"],
+            _components_income_tracker_reports_income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_21__["IncomeTrackerReportsCustomerComponent"],
+            _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_22__["IncomeTrackerReportsVendorComponent"],
+            _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_23__["IncomeTrackerFilterComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

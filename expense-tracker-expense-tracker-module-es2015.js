@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-post-multi-invoice-fields-wrapper\">\n\n\t\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<form #postExpenseMultiInvoiceFieldsForm =\"ngForm\" name=\"postExpenseMultiInvoiceFieldsForm\" novalidate>\n\t<div class=\"heads\">\n\t\t<p>{{index + 1}}</p>\n\t</div>\n\t<div class=\"heads account-name-box\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<app-select-search-box\n\t\t\tfieldName = \"accountType{{index}}\" \n\t\t\tfieldText = \"\"\n\t\t\tisLabel = \"false\"\n\t\t\tfieldItemName=\"glaccountName\"\n\t\t\t[fieldModel] = \"invoiceVendorAccountsData.glaccountName\"\n\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\tfieldRequired = \"'required'\"\n\t\t\t[fieldList] = \"glAccountListData\"\n\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t(inputChange) = \"onAccountChange($event, index)\">\t\t\t\t\t\t\t\n\t\t</app-select-search-box>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"input-box\">\n\t\t    <input type=\"number\" OnlyNumber=\"true\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceAmount{{index}}\" \n\t\t    [(ngModel)]=\"invoiceVendorAccountsData.amount\"\n\t\t    (ngModelChange)=\"onInvoiceAmountChange(invoiceVendorAccountsData.amount, index)\" \n\t\t    required autocomplete=\"off\">\n\t\t</div>\n\t</div>\n\t<div class=\"heads\">\n\t\t<div class=\"input-box\">\n            <textarea placeholder=\"Enter\" name=\"comments{{index}}\" \n            [(ngModel)]=\"invoiceVendorAccountsData.comments\" \n            (ngModelChange)=\"onCommentChange(invoiceVendorAccountsData.comments, index)\" required autocomplete=\"off\">\n            </textarea>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"d-flex\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<div class=\"input-box discount-input\"> \n\t                <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountDirectAmt{{index}}\" \n\t                [(ngModel)]=\"invoiceVendorAccountsData.discountDirectAmt\"\n\t                (ngModelChange)=\"onDiscountAdded(invoiceVendorAccountsData.discountDirectAmt, index)\"\n\t                [readonly]=\"!invoiceVendorAccountsData.isDiscount\" autocomplete=\"off\">\n\t\t\t\t</div>\n\t\t\t</div>\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"input-box discount-box ml-3\">\n    \t\t\t\t<app-simple-select-box\n\t\t\t\t\t\tfieldName = \"discountType{{index}}\" \n\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t[fieldModel] = \"invoiceVendorAccountsData.discountTypeId\"\n\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t[fieldList] = \"discountTypeDataList\"\n\t\t\t\t\t\t[isDisabled] = \"!isFormValid(index)\"\n\t\t\t\t\t\t(inputChange) = \"onDiscountChange($event, index)\">\t\t\t\t\t\t\t\n\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t</div>\n    \t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"input-box tax-box\">\n\t\t\t<app-simple-select-box\n\t\t\t\tfieldName = \"vatType{{index}}\" \n\t\t\t\tfieldText = \"\"\n\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\tisLabel = \"false\"\n\t\t\t\t[fieldModel] = \"invoiceVendorAccountsData.tax1Vatid\"\n\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t[fieldList] = \"vatTypeDataList\"\n\t\t\t\t[isDisabled] = \"!isFormValid(index)\"\n\t\t\t\t(inputChange) = \"onVatChange($event, index)\">\t\t\t\t\t\t\t\n\t\t\t</app-simple-select-box>\n\t\t</div>\n    </div>\n    <div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"d-flex\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"input-box discount-box ml-3\">\n    \t\t\t\t<app-simple-select-box\n\t\t\t\t\t\tfieldName = \"withtaxAmountType{{index}}\" \n\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t[fieldModel] = \"invoiceVendorAccountsData.wthtaxAmountId\"\n\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t[fieldList] = \"withTaxTypeDataList\"\n\t\t\t\t\t\t[isDisabled] = \"!isFormValid(index)\"\n\t\t\t\t\t\t(inputChange) = \"onWithHoldingTaxChange($event, index)\">\t\t\t\t\t\t\t\n\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t</div>\n    \t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"input-box\">\n            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"\" name=\"totalAmount{{index}}\" \n            [(ngModel)]=\"invoiceVendorAccountsData.lineAmountAfterDiscount\" >\n\t\t</div>\n\t</div>\n\t<div class=\"heads text-center\">\n\t\t<div class=\"float-close\" [ngClass]=\" [ isArrayOne() ? 'delete' : 'disabled', isEditInvoice ? 'disabled' : '' ]\" (click)=\"deleteBlock()\">\n\t    \t<i-feather class=\"icon rotate\" name=\"minus\" ></i-feather>\n\t\t</div>\n    \t<div class=\"float-close\" [ngClass]=\" [ isFormValid(index) ? 'valid' : 'disabled', isEditInvoice ? 'disabled' : '' ]\">\n    \t\t<i-feather class=\"icon rotate\" name=\"check\" ></i-feather>\n    \t</div>\n\t</div>\n</form>");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-multi-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isVendorDataLoaded\">\n\n\t\t<div class=\"card-header at-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<div class=\"sub-details\" *ngIf=\"isVendorDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Vendor Name: </span>{{vendorDataList[0].vendorName}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Vendor Category: </span>{{getCategoryName(vendorDataList[0].vendorCategoryId)}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{vendorDataList[0].contactPerson}}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isVendorDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorDataLoaded\">\n\n\t\t<form #postExpenseMultiInvoiceForm = \"ngForm\" name=\"postExpenseMultiInvoiceForm\" (ngSubmit)=\"submitExpenseMultiInvoiceForm(postExpenseMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t<owl-date-time #vendorInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"vendorInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t<div class=\"w-250 heads\">Account Type*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t<div class=\"w-200 heads\">Description*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t<div class=\"w-220 heads\">Withholding Tax*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Discount*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\" \n\t\t\t\t\t\t*ngFor=\"let invoiceVendorAccountsData of invoiceVendorAccountsArray; let i = index\" \n\t\t\t\t\t\tapp-expense-post-multi-invoice-fields\n\t\t\t\t\t\t[invoiceVendorAccountsArray] = \"invoiceVendorAccountsArray\" \n\t\t\t\t\t\t[invoiceVendorAccountsData] = \"invoiceVendorAccountsData\"\n\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Input VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Withholding Tax</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" [readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountGenChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total Net Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postExpenseMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-multi-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isVendorDataLoaded\">\n\n\t\t<div class=\"card-header at-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<div class=\"sub-details\" *ngIf=\"isVendorDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Vendor Name: </span>{{vendorDataList[0].vendorName}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Vendor Category: </span>{{getCategoryName(vendorDataList[0].vendorCategoryId)}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{vendorDataList[0].contactPerson}}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isVendorDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorDataLoaded\">\n\n\t\t<form #postExpenseMultiInvoiceForm = \"ngForm\" name=\"postExpenseMultiInvoiceForm\" (ngSubmit)=\"submitExpenseMultiInvoiceForm(postExpenseMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t<owl-date-time #vendorInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"vendorInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t<div class=\"w-250 heads\">Account Type*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t<div class=\"w-200 heads\">Description*</div>\n\t\t\t\t\t\t<div class=\"w-150 heads\">Discount*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t<div class=\"w-220 heads\">Withholding Tax*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\" \n\t\t\t\t\t\t*ngFor=\"let invoiceVendorAccountsData of invoiceVendorAccountsArray; let i = index\" \n\t\t\t\t\t\tapp-expense-post-multi-invoice-fields\n\t\t\t\t\t\t[invoiceVendorAccountsArray] = \"invoiceVendorAccountsArray\" \n\t\t\t\t\t\t[invoiceVendorAccountsData] = \"invoiceVendorAccountsData\"\n\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmountAfterdiscount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Input VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Withholding Tax</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.totalWthtaxAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total Net Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.vendorInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postExpenseMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -698,7 +698,7 @@ ExpensePostInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".expense-post-multi-invoice-fields-wrapper .invoice-fields {\n  position: relative;\n  padding: 0 0 20px 0;\n}\n.expense-post-multi-invoice-fields-wrapper .invoice-fields:after {\n  content: \"\";\n  position: absolute;\n  width: calc(100% + 40px);\n  height: 1px;\n  left: -20px;\n  bottom: 20px;\n  border-bottom: 1px solid #eaeaea;\n}\n.expense-post-multi-invoice-fields-wrapper .invoice-fields .float-close-wrapper {\n  float: right;\n}\n.expense-post-multi-invoice-fields-wrapper .invoice-fields .float-close-wrapper .float-close {\n  width: 24px;\n  height: 24px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 24px !important;\n  background-color: #5cd694;\n  cursor: pointer;\n}\n.expense-post-multi-invoice-fields-wrapper .invoice-fields .float-close-wrapper .float-close.disabled {\n  background-color: #c5c6c7;\n  pointer-events: none;\n}\n.expense-post-multi-invoice-fields-wrapper .invoice-fields .float-close-wrapper .float-close.disabled .icon {\n  color: #e6e6e6;\n}\n.expense-post-multi-invoice-fields-wrapper .invoice-fields .float-close-wrapper .float-close.delete {\n  background-color: #ea7962;\n}\n.expense-post-multi-invoice-fields-wrapper .invoice-fields .float-close-wrapper .float-close.valid {\n  background-color: #5cd694;\n}\n.expense-post-multi-invoice-fields-wrapper .invoice-fields .float-close-wrapper .float-close .icon {\n  cursor: pointer;\n  width: 14px;\n  color: #ffffff;\n  position: relative;\n  top: 3px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZXhwZW5zZS10cmFja2VyL2NvbXBvbmVudHMvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzL2V4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLWZpZWxkcy5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiLCJzcmMvYXBwL2Ftcy9leHBlbnNlLXRyYWNrZXIvY29tcG9uZW50cy9leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS1maWVsZHMvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzLmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9taXhpbnMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLQztFQUNDLGtCQ0RHO0VERUgsbUJBQUE7QUVKRjtBRktFO0VBQ0MsV0FBQTtFQUNBLGtCQ05FO0VET0Ysd0JBQUE7RUFDQSxXQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxnQ0FBQTtBRUhIO0FGS0U7RUFDQyxZQUFBO0FFSEg7QUZJRztFRzhERCxXSDdEbUI7RUc4RG5CLFlIOURtQjtFRytEbkIsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7RUE5RUQsOEJBQUE7RUhjRyx5QkM2QlM7RUQ1QlQsZUFBQTtBRUtKO0FGSkk7RUFDQyx5QkM0RU07RUQzRU4sb0JBQUE7QUVNTDtBRkxLO0VBQ0MsY0NrQks7QUNYWDtBRkpJO0VBQ0MseUJDYkc7QUNtQlI7QUZKSTtFQUNDLHlCQ2dCUTtBQ1ZiO0FGSkk7RUFDQyxlQUFBO0VBQ0EsV0FBQTtFQUNBLGNDOEVHO0VEN0VILGtCQ25DQTtFRG9DQSxRQUFBO0FFTUwiLCJmaWxlIjoic3JjL2FwcC9hbXMvZXhwZW5zZS10cmFja2VyL2NvbXBvbmVudHMvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzL2V4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLWZpZWxkcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4uZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzLXdyYXBwZXIge1xuXHQuaW52b2ljZS1maWVsZHMge1xuXHRcdHBvc2l0aW9uOiAkcmVsO1xuXHRcdHBhZGRpbmc6IDAgMCAyMHB4IDA7XG5cdFx0JjphZnRlciB7XG5cdFx0XHRjb250ZW50OiBcIlwiO1xuXHRcdFx0cG9zaXRpb246ICRhYnM7XG5cdFx0XHR3aWR0aDogY2FsYygxMDAlICsgNDBweCk7XG5cdFx0XHRoZWlnaHQ6IDFweDtcblx0XHRcdGxlZnQ6IC0yMHB4O1xuXHRcdFx0Ym90dG9tOiAyMHB4O1xuXHRcdFx0Ym9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRncmV5LTQ1MDtcblx0XHR9XG5cdFx0LmZsb2F0LWNsb3NlLXdyYXBwZXIge1xuXHRcdFx0ZmxvYXQ6IHJpZ2h0O1xuXHRcdFx0LmZsb2F0LWNsb3NlIHtcblx0XHRcdFx0QGluY2x1ZGUgY2lyY2xlcygyNHB4KTtcblx0XHRcdFx0YmFja2dyb3VuZC1jb2xvcjogJGxpbWUtZ3JlZW47XG5cdFx0XHRcdGN1cnNvcjogcG9pbnRlcjtcblx0XHRcdFx0Ji5kaXNhYmxlZHtcblx0XHRcdFx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkZ3JleS00ODA7XG5cdFx0XHRcdFx0cG9pbnRlci1ldmVudHM6IG5vbmU7XG5cdFx0XHRcdFx0Lmljb24ge1xuXHRcdFx0XHRcdFx0Y29sb3I6ICRncmV5LTUwMDtcblx0XHRcdFx0XHR9XG5cdFx0XHRcdH1cblx0XHRcdFx0Ji5kZWxldGUge1xuXHRcdFx0XHRcdGJhY2tncm91bmQtY29sb3I6ICRzLXJlZDtcblx0XHRcdFx0fVxuXHRcdFx0XHQmLnZhbGlkIHtcblx0XHRcdFx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkbGltZS1ncmVlbjtcblx0XHRcdFx0fVxuXHRcdFx0XHQuaWNvbiB7XG5cdFx0XHRcdFx0Y3Vyc29yOiBwb2ludGVyO1xuXHRcdFx0XHRcdHdpZHRoOiAxNHB4O1xuXHRcdFx0XHRcdGNvbG9yOiAkd2hpdGU7XG5cdFx0XHRcdFx0cG9zaXRpb246ICRyZWw7XG5cdFx0XHRcdFx0dG9wOiAzcHg7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdH1cbn0iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiLmV4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLWZpZWxkcy13cmFwcGVyIC5pbnZvaWNlLWZpZWxkcyB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgcGFkZGluZzogMCAwIDIwcHggMDtcbn1cbi5leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS1maWVsZHMtd3JhcHBlciAuaW52b2ljZS1maWVsZHM6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHdpZHRoOiBjYWxjKDEwMCUgKyA0MHB4KTtcbiAgaGVpZ2h0OiAxcHg7XG4gIGxlZnQ6IC0yMHB4O1xuICBib3R0b206IDIwcHg7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZWFlYWVhO1xufVxuLmV4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLWZpZWxkcy13cmFwcGVyIC5pbnZvaWNlLWZpZWxkcyAuZmxvYXQtY2xvc2Utd3JhcHBlciB7XG4gIGZsb2F0OiByaWdodDtcbn1cbi5leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS1maWVsZHMtd3JhcHBlciAuaW52b2ljZS1maWVsZHMgLmZsb2F0LWNsb3NlLXdyYXBwZXIgLmZsb2F0LWNsb3NlIHtcbiAgd2lkdGg6IDI0cHg7XG4gIGhlaWdodDogMjRweDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMjRweCAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDI0cHggIWltcG9ydGFudDtcbiAgYm9yZGVyLXJhZGl1czogMjRweCAhaW1wb3J0YW50O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNWNkNjk0O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG4uZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzLXdyYXBwZXIgLmludm9pY2UtZmllbGRzIC5mbG9hdC1jbG9zZS13cmFwcGVyIC5mbG9hdC1jbG9zZS5kaXNhYmxlZCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNjNWM2Yzc7XG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xufVxuLmV4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLWZpZWxkcy13cmFwcGVyIC5pbnZvaWNlLWZpZWxkcyAuZmxvYXQtY2xvc2Utd3JhcHBlciAuZmxvYXQtY2xvc2UuZGlzYWJsZWQgLmljb24ge1xuICBjb2xvcjogI2U2ZTZlNjtcbn1cbi5leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS1maWVsZHMtd3JhcHBlciAuaW52b2ljZS1maWVsZHMgLmZsb2F0LWNsb3NlLXdyYXBwZXIgLmZsb2F0LWNsb3NlLmRlbGV0ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlYTc5NjI7XG59XG4uZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzLXdyYXBwZXIgLmludm9pY2UtZmllbGRzIC5mbG9hdC1jbG9zZS13cmFwcGVyIC5mbG9hdC1jbG9zZS52YWxpZCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM1Y2Q2OTQ7XG59XG4uZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzLXdyYXBwZXIgLmludm9pY2UtZmllbGRzIC5mbG9hdC1jbG9zZS13cmFwcGVyIC5mbG9hdC1jbG9zZSAuaWNvbiB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgd2lkdGg6IDE0cHg7XG4gIGNvbG9yOiAjZmZmZmZmO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHRvcDogM3B4O1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIGRlc2VsZWN0ICgpIHtcbiAgLW1vei11c2VyLXNlbGVjdDogLW1vei1ub25lO1xuXHQta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1vLXVzZXItc2VsZWN0OiBub25lO1xuXHR1c2VyLXNlbGVjdDogbm9uZTtcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO1xuICBhbGlnbi1pdGVtczpjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICRiZztcbiAgY29sb3I6ICR0YztcbiAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cygkcik7XG59XG5cbkBtaXhpbiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzLi4uKSB7XG4gIC8vIERpcmVjdGlvbiBoYXMgYmVlbiBvbWl0dGVkIGFuZCBoYXBwZW5zIHRvIGJlIGEgY29sb3Itc3RvcFxuICBAaWYgaXMtZGlyZWN0aW9uKCRkaXJlY3Rpb24pID09IGZhbHNlIHtcbiAgICAkY29sb3Itc3RvcHM6ICRkaXJlY3Rpb24sICRjb2xvci1zdG9wcztcbiAgICAkZGlyZWN0aW9uOiAxODBkZWc7XG4gIH1cblxuICBiYWNrZ3JvdW5kOiBudGgobnRoKCRjb2xvci1zdG9wcywgMSksIDEpO1xuICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChsZWdhY3ktZGlyZWN0aW9uKCRkaXJlY3Rpb24pLCAkY29sb3Itc3RvcHMpO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzKTtcbn1cblxuQG1peGluIHBsYWNlaG9sZGVyIHtcbiAgJjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7QGNvbnRlbnR9XG4gICY6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICAge0Bjb250ZW50fVxuICAmOjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgIHtAY29udGVudH1cbiAgJjotbXMtaW5wdXQtcGxhY2Vob2xkZXIgICAgICB7QGNvbnRlbnR9ICBcbn1cblxuXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("form {\n  display: contents;\n}\nform .input-box, form .select-box {\n  margin: 0;\n}\nform .input-box input[readonly] {\n  background-color: #f9f9f9;\n}\nform .input-box input[readonly]:-webkit-autofill {\n  -webkit-box-shadow: 0 0 0px 1000px #e6e6e6 inset;\n  -webkit-text-fill-color: #e6e6e6;\n}\nform .input-box ::ng-deep input {\n  height: 34px !important;\n}\nform .input-box ::ng-deep .select-list-dropdown {\n  min-width: 100px;\n}\nform .input-box textarea {\n  height: auto !important;\n  border: none;\n  padding: 0;\n}\nform .input-box textarea:focus {\n  border: none !important;\n}\nform .account-name-box ::ng-deep input {\n  padding: 0;\n  width: 180px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\nform .discount-box ::ng-deep .clear-filter {\n  z-index: 1000;\n  position: relative;\n  top: -24px;\n  right: -15px;\n}\n.heads {\n  padding: 0 14px;\n  display: table-cell;\n  border: none;\n  border-right: 1px solid #dee2e6;\n  border-top: 1px solid #dee2e6;\n}\n.heads:last-child {\n  border-right: none;\n  padding: 12px 0;\n}\n.heads.deselect .select-group[_ngcontent-iqr-c297] .simple-select[_ngcontent-iqr-c297] + .select-arrow.down[_ngcontent-iqr-c297]:before {\n  color: #8e8e8e !important;\n}\n.heads p {\n  font-size: 1.4rem;\n  color: #373946;\n}\n.float-close {\n  width: 23px;\n  height: 23px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 23px !important;\n  background-color: #5cd694;\n  cursor: pointer;\n  display: inline-block;\n  margin: 9px 4px;\n  line-height: 20px;\n}\n.float-close.disabled {\n  background-color: #f0f3f3 !important;\n  pointer-events: none;\n}\n.float-close.disabled .icon {\n  color: #e6e6e6;\n}\n.float-close.delete {\n  background-color: #ea7962;\n}\n.float-close.valid {\n  background-color: #389583;\n}\n.float-close .icon {\n  cursor: pointer;\n  width: 13px;\n  color: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZXhwZW5zZS10cmFja2VyL2NvbXBvbmVudHMvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzL2V4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLWZpZWxkcy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL2V4cGVuc2UtdHJhY2tlci9jb21wb25lbnRzL2V4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLWZpZWxkcy9leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS1maWVsZHMuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9taXhpbnMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQTtFQUNDLGlCQUFBO0FDRkQ7QURHQztFQUNDLFNBQUE7QUNERjtBREtHO0VBQ1EseUJFcUdBO0FEeEdYO0FESVc7RUFDRSxnREFBQTtFQUNBLGdDRStCRjtBRGpDWDtBRE9HO0VBQ0MsdUJBQUE7QUNMSjtBRE9HO0VBQ0MsZ0JBQUE7QUNMSjtBRFFFO0VBQ0MsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsVUFBQTtBQ05IO0FET0c7RUFDQyx1QkFBQTtBQ0xKO0FEV0c7RUFDQyxVQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsdUJBQUE7QUNUSjtBRGVHO0VBQ0MsYUFBQTtFQUNBLGtCRTVDQztFRjZDRCxVQUFBO0VBQ0EsWUFBQTtBQ2JKO0FEa0JBO0VBQ0MsZUFBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtFQUNBLCtCQUFBO0VBQ0EsNkJBQUE7QUNmRDtBRGdCQztFQUNDLGtCQUFBO0VBQ0EsZUFBQTtBQ2RGO0FEa0JFO0VBQ0MseUJBQUE7QUNoQkg7QURtQkM7RUdNQyxpQkFBQTtFSEpBLGNFb0JTO0FEckNYO0FEb0JBO0VJSUUsV0pIZ0I7RUlJaEIsWUpKZ0I7RUlLaEIsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7RUE5RUQsOEJBQUE7RUp3RUEseUJFN0JZO0VGOEJaLGVBQUE7RUFDQSxxQkFBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtBQ1ZEO0FEV0M7RUFDQyxvQ0FBQTtFQUNBLG9CQUFBO0FDVEY7QURVRTtFQUNDLGNFM0NRO0FEbUNYO0FEV0M7RUFDQyx5QkUxRU07QURpRVI7QURXQztFQUNDLHlCRXhDUTtBRCtCVjtBRFdDO0VBQ0MsZUFBQTtFQUNBLFdBQUE7RUFDQSxjRWlCTTtBRDFCUiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9leHBlbnNlLXRyYWNrZXIvY29tcG9uZW50cy9leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS1maWVsZHMvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UtZmllbGRzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5mb3JtIHtcblx0ZGlzcGxheTogY29udGVudHM7O1xuXHQuaW5wdXQtYm94LCAuc2VsZWN0LWJveCB7XG5cdFx0bWFyZ2luOiAwO1xuXHR9XG5cdC5pbnB1dC1ib3gge1xuXHRcdGlucHV0IHtcblx0XHRcdCZbcmVhZG9ubHldIHtcblx0ICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICRncmV5LTE1MDtcblx0ICAgICAgICAgICY6LXdlYmtpdC1hdXRvZmlsbCB7XG5cdCAgICAgICAgICAgIC13ZWJraXQtYm94LXNoYWRvdzogMCAwIDBweCAxMDAwcHggJGdyZXktNTAwIGluc2V0O1xuXHQgICAgICAgICAgICAtd2Via2l0LXRleHQtZmlsbC1jb2xvcjogJGdyZXktNTAwO1xuXHQgICAgICAgICAgfVxuXHQgICAgICAgIH1cblx0XHR9XG5cdFx0OjpuZy1kZWVwIHtcblx0XHRcdGlucHV0IHtcblx0XHRcdFx0aGVpZ2h0OiAzNHB4ICFpbXBvcnRhbnQ7XG5cdFx0XHR9XG5cdFx0XHQuc2VsZWN0LWxpc3QtZHJvcGRvd24ge1xuXHRcdFx0XHRtaW4td2lkdGg6IDEwMHB4O1xuXHRcdFx0fVxuXHRcdH1cblx0XHR0ZXh0YXJlYSB7XG5cdFx0XHRoZWlnaHQ6IGF1dG8gIWltcG9ydGFudDtcblx0XHRcdGJvcmRlcjogbm9uZTtcblx0XHRcdHBhZGRpbmc6IDA7XG5cdFx0XHQmOmZvY3VzIHtcblx0XHRcdFx0Ym9yZGVyOiBub25lICFpbXBvcnRhbnQ7XG5cdFx0XHR9XG5cdFx0fVxuXHR9XG5cdC5hY2NvdW50LW5hbWUtYm94IHtcblx0XHQ6Om5nLWRlZXAge1xuXHRcdFx0aW5wdXQge1xuXHRcdFx0XHRwYWRkaW5nOiAwO1xuXHRcdFx0XHR3aWR0aDogMTgwcHg7XG5cdFx0XHRcdG92ZXJmbG93OiBoaWRkZW47XG5cdFx0XHRcdHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuXHRcdFx0fVxuXHRcdH1cblx0fVxuXHQuZGlzY291bnQtYm94IHtcblx0XHQ6Om5nLWRlZXAge1xuXHRcdFx0LmNsZWFyLWZpbHRlciB7XG5cdFx0XHRcdHotaW5kZXg6IDEwMDA7XG5cdFx0XHRcdHBvc2l0aW9uOiAkcmVsO1xuXHRcdFx0XHR0b3A6IC0yNHB4O1xuXHRcdFx0XHRyaWdodDogLTE1cHg7XG5cdFx0XHR9XG5cdFx0fVxuXHR9XG59XG4uaGVhZHMge1xuXHRwYWRkaW5nOiAwIDE0cHg7XG5cdGRpc3BsYXk6IHRhYmxlLWNlbGw7XG5cdGJvcmRlcjpub25lO1xuXHRib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAkZ3JleS00NjA7XG5cdGJvcmRlci10b3A6IDFweCBzb2xpZCAkZ3JleS00NjA7XG5cdCY6bGFzdC1jaGlsZCB7XG5cdFx0Ym9yZGVyLXJpZ2h0OiBub25lO1xuXHRcdHBhZGRpbmc6IDEycHggMDtcblx0fVxuXHQmLmRlc2VsZWN0IHtcblx0XHQvL2JhY2tncm91bmQtY29sb3I6ICRncmV5LTMwMDtcblx0XHQuc2VsZWN0LWdyb3VwW19uZ2NvbnRlbnQtaXFyLWMyOTddIC5zaW1wbGUtc2VsZWN0W19uZ2NvbnRlbnQtaXFyLWMyOTddICsgLnNlbGVjdC1hcnJvdy5kb3duW19uZ2NvbnRlbnQtaXFyLWMyOTddOmJlZm9yZSB7XG5cdFx0XHRjb2xvcjogJGdyZXktMzUwICFpbXBvcnRhbnQ7XG5cdFx0fVxuXHR9XG5cdHAge1xuXHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xuXHRcdGNvbG9yOiAkZ3JleS04MDA7XG5cdH1cbn1cbi5mbG9hdC1jbG9zZSB7XG5cdEBpbmNsdWRlIGNpcmNsZXMoMjNweCk7XG5cdGJhY2tncm91bmQtY29sb3I6ICRsaW1lLWdyZWVuO1xuXHRjdXJzb3I6IHBvaW50ZXI7XG5cdGRpc3BsYXk6IGlubGluZS1ibG9jaztcblx0bWFyZ2luOiA5cHggNHB4O1xuXHRsaW5lLWhlaWdodDogMjBweDtcblx0Ji5kaXNhYmxlZHtcblx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkZ3JleS0zMDAgIWltcG9ydGFudDtcblx0XHRwb2ludGVyLWV2ZW50czogbm9uZTtcblx0XHQuaWNvbiB7XG5cdFx0XHRjb2xvcjogJGdyZXktNTAwO1xuXHRcdH1cblx0fVxuXHQmLmRlbGV0ZSB7XG5cdFx0YmFja2dyb3VuZC1jb2xvcjogJHMtcmVkO1xuXHR9XG5cdCYudmFsaWQge1xuXHRcdGJhY2tncm91bmQtY29sb3I6ICRkLWdyZWVuO1xuXHR9XG5cdC5pY29uIHtcblx0XHRjdXJzb3I6IHBvaW50ZXI7XG5cdFx0d2lkdGg6IDEzcHg7XG5cdFx0Y29sb3I6ICR3aGl0ZTtcblx0fVxufVxuIiwiZm9ybSB7XG4gIGRpc3BsYXk6IGNvbnRlbnRzO1xufVxuZm9ybSAuaW5wdXQtYm94LCBmb3JtIC5zZWxlY3QtYm94IHtcbiAgbWFyZ2luOiAwO1xufVxuZm9ybSAuaW5wdXQtYm94IGlucHV0W3JlYWRvbmx5XSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmOWY5Zjk7XG59XG5mb3JtIC5pbnB1dC1ib3ggaW5wdXRbcmVhZG9ubHldOi13ZWJraXQtYXV0b2ZpbGwge1xuICAtd2Via2l0LWJveC1zaGFkb3c6IDAgMCAwcHggMTAwMHB4ICNlNmU2ZTYgaW5zZXQ7XG4gIC13ZWJraXQtdGV4dC1maWxsLWNvbG9yOiAjZTZlNmU2O1xufVxuZm9ybSAuaW5wdXQtYm94IDo6bmctZGVlcCBpbnB1dCB7XG4gIGhlaWdodDogMzRweCAhaW1wb3J0YW50O1xufVxuZm9ybSAuaW5wdXQtYm94IDo6bmctZGVlcCAuc2VsZWN0LWxpc3QtZHJvcGRvd24ge1xuICBtaW4td2lkdGg6IDEwMHB4O1xufVxuZm9ybSAuaW5wdXQtYm94IHRleHRhcmVhIHtcbiAgaGVpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgcGFkZGluZzogMDtcbn1cbmZvcm0gLmlucHV0LWJveCB0ZXh0YXJlYTpmb2N1cyB7XG4gIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xufVxuZm9ybSAuYWNjb3VudC1uYW1lLWJveCA6Om5nLWRlZXAgaW5wdXQge1xuICBwYWRkaW5nOiAwO1xuICB3aWR0aDogMTgwcHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xufVxuZm9ybSAuZGlzY291bnQtYm94IDo6bmctZGVlcCAuY2xlYXItZmlsdGVyIHtcbiAgei1pbmRleDogMTAwMDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IC0yNHB4O1xuICByaWdodDogLTE1cHg7XG59XG5cbi5oZWFkcyB7XG4gIHBhZGRpbmc6IDAgMTRweDtcbiAgZGlzcGxheTogdGFibGUtY2VsbDtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItdG9wOiAxcHggc29saWQgI2RlZTJlNjtcbn1cbi5oZWFkczpsYXN0LWNoaWxkIHtcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xuICBwYWRkaW5nOiAxMnB4IDA7XG59XG4uaGVhZHMuZGVzZWxlY3QgLnNlbGVjdC1ncm91cFtfbmdjb250ZW50LWlxci1jMjk3XSAuc2ltcGxlLXNlbGVjdFtfbmdjb250ZW50LWlxci1jMjk3XSArIC5zZWxlY3QtYXJyb3cuZG93bltfbmdjb250ZW50LWlxci1jMjk3XTpiZWZvcmUge1xuICBjb2xvcjogIzhlOGU4ZSAhaW1wb3J0YW50O1xufVxuLmhlYWRzIHAge1xuICBmb250LXNpemU6IDEuNHJlbTtcbiAgY29sb3I6ICMzNzM5NDY7XG59XG5cbi5mbG9hdC1jbG9zZSB7XG4gIHdpZHRoOiAyM3B4O1xuICBoZWlnaHQ6IDIzcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDIzcHggIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItcmFkaXVzOiAyM3B4ICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDIzcHggIWltcG9ydGFudDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzVjZDY5NDtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIG1hcmdpbjogOXB4IDRweDtcbiAgbGluZS1oZWlnaHQ6IDIwcHg7XG59XG4uZmxvYXQtY2xvc2UuZGlzYWJsZWQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjBmM2YzICFpbXBvcnRhbnQ7XG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xufVxuLmZsb2F0LWNsb3NlLmRpc2FibGVkIC5pY29uIHtcbiAgY29sb3I6ICNlNmU2ZTY7XG59XG4uZmxvYXQtY2xvc2UuZGVsZXRlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VhNzk2Mjtcbn1cbi5mbG9hdC1jbG9zZS52YWxpZCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzODk1ODM7XG59XG4uZmxvYXQtY2xvc2UgLmljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHdpZHRoOiAxM3B4O1xuICBjb2xvcjogI2ZmZmZmZjtcbn0iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuXG5AbWl4aW4gYm9yZGVyLXJhZGl1cyAoJHJhZGl1cykge1xuXHQtd2Via2l0LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0LW1vei1ib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG5cdGJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXMgKCRyYWRpdXMpIHtcbiAgLXdlYmtpdC1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBvcGFjaXR5ICgkdmFsdWUpIHtcbiAgb3BhY2l0eTogJHZhbHVlO1xuICAtbW96LW9wYWNpdHk6ICR2YWx1ZTtcbiAgLXdlYmtpdC1vcGFjaXR5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2hhZG93ICgkcnVsZXMuLi4pIHtcbiAgYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtbW96LWJveC1zaGFkb3c6ICRydWxlcztcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0ZXh0LXNoYWRvdyAoJHJ1bGVzKSB7XG4gIHRleHQtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLXdlYmtpdC10ZXh0LXNoYWRvdzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gdHJhbnNmb3JtICgkcnVsZXMpIHtcblx0LXdlYmtpdC10cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xuXHQtbW96LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdHRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiB0cmFuc2l0aW9uICgkcnVsZXMuLi4pIHtcblx0LXdlYmtpdC10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdC1tb3otdHJhbnNpdGlvbjogJHJ1bGVzO1xuXHR0cmFuc2l0aW9uOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBhbmltYXRpb24tZGVsYXkgKCR2YWx1ZSkge1xuICAtd2Via2l0LWFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xuICAtbW96LWFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xuICBhbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaXppbmcgKCRydWxlcy4uLikge1xuICAtd2Via2l0LWJveC1zaXppbmc6ICRydWxlcztcbiAgLW1vei1ib3gtc2l6aW5nOiAkcnVsZXM7XG4gIGJveC1zaXppbmc6ICRydWxlcztcbn1cblxuQG1peGluIGFwcGVhcmFuY2UgKCRydWxlcy4uLikge1xuICAtd2Via2l0LWFwcGVhcmFuY2U6ICRydWxlcztcbiAgLW1vei1hcHBlYXJhbmNlOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBkZXNlbGVjdCAoKSB7XG4gIC1tb3otdXNlci1zZWxlY3Q6IC1tb3otbm9uZTtcblx0LWtodG1sLXVzZXItc2VsZWN0OiBub25lO1xuXHQtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xuXHQtby11c2VyLXNlbGVjdDogbm9uZTtcblx0dXNlci1zZWxlY3Q6IG5vbmU7XG59XG5cbkBtaXhpbiB2aXNpYmlsaXR5ICgkcnVsZXMpIHtcbiAgdmlzaWJpbGl0eTogJHJ1bGVzO1xufVxuXG5AbWl4aW4gbm8tbXAgKCkge1xuICBtYXJnaW46IDAgIWltcG9ydGFudDtcbiAgcGFkZGluZzogMCAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gY2lyY2xlcygkciwgJGJnOm51bGwsICR0YzpudWxsKSB7XG4gIHdpZHRoOiAkcjtcbiAgaGVpZ2h0OiAkcjtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OmNlbnRlcjtcbiAgYWxpZ24taXRlbXM6Y2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkYmc7XG4gIGNvbG9yOiAkdGM7XG4gIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoJHIpO1xufVxuXG5AbWl4aW4gbGluZWFyLWdyYWRpZW50KCRkaXJlY3Rpb24sICRjb2xvci1zdG9wcy4uLikge1xuICAvLyBEaXJlY3Rpb24gaGFzIGJlZW4gb21pdHRlZCBhbmQgaGFwcGVucyB0byBiZSBhIGNvbG9yLXN0b3BcbiAgQGlmIGlzLWRpcmVjdGlvbigkZGlyZWN0aW9uKSA9PSBmYWxzZSB7XG4gICAgJGNvbG9yLXN0b3BzOiAkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHM7XG4gICAgJGRpcmVjdGlvbjogMTgwZGVnO1xuICB9XG5cbiAgYmFja2dyb3VuZDogbnRoKG50aCgkY29sb3Itc3RvcHMsIDEpLCAxKTtcbiAgYmFja2dyb3VuZDogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQobGVnYWN5LWRpcmVjdGlvbigkZGlyZWN0aW9uKSwgJGNvbG9yLXN0b3BzKTtcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KCRkaXJlY3Rpb24sICRjb2xvci1zdG9wcyk7XG59XG5cbkBtaXhpbiBwbGFjZWhvbGRlciB7XG4gICY6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIge0Bjb250ZW50fVxuICAmOi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAgIHtAY29udGVudH1cbiAgJjo6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6LW1zLWlucHV0LXBsYWNlaG9sZGVyICAgICAge0Bjb250ZW50fSAgXG59XG5cblxuIl19 */");
 
 /***/ }),
 
@@ -714,15 +714,241 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpensePostMultiInvoiceFieldsComponent", function() { return ExpensePostMultiInvoiceFieldsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+
+
+
+
 
 
 let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFieldsComponent {
-    constructor() {
+    constructor(route, accountsService, lookupService, cookieService) {
+        this.route = route;
+        this.accountsService = accountsService;
+        this.lookupService = lookupService;
+        this.cookieService = cookieService;
+        this.invoiceId = "";
+        this.isInvoiceSubmitted = true;
+        this.isError = false;
+        this.alertMessage = "";
+        this.glAccountIndicator = "Expenses";
         this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.taxParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    deleteBlock() {
+        this.invoiceVendorAccountsArray.splice(this.index, 1);
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+    }
+    isArrayOne() {
+        return this.invoiceVendorAccountsArray.length > 1 ? true : false;
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    isFormValid(index) {
+        return (this.invoiceVendorAccountsData.glaccountId == null || this.invoiceVendorAccountsData.comments == "" || this.invoiceVendorAccountsData.amount == "") ? false : true;
+    }
+    onAccountChange(item, index) {
+        if (item != null) {
+            this.invoiceVendorAccountsData.glaccountName = item.glaccountName;
+            this.invoiceVendorAccountsData.glaccountId = parseInt(item.glaccountId);
+        }
+        else {
+            this.invoiceVendorAccountsData.glaccountName = "";
+            this.invoiceVendorAccountsData.glaccountId = null;
+        }
+        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+    }
+    onInvoiceAmountChange(value, index) {
+        if (value != null) {
+            this.invoiceVendorAccountsData.amount = parseFloat(value);
+        }
+        else {
+            this.invoiceVendorAccountsData.amount = 0;
+        }
+        this.calculateVat();
+        this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - parseInt(this.invoiceVendorAccountsData.discountAmount);
+        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+    }
+    onDiscountChange(event, index) {
+        if (event != null) {
+            this.invoiceVendorAccountsData.isDiscount = true;
+            this.invoiceVendorAccountsData.discountId = event.lookupValueId;
+            this.invoiceVendorAccountsData.discountTypeId = event.lookupValueName;
+            this.onDiscountAdded(this.invoiceVendorAccountsData.discountDirectAmt, index);
+        }
+        else {
+            this.invoiceVendorAccountsData.isDiscount = false;
+            this.invoiceVendorAccountsData.discountId = "";
+            this.invoiceVendorAccountsData.discountTypeId = "";
+            this.invoiceVendorAccountsData.discountAmount = 0;
+            this.invoiceVendorAccountsData.discountDirectAmt = 0;
+        }
+        this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - parseInt(this.invoiceVendorAccountsData.discountAmount);
+        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+    }
+    onDiscountAdded(value, index) {
+        if (value != null) {
+            if (this.invoiceVendorAccountsData.discountTypeId == '%') {
+                this.calculateDiscountPercent(value, index);
+            }
+            else {
+                this.calculateDiscountPeso(value, index);
+            }
+        }
+    }
+    calculateDiscountPercent(value, index) {
+        if (value != null) {
+            var percent = parseFloat(value) / 100;
+            this.invoiceVendorAccountsData.discountAmount = parseFloat(this.invoiceVendorAccountsData.amount) * percent;
+        }
+        else {
+            this.invoiceVendorAccountsData.isDiscount = false;
+            this.invoiceVendorAccountsData.discountAmount = 0;
+            this.invoiceVendorAccountsData.discountDirectAmt = 0;
+        }
+        this.calculateVat();
+        this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
+        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+    }
+    calculateDiscountPeso(value, index) {
+        if (value != null) {
+            this.invoiceVendorAccountsData.discountAmount = parseFloat(value);
+        }
+        else {
+            this.invoiceVendorAccountsData.isDiscount = false;
+            this.invoiceVendorAccountsData.discountAmount = 0;
+            this.invoiceVendorAccountsData.discountDirectAmt = 0;
+        }
+        this.calculateVat();
+        this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
+        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+    }
+    onCommentChange(value, index) {
+        this.invoiceVendorAccountsData.comments = value;
+        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+    }
+    onVatChange(event, index) {
+        if (event != null) {
+            this.invoiceVendorAccountsData.isTax = true;
+            this.invoiceVendorAccountsData.vatid = event.lookupValueName;
+            var percent = parseFloat(event.lookupValueName) / 100;
+            this.currentTaxLookupValueId = event.lookupValueId;
+            this.vendorinvoiceTaxData.invoiceTaxId = event.lookupValueId;
+            this.vendorinvoiceTaxData.isAdded = true;
+            this.vendorinvoiceTaxData.invoiceTotalAmount = parseFloat(this.invoiceVendorAccountsData.amount) * percent;
+            this.currentTaxAmount = this.vendorinvoiceTaxData.invoiceTotalAmount;
+            this.taxParams.emit(this.vendorinvoiceTaxData);
+        }
+        else {
+            this.invoiceVendorAccountsData.isTax = false;
+            this.invoiceVendorAccountsData.vatid = "";
+            var percent = 0;
+            this.vendorinvoiceTaxData.invoiceTaxId = this.currentTaxLookupValueId;
+            this.vendorinvoiceTaxData.isAdded = false;
+            this.vendorinvoiceTaxData.invoiceTotalAmount = this.currentTaxAmount;
+            this.taxParams.emit(this.vendorinvoiceTaxData);
+        }
+        this.invoiceVendorAccountsData.vatamount = parseFloat(this.invoiceVendorAccountsData.amount) * percent;
+        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+    }
+    calculateVat() {
+        if (this.invoiceVendorAccountsData.isTax) {
+            var percent = parseInt(this.invoiceVendorAccountsData.vatid) / 100;
+            this.invoiceVendorAccountsData.vatamount = parseFloat(this.invoiceVendorAccountsData.amount) * percent;
+            if (this.invoiceVendorAccountsData.vatid == "12.5") {
+                this.invoiceVendorAccountsData.tax1Id = "12.5";
+                this.invoiceVendorAccountsData.tax2Id = "";
+                this.invoiceVendorAccountsData.tax1Amount = parseFloat(this.invoiceVendorAccountsData.amount) * percent;
+                this.invoiceVendorAccountsData.tax2Amount = 0;
+            }
+            else {
+                this.invoiceVendorAccountsData.tax2Id = "15";
+                this.invoiceVendorAccountsData.tax1Id = "";
+                this.invoiceVendorAccountsData.tax2Amount = parseFloat(this.invoiceVendorAccountsData.amount) * percent;
+                this.invoiceVendorAccountsData.tax1Amount = 0;
+            }
+        }
+    }
+    onWithHoldingTaxChange(event, index) {
+        this.invoiceVendorAccountsData.isWthtaxAmount = true;
+        this.invoiceVendorAccountsData.withHoldingDirectAmt = parseInt(event.lookupValueName);
+        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
+        this.fieldParams.emit(this.invoiceVendorAccountsArray);
+        console.log(this.invoiceVendorAccountsData.withHoldingDirectAmt);
     }
     ngOnInit() {
+        this.vendorinvoiceTaxData = {
+            "vendorinvoiceTaxId": 0,
+            "vendorInvoiceId": 0,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+            "isAdded": true,
+            "invoiceTaxId": 0,
+            "invoiceTotalAmount": 0,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": 0,
+            "updatedOn": null
+        };
+        if (this.isEditInvoice) {
+            this.invoiceVendorAccountsData.form = true;
+        }
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
+            this.glAccountListData = res.filter(item => {
+                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
+            });
+        });
+        let vatListParams = {
+            LookupTypeId: 77
+        };
+        //VAT types
+        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
+            this.vatTypeDataList = res;
+        });
+        let withHoldingListParams = {
+            LookupTypeId: 179
+        };
+        //withholding tax types
+        this.lookupService.getLookupValueByLookupTypeId(withHoldingListParams).subscribe((res) => {
+            this.withTaxTypeDataList = res;
+        });
+        let disListParams = {
+            LookupTypeId: 88
+        };
+        //discount types
+        this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe((res) => {
+            this.discountTypeDataList = res;
+        });
     }
 };
+ExpensePostMultiInvoiceFieldsComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
@@ -743,12 +969,24 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
 ], ExpensePostMultiInvoiceFieldsComponent.prototype, "fieldParams", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], ExpensePostMultiInvoiceFieldsComponent.prototype, "taxParams", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('postExpenseMultiInvoiceFieldsForm', { static: true }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"])
+], ExpensePostMultiInvoiceFieldsComponent.prototype, "invoiceForm", void 0);
 ExpensePostMultiInvoiceFieldsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: '[app-expense-post-multi-invoice-fields]',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./expense-post-multi-invoice-fields.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-post-multi-invoice-fields/expense-post-multi-invoice-fields.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./expense-post-multi-invoice-fields.component.scss */ "./src/app/ams/expense-tracker/components/expense-post-multi-invoice-fields/expense-post-multi-invoice-fields.component.scss")).default]
-    })
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], ExpensePostMultiInvoiceFieldsComponent);
 
 
@@ -764,7 +1002,7 @@ ExpensePostMultiInvoiceFieldsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".expense-multi-post-invoice-wrapper .add-invoice-block {\n  padding: 10px 0;\n  border-bottom: 1px solid #dee2e6;\n}\n.expense-multi-post-invoice-wrapper .invoice-table {\n  /*display: table;*/\n  width: 100% !important;\n  overflow: scroll;\n  float: left;\n}\n.expense-multi-post-invoice-wrapper .invoice-header {\n  display: table-row;\n}\n.expense-multi-post-invoice-wrapper .invoice-header .heads {\n  font-family: \"Lato\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  font-size: 1.2rem;\n  color: #373946;\n  text-transform: uppercase;\n  border: none;\n  border-right: 1px solid #dee2e6;\n  padding: 10px 14px;\n  display: table-cell;\n}\n.expense-multi-post-invoice-wrapper .invoice-fields {\n  display: table-row;\n  overflow: visible;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box {\n  padding: 12px 0 6px 10px;\n  border-top: 1px solid #eaeaea;\n  overflow: auto;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box .icon {\n  color: #373946;\n  width: 18px;\n  position: relative;\n  top: -2px;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box span {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  color: #585858;\n  margin: 0 0 0 6px;\n  font-size: 1.4rem;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box .add-invoice-link {\n  cursor: pointer;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box .add-invoice-link:hover span, .expense-multi-post-invoice-wrapper .add-invoice-box .add-invoice-link:hover .icon {\n  color: #54b941;\n}\n.expense-multi-post-invoice-wrapper .total-box {\n  padding: 15px 14px;\n}\n.expense-multi-post-invoice-wrapper .total-box p {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  margin: 8px 0 !important;\n  font-size: 1.3rem;\n}\n.expense-multi-post-invoice-wrapper .total-box.final p {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  margin: 0 !important;\n  font-size: 1.4rem;\n}\n.expense-multi-post-invoice-wrapper .total-box .discount-input input {\n  width: 100px;\n}\n.expense-multi-post-invoice-wrapper .total-box .discount-box ::ng-deep input {\n  width: 100px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZXhwZW5zZS10cmFja2VyL2NvbXBvbmVudHMvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9leHBlbnNlLXRyYWNrZXIvY29tcG9uZW50cy9leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS9leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL2ZvbnRzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBTUM7RUFDQyxlQUFBO0VBQ0EsZ0NBQUE7QUNMRjtBRE9DO0VBQ0Msa0JBQUE7RUFDQSxzQkVxSkk7RUZwSkosZ0JBQUE7RUFDQSxXQUFBO0FDTEY7QURPQztFQUNDLGtCQUFBO0FDTEY7QURNRTtFRzJDQSwrQkFBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0VBYUEsaUJBQUE7RUh6REMsY0V5RVE7RUZ4RVIseUJBQUE7RUFDQSxZQUFBO0VBQ0EsK0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0FDQUg7QURHQztFQUNDLGtCQUFBO0VBQ0EsaUJBQUE7QUNERjtBREdDO0VBQ0Msd0JBQUE7RUFDQSw2QkFBQTtFQUNBLGNBQUE7QUNERjtBREVFO0VBQ0MsY0V3RFE7RUZ2RFIsV0FBQTtFQUNBLGtCRW5DRTtFRm9DRixTQUFBO0FDQUg7QURFRTtFR0lBLHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFSEpDLGNFbURRO0VGbERSLGlCQUFBO0VHZ0NELGlCQUFBO0FGN0JGO0FEQUU7RUFDQyxlQUFBO0FDRUg7QURBSTtFQUNDLGNFQ0s7QURDVjtBREdDO0VBQ0Msa0JBQUE7QUNERjtBREVFO0VHckJBLHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7RUhtQkMsd0JBQUE7RUdnQkQsaUJBQUE7QUZYRjtBRERHO0VHbkJELHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFSG1CRSxvQkFBQTtFR1VGLGlCQUFBO0FGSkY7QURERztFQUNDLFlBQUE7QUNHSjtBREVJO0VBQ0MsWUFBQTtBQ0FMIiwiZmlsZSI6InNyYy9hcHAvYW1zL2V4cGVuc2UtdHJhY2tlci9jb21wb25lbnRzL2V4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlL2V4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cblxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIge1xuXHQuYWRkLWludm9pY2UtYmxvY2sge1xuXHRcdHBhZGRpbmc6IDEwcHggMDtcblx0XHRib3JkZXItYm90dG9tOiAxcHggc29saWQgJGdyZXktNDYwO1xuXHR9XG5cdC5pbnZvaWNlLXRhYmxlIHtcblx0XHQvKmRpc3BsYXk6IHRhYmxlOyovXG5cdFx0d2lkdGg6ICRmdWxsO1xuXHRcdG92ZXJmbG93OiBzY3JvbGw7XG5cdFx0ZmxvYXQ6IGxlZnQ7XG5cdH1cblx0Lmludm9pY2UtaGVhZGVyIHtcblx0XHRkaXNwbGF5OiB0YWJsZS1yb3c7XG5cdFx0LmhlYWRzIHtcblx0XHRcdEBpbmNsdWRlIGRlc3AtcmVndWxhcjtcblx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtdGlueSk7XG5cdFx0XHRjb2xvcjogJGdyZXktODAwO1xuXHRcdFx0dGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcblx0XHRcdGJvcmRlcjpub25lO1xuXHRcdFx0Ym9yZGVyLXJpZ2h0OiAxcHggc29saWQgJGdyZXktNDYwO1xuXHRcdFx0cGFkZGluZzogMTBweCAxNHB4O1xuXHRcdFx0ZGlzcGxheTogdGFibGUtY2VsbDtcblx0XHR9XG5cdH1cblx0Lmludm9pY2UtZmllbGRzIHtcblx0XHRkaXNwbGF5OiB0YWJsZS1yb3c7XG5cdFx0b3ZlcmZsb3c6IHZpc2libGU7XG5cdH1cblx0LmFkZC1pbnZvaWNlLWJveCB7XG5cdFx0cGFkZGluZzogMTJweCAwIDZweCAxMHB4O1xuXHRcdGJvcmRlci10b3A6IDFweCBzb2xpZCAkZ3JleS00NTA7XG5cdFx0b3ZlcmZsb3c6IGF1dG87XG5cdFx0Lmljb24ge1xuXHRcdFx0Y29sb3I6ICRncmV5LTgwMDtcblx0XHRcdHdpZHRoOiAxOHB4O1xuXHRcdFx0cG9zaXRpb246ICRyZWw7XG5cdFx0XHR0b3A6IC0ycHg7XG5cdFx0fVxuXHRcdHNwYW4ge1xuXHRcdFx0QGluY2x1ZGUgaGVhZC1tZWRpdW07XG5cdFx0XHRjb2xvcjogJGdyZXktNzAwO1xuXHRcdFx0bWFyZ2luOiAwIDAgMCA2cHg7XG5cdFx0XHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcblx0XHR9XG5cdFx0LmFkZC1pbnZvaWNlLWxpbmsge1xuXHRcdFx0Y3Vyc29yOiBwb2ludGVyO1xuXHRcdFx0Jjpob3ZlciB7XG5cdFx0XHRcdHNwYW4sIC5pY29uIHtcblx0XHRcdFx0XHRjb2xvcjogJG0tZ3JlZW47XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdH1cblx0LnRvdGFsLWJveCB7XG5cdFx0cGFkZGluZzogMTVweCAxNHB4O1xuXHRcdHAge1xuXHRcdFx0QGluY2x1ZGUgaGVhZC1yZWd1bGFyO1xuXHRcdFx0bWFyZ2luOiA4cHggMCAhaW1wb3J0YW50O1xuXHRcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1zbWFsbGVyKTtcblx0XHR9XG5cdFx0Ji5maW5hbCB7XG5cdFx0XHRwIHtcblx0XHRcdFx0QGluY2x1ZGUgaGVhZC1tZWRpdW07XG5cdFx0XHRcdG1hcmdpbjogMCAhaW1wb3J0YW50O1xuXHRcdFx0XHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcblx0XHRcdH1cblx0XHR9XG5cdFx0LmRpc2NvdW50LWlucHV0IHtcblx0XHRcdGlucHV0IHtcblx0XHRcdFx0d2lkdGg6IDEwMHB4O1xuXHRcdFx0fVxuXHRcdH1cblx0XHQuZGlzY291bnQtYm94IHtcblx0XHRcdDo6bmctZGVlcCB7XG5cdFx0XHRcdGlucHV0IHtcblx0XHRcdFx0XHR3aWR0aDogMTAwcHg7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdH1cbn0iLCIuZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYmxvY2sge1xuICBwYWRkaW5nOiAxMHB4IDA7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmludm9pY2UtdGFibGUge1xuICAvKmRpc3BsYXk6IHRhYmxlOyovXG4gIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gIG92ZXJmbG93OiBzY3JvbGw7XG4gIGZsb2F0OiBsZWZ0O1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmludm9pY2UtaGVhZGVyIHtcbiAgZGlzcGxheTogdGFibGUtcm93O1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmludm9pY2UtaGVhZGVyIC5oZWFkcyB7XG4gIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgZm9udC1zaXplOiAxLjJyZW07XG4gIGNvbG9yOiAjMzczOTQ2O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBib3JkZXI6IG5vbmU7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIHBhZGRpbmc6IDEwcHggMTRweDtcbiAgZGlzcGxheTogdGFibGUtY2VsbDtcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC5pbnZvaWNlLWZpZWxkcyB7XG4gIGRpc3BsYXk6IHRhYmxlLXJvdztcbiAgb3ZlcmZsb3c6IHZpc2libGU7XG59XG4uZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYm94IHtcbiAgcGFkZGluZzogMTJweCAwIDZweCAxMHB4O1xuICBib3JkZXItdG9wOiAxcHggc29saWQgI2VhZWFlYTtcbiAgb3ZlcmZsb3c6IGF1dG87XG59XG4uZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYm94IC5pY29uIHtcbiAgY29sb3I6ICMzNzM5NDY7XG4gIHdpZHRoOiAxOHB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHRvcDogLTJweDtcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ib3ggc3BhbiB7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xuICBjb2xvcjogIzU4NTg1ODtcbiAgbWFyZ2luOiAwIDAgMCA2cHg7XG4gIGZvbnQtc2l6ZTogMS40cmVtO1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmFkZC1pbnZvaWNlLWJveCAuYWRkLWludm9pY2UtbGluayB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ib3ggLmFkZC1pbnZvaWNlLWxpbms6aG92ZXIgc3BhbiwgLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmFkZC1pbnZvaWNlLWJveCAuYWRkLWludm9pY2UtbGluazpob3ZlciAuaWNvbiB7XG4gIGNvbG9yOiAjNTRiOTQxO1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLnRvdGFsLWJveCB7XG4gIHBhZGRpbmc6IDE1cHggMTRweDtcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC50b3RhbC1ib3ggcCB7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgbWFyZ2luOiA4cHggMCAhaW1wb3J0YW50O1xuICBmb250LXNpemU6IDEuM3JlbTtcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC50b3RhbC1ib3guZmluYWwgcCB7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xuICBtYXJnaW46IDAgIWltcG9ydGFudDtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG4uZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94IC5kaXNjb3VudC1pbnB1dCBpbnB1dCB7XG4gIHdpZHRoOiAxMDBweDtcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC50b3RhbC1ib3ggLmRpc2NvdW50LWJveCA6Om5nLWRlZXAgaW5wdXQge1xuICB3aWR0aDogMTAwcHg7XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".expense-multi-post-invoice-wrapper .add-invoice-block {\n  padding: 10px 0;\n  border-bottom: 1px solid #dee2e6;\n}\n.expense-multi-post-invoice-wrapper .invoice-table {\n  /*display: table;*/\n  width: 100% !important;\n  overflow: scroll;\n  float: left;\n}\n.expense-multi-post-invoice-wrapper .invoice-header {\n  display: table-row;\n}\n.expense-multi-post-invoice-wrapper .invoice-header .heads {\n  font-family: \"Lato\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  font-size: 1.2rem;\n  color: #373946;\n  text-transform: uppercase;\n  border: none;\n  border-right: 1px solid #dee2e6;\n  padding: 10px 14px;\n  display: table-cell;\n}\n.expense-multi-post-invoice-wrapper .invoice-fields {\n  display: table-row;\n  overflow: visible;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box {\n  padding: 12px 0 6px 10px;\n  border-top: 1px solid #eaeaea;\n  overflow: auto;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box .icon {\n  color: #373946;\n  width: 18px;\n  position: relative;\n  top: -2px;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box span {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  color: #585858;\n  margin: 0 0 0 6px;\n  font-size: 1.4rem;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box .add-invoice-link {\n  cursor: pointer;\n}\n.expense-multi-post-invoice-wrapper .add-invoice-box .add-invoice-link:hover span, .expense-multi-post-invoice-wrapper .add-invoice-box .add-invoice-link:hover .icon {\n  color: #54b941;\n}\n.expense-multi-post-invoice-wrapper .total-box {\n  padding: 15px 14px;\n}\n.expense-multi-post-invoice-wrapper .total-box p {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  margin: 8px 0 !important;\n  font-size: 1.3rem;\n}\n.expense-multi-post-invoice-wrapper .total-box.final p {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  margin: 0 !important;\n  font-size: 1.4rem;\n}\n.expense-multi-post-invoice-wrapper .total-box .discount-input input {\n  width: 100px;\n}\n.expense-multi-post-invoice-wrapper .total-box .discount-box ::ng-deep input {\n  width: 100px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZXhwZW5zZS10cmFja2VyL2NvbXBvbmVudHMvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UvZXhwZW5zZS1wb3N0LW11bHRpLWludm9pY2UuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9leHBlbnNlLXRyYWNrZXIvY29tcG9uZW50cy9leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS9leHBlbnNlLXBvc3QtbXVsdGktaW52b2ljZS5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL2ZvbnRzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBTUM7RUFDQyxlQUFBO0VBQ0EsZ0NBQUE7QUNMRjtBRE9DO0VBQ0Msa0JBQUE7RUFDQSxzQkVxSkk7RUZwSkosZ0JBQUE7RUFDQSxXQUFBO0FDTEY7QURPQztFQUNDLGtCQUFBO0FDTEY7QURNRTtFRzJDQSwrQkFBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0VBYUEsaUJBQUE7RUh6REMsY0V5RVE7RUZ4RVIseUJBQUE7RUFDQSxZQUFBO0VBQ0EsK0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0FDQUg7QURHQztFQUNDLGtCQUFBO0VBQ0EsaUJBQUE7QUNERjtBREdDO0VBQ0Msd0JBQUE7RUFDQSw2QkFBQTtFQUNBLGNBQUE7QUNERjtBREVFO0VBQ0MsY0V3RFE7RUZ2RFIsV0FBQTtFQUNBLGtCRW5DRTtFRm9DRixTQUFBO0FDQUg7QURFRTtFR0lBLHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFSEpDLGNFbURRO0VGbERSLGlCQUFBO0VHZ0NELGlCQUFBO0FGN0JGO0FEQUU7RUFDQyxlQUFBO0FDRUg7QURBSTtFQUNDLGNFQ0s7QURDVjtBREdDO0VBQ0Msa0JBQUE7QUNERjtBREVFO0VHckJBLHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7RUhtQkMsd0JBQUE7RUdnQkQsaUJBQUE7QUZYRjtBRERHO0VHbkJELHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFSG1CRSxvQkFBQTtFR1VGLGlCQUFBO0FGSkY7QURERztFQUNDLFlBQUE7QUNHSjtBREVJO0VBQ0MsWUFBQTtBQ0FMIiwiZmlsZSI6InNyYy9hcHAvYW1zL2V4cGVuc2UtdHJhY2tlci9jb21wb25lbnRzL2V4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlL2V4cGVuc2UtcG9zdC1tdWx0aS1pbnZvaWNlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cblxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIge1xuXHQuYWRkLWludm9pY2UtYmxvY2sge1xuXHRcdHBhZGRpbmc6IDEwcHggMDtcblx0XHRib3JkZXItYm90dG9tOiAxcHggc29saWQgJGdyZXktNDYwO1xuXHR9XG5cdC5pbnZvaWNlLXRhYmxlIHtcblx0XHQvKmRpc3BsYXk6IHRhYmxlOyovXG5cdFx0d2lkdGg6ICRmdWxsO1xuXHRcdG92ZXJmbG93OiBzY3JvbGw7XG5cdFx0ZmxvYXQ6IGxlZnQ7XG5cdH1cblx0Lmludm9pY2UtaGVhZGVyIHtcblx0XHRkaXNwbGF5OiB0YWJsZS1yb3c7XG5cdFx0LmhlYWRzIHtcblx0XHRcdEBpbmNsdWRlIGRlc3AtcmVndWxhcjtcblx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtdGlueSk7XG5cdFx0XHRjb2xvcjogJGdyZXktODAwO1xuXHRcdFx0dGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcblx0XHRcdGJvcmRlcjpub25lO1xuXHRcdFx0Ym9yZGVyLXJpZ2h0OiAxcHggc29saWQgJGdyZXktNDYwO1xuXHRcdFx0cGFkZGluZzogMTBweCAxNHB4O1xuXHRcdFx0ZGlzcGxheTogdGFibGUtY2VsbDtcblx0XHR9XG5cdH1cblx0Lmludm9pY2UtZmllbGRzIHtcblx0XHRkaXNwbGF5OiB0YWJsZS1yb3c7XG5cdFx0b3ZlcmZsb3c6IHZpc2libGU7XG5cdH1cblx0LmFkZC1pbnZvaWNlLWJveCB7XG5cdFx0cGFkZGluZzogMTJweCAwIDZweCAxMHB4O1xuXHRcdGJvcmRlci10b3A6IDFweCBzb2xpZCAkZ3JleS00NTA7XG5cdFx0b3ZlcmZsb3c6IGF1dG87XG5cdFx0Lmljb24ge1xuXHRcdFx0Y29sb3I6ICRncmV5LTgwMDtcblx0XHRcdHdpZHRoOiAxOHB4O1xuXHRcdFx0cG9zaXRpb246ICRyZWw7XG5cdFx0XHR0b3A6IC0ycHg7XG5cdFx0fVxuXHRcdHNwYW4ge1xuXHRcdFx0QGluY2x1ZGUgaGVhZC1tZWRpdW07XG5cdFx0XHRjb2xvcjogJGdyZXktNzAwO1xuXHRcdFx0bWFyZ2luOiAwIDAgMCA2cHg7XG5cdFx0XHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcblx0XHR9XG5cdFx0LmFkZC1pbnZvaWNlLWxpbmsge1xuXHRcdFx0Y3Vyc29yOiBwb2ludGVyO1xuXHRcdFx0Jjpob3ZlciB7XG5cdFx0XHRcdHNwYW4sIC5pY29uIHtcblx0XHRcdFx0XHRjb2xvcjogJG0tZ3JlZW47XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdH1cblx0LnRvdGFsLWJveCB7XG5cdFx0cGFkZGluZzogMTVweCAxNHB4O1xuXHRcdHAge1xuXHRcdFx0QGluY2x1ZGUgaGVhZC1yZWd1bGFyO1xuXHRcdFx0bWFyZ2luOiA4cHggMCAhaW1wb3J0YW50O1xuXHRcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1zbWFsbGVyKTtcblx0XHR9XG5cdFx0Ji5maW5hbCB7XG5cdFx0XHRwIHtcblx0XHRcdFx0QGluY2x1ZGUgaGVhZC1tZWRpdW07XG5cdFx0XHRcdG1hcmdpbjogMCAhaW1wb3J0YW50O1xuXHRcdFx0XHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcblx0XHRcdH1cblx0XHR9XG5cdFx0LmRpc2NvdW50LWlucHV0IHtcblx0XHRcdGlucHV0IHtcblx0XHRcdFx0d2lkdGg6IDEwMHB4O1xuXHRcdFx0fVxuXHRcdH1cblx0XHQuZGlzY291bnQtYm94IHtcblx0XHRcdDo6bmctZGVlcCB7XG5cdFx0XHRcdGlucHV0IHtcblx0XHRcdFx0XHR3aWR0aDogMTAwcHg7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdH1cbn1cbiIsIi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ibG9jayB7XG4gIHBhZGRpbmc6IDEwcHggMDtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZWUyZTY7XG59XG4uZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAuaW52b2ljZS10YWJsZSB7XG4gIC8qZGlzcGxheTogdGFibGU7Ki9cbiAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcbiAgb3ZlcmZsb3c6IHNjcm9sbDtcbiAgZmxvYXQ6IGxlZnQ7XG59XG4uZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAuaW52b2ljZS1oZWFkZXIge1xuICBkaXNwbGF5OiB0YWJsZS1yb3c7XG59XG4uZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAuaW52b2ljZS1oZWFkZXIgLmhlYWRzIHtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICBmb250LXNpemU6IDEuMnJlbTtcbiAgY29sb3I6ICMzNzM5NDY7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gIGJvcmRlcjogbm9uZTtcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgcGFkZGluZzogMTBweCAxNHB4O1xuICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmludm9pY2UtZmllbGRzIHtcbiAgZGlzcGxheTogdGFibGUtcm93O1xuICBvdmVyZmxvdzogdmlzaWJsZTtcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ib3gge1xuICBwYWRkaW5nOiAxMnB4IDAgNnB4IDEwcHg7XG4gIGJvcmRlci10b3A6IDFweCBzb2xpZCAjZWFlYWVhO1xuICBvdmVyZmxvdzogYXV0bztcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ib3ggLmljb24ge1xuICBjb2xvcjogIzM3Mzk0NjtcbiAgd2lkdGg6IDE4cHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAtMnB4O1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmFkZC1pbnZvaWNlLWJveCBzcGFuIHtcbiAgZm9udC1mYW1pbHk6IFwiTW9udHNlcnJhdFwiLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG4gIGNvbG9yOiAjNTg1ODU4O1xuICBtYXJnaW46IDAgMCAwIDZweDtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG4uZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYm94IC5hZGQtaW52b2ljZS1saW5rIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmFkZC1pbnZvaWNlLWJveCAuYWRkLWludm9pY2UtbGluazpob3ZlciBzcGFuLCAuZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYm94IC5hZGQtaW52b2ljZS1saW5rOmhvdmVyIC5pY29uIHtcbiAgY29sb3I6ICM1NGI5NDE7XG59XG4uZXhwZW5zZS1tdWx0aS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94IHtcbiAgcGFkZGluZzogMTVweCAxNHB4O1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLnRvdGFsLWJveCBwIHtcbiAgZm9udC1mYW1pbHk6IFwiTW9udHNlcnJhdFwiLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICBtYXJnaW46IDhweCAwICFpbXBvcnRhbnQ7XG4gIGZvbnQtc2l6ZTogMS4zcmVtO1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLnRvdGFsLWJveC5maW5hbCBwIHtcbiAgZm9udC1mYW1pbHk6IFwiTW9udHNlcnJhdFwiLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBmb250LXNpemU6IDEuNHJlbTtcbn1cbi5leHBlbnNlLW11bHRpLXBvc3QtaW52b2ljZS13cmFwcGVyIC50b3RhbC1ib3ggLmRpc2NvdW50LWlucHV0IGlucHV0IHtcbiAgd2lkdGg6IDEwMHB4O1xufVxuLmV4cGVuc2UtbXVsdGktcG9zdC1pbnZvaWNlLXdyYXBwZXIgLnRvdGFsLWJveCAuZGlzY291bnQtYm94IDo6bmctZGVlcCBpbnB1dCB7XG4gIHdpZHRoOiAxMDBweDtcbn0iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iXX0= */");
 
 /***/ }),
 
@@ -815,6 +1053,7 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
         this.isInvoiceSubmitted = true;
         this.isFormInValid = true;
         this.isVendorDataLoaded = false;
+        this.vendorinvoiceTaxArray = [];
     }
     getCategoryName(id) {
         var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.vendorCategoryData, function (item) {
@@ -863,6 +1102,7 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
             "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
             "isWthtaxAmount": true,
             "wthtaxAmountId": "",
+            "withHoldingDirectAmt": 0,
             "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount)
         };
         this.invoiceVendorAccountsArray.push(details);
@@ -875,8 +1115,84 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
             }
         });
     }
+    getCustTaxInvoiceParams(event) {
+        if (event.isAdded) {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.vatTypeDataList, item => {
+                if (item.lookupValueId == event.invoiceTaxId) {
+                    item.custVatTypeAmount = item.custVatTypeAmount + event.invoiceTotalAmount;
+                }
+            });
+            this.vendorinvoiceTaxArray.push(event);
+        }
+        else {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.vatTypeDataList, item => {
+                if (item.lookupValueId == event.invoiceTaxId) {
+                    item.custVatTypeAmount = item.custVatTypeAmount - event.invoiceTotalAmount;
+                }
+            });
+            this.vendorinvoiceTaxArray = this.vendorinvoiceTaxArray.filter(item => {
+                return item.invoiceTaxId != event.invoiceTaxId;
+            });
+        }
+    }
+    onDiscountGenChange(event) {
+        if (event != null) {
+            this.invoice.isFinalDiscount = true;
+            this.invoice.finalDiscountTypeName = event.lookupValueName;
+            this.invoice.invoicefinaldiscountId = event.lookupValueId.toString();
+            this.onDiscountFinalAdded(this.invoice.invoicefinalinputdiscount);
+        }
+        else {
+            this.invoice.isFinalDiscount = false;
+            this.invoice.invoicefinalinputdiscount = 0;
+            this.invoice.invoicefinaldiscount = 0;
+            this.invoice.finalDiscountTypeName = "";
+            this.invoice.invoicefinaldiscountId = "";
+        }
+        this.getFieldParams(this.invoiceVendorAccountsArray);
+    }
+    onDiscountFinalAdded(value) {
+        if (this.invoice.finalDiscountTypeName == '%') {
+            this.calculateDiscountPercent(value);
+        }
+        else if (this.invoice.finalDiscountTypeName == 'Pesos') {
+            this.calculateDiscountPeso(value);
+        }
+        else {
+            this.invoice.invoicefinaldiscount = 0;
+        }
+    }
+    calculateDiscountPercent(value) {
+        var totalVatAmount = 0;
+        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceVendorAccountsArray, item => {
+            totalVatAmount = totalVatAmount + item.vatamount;
+        });
+        if (value != null) {
+            var percent = parseFloat(value) / 100;
+            this.invoice.invoicefinaldiscount = (this.invoice.subAmountAfterdiscount + totalVatAmount) * percent;
+        }
+        else {
+            this.invoice.invoicefinaldiscount = 0;
+        }
+        this.getFieldParams(this.invoiceVendorAccountsArray);
+    }
+    calculateDiscountPeso(value) {
+        if (value != null) {
+            this.invoice.invoicefinaldiscount = parseFloat(value);
+        }
+        else {
+            this.invoice.invoicefinaldiscount = 0;
+        }
+        this.getFieldParams(this.invoiceVendorAccountsArray);
+    }
     getFieldParams(event) {
         this.invoiceVendorAccountsArray = event;
+        var self = this;
+        self.invoice.subAmountAfterdiscount = 0;
+        self.invoice.totalVatamount = 0;
+        self.invoice.totalDiscount = 0;
+        self.invoice.custInvoiceAmount = 0;
+        self.invoice.totalWthtaxAmount = 0;
         underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceVendorAccountsArray, item => {
             if (item.form) {
                 this.isFormInValid = false;
@@ -884,67 +1200,162 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
             else {
                 this.isFormInValid = true;
             }
+            self.invoice.subAmountAfterdiscount = self.invoice.subAmountAfterdiscount + item.lineAmountAfterDiscount;
+            self.invoice.totalDiscount = self.invoice.totalDiscount + item.discountAmount;
+            self.invoice.totalVatamount = self.invoice.totalVatamount + item.vatamount;
+            console.log(item.withHoldingDirectAmt);
+            console.log(self.invoice.totalWthtaxAmount);
+            if (this.invoiceVendorAccountsArray.length == 1) {
+                self.invoice.totalWthtaxAmount = self.invoice.totalWthtaxAmount + (self.invoice.subAmountAfterdiscount - self.invoice.totalVatamount) * item.withHoldingDirectAmt;
+            }
+            else {
+                self.invoice.totalWthtaxAmount = self.invoice.totalWthtaxAmount + (self.invoice.subAmountAfterdiscount - self.invoice.totalVatamount) * item.withHoldingDirectAmt;
+            }
+            self.invoice.vendorInvoiceAmount = (parseFloat(self.invoice.subAmountAfterdiscount) + parseFloat(self.invoice.totalVatamount) - parseFloat(self.invoice.totalWthtaxAmount)).toFixed(2);
         });
     }
     submitExpenseMultiInvoiceForm(form) {
         this.isInvoiceSubmitted = false;
         var self = this;
-        this.invoiceVendorAccountsArray.map(function (item) {
-            self.invoice.vendorInvoiceAmount = self.invoice.vendorInvoiceAmount + item.amount;
+        this.invoiceVendorAccountsArray.map(item => {
+            delete item.form;
             delete item.form;
             return item;
         });
-        let details = {
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-            "invoiceId": 0,
-            "glaccountId": this.invoiceVendorAccountsData.glaccountId,
-            "comments": this.invoiceVendorAccountsData.comments,
-            "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
-            "insertedOn": new Date().toISOString(),
-            "updatedBy": null,
-            "updatedOn": new Date().toISOString(),
-            "tax1": 0,
-            "tax2": 0,
-            "tax3": 0,
-            "deductTax": 0,
-            "amount": parseFloat(this.invoiceVendorAccountsData.amount),
-            "vatamount": parseFloat(this.invoiceVendorAccountsData.vatamount),
-            "tax1Amount": parseFloat(this.invoiceVendorAccountsData.tax1Amount),
-            "tax2Amount": parseFloat(this.invoiceVendorAccountsData.tax2Amount),
-            "tax3Amount": parseFloat(this.invoiceVendorAccountsData.tax3Amount),
-            "vatid": "",
-            "tax1Id": "",
-            "tax2Id": "",
-            "tax3Id": "",
-            "discountId": "",
-            "discountAmount": parseFloat(this.invoiceVendorAccountsData.discountAmount),
-            "isDiscount": true,
-            "discountTypeId": "",
-            "discountDirectAmt": parseFloat(this.invoiceVendorAccountsData.discountDirectAmt),
-            "glaccountName": this.invoiceVendorAccountsData.glaccountName,
-            "isTax1Vat": true,
-            "tax1Vatid": "",
-        };
-        let params = {
-            invoice: details
-        };
-        this.accountsService.addVendorInvoice(params).subscribe((res) => {
-            if (res.message) {
-                this.isInvoiceSubmitted = true;
-                this.sharedService.setAlertMessage("Expense added successfully");
-                this.router.navigate(['ams/expense/subledger']);
-            }
-            else {
-                this.isInvoiceSubmitted = true;
-            }
-        }, error => {
-            this.isInvoiceSubmitted = true;
+        this.vendorinvoiceTaxArray.map(item => {
+            delete item.isAdded;
+            return item;
         });
+        if (!this.isEditInvoice) {
+            let details = {
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "vendorId": parseInt(this.route.params['value'].id),
+                "vendorInvoiceNumber": this.invoice.vendorInvoiceNumber,
+                "vendorInvoiceAmount": parseFloat(this.invoice.vendorInvoiceAmount),
+                "vendorInvoiceDate": this.invoice.vendorInvoiceDate,
+                "dueDate": this.invoice.dueDate,
+                "tax1": 0,
+                "tax2": 0,
+                "tax3": 0,
+                "deductTax": 0,
+                "expenseHeadId": 0,
+                "payeeName": 0,
+                "isEmailSent": true,
+                "isSmssent": true,
+                "vendorInvoiceStatusId": 0,
+                "postedBy": parseInt(this.cookieService.get('userId')),
+                "postedOn": new Date().toISOString(),
+                "voucherNumber": "",
+                "comments": this.invoice.comments,
+                "isActive": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null,
+                "transReference1": "",
+                "transReference2": "",
+                "serialNo": 0,
+                "totalWthtaxAmount": 0,
+                "totalVatamount": 0,
+                "totalInvoiceDiscount": 0,
+                "isdiscount": this.invoice.isDiscount,
+                "isVat": this.invoice.isVat,
+                "subAmountAfterdiscount": this.invoice.subAmountAfterdiscount,
+                "isApprovedforpayment": true,
+                "vendorInvoiceGlaccount": this.invoiceVendorAccountsArray,
+                "vendorinvoiceTax": this.vendorinvoiceTaxArray
+            };
+            let params = {
+                invoice: details
+            };
+            this.accountsService.addCustInvoice(params).subscribe((res) => {
+                if (res.message) {
+                    this.isInvoiceSubmitted = true;
+                    this.sharedService.setAlertMessage("All Invoices added successfully");
+                    this.router.navigate(['ams/income/subledger']);
+                }
+                else {
+                    this.isInvoiceSubmitted = true;
+                }
+            }, error => {
+                this.isInvoiceSubmitted = true;
+            });
+        }
+        else {
+            let details = {
+                "custInvoiceId": this.invoice.custInvoiceId,
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
+                "custInvoiceDate": this.invoice.custInvoiceDate,
+                "dueDate": this.invoice.dueDate,
+                "tax1": this.invoice.tax1,
+                "tax2": this.invoice.tax2,
+                "tax3": this.invoice.tax3,
+                "isTax": this.invoice.isTax,
+                "isRecurCustInvoice": this.invoice.isRecurCustInvoice,
+                "isEmailSent": this.invoice.isEmailSent,
+                "isSmssent": this.invoice.isSmssent,
+                "custInvoiceStatusId": this.invoice.custInvoiceStatusId,
+                "postedBy": parseInt(this.cookieService.get('userId')),
+                "postedOn": this.invoice.postedOn,
+                "billToPay": this.invoice.billToPay,
+                "comments": this.invoice.comments,
+                "penaltyAmount": this.invoice.penaltyAmount,
+                "penaltyComment": this.invoice.penaltyComment,
+                "isActive": this.invoice.isActive,
+                "insertedBy": this.invoice.insertedBy,
+                "insertedOn": this.invoice.insertedOn,
+                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedOn": new Date().toISOString(),
+                "transReference1": this.invoice.transReference1,
+                "transReference2": this.invoice.transReference2,
+                "totalVatamount": this.invoice.totalVatamount,
+                "totalOtherTaxes": this.invoice.totalOtherTaxes,
+                "totalDiscount": this.invoice.totalDiscount,
+                "isDiscount": this.invoice.isDiscount,
+                "subAmount": this.invoice.subAmount,
+                "isFinalDiscount": this.invoice.isFinalDiscount,
+                "invoicefinaldiscount": this.invoice.invoicefinaldiscount,
+                "invoicefinalinputdiscount": this.invoice.invoicefinalinputdiscount,
+                "invoicefinaldiscountId": this.invoice.invoicefinaldiscountId,
+                "finalDiscountTypeName": this.invoice.finalDiscountTypeName,
+                "vendorInvoiceGlaccount": this.invoiceVendorAccountsArray,
+                "vendorinvoiceTax": this.vendorinvoiceTaxArray
+            };
+            let params = {
+                invoice: details
+            };
+            this.accountsService.updateCustInvoice(params).subscribe((res) => {
+                if (res.message) {
+                    this.isInvoiceSubmitted = true;
+                    this.sharedService.setAlertMessage("All Invoices updated successfully");
+                    this.router.navigate(['ams/income/subledger']);
+                }
+                else {
+                    this.isInvoiceSubmitted = true;
+                }
+            }, error => {
+                this.isInvoiceSubmitted = true;
+            });
+        }
     }
     ngOnInit() {
         this.invoice = {};
         this.invoice.vendorInvoiceAmount = 0;
+        this.invoice.isTax = false;
+        this.invoice.isDiscount = false;
+        this.invoice.subAmountAfterdiscount = 0;
+        this.invoice.isFinalDiscount = false;
+        this.invoice.invoicefinaldiscount = 0;
+        this.invoice.invoicefinalinputdiscount = 0;
+        this.invoice.invoicefinaldiscountId = "";
+        this.invoice.finalDiscountTypeName = "";
+        this.invoice.custInvoiceVatAmount = 0;
+        this.invoice.custInvoiceAddVatAmount = 0;
+        this.invoice.custInvoiceAmount = 0;
+        this.invoice.isRecurCustInvoice = true;
+        this.invoice.custInvoiceDate = new Date().toISOString();
         this.invoiceVendorAccountsData = {};
         this.invoiceVendorAccountsData.glaccountId = "";
         this.invoiceVendorAccountsData.glaccountName = "";
@@ -964,6 +1375,7 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
         this.invoiceVendorAccountsData.tax2Amount = 0;
         this.invoiceVendorAccountsData.tax3Id = "";
         this.invoiceVendorAccountsData.tax3Amount = 0;
+        this.invoiceVendorAccountsData.withHoldingDirectAmt = 0;
         this.invoiceVendorAccountsArray = [
             {
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
@@ -999,6 +1411,7 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
                 "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
                 "isWthtaxAmount": true,
                 "wthtaxAmountId": "",
+                "withHoldingDirectAmt": parseFloat(this.invoiceVendorAccountsData.withHoldingDirectAmt),
                 "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount)
             },
             {
@@ -1035,6 +1448,7 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
                 "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
                 "isWthtaxAmount": true,
                 "wthtaxAmountId": "",
+                "withHoldingDirectAmt": parseFloat(this.invoiceVendorAccountsData.withHoldingDirectAmt),
                 "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount)
             }
         ];
