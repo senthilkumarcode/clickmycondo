@@ -535,7 +535,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | announcements-announcements-module */
-          [__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("announcements-announcements-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("announcements-announcements-module")]).then(__webpack_require__.bind(null,
           /*! ./announcements/announcements.module */
           "./src/app/user/announcements/announcements.module.ts")).then(function (m) {
             return m.AnnouncementsModule;

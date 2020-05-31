@@ -310,28 +310,28 @@ let AddViolationComponent = class AddViolationComponent {
             DisputedComment: '',
             ViolationOccurrence: 0
         };
-        this.violationService.addViolations(params).subscribe((res) => {
-            if (res) {
-                this.sharedService.setAlertMessage(res.message);
-                this.violationData = {
-                    primaryContactName: '',
-                    UnitTower: '',
-                    ParkingSlot: '',
-                    violationCategory: '',
-                    violationRuleNo: '',
-                    violationComments: '',
-                    violationNoticedOn: '',
-                    violationOccurence: '',
-                    unitOwnerName: '',
-                    penaltyAmt: '',
-                    raisedBy: '',
-                    invoiceNo: '',
-                    invoiceTrigger: ''
-                };
-            }
-            else {
-            }
-        });
+        // this.violationService.addViolations(params).subscribe((res: any) => {
+        //   if (res) {
+        //     this.sharedService.setAlertMessage(res.message);
+        //     this.violationData={
+        //       primaryContactName:'',
+        //       UnitTower:'',
+        //       ParkingSlot:'',
+        //       violationCategory:'',
+        //       violationRuleNo:'',
+        //       violationComments:'',
+        //       violationNoticedOn:'',
+        //       violationOccurence:'',
+        //       unitOwnerName:'',
+        //       penaltyAmt:'',
+        //       raisedBy:'',
+        //       invoiceNo:'',
+        //       invoiceTrigger:''
+        //     }
+        //           }
+        //   else {
+        //   }
+        // });
     }
 };
 AddViolationComponent.ctorParameters = () => [
@@ -1336,13 +1336,13 @@ let EditViolationComponent = class EditViolationComponent {
             Id: this.violationId,
             DisputedComment: ''
         };
-        this.violationService.updateViolations(params).subscribe((res) => {
-            if (res) {
-                this.sharedService.setAlertMessage(res.message);
-            }
-            else {
-            }
-        });
+        // this.violationService.updateViolations(params).subscribe((res: any) => {
+        //   if (res) {
+        //     this.sharedService.setAlertMessage(res.message);
+        //           }
+        //   else {
+        //   }
+        // });
     }
 };
 EditViolationComponent.ctorParameters = () => [

@@ -5288,16 +5288,16 @@ let ProfileInterestGroupComponent = class ProfileInterestGroupComponent {
         let queryParamBase = {
             apartmentId: this.apartmentID
         };
-        this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe((res) => {
+        this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe((res) => {
             var allBroadcastGroupCategory = res;
             //filter active true items
             this.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(data => {
                 return data.isActive;
             });
-            this.adminInterestGroupCategory = allBroadcastGroupCategory.filter(data => {
+            this.adminInterestGroupCategory = this.allBroadcastGroupCategory.filter(data => {
                 return data.privilege == "Admin";
             });
-            this.userInterestGroupCategory = allBroadcastGroupCategory.filter(data => {
+            this.userInterestGroupCategory = this.allBroadcastGroupCategory.filter(data => {
                 return data.privilege.includes("All");
             });
             this.getAllGoupUsers();

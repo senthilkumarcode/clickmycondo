@@ -5334,15 +5334,15 @@ const routes = [
             { path: 'dashboard', loadChildren: () => __webpack_require__.e(/*! import() | dashboard-dashboard-module */ "dashboard-dashboard-module").then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/ams/dashboard/dashboard.module.ts")).then(m => m.DashboardModule) },
             { path: 'my-property', loadChildren: () => Promise.all(/*! import() | my-property-my-property-module */[__webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("my-property-my-property-module")]).then(__webpack_require__.bind(null, /*! ./my-property/my-property.module */ "./src/app/ams/my-property/my-property.module.ts")).then(m => m.MyPropertyModule) },
             { path: 'unit&users', loadChildren: () => Promise.all(/*! import() | unit-users-unit-users-module */[__webpack_require__.e("default~my-profile-my-profile-module~unit-users-unit-users-module"), __webpack_require__.e("unit-users-unit-users-module")]).then(__webpack_require__.bind(null, /*! ./unit-users/unit-users.module */ "./src/app/ams/unit-users/unit-users.module.ts")).then(m => m.UnitUsersModule) },
-            { path: 'inbox', loadChildren: () => __webpack_require__.e(/*! import() | ams-inbox-ams-inbox-module */ "ams-inbox-ams-inbox-module").then(__webpack_require__.bind(null, /*! ./ams-inbox/ams-inbox.module */ "./src/app/ams/ams-inbox/ams-inbox.module.ts")).then(m => m.AmsInboxModule) },
+            { path: 'inbox', loadChildren: () => Promise.all(/*! import() | ams-inbox-ams-inbox-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("ams-inbox-ams-inbox-module")]).then(__webpack_require__.bind(null, /*! ./ams-inbox/ams-inbox.module */ "./src/app/ams/ams-inbox/ams-inbox.module.ts")).then(m => m.AmsInboxModule) },
             { path: 'helpdesk', loadChildren: () => __webpack_require__.e(/*! import() | helpdesk-helpdesk-module */ "helpdesk-helpdesk-module").then(__webpack_require__.bind(null, /*! ./helpdesk/helpdesk.module */ "./src/app/ams/helpdesk/helpdesk.module.ts")).then(m => m.HelpdeskModule) },
             { path: 'income', loadChildren: () => Promise.all(/*! import() | income-tracker-income-tracker-module */[__webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("income-tracker-income-tracker-module")]).then(__webpack_require__.bind(null, /*! ./income-tracker/income-tracker.module */ "./src/app/ams/income-tracker/income-tracker.module.ts")).then(m => m.IncomeTrackerModule) },
             { path: 'expense', loadChildren: () => __webpack_require__.e(/*! import() | expense-tracker-expense-tracker-module */ "expense-tracker-expense-tracker-module").then(__webpack_require__.bind(null, /*! ./expense-tracker/expense-tracker.module */ "./src/app/ams/expense-tracker/expense-tracker.module.ts")).then(m => m.ExpenseTrackerModule) },
             { path: 'general-ledger', loadChildren: () => __webpack_require__.e(/*! import() | general-ledger-general-ledger-module */ "general-ledger-general-ledger-module").then(__webpack_require__.bind(null, /*! ./general-ledger/general-ledger.module */ "./src/app/ams/general-ledger/general-ledger.module.ts")).then(m => m.GeneralLedgerModule) },
             { path: 'bank', loadChildren: () => __webpack_require__.e(/*! import() | bank-cash-bank-cash-module */ "bank-cash-bank-cash-module").then(__webpack_require__.bind(null, /*! ./bank-cash/bank-cash.module */ "./src/app/ams/bank-cash/bank-cash.module.ts")).then(m => m.BankCashModule) },
-            { path: 'work-permit', loadChildren: () => Promise.all(/*! import() | work-permit-work-permit-module */[__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null, /*! ./work-permit/work-permit.module */ "./src/app/ams/work-permit/work-permit.module.ts")).then(m => m.WorkPermitModule) },
+            { path: 'work-permit', loadChildren: () => Promise.all(/*! import() | work-permit-work-permit-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null, /*! ./work-permit/work-permit.module */ "./src/app/ams/work-permit/work-permit.module.ts")).then(m => m.WorkPermitModule) },
             { path: 'utility', loadChildren: () => __webpack_require__.e(/*! import() | utility-utility-module */ "utility-utility-module").then(__webpack_require__.bind(null, /*! ./utility/utility.module */ "./src/app/ams/utility/utility.module.ts")).then(m => m.UtilityModule) },
-            { path: 'broadcast', loadChildren: () => Promise.all(/*! import() | broadcast-broadcast-module */[__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null, /*! ./broadcast/broadcast.module */ "./src/app/ams/broadcast/broadcast.module.ts")).then(m => m.BroadcastModule) },
+            { path: 'broadcast', loadChildren: () => Promise.all(/*! import() | broadcast-broadcast-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null, /*! ./broadcast/broadcast.module */ "./src/app/ams/broadcast/broadcast.module.ts")).then(m => m.BroadcastModule) },
             { path: 'security', loadChildren: () => __webpack_require__.e(/*! import() | security-security-module */ "security-security-module").then(__webpack_require__.bind(null, /*! ./security/security.module */ "./src/app/ams/security/security.module.ts")).then(m => m.SecurityModule) },
             { path: 'visitor', loadChildren: () => __webpack_require__.e(/*! import() | visitor-visitor-module */ "visitor-visitor-module").then(__webpack_require__.bind(null, /*! ./visitor/visitor.module */ "./src/app/ams/visitor/visitor.module.ts")).then(m => m.VisitorModule) },
             { path: 'staff', loadChildren: () => __webpack_require__.e(/*! import() | staff-manager-staff-manager-module */ "staff-manager-staff-manager-module").then(__webpack_require__.bind(null, /*! ./staff-manager/staff-manager.module */ "./src/app/ams/staff-manager/staff-manager.module.ts")).then(m => m.StaffManagerModule) },
@@ -5352,9 +5352,9 @@ const routes = [
             { path: 'parcel-delivery', loadChildren: () => __webpack_require__.e(/*! import() | parcel-delivery-parcel-delivery-module */ "parcel-delivery-parcel-delivery-module").then(__webpack_require__.bind(null, /*! ./parcel-delivery/parcel-delivery.module */ "./src/app/ams/parcel-delivery/parcel-delivery.module.ts")).then(m => m.ParcelDeliveryModule) },
             { path: 'parking-management', loadChildren: () => __webpack_require__.e(/*! import() | parking-management-parking-management-module */ "parking-management-parking-management-module").then(__webpack_require__.bind(null, /*! ./parking-management/parking-management.module */ "./src/app/ams/parking-management/parking-management.module.ts")).then(m => m.ParkingManagementModule) },
             { path: 'facility', loadChildren: () => __webpack_require__.e(/*! import() | facility-facility-module */ "facility-facility-module").then(__webpack_require__.bind(null, /*! ./facility/facility.module */ "./src/app/ams/facility/facility.module.ts")).then(m => m.FacilityModule) },
-            { path: 'meetings', loadChildren: () => Promise.all(/*! import() | meetings-meetings-module */[__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null, /*! ./meetings/meetings.module */ "./src/app/ams/meetings/meetings.module.ts")).then(m => m.MeetingsModule) },
-            { path: 'assets', loadChildren: () => Promise.all(/*! import() | assets-assets-module */[__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("assets-assets-module")]).then(__webpack_require__.bind(null, /*! ./assets/assets.module */ "./src/app/ams/assets/assets.module.ts")).then(m => m.AssetsModule) },
-            { path: 'inventory', loadChildren: () => Promise.all(/*! import() | inventory-inventory-module */[__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null, /*! ./inventory/inventory.module */ "./src/app/ams/inventory/inventory.module.ts")).then(m => m.InventoryModule) },
+            { path: 'meetings', loadChildren: () => Promise.all(/*! import() | meetings-meetings-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null, /*! ./meetings/meetings.module */ "./src/app/ams/meetings/meetings.module.ts")).then(m => m.MeetingsModule) },
+            { path: 'assets', loadChildren: () => Promise.all(/*! import() | assets-assets-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("assets-assets-module")]).then(__webpack_require__.bind(null, /*! ./assets/assets.module */ "./src/app/ams/assets/assets.module.ts")).then(m => m.AssetsModule) },
+            { path: 'inventory', loadChildren: () => Promise.all(/*! import() | inventory-inventory-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null, /*! ./inventory/inventory.module */ "./src/app/ams/inventory/inventory.module.ts")).then(m => m.InventoryModule) },
             { path: 'notice', loadChildren: () => __webpack_require__.e(/*! import() | notice-notice-module */ "notice-notice-module").then(__webpack_require__.bind(null, /*! ./notice/notice.module */ "./src/app/ams/notice/notice.module.ts")).then(m => m.NoticeModule) },
             { path: 'vendor', loadChildren: () => __webpack_require__.e(/*! import() | vendor-vendor-module */ "vendor-vendor-module").then(__webpack_require__.bind(null, /*! ./vendor/vendor.module */ "./src/app/ams/vendor/vendor.module.ts")).then(m => m.VendorModule) },
             { path: 'documents', loadChildren: () => __webpack_require__.e(/*! import() | documents-documents-module */ "documents-documents-module").then(__webpack_require__.bind(null, /*! ./documents/documents.module */ "./src/app/ams/documents/documents.module.ts")).then(m => m.DocumentsModule) },
@@ -5840,10 +5840,10 @@ let SidebarComponent = class SidebarComponent {
         this.cookieService = cookieService;
         this.constantsService = constantsService;
         this.sharedService = sharedService;
-        this.activeNav = "";
+        this.activeNav = '';
         this.isSideBarMini = false;
         this.isApartmentSelected = false;
-        this.apartmentName = "";
+        this.apartmentName = '';
         this.userLoggedIn = false;
         this.isMenuLoaded = false;
         this.sidebarMenuDataList = [];
@@ -5860,17 +5860,17 @@ let SidebarComponent = class SidebarComponent {
         });
     }
     toggleNav(name) {
-        var elem = this.navElementRef.nativeElement;
-        this.renderer.removeClass(elem, "oh");
-        if (this.activeNav != name) {
+        const elem = this.navElementRef.nativeElement;
+        this.renderer.removeClass(elem, 'oh');
+        if (this.activeNav !== name) {
             this.activeNav = name;
         }
         else {
-            this.activeNav = "";
+            this.activeNav = '';
         }
     }
     isNavActive(name) {
-        return (this.activeNav == name) ? 'nav-active' : '';
+        return (this.activeNav === name) ? 'nav-active' : '';
     }
     showMiniSideBar() {
         return this.isSideBarMini ? 'mini' : '';
@@ -5888,14 +5888,14 @@ let SidebarComponent = class SidebarComponent {
         event.stopPropagation();
     }
     isSubMenusAvailable(submenu) {
-        return (submenu == undefined || submenu.length == 0) ? false : true;
+        return (submenu === undefined || submenu.length === 0) ? false : true;
     }
     onScroll(event) {
         const hasClass = (el, className) => el.classList.contains(className);
         if (hasClass(document.querySelector('.sidebar'), 'mini')) {
-            var elem = this.navElementRef.nativeElement;
-            this.renderer.addClass(elem, "oh");
-            this.activeNav = "";
+            const elem = this.navElementRef.nativeElement;
+            this.renderer.addClass(elem, 'oh');
+            this.activeNav = '';
         }
     }
     ngOnInit() {
@@ -5904,22 +5904,22 @@ let SidebarComponent = class SidebarComponent {
             this.isApartmentSelected = isSelected;
             if (this.isApartmentSelected) {
                 this.menusDataList = this.constantsService.getAllMenus();
-                let sidebarParams = {
+                const sidebarParams = {
                     apartmentId: parseInt(this.cookieService.get('apartmentId'))
                 };
                 this.screenService.getAllScreens(sidebarParams).subscribe((res) => {
                     this.availableScreensDataList = res;
                     this.isMenuLoaded = true;
                     underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.availableScreensDataList, item => {
-                        var menus = this.menusDataList.filter(menu => {
-                            return menu.name == item.screenName;
+                        const menus = this.menusDataList.filter(menu => {
+                            return menu.name === item.screenName;
                         });
-                        //undefined check if local json doesnt have corrosponding menu data
-                        if (menus[0] != undefined)
+                        // undefined check if local json doesnt have corrosponding menu data
+                        if (menus[0] !== undefined)
                             this.sidebarMenuDataList.push(menus[0]);
                     });
                     setTimeout(() => {
-                        var navItems = $(".nav-list");
+                        const navItems = $('.nav-list');
                         $.each(navItems, (index, elem) => {
                             if ($(elem).find('.nav-link').hasClass('active')) {
                                 this.activeNav = $(elem).find('.nav-link').attr('name');
@@ -5948,7 +5948,7 @@ SidebarComponent.ctorParameters = () => [
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("navElement", { static: false }),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('navElement', { static: false }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
 ], SidebarComponent.prototype, "navElementRef", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([

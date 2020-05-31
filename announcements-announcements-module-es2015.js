@@ -141,7 +141,7 @@ let AnnouncementsComponent = class AnnouncementsComponent {
         let queryParamBase = {
             apartmentId: this.apartmentID,
         };
-        this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe((res) => {
+        this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe((res) => {
             this.broadCastGroupCategory = res;
         });
     }
@@ -178,7 +178,6 @@ let AnnouncementsComponent = class AnnouncementsComponent {
         }
     }
     getAllBroadcastMessage() {
-        let apartmentId = parseInt(this.cookieService.get('apartmentId'));
         var users$ = this.userService.getAllUsers();
         var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["concatMap"])((users) => {
             this.allUser = users;

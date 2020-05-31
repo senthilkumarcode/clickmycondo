@@ -1614,6 +1614,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           self.invoice.custInvoiceAmount = 0;
           self.invoice.totalWthtaxAmount = 0;
           underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceVendorAccountsArray, function (item) {
+            var withHoldTaxPercent = 0;
+
             if (item.form) {
               _this9.isFormInValid = false;
             } else {
@@ -1622,14 +1624,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             self.invoice.subAmountAfterdiscount = self.invoice.subAmountAfterdiscount + item.lineAmountAfterDiscount;
             self.invoice.totalDiscount = self.invoice.totalDiscount + item.discountAmount;
-            self.invoice.totalVatamount = self.invoice.totalVatamount + item.vatamount;
-            console.log(item.withHoldingDirectAmt);
-            console.log(self.invoice.totalWthtaxAmount);
+            self.invoice.totalVatamount = self.invoice.totalVatamount + item.vatamount; //calculate withholdtax
 
             if (_this9.invoiceVendorAccountsArray.length == 1) {
-              self.invoice.totalWthtaxAmount = self.invoice.totalWthtaxAmount + (self.invoice.subAmountAfterdiscount - self.invoice.totalVatamount) * item.withHoldingDirectAmt;
+              self.invoice.totalWthtaxAmount = (self.invoice.subAmountAfterdiscount - self.invoice.totalVatamount) * (item.withHoldingDirectAmt / 100);
             } else {
-              self.invoice.totalWthtaxAmount = self.invoice.totalWthtaxAmount + (self.invoice.subAmountAfterdiscount - self.invoice.totalVatamount) * item.withHoldingDirectAmt;
+              withHoldTaxPercent = withHoldTaxPercent + (item.withHoldingDirectAmt / 100 + 1);
+              self.invoice.totalWthtaxAmount = self.invoice.totalWthtaxAmount + (self.invoice.subAmountAfterdiscount - self.invoice.totalVatamount) * withHoldTaxPercent;
             }
 
             self.invoice.vendorInvoiceAmount = (parseFloat(self.invoice.subAmountAfterdiscount) + parseFloat(self.invoice.totalVatamount) - parseFloat(self.invoice.totalWthtaxAmount)).toFixed(2);
@@ -1644,7 +1645,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var self = this;
           this.invoiceVendorAccountsArray.map(function (item) {
             delete item.form;
-            delete item.form;
+            delete item.withHoldingDirectAmt;
             return item;
           });
           this.vendorinvoiceTaxArray.map(function (item) {
@@ -1709,26 +1710,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           } else {
             var _details2 = {
-              "custInvoiceId": this.invoice.custInvoiceId,
+              "vendorInvoiceId": this.invoice.vendorInvoiceId,
               "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-              "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-              "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
-              "custInvoiceDate": this.invoice.custInvoiceDate,
+              "vendorId": parseInt(this.route.params['value'].id),
+              "vendorInvoiceNumber": this.invoice.vendorInvoiceNumber,
+              "vendorInvoiceAmount": parseFloat(this.invoice.vendorInvoiceAmount),
+              "vendorInvoiceDate": this.invoice.vendorInvoiceDate,
               "dueDate": this.invoice.dueDate,
               "tax1": this.invoice.tax1,
               "tax2": this.invoice.tax2,
               "tax3": this.invoice.tax3,
-              "isTax": this.invoice.isTax,
-              "isRecurCustInvoice": this.invoice.isRecurCustInvoice,
+              "deductTax": this.invoice.deductTax,
+              "expenseHeadId": this.invoice.expenseHeadId,
+              "payeeName": this.invoice.payeeName,
               "isEmailSent": this.invoice.isEmailSent,
               "isSmssent": this.invoice.isSmssent,
-              "custInvoiceStatusId": this.invoice.custInvoiceStatusId,
-              "postedBy": parseInt(this.cookieService.get('userId')),
+              "vendorInvoiceStatusId": this.invoice.vendorInvoiceStatusId,
+              "postedBy": this.invoice.postedBy,
               "postedOn": this.invoice.postedOn,
-              "billToPay": this.invoice.billToPay,
+              "voucherNumber": this.invoice.voucherNumber,
               "comments": this.invoice.comments,
-              "penaltyAmount": this.invoice.penaltyAmount,
-              "penaltyComment": this.invoice.penaltyComment,
               "isActive": this.invoice.isActive,
               "insertedBy": this.invoice.insertedBy,
               "insertedOn": this.invoice.insertedOn,
@@ -1736,16 +1737,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedOn": new Date().toISOString(),
               "transReference1": this.invoice.transReference1,
               "transReference2": this.invoice.transReference2,
+              "serialNo": this.invoice.serialNo,
+              "totalWthtaxAmount": this.invoice.totalWthtaxAmount,
               "totalVatamount": this.invoice.totalVatamount,
-              "totalOtherTaxes": this.invoice.totalOtherTaxes,
-              "totalDiscount": this.invoice.totalDiscount,
-              "isDiscount": this.invoice.isDiscount,
-              "subAmount": this.invoice.subAmount,
-              "isFinalDiscount": this.invoice.isFinalDiscount,
-              "invoicefinaldiscount": this.invoice.invoicefinaldiscount,
-              "invoicefinalinputdiscount": this.invoice.invoicefinalinputdiscount,
-              "invoicefinaldiscountId": this.invoice.invoicefinaldiscountId,
-              "finalDiscountTypeName": this.invoice.finalDiscountTypeName,
+              "totalInvoiceDiscount": this.invoice.totalInvoiceDiscount,
+              "isdiscount": this.invoice.isdiscount,
+              "isVat": this.invoice.isVat,
+              "subAmountAfterdiscount": this.invoice.subAmountAfterdiscount,
+              "isApprovedforpayment": this.invoice.isApprovedforpayment,
               "vendorInvoiceGlaccount": this.invoiceVendorAccountsArray,
               "vendorinvoiceTax": this.vendorinvoiceTaxArray
             };
@@ -1787,6 +1786,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoice.custInvoiceAmount = 0;
           this.invoice.isRecurCustInvoice = true;
           this.invoice.custInvoiceDate = new Date().toISOString();
+          this.invoice.totalWthtaxAmount = 0;
           this.invoiceVendorAccountsData = {};
           this.invoiceVendorAccountsData.glaccountId = "";
           this.invoiceVendorAccountsData.glaccountName = "";
@@ -1905,7 +1905,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }); //for post single invoice
 
           if (this.route.params['value'].type == 'single' && this.route.params['value'].invoiceid == undefined) {
-            this.invoiceVendorAccountsData.splice(0, 1);
+            this.invoiceVendorAccountsArray.splice(0, 1);
             this.isSingleInvoice = true;
             this.isEditInvoice = false;
           } //for post multi invoice

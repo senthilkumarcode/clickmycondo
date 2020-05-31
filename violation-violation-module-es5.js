@@ -462,8 +462,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this7 = this;
-
           var params = {
             Id: 0,
             ViolationStatusId: 0,
@@ -483,28 +481,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             IsDisputed: true,
             DisputedComment: '',
             ViolationOccurrence: 0
-          };
-          this.violationService.addViolations(params).subscribe(function (res) {
-            if (res) {
-              _this7.sharedService.setAlertMessage(res.message);
-
-              _this7.violationData = {
-                primaryContactName: '',
-                UnitTower: '',
-                ParkingSlot: '',
-                violationCategory: '',
-                violationRuleNo: '',
-                violationComments: '',
-                violationNoticedOn: '',
-                violationOccurence: '',
-                unitOwnerName: '',
-                penaltyAmt: '',
-                raisedBy: '',
-                invoiceNo: '',
-                invoiceTrigger: ''
-              };
-            } else {}
-          });
+          }; // this.violationService.addViolations(params).subscribe((res: any) => {
+          //   if (res) {
+          //     this.sharedService.setAlertMessage(res.message);
+          //     this.violationData={
+          //       primaryContactName:'',
+          //       UnitTower:'',
+          //       ParkingSlot:'',
+          //       violationCategory:'',
+          //       violationRuleNo:'',
+          //       violationComments:'',
+          //       violationNoticedOn:'',
+          //       violationOccurence:'',
+          //       unitOwnerName:'',
+          //       penaltyAmt:'',
+          //       raisedBy:'',
+          //       invoiceNo:'',
+          //       invoiceTrigger:''
+          //     }
+          //           }
+          //   else {
+          //   }
+          // });
         }
       }]);
 
@@ -645,30 +643,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getWorkPermit",
         value: function getWorkPermit() {
-          var _this8 = this;
+          var _this7 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             active: 1
           };
           this.workpermitService.getWorkPermitsByApartmentIdStatus(params).subscribe(function (res) {
-            _this8.allFacility = res;
-            _this8.totalItems = _this8.allFacility.length;
+            _this7.allFacility = res;
+            _this7.totalItems = _this7.allFacility.length;
 
-            if (_this8.totalItems > _this8.itemLimit) {
-              _this8.ItemEndIndex = _this8.itemLimit;
+            if (_this7.totalItems > _this7.itemLimit) {
+              _this7.ItemEndIndex = _this7.itemLimit;
             } else {
-              _this8.ItemEndIndex = _this8.totalItems;
+              _this7.ItemEndIndex = _this7.totalItems;
             }
           });
         }
       }, {
         key: "getFacilityName",
         value: function getFacilityName(id) {
-          var _this9 = this;
+          var _this8 = this;
 
           this.facilityService.getApartmentFacilityByFacilityId(id).subscribe(function (res) {
-            _this9.allFacility = res;
+            _this8.allFacility = res;
           });
         }
       }, {
@@ -827,30 +825,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getWorkPermit",
         value: function getWorkPermit() {
-          var _this10 = this;
+          var _this9 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             active: 1
           };
           this.workpermitService.getWorkPermitsByApartmentIdStatus(params).subscribe(function (res) {
-            _this10.allFacility = res;
-            _this10.totalItems = _this10.allFacility.length;
+            _this9.allFacility = res;
+            _this9.totalItems = _this9.allFacility.length;
 
-            if (_this10.totalItems > _this10.itemLimit) {
-              _this10.ItemEndIndex = _this10.itemLimit;
+            if (_this9.totalItems > _this9.itemLimit) {
+              _this9.ItemEndIndex = _this9.itemLimit;
             } else {
-              _this10.ItemEndIndex = _this10.totalItems;
+              _this9.ItemEndIndex = _this9.totalItems;
             }
           });
         }
       }, {
         key: "getFacilityName",
         value: function getFacilityName(id) {
-          var _this11 = this;
+          var _this10 = this;
 
           this.facilityService.getApartmentFacilityByFacilityId(id).subscribe(function (res) {
-            _this11.allFacility = res;
+            _this10.allFacility = res;
           });
         }
       }, {
@@ -1002,30 +1000,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getFacility",
         value: function getFacility() {
-          var _this12 = this;
+          var _this11 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             active: 1
           };
           this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(params).subscribe(function (res) {
-            _this12.allFacility = res;
-            _this12.totalItems = _this12.allFacility.length;
+            _this11.allFacility = res;
+            _this11.totalItems = _this11.allFacility.length;
 
-            if (_this12.totalItems > _this12.itemLimit) {
-              _this12.ItemEndIndex = _this12.itemLimit;
+            if (_this11.totalItems > _this11.itemLimit) {
+              _this11.ItemEndIndex = _this11.itemLimit;
             } else {
-              _this12.ItemEndIndex = _this12.totalItems;
+              _this11.ItemEndIndex = _this11.totalItems;
             }
           });
         }
       }, {
         key: "getFacilityName",
         value: function getFacilityName(id) {
-          var _this13 = this;
+          var _this12 = this;
 
           this.facilityService.getApartmentFacilityByFacilityId(id).subscribe(function (res) {
-            _this13.allFacility = res;
+            _this12.allFacility = res;
           });
         }
       }, {
@@ -1174,30 +1172,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getFacility",
         value: function getFacility() {
-          var _this14 = this;
+          var _this13 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             active: 1
           };
           this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(params).subscribe(function (res) {
-            _this14.allFacility = res;
-            _this14.totalItems = _this14.allFacility.length;
+            _this13.allFacility = res;
+            _this13.totalItems = _this13.allFacility.length;
 
-            if (_this14.totalItems > _this14.itemLimit) {
-              _this14.ItemEndIndex = _this14.itemLimit;
+            if (_this13.totalItems > _this13.itemLimit) {
+              _this13.ItemEndIndex = _this13.itemLimit;
             } else {
-              _this14.ItemEndIndex = _this14.totalItems;
+              _this13.ItemEndIndex = _this13.totalItems;
             }
           });
         }
       }, {
         key: "getFacilityName",
         value: function getFacilityName(id) {
-          var _this15 = this;
+          var _this14 = this;
 
           this.facilityService.getApartmentFacilityByFacilityId(id).subscribe(function (res) {
-            _this15.allFacility = res;
+            _this14.allFacility = res;
           });
         }
       }, {
@@ -1404,21 +1402,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getViolationCategory",
         value: function getViolationCategory() {
-          var _this16 = this;
+          var _this15 = this;
 
           var params = {
             LookupTypeId: 78,
             active: 1
           };
           this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-            _this16.allViolationCategory = res;
-            _this16.isDataLoaded = true;
-            _this16.totalItems = _this16.allViolationCategory.length;
+            _this15.allViolationCategory = res;
+            _this15.isDataLoaded = true;
+            _this15.totalItems = _this15.allViolationCategory.length;
 
-            if (_this16.totalItems > _this16.itemLimit) {
-              _this16.ItemEndIndex = _this16.itemLimit;
+            if (_this15.totalItems > _this15.itemLimit) {
+              _this15.ItemEndIndex = _this15.itemLimit;
             } else {
-              _this16.ItemEndIndex = _this16.totalItems;
+              _this15.ItemEndIndex = _this15.totalItems;
             }
           });
         }
@@ -1463,7 +1461,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "doneRow",
         value: function doneRow(group, id) {
-          var _this17 = this;
+          var _this16 = this;
 
           group.get('isEditable').setValue(false);
           var control = group.get('violationTable');
@@ -1502,11 +1500,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (ruleId === 0) {
             this.violationService.addViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this17.sharedService.setAlertMessage(res.message);
+                _this16.sharedService.setAlertMessage(res.message);
 
-                _this17.getViolationPrivilege();
+                _this16.getViolationPrivilege();
 
-                _this17.privledge = {
+                _this16.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -1517,11 +1515,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.violationService.updateViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this17.sharedService.setAlertMessage(res.message);
+                _this16.sharedService.setAlertMessage(res.message);
 
-                _this17.getViolationPrivilege();
+                _this16.getViolationPrivilege();
 
-                _this17.privledge = {
+                _this16.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -1615,7 +1613,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getRuleByViolationCategory",
         value: function getRuleByViolationCategory() {
-          var _this18 = this;
+          var _this17 = this;
 
           this.isDataLoaded = false;
           var params = {
@@ -1623,16 +1621,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             ViolationCategoryId: 1
           };
           this.violationService.getViolationRule(params).subscribe(function (res) {
-            _this18.ruleListData = res;
+            _this17.ruleListData = res;
 
-            var control = _this18.userTable.get('tableRows');
+            var control = _this17.userTable.get('tableRows');
 
             control.clear(); // tslint:disable-next-line:no-shadowed-variable
 
-            _this18.ruleListData.forEach(function (element, index) {
-              var formcontrol = _this18.userTable.get('tableRows');
+            _this17.ruleListData.forEach(function (element, index) {
+              var formcontrol = _this17.userTable.get('tableRows');
 
-              formcontrol.push(_this18.fb.group({
+              formcontrol.push(_this17.fb.group({
                 directoryRecordId: [element.directoryRecordId],
                 serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                 email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
@@ -1642,19 +1640,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }));
             });
 
-            _this18.addRow();
+            _this17.addRow();
 
-            _this18.isDataLoaded = true;
+            _this17.isDataLoaded = true;
           }, function (error) {
-            _this18.isDataLoaded = true;
-            _this18.isError = true;
-            _this18.alertMessage = 'Some error occured';
+            _this17.isDataLoaded = true;
+            _this17.isError = true;
+            _this17.alertMessage = 'Some error occured';
           });
         }
       }, {
         key: "getViolationRule",
         value: function getViolationRule() {
-          var _this19 = this;
+          var _this18 = this;
 
           var params = {
             LookupTypeId: 78,
@@ -1662,29 +1660,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           var apartment_Id = parseInt(this.cookieService.get('apartmentId'));
           this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-            _this19.allViolationCategoryList = res;
+            _this18.allViolationCategoryList = res;
 
-            _this19.allViolationCategoryList.forEach(function (element1, index) {
+            _this18.allViolationCategoryList.forEach(function (element1, index) {
               var params1 = {
                 apartmentId: apartment_Id,
                 ViolationCategoryId: element1.ViolationCategoryId
               };
 
-              _this19.violationService.getViolationRule(params1).subscribe(function (rule) {
-                _this19.ruleListData = rule;
+              _this18.violationService.getViolationRule(params1).subscribe(function (rule) {
+                _this18.ruleListData = rule;
 
-                var control = _this19.userTable.get('tableRows'); // control.clear();
+                var control = _this18.userTable.get('tableRows'); // control.clear();
                 // tslint:disable-next-line:no-shadowed-variable
 
 
-                _this19.ruleListData.forEach(function (element, index) {
-                  var formcontrol = _this19.userTable.get('tableRows');
+                _this18.ruleListData.forEach(function (element, index) {
+                  var formcontrol = _this18.userTable.get('tableRows');
 
-                  formcontrol.push(_this19.fb.group({
+                  formcontrol.push(_this18.fb.group({
                     ruleId: [element.id],
                     category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                     ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
-                    violationTable: _this19.fb.array([]),
+                    violationTable: _this18.fb.array([]),
                     isEditable: [false]
                   }));
                   var violationnoArr = [];
@@ -1699,7 +1697,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     var _fineViolation = element['fineViolationNo' + _index];
                     var _descViolation = element['descViolationNo' + _index];
                     var _violationPrivilege = element['violationPrivilegeId' + _index];
-                    violation.push(_this19.fb.group({
+                    violation.push(_this18.fb.group({
                       fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                       descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
                       stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
@@ -1707,19 +1705,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   });
                 });
 
-                _this19.isDataLoaded = true;
+                _this18.isDataLoaded = true;
               }, function (error) {
-                _this19.isDataLoaded = true;
-                _this19.isError = true;
-                _this19.alertMessage = 'Some error occured';
+                _this18.isDataLoaded = true;
+                _this18.isError = true;
+                _this18.alertMessage = 'Some error occured';
               });
 
-              _this19.NWtotalItems = _this19.allViolationCategoryList.length;
+              _this18.NWtotalItems = _this18.allViolationCategoryList.length;
 
-              if (_this19.NWtotalItems > _this19.itemLimit) {
-                _this19.NWItemEndIndex = _this19.itemLimit;
+              if (_this18.NWtotalItems > _this18.itemLimit) {
+                _this18.NWItemEndIndex = _this18.itemLimit;
               } else {
-                _this19.NWItemEndIndex = _this19.NWtotalItems;
+                _this18.NWItemEndIndex = _this18.NWtotalItems;
               }
             });
           });
@@ -1727,20 +1725,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getViolationPrivilege",
         value: function getViolationPrivilege() {
-          var _this20 = this;
+          var _this19 = this;
 
           var privilegeparams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.violationService.getViolationPrivilege(privilegeparams).subscribe(function (res) {
-            _this20.allViolationPrivilege = res;
-            _this20.isDataLoaded = true;
-            _this20.PtotalItems = _this20.allViolationPrivilege.length;
+            _this19.allViolationPrivilege = res;
+            _this19.isDataLoaded = true;
+            _this19.PtotalItems = _this19.allViolationPrivilege.length;
 
-            if (_this20.PtotalItems > _this20.PitemLimit) {
-              _this20.PItemEndIndex = _this20.PitemLimit;
+            if (_this19.PtotalItems > _this19.PitemLimit) {
+              _this19.PItemEndIndex = _this19.PitemLimit;
             } else {
-              _this20.PItemEndIndex = _this20.PtotalItems;
+              _this19.PItemEndIndex = _this19.PtotalItems;
             }
           });
         }
@@ -1923,7 +1921,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getViolationRule",
         value: function getViolationRule(violationCateogoryId) {
-          var _this21 = this;
+          var _this20 = this;
 
           var _apartment_Id = parseInt(this.cookieService.get('apartmentId'));
 
@@ -1932,22 +1930,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             ViolationCategoryId: violationCateogoryId
           };
           this.violationService.getViolationRule(params1).subscribe(function (rule) {
-            _this21.ruleListData = rule;
+            _this20.ruleListData = rule;
           }, function (error) {
-            _this21.isError = true;
+            _this20.isError = true;
           });
         }
       }, {
         key: "getViolationCategory",
         value: function getViolationCategory() {
-          var _this22 = this;
+          var _this21 = this;
 
           var params = {
             LookupTypeId: 78,
             active: 1
           };
           this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-            _this22.allViolationCategory = res;
+            _this21.allViolationCategory = res;
           });
         }
       }, {
@@ -1958,14 +1956,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getviolationById",
         value: function getviolationById(id) {
-          var _this23 = this;
+          var _this22 = this;
 
           this.alertService.getViolationById(id).subscribe(function (res) {
             var getViolationData = res;
 
-            _this23.getViolationRule(getViolationData[0].violationUserCategoryId);
+            _this22.getViolationRule(getViolationData[0].violationUserCategoryId);
 
-            _this23.violationData = {
+            _this22.violationData = {
               primaryContactName: '',
               UnitTower: '',
               ParkingSlot: '',
@@ -1985,8 +1983,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this24 = this;
-
           var params = {
             ViolationStatusId: 1,
             Comments: this.violationData.violationComments,
@@ -2006,12 +2002,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             InsertedBy: parseInt(this.cookieService.get("userId")),
             Id: this.violationId,
             DisputedComment: ''
-          };
-          this.violationService.updateViolations(params).subscribe(function (res) {
-            if (res) {
-              _this24.sharedService.setAlertMessage(res.message);
-            } else {}
-          });
+          }; // this.violationService.updateViolations(params).subscribe((res: any) => {
+          //   if (res) {
+          //     this.sharedService.setAlertMessage(res.message);
+          //           }
+          //   else {
+          //   }
+          // });
         }
       }]);
 
@@ -2164,7 +2161,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ViewViolationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this25 = this;
+          var _this23 = this;
 
           this.category = {
             categoryId: 0,
@@ -2175,16 +2172,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this25.blockListData = res;
+            _this23.blockListData = res;
 
-            _this25.getAllBlockData();
+            _this23.getAllBlockData();
           });
           var Lookupparams = {
             LookupTypeId: 78,
             active: 1
           };
           this.lookupService.getLookupValueByLookupTypeIdStatus(Lookupparams).subscribe(function (res) {
-            _this25.allViolationCategory = res;
+            _this23.allViolationCategory = res;
           });
           var statusparams = {
             active: 1
@@ -2194,7 +2191,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             list.forEach(function (element, index) {
               // console.log(element);
               // console.log(index);
-              _this25.allViolationListData.push({
+              _this23.allViolationListData.push({
                 id: '#typeCollapse_' + index,
                 data: element
               });
@@ -2510,28 +2507,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getViolationCategory",
         value: function getViolationCategory() {
-          var _this26 = this;
+          var _this24 = this;
 
           var params = {
             LookupTypeId: 78,
             active: 1
           };
           this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-            _this26.allViolationCategory = res;
-            _this26.isDataLoaded = true;
-            _this26.totalItems = _this26.allViolationCategory.length;
+            _this24.allViolationCategory = res;
+            _this24.isDataLoaded = true;
+            _this24.totalItems = _this24.allViolationCategory.length;
 
-            if (_this26.totalItems > _this26.itemLimit) {
-              _this26.ItemEndIndex = _this26.itemLimit;
+            if (_this24.totalItems > _this24.itemLimit) {
+              _this24.ItemEndIndex = _this24.itemLimit;
             } else {
-              _this26.ItemEndIndex = _this26.totalItems;
+              _this24.ItemEndIndex = _this24.totalItems;
             }
           });
         }
       }, {
         key: "submitCreateCategoryTypeForm",
         value: function submitCreateCategoryTypeForm(form) {
-          var _this27 = this;
+          var _this25 = this;
 
           var lookupparams = {
             lookupvalue: {
@@ -2555,11 +2552,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.category.categoryId === 0) {
             this.lookupService.addLookupValue(lookupparams).subscribe(function (res) {
               if (res) {
-                _this27.sharedService.setAlertMessage(res.message);
+                _this25.sharedService.setAlertMessage(res.message);
 
-                _this27.getViolationCategory();
+                _this25.getViolationCategory();
 
-                _this27.category = {
+                _this25.category = {
                   categoryId: 0,
                   categoryname: '',
                   Description: ''
@@ -2569,11 +2566,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.lookupService.updateLookupValue(lookupparams).subscribe(function (res) {
               if (res) {
-                _this27.sharedService.setAlertMessage(res.message);
+                _this25.sharedService.setAlertMessage(res.message);
 
-                _this27.getViolationCategory();
+                _this25.getViolationCategory();
 
-                _this27.category = {
+                _this25.category = {
                   categoryId: 0,
                   categoryname: '',
                   Description: ''
@@ -2585,7 +2582,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteViolationCategory",
         value: function deleteViolationCategory(id) {
-          var _this28 = this;
+          var _this26 = this;
 
           var params = {
             lookupValueId: id,
@@ -2594,9 +2591,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
             if (res) {
-              _this28.sharedService.setAlertMessage(res.message);
+              _this26.sharedService.setAlertMessage(res.message);
 
-              _this28.getViolationCategory();
+              _this26.getViolationCategory();
             } else {}
           });
         }
@@ -2612,20 +2609,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getViolationPrivilege",
         value: function getViolationPrivilege() {
-          var _this29 = this;
+          var _this27 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.violationService.getViolationPrivilege(params).subscribe(function (res) {
-            _this29.allViolationPrivilege = res;
-            _this29.isDataLoaded = true;
-            _this29.PtotalItems = _this29.allViolationPrivilege.length;
+            _this27.allViolationPrivilege = res;
+            _this27.isDataLoaded = true;
+            _this27.PtotalItems = _this27.allViolationPrivilege.length;
 
-            if (_this29.PtotalItems > _this29.PitemLimit) {
-              _this29.PItemEndIndex = _this29.PitemLimit;
+            if (_this27.PtotalItems > _this27.PitemLimit) {
+              _this27.PItemEndIndex = _this27.PitemLimit;
             } else {
-              _this29.PItemEndIndex = _this29.PtotalItems;
+              _this27.PItemEndIndex = _this27.PtotalItems;
             }
           });
         }
@@ -2642,7 +2639,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCreatesStopPrivledgeForm",
         value: function submitCreatesStopPrivledgeForm(form) {
-          var _this30 = this;
+          var _this28 = this;
 
           var lookupparams = {
             Id: this.privledge.privilegeId === 0 ? 0 : this.privledge.privilegeId,
@@ -2660,11 +2657,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.privledge.privilegeId === 0) {
             this.violationService.addViolationPrivilege(lookupparams).subscribe(function (res) {
               if (res) {
-                _this30.sharedService.setAlertMessage(res.message);
+                _this28.sharedService.setAlertMessage(res.message);
 
-                _this30.getViolationPrivilege();
+                _this28.getViolationPrivilege();
 
-                _this30.privledge = {
+                _this28.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -2675,11 +2672,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.violationService.updateViolationPrivilege(lookupparams).subscribe(function (res) {
               if (res) {
-                _this30.sharedService.setAlertMessage(res.message);
+                _this28.sharedService.setAlertMessage(res.message);
 
-                _this30.getViolationPrivilege();
+                _this28.getViolationPrivilege();
 
-                _this30.privledge = {
+                _this28.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -2730,7 +2727,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "doneRow",
         value: function doneRow(group, id) {
-          var _this31 = this;
+          var _this29 = this;
 
           group.get('isEditable').setValue(false);
           var control = group.get('violationTable');
@@ -2769,11 +2766,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (ruleId === 0) {
             this.violationService.addViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this31.sharedService.setAlertMessage(res.message);
+                _this29.sharedService.setAlertMessage(res.message);
 
-                _this31.getViolationPrivilege();
+                _this29.getViolationPrivilege();
 
-                _this31.privledge = {
+                _this29.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -2784,11 +2781,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.violationService.updateViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this31.sharedService.setAlertMessage(res.message);
+                _this29.sharedService.setAlertMessage(res.message);
 
-                _this31.getViolationPrivilege();
+                _this29.getViolationPrivilege();
 
-                _this31.privledge = {
+                _this29.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -2903,7 +2900,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getRuleByViolationCategory",
         value: function getRuleByViolationCategory() {
-          var _this32 = this;
+          var _this30 = this;
 
           this.isDataLoaded = false;
           var params = {
@@ -2911,16 +2908,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             ViolationCategoryId: 1
           };
           this.violationService.getViolationRule(params).subscribe(function (res) {
-            _this32.ruleListData = res;
+            _this30.ruleListData = res;
 
-            var control = _this32.userTable.get('tableRows');
+            var control = _this30.userTable.get('tableRows');
 
             control.clear(); // tslint:disable-next-line:no-shadowed-variable
 
-            _this32.ruleListData.forEach(function (element, index) {
-              var formcontrol = _this32.userTable.get('tableRows');
+            _this30.ruleListData.forEach(function (element, index) {
+              var formcontrol = _this30.userTable.get('tableRows');
 
-              formcontrol.push(_this32.fb.group({
+              formcontrol.push(_this30.fb.group({
                 directoryRecordId: [element.directoryRecordId],
                 serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                 email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
@@ -2930,19 +2927,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }));
             });
 
-            _this32.addRow();
+            _this30.addRow();
 
-            _this32.isDataLoaded = true;
+            _this30.isDataLoaded = true;
           }, function (error) {
-            _this32.isDataLoaded = true;
-            _this32.isError = true;
-            _this32.alertMessage = 'Some error occured';
+            _this30.isDataLoaded = true;
+            _this30.isError = true;
+            _this30.alertMessage = 'Some error occured';
           });
         }
       }, {
         key: "getViolationRule",
         value: function getViolationRule() {
-          var _this33 = this;
+          var _this31 = this;
 
           var params = {
             LookupTypeId: 78,
@@ -2950,29 +2947,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           var apartment_Id = parseInt(this.cookieService.get('apartmentId'));
           this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-            _this33.allViolationCategoryList = res;
+            _this31.allViolationCategoryList = res;
 
-            _this33.allViolationCategoryList.forEach(function (element1, index) {
+            _this31.allViolationCategoryList.forEach(function (element1, index) {
               var params1 = {
                 apartmentId: apartment_Id,
                 ViolationCategoryId: element1.ViolationCategoryId
               };
 
-              _this33.violationService.getViolationRule(params1).subscribe(function (rule) {
-                _this33.ruleListData = rule;
+              _this31.violationService.getViolationRule(params1).subscribe(function (rule) {
+                _this31.ruleListData = rule;
 
-                var control = _this33.userTable.get('tableRows'); // control.clear();
+                var control = _this31.userTable.get('tableRows'); // control.clear();
                 // tslint:disable-next-line:no-shadowed-variable
 
 
-                _this33.ruleListData.forEach(function (element, index) {
-                  var formcontrol = _this33.userTable.get('tableRows');
+                _this31.ruleListData.forEach(function (element, index) {
+                  var formcontrol = _this31.userTable.get('tableRows');
 
-                  formcontrol.push(_this33.fb.group({
+                  formcontrol.push(_this31.fb.group({
                     ruleId: [element.id],
                     category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                     ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-                    violationTable: _this33.fb.array([]),
+                    violationTable: _this31.fb.array([]),
                     isEditable: [false]
                   }));
                   var violationnoArr = [];
@@ -2995,7 +2992,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     var _fineViolation = element['fineViolationNo' + _index];
                     var _descViolation = element['descViolationNo' + _index];
                     var _violationPrivilege = element['violationPrivilegeId' + _index];
-                    violation.push(_this33.fb.group({
+                    violation.push(_this31.fb.group({
                       fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                       descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
                       stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
@@ -3017,19 +3014,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 //  this.addRow();
 
 
-                _this33.isDataLoaded = true;
+                _this31.isDataLoaded = true;
               }, function (error) {
-                _this33.isDataLoaded = true;
-                _this33.isError = true;
-                _this33.alertMessage = 'Some error occured';
+                _this31.isDataLoaded = true;
+                _this31.isError = true;
+                _this31.alertMessage = 'Some error occured';
               });
 
-              _this33.NWtotalItems = _this33.allViolationCategoryList.length;
+              _this31.NWtotalItems = _this31.allViolationCategoryList.length;
 
-              if (_this33.NWtotalItems > _this33.itemLimit) {
-                _this33.NWItemEndIndex = _this33.itemLimit;
+              if (_this31.NWtotalItems > _this31.itemLimit) {
+                _this31.NWItemEndIndex = _this31.itemLimit;
               } else {
-                _this33.NWItemEndIndex = _this33.NWtotalItems;
+                _this31.NWItemEndIndex = _this31.NWtotalItems;
               }
             });
           });
@@ -3037,7 +3034,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCreatesViolationPrivledgeForm",
         value: function submitCreatesViolationPrivledgeForm(id) {
-          var _this34 = this;
+          var _this32 = this;
 
           var control = this.tableForm().at(id).get('violationTable');
           var lookupparams = {
@@ -3071,11 +3068,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.privledge.privilegeId === 0) {
             this.violationService.addViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this34.sharedService.setAlertMessage(res.message);
+                _this32.sharedService.setAlertMessage(res.message);
 
-                _this34.getViolationPrivilege();
+                _this32.getViolationPrivilege();
 
-                _this34.privledge = {
+                _this32.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -3086,11 +3083,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.violationService.updateViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this34.sharedService.setAlertMessage(res.message);
+                _this32.sharedService.setAlertMessage(res.message);
 
-                _this34.getViolationPrivilege();
+                _this32.getViolationPrivilege();
 
-                _this34.privledge = {
+                _this32.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',

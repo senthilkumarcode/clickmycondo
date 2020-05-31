@@ -8693,16 +8693,16 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
           var queryParamBase = {
             apartmentId: this.apartmentID
           };
-          this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
+          this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe(function (res) {
             var allBroadcastGroupCategory = res; //filter active true items
 
             _this38.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
               return data.isActive;
             });
-            _this38.adminInterestGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+            _this38.adminInterestGroupCategory = _this38.allBroadcastGroupCategory.filter(function (data) {
               return data.privilege == "Admin";
             });
-            _this38.userInterestGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+            _this38.userInterestGroupCategory = _this38.allBroadcastGroupCategory.filter(function (data) {
               return data.privilege.includes("All");
             });
 

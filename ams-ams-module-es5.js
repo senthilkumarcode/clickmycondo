@@ -8173,9 +8173,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'inbox',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | ams-inbox-ams-inbox-module */
-          "ams-inbox-ams-inbox-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("ams-inbox-ams-inbox-module")]).then(__webpack_require__.bind(null,
           /*! ./ams-inbox/ams-inbox.module */
           "./src/app/ams/ams-inbox/ams-inbox.module.ts")).then(function (m) {
             return m.AmsInboxModule;
@@ -8241,7 +8241,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | work-permit-work-permit-module */
-          [__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
           /*! ./work-permit/work-permit.module */
           "./src/app/ams/work-permit/work-permit.module.ts")).then(function (m) {
             return m.WorkPermitModule;
@@ -8263,7 +8263,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | broadcast-broadcast-module */
-          [__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null,
           /*! ./broadcast/broadcast.module */
           "./src/app/ams/broadcast/broadcast.module.ts")).then(function (m) {
             return m.BroadcastModule;
@@ -8373,7 +8373,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | meetings-meetings-module */
-          [__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null,
           /*! ./meetings/meetings.module */
           "./src/app/ams/meetings/meetings.module.ts")).then(function (m) {
             return m.MeetingsModule;
@@ -8384,7 +8384,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | assets-assets-module */
-          [__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("assets-assets-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("assets-assets-module")]).then(__webpack_require__.bind(null,
           /*! ./assets/assets.module */
           "./src/app/ams/assets/assets.module.ts")).then(function (m) {
             return m.AssetsModule;
@@ -8395,7 +8395,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | inventory-inventory-module */
-          [__webpack_require__.e("default~announcements-announcements-module~assets-assets-module~broadcast-broadcast-module~inventory~ed556cfa"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null,
           /*! ./inventory/inventory.module */
           "./src/app/ams/inventory/inventory.module.ts")).then(function (m) {
             return m.InventoryModule;
@@ -9314,10 +9314,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.cookieService = cookieService;
         this.constantsService = constantsService;
         this.sharedService = sharedService;
-        this.activeNav = "";
+        this.activeNav = '';
         this.isSideBarMini = false;
         this.isApartmentSelected = false;
-        this.apartmentName = "";
+        this.apartmentName = '';
         this.userLoggedIn = false;
         this.isMenuLoaded = false;
         this.sidebarMenuDataList = [];
@@ -9340,18 +9340,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "toggleNav",
         value: function toggleNav(name) {
           var elem = this.navElementRef.nativeElement;
-          this.renderer.removeClass(elem, "oh");
+          this.renderer.removeClass(elem, 'oh');
 
-          if (this.activeNav != name) {
+          if (this.activeNav !== name) {
             this.activeNav = name;
           } else {
-            this.activeNav = "";
+            this.activeNav = '';
           }
         }
       }, {
         key: "isNavActive",
         value: function isNavActive(name) {
-          return this.activeNav == name ? 'nav-active' : '';
+          return this.activeNav === name ? 'nav-active' : '';
         }
       }, {
         key: "showMiniSideBar",
@@ -9381,7 +9381,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "isSubMenusAvailable",
         value: function isSubMenusAvailable(submenu) {
-          return submenu == undefined || submenu.length == 0 ? false : true;
+          return submenu === undefined || submenu.length === 0 ? false : true;
         }
       }, {
         key: "onScroll",
@@ -9392,8 +9392,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (hasClass(document.querySelector('.sidebar'), 'mini')) {
             var elem = this.navElementRef.nativeElement;
-            this.renderer.addClass(elem, "oh");
-            this.activeNav = "";
+            this.renderer.addClass(elem, 'oh');
+            this.activeNav = '';
           }
         }
       }, {
@@ -9416,14 +9416,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 _this85.isMenuLoaded = true;
                 underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this85.availableScreensDataList, function (item) {
                   var menus = _this85.menusDataList.filter(function (menu) {
-                    return menu.name == item.screenName;
-                  }); //undefined check if local json doesnt have corrosponding menu data
+                    return menu.name === item.screenName;
+                  }); // undefined check if local json doesnt have corrosponding menu data
 
 
-                  if (menus[0] != undefined) _this85.sidebarMenuDataList.push(menus[0]);
+                  if (menus[0] !== undefined) _this85.sidebarMenuDataList.push(menus[0]);
                 });
                 setTimeout(function () {
-                  var navItems = $(".nav-list");
+                  var navItems = $('.nav-list');
                   $.each(navItems, function (index, elem) {
                     if ($(elem).find('.nav-link').hasClass('active')) {
                       _this85.activeNav = $(elem).find('.nav-link').attr('name');
@@ -9468,7 +9468,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }];
     };
 
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("navElement", {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('navElement', {
       "static": false
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])], SidebarComponent.prototype, "navElementRef", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:scroll', ['$event']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], SidebarComponent.prototype, "onScroll", null);

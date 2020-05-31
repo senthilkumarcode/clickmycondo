@@ -270,7 +270,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var queryParamBase = {
             apartmentId: this.apartmentID
           };
-          this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
+          this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe(function (res) {
             _this2.broadCastGroupCategory = res;
           });
         }
@@ -316,7 +316,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllBroadcastMessage() {
           var _this3 = this;
 
-          var apartmentId = parseInt(this.cookieService.get('apartmentId'));
           var users$ = this.userService.getAllUsers();
           var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["concatMap"])(function (users) {
             _this3.allUser = users;

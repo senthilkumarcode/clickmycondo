@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"directory-setup-wrapper\">\n\n    <h5 class=\"mb-3\">Add Directory</h5>\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isDirectoryTypeLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isDirectoryTypeLoaded\">\n\n\t\t\t\t\t<form #createDirectoryTypeForm = \"ngForm\" name=\"createDirectoryTypeForm\" (ngSubmit)=\"submitDirectoryTypeForm(createDirectoryTypeForm)\"  novalidate>\n\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"\n\t\t\t\t\t\t\t\t\tcol-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Create Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"directoryType\" [(ngModel)]=\"directory.directoryType\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Directory Description</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" placeholder=\"Enter\" name=\"directoryDescription\" [(ngModel)]=\"directory.directoryDescription\" required></textarea>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"createDirectoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\n\n\n\t\t\t\n\t\t\t\t\t\t<table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeId')\">Directory Type ID<span [ngClass]=\"getFieldOrderBy('directoryTypeId')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeName')\">Directory Type <span [ngClass]=\"getFieldOrderBy('directoryTypeName')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('description')\">Directory Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let directory of allDirectory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: wpData ; let i = index\">\n\t\t\t\t\t\t\t\t  <td class=\"name\" >{{directory.directoryTypeId}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\" >{{directory.directoryTypeName}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\" >{{directory.description}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\">\n\t\t\t\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n\t\t\t\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t\t\t  </td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<app-pagination \n\t\t\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t\t\t</app-pagination>\n\n\t\t\t\n\t\t\t\n\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t</ng-container>\n\t\t\t\n\t\t</div>\n\t\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"directory-setup-wrapper\">\n\n    <h5 class=\"mb-3\">Add Directory</h5>\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isDirectoryTypeLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isDirectoryTypeLoaded\">\n\n\t\t\t\t\t<form #createDirectoryTypeForm = \"ngForm\" name=\"createDirectoryTypeForm\" (ngSubmit)=\"submitDirectoryTypeForm(createDirectoryTypeForm)\"  novalidate>\n\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"\n\t\t\t\t\t\t\t\t\tcol-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Create Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"directoryType\" [(ngModel)]=\"directory.directoryType\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Directory Description</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" placeholder=\"Enter\" name=\"directoryDescription\" [(ngModel)]=\"directory.directoryDescription\" required></textarea>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"createDirectoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\n\n\n\t\t\t\n\t\t\t\t\t\t<table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeId')\">Directory Type ID<span [ngClass]=\"getFieldOrderBy('directoryTypeId')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeName')\">Directory Type <span [ngClass]=\"getFieldOrderBy('directoryTypeName')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('description')\">Directory Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let directory of allDirectory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: wpData ; let i = index\">\n\t\t\t\t\t\t\t\t  <td class=\"name\" >{{directory.directoryTypeId}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\" >{{directory.directoryTypeName}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\" >{{directory.description}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\">\n\t\t\t\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n\t\t\t\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t\t\t  </td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<app-pagination \n\t\t\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t\t\t</app-pagination>\n\t\t\t\n\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t</ng-container>\n\t\t\t\n\t\t</div>\n\t\n\t</div>\n\n</div>\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-loader *ngIf=\"!isExternalDataLoaded\"></app-loader>\n\n<div class=\"card table-card mb-30\" *ngIf=\"isExternalDataLoaded\">\n\n\n    <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n    <table class=\"table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                  <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Contact Person <span [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n\n                  <th scope=\"col\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                  <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                    <td>\n                    <mat-form-field>\n                        <!-- <mat-select formControlName=\"serviceType\">\n                        <mat-option value=\"Police\">Police</mat-option>\n                        </mat-select> -->\n                        <input matInput type=\"text\" formControlName=\"serviceType\">\n                    </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"number\" formControlName=\"phone\">\n                        \n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"text\" formControlName=\"contactperson\">\n                        \n                      </mat-form-field>\n                    </td>\n                    \n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"email\" formControlName=\"email\">\n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i,group)\">delete_forever</mat-icon>\n                      <mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon> -->\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                      </a>\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"doneRow(group)\">\n                        <i-feather class=\"icon check\" name=\"check\"></i-feather>\n                      </a>\n                      \n                    </td>\n                  </tr>\n                  <tr *ngIf=\"!group.get('isEditable').value\" >\n                    <td>\n                      {{group.get('serviceType').value}}\n                    </td>\n                    <td>\n                      {{group.get('phone').value}}\n                    </td>\n                    <td>\n                        {{group.get('contactperson').value}}\n                    </td>\n                    \n                    <td>\n                      {{group.get('email').value}}\n                    </td>\n                    <td>\n                            <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n                            <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editRow(group)\">\n                                <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                              </a>\n                              <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                                <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                              </a>\n                            \n                      \n                    </td>\n                  </tr>\n                </ng-container>\n              </tbody>\n            \n        </table>\n        <div class=\"action-container\">\n                <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n              </div>\n        </form>\n\n        <!-- <div class=\"output\">\n                <p>Form Data:  {{userTable.value | json}}</p>\n                  <p>Is Valid: {{userTable.valid}}</p>\n              </div> -->\n    </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-loader *ngIf=\"!isExternalDataLoaded\"></app-loader>\n\n<div class=\"card table-card mb-30\" *ngIf=\"isExternalDataLoaded\">\n\n\n    <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n              <table class=\"table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                      <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                      <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                      <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Contact Person <span [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n                      <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n\n                      <th scope=\"col\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                      <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                        <td>\n                        <mat-form-field>\n                            <!-- <mat-select formControlName=\"serviceType\">\n                            <mat-option value=\"Police\">Police</mat-option>\n                            </mat-select> -->\n                            <input matInput type=\"text\" formControlName=\"serviceType\">\n                        </mat-form-field>\n                        </td>\n                        <td>\n                          <mat-form-field>\n                                <input matInput type=\"number\" formControlName=\"phone\">\n                            \n                          </mat-form-field>\n                        </td>\n                        <td>\n                          <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"contactperson\">\n                            \n                          </mat-form-field>\n                        </td>\n                        \n                        <td>\n                          <mat-form-field>\n                                <input matInput type=\"email\" formControlName=\"email\">\n                          </mat-form-field>\n                        </td>\n                        <td>\n                          <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i,group)\">delete_forever</mat-icon>\n                          <mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon> -->\n                          <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                            <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                          </a>\n                          <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"doneRow(group)\">\n                            <i-feather class=\"icon check\" name=\"check\"></i-feather>\n                          </a>\n                          \n                        </td>\n                      </tr>\n                      <tr *ngIf=\"!group.get('isEditable').value\" >\n                        <td>\n                          {{group.get('serviceType').value}}\n                        </td>\n                        <td>\n                          {{group.get('phone').value}}\n                        </td>\n                        <td>\n                            {{group.get('contactperson').value}}\n                        </td>\n                        \n                        <td>\n                          {{group.get('email').value}}\n                        </td>\n                        <td>\n                                <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n                                <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                                <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editRow(group)\">\n                                    <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                  </a>\n                                  <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                                    <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                  </a>\n                                \n                          \n                        </td>\n                      </tr>\n                    </ng-container>\n                  </tbody>\n              </table>\n              <div class=\"action-container\">\n                      <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                      <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n              </div>\n            </form>\n\n        <!-- <div class=\"output\">\n                <p>Form Data:  {{userTable.value | json}}</p>\n                  <p>Is Valid: {{userTable.valid}}</p>\n              </div> -->\n    </div>\n\n</div>\n");
 
 /***/ }),
 
@@ -139,7 +139,7 @@ let DirectorySetupComponent = class DirectorySetupComponent {
         this.getDirectoryType();
     }
     submitDirectoryTypeForm(form) {
-        let params = {
+        const params = {
             directoryType: {
                 directoryTypeId: this.directoryTypeId === 0 ? 0 : this.directoryTypeId,
                 apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -186,7 +186,7 @@ let DirectorySetupComponent = class DirectorySetupComponent {
     }
     // Get Dkirectory Type
     getDirectoryType() {
-        let params = {
+        const params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
         this.apartmentService.getAllDirectoryTypeByApartmentId(params).subscribe((res) => {
@@ -221,13 +221,13 @@ let DirectorySetupComponent = class DirectorySetupComponent {
     }
     // Get Directory Type By DirectoryTypeId
     getDirectoryTypeByDirectoryTypeId(typeId) {
-        let params = {
+        const params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             directoryTypeId: parseInt(typeId)
         };
         this.directoryTypeId = typeId;
         this.apartmentService.getDirectoryTypeByDirectoryTypeId(params).subscribe((res) => {
-            let resDirectory = res;
+            const resDirectory = res;
             this.directory = {
                 directoryType: resDirectory[0].directoryTypeName,
                 directoryDescription: resDirectory[0].description
@@ -236,7 +236,7 @@ let DirectorySetupComponent = class DirectorySetupComponent {
     }
     // delete Directory Type By DirectoryTypeId
     deleteByDirectoryTypeId(typeId) {
-        let params = {
+        const params = {
             DirectoryTypeId: parseInt(typeId),
             deleteBy: parseInt(this.cookieService.get('userId'))
         };
@@ -558,8 +558,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
@@ -572,12 +572,12 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
         this.apartmentService = apartmentService;
         this.cookieService = cookieService;
         this.sharedService = sharedService;
-        this.unitFieldType = "unitno";
+        this.unitFieldType = 'unitno';
         this.unitOrder = false;
-        this.externalData = "";
+        this.externalData = '';
         this.isExternalDataLoaded = false;
-        this.externalDeleteId = "";
-        this.errorMessage = "";
+        this.externalDeleteId = '';
+        this.errorMessage = '';
         this.isError = false;
         this.alertMessage = '';
     }
@@ -587,7 +587,7 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
         this.userTable = this.fb.group({
             tableRows: this.fb.array([])
         });
-        //this.addRow();
+        // this.addRow();
         this.getAssetDirectoryItems();
     }
     ngAfterViewInit() {
@@ -598,7 +598,7 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
         this.unitOrder = !this.unitOrder;
     }
     getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
+        if (this.unitFieldType === type) {
             return this.unitOrder ? 'desc' : 'asc';
         }
         else
@@ -748,8 +748,8 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
 ExternalDirectoryComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] }
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] }
 ];
 ExternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -759,8 +759,8 @@ ExternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]])
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
 ], ExternalDirectoryComponent);
 
 
@@ -794,8 +794,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
 
 
@@ -984,8 +984,8 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
 InternalDirectoryComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] }
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] }
 ];
 InternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -995,8 +995,8 @@ InternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]])
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
 ], InternalDirectoryComponent);
 
 
