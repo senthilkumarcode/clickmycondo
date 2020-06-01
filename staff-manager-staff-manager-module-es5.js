@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"staff-attendance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isEntryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isEntryDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Entries <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"entryData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-entry\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Attendance</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName\n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tJob Title\n\t\t\t\t      \t<span (click)=\"sortUnitData('jobTitle')\" [ngClass]=\"getFieldOrderBy('jobTitle')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Job Title\" [(ngModel)]=\"columnField['jobTitle']\" (ngModelChange)=\"selectColInput('jobTitle')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">In Time <span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Time<span (click)=\"sortUnitData('outTime')\" [ngClass]=\"getFieldOrderBy('outTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">In Gate <span (click)=\"sortUnitData('inGateId')\" [ngClass]=\"getFieldOrderBy('inGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Gate <span (click)=\"sortUnitData('outGateId')\" [ngClass]=\"getFieldOrderBy('outGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">comments <span (click)=\"sortUnitData('notes')\" [ngClass]=\"getFieldOrderBy('notes')\"></span></th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let entry of entryListData | simpleSearch: staffData | \n\t\t\t\t    sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{getStaffName(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"name\">{{getJobTitle(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.inTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.outTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getInGateName(entry.inGateId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getOutGateName(entry.outGateId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{entry.notes}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-entry/{{entry.attendanceId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"staff-attendance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isEntryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isEntryDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Entries <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"entryData\" \n\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-entry\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Attendance</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\"\n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"creditNoteDataList\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName\n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tJob Title\n\t\t\t\t      \t<span (click)=\"sortUnitData('jobTitle')\" [ngClass]=\"getFieldOrderBy('jobTitle')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Job Title\" [(ngModel)]=\"columnField['jobTitle']\" (ngModelChange)=\"selectColInput('jobTitle')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">In Time <span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Time<span (click)=\"sortUnitData('outTime')\" [ngClass]=\"getFieldOrderBy('outTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">In Gate <span (click)=\"sortUnitData('inGateId')\" [ngClass]=\"getFieldOrderBy('inGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Gate <span (click)=\"sortUnitData('outGateId')\" [ngClass]=\"getFieldOrderBy('outGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">comments <span (click)=\"sortUnitData('notes')\" [ngClass]=\"getFieldOrderBy('notes')\"></span></th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let entry of entryListData | simpleSearch: staffData | \n\t\t\t\t    sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{getStaffName(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"name\">{{getJobTitle(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.inTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.outTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getInGateName(entry.inGateId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getOutGateName(entry.outGateId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{entry.notes}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-entry/{{entry.attendanceId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -2014,6 +2014,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this14 = this;
+
+          if (this.staffData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.staffData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
         key: "onEditMainstaff",
         value: function onEditMainstaff(detail) {
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -2023,7 +2047,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this15 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2076,31 +2100,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }];
           this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
             //filter inactive true items
-            _this14.staffListData = res.filter(function (data) {
+            _this15.staffListData = res.filter(function (data) {
               return !data.isActive;
             });
-            _this14.gridSourceData = {
-              localdata: _this14.staffListData,
+            _this15.gridSourceData = {
+              localdata: _this15.staffListData,
               datatype: "array"
             };
-            _this14.staffListData = new jqx.dataAdapter(_this14.gridSourceData);
-            console.log("staffListData Inactive", _this14.staffListData);
-            _this14.totalItems = _this14.staffListData.length;
+            _this15.staffListData = new jqx.dataAdapter(_this15.gridSourceData);
+            console.log("staffListData Inactive", _this15.staffListData);
+            _this15.totalItems = _this15.staffListData.length;
 
-            if (_this14.totalItems > _this14.itemLimit) {
-              _this14.ItemEndIndex = _this14.itemLimit;
+            if (_this15.totalItems > _this15.itemLimit) {
+              _this15.ItemEndIndex = _this15.itemLimit;
             } else {
-              _this14.ItemEndIndex = _this14.totalItems;
+              _this15.ItemEndIndex = _this15.totalItems;
             }
 
-            _this14.isStaffDataLoaded = true;
+            _this15.isStaffDataLoaded = true;
           });
           var staffParams = {
             LookupTypeId: 25
           }; //staff type
 
           this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
-            _this14.staffTypeData = res.filter(function (item) {
+            _this15.staffTypeData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -2109,17 +2133,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //offical category type
 
           this.lookupService.getLookupValueByLookupTypeId(staffOfficialParams).subscribe(function (res) {
-            _this14.staffOfficalCategoryData = res.filter(function (item) {
+            _this15.staffOfficalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            console.log(_this14.staffOfficalCategoryData);
+            console.log(_this15.staffOfficalCategoryData);
           }, function (error) {});
           var staffPersonalParams = {
             LookupTypeId: 27
           }; //personal category type
 
           this.lookupService.getLookupValueByLookupTypeId(staffPersonalParams).subscribe(function (res) {
-            _this14.staffPersonalCategoryData = res.filter(function (item) {
+            _this15.staffPersonalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -2414,7 +2438,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this15 = this;
+          var _this16 = this;
 
           if (this.staffData != "") {
             var filtergroup = new jqx.filter();
@@ -2427,7 +2451,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this15.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this16.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2452,7 +2476,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this16 = this;
+          var _this17 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2499,31 +2523,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }];
           this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
             //filter active true items
-            _this16.staffListData = res.filter(function (data) {
+            _this17.staffListData = res.filter(function (data) {
               return data.isActive;
             });
-            _this16.gridSourceData = {
-              localdata: _this16.staffListData,
+            _this17.gridSourceData = {
+              localdata: _this17.staffListData,
               datatype: "array"
             };
-            _this16.staffListData = new jqx.dataAdapter(_this16.gridSourceData);
-            console.log("staffListData", _this16.staffListData);
-            _this16.totalItems = _this16.staffListData.length;
+            _this17.staffListData = new jqx.dataAdapter(_this17.gridSourceData);
+            console.log("staffListData", _this17.staffListData);
+            _this17.totalItems = _this17.staffListData.length;
 
-            if (_this16.totalItems > _this16.itemLimit) {
-              _this16.ItemEndIndex = _this16.itemLimit;
+            if (_this17.totalItems > _this17.itemLimit) {
+              _this17.ItemEndIndex = _this17.itemLimit;
             } else {
-              _this16.ItemEndIndex = _this16.totalItems;
+              _this17.ItemEndIndex = _this17.totalItems;
             }
 
-            _this16.isStaffDataLoaded = true;
+            _this17.isStaffDataLoaded = true;
           });
           var staffParams = {
             LookupTypeId: 25
           }; //staff type
 
           this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
-            _this16.staffTypeData = res.filter(function (item) {
+            _this17.staffTypeData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -2532,17 +2556,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //offical category type
 
           this.lookupService.getLookupValueByLookupTypeId(officialParams).subscribe(function (res) {
-            _this16.staffOfficalCategoryData = res.filter(function (item) {
+            _this17.staffOfficalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            console.log(_this16.staffOfficalCategoryData);
+            console.log(_this17.staffOfficalCategoryData);
           }, function (error) {});
           var officialCategoryParams = {
             LookupTypeId: 27
           }; //personal category type
 
           this.lookupService.getLookupValueByLookupTypeId(officialCategoryParams).subscribe(function (res) {
-            _this16.staffPersonalCategoryData = res.filter(function (item) {
+            _this17.staffPersonalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {}); // delete item
@@ -2551,24 +2575,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (id != null) {
               var params = {
                 staffId: id,
-                deleteBy: parseInt(_this16.cookieService.get('userId'))
+                deleteBy: parseInt(_this17.cookieService.get('userId'))
               };
 
-              _this16.staffService.deleteStaff(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this16.staffListData, function (type) {
+              _this17.staffService.deleteStaff(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this17.staffListData, function (type) {
                   if (type.staffId == id) {
                     type.isActive = false;
                   }
                 });
                 setTimeout(function () {
-                  _this16.staffListData = _this16.staffListData.filter(function (type) {
+                  _this17.staffListData = _this17.staffListData.filter(function (type) {
                     return type.staffId !== id;
                   });
-                  _this16.totalItems = _this16.staffListData.length;
+                  _this17.totalItems = _this17.staffListData.length;
 
-                  _this16.sharedService.setAlertMessage("Staff deleted");
+                  _this17.sharedService.setAlertMessage("Staff deleted");
 
-                  _this16.sharedService.setUnitListDeleteIndex(null);
+                  _this17.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -3020,14 +3044,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitStaffForm",
         value: function submitStaffForm(form) {
-          var _this17 = this;
+          var _this18 = this;
 
           this.isError = false; //offical category
 
           if (this.staffType == "115") {
             this.staffTypeId = 26;
             var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryOffcialData, function (item) {
-              return item.lookupValueName === _this17.staffCategory;
+              return item.lookupValueName === _this18.staffCategory;
             });
 
             if (categoryAvailable) {
@@ -3052,18 +3076,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: details
                 };
                 this.lookupService.addLookupValue(params).subscribe(function (res) {
-                  _this17.isStaffLoaded = true;
-                  _this17.isCategoryDataLoaded = false;
+                  _this18.isStaffLoaded = true;
+                  _this18.isCategoryDataLoaded = false;
                   var params = {
-                    LookupTypeId: _this17.staffTypeId
+                    LookupTypeId: _this18.staffTypeId
                   };
 
-                  _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this18.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryOffcialListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this17.categoryOffcialListData = categoryOffcialListData;
-                    _this17.isCategoryDataLoaded = true;
+                    _this18.categoryOffcialListData = categoryOffcialListData;
+                    _this18.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               } else {
@@ -3082,19 +3106,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details3
                 };
                 this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
-                  _this17.isStaffLoaded = true;
-                  _this17.isCategoryDataLoaded = false;
-                  _this17.isEditStaffCategory = false;
+                  _this18.isStaffLoaded = true;
+                  _this18.isCategoryDataLoaded = false;
+                  _this18.isEditStaffCategory = false;
                   var params = {
-                    LookupTypeId: _this17.staffTypeId
+                    LookupTypeId: _this18.staffTypeId
                   };
 
-                  _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this18.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryOffcialListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this17.categoryOffcialListData = categoryOffcialListData;
-                    _this17.isCategoryDataLoaded = true;
+                    _this18.categoryOffcialListData = categoryOffcialListData;
+                    _this18.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               }
@@ -3102,7 +3126,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.staffTypeId = 27;
             var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryPersonalData, function (item) {
-              return item.lookupValueName === _this17.staffCategory;
+              return item.lookupValueName === _this18.staffCategory;
             });
 
             if (categoryAvailable) {
@@ -3127,18 +3151,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details4
                 };
                 this.lookupService.addLookupValue(_params5).subscribe(function (res) {
-                  _this17.isStaffLoaded = true;
-                  _this17.isCategoryDataLoaded = false;
+                  _this18.isStaffLoaded = true;
+                  _this18.isCategoryDataLoaded = false;
                   var params = {
-                    LookupTypeId: _this17.staffTypeId
+                    LookupTypeId: _this18.staffTypeId
                   };
 
-                  _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this18.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryPersonalListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this17.categoryPersonalListData = categoryPersonalListData;
-                    _this17.isCategoryDataLoaded = true;
+                    _this18.categoryPersonalListData = categoryPersonalListData;
+                    _this18.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               } else {
@@ -3157,19 +3181,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details5
                 };
                 this.lookupService.updateLookupValue(_params6).subscribe(function (res) {
-                  _this17.isStaffLoaded = true;
-                  _this17.isCategoryDataLoaded = false;
-                  _this17.isEditStaffCategory = false;
+                  _this18.isStaffLoaded = true;
+                  _this18.isCategoryDataLoaded = false;
+                  _this18.isEditStaffCategory = false;
                   var params = {
-                    LookupTypeId: _this17.staffTypeId
+                    LookupTypeId: _this18.staffTypeId
                   };
 
-                  _this17.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this18.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryPersonalListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this17.categoryPersonalListData = categoryPersonalListData;
-                    _this17.isCategoryDataLoaded = true;
+                    _this18.categoryPersonalListData = categoryPersonalListData;
+                    _this18.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               }
@@ -3179,15 +3203,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this18 = this;
+          var _this19 = this;
 
           var params = {
             LookupTypeId: 25
           }; //get all staff type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this18.staffCategoryData = res;
-            _this18.isStaffLoaded = true;
+            _this19.staffCategoryData = res;
+            _this19.isStaffLoaded = true;
           }, function (error) {});
           var categoryParams = {
             LookupTypeId: 26
@@ -3197,46 +3221,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var categoryOffcialListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this18.categoryOffcialListData = categoryOffcialListData;
+            _this19.categoryOffcialListData = categoryOffcialListData;
             var categoryPersonalParams = {
               LookupTypeId: 27
             }; //get all personal category
 
-            _this18.lookupService.getLookupValueByLookupTypeId(categoryPersonalParams).subscribe(function (res) {
+            _this19.lookupService.getLookupValueByLookupTypeId(categoryPersonalParams).subscribe(function (res) {
               var categoryPersonalListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this18.categoryPersonalListData = categoryPersonalListData;
-              _this18.isCategoryDataLoaded = true;
+              _this19.categoryPersonalListData = categoryPersonalListData;
+              _this19.isCategoryDataLoaded = true;
             }, function (error) {});
           }, function (error) {}); // delete lookupvalue
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (index) {
             if (index != null) {
-              if (_this18.staffDeleteTypeId == "115") {
+              if (_this19.staffDeleteTypeId == "115") {
                 var params = {
-                  lookupValueId: _this18.categoryOffcialListData[index].lookupValueId,
-                  updateUserId: parseInt(_this18.cookieService.get('userId'))
+                  lookupValueId: _this19.categoryOffcialListData[index].lookupValueId,
+                  updateUserId: parseInt(_this19.cookieService.get('userId'))
                 };
               } else {
                 var params = {
-                  lookupValueId: _this18.categoryPersonalListData[index].lookupValueId,
-                  updateUserId: parseInt(_this18.cookieService.get('userId'))
+                  lookupValueId: _this19.categoryPersonalListData[index].lookupValueId,
+                  updateUserId: parseInt(_this19.cookieService.get('userId'))
                 };
               }
 
-              _this18.isCategoryDataLoaded = false;
+              _this19.isCategoryDataLoaded = false;
 
-              _this18.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                if (_this18.staffDeleteTypeId == "115") {
-                  _this18.categoryOffcialListData.splice(index, 1);
+              _this19.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                if (_this19.staffDeleteTypeId == "115") {
+                  _this19.categoryOffcialListData.splice(index, 1);
                 } else {
-                  _this18.categoryPersonalListData.splice(index, 1);
+                  _this19.categoryPersonalListData.splice(index, 1);
                 }
 
-                _this18.isCategoryDataLoaded = true;
+                _this19.isCategoryDataLoaded = true;
 
-                _this18.sharedService.setUnitListDeleteIndex(null);
+                _this19.sharedService.setUnitListDeleteIndex(null);
               }, function (error) {
                 console.log(error);
               });
@@ -3450,7 +3474,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitShiftsForm",
         value: function submitShiftsForm(form) {
-          var _this19 = this;
+          var _this20 = this;
 
           this.isShiftsLoaded = false;
 
@@ -3471,11 +3495,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.staffService.addShift(params).subscribe(function (res) {
               if (res.message) {
-                _this19.isShiftsLoaded = true;
+                _this20.isShiftsLoaded = true;
 
-                _this19.sharedService.setAlertMessage("Shift added Successfully!");
+                _this20.sharedService.setAlertMessage("Shift added Successfully!");
 
-                _this19.getAllShifts();
+                _this20.getAllShifts();
               }
             }, function (error) {});
           } else {
@@ -3496,11 +3520,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.staffService.updateShift(_params7).subscribe(function (res) {
               if (res.message) {
-                _this19.isShiftsLoaded = true;
+                _this20.isShiftsLoaded = true;
 
-                _this19.sharedService.setAlertMessage("Shift updated Successfully!");
+                _this20.sharedService.setAlertMessage("Shift updated Successfully!");
 
-                _this19.getAllShifts();
+                _this20.getAllShifts();
               }
             }, function (error) {});
           }
@@ -3508,12 +3532,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addShift",
         value: function addShift() {
-          var _this20 = this;
+          var _this21 = this;
 
           this.isEditShift = false;
           this.isAddShiftLoaded = false;
           setTimeout(function () {
-            _this20.isAddShiftLoaded = true;
+            _this21.isAddShiftLoaded = true;
           }, 10);
           setTimeout(function () {
             var elem = document.querySelector('.add-shift-card');
@@ -3527,11 +3551,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editShift",
         value: function editShift(shift) {
-          var _this21 = this;
+          var _this22 = this;
 
           this.isAddShiftLoaded = false;
           setTimeout(function () {
-            _this21.isAddShiftLoaded = true;
+            _this22.isAddShiftLoaded = true;
           }, 10);
           this.isEditShift = true;
           this.shiftTypeId = shift.shiftTypeId;
@@ -3560,31 +3584,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllShifts",
         value: function getAllShifts() {
-          var _this22 = this;
+          var _this23 = this;
 
           this.isShiftTableLoaded = false;
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.staffService.getAllShiftsByApartmentId(params).subscribe(function (res) {
-            _this22.shiftsListData = res.filter(function (item) {
+            _this23.shiftsListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this22.totalItems = _this22.shiftsListData.length;
+            _this23.totalItems = _this23.shiftsListData.length;
 
-            if (_this22.totalItems > _this22.itemLimit) {
-              _this22.ItemEndIndex = _this22.itemLimit;
+            if (_this23.totalItems > _this23.itemLimit) {
+              _this23.ItemEndIndex = _this23.itemLimit;
             } else {
-              _this22.ItemEndIndex = _this22.totalItems;
+              _this23.ItemEndIndex = _this23.totalItems;
             }
 
-            _this22.isShiftTableLoaded = true;
+            _this23.isShiftTableLoaded = true;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this23 = this;
+          var _this24 = this;
 
           this.shift = {};
           this.getAllShifts();
@@ -3593,7 +3617,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //shift type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this23.shiftTypeList = res.filter(function (item) {
+            _this24.shiftTypeList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {}); // delete item
@@ -3602,18 +3626,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (item != null) {
               var params = {
                 shiftId: item.shiftId,
-                deleteBy: parseInt(_this23.cookieService.get('userId'))
+                deleteBy: parseInt(_this24.cookieService.get('userId'))
               };
-              _this23.isShiftTableLoaded = false;
+              _this24.isShiftTableLoaded = false;
 
-              _this23.staffService.deleteShift(params).subscribe(function (res) {
-                _this23.shiftsListData = _this23.shiftsListData.filter(function (type) {
+              _this24.staffService.deleteShift(params).subscribe(function (res) {
+                _this24.shiftsListData = _this24.shiftsListData.filter(function (type) {
                   return type.shiftId !== item.shiftId;
                 });
 
-                _this23.sharedService.setUnitListDeleteIndex(null);
+                _this24.sharedService.setUnitListDeleteIndex(null);
 
-                _this23.isShiftTableLoaded = true;
+                _this24.isShiftTableLoaded = true;
               }, function (error) {
                 console.log(error);
               });

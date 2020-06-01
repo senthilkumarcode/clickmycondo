@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"checkedout-visitor-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Checked-in Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\" (click) = \"print()\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorName')\">Visitor Name <span [ngClass]=\"getFieldOrderBy('visitorName')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorPhone')\">Phone Number <span [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorInTime')\">In-time <span [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorOutTime')\">Out-time <span [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No<span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockUnitNo')\">Unit No <span [ngClass]=\"getFieldOrderBy('blockUnitNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.visitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.visitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorInTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorOutTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockNo}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockUnitNo}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckOutContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/visitor/edit-visitor/{{visitor.visitorId}}/checkout\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<img src=\"assets/images/checkout-icon.svg\" width=\"20\" />\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<ng-template #popAddCheckOutContent>\n\t\t\t\t      \t\t<div class=\"pop-desp\">\n\t\t\t\t      \t\t\t<h5>CheckOut</h5>\n\t\t\t\t      \t\t</div>\n\t\t\t\t      \t</ng-template>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"checkedout-visitor-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Checked-in Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\" (click) = \"print()\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<!-- <table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorName')\">Visitor Name <span [ngClass]=\"getFieldOrderBy('visitorName')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorPhone')\">Phone Number <span [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorInTime')\">In-time <span [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorOutTime')\">Out-time <span [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No<span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockUnitNo')\">Unit No <span [ngClass]=\"getFieldOrderBy('blockUnitNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.visitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.visitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorInTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorOutTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockNo}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockUnitNo}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckOutContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/visitor/edit-visitor/{{visitor.visitorId}}/checkout\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<img src=\"assets/images/checkout-icon.svg\" width=\"20\" />\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<ng-template #popAddCheckOutContent>\n\t\t\t\t      \t\t<div class=\"pop-desp\">\n\t\t\t\t      \t\t\t<h5>CheckOut</h5>\n\t\t\t\t      \t\t</div>\n\t\t\t\t      \t</ng-template>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
     /***/
   },
 
@@ -101,7 +101,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"expected-visitor-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Expected Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\" (click) = \"print()\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Export</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/visitor/create-expected-visitor\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"\n\t\t\t\t\t[state]=\"{ data: 'admin'}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Expected Visitor</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t<div class=\"card-body p-0 customScroll\">\n  \t\t\t\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\" mdbTable mdbTableScroll scrollX=\"true\" maxWidth=\"400\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tVisitor Name\n\t\t\t\t      \t<span (click)=\"sortUnitData('visitorName')\" [ngClass]=\"getFieldOrderBy('visitorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['visitorName']\" (ngModelChange)=\"selectColInput('visitorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tPhone Number\n\t\t\t\t      \t<span (click)=\"sortUnitData('visitorPhone')\" [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['visitorPhone']\" (ngModelChange)=\"selectColInput('visitorPhone')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Expected Date/Time of Visit<span (click)=\"sortUnitData('visitorInTime')\" [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Expected Time-out<span (click)=\"sortUnitData('visitorOutTime')\" [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Visitor Type<span (click)=\"sortUnitData('visitorOutTime')\" [ngClass]=\"getFieldOrderBy('visitorType')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Visitor category<span (click)=\"sortUnitData('visitorCategoryId_Label')\" [ngClass]=\"getFieldOrderBy('visitorCategoryId_Label')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Tower Unit<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.expectedVisitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedVisitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.expectedVisitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{getTimeFormat(visitor.expectedVisitorInTime)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{getTimeFormat(visitor.expectedVisitorOutTime)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{visitor.visitTypeName}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorCategoryId_Label}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.block_Unit}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/visitor/edit-visitor/{{visitor.expectedVisitorId}}/checkin\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<img src=\"assets/images/checkin-icon.svg\" width=\"20\" />\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<ng-template #popAddCheckInContent>\n\t\t\t\t      \t\t<div class=\"pop-desp\">\n\t\t\t\t      \t\t\t<h5>CheckIn</h5>\n\t\t\t\t      \t\t</div>\n\t\t\t\t      \t</ng-template>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"expected-visitor-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Expected Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"visitorData\" \n\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\" (click) = \"print()\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Export</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/visitor/create-expected-visitor\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"\n\t\t\t\t\t[state]=\"{ data: 'admin'}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Expected Visitor</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t<div class=\"card-body p-0 customScroll\">\n<<<<<<< HEAD\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"visitorListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n=======\n  \t\t\t\n>>>>>>> caed2a72cbd4281588e08676c9f833a1770ca027\n  \t\t\t<!-- <table class=\"table\" [ngClass]=\"isMobileView()\" mdbTable mdbTableScroll scrollX=\"true\" maxWidth=\"400\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tVisitor Name\n\t\t\t\t      \t<span (click)=\"sortUnitData('visitorName')\" [ngClass]=\"getFieldOrderBy('visitorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['visitorName']\" (ngModelChange)=\"selectColInput('visitorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tPhone Number\n\t\t\t\t      \t<span (click)=\"sortUnitData('visitorPhone')\" [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['visitorPhone']\" (ngModelChange)=\"selectColInput('visitorPhone')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Expected Date/Time of Visit<span (click)=\"sortUnitData('visitorInTime')\" [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Expected Time-out<span (click)=\"sortUnitData('visitorOutTime')\" [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Visitor Type<span (click)=\"sortUnitData('visitorOutTime')\" [ngClass]=\"getFieldOrderBy('visitorType')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Visitor category<span (click)=\"sortUnitData('visitorCategoryId_Label')\" [ngClass]=\"getFieldOrderBy('visitorCategoryId_Label')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Tower Unit<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.expectedVisitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedVisitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.expectedVisitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{getTimeFormat(visitor.expectedVisitorInTime)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{getTimeFormat(visitor.expectedVisitorOutTime)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{visitor.visitTypeName}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorCategoryId_Label}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.block_Unit}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/visitor/edit-visitor/{{visitor.expectedVisitorId}}/checkin\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<img src=\"assets/images/checkin-icon.svg\" width=\"20\" />\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<ng-template #popAddCheckInContent>\n\t\t\t\t      \t\t<div class=\"pop-desp\">\n\t\t\t\t      \t\t\t<h5>CheckIn</h5>\n\t\t\t\t      \t\t</div>\n\t\t\t\t      \t</ng-template>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table> -->\n\t\t\t\n\t\t\t<!-- <app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n<<<<<<< HEAD\n=======\n\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n>>>>>>> caed2a72cbd4281588e08676c9f833a1770ca027\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
     /***/
   },
 
@@ -121,7 +121,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"visitor-history-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Checked-Out Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorName')\">Visitor Name <span [ngClass]=\"getFieldOrderBy('visitorName')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorPhone')\">Phone Number <span [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorInTime')\">In-time <span [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('visitorOutTime')\">Out-time <span [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('expectedVisitorInTime')\">Expected In-time <span [ngClass]=\"getFieldOrderBy('expectedVisitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('expectedVisitorOutTime')\">Expected Out-time <span [ngClass]=\"getFieldOrderBy('expectedVisitorOutTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No<span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockUnitNo')\">Unit No <span [ngClass]=\"getFieldOrderBy('blockUnitNo')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.visitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.visitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li *ngIf=\"visitor.expectedVisitorDuration != null\">\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedVisitorDuration}}</small>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Actual Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorInTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{visitor.visitorOutTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{visitor.expectedVisitorInTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.expectedVisitorOutTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockNo}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockUnitNo}}</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"visitor-history-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Checked-Out Visitors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<!-- <table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorName')\">Visitor Name <span [ngClass]=\"getFieldOrderBy('visitorName')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorPhone')\">Phone Number <span [ngClass]=\"getFieldOrderBy('visitorPhone')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('visitorInTime')\">In-time <span [ngClass]=\"getFieldOrderBy('visitorInTime')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('visitorOutTime')\">Out-time <span [ngClass]=\"getFieldOrderBy('visitorOutTime')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('expectedVisitorInTime')\">Expected In-time <span [ngClass]=\"getFieldOrderBy('expectedVisitorInTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('expectedVisitorOutTime')\">Expected Out-time <span [ngClass]=\"getFieldOrderBy('expectedVisitorOutTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockNo')\">Block No<span [ngClass]=\"getFieldOrderBy('blockNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockUnitNo')\">Unit No <span [ngClass]=\"getFieldOrderBy('blockUnitNo')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let visitor of visitorListData | simpleSearch: visitorData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">{{visitor.visitorName}}\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Visitor Count</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.visitorCount}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li *ngIf=\"visitor.expectedVisitorDuration != null\">\n\t\t\t\t\t\t    \t\t\t<h5>Expected Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedVisitorDuration}}</small>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t    \t\t\t<h5>Actual Duration</h5>\n\t\t\t\t\t\t    \t\t\t<small>{{visitor.expectedDuration}}</small>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t</a>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorPhone}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.visitorInTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{visitor.visitorOutTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{visitor.expectedVisitorInTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey\">{{visitor.expectedVisitorOutTime | date:'MM/dd/yy, hh:mm'}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockNo}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{visitor.blockUnitNo}}</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t</jqxGrid>\n  \t\t</div>\n\n\t</div>\n\n\n</div>";
     /***/
   },
 
@@ -668,7 +668,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.visitor.expectedDurationInHours = this.getDurationInHours(this.actualInTime, this.visitor.expectedVisitorOutTime);
             var visitorDetails = {
               "visitorId": null,
-              "expectedVisitorId": this.route.params['value'].id,
+              "expectedVisitorId": parseInt(this.route.params['value'].id),
               "apartmentUnitId": this.apartmentUnitId,
               "apartmentId": parseInt(this.cookieService.get('apartmentId')),
               "visitorName": this.visitor.expectedVisitorName,
@@ -1025,13 +1025,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_10___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var VisitorCheckoutComponent =
     /*#__PURE__*/
     function () {
-      function VisitorCheckoutComponent(injector, apartmentService, visitorService, lookupService, cookieService, dialog) {
+      function VisitorCheckoutComponent(router, injector, apartmentService, visitorService, lookupService, cookieService, dialog) {
         _classCallCheck(this, VisitorCheckoutComponent);
 
+        this.router = router;
         this.injector = injector;
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
@@ -1083,12 +1108,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "getVisitorType",
-        value: function getVisitorType() {} //print button
+        value: function getVisitorType() {}
+      }, {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this5 = this;
+
+          if (this.visitorData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.visitorData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this5.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        } //print button
 
       }, {
         key: "print",
         value: function print() {
-          var _this5 = this;
+          var _this6 = this;
 
           var confirmationMessage = "Are you sure, you want to Print?";
           var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -1098,54 +1147,131 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             data: dialogData
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this5.result = dialogResult;
+            _this6.result = dialogResult;
 
-            if (_this5.result) {//code
+            if (_this6.result) {//code
             }
           });
         }
       }, {
+        key: "navigateTo",
+        value: function navigateTo(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var visitorId = dataRecord.visitorId;
+          this.router.navigateByUrl('/ams/visitor/edit-visitor/' + visitorId + '/checkout');
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this6 = this;
+          var _this7 = this;
 
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Id',
+            datafield: 'serialNo',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Visitor Name',
+            datafield: 'visitorName',
+            width: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Phone Number',
+            datafield: 'visitorPhone',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'In-time',
+            datafield: 'expectedVisitorInTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("MM/DD/YY hh:mm") + '</div>';
+            },
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Out-time',
+            datafield: 'expectedVisitorOutTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("MM/DD/YY hh:mm") + '</div>';
+            },
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Block No',
+            datafield: 'blockNo',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Unit No',
+            datafield: 'blockUnitNo',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Action',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="navigateTo(' + row + ')" ><img src="assets/images/checkout-icon.svg" width="20" /> </a>' + '</div>';
+            },
+            renderer: columnrenderer
+          }];
           var visitParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 15
           }; //get visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this6.visitTypeData = res;
+            _this7.visitTypeData = res;
           }, function (error) {});
           var apartmentParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe(function (res) {
             //filter active true items
-            _this6.visitorListData = res.filter(function (item) {
+            _this7.visitorListData = res.filter(function (item) {
               return item.isActive && !item.isCheckedOut;
             }); // console.log(this.visitorListData);
             //get block and unit details
 
-            underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this6.visitorListData, function (item, index) {
+            underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this7.visitorListData, function (item, index) {
               var apartmentBlockUnitIdParam = {
                 apartmentBlockUnitId: item.apartmentUnitId
               };
 
-              _this6.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (res) {
-                _this6.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
-                _this6.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
+              _this7.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (res) {
+                _this7.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
+                _this7.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
               }, function (error) {});
             });
-            _this6.totalItems = _this6.visitorListData.length;
+            _this7.gridSourceData = {
+              localdata: _this7.visitorListData,
+              datatype: "array"
+            };
+            _this7.listData = new jqx.dataAdapter(_this7.gridSourceData);
+            _this7.totalItems = _this7.visitorListData.length;
 
-            if (_this6.totalItems > _this6.itemLimit) {
-              _this6.ItemEndIndex = _this6.itemLimit;
+            if (_this7.totalItems > _this7.itemLimit) {
+              _this7.ItemEndIndex = _this7.itemLimit;
             } else {
-              _this6.ItemEndIndex = _this6.totalItems;
+              _this7.ItemEndIndex = _this7.totalItems;
             }
 
-            _this6.isVisitorDataLoaded = true;
+            _this7.isVisitorDataLoaded = true;
           });
         }
       }]);
@@ -1155,6 +1281,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     VisitorCheckoutComponent.ctorParameters = function () {
       return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"]
+      }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
         type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
@@ -1169,6 +1297,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_11__["jqxGridComponent"])], VisitorCheckoutComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:navigateTo', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], VisitorCheckoutComponent.prototype, "navigateTo", null);
     VisitorCheckoutComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-visitor-checkout',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1177,7 +1309,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./visitor-checkout.component.scss */
       "./src/app/ams/visitor/components/visitor-checkout/visitor-checkout.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], VisitorCheckoutComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], VisitorCheckoutComponent);
+
+    function navigateTo(row) {
+      var event = new CustomEvent('navigateTo', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.navigateTo = navigateTo;
     /***/
   },
 
@@ -1321,7 +1464,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddVisitorForm",
         value: function submitAddVisitorForm(form) {
-          var _this7 = this;
+          var _this8 = this;
 
           this.isVisitorSubmitted = true;
           var visitorDetails = {
@@ -1355,26 +1498,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
             if (res.message) {
-              _this7.isVisitorSubmitted = true;
+              _this8.isVisitorSubmitted = true;
 
-              _this7.sharedService.setAlertMessage("Visitor added successfully");
+              _this8.sharedService.setAlertMessage("Visitor added successfully");
 
-              _this7.router.navigate(['/ams/visitor/expected-visitor']);
+              _this8.router.navigate(['/ams/visitor/expected-visitor']);
             } else {
-              _this7.isVisitorSubmitted = false;
-              _this7.isError = true;
-              _this7.errorMessage = res.errorMessage;
+              _this8.isVisitorSubmitted = false;
+              _this8.isError = true;
+              _this8.errorMessage = res.errorMessage;
             }
           }, function (error) {
-            _this7.isVisitorSubmitted = false;
-            _this7.isError = true;
-            _this7.errorMessage = error;
+            _this8.isVisitorSubmitted = false;
+            _this8.isError = true;
+            _this8.errorMessage = error;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this9 = this;
 
           this.visitor = {};
           var params = {
@@ -1383,7 +1526,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this8.visitByData = res;
+            _this9.visitByData = res;
           }, function (error) {});
           var visitParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -1391,7 +1534,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this8.visitCategoryData = res.filter(function (item) {
+            _this9.visitCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -1399,7 +1542,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             userId: parseInt(this.cookieService.get('userId'))
           };
           this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe(function (res) {
-            _this8.apartmentUnitId = res[0].apartmentBlockUnitId;
+            _this9.apartmentUnitId = res[0].apartmentBlockUnitId;
           }, function (error) {});
           this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_9__(new Date());
           this.min = new Date(this.visitor.expectedVisitorInTime);
@@ -1408,7 +1551,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockUnitByApartmentId(blockParams).subscribe(function (res) {
-            _this8.blockUnitData = res;
+            _this9.blockUnitData = res;
             console.log('this.blockUnitData', res);
           });
         }
@@ -1586,46 +1729,66 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_8___default =
+    var moment__WEBPACK_IMPORTED_MODULE_9___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
     /* harmony import */
 
 
-    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
     "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
     /* harmony import */
 
 
-    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @angular/material/dialog */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! src/app/shared/services/constants.service */
+    "./src/app/shared/services/constants.service.ts");
 
     var VisitorExpectedVisitorComponent =
     /*#__PURE__*/
     function () {
-      function VisitorExpectedVisitorComponent(injector, apartmentService, visitorService, lookupService, cookieService, dialog) {
+      function VisitorExpectedVisitorComponent(router, injector, apartmentService, visitorService, lookupService, cookieService, dialog, constantsService) {
         _classCallCheck(this, VisitorExpectedVisitorComponent);
 
+        this.router = router;
         this.injector = injector;
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
         this.cookieService = cookieService;
         this.dialog = dialog;
+        this.constantsService = constantsService;
         this.visitorData = "";
         this.isVisitorDataLoaded = false;
         this.unitFieldType = "unitno";
@@ -1666,7 +1829,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSelectChange",
         value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
+          if (!underscore__WEBPACK_IMPORTED_MODULE_8__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
           } else {
@@ -1686,98 +1849,180 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getTimeFormat",
         value: function getTimeFormat(dateTime) {
-          return moment__WEBPACK_IMPORTED_MODULE_8__(dateTime).format("YYYY-MM-DD HH:mm");
+          return moment__WEBPACK_IMPORTED_MODULE_9__(dateTime).format("YYYY-MM-DD HH:mm");
+        }
+      }, {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this10 = this;
+
+          if (this.visitorData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.visitorData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this10.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        } //ams/visitor/edit-visitor/{{visitor.expectedVisitorId}}/checkin
+
+      }, {
+        key: "onEditExpectedVisitor",
+        value: function onEditExpectedVisitor(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var expectedVisitorId = dataRecord.expectedVisitorId;
+          this.router.navigateByUrl('/ams/visitor/edit-visitor/' + expectedVisitorId + '/checkin');
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this11 = this;
 
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Id',
+            datafield: 'serialNo',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Visitor Name',
+            datafield: 'expectedVisitorName',
+            width: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Phone Number',
+            datafield: 'expectedVisitorPhone',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Expected Date/Time of Visit',
+            datafield: 'expectedVisitorInTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format("MM/DD/YY hh:mm") + '</div>';
+            },
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Expected Time-out',
+            datafield: 'expectedVisitorOutTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format("MM/DD/YY hh:mm") + '</div>';
+            },
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Visitor Type',
+            datafield: 'visitTypeName',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Visitor category',
+            datafield: 'visitorCategoryId_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Tower Unit',
+            datafield: 'block_Unit',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="navigateTo(' + row + ')" ><img src="assets/images/checkin-icon.svg" width="20" /> </a>' + '</div>';
+            },
+            renderer: columnrenderer
+          }];
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe(function (res) {
-            _this9.visitorListData = res;
-            console.log("visitorListData", _this9.visitorListData[0].visitTypeId); //filter active true items
+            _this11.visitorListData = res;
+            console.log("visitorListData", _this11.visitorListData[0].visitTypeId); //filter active true items
 
-            _this9.visitorListData = res.filter(function (data) {
+            _this11.visitorListData = res.filter(function (data) {
               return data.isActive;
             });
+            _this11.gridSourceData = {
+              localdata: _this11.visitorListData,
+              datatype: "array"
+            };
+            _this11.listData = new jqx.dataAdapter(_this11.gridSourceData);
+            _this11.totalItems = _this11.visitorListData.length;
+            _this11.isVisitorDataLoaded = true;
             var visitParams = {
-              ApartmentId: parseInt(_this9.cookieService.get('apartmentId')),
+              ApartmentId: parseInt(_this11.cookieService.get('apartmentId')),
               LookupTypeId: 15
             }; //get visit type
 
-            _this9.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this9.visitTypeData = res;
+            _this11.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
+              _this11.visitTypeData = res;
 
-              _this9.checkVisitTypeData();
+              _this11.checkVisitTypeData();
             }, function (error) {});
-
-            var categoryParams = {
-              ApartmentId: parseInt(_this9.cookieService.get('apartmentId')),
-              LookupTypeId: 100
-            }; //get visit category
-
-            _this9.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this9.visitCategoryData = res.filter(function (data) {
-                return data.isActive;
-              });
-
-              _this9.checkVisitCategoryData();
-            }, function (error) {});
-
-            _this9.totalItems = _this9.visitorListData.length;
-
-            if (_this9.totalItems > _this9.itemLimit) {
-              _this9.ItemEndIndex = _this9.itemLimit;
-            } else {
-              _this9.ItemEndIndex = _this9.totalItems;
-            }
-
-            _this9.isVisitorDataLoaded = true;
           });
         }
       }, {
         key: "checkVisitTypeData",
         value: function checkVisitTypeData() {
-          var _this10 = this;
+          var _this12 = this;
 
           this.visitTypeData.forEach(function (element) {
-            if (element.lookupValueId == _this10.visitorListData[0].visitTypeId) {
-              _this10.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
+            if (element.lookupValueId == _this12.visitorListData[0].visitTypeId) {
+              _this12.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
             }
           });
         }
       }, {
-        key: "checkVisitCategoryData",
-        value: function checkVisitCategoryData() {
-          var _this11 = this;
-
-          console.log(this.visitorListData[0]);
-          this.visitCategoryData.forEach(function (element) {
-            if (element.lookupValueId == _this11.visitorListData[0].visitorCategoryId) {
-              _this11.visitorListData[0].visitCategoryName = element.lookupValueName.toLowerCase();
-            }
-          });
+        key: "navigateTo",
+        value: function navigateTo(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var expectedVisitorId = dataRecord.expectedVisitorId;
+          this.router.navigateByUrl('/ams/visitor/edit-visitor/' + expectedVisitorId + '/checkin');
         } //print button
 
       }, {
         key: "print",
         value: function print() {
-          var _this12 = this;
+          var _this13 = this;
 
           var confirmationMessage = "Are you sure, you want to Print?";
-          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
-          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
             panelClass: 'material',
             disableClose: true,
             data: dialogData
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this12.result = dialogResult;
+            _this13.result = dialogResult;
 
-            if (_this12.result) {//code
+            if (_this13.result) {//code
             }
           });
         }
@@ -1788,6 +2033,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     VisitorExpectedVisitorComponent.ctorParameters = function () {
       return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]
+      }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }, {
         type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
@@ -1798,10 +2045,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }, {
-        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"]
+      }, {
+        type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__["ConstantsService"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_12__["jqxGridComponent"])], VisitorExpectedVisitorComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditExpectedVisitor', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], VisitorExpectedVisitorComponent.prototype, "onEditExpectedVisitor", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:navigateTo', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], VisitorExpectedVisitorComponent.prototype, "navigateTo", null);
     VisitorExpectedVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-visitor-expected-visitor',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1810,7 +2064,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./visitor-expected-visitor.component.scss */
       "./src/app/ams/visitor/components/visitor-expected-visitor/visitor-expected-visitor.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], VisitorExpectedVisitorComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__["ConstantsService"]])], VisitorExpectedVisitorComponent);
+
+    function navigateTo(row) {
+      var event = new CustomEvent('navigateTo', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.navigateTo = navigateTo;
     /***/
   },
 
@@ -1904,9 +2169,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_8___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    /* harmony import */
+
+
+    var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
     var VisitorHistoryComponent =
     /*#__PURE__*/
@@ -1966,43 +2249,146 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getVisitorType",
         value: function getVisitorType() {}
       }, {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this14 = this;
+
+          if (this.visitorData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.visitorData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this13 = this;
+          var _this15 = this;
 
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Id',
+            datafield: 'serialNo',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Visitor Name',
+            datafield: 'visitorName',
+            width: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Phone Number',
+            datafield: 'visitorPhone',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'In-time',
+            datafield: 'visitorInTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("MM/DD/YY hh:mm") + '</div>';
+            },
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Out-time',
+            datafield: 'visitorOutTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("MM/DD/YY hh:mm") + '</div>';
+            },
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Expected In-time',
+            datafield: 'expectedVisitorInTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("MM/DD/YY hh:mm") + '</div>';
+            },
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Expected Out-time',
+            datafield: 'expectedVisitorOutTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("MM/DD/YY hh:mm") + '</div>';
+            },
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Block No',
+            datafield: 'blockNo',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Unit No',
+            datafield: 'blockUnitNo',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }];
           var visitTypeParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 15
           }; //get visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitTypeParams).subscribe(function (res) {
-            _this13.visitTypeData = res;
+            _this15.visitTypeData = res;
           }, function (error) {});
           var visitListParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getVisitorsByApartmentId(visitListParams).subscribe(function (res) {
             //filter active true items
-            _this13.visitorListData = res.filter(function (item) {
+            _this15.visitorListData = res.filter(function (item) {
               return item.isActive && item.isCheckedOut;
             }); // console.log(this.visitorListData);
             //get block and unit details
 
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this13.visitorListData, function (item, index) {
-              _this13.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe(function (res) {
-                _this13.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
-                _this13.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
+            underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this15.visitorListData, function (item, index) {
+              _this15.apartmentService.getApartmentBlockUnitById(item.apartmentUnitId).subscribe(function (res) {
+                _this15.visitorListData[index].blockNo = res[0].apartmentBlockNumber;
+                _this15.visitorListData[index].blockUnitNo = res[0].apartmentBlockUnitNumber;
               }, function (error) {});
             });
-            _this13.totalItems = _this13.visitorListData.length;
+            _this15.gridSourceData = {
+              localdata: _this15.visitorListData,
+              datatype: "array"
+            };
+            _this15.listData = new jqx.dataAdapter(_this15.gridSourceData);
+            _this15.totalItems = _this15.visitorListData.length;
+            _this15.isVisitorDataLoaded = true;
+            _this15.totalItems = _this15.visitorListData.length;
 
-            if (_this13.totalItems > _this13.itemLimit) {
-              _this13.ItemEndIndex = _this13.itemLimit;
+            if (_this15.totalItems > _this15.itemLimit) {
+              _this15.ItemEndIndex = _this15.itemLimit;
             } else {
-              _this13.ItemEndIndex = _this13.totalItems;
+              _this15.ItemEndIndex = _this15.totalItems;
             }
 
-            _this13.isVisitorDataLoaded = true;
+            _this15.isVisitorDataLoaded = true;
           });
         }
       }]);
@@ -2026,6 +2412,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__["jqxGridComponent"])], VisitorHistoryComponent.prototype, "datagrid", void 0);
     VisitorHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-visitor-hitory',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -2123,7 +2512,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(VisitorReportsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this16 = this;
 
           var details = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -2131,8 +2520,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             MenuName: 'VisitorManagement'
           };
           this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-            _this14.reportDataList = res;
-            _this14.isDataLoaded = true;
+            _this16.reportDataList = res;
+            _this16.isDataLoaded = true;
           });
         }
       }]);
@@ -2336,26 +2725,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteCategoryType",
         value: function deleteCategoryType(item) {
-          var _this15 = this;
+          var _this17 = this;
 
           this.modalService.showConfirmModal(item); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
             if (item != null) {
-              _this15.isDataLoaded = false;
+              _this17.isDataLoaded = false;
               var params = {
                 lookupValueId: item.lookupValueId,
-                updateUserId: parseInt(_this15.cookieService.get('userId'))
+                updateUserId: parseInt(_this17.cookieService.get('userId'))
               };
 
-              _this15.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                _this15.categoryDataList = _this15.categoryDataList.filter(function (type) {
+              _this17.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this17.categoryDataList = _this17.categoryDataList.filter(function (type) {
                   return type.lookupValueId !== item.lookupValueId;
                 });
 
-                _this15.sharedService.setUnitListDeleteIndex(null);
+                _this17.sharedService.setUnitListDeleteIndex(null);
 
-                _this15.isDataLoaded = true;
+                _this17.isDataLoaded = true;
               });
 
               var errorDetails = {
@@ -2363,7 +2752,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 type: "Success"
               };
 
-              _this15.sharedService.setCustomAlertMessage(errorDetails);
+              _this17.sharedService.setCustomAlertMessage(errorDetails);
             }
           });
         }
@@ -2385,7 +2774,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCategoryTypeForm",
         value: function submitCategoryTypeForm(form) {
-          var _this16 = this;
+          var _this18 = this;
 
           var confirmationMessage = "Are you sure you want to save this settings?";
           var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -2395,19 +2784,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             data: dialogData
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this16.result = dialogResult;
+            _this18.result = dialogResult;
 
-            if (_this16.result) {
+            if (_this18.result) {
               //code
-              _this16.isCategoryTypeSubmitted = false;
+              _this18.isCategoryTypeSubmitted = false;
 
-              if (_this16.isCategoryTypeNew) {
+              if (_this18.isCategoryTypeNew) {
                 var details = {
                   "lookupTypeId": 100,
-                  "lookupValueName": _this16.categoryType,
+                  "lookupValueName": _this18.categoryType,
                   "description": 'Visitor Category',
                   "isActive": true,
-                  "insertedBy": parseInt(_this16.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this18.cookieService.get('userId')),
                   "insertedOn": "2019-11-20T16:51:24.105Z",
                   "updatedBy": 0,
                   "updatedOn": "2019-11-20T16:51:24.105Z"
@@ -2416,108 +2805,108 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: details
                 };
 
-                _this16.lookupService.addLookupValue(params).subscribe(function (res) {
+                _this18.lookupService.addLookupValue(params).subscribe(function (res) {
                   if (res.message) {
                     var categoryParams = {
-                      ApartmentId: parseInt(_this16.cookieService.get('apartmentId')),
+                      ApartmentId: parseInt(_this18.cookieService.get('apartmentId')),
                       LookupTypeId: 100
                     };
 
-                    _this16.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                      _this16.isCategoryTypeNew = false;
-                      _this16.isCategoryTypeSubmitted = true;
+                    _this18.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this18.isCategoryTypeNew = false;
+                      _this18.isCategoryTypeSubmitted = true;
 
-                      _this16.sharedService.setAlertMessage("Visitor Category added successfully");
+                      _this18.sharedService.setAlertMessage("Visitor Category added successfully");
 
-                      _this16.categoryDataList = res.filter(function (item) {
+                      _this18.categoryDataList = res.filter(function (item) {
                         return item.isActive;
                       });
                     });
                   } else {
-                    _this16.isCategoryTypeSubmitted = true;
-                    _this16.isError = true;
-                    _this16.alertMessage = res.errorMessage;
+                    _this18.isCategoryTypeSubmitted = true;
+                    _this18.isError = true;
+                    _this18.alertMessage = res.errorMessage;
                     var errorDetails = {
-                      msg: _this16.alertMessage,
+                      msg: _this18.alertMessage,
                       type: "Error"
                     };
 
-                    _this16.sharedService.setCustomAlertMessage(errorDetails);
+                    _this18.sharedService.setCustomAlertMessage(errorDetails);
                   }
                 });
               } else {
                 var _details = {
-                  "lookupValueId": _this16.categoryUpdateId,
+                  "lookupValueId": _this18.categoryUpdateId,
                   "lookupTypeId": 100,
-                  "lookupValueName": _this16.categoryType,
-                  "description": _this16.categoryType,
+                  "lookupValueName": _this18.categoryType,
+                  "description": _this18.categoryType,
                   "isActive": true,
                   "insertedBy": 0,
                   "insertedOn": "2019-11-20T16:51:24.105Z",
-                  "updatedBy": parseInt(_this16.cookieService.get('userId')),
+                  "updatedBy": parseInt(_this18.cookieService.get('userId')),
                   "updatedOn": "2019-11-20T16:51:24.105Z"
                 };
                 var _params = {
                   lookupvalue: _details
                 };
 
-                _this16.lookupService.updateLookupValue(_params).subscribe(function (res) {
+                _this18.lookupService.updateLookupValue(_params).subscribe(function (res) {
                   if (res.message) {
                     var categoryParams = {
-                      ApartmentId: parseInt(_this16.cookieService.get('apartmentId')),
+                      ApartmentId: parseInt(_this18.cookieService.get('apartmentId')),
                       LookupTypeId: 100
                     };
 
-                    _this16.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                      _this16.isCategoryTypeUpdate = false;
-                      _this16.isCategoryTypeSubmitted = true;
+                    _this18.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this18.isCategoryTypeUpdate = false;
+                      _this18.isCategoryTypeSubmitted = true;
 
-                      _this16.sharedService.setAlertMessage("Visitor Category updated successfully");
+                      _this18.sharedService.setAlertMessage("Visitor Category updated successfully");
 
-                      _this16.categoryDataList = res.filter(function (item) {
+                      _this18.categoryDataList = res.filter(function (item) {
                         return item.isActive;
                       });
                     });
                   } else {
-                    _this16.isCategoryTypeSubmitted = true;
-                    _this16.isError = true;
-                    _this16.alertMessage = res.errorMessage;
+                    _this18.isCategoryTypeSubmitted = true;
+                    _this18.isError = true;
+                    _this18.alertMessage = res.errorMessage;
                     var errorDetails = {
-                      msg: _this16.alertMessage,
+                      msg: _this18.alertMessage,
                       type: "Error"
                     };
 
-                    _this16.sharedService.setCustomAlertMessage(errorDetails);
+                    _this18.sharedService.setCustomAlertMessage(errorDetails);
                   }
                 });
               }
             } else {
-              _this16.isCategoryTypeSubmitted = true;
+              _this18.isCategoryTypeSubmitted = true;
             }
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this17 = this;
+          var _this19 = this;
 
           var categoryListParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 100
           };
           this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe(function (res) {
-            _this17.categoryDataList = res.filter(function (item) {
+            _this19.categoryDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this17.totalItems = _this17.categoryDataList.length;
+            _this19.totalItems = _this19.categoryDataList.length;
 
-            if (_this17.totalItems > _this17.itemLimit) {
-              _this17.ItemEndIndex = _this17.itemLimit;
+            if (_this19.totalItems > _this19.itemLimit) {
+              _this19.ItemEndIndex = _this19.itemLimit;
             } else {
-              _this17.ItemEndIndex = _this17.totalItems;
+              _this19.ItemEndIndex = _this19.totalItems;
             }
 
-            _this17.isDataLoaded = true;
+            _this19.isDataLoaded = true;
           });
         }
       }]);
