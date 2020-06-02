@@ -101,7 +101,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<form #postIncomeMultiInvoiceFieldsForm =\"ngForm\" name=\"postIncomeMultiInvoiceFieldsForm\" novalidate>\n\t<div class=\"heads\">\n\t\t<p>{{index + 1}}</p>\n\t</div>\n\t<div class=\"heads account-name-box\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<app-select-search-box\n\t\t\tfieldName = \"accountType{{index}}\" \n\t\t\tfieldText = \"\"\n\t\t\tisLabel = \"false\"\n\t\t\tfieldItemName=\"glaccountName\"\n\t\t\t[fieldModel] = \"invoiceGLAccountsData.glaccountName\"\n\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\tfieldRequired = \"'required'\"\n\t\t\t[fieldList] = \"glAccountListData\"\n\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t(inputChange) = \"onAccountChange($event, index)\">\t\t\t\t\t\t\t\n\t\t</app-select-search-box>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"input-box\">\n\t\t    <input type=\"textbox\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceAmount{{index}}\" \n\t\t    [(ngModel)]=\"invoiceGLAccountsData.amount\"\n\t\t    (ngModelChange)=\"onInvoiceAmountChange(invoiceGLAccountsData.amount, index)\" \n\t\t    required autocomplete=\"off\" [tabindex]=\"isEditInvoice ? -1 : 0\" TwoDecimaPlaces>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\">\n\t\t<div class=\"input-box\">\n            <textarea placeholder=\"Enter\" name=\"comments{{index}}\" \n            [(ngModel)]=\"invoiceGLAccountsData.comments\" \n            (ngModelChange)=\"onCommentChange(invoiceGLAccountsData.comments, index)\" required autocomplete=\"off\">\n            </textarea>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"d-flex\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<div class=\"input-box discount-input\"> \n\t                <input type=\"textbox\" class=\"form-control\" placeholder=\"Enter\" name=\"discountDirectAmt{{index}}\" \n\t                [(ngModel)]=\"invoiceGLAccountsData.discountDirectAmt\"\n\t                (ngModelChange)=\"onDiscountAdded(invoiceGLAccountsData.discountDirectAmt, index)\"\n\t                [readonly]=\"!invoiceGLAccountsData.isDiscount\" autocomplete=\"off\" [tabindex]=\"isEditInvoice ? -1 : 0\" TwoDecimaPlaces>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"input-box discount-box ml-3\">\n    \t\t\t\t<app-simple-select-box\n\t\t\t\t\t\tfieldName = \"discountType{{index}}\" \n\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t[fieldModel] = \"invoiceGLAccountsData.discountTypeId\"\n\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t[fieldList] = \"discountTypeDataList\"\n\t\t\t\t\t\t[isDisabled] = \"!isFormValid(index)\"\n\t\t\t\t\t\t(inputChange) = \"onDiscountChange($event, index)\">\t\t\t\t\t\t\t\n\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t</div>\n    \t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"input-box tax-box\">\n\t\t\t<app-simple-select-box\n\t\t\t\tfieldName = \"vatType{{index}}\" \n\t\t\t\tfieldText = \"\"\n\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\tisLabel = \"false\"\n\t\t\t\t[fieldModel] = \"invoiceGLAccountsData.vatid\"\n\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t[fieldList] = \"vatTypeDataList\"\n\t\t\t\t[isDisabled] = \"!isFormValid(index)\"\n\t\t\t\t(inputChange) = \"onVatChange($event, index)\">\t\t\t\t\t\t\t\n\t\t\t</app-simple-select-box>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isEditInvoice ? 'deselect' : ''\">\n\t\t<div class=\"input-box\">\n            <input type=\"textbox\" class=\"form-control\" placeholder=\"\" name=\"totalAmount{{index}}\" \n            [(ngModel)]=\"invoiceGLAccountsData.lineItemTotal\" [tabindex]=\"isEditInvoice ? -1 : 0\" TwoDecimaPlaces>\n\t\t</div>\n\t</div>\n\t<div class=\"heads text-center\">\n\t\t<div class=\"float-close\" [ngClass]=\" [ isArrayOne() ? 'delete' : 'disabled', isEditInvoice ? 'disabled' : '' ]\" (click)=\"deleteBlock()\">\n\t    \t<i-feather class=\"icon rotate\" name=\"minus\" ></i-feather>\n\t\t</div>\n    \t<div class=\"float-close\" [ngClass]=\" [ isFormValid(index) ? 'valid' : 'disabled', isEditInvoice ? 'disabled' : '' ]\">\n    \t\t<i-feather class=\"icon rotate\" name=\"check\" ></i-feather>\n    \t</div>\n\t</div>\n</form>\n\n\n\t\n\n";
+    __webpack_exports__["default"] = "<form #postIncomeMultiInvoiceFieldsForm =\"ngForm\" name=\"postIncomeMultiInvoiceFieldsForm\" novalidate>\n\t<div class=\"heads\">\n\t\t<p>{{index + 1}}</p>\n\t</div>\n\t<div class=\"heads account-name-box\" [ngClass]=\"isDeselectColumn()\">\n\t\t<app-select-search-box\n\t\t\tfieldName = \"accountType{{index}}\" \n\t\t\tfieldText = \"\"\n\t\t\tisLabel = \"false\"\n\t\t\tfieldItemName=\"glaccountName\"\n\t\t\t[fieldModel] = \"invoiceGLAccountsData.glaccountName\"\n\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\tfieldRequired = \"'required'\"\n\t\t\t[fieldList] = \"glAccountListData\"\n\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t(inputChange) = \"onAccountChange($event, index)\">\t\t\t\t\t\t\t\n\t\t</app-select-search-box>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isDeselectColumn()\">\n\t\t<div class=\"input-box\">\n\t\t    <input type=\"textbox\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceAmount{{index}}\" \n\t\t    [(ngModel)]=\"invoiceGLAccountsData.amount\"\n\t\t    (ngModelChange)=\"onInvoiceAmountChange(invoiceGLAccountsData.amount, index)\" \n\t\t    required autocomplete=\"off\" [tabindex]=\"isTabIndexDisabled()\" TwoDecimaPlaces>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\">\n\t\t<div class=\"input-box\">\n            <textarea placeholder=\"Enter\" name=\"comments{{index}}\" \n            [(ngModel)]=\"invoiceGLAccountsData.comments\" \n            (ngModelChange)=\"onCommentChange(invoiceGLAccountsData.comments, index)\" required autocomplete=\"off\">\n            </textarea>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isDeselectColumn()\">\n\t\t<div class=\"d-flex\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<div class=\"input-box discount-input\"> \n\t                <input type=\"textbox\" class=\"form-control\" placeholder=\"Enter\" name=\"discountDirectAmt{{index}}\" \n\t                [(ngModel)]=\"invoiceGLAccountsData.discountDirectAmt\"\n\t                (ngModelChange)=\"onDiscountAdded(invoiceGLAccountsData.discountDirectAmt, index)\"\n\t                [readonly]=\"!invoiceGLAccountsData.isDiscount\" autocomplete=\"off\" [tabindex]=\"isTabIndexDisabled()\" TwoDecimaPlaces>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"input-box discount-box ml-3\">\n    \t\t\t\t<app-simple-select-box\n\t\t\t\t\t\tfieldName = \"discountType{{index}}\" \n\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t[fieldModel] = \"invoiceGLAccountsData.discountTypeId\"\n\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t[fieldList] = \"discountTypeDataList\"\n\t\t\t\t\t\t[isDisabled] = \"!isFormValid(index)\"\n\t\t\t\t\t\t(inputChange) = \"onDiscountChange($event, index)\">\t\t\t\t\t\t\t\n\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t</div>\n    \t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isDeselectColumn()\">\n\t\t<div class=\"input-box tax-box\">\n\t\t\t<app-simple-select-box\n\t\t\t\tfieldName = \"vatType{{index}}\" \n\t\t\t\tfieldText = \"\"\n\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\tisLabel = \"false\"\n\t\t\t\t[fieldModel] = \"invoiceGLAccountsData.vatid\"\n\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t[fieldList] = \"vatTypeDataList\"\n\t\t\t\t[isDisabled] = \"!isFormValid(index)\"\n\t\t\t\t(inputChange) = \"onVatChange($event, index)\">\t\t\t\t\t\t\t\n\t\t\t</app-simple-select-box>\n\t\t</div>\n\t</div>\n\t<div class=\"heads\" [ngClass]=\"isDeselectColumn()\">\n\t\t<div class=\"input-box\">\n            <input type=\"textbox\" class=\"form-control\" placeholder=\"\" name=\"totalAmount{{index}}\" \n            [(ngModel)]=\"invoiceGLAccountsData.lineItemTotal\" readonly [tabindex]=\"isTabIndexDisabled()\" TwoDecimaPlaces>\n\t\t</div>\n\t</div>\n\t<div class=\"heads text-center\">\n\t\t<div class=\"float-close\" [ngClass]=\" [ isArrayOne() ? 'delete' : 'disabled', isEditInvoice ? 'disabled' : '' ]\" (click)=\"deleteBlock()\">\n\t    \t<i-feather class=\"icon rotate\" name=\"minus\" ></i-feather>\n\t\t</div>\n    \t<div class=\"float-close\" [ngClass]=\" [ isFormValid(index) ? 'valid' : 'disabled', isEditInvoice ? 'disabled' : '' ]\">\n    \t\t<i-feather class=\"icon rotate\" name=\"check\" ></i-feather>\n    \t</div>\n\t</div>\n</form>\n\n\n\t\n\n";
     /***/
   },
 
@@ -121,7 +121,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isAccountDataLoaded\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-4\" *ngIf=\"isEditInvoice\"><span>Invoice ID: </span>{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.custInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #custInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"custInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-card-wrapper\">\n\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t\t<div class=\"w-250 heads\">Account*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t\t<div class=\"w-200 heads\">Comments*</div>\n\t\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\"\n\t\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Discount</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" \n\t\t\t\t\t\t\t\t\t[readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\"\n\t\t\t\t\t\t\t\t\t[tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountGenChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\t\t\n\t</ng-container>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isAccountDataLoaded\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-4\" *ngIf=\"isEditInvoice\"><span>Invoice ID: </span>{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.custInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #custInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"custInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-card-wrapper\">\n\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t\t<div class=\"w-250 heads\">Account*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t\t<div class=\"w-200 heads\">Comments*</div>\n\t\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\"\n\t\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Discount</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\" [ngClass]=\"isDeselectColumn()\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" \n\t\t\t\t\t\t\t\t\t[readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\"\n\t\t\t\t\t\t\t\t\t[tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountFinalChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\t\t\n\t</ng-container>\n\n</div>";
     /***/
   },
 
@@ -1696,6 +1696,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.invoiceGLAccountsData.glaccountId == null || this.invoiceGLAccountsData.comments == "" || this.invoiceGLAccountsData.amount == "" ? false : true;
         }
       }, {
+        key: "isDeselectColumn",
+        value: function isDeselectColumn() {
+          return this.isEditInvoice ? 'deselect' : '';
+        }
+      }, {
+        key: "isTabIndexDisabled",
+        value: function isTabIndexDisabled() {
+          return this.isEditInvoice ? -1 : 0;
+        }
+      }, {
         key: "onAccountChange",
         value: function onAccountChange(item, index) {
           if (item != null) {
@@ -1713,14 +1723,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onInvoiceAmountChange",
         value: function onInvoiceAmountChange(value, index) {
-          if (value != null) {
+          if (value != "") {
             this.invoiceGLAccountsData.amount = parseFloat(value);
           } else {
             this.invoiceGLAccountsData.amount = 0;
           }
 
           this.calculateVat();
-          this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - parseInt(this.invoiceGLAccountsData.discountAmount);
+          this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - parseFloat(this.invoiceGLAccountsData.discountAmount);
+          this.invoiceGLAccountsData.form = this.invoiceForm.valid;
+          this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
+          this.fieldParams.emit(this.invoiceGLAccountsArray);
+        }
+      }, {
+        key: "onCommentChange",
+        value: function onCommentChange(value, index) {
+          this.invoiceGLAccountsData.comments = value;
           this.invoiceGLAccountsData.form = this.invoiceForm.valid;
           this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
           this.fieldParams.emit(this.invoiceGLAccountsArray);
@@ -1741,7 +1759,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.invoiceGLAccountsData.discountDirectAmt = 0;
           }
 
-          this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - parseInt(this.invoiceGLAccountsData.discountAmount);
+          this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - parseFloat(this.invoiceGLAccountsData.discountAmount);
           this.invoiceGLAccountsData.form = this.invoiceForm.valid;
           this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
           this.fieldParams.emit(this.invoiceGLAccountsArray);
@@ -1793,33 +1811,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.fieldParams.emit(this.invoiceGLAccountsArray);
         }
       }, {
-        key: "onCommentChange",
-        value: function onCommentChange(value, index) {
-          this.invoiceGLAccountsData.comments = value;
-          this.invoiceGLAccountsData.form = this.invoiceForm.valid;
-          this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
-          this.fieldParams.emit(this.invoiceGLAccountsArray);
-        }
-      }, {
         key: "onVatChange",
         value: function onVatChange(event, index) {
           if (event != null) {
             this.invoiceGLAccountsData.isTax = true;
             this.invoiceGLAccountsData.vatid = event.lookupValueName;
             var percent = parseFloat(event.lookupValueName) / 100;
-            this.currentTaxLookupValueId = event.lookupValueId;
             this.custInvoiceTaxData.invoiceTaxId = event.lookupValueId;
+            this.currentVatLookupId = event.lookupValueId;
             this.custInvoiceTaxData.isAdded = true;
             this.custInvoiceTaxData.invoiceTotalAmount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
-            this.currentTaxAmount = this.custInvoiceTaxData.invoiceTotalAmount;
             this.taxParams.emit(this.custInvoiceTaxData);
           } else {
             this.invoiceGLAccountsData.isTax = false;
             this.invoiceGLAccountsData.vatid = "";
             var percent = 0;
-            this.custInvoiceTaxData.invoiceTaxId = this.currentTaxLookupValueId;
+            this.custInvoiceTaxData.invoiceTaxId = this.currentVatLookupId;
             this.custInvoiceTaxData.isAdded = false;
-            this.custInvoiceTaxData.invoiceTotalAmount = this.currentTaxAmount;
+            this.custInvoiceTaxData.invoiceTotalAmount = 0;
             this.taxParams.emit(this.custInvoiceTaxData);
           }
 
@@ -1832,8 +1841,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "calculateVat",
         value: function calculateVat() {
           if (this.invoiceGLAccountsData.isTax) {
-            var percent = parseInt(this.invoiceGLAccountsData.vatid) / 100;
+            var percent = parseFloat(this.invoiceGLAccountsData.vatid) / 100;
             this.invoiceGLAccountsData.vatamount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
+            this.custInvoiceTaxData.invoiceTotalAmount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
+            this.taxParams.emit(this.custInvoiceTaxData);
 
             if (this.invoiceGLAccountsData.vatid == "12.5") {
               this.invoiceGLAccountsData.tax1Id = "12.5";
@@ -1946,7 +1957,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".income-post-invoice-wrapper .add-invoice-block {\n  padding: 10px 0;\n  border-bottom: 1px solid #dee2e6;\n}\n.income-post-invoice-wrapper .invoice-table {\n  width: 100% !important;\n  overflow-x: scroll;\n  overflow-y: visible;\n  float: left;\n}\n.income-post-invoice-wrapper .invoice-header {\n  display: table-row;\n}\n.income-post-invoice-wrapper .invoice-header .heads {\n  font-family: \"Lato\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  font-size: 1.2rem;\n  color: #373946;\n  text-transform: uppercase;\n  border: none;\n  border-right: 1px solid #dee2e6;\n  padding: 10px 14px;\n  display: table-cell;\n}\n.income-post-invoice-wrapper .invoice-fields {\n  display: table-row;\n}\n.income-post-invoice-wrapper .add-invoice-box {\n  padding: 12px 0 6px 10px;\n  border-top: 1px solid #eaeaea;\n  overflow: auto;\n}\n.income-post-invoice-wrapper .add-invoice-box .icon {\n  color: #373946;\n  width: 18px;\n  position: relative;\n  top: -2px;\n}\n.income-post-invoice-wrapper .add-invoice-box span {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  color: #585858;\n  margin: 0 0 0 6px;\n  font-size: 1.4rem;\n}\n.income-post-invoice-wrapper .add-invoice-box .add-invoice-link {\n  cursor: pointer;\n}\n.income-post-invoice-wrapper .add-invoice-box .add-invoice-link:hover span, .income-post-invoice-wrapper .add-invoice-box .add-invoice-link:hover .icon {\n  color: #54b941;\n}\n.income-post-invoice-wrapper .total-box {\n  padding: 15px 14px;\n}\n.income-post-invoice-wrapper .total-box p {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  margin: 8px 0 !important;\n  font-size: 1.3rem;\n}\n.income-post-invoice-wrapper .total-box.final p {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  margin: 0 !important;\n  font-size: 1.4rem;\n}\n.income-post-invoice-wrapper .total-box .discount-input input {\n  width: 100px;\n}\n.income-post-invoice-wrapper .total-box .discount-box ::ng-deep input {\n  width: 100px;\n}\n.income-post-invoice-wrapper .total-box .discount-box ::ng-deep .select-arrow {\n  color: #8e8e8e;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtcG9zdC1tdWx0aS1pbnZvaWNlL2luY29tZS1wb3N0LW11bHRpLWludm9pY2UuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1wb3N0LW11bHRpLWludm9pY2UvaW5jb21lLXBvc3QtbXVsdGktaW52b2ljZS5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL2ZvbnRzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBS0M7RUFDQyxlQUFBO0VBQ0EsZ0NBQUE7QUNKRjtBRE1DO0VBQ0Msc0JFeUpJO0VGeEpKLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxXQUFBO0FDSkY7QURNQztFQUNDLGtCQUFBO0FDSkY7QURLRTtFRzRDQSwrQkFBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0VBYUEsaUJBQUE7RUgxREMsY0UyRVE7RUYxRVIseUJBQUE7RUFDQSxZQUFBO0VBQ0EsK0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0FDQ0g7QURFQztFQUNDLGtCQUFBO0FDQUY7QURFQztFQUNDLHdCQUFBO0VBQ0EsNkJBQUE7RUFDQSxjQUFBO0FDQUY7QURDRTtFQUNDLGNFMkRRO0VGMURSLFdBQUE7RUFDQSxrQkVqQ0U7RUZrQ0YsU0FBQTtBQ0NIO0FEQ0U7RUdNQSxxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUhOQyxjRXNEUTtFRnJEUixpQkFBQTtFR2tDRCxpQkFBQTtBRjlCRjtBRERFO0VBQ0MsZUFBQTtBQ0dIO0FEREk7RUFDQyxjRUlLO0FERFY7QURFQztFQUNDLGtCQUFBO0FDQUY7QURDRTtFR25CQSxxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0VIaUJDLHdCQUFBO0VHa0JELGlCQUFBO0FGWkY7QURGRztFR2pCRCxxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUhpQkUsb0JBQUE7RUdZRixpQkFBQTtBRkxGO0FERkc7RUFDQyxZQUFBO0FDSUo7QURDSTtFQUNDLFlBQUE7QUNDTDtBRENJO0VBQ0MsY0U0Qk07QUQzQlgiLCJmaWxlIjoic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtcG9zdC1tdWx0aS1pbnZvaWNlL2luY29tZS1wb3N0LW11bHRpLWludm9pY2UuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciB7XG5cdC5hZGQtaW52b2ljZS1ibG9jayB7XG5cdFx0cGFkZGluZzogMTBweCAwO1xuXHRcdGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAkZ3JleS00NjA7XG5cdH1cblx0Lmludm9pY2UtdGFibGUge1xuXHRcdHdpZHRoOiAkZnVsbDtcblx0XHRvdmVyZmxvdy14OiBzY3JvbGw7XG5cdFx0b3ZlcmZsb3cteTogdmlzaWJsZTtcblx0XHRmbG9hdDogbGVmdDtcblx0fVxuXHQuaW52b2ljZS1oZWFkZXIge1xuXHRcdGRpc3BsYXk6IHRhYmxlLXJvdztcblx0XHQuaGVhZHMge1xuXHRcdFx0QGluY2x1ZGUgZGVzcC1yZWd1bGFyO1xuXHRcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC10aW55KTtcblx0XHRcdGNvbG9yOiAkZ3JleS04MDA7XG5cdFx0XHR0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuXHRcdFx0Ym9yZGVyOm5vbmU7XG5cdFx0XHRib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAkZ3JleS00NjA7XG5cdFx0XHRwYWRkaW5nOiAxMHB4IDE0cHg7XG5cdFx0XHRkaXNwbGF5OiB0YWJsZS1jZWxsO1xuXHRcdH1cblx0fVxuXHQuaW52b2ljZS1maWVsZHMge1xuXHRcdGRpc3BsYXk6IHRhYmxlLXJvdztcblx0fVxuXHQuYWRkLWludm9pY2UtYm94IHtcblx0XHRwYWRkaW5nOiAxMnB4IDAgNnB4IDEwcHg7XG5cdFx0Ym9yZGVyLXRvcDogMXB4IHNvbGlkICRncmV5LTQ1MDtcblx0XHRvdmVyZmxvdzogYXV0bztcblx0XHQuaWNvbiB7XG5cdFx0XHRjb2xvcjogJGdyZXktODAwO1xuXHRcdFx0d2lkdGg6IDE4cHg7XG5cdFx0XHRwb3NpdGlvbjogJHJlbDtcblx0XHRcdHRvcDogLTJweDtcblx0XHR9XG5cdFx0c3BhbiB7XG5cdFx0XHRAaW5jbHVkZSBoZWFkLW1lZGl1bTtcblx0XHRcdGNvbG9yOiAkZ3JleS03MDA7XG5cdFx0XHRtYXJnaW46IDAgMCAwIDZweDtcblx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xuXHRcdH1cblx0XHQuYWRkLWludm9pY2UtbGluayB7XG5cdFx0XHRjdXJzb3I6IHBvaW50ZXI7XG5cdFx0XHQmOmhvdmVyIHtcblx0XHRcdFx0c3BhbiwgLmljb24ge1xuXHRcdFx0XHRcdGNvbG9yOiAkbS1ncmVlbjtcblx0XHRcdFx0fVxuXHRcdFx0fVxuXHRcdH1cblx0fVxuXHQudG90YWwtYm94IHtcblx0XHRwYWRkaW5nOiAxNXB4IDE0cHg7XG5cdFx0cCB7XG5cdFx0XHRAaW5jbHVkZSBoZWFkLXJlZ3VsYXI7XG5cdFx0XHRtYXJnaW46IDhweCAwICFpbXBvcnRhbnQ7XG5cdFx0XHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsZXIpO1xuXHRcdH1cblx0XHQmLmZpbmFsIHtcblx0XHRcdHAge1xuXHRcdFx0XHRAaW5jbHVkZSBoZWFkLW1lZGl1bTtcblx0XHRcdFx0bWFyZ2luOiAwICFpbXBvcnRhbnQ7XG5cdFx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xuXHRcdFx0fVxuXHRcdH1cblx0XHQuZGlzY291bnQtaW5wdXQge1xuXHRcdFx0aW5wdXQge1xuXHRcdFx0XHR3aWR0aDogMTAwcHg7XG5cdFx0XHR9XG5cdFx0fVxuXHRcdC5kaXNjb3VudC1ib3gge1xuXHRcdFx0OjpuZy1kZWVwIHtcblx0XHRcdFx0aW5wdXQge1xuXHRcdFx0XHRcdHdpZHRoOiAxMDBweDtcblx0XHRcdFx0fVxuXHRcdFx0XHQuc2VsZWN0LWFycm93IHtcblx0XHRcdFx0XHRjb2xvcjogJGdyZXktMzUwO1xuXHRcdFx0XHR9XG5cdFx0XHR9XG5cdFx0fVxuXHR9XG59IiwiLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYmxvY2sge1xuICBwYWRkaW5nOiAxMHB4IDA7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAuaW52b2ljZS10YWJsZSB7XG4gIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gIG92ZXJmbG93LXg6IHNjcm9sbDtcbiAgb3ZlcmZsb3cteTogdmlzaWJsZTtcbiAgZmxvYXQ6IGxlZnQ7XG59XG4uaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC5pbnZvaWNlLWhlYWRlciB7XG4gIGRpc3BsYXk6IHRhYmxlLXJvdztcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmludm9pY2UtaGVhZGVyIC5oZWFkcyB7XG4gIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgZm9udC1zaXplOiAxLjJyZW07XG4gIGNvbG9yOiAjMzczOTQ2O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBib3JkZXI6IG5vbmU7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIHBhZGRpbmc6IDEwcHggMTRweDtcbiAgZGlzcGxheTogdGFibGUtY2VsbDtcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmludm9pY2UtZmllbGRzIHtcbiAgZGlzcGxheTogdGFibGUtcm93O1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYm94IHtcbiAgcGFkZGluZzogMTJweCAwIDZweCAxMHB4O1xuICBib3JkZXItdG9wOiAxcHggc29saWQgI2VhZWFlYTtcbiAgb3ZlcmZsb3c6IGF1dG87XG59XG4uaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ib3ggLmljb24ge1xuICBjb2xvcjogIzM3Mzk0NjtcbiAgd2lkdGg6IDE4cHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAtMnB4O1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYm94IHNwYW4ge1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbiAgY29sb3I6ICM1ODU4NTg7XG4gIG1hcmdpbjogMCAwIDAgNnB4O1xuICBmb250LXNpemU6IDEuNHJlbTtcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmFkZC1pbnZvaWNlLWJveCAuYWRkLWludm9pY2UtbGluayB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmFkZC1pbnZvaWNlLWJveCAuYWRkLWludm9pY2UtbGluazpob3ZlciBzcGFuLCAuaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ib3ggLmFkZC1pbnZvaWNlLWxpbms6aG92ZXIgLmljb24ge1xuICBjb2xvcjogIzU0Yjk0MTtcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLnRvdGFsLWJveCB7XG4gIHBhZGRpbmc6IDE1cHggMTRweDtcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLnRvdGFsLWJveCBwIHtcbiAgZm9udC1mYW1pbHk6IFwiTW9udHNlcnJhdFwiLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICBtYXJnaW46IDhweCAwICFpbXBvcnRhbnQ7XG4gIGZvbnQtc2l6ZTogMS4zcmVtO1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94LmZpbmFsIHAge1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7XG4gIGZvbnQtc2l6ZTogMS40cmVtO1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94IC5kaXNjb3VudC1pbnB1dCBpbnB1dCB7XG4gIHdpZHRoOiAxMDBweDtcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLnRvdGFsLWJveCAuZGlzY291bnQtYm94IDo6bmctZGVlcCBpbnB1dCB7XG4gIHdpZHRoOiAxMDBweDtcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLnRvdGFsLWJveCAuZGlzY291bnQtYm94IDo6bmctZGVlcCAuc2VsZWN0LWFycm93IHtcbiAgY29sb3I6ICM4ZThlOGU7XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */";
+    __webpack_exports__["default"] = ".income-post-invoice-wrapper .add-invoice-block {\n  padding: 10px 0;\n  border-bottom: 1px solid #dee2e6;\n}\n.income-post-invoice-wrapper .invoice-table {\n  width: 100% !important;\n  overflow-x: scroll;\n  overflow-y: visible;\n  float: left;\n}\n.income-post-invoice-wrapper .invoice-header {\n  display: table-row;\n}\n.income-post-invoice-wrapper .invoice-header .heads {\n  font-family: \"Lato\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  font-size: 1.2rem;\n  color: #373946;\n  text-transform: uppercase;\n  border: none;\n  border-right: 1px solid #dee2e6;\n  padding: 10px 14px;\n  display: table-cell;\n}\n.income-post-invoice-wrapper .invoice-fields {\n  display: table-row;\n}\n.income-post-invoice-wrapper .add-invoice-box {\n  padding: 12px 0 6px 10px;\n  border-top: 1px solid #eaeaea;\n  overflow: auto;\n}\n.income-post-invoice-wrapper .add-invoice-box .icon {\n  color: #373946;\n  width: 18px;\n  position: relative;\n  top: -2px;\n}\n.income-post-invoice-wrapper .add-invoice-box span {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  color: #585858;\n  margin: 0 0 0 6px;\n  font-size: 1.4rem;\n}\n.income-post-invoice-wrapper .add-invoice-box .add-invoice-link {\n  cursor: pointer;\n}\n.income-post-invoice-wrapper .add-invoice-box .add-invoice-link:hover span, .income-post-invoice-wrapper .add-invoice-box .add-invoice-link:hover .icon {\n  color: #54b941;\n}\n.income-post-invoice-wrapper .total-box {\n  padding: 15px 14px;\n}\n.income-post-invoice-wrapper .total-box p {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  margin: 8px 0 !important;\n  font-size: 1.3rem;\n}\n.income-post-invoice-wrapper .total-box.final p {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  margin: 0 !important;\n  font-size: 1.4rem;\n}\n.income-post-invoice-wrapper .total-box .discount-input input {\n  width: 100px;\n  border-radius: 0 !important;\n  height: 34px;\n}\n.income-post-invoice-wrapper .total-box .discount-input input[readonly] {\n  background-color: #f9f9f9;\n}\n.income-post-invoice-wrapper .total-box .discount-box ::ng-deep input {\n  width: 100px;\n  border-radius: 0 !important;\n  height: 34px;\n}\n.income-post-invoice-wrapper .total-box .discount-box ::ng-deep .select-arrow {\n  color: #8e8e8e;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtcG9zdC1tdWx0aS1pbnZvaWNlL2luY29tZS1wb3N0LW11bHRpLWludm9pY2UuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1wb3N0LW11bHRpLWludm9pY2UvaW5jb21lLXBvc3QtbXVsdGktaW52b2ljZS5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL2ZvbnRzLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL21peGlucy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUtDO0VBQ0MsZUFBQTtFQUNBLGdDQUFBO0FDSkY7QURNQztFQUNDLHNCRXlKSTtFRnhKSixrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtBQ0pGO0FETUM7RUFDQyxrQkFBQTtBQ0pGO0FES0U7RUc0Q0EsK0JBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQ0FBQTtFQWFBLGlCQUFBO0VIMURDLGNFMkVRO0VGMUVSLHlCQUFBO0VBQ0EsWUFBQTtFQUNBLCtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtBQ0NIO0FERUM7RUFDQyxrQkFBQTtBQ0FGO0FERUM7RUFDQyx3QkFBQTtFQUNBLDZCQUFBO0VBQ0EsY0FBQTtBQ0FGO0FEQ0U7RUFDQyxjRTJEUTtFRjFEUixXQUFBO0VBQ0Esa0JFakNFO0VGa0NGLFNBQUE7QUNDSDtBRENFO0VHTUEscUNBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VITkMsY0VzRFE7RUZyRFIsaUJBQUE7RUdrQ0QsaUJBQUE7QUY5QkY7QURERTtFQUNDLGVBQUE7QUNHSDtBRERJO0VBQ0MsY0VJSztBRERWO0FERUM7RUFDQyxrQkFBQTtBQ0FGO0FEQ0U7RUduQkEscUNBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQ0FBQTtFSGlCQyx3QkFBQTtFR2tCRCxpQkFBQTtBRlpGO0FERkc7RUdqQkQscUNBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VIaUJFLG9CQUFBO0VHWUYsaUJBQUE7QUZMRjtBREZHO0VBQ0MsWUFBQTtFSWpFSCwyQkFBQTtFSm1FRyxZQUFBO0FDTUo7QURMSTtFQUNDLHlCRXFDTTtBRDlCWDtBRERJO0VBQ0MsWUFBQTtFSTVFSiwyQkFBQTtFSjhFSSxZQUFBO0FDS0w7QURISTtFQUNDLGNFcUJNO0FEaEJYIiwiZmlsZSI6InNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLXBvc3QtbXVsdGktaW52b2ljZS9pbmNvbWUtcG9zdC1tdWx0aS1pbnZvaWNlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIge1xuXHQuYWRkLWludm9pY2UtYmxvY2sge1xuXHRcdHBhZGRpbmc6IDEwcHggMDtcblx0XHRib3JkZXItYm90dG9tOiAxcHggc29saWQgJGdyZXktNDYwO1xuXHR9XG5cdC5pbnZvaWNlLXRhYmxlIHtcblx0XHR3aWR0aDogJGZ1bGw7XG5cdFx0b3ZlcmZsb3cteDogc2Nyb2xsO1xuXHRcdG92ZXJmbG93LXk6IHZpc2libGU7XG5cdFx0ZmxvYXQ6IGxlZnQ7XG5cdH1cblx0Lmludm9pY2UtaGVhZGVyIHtcblx0XHRkaXNwbGF5OiB0YWJsZS1yb3c7XG5cdFx0LmhlYWRzIHtcblx0XHRcdEBpbmNsdWRlIGRlc3AtcmVndWxhcjtcblx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtdGlueSk7XG5cdFx0XHRjb2xvcjogJGdyZXktODAwO1xuXHRcdFx0dGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcblx0XHRcdGJvcmRlcjpub25lO1xuXHRcdFx0Ym9yZGVyLXJpZ2h0OiAxcHggc29saWQgJGdyZXktNDYwO1xuXHRcdFx0cGFkZGluZzogMTBweCAxNHB4O1xuXHRcdFx0ZGlzcGxheTogdGFibGUtY2VsbDtcblx0XHR9XG5cdH1cblx0Lmludm9pY2UtZmllbGRzIHtcblx0XHRkaXNwbGF5OiB0YWJsZS1yb3c7XG5cdH1cblx0LmFkZC1pbnZvaWNlLWJveCB7XG5cdFx0cGFkZGluZzogMTJweCAwIDZweCAxMHB4O1xuXHRcdGJvcmRlci10b3A6IDFweCBzb2xpZCAkZ3JleS00NTA7XG5cdFx0b3ZlcmZsb3c6IGF1dG87XG5cdFx0Lmljb24ge1xuXHRcdFx0Y29sb3I6ICRncmV5LTgwMDtcblx0XHRcdHdpZHRoOiAxOHB4O1xuXHRcdFx0cG9zaXRpb246ICRyZWw7XG5cdFx0XHR0b3A6IC0ycHg7XG5cdFx0fVxuXHRcdHNwYW4ge1xuXHRcdFx0QGluY2x1ZGUgaGVhZC1tZWRpdW07XG5cdFx0XHRjb2xvcjogJGdyZXktNzAwO1xuXHRcdFx0bWFyZ2luOiAwIDAgMCA2cHg7XG5cdFx0XHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcblx0XHR9XG5cdFx0LmFkZC1pbnZvaWNlLWxpbmsge1xuXHRcdFx0Y3Vyc29yOiBwb2ludGVyO1xuXHRcdFx0Jjpob3ZlciB7XG5cdFx0XHRcdHNwYW4sIC5pY29uIHtcblx0XHRcdFx0XHRjb2xvcjogJG0tZ3JlZW47XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdH1cblx0LnRvdGFsLWJveCB7XG5cdFx0cGFkZGluZzogMTVweCAxNHB4O1xuXHRcdHAge1xuXHRcdFx0QGluY2x1ZGUgaGVhZC1yZWd1bGFyO1xuXHRcdFx0bWFyZ2luOiA4cHggMCAhaW1wb3J0YW50O1xuXHRcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1zbWFsbGVyKTtcblx0XHR9XG5cdFx0Ji5maW5hbCB7XG5cdFx0XHRwIHtcblx0XHRcdFx0QGluY2x1ZGUgaGVhZC1tZWRpdW07XG5cdFx0XHRcdG1hcmdpbjogMCAhaW1wb3J0YW50O1xuXHRcdFx0XHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcblx0XHRcdH1cblx0XHR9XG5cdFx0LmRpc2NvdW50LWlucHV0IHtcblx0XHRcdGlucHV0IHtcblx0XHRcdFx0d2lkdGg6IDEwMHB4O1xuXHRcdFx0XHRAaW5jbHVkZSBib3JkZXItcmFkaXVzKDApO1xuXHRcdFx0XHRoZWlnaHQ6IDM0cHg7XG5cdFx0XHRcdCZbcmVhZG9ubHldIHtcblx0XHRcdFx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkZ3JleS0xNTA7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdFx0LmRpc2NvdW50LWJveCB7XG5cdFx0XHQ6Om5nLWRlZXAge1xuXHRcdFx0XHRpbnB1dCB7XG5cdFx0XHRcdFx0d2lkdGg6IDEwMHB4O1xuXHRcdFx0XHRcdEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoMCk7XG5cdFx0XHRcdFx0aGVpZ2h0OiAzNHB4O1xuXHRcdFx0XHR9XG5cdFx0XHRcdC5zZWxlY3QtYXJyb3cge1xuXHRcdFx0XHRcdGNvbG9yOiAkZ3JleS0zNTA7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdH1cbn0iLCIuaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ibG9jayB7XG4gIHBhZGRpbmc6IDEwcHggMDtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZWUyZTY7XG59XG4uaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC5pbnZvaWNlLXRhYmxlIHtcbiAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcbiAgb3ZlcmZsb3cteDogc2Nyb2xsO1xuICBvdmVyZmxvdy15OiB2aXNpYmxlO1xuICBmbG9hdDogbGVmdDtcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmludm9pY2UtaGVhZGVyIHtcbiAgZGlzcGxheTogdGFibGUtcm93O1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAuaW52b2ljZS1oZWFkZXIgLmhlYWRzIHtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICBmb250LXNpemU6IDEuMnJlbTtcbiAgY29sb3I6ICMzNzM5NDY7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gIGJvcmRlcjogbm9uZTtcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgcGFkZGluZzogMTBweCAxNHB4O1xuICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAuaW52b2ljZS1maWVsZHMge1xuICBkaXNwbGF5OiB0YWJsZS1yb3c7XG59XG4uaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ib3gge1xuICBwYWRkaW5nOiAxMnB4IDAgNnB4IDEwcHg7XG4gIGJvcmRlci10b3A6IDFweCBzb2xpZCAjZWFlYWVhO1xuICBvdmVyZmxvdzogYXV0bztcbn1cbi5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmFkZC1pbnZvaWNlLWJveCAuaWNvbiB7XG4gIGNvbG9yOiAjMzczOTQ2O1xuICB3aWR0aDogMThweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IC0ycHg7XG59XG4uaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC5hZGQtaW52b2ljZS1ib3ggc3BhbiB7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xuICBjb2xvcjogIzU4NTg1ODtcbiAgbWFyZ2luOiAwIDAgMCA2cHg7XG4gIGZvbnQtc2l6ZTogMS40cmVtO1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYm94IC5hZGQtaW52b2ljZS1saW5rIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAuYWRkLWludm9pY2UtYm94IC5hZGQtaW52b2ljZS1saW5rOmhvdmVyIHNwYW4sIC5pbmNvbWUtcG9zdC1pbnZvaWNlLXdyYXBwZXIgLmFkZC1pbnZvaWNlLWJveCAuYWRkLWludm9pY2UtbGluazpob3ZlciAuaWNvbiB7XG4gIGNvbG9yOiAjNTRiOTQxO1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94IHtcbiAgcGFkZGluZzogMTVweCAxNHB4O1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94IHAge1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIG1hcmdpbjogOHB4IDAgIWltcG9ydGFudDtcbiAgZm9udC1zaXplOiAxLjNyZW07XG59XG4uaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC50b3RhbC1ib3guZmluYWwgcCB7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xuICBtYXJnaW46IDAgIWltcG9ydGFudDtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG4uaW5jb21lLXBvc3QtaW52b2ljZS13cmFwcGVyIC50b3RhbC1ib3ggLmRpc2NvdW50LWlucHV0IGlucHV0IHtcbiAgd2lkdGg6IDEwMHB4O1xuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDAgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItcmFkaXVzOiAwICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDAgIWltcG9ydGFudDtcbiAgaGVpZ2h0OiAzNHB4O1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94IC5kaXNjb3VudC1pbnB1dCBpbnB1dFtyZWFkb25seV0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjlmOWY5O1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94IC5kaXNjb3VudC1ib3ggOjpuZy1kZWVwIGlucHV0IHtcbiAgd2lkdGg6IDEwMHB4O1xuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDAgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItcmFkaXVzOiAwICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDAgIWltcG9ydGFudDtcbiAgaGVpZ2h0OiAzNHB4O1xufVxuLmluY29tZS1wb3N0LWludm9pY2Utd3JhcHBlciAudG90YWwtYm94IC5kaXNjb3VudC1ib3ggOjpuZy1kZWVwIC5zZWxlY3QtYXJyb3cge1xuICBjb2xvcjogIzhlOGU4ZTtcbn0iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiRkLWN5YW4tMDM6IzAwZDFmYTtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LW1lZGl1bS0wNDozMDtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuXG5AbWl4aW4gYm9yZGVyLXJhZGl1cyAoJHJhZGl1cykge1xuXHQtd2Via2l0LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0LW1vei1ib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG5cdGJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXMgKCRyYWRpdXMpIHtcbiAgLXdlYmtpdC1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBvcGFjaXR5ICgkdmFsdWUpIHtcbiAgb3BhY2l0eTogJHZhbHVlO1xuICAtbW96LW9wYWNpdHk6ICR2YWx1ZTtcbiAgLXdlYmtpdC1vcGFjaXR5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2hhZG93ICgkcnVsZXMuLi4pIHtcbiAgYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtbW96LWJveC1zaGFkb3c6ICRydWxlcztcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0ZXh0LXNoYWRvdyAoJHJ1bGVzKSB7XG4gIHRleHQtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLXdlYmtpdC10ZXh0LXNoYWRvdzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gdHJhbnNmb3JtICgkcnVsZXMpIHtcblx0LXdlYmtpdC10cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xuXHQtbW96LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdHRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiB0cmFuc2l0aW9uICgkcnVsZXMuLi4pIHtcblx0LXdlYmtpdC10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdC1tb3otdHJhbnNpdGlvbjogJHJ1bGVzO1xuXHR0cmFuc2l0aW9uOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBhbmltYXRpb24tZGVsYXkgKCR2YWx1ZSkge1xuICAtd2Via2l0LWFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xuICAtbW96LWFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xuICBhbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaXppbmcgKCRydWxlcy4uLikge1xuICAtd2Via2l0LWJveC1zaXppbmc6ICRydWxlcztcbiAgLW1vei1ib3gtc2l6aW5nOiAkcnVsZXM7XG4gIGJveC1zaXppbmc6ICRydWxlcztcbn1cblxuQG1peGluIGFwcGVhcmFuY2UgKCRydWxlcy4uLikge1xuICAtd2Via2l0LWFwcGVhcmFuY2U6ICRydWxlcztcbiAgLW1vei1hcHBlYXJhbmNlOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBkZXNlbGVjdCAoKSB7XG4gIC1tb3otdXNlci1zZWxlY3Q6IC1tb3otbm9uZTtcblx0LWtodG1sLXVzZXItc2VsZWN0OiBub25lO1xuXHQtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xuXHQtby11c2VyLXNlbGVjdDogbm9uZTtcblx0dXNlci1zZWxlY3Q6IG5vbmU7XG59XG5cbkBtaXhpbiB2aXNpYmlsaXR5ICgkcnVsZXMpIHtcbiAgdmlzaWJpbGl0eTogJHJ1bGVzO1xufVxuXG5AbWl4aW4gbm8tbXAgKCkge1xuICBtYXJnaW46IDAgIWltcG9ydGFudDtcbiAgcGFkZGluZzogMCAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gY2lyY2xlcygkciwgJGJnOm51bGwsICR0YzpudWxsKSB7XG4gIHdpZHRoOiAkcjtcbiAgaGVpZ2h0OiAkcjtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OmNlbnRlcjtcbiAgYWxpZ24taXRlbXM6Y2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkYmc7XG4gIGNvbG9yOiAkdGM7XG4gIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoJHIpO1xufVxuXG5AbWl4aW4gbGluZWFyLWdyYWRpZW50KCRkaXJlY3Rpb24sICRjb2xvci1zdG9wcy4uLikge1xuICAvLyBEaXJlY3Rpb24gaGFzIGJlZW4gb21pdHRlZCBhbmQgaGFwcGVucyB0byBiZSBhIGNvbG9yLXN0b3BcbiAgQGlmIGlzLWRpcmVjdGlvbigkZGlyZWN0aW9uKSA9PSBmYWxzZSB7XG4gICAgJGNvbG9yLXN0b3BzOiAkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHM7XG4gICAgJGRpcmVjdGlvbjogMTgwZGVnO1xuICB9XG5cbiAgYmFja2dyb3VuZDogbnRoKG50aCgkY29sb3Itc3RvcHMsIDEpLCAxKTtcbiAgYmFja2dyb3VuZDogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQobGVnYWN5LWRpcmVjdGlvbigkZGlyZWN0aW9uKSwgJGNvbG9yLXN0b3BzKTtcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KCRkaXJlY3Rpb24sICRjb2xvci1zdG9wcyk7XG59XG5cbkBtaXhpbiBwbGFjZWhvbGRlciB7XG4gICY6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIge0Bjb250ZW50fVxuICAmOi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAgIHtAY29udGVudH1cbiAgJjo6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6LW1zLWlucHV0LXBsYWNlaG9sZGVyICAgICAge0Bjb250ZW50fSAgXG59XG5cblxuIl19 */";
     /***/
   },
 
@@ -2054,8 +2065,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(IncomePostMultiInvoiceComponent, [{
         key: "addInvoice",
         value: function addInvoice() {
-          var _this16 = this;
-
           var details = {
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
             "invoiceId": 0,
@@ -2065,7 +2074,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
-            "updatedBy": 0,
+            "updatedBy": null,
             "updatedOn": new Date().toISOString(),
             "amount": parseFloat(this.invoiceGLAccountsData.amount),
             "vatid": "",
@@ -2079,43 +2088,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "discountId": "",
             "discountAmount": parseFloat(this.invoiceGLAccountsData.discountAmount),
             "lineItemTotal": parseFloat(this.invoiceGLAccountsData.lineItemTotal),
+            "form": false,
             "isDiscount": false,
             "isTax": false,
             "discountTypeId": "",
             "discountDirectAmt": parseFloat(this.invoiceGLAccountsData.discountDirectAmt)
           };
           this.invoiceGLAccountsArray.push(details);
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceGLAccountsArray, function (item) {
-            if (item.form) {
-              _this16.isFormInValid = false;
-            } else {
-              _this16.isFormInValid = true;
-            }
+          this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.invoiceGLAccountsArray, function (item) {
+            return !item.form;
           });
         }
       }, {
         key: "getFieldParams",
         value: function getFieldParams(event) {
-          var _this17 = this;
-
           this.invoiceGLAccountsArray = event;
-          var self = this;
-          self.invoice.subAmount = 0;
-          self.invoice.totalVatamount = 0;
-          self.invoice.totalDiscount = 0;
-          self.invoice.custInvoiceAmount = 0;
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceGLAccountsArray, function (item) {
-            if (item.form) {
-              _this17.isFormInValid = false;
-            } else {
-              _this17.isFormInValid = true;
-            }
-
-            self.invoice.subAmount = parseFloat(self.invoice.subAmount + item.lineItemTotal).toFixed(2);
-            self.invoice.totalVatamount = parseFloat(self.invoice.totalVatamount + item.vatamount).toFixed(2);
-            self.invoice.totalDiscount = parseFloat(self.invoice.totalDiscount + item.discountAmount).toFixed(2);
-            self.invoice.custInvoiceAmount = (parseFloat(self.invoice.subAmount) + parseFloat(self.invoice.totalVatamount) - parseFloat(self.invoice.invoicefinaldiscount)).toFixed(2);
+          this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.invoiceGLAccountsArray, function (item) {
+            return !item.form;
           });
+          var subAmount = this.invoiceGLAccountsArray.map(function (item) {
+            return item.lineItemTotal;
+          }).reduce(function (a, b) {
+            return a + b;
+          });
+          this.invoice.subAmount = parseFloat(subAmount).toFixed(2);
+          var totalVatamount = this.invoiceGLAccountsArray.map(function (item) {
+            return item.vatamount;
+          }).reduce(function (a, b) {
+            return a + b;
+          });
+          this.invoice.totalVatamount = parseFloat(totalVatamount).toFixed(2);
+          var totalDiscount = this.invoiceGLAccountsArray.map(function (item) {
+            return item.totalDiscount;
+          }).reduce(function (a, b) {
+            return a + b;
+          });
+          this.invoice.totalDiscount = parseFloat(totalDiscount).toFixed(2);
+          this.invoice.custInvoiceAmount = (parseFloat(this.invoice.subAmount) + parseFloat(this.invoice.totalVatamount) - parseFloat(this.invoice.invoicefinaldiscount)).toFixed(2);
         }
       }, {
         key: "getCustTaxInvoiceParams",
@@ -2123,14 +2132,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (event.isAdded) {
             underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, function (item) {
               if (item.lookupValueId == event.invoiceTaxId) {
-                item.custVatTypeAmount = parseFloat(item.custVatTypeAmount + event.invoiceTotalAmount).toFixed(2);
+                item.custVatTypeAmount = parseFloat(event.invoiceTotalAmount).toFixed(2);
               }
             });
             this.custInvoiceTaxArray.push(event);
           } else {
             underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, function (item) {
               if (item.lookupValueId == event.invoiceTaxId) {
-                item.custVatTypeAmount = item.custVatTypeAmount - event.invoiceTotalAmount;
+                item.custVatTypeAmount = 0;
               }
             });
             this.custInvoiceTaxArray = this.custInvoiceTaxArray.filter(function (item) {
@@ -2139,8 +2148,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
-        key: "onDiscountGenChange",
-        value: function onDiscountGenChange(event) {
+        key: "onDiscountFinalChange",
+        value: function onDiscountFinalChange(event) {
           if (event != null) {
             this.invoice.isFinalDiscount = true;
             this.invoice.finalDiscountTypeName = event.lookupValueName;
@@ -2198,10 +2207,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitIncomeMultiInvoiceForm",
         value: function submitIncomeMultiInvoiceForm(form) {
-          var _this18 = this;
+          var _this16 = this;
 
           this.isInvoiceSubmitted = false;
-          var self = this;
           this.invoiceGLAccountsArray.map(function (item) {
             delete item.form;
             return item;
@@ -2257,16 +2265,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.accountsService.addCustInvoice(params).subscribe(function (res) {
               if (res.message) {
-                _this18.isInvoiceSubmitted = true;
+                _this16.isInvoiceSubmitted = true;
 
-                _this18.sharedService.setAlertMessage("All Invoices added successfully");
+                _this16.sharedService.setAlertMessage("All Invoices added successfully");
 
-                _this18.router.navigate(['ams/income/subledger']);
+                _this16.router.navigate(['ams/income/subledger']);
               } else {
-                _this18.isInvoiceSubmitted = true;
+                _this16.isInvoiceSubmitted = true;
               }
             }, function (error) {
-              _this18.isInvoiceSubmitted = true;
+              _this16.isInvoiceSubmitted = true;
             });
           } else {
             var _details2 = {
@@ -2315,36 +2323,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.accountsService.updateCustInvoice(_params2).subscribe(function (res) {
               if (res.message) {
-                _this18.isInvoiceSubmitted = true;
+                _this16.isInvoiceSubmitted = true;
 
-                _this18.sharedService.setAlertMessage("All Invoices updated successfully");
+                _this16.sharedService.setAlertMessage("All Invoices updated successfully");
 
-                _this18.router.navigate(['ams/income/subledger']);
+                _this16.router.navigate(['ams/income/subledger']);
               } else {
-                _this18.isInvoiceSubmitted = true;
+                _this16.isInvoiceSubmitted = true;
               }
             }, function (error) {
-              _this18.isInvoiceSubmitted = true;
+              _this16.isInvoiceSubmitted = true;
             });
           }
         }
       }, {
+        key: "isDeselectColumn",
+        value: function isDeselectColumn() {
+          return this.isEditInvoice ? 'deselect' : '';
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this19 = this;
+          var _this17 = this;
 
           this.invoice = {};
           this.invoice.isTax = false;
           this.invoice.isDiscount = false;
           this.invoice.subAmount = 0;
+          this.invoice.totalVatamount = 0;
+          this.invoice.totalDiscount = 0;
+          this.invoice.custInvoiceAmount = 0;
+          this.invoice.custInvoiceVatAmount = 0;
+          this.invoice.custInvoiceAddVatAmount = 0;
           this.invoice.isFinalDiscount = false;
           this.invoice.invoicefinaldiscount = 0;
           this.invoice.invoicefinalinputdiscount = 0;
           this.invoice.invoicefinaldiscountId = "";
           this.invoice.finalDiscountTypeName = "";
-          this.invoice.custInvoiceVatAmount = 0;
-          this.invoice.custInvoiceAddVatAmount = 0;
-          this.invoice.custInvoiceAmount = 0;
           this.invoice.isRecurCustInvoice = true;
           this.invoice.custInvoiceDate = new Date().toISOString();
           this.invoiceGLAccountsData = {};
@@ -2375,8 +2390,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
-            "updatedBy": 0,
-            "updatedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null,
             "amount": parseFloat(this.invoiceGLAccountsData.amount),
             "vatid": "",
             "vatamount": parseFloat(this.invoiceGLAccountsData.vatamount),
@@ -2389,6 +2404,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "discountId": "",
             "discountAmount": parseFloat(this.invoiceGLAccountsData.discountAmount),
             "lineItemTotal": parseFloat(this.invoiceGLAccountsData.lineItemTotal),
+            "form": false,
             "isDiscount": false,
             "isTax": false,
             "discountTypeId": "",
@@ -2402,8 +2418,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
-            "updatedBy": 0,
-            "updatedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null,
             "amount": parseFloat(this.invoiceGLAccountsData.amount),
             "vatid": "",
             "vatamount": parseFloat(this.invoiceGLAccountsData.vatamount),
@@ -2416,6 +2432,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "discountId": "",
             "discountAmount": parseFloat(this.invoiceGLAccountsData.discountAmount),
             "lineItemTotal": parseFloat(this.invoiceGLAccountsData.lineItemTotal),
+            "form": false,
             "isDiscount": false,
             "isTax": false,
             "discountTypeId": "",
@@ -2425,15 +2442,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 74
           };
           this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe(function (res) {
-            _this19.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_8__().add(parseInt(res[0].lookupValueName), 'days');
+            _this17.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_8__().add(parseInt(res[0].lookupValueName), 'days');
           });
           var vatListParams = {
             LookupTypeId: 77
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this19.vatTypeDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this19.vatTypeDataList, function (item) {
+            _this17.vatTypeDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this17.vatTypeDataList, function (item) {
               item.custVatTypeAmount = 0;
             });
           });
@@ -2442,7 +2459,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //discount types
 
           this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe(function (res) {
-            _this19.discountFinalTypeDataList = res;
+            _this17.discountFinalTypeDataList = res;
           }); //for post single invoice
 
           if (this.route.params['value'].type == 'single' && this.route.params['value'].invoiceid == undefined) {
@@ -2467,19 +2484,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               invoiceId: this.route.params['value'].invoiceid
             };
             this.accountsService.getCustInvoiceById(params).subscribe(function (res) {
-              _this19.invoice = res[0];
-              _this19.invoiceGLAccountsArray = _this19.invoice.invoiceGLAccounts;
-              _this19.custInvoiceTaxArray = _this19.invoice.custinvoiceTax; //getting vat amount list
+              _this17.invoice = res[0];
+              _this17.invoiceGLAccountsArray = _this17.invoice.invoiceGLAccounts;
 
-              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this19.vatTypeDataList, function (item) {
+              _this17.invoiceGLAccountsArray.forEach(function (item) {
+                item.form = true;
+              });
+
+              _this17.custInvoiceTaxArray = _this17.invoice.custinvoiceTax; //getting vat amount list
+
+              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this17.vatTypeDataList, function (item) {
                 var totalVatAmount = 0;
-                underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this19.custInvoiceTaxArray, function (data) {
+                underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this17.custInvoiceTaxArray, function (data) {
                   if (data.invoiceTaxId == item.lookupValueId) {
                     item.custVatTypeAmount = data.invoiceTotalAmount;
                   }
                 });
               });
-              _this19.isInvoiceSubmitted = true;
+              _this17.isInvoiceSubmitted = true;
             });
           }
 
@@ -2487,10 +2509,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
-            _this19.accountDataList = res.filter(function (item) {
-              return item.apartmentBlockUnitId == _this19.route.params['value'].id;
+            _this17.accountDataList = res.filter(function (item) {
+              return item.apartmentBlockUnitId == _this17.route.params['value'].id;
             });
-            _this19.isAccountDataLoaded = true;
+            _this17.isAccountDataLoaded = true;
           });
         }
       }]);
@@ -2665,7 +2687,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllBlockData",
         value: function getAllBlockData() {
-          var _this20 = this;
+          var _this18 = this;
 
           this.filterSelected = 'all';
           this.singleBlock = "Select Block";
@@ -2675,43 +2697,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
             var subLedgerDataList = res;
             console.log(res);
-            _this20.gridSourceData.localdata = subLedgerDataList;
+            _this18.gridSourceData.localdata = subLedgerDataList;
 
-            _this20.datagrid.updatebounddata('cells');
+            _this18.datagrid.updatebounddata('cells');
 
-            _this20.calculateTotalAmount(subLedgerDataList);
+            _this18.calculateTotalAmount(subLedgerDataList);
           });
         }
       }, {
         key: "getSingleBlock",
         value: function getSingleBlock(block) {
-          var _this21 = this;
+          var _this19 = this;
 
           this.filterSelected = 'single';
           this.singleBlock = block.apartmentBlockNumber;
           this.selectedBlockId = block.apartmentBlockId;
           this.accountsService.getIncomeTrackerSubLedgersByApartmentId(this.params).subscribe(function (res) {
             var subLedgerDataList = res.filter(function (item) {
-              return item.apartmentBlockNumber == _this21.singleBlock;
+              return item.apartmentBlockNumber == _this19.singleBlock;
             });
-            _this21.gridSourceData.localdata = subLedgerDataList;
+            _this19.gridSourceData.localdata = subLedgerDataList;
 
-            _this21.datagrid.updatebounddata('cells');
+            _this19.datagrid.updatebounddata('cells');
 
-            _this21.calculateTotalAmount(subLedgerDataList);
+            _this19.calculateTotalAmount(subLedgerDataList);
           });
         }
       }, {
         key: "calculateTotalAmount",
         value: function calculateTotalAmount(subLedgerDataList) {
-          var _this22 = this;
+          var _this20 = this;
 
           this.totalItems = subLedgerDataList.length;
           this.netDueAmount = 0;
           this.totalDueAmount = 0;
           underscore__WEBPACK_IMPORTED_MODULE_8__["each"](subLedgerDataList, function (item, index) {
-            _this22.netDueAmount = _this22.netDueAmount + item.due;
-            if (item.due >= 0) _this22.totalDueAmount = _this22.totalDueAmount + item.due;
+            _this20.netDueAmount = _this20.netDueAmount + item.due;
+            if (item.due >= 0) _this20.totalDueAmount = _this20.totalDueAmount + item.due;
           });
         }
       }, {
@@ -2729,7 +2751,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onShowInvoices",
         value: function onShowInvoices(detail) {
-          var _this23 = this;
+          var _this21 = this;
 
           var ledger = this.datagrid.getrowdata(detail.rowId);
           var invoiceParams = {
@@ -2743,7 +2765,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               ledger.isInvoiceAvailable = true;
             }
 
-            _this23.dialogRef = _this23.dialog.open(_this23.viewInvoiceTypeRef, {
+            _this21.dialogRef = _this21.dialog.open(_this21.viewInvoiceTypeRef, {
               panelClass: 'material',
               disableClose: true,
               data: ledger
@@ -2760,7 +2782,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this24 = this;
+          var _this22 = this;
 
           if (this.subLedgerData != "") {
             var filtergroup = new jqx.filter();
@@ -2773,7 +2795,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this24.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this22.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2840,31 +2862,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this25 = this;
+          var _this23 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this25.blockListData = res;
+            _this23.blockListData = res;
             var params = {
-              apartmentId: parseInt(_this25.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this23.cookieService.get('apartmentId'))
             };
 
-            _this25.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
-              _this25.isSubLedgerDataLoaded = true;
-              _this25.filterSelected = 'all';
-              _this25.singleBlock = "Select Block";
+            _this23.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
+              _this23.isSubLedgerDataLoaded = true;
+              _this23.filterSelected = 'all';
+              _this23.singleBlock = "Select Block";
               var subLedgerDataList = res;
-              _this25.gridSourceData = {
+              _this23.gridSourceData = {
                 localdata: subLedgerDataList,
                 datatype: "array"
               };
-              _this25.subLedgerDataList = new jqx.dataAdapter(_this25.gridSourceData);
+              _this23.subLedgerDataList = new jqx.dataAdapter(_this23.gridSourceData);
 
-              _this25.renderColumns();
+              _this23.renderColumns();
 
-              _this25.calculateTotalAmount(subLedgerDataList);
+              _this23.calculateTotalAmount(subLedgerDataList);
             });
           });
         }
@@ -3111,19 +3133,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "drawChart",
         value: function drawChart() {
-          var _this26 = this;
+          var _this24 = this;
 
           setTimeout(function () {
-            _this26.isChartLoaded = true;
+            _this24.isChartLoaded = true;
             var data = {
               labels: ["0-30 Days", "31-60 Days", "61-90 Days", "Over 90 Days"],
               datasets: [{
-                data: [parseInt(_this26.totalAmountItem1Percent), parseInt(_this26.totalAmountItem3Percent), parseInt(_this26.totalAmountItem4Percent), parseInt(_this26.totalAmountItem5Percent)],
+                data: [parseInt(_this24.totalAmountItem1Percent), parseInt(_this24.totalAmountItem3Percent), parseInt(_this24.totalAmountItem4Percent), parseInt(_this24.totalAmountItem5Percent)],
                 backgroundColor: ["#5bcc73", "#00bcd4", "#ff3638", "#3f51b5"],
                 hoverBackgroundColor: ["#5bcc73", "#00bcd4", "#ff3638", "#3f51b5"]
               }]
             };
-            _this26.chart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"](_this26.chartRef.nativeElement, {
+            _this24.chart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"](_this24.chartRef.nativeElement, {
               type: 'doughnut',
               data: data,
               options: {
@@ -3143,7 +3165,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAgeingData",
         value: function getAgeingData() {
-          var _this27 = this;
+          var _this25 = this;
 
           this.totalAmountItem1 = 0;
           this.totalAmountItem3 = 0;
@@ -3175,42 +3197,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isDataLoaded = false;
           this.isChartLoaded = false;
           this.accountsService.getArAgingCollectionDueSummary(ageingParams).subscribe(function (res) {
-            _this27.isDataLoaded = true;
-            _this27.ageingDataDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this27.ageingDataDataList, function (item) {
+            _this25.isDataLoaded = true;
+            _this25.ageingDataDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this25.ageingDataDataList, function (item) {
               item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
-            _this27.totalItems = _this27.ageingDataDataList.length;
+            _this25.totalItems = _this25.ageingDataDataList.length;
 
-            if (_this27.totalItems > _this27.itemLimit) {
-              _this27.ItemEndIndex = _this27.itemLimit;
+            if (_this25.totalItems > _this25.itemLimit) {
+              _this25.ItemEndIndex = _this25.itemLimit;
             } else {
-              _this27.ItemEndIndex = _this27.totalItems;
+              _this25.ItemEndIndex = _this25.totalItems;
             }
 
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this27.ageingDataDataList, function (item, index) {
-              _this27.totalInvoices = _this27.totalInvoices + item.bucketCount1 + item.bucketCount2 + item.bucketCount3 + item.bucketCount4 + item.bucketCount5;
-              _this27.totalAmountItem1 = _this27.totalAmountItem1 + item.bucketAmt1 + item.bucketAmt2;
-              _this27.totalAmountItem3 = _this27.totalAmountItem3 + item.bucketAmt3;
-              _this27.totalAmountItem4 = _this27.totalAmountItem4 + item.bucketAmt4;
-              _this27.totalAmountItem5 = _this27.totalAmountItem5 + item.bucketAmt5;
-              _this27.totalAmount = _this27.totalAmountItem1 + _this27.totalAmountItem3 + _this27.totalAmountItem4 + _this27.totalAmountItem5;
-              _this27.totalAmountItem1Percent = _this27.totalAmountItem1 / _this27.totalAmount * 100;
-              _this27.totalAmountItem3Percent = _this27.totalAmountItem3 / _this27.totalAmount * 100;
-              _this27.totalAmountItem4Percent = _this27.totalAmountItem4 / _this27.totalAmount * 100;
-              _this27.totalAmountItem5Percent = _this27.totalAmountItem5 / _this27.totalAmount * 100;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this25.ageingDataDataList, function (item, index) {
+              _this25.totalInvoices = _this25.totalInvoices + item.bucketCount1 + item.bucketCount2 + item.bucketCount3 + item.bucketCount4 + item.bucketCount5;
+              _this25.totalAmountItem1 = _this25.totalAmountItem1 + item.bucketAmt1 + item.bucketAmt2;
+              _this25.totalAmountItem3 = _this25.totalAmountItem3 + item.bucketAmt3;
+              _this25.totalAmountItem4 = _this25.totalAmountItem4 + item.bucketAmt4;
+              _this25.totalAmountItem5 = _this25.totalAmountItem5 + item.bucketAmt5;
+              _this25.totalAmount = _this25.totalAmountItem1 + _this25.totalAmountItem3 + _this25.totalAmountItem4 + _this25.totalAmountItem5;
+              _this25.totalAmountItem1Percent = _this25.totalAmountItem1 / _this25.totalAmount * 100;
+              _this25.totalAmountItem3Percent = _this25.totalAmountItem3 / _this25.totalAmount * 100;
+              _this25.totalAmountItem4Percent = _this25.totalAmountItem4 / _this25.totalAmount * 100;
+              _this25.totalAmountItem5Percent = _this25.totalAmountItem5 / _this25.totalAmount * 100;
 
-              if (index == _this27.ageingDataDataList.length - 1) {
-                _this27.drawChart();
+              if (index == _this25.ageingDataDataList.length - 1) {
+                _this25.drawChart();
               }
 
               var unitParams = {
-                ApartmentID: parseInt(_this27.cookieService.get('apartmentId')),
-                asOfDate: _this27.asOfDate,
+                ApartmentID: parseInt(_this25.cookieService.get('apartmentId')),
+                asOfDate: _this25.asOfDate,
                 unitId: item.unitID
               };
 
-              _this27.accountsService.getArAgingCollectionDueByUnitId(unitParams).subscribe(function (res) {
+              _this25.accountsService.getArAgingCollectionDueByUnitId(unitParams).subscribe(function (res) {
                 item.invoiceDetails = res;
               }, function (error) {});
             });
@@ -3567,14 +3589,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUnits",
         value: function getUnits(id) {
-          var _this28 = this;
+          var _this26 = this;
 
           var params = {
             apartmentBlockId: parseInt(id)
           };
           this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-            _this28.blockUnitData = res;
-            _this28.isBlockSelected = true;
+            _this26.blockUnitData = res;
+            _this26.isBlockSelected = true;
           });
         }
       }, {
@@ -3610,7 +3632,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitIncomeReportsCustomerForm",
         value: function submitIncomeReportsCustomerForm(form) {
-          var _this29 = this;
+          var _this27 = this;
 
           this.isReportSubmitted = true;
           this.isDataLoaded = false;
@@ -3626,23 +3648,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getCustGltransactionsMultiFilter(details).subscribe(function (res) {
-            _this29.reportsDataList = res;
-            _this29.totalItems = _this29.reportsDataList.length;
+            _this27.reportsDataList = res;
+            _this27.totalItems = _this27.reportsDataList.length;
 
-            if (_this29.totalItems > _this29.itemLimit) {
-              _this29.ItemEndIndex = _this29.itemLimit;
+            if (_this27.totalItems > _this27.itemLimit) {
+              _this27.ItemEndIndex = _this27.itemLimit;
             } else {
-              _this29.ItemEndIndex = _this29.totalItems;
+              _this27.ItemEndIndex = _this27.totalItems;
             }
 
-            _this29.isDataLoaded = true;
-            _this29.isReportSubmitted = false;
+            _this27.isDataLoaded = true;
+            _this27.isReportSubmitted = false;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this30 = this;
+          var _this28 = this;
 
           this.report = {};
           this.report.apartmentBlockId = "";
@@ -3653,11 +3675,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this30.blockData = res;
+            _this28.blockData = res;
           });
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this30.glAccountsDataList = res.filter(function (item) {
-              return item.isActive && parseInt(_this30.cookieService.get('apartmentId')) && item.indicator == _this30.glAccountIndicator;
+            _this28.glAccountsDataList = res.filter(function (item) {
+              return item.isActive && parseInt(_this28.cookieService.get('apartmentId')) && item.indicator == _this28.glAccountIndicator;
             });
           });
           var glDocParams = {
@@ -3665,7 +3687,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //Gl Document 
 
           this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
-            _this30.glDocumentTypeDataList = res;
+            _this28.glDocumentTypeDataList = res;
           }, function (error) {});
         }
       }]);
@@ -3875,7 +3897,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitIncomeReportsVendorForm",
         value: function submitIncomeReportsVendorForm(form) {
-          var _this31 = this;
+          var _this29 = this;
 
           this.isReportSubmitted = true;
           this.isDataLoaded = false;
@@ -3891,23 +3913,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe(function (res) {
-            _this31.reportsDataList = res;
-            _this31.totalItems = _this31.reportsDataList.length;
+            _this29.reportsDataList = res;
+            _this29.totalItems = _this29.reportsDataList.length;
 
-            if (_this31.totalItems > _this31.itemLimit) {
-              _this31.ItemEndIndex = _this31.itemLimit;
+            if (_this29.totalItems > _this29.itemLimit) {
+              _this29.ItemEndIndex = _this29.itemLimit;
             } else {
-              _this31.ItemEndIndex = _this31.totalItems;
+              _this29.ItemEndIndex = _this29.totalItems;
             }
 
-            _this31.isDataLoaded = true;
-            _this31.isReportSubmitted = false;
+            _this29.isDataLoaded = true;
+            _this29.isReportSubmitted = false;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this32 = this;
+          var _this30 = this;
 
           this.report = {};
           this.report.apartmentBlockId = "";
@@ -3918,17 +3940,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this32.blockData = res;
+            _this30.blockData = res;
           });
           var vendorParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this32.vendorData = res;
+            _this30.vendorData = res;
           });
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this32.glAccountsDataList = res.filter(function (item) {
-              return item.isActive && parseInt(_this32.cookieService.get('apartmentId')) && item.indicator == _this32.glAccountIndicator;
+            _this30.glAccountsDataList = res.filter(function (item) {
+              return item.isActive && parseInt(_this30.cookieService.get('apartmentId')) && item.indicator == _this30.glAccountIndicator;
             });
           });
           var glDocParams = {
@@ -3936,7 +3958,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //Gl Document 
 
           this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
-            _this32.glDocumentTypeDataList = res;
+            _this30.glDocumentTypeDataList = res;
           }, function (error) {});
         }
       }]);
@@ -4367,7 +4389,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this33 = this;
+          var _this31 = this;
 
           //tabs
           this.navArray = [{
@@ -4411,13 +4433,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //currency type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this33.currencyTypeDataList = res.filter(function (item) {
+            _this31.currencyTypeDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this33.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this33.cookieService.get('apartmentId')) && item.indicator == _this33.glAccountIndicator;
+            _this31.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this31.cookieService.get('apartmentId')) && item.indicator == _this31.glAccountIndicator;
             });
           });
           var invoiceListParams = {
@@ -4425,7 +4447,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //payment term
 
           this.lookupService.getLookupValueByLookupTypeId(invoiceListParams).subscribe(function (res) {
-            _this33.paymentInvoiceDataList = res.filter(function (item) {
+            _this31.paymentInvoiceDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4434,7 +4456,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //VAT
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this33.vatPecentageDataList = res.filter(function (item) {
+            _this31.vatPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4443,7 +4465,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //penalty
 
           this.lookupService.getLookupValueByLookupTypeId(penalityListParams).subscribe(function (res) {
-            _this33.penaltyDataList = res.filter(function (item) {
+            _this31.penaltyDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4452,7 +4474,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //late payment
 
           this.lookupService.getLookupValueByLookupTypeId(lateListParams).subscribe(function (res) {
-            _this33.lastPaymentDataList = res.filter(function (item) {
+            _this31.lastPaymentDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4461,7 +4483,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //% Penalty percentage
 
           this.lookupService.getLookupValueByLookupTypeId(penalityParams).subscribe(function (res) {
-            _this33.penaltyPercentageDataList = res.filter(function (item) {
+            _this31.penaltyPercentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4470,7 +4492,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //% grace period for invoice
 
           this.lookupService.getLookupValueByLookupTypeId(graceListParams).subscribe(function (res) {
-            _this33.gracePeriodInvoiceDataList = res.filter(function (item) {
+            _this31.gracePeriodInvoiceDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4803,13 +4825,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateCreditItem",
         value: function updateCreditItem(credit) {
-          var _this34 = this;
+          var _this32 = this;
 
           setTimeout(function () {
-            _this34.isCreditNoteLoaded = false;
+            _this32.isCreditNoteLoaded = false;
             var details = {
               "creditNoteId": parseInt(credit.creditNoteId),
-              "apartmentId": parseInt(_this34.cookieService.get('apartmentId')),
+              "apartmentId": parseInt(_this32.cookieService.get('apartmentId')),
               "amount": parseInt(credit.amount),
               "collectionId": parseInt(credit.collectionId),
               "invoiceId": parseInt(credit.invoiceId),
@@ -4817,9 +4839,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "isSmssent": credit.isSmssent,
               "comment": credit.comment,
               "isActive": true,
-              "insertedBy": parseInt(_this34.cookieService.get('userId')),
+              "insertedBy": parseInt(_this32.cookieService.get('userId')),
               "insertedOn": new Date().toISOString(),
-              "updatedBy": parseInt(_this34.cookieService.get('userId')),
+              "updatedBy": parseInt(_this32.cookieService.get('userId')),
               "updatedOn": new Date().toISOString(),
               "transReference1": "string",
               "transReference2": "string",
@@ -4830,23 +4852,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               creditNote: details
             };
 
-            _this34.accountsService.updateCreditNote(params).subscribe(function (res) {
+            _this32.accountsService.updateCreditNote(params).subscribe(function (res) {
               if (res.message) {
-                _this34.isCreditNoteLoaded = true;
+                _this32.isCreditNoteLoaded = true;
 
-                _this34.sharedService.setAlertMessage("Credit Note updated successfully");
+                _this32.sharedService.setAlertMessage("Credit Note updated successfully");
               } else {
-                _this34.isCreditNoteLoaded = true;
+                _this32.isCreditNoteLoaded = true;
               }
             }, function (error) {
-              _this34.isCreditNoteLoaded = true;
+              _this32.isCreditNoteLoaded = true;
             });
           }, 1000);
         }
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this35 = this;
+          var _this33 = this;
 
           if (this.creditNoteData != "") {
             var filtergroup = new jqx.filter();
@@ -4859,7 +4881,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this35.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this33.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -4877,7 +4899,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this36 = this;
+          var _this34 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -4898,7 +4920,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Posted By',
             datafield: 'insertedOn',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this36.constantsService.dateFormat) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this34.constantsService.dateFormat) + '</div>';
             },
             minwidth: 80,
             renderer: columnrenderer
@@ -4960,34 +4982,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }];
           this.userDataList = [];
           this.userService.getAllUsers().subscribe(function (res) {
-            _this36.userDataList = res;
+            _this34.userDataList = res;
           });
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getCreditNotesByApartmentIdStatus(params).subscribe(function (res) {
-            _this36.creditNoteDataList = res;
-            _this36.gridSourceData = {
-              localdata: _this36.creditNoteDataList,
+            _this34.creditNoteDataList = res;
+            _this34.gridSourceData = {
+              localdata: _this34.creditNoteDataList,
               datatype: "array"
             };
-            _this36.creditNoteDataList = new jqx.dataAdapter(_this36.gridSourceData);
-            console.log('creditNoteDataList', _this36.creditNoteDataList);
-            _this36.totalItems = _this36.creditNoteDataList.length;
+            _this34.creditNoteDataList = new jqx.dataAdapter(_this34.gridSourceData);
+            console.log('creditNoteDataList', _this34.creditNoteDataList);
+            _this34.totalItems = _this34.creditNoteDataList.length;
 
-            if (_this36.totalItems > _this36.itemLimit) {
-              _this36.ItemEndIndex = _this36.itemLimit;
+            if (_this34.totalItems > _this34.itemLimit) {
+              _this34.ItemEndIndex = _this34.itemLimit;
             } else {
-              _this36.ItemEndIndex = _this36.totalItems;
+              _this34.ItemEndIndex = _this34.totalItems;
             }
 
-            _this36.isCreditNoteLoaded = true;
+            _this34.isCreditNoteLoaded = true;
             var params = {
-              apartmentId: parseInt(_this36.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this34.cookieService.get('apartmentId'))
             };
 
-            _this36.accountsService.getCustInvoicesByApartmentId(params).subscribe(function (res) {
-              _this36.custInvoiceDataList = res.filter(function (item) {
+            _this34.accountsService.getCustInvoicesByApartmentId(params).subscribe(function (res) {
+              _this34.custInvoiceDataList = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {
@@ -4997,7 +5019,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(error);
           });
           this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-            _this36.blockUnitData = res;
+            _this34.blockUnitData = res;
           });
         }
       }]);
@@ -5146,7 +5168,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(IncomeViewDefaultersComponent, [{
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this37 = this;
+          var _this35 = this;
 
           if (this.defaultData != "") {
             var filtergroup = new jqx.filter();
@@ -5159,7 +5181,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this37.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this35.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -5282,26 +5304,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this38 = this;
+          var _this36 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerDefaulterByApartmentId(params).subscribe(function (res) {
-            _this38.gridDefaultDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this38.gridDefaultDataList, function (item) {
+            _this36.gridDefaultDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this36.gridDefaultDataList, function (item) {
               item.checked = false;
             });
-            _this38.gridSourceData = {
-              localdata: _this38.gridDefaultDataList,
+            _this36.gridSourceData = {
+              localdata: _this36.gridDefaultDataList,
               datatype: "array"
             };
-            _this38.defaultDataList = new jqx.dataAdapter(_this38.gridSourceData);
+            _this36.defaultDataList = new jqx.dataAdapter(_this36.gridSourceData);
 
-            _this38.renderColumns();
+            _this36.renderColumns();
 
-            _this38.totalItems = _this38.defaultDataList.length;
-            _this38.isDefaultersDataLoaded = true;
+            _this36.totalItems = _this36.defaultDataList.length;
+            _this36.isDefaultersDataLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -5589,7 +5611,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getFieldParams",
         value: function getFieldParams(event) {
-          var _this39 = this;
+          var _this37 = this;
 
           this.isInvoiceDataTableLoaded = false;
           var postStartDate = moment__WEBPACK_IMPORTED_MODULE_8__(event.PostStartDate).format('MM-DD-YYYY');
@@ -5600,57 +5622,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             PostEndDate: postEndDate
           };
           this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this39.invoiceDataList = res; //filter items
+            _this37.invoiceDataList = res; //filter items
 
             if (event.isReversed != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this37.invoiceDataList = _this37.invoiceDataList.filter(function (item) {
                 return item.isReversed == event.isReversed;
               });
             }
 
             if (event.isCreditNote != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this37.invoiceDataList = _this37.invoiceDataList.filter(function (item) {
                 return item.isCreditNote == event.isCreditNote;
               });
             }
 
             if (event.postedDate != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this37.invoiceDataList = _this37.invoiceDataList.filter(function (item) {
                 return moment__WEBPACK_IMPORTED_MODULE_8__(item.postedDate).format("MM-DD-YYYY") == moment__WEBPACK_IMPORTED_MODULE_8__(event.postedDate).format("MM-DD-YYYY");
               });
             }
 
             if (event.billNo != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this37.invoiceDataList = _this37.invoiceDataList.filter(function (item) {
                 return item.billNo == event.billNo;
               });
             }
 
             if (event.receiptNo != null) {
-              _this39.invoiceDataList = _this39.invoiceDataList.filter(function (item) {
+              _this37.invoiceDataList = _this37.invoiceDataList.filter(function (item) {
                 return item.receiptNo == event.receiptNo;
               });
             }
 
-            _this39.invoiceDataList.sort(function (a, b) {
+            _this37.invoiceDataList.sort(function (a, b) {
               return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
             });
 
-            _this39.totalItems = _this39.invoiceDataList.length;
+            _this37.totalItems = _this37.invoiceDataList.length;
 
-            if (_this39.totalItems > _this39.itemLimit) {
-              _this39.ItemEndIndex = _this39.itemLimit;
+            if (_this37.totalItems > _this37.itemLimit) {
+              _this37.ItemEndIndex = _this37.itemLimit;
             } else {
-              _this39.ItemEndIndex = _this39.totalItems;
+              _this37.ItemEndIndex = _this37.totalItems;
             }
 
-            _this39.isInvoiceDataTableLoaded = true;
+            _this37.isInvoiceDataTableLoaded = true;
           }, function (error) {});
         }
       }, {
         key: "reverseItem",
         value: function reverseItem(item) {
-          var _this40 = this;
+          var _this38 = this;
 
           this.isReverseSubmitted = false;
           var details = {
@@ -5675,30 +5697,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.addCustTransReversal(params).subscribe(function (res) {
             if (res.message) {
-              _this40.reverse.comment = "";
+              _this38.reverse.comment = "";
 
-              _this40.sharedService.setAlertMessage("Invoice Reversed");
+              _this38.sharedService.setAlertMessage("Invoice Reversed");
 
               var params = {
-                ApartmentBlockUnitID: _this40.route.params['value'].id
+                ApartmentBlockUnitID: _this38.route.params['value'].id
               };
 
-              _this40.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-                _this40.invoiceDataList = res;
+              _this38.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
+                _this38.invoiceDataList = res;
 
-                _this40.invoiceDataList.sort(function (a, b) {
+                _this38.invoiceDataList.sort(function (a, b) {
                   return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
                 });
 
-                _this40.totalItems = _this40.invoiceDataList.length;
+                _this38.totalItems = _this38.invoiceDataList.length;
 
-                if (_this40.totalItems > _this40.itemLimit) {
-                  _this40.ItemEndIndex = _this40.itemLimit;
+                if (_this38.totalItems > _this38.itemLimit) {
+                  _this38.ItemEndIndex = _this38.itemLimit;
                 } else {
-                  _this40.ItemEndIndex = _this40.totalItems;
+                  _this38.ItemEndIndex = _this38.totalItems;
                 }
 
-                _this40.isReverseSubmitted = true;
+                _this38.isReverseSubmitted = true;
               });
             } else {}
           }, function (error) {});
@@ -5706,51 +5728,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this41 = this;
+          var _this39 = this;
 
           this.reverse = {};
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
             var glAccountListData = res.filter(function (item) {
-              return item.apartmentId == parseInt(_this41.cookieService.get('apartmentId'));
+              return item.apartmentId == parseInt(_this39.cookieService.get('apartmentId'));
             });
-            _this41.glAccountListData = glAccountListData;
+            _this39.glAccountListData = glAccountListData;
           });
           var params = {
             ApartmentBlockUnitID: this.route.params['value'].id
           };
           this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this41.invoiceDataList = res; //sorting by date ( new to old )
+            _this39.invoiceDataList = res; //sorting by date ( new to old )
 
-            _this41.invoiceDataList.sort(function (a, b) {
+            _this39.invoiceDataList.sort(function (a, b) {
               return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
             });
 
-            _this41.totalItems = _this41.invoiceDataList.length;
+            _this39.totalItems = _this39.invoiceDataList.length;
 
-            if (_this41.totalItems > _this41.itemLimit) {
-              _this41.ItemEndIndex = _this41.itemLimit;
+            if (_this39.totalItems > _this39.itemLimit) {
+              _this39.ItemEndIndex = _this39.itemLimit;
             } else {
-              _this41.ItemEndIndex = _this41.totalItems;
+              _this39.ItemEndIndex = _this39.totalItems;
             }
 
             var accountListParams = {
-              apartmentId: parseInt(_this41.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this39.cookieService.get('apartmentId'))
             };
 
-            _this41.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
-              _this41.accountDataList = res.filter(function (item) {
-                return item.apartmentBlockUnitId == _this41.route.params['value'].id;
+            _this39.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
+              _this39.accountDataList = res.filter(function (item) {
+                return item.apartmentBlockUnitId == _this39.route.params['value'].id;
               });
-              _this41.isAccountDataLoaded = true;
+              _this39.isAccountDataLoaded = true;
             });
 
             var userListParams = {
-              apartmentId: parseInt(_this41.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this39.cookieService.get('apartmentId'))
             };
 
-            _this41.userService.getAllUsersByApartmentId(userListParams).subscribe(function (res) {
-              _this41.userDataList = res;
-              _this41.isInvoiceDataLoaded = true;
+            _this39.userService.getAllUsersByApartmentId(userListParams).subscribe(function (res) {
+              _this39.userDataList = res;
+              _this39.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
@@ -6020,7 +6042,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this42 = this;
+          var _this40 = this;
 
           if (this.invoiceData != "") {
             var filtergroup = new jqx.filter();
@@ -6033,7 +6055,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this42.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this40.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -6044,7 +6066,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDownloadInvoice",
         value: function onDownloadInvoice(detail) {
-          var _this43 = this;
+          var _this41 = this;
 
           var invoice = this.datagrid.getrowdata(detail.rowId);
           this.isInvoicePrintLoaded = false;
@@ -6057,8 +6079,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             invoiceId: invoice.custInvoiceId
           };
           this.accountsService.getCustInvoiceById(params).subscribe(function (res) {
-            _this43.custTaxDetails = res[0].custinvoiceTax;
-            _this43.isInvoicePrintLoaded = true;
+            _this41.custTaxDetails = res[0].custinvoiceTax;
+            _this41.isInvoicePrintLoaded = true;
           });
         }
       }, {
@@ -6072,15 +6094,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditReverse",
         value: function onEditReverse(detail) {
-          var _this44 = this;
+          var _this42 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           this.invoice = dataRecord;
           this.reversePopOverSelector = '#' + this.invoice.custInvoiceId;
           setTimeout(function () {
-            _this44.reversePopOver.createComponent();
+            _this42.reversePopOver.createComponent();
 
-            _this44.reversePopOver.open();
+            _this42.reversePopOver.open();
           }, 100);
         }
       }, {
@@ -6111,7 +6133,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateInvoiceItem",
         value: function updateInvoiceItem(invoice, type) {
-          var _this45 = this;
+          var _this43 = this;
 
           if (type == 'email') {
             if (invoice.isEmailSent) invoice.isEmailSent = false;else invoice.isEmailSent = true;
@@ -6166,12 +6188,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.updateCustInvoice(params).subscribe(function (res) {
             if (res.message) {
-              _this45.sharedService.setAlertMessage("Invoice updated successfully");
+              _this43.sharedService.setAlertMessage("Invoice updated successfully");
             } else {
-              _this45.isInvoiceDataLoaded = true;
+              _this43.isInvoiceDataLoaded = true;
             }
           }, function (error) {
-            _this45.isInvoiceDataLoaded = true;
+            _this43.isInvoiceDataLoaded = true;
           });
         }
       }, {
@@ -6183,7 +6205,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this46 = this;
+          var _this44 = this;
 
           this.popperDataSource = {
             localdata: true,
@@ -6195,13 +6217,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             active: 1
           };
           this.apartmentService.getApartmentByApartmentId(apartmentParams).subscribe(function (res) {
-            _this46.apartmentDetails = res[0];
+            _this44.apartmentDetails = res[0];
           });
           var termsParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getAllTermsConditionsByApartmentId(termsParams).subscribe(function (res) {
-            _this46.apartmentTerms = res.filter(function (item) {
+            _this44.apartmentTerms = res.filter(function (item) {
               return item.termsNo == '2'; //invoice terms
             });
           });
@@ -6210,15 +6232,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this46.vatTypeDataList = res;
+            _this44.vatTypeDataList = res;
           });
           var accountParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
           };
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this46.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this46.cookieService.get('apartmentId')) && item.indicator == _this46.glAccountIndicator;
+            _this44.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this44.cookieService.get('apartmentId')) && item.indicator == _this44.glAccountIndicator;
             });
           }); //BIND THE TABLE
 
@@ -6227,7 +6249,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "tableBindingdata",
         value: function tableBindingdata() {
-          var _this47 = this;
+          var _this45 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
@@ -6237,20 +6259,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             underscore__WEBPACK_IMPORTED_MODULE_14__["each"](invoiceDataList, function (item) {
               item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
-            _this47.invoice = invoiceDataList[0];
-            _this47.reversePopOverSelector = '#' + _this47.invoice.custInvoiceId;
-            _this47.gridSourceData = {
+            _this45.invoice = invoiceDataList[0];
+            _this45.reversePopOverSelector = '#' + _this45.invoice.custInvoiceId;
+            _this45.gridSourceData = {
               localdata: invoiceDataList,
               datatype: "array"
             };
-            _this47.invoiceDataList = new jqx.dataAdapter(_this47.gridSourceData);
-            console.log('invoiceDataList', _this47.invoiceDataList);
+            _this45.invoiceDataList = new jqx.dataAdapter(_this45.gridSourceData);
+            console.log('invoiceDataList', _this45.invoiceDataList);
             /*this.getSourceDataAdapter = (datafield: string): any => {
               let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
               return dataAdapter;
             }*/
 
-            _this47.totalItems = _this47.invoiceDataList.length;
+            _this45.totalItems = _this45.invoiceDataList.length;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -6260,7 +6282,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return '<div style="padding: 14px">' + value + '</div>';
             };
 
-            _this47.columnData = [{
+            _this45.columnData = [{
               text: 'Invoice Id',
               datafield: 'custInvoiceId',
               width: 120,
@@ -6274,7 +6296,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datafield: 'postedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this47.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this45.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -6316,7 +6338,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datafield: 'dueDate',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this47.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this45.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -6343,12 +6365,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               renderer: columnrenderer
             }];
             var params = {
-              apartmentId: parseInt(_this47.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this45.cookieService.get('apartmentId'))
             };
 
-            _this47.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
-              _this47.userDataList = res;
-              _this47.isInvoiceDataLoaded = true;
+            _this45.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
+              _this45.userDataList = res;
+              _this45.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
@@ -6652,22 +6674,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this48 = this;
+          var _this46 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerReceiptsByApartmentId(params).subscribe(function (res) {
-            _this48.receiptsDataList = res;
-            _this48.totalItems = _this48.receiptsDataList.length;
+            _this46.receiptsDataList = res;
+            _this46.totalItems = _this46.receiptsDataList.length;
 
-            if (_this48.totalItems > _this48.itemLimit) {
-              _this48.ItemEndIndex = _this48.itemLimit;
+            if (_this46.totalItems > _this46.itemLimit) {
+              _this46.ItemEndIndex = _this46.itemLimit;
             } else {
-              _this48.ItemEndIndex = _this48.totalItems;
+              _this46.ItemEndIndex = _this46.totalItems;
             }
 
-            _this48.isReceiptsLoaded = true;
+            _this46.isReceiptsLoaded = true;
           }, function (error) {
             console.log(error);
           });
