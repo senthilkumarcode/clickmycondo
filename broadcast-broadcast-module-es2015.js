@@ -256,7 +256,7 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
         this.cookieService = cookieService;
         this.userService = userService;
         this.injector = injector;
-        this.imagePath = "/assets/images/announcement_background.jpeg";
+        this.imagePath = "assets/images/announcement_background.jpeg";
         this.filterGroupCategory = {
             "dropdownList": [],
             "selectedItems": []
@@ -381,7 +381,7 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
                     && previousDate < new Date(Date.parse(obj.broadcastOn));
             });
             if (this.interestGroupBased.length == 0) {
-                this.interestGroupBased = [{}];
+                this.interestGroupBased = [{ "subject": "No Announcements" }];
             }
         }
         if (messageType == "broadcastGroup") {
@@ -391,7 +391,7 @@ let BroadcastAnnouncementsComponent = class BroadcastAnnouncementsComponent {
                     && previousDate < new Date(Date.parse(obj.broadcastOn));
             });
             if (this.broadCastBased.length == 0) {
-                this.broadCastBased = [{}];
+                this.broadCastBased = [{ "subject": "No Announcements" }];
             }
         }
     }

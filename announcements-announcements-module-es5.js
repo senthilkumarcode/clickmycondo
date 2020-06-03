@@ -179,7 +179,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.broadcastService = broadcastService;
         this.cookieService = cookieService;
         this.userService = userService;
-        this.imagePath = "/assets/images/announcement_background.jpeg";
+        this.imagePath = "assets/images/announcement_background.jpeg";
         this.filterGroupCategory = {
           "dropdownList": [],
           "selectedItems": []
@@ -368,7 +368,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
 
             if (this.interestGroupBased.length == 0) {
-              this.interestGroupBased = [{}];
+              this.interestGroupBased = [{
+                "subject": "No Announcements"
+              }];
             }
           }
 
@@ -378,7 +380,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
 
             if (this.broadCastBased.length == 0) {
-              this.broadCastBased = [{}];
+              this.broadCastBased = [{
+                "subject": "No Announcements"
+              }];
             }
           }
         }
