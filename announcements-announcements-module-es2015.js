@@ -90,7 +90,7 @@ let AnnouncementsComponent = class AnnouncementsComponent {
         this.broadcastService = broadcastService;
         this.cookieService = cookieService;
         this.userService = userService;
-        this.imagePath = "assets/images/announcement_background.jpeg";
+        this.imagePath = "/assets/images/announcement_background.jpeg";
         this.filterGroupCategory = {
             "dropdownList": [],
             "selectedItems": []
@@ -218,7 +218,7 @@ let AnnouncementsComponent = class AnnouncementsComponent {
                     && obj.userIds.split(',').includes(loginUserId.toString());
             });
             if (this.interestGroupBased.length == 0) {
-                this.interestGroupBased = [{ "subject": "No Announcements" }];
+                this.interestGroupBased = [{}];
             }
         }
         if (messageType == "broadcastGroup") {
@@ -229,7 +229,7 @@ let AnnouncementsComponent = class AnnouncementsComponent {
                     && obj.userIds.split(',').includes(loginUserId.toString());
             });
             if (this.broadCastBased.length == 0) {
-                this.broadCastBased = [{ "subject": "No Announcements" }];
+                this.broadCastBased = [{}];
             }
         }
     }

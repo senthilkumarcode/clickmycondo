@@ -1142,18 +1142,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDiscountAdded",
         value: function onDiscountAdded(value, index) {
-          if (value != null) {
+          if (value != "") {
             if (this.invoiceVendorAccountsData.discountTypeId == '%') {
               this.calculateDiscountPercent(value, index);
             } else {
               this.calculateDiscountPeso(value, index);
             }
+          } else {
+            this.invoiceVendorAccountsData.discountDirectAmt = 0;
           }
         }
       }, {
         key: "calculateDiscountPercent",
         value: function calculateDiscountPercent(value, index) {
-          if (value != null) {
+          if (value != "") {
+            this.invoiceVendorAccountsData.isDiscount = true;
             var percent = parseFloat(value) / 100;
             this.invoiceVendorAccountsData.discountAmount = parseFloat(this.invoiceVendorAccountsData.amount) * percent;
           } else {
@@ -1172,6 +1175,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "calculateDiscountPeso",
         value: function calculateDiscountPeso(value, index) {
           if (value != null) {
+            this.invoiceVendorAccountsData.isDiscount = true;
             this.invoiceVendorAccountsData.discountAmount = parseFloat(value);
           } else {
             this.invoiceVendorAccountsData.isDiscount = false;
@@ -1247,12 +1251,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onWithHoldingTaxChange(event, index) {
           if (event != null) {
             this.invoiceVendorAccountsData.isWthtaxAmount = true;
-            this.invoiceVendorAccountsData.withHoldingDirectAmt = parseInt(event.lookupValueName);
+            this.invoiceVendorAccountsData.wthtaxAmount = parseInt(event.lookupValueName);
             this.vendorinvoiceTaxData.wthtaxAmountId = event.lookupValueId;
           } else {
             this.invoiceVendorAccountsData.isWthtaxAmount = false;
+            this.invoiceVendorAccountsData.wthtaxAmount = 0;
             this.invoiceVendorAccountsData.wthtaxAmountId = "";
-            this.invoiceVendorAccountsData.withHoldingDirectAmt = 0;
             this.vendorinvoiceTaxData.wthtaxAmountId = 0;
           }
 
@@ -1269,7 +1273,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "vendorinvoiceTaxId": 0,
             "vendorInvoiceId": 0,
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-            "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+            "apartmentBlockUnitId": null,
             "isAdded": true,
             "invoiceTaxId": 0,
             "invoiceTotalAmount": 0,
@@ -1541,7 +1545,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
             "isWthtaxAmount": this.invoiceVendorAccountsData.isWthtaxAmount,
             "wthtaxAmountId": this.invoiceVendorAccountsData.wthtaxAmountId,
-            "withHoldingDirectAmt": parseFloat(this.invoiceVendorAccountsData.withHoldingDirectAmt),
             "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount),
             "form": false
           };
@@ -1571,14 +1574,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoice.totalVatamount = parseFloat(totalVatamount).toFixed(2); //for only one line item
 
           if (this.invoiceVendorAccountsArray.length == 1) {
-            var value = parseInt(this.invoiceVendorAccountsArray[0].withHoldingDirectAmt) / 100;
+            var value = parseInt(this.invoiceVendorAccountsArray[0].wthtaxAmount) / 100;
             this.invoice.totalWthtaxAmount = ((this.invoice.subAmountAfterdiscount - this.invoice.totalVatamount) * value).toFixed(2);
             this.invoice.vendorInvoiceAmount = (parseFloat(this.invoice.subAmountAfterdiscount) - parseFloat(this.invoice.totalWthtaxAmount)).toFixed(2);
           } else {
             var totalWthtaxAmount = this.invoiceVendorAccountsArray.filter(function (item) {
               return item.form;
             }).reduce(function (total, item) {
-              var withTaxvalue = parseInt(item.withHoldingDirectAmt) / 100;
+              var withTaxvalue = parseInt(item.wthtaxAmount) / 100;
               var vatvalue = parseInt(item.vatid) / 100;
               return total + (item.lineAmountAfterDiscount / 1 + vatvalue) * withTaxvalue;
             }, 0);
@@ -1672,7 +1675,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isInvoiceSubmitted = false;
           this.invoiceVendorAccountsArray.map(function (item) {
             delete item.form;
-            delete item.withHoldingDirectAmt;
             return item;
           });
           this.vendorinvoiceTaxArray.map(function (item) {
@@ -1689,34 +1691,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "vendorInvoiceAmount": parseFloat(this.invoice.vendorInvoiceAmount),
               "vendorInvoiceDate": this.invoice.vendorInvoiceDate,
               "dueDate": this.invoice.dueDate,
-              "tax1": 0,
-              "tax2": 0,
-              "tax3": 0,
-              "deductTax": 0,
-              "expenseHeadId": 0,
+              "tax1": null,
+              "tax2": null,
+              "tax3": null,
+              "deductTax": null,
+              "expenseHeadId": null,
               "payeeName": 0,
               "isEmailSent": true,
               "isSmssent": true,
-              "vendorInvoiceStatusId": 0,
+              "vendorInvoiceStatusId": 1,
               "postedBy": parseInt(this.cookieService.get('userId')),
               "postedOn": new Date().toISOString(),
-              "voucherNumber": "",
-              "comments": "",
+              "voucherNumber": this.invoice.voucherNumber,
+              "comments": "Vendor Invoice",
               "isActive": true,
               "insertedBy": parseInt(this.cookieService.get('userId')),
               "insertedOn": new Date().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
-              "transReference1": "",
-              "transReference2": "",
-              "serialNo": 0,
-              "totalWthtaxAmount": 0,
-              "totalVatamount": 0,
-              "totalInvoiceDiscount": 0,
+              "serialNo": 58,
+              "totalWthtaxAmount": this.invoice.totalWthtaxAmount,
+              "totalVatamount": this.invoice.totalVatamount,
+              "totalInvoiceDiscount": this.invoice.totalInvoiceDiscount,
               "isdiscount": this.invoice.isDiscount,
               "isVat": this.invoice.isVat,
               "subAmountAfterdiscount": this.invoice.subAmountAfterdiscount,
               "isApprovedforpayment": true,
+              "customfields": " ",
               "vendorInvoiceGlaccount": this.invoiceVendorAccountsArray,
               "vendorinvoiceTax": this.vendorinvoiceTaxArray
             };
@@ -1763,8 +1764,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "insertedOn": this.invoice.insertedOn,
               "updatedBy": parseInt(this.cookieService.get('userId')),
               "updatedOn": new Date().toISOString(),
-              "transReference1": this.invoice.transReference1,
-              "transReference2": this.invoice.transReference2,
               "serialNo": this.invoice.serialNo,
               "totalWthtaxAmount": this.invoice.totalWthtaxAmount,
               "totalVatamount": this.invoice.totalVatamount,
@@ -1773,6 +1772,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "isVat": this.invoice.isVat,
               "subAmountAfterdiscount": this.invoice.subAmountAfterdiscount,
               "isApprovedforpayment": this.invoice.isApprovedforpayment,
+              "customfields": this.invoice.customfields,
               "vendorInvoiceGlaccount": this.invoiceVendorAccountsArray,
               "vendorinvoiceTax": this.vendorinvoiceTaxArray
             };
@@ -1822,6 +1822,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsData.tax2Amount = 0;
           this.invoiceVendorAccountsData.tax3Amount = 0;
           this.invoiceVendorAccountsData.vatid = "";
+          this.invoiceVendorAccountsData.vendorId = this.route.params['value'].id;
           this.invoiceVendorAccountsData.discountId = "";
           this.invoiceVendorAccountsData.discountAmount = 0;
           this.invoiceVendorAccountsData.isDiscount = false;
@@ -1833,7 +1834,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsData.lineAmountAfterDiscount = 0;
           this.invoiceVendorAccountsData.isWthtaxAmount = false;
           this.invoiceVendorAccountsData.wthtaxAmountId = 0;
-          this.invoiceVendorAccountsData.withHoldingDirectAmt = 0;
           this.invoiceVendorAccountsData.wthtaxAmount = 0;
           this.invoiceVendorAccountsArray = [{
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
@@ -1869,7 +1869,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
             "isWthtaxAmount": this.invoiceVendorAccountsData.isWthtaxAmount,
             "wthtaxAmountId": this.invoiceVendorAccountsData.wthtaxAmountId,
-            "withHoldingDirectAmt": parseFloat(this.invoiceVendorAccountsData.withHoldingDirectAmt),
             "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount),
             "form": false
           }, {
@@ -1906,7 +1905,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "lineAmountAfterDiscount": parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount),
             "isWthtaxAmount": this.invoiceVendorAccountsData.isWthtaxAmount,
             "wthtaxAmountId": this.invoiceVendorAccountsData.wthtaxAmountId,
-            "withHoldingDirectAmt": parseFloat(this.invoiceVendorAccountsData.withHoldingDirectAmt),
             "wthtaxAmount": parseFloat(this.invoiceVendorAccountsData.wthtaxAmount),
             "form": false
           }];
@@ -1951,6 +1949,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.isFormInValid = false;
             this.isEditInvoice = true;
             this.invoice.vendorId = this.route.params['value'].id;
+            this.invoice.vendorInvoiceId = this.route.params['value'].invoiceid;
+            this.invoiceVendorAccountsArray = this.invoice.vendorInvoiceGlaccount;
+            this.vendorinvoiceTaxArray = this.invoice.vendorinvoiceTax;
           }
 
           var vendorParams = {
@@ -1960,6 +1961,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this9.vendorDataList = res.filter(function (item) {
               return item.vendorId == _this9.route.params['value'].id;
             });
+            _this9.invoice.vendorInvoiceNumber = _this9.vendorDataList[0].contactPerson;
+            _this9.invoice.voucherNumber = _this9.vendorDataList[0].contactPerson;
             _this9.isVendorDataLoaded = true;
           });
         }
