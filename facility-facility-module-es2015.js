@@ -670,7 +670,6 @@ let FacilityCalenderComponent = class FacilityCalenderComponent {
             colorScheme: 'scheme04',
             dataField: 'calendar',
             orientation: 'vertical',
-            source: new jqx.dataAdapter(this.source)
         };
         this.appointmentDataFields = {
             from: 'start',
@@ -719,7 +718,6 @@ let FacilityCalenderComponent = class FacilityCalenderComponent {
                 let calenderData = [];
                 let room = 0;
                 facilityBookingData.forEach((booking) => {
-                    var date = moment__WEBPACK_IMPORTED_MODULE_5__(booking.bookedForDate).format("YYYY-MM-DD");
                     let nameItem = facilityCategoryData.filter(item => {
                         return item.apartmentFacilityId == booking.apartmentFacilityId;
                     });
@@ -737,11 +735,11 @@ let FacilityCalenderComponent = class FacilityCalenderComponent {
                         let endHours = moment__WEBPACK_IMPORTED_MODULE_5__(slotData[0].slotEndTime, 'hh:mm:ss').hour();
                         let endMin = moment__WEBPACK_IMPORTED_MODULE_5__(slotData[0].slotEndTime, 'hh:mm:ss').minute();
                         let entity = {
-                            id: 1,
+                            id: booking.apartmentFacilityBookingId,
                             description: '',
                             location: '',
                             subject: nameItem[0].facilityName,
-                            calendar: `Room ${day}`,
+                            calendar: `Rooms 1`,
                             start: new Date(year, month, date, startHours, startMin),
                             end: new Date(year, month, date, endHours, endMin)
                         };
@@ -750,6 +748,7 @@ let FacilityCalenderComponent = class FacilityCalenderComponent {
                 });
                 this.source.localdata = calenderData;
                 this.dataAdapter = new jqx.dataAdapter(this.source);
+                this.resources.source = new jqx.dataAdapter(this.source);
             });
         });
     }

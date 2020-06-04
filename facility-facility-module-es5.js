@@ -968,8 +968,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.resources = {
           colorScheme: 'scheme04',
           dataField: 'calendar',
-          orientation: 'vertical',
-          source: new jqx.dataAdapter(this.source)
+          orientation: 'vertical'
         };
         this.appointmentDataFields = {
           from: 'start',
@@ -1032,7 +1031,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var calenderData = [];
               var room = 0;
               facilityBookingData.forEach(function (booking) {
-                var date = moment__WEBPACK_IMPORTED_MODULE_5__(booking.bookedForDate).format("YYYY-MM-DD");
                 var nameItem = facilityCategoryData.filter(function (item) {
                   return item.apartmentFacilityId == booking.apartmentFacilityId;
                 });
@@ -1045,28 +1043,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   room = room + 1;
                   var year = moment__WEBPACK_IMPORTED_MODULE_5__(booking.bookedForDate).year();
                   var month = moment__WEBPACK_IMPORTED_MODULE_5__(booking.bookedForDate).month();
-
-                  var _date = moment__WEBPACK_IMPORTED_MODULE_5__(booking.bookedForDate).date();
-
+                  var date = moment__WEBPACK_IMPORTED_MODULE_5__(booking.bookedForDate).date();
                   var day = moment__WEBPACK_IMPORTED_MODULE_5__(booking.bookedForDate).day();
                   var startHours = moment__WEBPACK_IMPORTED_MODULE_5__(slotData[0].slotBeginTime, 'hh:mm:ss').hour();
                   var startMin = moment__WEBPACK_IMPORTED_MODULE_5__(slotData[0].slotBeginTime, 'hh:mm:ss').minute();
                   var endHours = moment__WEBPACK_IMPORTED_MODULE_5__(slotData[0].slotEndTime, 'hh:mm:ss').hour();
                   var endMin = moment__WEBPACK_IMPORTED_MODULE_5__(slotData[0].slotEndTime, 'hh:mm:ss').minute();
                   var entity = {
-                    id: 1,
+                    id: booking.apartmentFacilityBookingId,
                     description: '',
                     location: '',
                     subject: nameItem[0].facilityName,
-                    calendar: "Room ".concat(day),
-                    start: new Date(year, month, _date, startHours, startMin),
-                    end: new Date(year, month, _date, endHours, endMin)
+                    calendar: "Rooms 1",
+                    start: new Date(year, month, date, startHours, startMin),
+                    end: new Date(year, month, date, endHours, endMin)
                   };
                   calenderData.push(entity);
                 }
               });
               _this4.source.localdata = calenderData;
               _this4.dataAdapter = new jqx.dataAdapter(_this4.source);
+              _this4.resources.source = new jqx.dataAdapter(_this4.source);
             });
           });
         }

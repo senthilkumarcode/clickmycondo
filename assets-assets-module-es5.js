@@ -2,1088 +2,9 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (typeof call === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["assets-assets-module"], {
-  /***/
-  "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/slide-toggle.js":
-  /*!******************************************************************************!*\
-    !*** ./node_modules/@angular/material/__ivy_ngcc__/fesm2015/slide-toggle.js ***!
-    \******************************************************************************/
-
-  /*! exports provided: MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS, MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR, MAT_SLIDE_TOGGLE_VALUE_ACCESSOR, MatSlideToggle, MatSlideToggleChange, MatSlideToggleModule, MatSlideToggleRequiredValidator, _MatSlideToggleRequiredValidatorModule */
-
-  /***/
-  function node_modulesAngularMaterial__ivy_ngcc__Fesm2015SlideToggleJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS", function () {
-      return MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR", function () {
-      return MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "MAT_SLIDE_TOGGLE_VALUE_ACCESSOR", function () {
-      return MAT_SLIDE_TOGGLE_VALUE_ACCESSOR;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "MatSlideToggle", function () {
-      return MatSlideToggle;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "MatSlideToggleChange", function () {
-      return MatSlideToggleChange;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "MatSlideToggleModule", function () {
-      return MatSlideToggleModule;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "MatSlideToggleRequiredValidator", function () {
-      return MatSlideToggleRequiredValidator;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "_MatSlideToggleRequiredValidatorModule", function () {
-      return _MatSlideToggleRequiredValidatorModule;
-    });
-    /* harmony import */
-
-
-    var _angular_cdk_observers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/cdk/observers */
-    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/observers.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_material_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material/core */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/cdk/a11y */
-    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/a11y.js");
-    /* harmony import */
-
-
-    var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/cdk/bidi */
-    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
-    /* harmony import */
-
-
-    var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @angular/cdk/coercion */
-    "./node_modules/@angular/cdk/fesm2015/coercion.js");
-    /* harmony import */
-
-
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! @angular/platform-browser/animations */
-    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/material/slide-toggle/slide-toggle-config.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Default `mat-slide-toggle` options that can be overridden.
-     * @record
-     */
-
-
-    var _c0 = ["thumbContainer"];
-    var _c1 = ["toggleBar"];
-    var _c2 = ["input"];
-
-    var _c3 = function _c3() {
-      return {
-        enterDuration: 150
-      };
-    };
-
-    var _c4 = ["*"];
-
-    function MatSlideToggleDefaultOptions() {}
-
-    if (false) {}
-    /**
-     * Injection token to be used to override the default options for `mat-slide-toggle`.
-     * @type {?}
-     */
-
-
-    var MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('mat-slide-toggle-default-options', {
-      providedIn: 'root',
-      factory:
-      /**
-      * @return {?}
-      */
-      function factory() {
-        return {
-          disableToggleValue: false
-        };
-      }
-    });
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/material/slide-toggle/slide-toggle.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    // Increasing integer for generating unique ids for slide-toggle components.
-
-    /** @type {?} */
-
-    var nextUniqueId = 0;
-    /**
-     * \@docs-private
-     * @type {?}
-     */
-
-    var MAT_SLIDE_TOGGLE_VALUE_ACCESSOR = {
-      provide: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NG_VALUE_ACCESSOR"],
-      useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(
-      /**
-      * @return {?}
-      */
-      function () {
-        return MatSlideToggle;
-      }),
-      multi: true
-    };
-    /**
-     * Change event object emitted by a MatSlideToggle.
-     */
-
-    var MatSlideToggleChange =
-    /**
-     * @param {?} source
-     * @param {?} checked
-     */
-    function MatSlideToggleChange(source, checked) {
-      _classCallCheck(this, MatSlideToggleChange);
-
-      this.source = source;
-      this.checked = checked;
-    };
-
-    if (false) {} // Boilerplate for applying mixins to MatSlideToggle.
-
-    /**
-     * \@docs-private
-     */
-
-
-    var MatSlideToggleBase =
-    /**
-     * @param {?} _elementRef
-     */
-    function MatSlideToggleBase(_elementRef) {
-      _classCallCheck(this, MatSlideToggleBase);
-
-      this._elementRef = _elementRef;
-    };
-
-    if (false) {}
-    /** @type {?} */
-
-
-    var _MatSlideToggleMixinBase = Object(_angular_material_core__WEBPACK_IMPORTED_MODULE_2__["mixinTabIndex"])(Object(_angular_material_core__WEBPACK_IMPORTED_MODULE_2__["mixinColor"])(Object(_angular_material_core__WEBPACK_IMPORTED_MODULE_2__["mixinDisableRipple"])(Object(_angular_material_core__WEBPACK_IMPORTED_MODULE_2__["mixinDisabled"])(MatSlideToggleBase)), 'accent'));
-    /**
-     * Represents a slidable "switch" toggle that can be moved between on and off.
-     */
-
-
-    var MatSlideToggle =
-    /*#__PURE__*/
-    function (_MatSlideToggleMixinB) {
-      _inherits(MatSlideToggle, _MatSlideToggleMixinB);
-
-      var _super = _createSuper(MatSlideToggle);
-
-      /**
-       * @param {?} elementRef
-       * @param {?} _focusMonitor
-       * @param {?} _changeDetectorRef
-       * @param {?} tabIndex
-       * @param {?} _ngZone
-       * @param {?} defaults
-       * @param {?=} _animationMode
-       * @param {?=} _dir
-       */
-      function MatSlideToggle(elementRef, _focusMonitor, _changeDetectorRef, tabIndex,
-      /**
-       * @deprecated `_ngZone` and `_dir` parameters to be removed.
-       * @breaking-change 10.0.0
-       */
-      _ngZone, defaults, _animationMode, _dir) {
-        var _this;
-
-        _classCallCheck(this, MatSlideToggle);
-
-        _this = _super.call(this, elementRef);
-        _this._focusMonitor = _focusMonitor;
-        _this._changeDetectorRef = _changeDetectorRef;
-        _this.defaults = defaults;
-        _this._animationMode = _animationMode;
-
-        _this._onChange =
-        /**
-        * @param {?} _
-        * @return {?}
-        */
-        function (_) {};
-
-        _this._onTouched =
-        /**
-        * @return {?}
-        */
-        function () {};
-
-        _this._uniqueId = "mat-slide-toggle-".concat(++nextUniqueId);
-        _this._required = false;
-        _this._checked = false;
-        /**
-         * Name value will be applied to the input element if present.
-         */
-
-        _this.name = null;
-        /**
-         * A unique id for the slide-toggle input. If none is supplied, it will be auto-generated.
-         */
-
-        _this.id = _this._uniqueId;
-        /**
-         * Whether the label should appear after or before the slide-toggle. Defaults to 'after'.
-         */
-
-        _this.labelPosition = 'after';
-        /**
-         * Used to set the aria-label attribute on the underlying input element.
-         */
-
-        _this.ariaLabel = null;
-        /**
-         * Used to set the aria-labelledby attribute on the underlying input element.
-         */
-
-        _this.ariaLabelledby = null;
-        /**
-         * An event will be dispatched each time the slide-toggle changes its value.
-         */
-
-        _this.change = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        /**
-         * An event will be dispatched each time the slide-toggle input is toggled.
-         * This event is always emitted when the user toggles the slide toggle, but this does not mean
-         * the slide toggle's value has changed.
-         */
-
-        _this.toggleChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        /**
-         * An event will be dispatched each time the slide-toggle is dragged.
-         * This event is always emitted when the user drags the slide toggle to make a change greater
-         * than 50%. It does not mean the slide toggle's value is changed. The event is not emitted when
-         * the user toggles the slide toggle to change its value.
-         * @deprecated No longer being used. To be removed.
-         * \@breaking-change 10.0.0
-         */
-
-        _this.dragChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        _this.tabIndex = parseInt(tabIndex) || 0;
-        return _this;
-      }
-      /**
-       * Whether the slide-toggle is required.
-       * @return {?}
-       */
-
-
-      _createClass(MatSlideToggle, [{
-        key: "ngAfterContentInit",
-
-        /**
-         * @return {?}
-         */
-        value: function ngAfterContentInit() {
-          var _this2 = this;
-
-          this._focusMonitor.monitor(this._elementRef, true).subscribe(
-          /**
-          * @param {?} focusOrigin
-          * @return {?}
-          */
-          function (focusOrigin) {
-            // Only forward focus manually when it was received programmatically or through the
-            // keyboard. We should not do this for mouse/touch focus for two reasons:
-            // 1. It can prevent clicks from landing in Chrome (see #18269).
-            // 2. They're already handled by the wrapping `label` element.
-            if (focusOrigin === 'keyboard' || focusOrigin === 'program') {
-              _this2._inputElement.nativeElement.focus();
-            } else if (!focusOrigin) {
-              // When a focused element becomes disabled, the browser *immediately* fires a blur event.
-              // Angular does not expect events to be raised during change detection, so any state
-              // change (such as a form control's 'ng-touched') will cause a changed-after-checked
-              // error. See https://github.com/angular/angular/issues/17793. To work around this,
-              // we defer telling the form control it has been touched until the next tick.
-              Promise.resolve().then(
-              /**
-              * @return {?}
-              */
-              function () {
-                return _this2._onTouched();
-              });
-            }
-          });
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          this._focusMonitor.stopMonitoring(this._elementRef);
-        }
-        /**
-         * Method being called whenever the underlying input emits a change event.
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "_onChangeEvent",
-        value: function _onChangeEvent(event) {
-          // We always have to stop propagation on the change event.
-          // Otherwise the change event, from the input element, will bubble up and
-          // emit its event object to the component's `change` output.
-          event.stopPropagation();
-          this.toggleChange.emit(); // When the slide toggle's config disables toggle change event by setting
-          // `disableToggleValue: true`, the slide toggle's value does not change, and the
-          // checked state of the underlying input needs to be changed back.
-
-          if (this.defaults.disableToggleValue) {
-            this._inputElement.nativeElement.checked = this.checked;
-            return;
-          } // Sync the value from the underlying input element with the component instance.
-
-
-          this.checked = this._inputElement.nativeElement.checked; // Emit our custom change event only if the underlying input emitted one. This ensures that
-          // there is no change event, when the checked state changes programmatically.
-
-          this._emitChangeEvent();
-        }
-        /**
-         * Method being called whenever the slide-toggle has been clicked.
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "_onInputClick",
-        value: function _onInputClick(event) {
-          // We have to stop propagation for click events on the visual hidden input element.
-          // By default, when a user clicks on a label element, a generated click event will be
-          // dispatched on the associated input element. Since we are using a label element as our
-          // root container, the click event on the `slide-toggle` will be executed twice.
-          // The real click event will bubble up, and the generated click event also tries to bubble up.
-          // This will lead to multiple click events.
-          // Preventing bubbling for the second event will solve that issue.
-          event.stopPropagation();
-        }
-        /**
-         * Implemented as part of ControlValueAccessor.
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "writeValue",
-        value: function writeValue(value) {
-          this.checked = !!value;
-        }
-        /**
-         * Implemented as part of ControlValueAccessor.
-         * @param {?} fn
-         * @return {?}
-         */
-
-      }, {
-        key: "registerOnChange",
-        value: function registerOnChange(fn) {
-          this._onChange = fn;
-        }
-        /**
-         * Implemented as part of ControlValueAccessor.
-         * @param {?} fn
-         * @return {?}
-         */
-
-      }, {
-        key: "registerOnTouched",
-        value: function registerOnTouched(fn) {
-          this._onTouched = fn;
-        }
-        /**
-         * Implemented as a part of ControlValueAccessor.
-         * @param {?} isDisabled
-         * @return {?}
-         */
-
-      }, {
-        key: "setDisabledState",
-        value: function setDisabledState(isDisabled) {
-          this.disabled = isDisabled;
-
-          this._changeDetectorRef.markForCheck();
-        }
-        /**
-         * Focuses the slide-toggle.
-         * @param {?=} options
-         * @return {?}
-         */
-
-      }, {
-        key: "focus",
-        value: function focus(options) {
-          this._focusMonitor.focusVia(this._inputElement, 'keyboard', options);
-        }
-        /**
-         * Toggles the checked state of the slide-toggle.
-         * @return {?}
-         */
-
-      }, {
-        key: "toggle",
-        value: function toggle() {
-          this.checked = !this.checked;
-
-          this._onChange(this.checked);
-        }
-        /**
-         * Emits a change event on the `change` output. Also notifies the FormControl about the change.
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "_emitChangeEvent",
-        value: function _emitChangeEvent() {
-          this._onChange(this.checked);
-
-          this.change.emit(new MatSlideToggleChange(this, this.checked));
-        }
-        /**
-         * Method being called whenever the label text changes.
-         * @return {?}
-         */
-
-      }, {
-        key: "_onLabelTextChange",
-        value: function _onLabelTextChange() {
-          // Since the event of the `cdkObserveContent` directive runs outside of the zone, the
-          // slide-toggle component will be only marked for check, but no actual change detection runs
-          // automatically. Instead of going back into the zone in order to trigger a change detection
-          // which causes *all* components to be checked (if explicitly marked or not using OnPush),
-          // we only trigger an explicit change detection for the slide-toggle view and its children.
-          this._changeDetectorRef.detectChanges();
-        }
-      }, {
-        key: "required",
-        get: function get() {
-          return this._required;
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._required = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceBooleanProperty"])(value);
-        }
-        /**
-         * Whether the slide-toggle element is checked or not.
-         * @return {?}
-         */
-
-      }, {
-        key: "checked",
-        get: function get() {
-          return this._checked;
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._checked = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_5__["coerceBooleanProperty"])(value);
-
-          this._changeDetectorRef.markForCheck();
-        }
-        /**
-         * Returns the unique id for the visual hidden input.
-         * @return {?}
-         */
-
-      }, {
-        key: "inputId",
-        get: function get() {
-          return "".concat(this.id || this._uniqueId, "-input");
-        }
-      }]);
-
-      return MatSlideToggle;
-    }(_MatSlideToggleMixinBase);
-
-    MatSlideToggle.ɵfac = function MatSlideToggle_Factory(t) {
-      return new (t || MatSlideToggle)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_3__["FocusMonitor"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinjectAttribute"]('tabindex'), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["ANIMATION_MODULE_TYPE"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_4__["Directionality"], 8));
-    };
-
-    MatSlideToggle.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
-      type: MatSlideToggle,
-      selectors: [["mat-slide-toggle"]],
-      viewQuery: function MatSlideToggle_Query(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](_c0, true);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](_c1, true);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](_c2, true);
-        }
-
-        if (rf & 2) {
-          var _t;
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._thumbEl = _t.first);
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._thumbBarEl = _t.first);
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._inputElement = _t.first);
-        }
-      },
-      hostAttrs: [1, "mat-slide-toggle"],
-      hostVars: 12,
-      hostBindings: function MatSlideToggle_HostBindings(rf, ctx) {
-        if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵhostProperty"]("id", ctx.id);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵattribute"]("tabindex", ctx.disabled ? null : 0 - 1)("aria-label", null)("aria-labelledby", null);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵclassProp"]("mat-checked", ctx.checked)("mat-disabled", ctx.disabled)("mat-slide-toggle-label-before", ctx.labelPosition == "before")("_mat-animation-noopable", ctx._animationMode === "NoopAnimations");
-        }
-      },
-      inputs: {
-        disabled: "disabled",
-        disableRipple: "disableRipple",
-        color: "color",
-        tabIndex: "tabIndex",
-        name: "name",
-        id: "id",
-        labelPosition: "labelPosition",
-        ariaLabel: ["aria-label", "ariaLabel"],
-        ariaLabelledby: ["aria-labelledby", "ariaLabelledby"],
-        required: "required",
-        checked: "checked"
-      },
-      outputs: {
-        change: "change",
-        toggleChange: "toggleChange",
-        dragChange: "dragChange"
-      },
-      exportAs: ["matSlideToggle"],
-      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([MAT_SLIDE_TOGGLE_VALUE_ACCESSOR]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]],
-      ngContentSelectors: _c4,
-      decls: 16,
-      vars: 18,
-      consts: [[1, "mat-slide-toggle-label"], ["label", ""], [1, "mat-slide-toggle-bar"], ["toggleBar", ""], ["type", "checkbox", "role", "switch", 1, "mat-slide-toggle-input", "cdk-visually-hidden", 3, "id", "required", "tabIndex", "checked", "disabled", "change", "click"], ["input", ""], [1, "mat-slide-toggle-thumb-container"], ["thumbContainer", ""], [1, "mat-slide-toggle-thumb"], ["mat-ripple", "", 1, "mat-slide-toggle-ripple", "mat-focus-indicator", 3, "matRippleTrigger", "matRippleDisabled", "matRippleCentered", "matRippleRadius", "matRippleAnimation"], [1, "mat-ripple-element", "mat-slide-toggle-persistent-ripple"], [1, "mat-slide-toggle-content", 3, "cdkObserveContent"], ["labelContent", ""], [2, "display", "none"]],
-      template: function MatSlideToggle_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojectionDef"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "label", 0, 1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2, 3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "input", 4, 5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("change", function MatSlideToggle_Template_input_change_4_listener($event) {
-            return ctx._onChangeEvent($event);
-          })("click", function MatSlideToggle_Template_input_click_4_listener($event) {
-            return ctx._onInputClick($event);
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 6, 7);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](8, "div", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](10, "div", 10);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "span", 11, 12);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("cdkObserveContent", function MatSlideToggle_Template_span_cdkObserveContent_11_listener() {
-            return ctx._onLabelTextChange();
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "span", 13);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](14, "\xA0");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojection"](15);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        }
-
-        if (rf & 2) {
-          var _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](1);
-
-          var _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](12);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵattribute"]("for", ctx.inputId);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵclassProp"]("mat-slide-toggle-bar-no-side-margin", !_r4.textContent || !_r4.textContent.trim());
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("id", ctx.inputId)("required", ctx.required)("tabIndex", ctx.tabIndex)("checked", ctx.checked)("disabled", ctx.disabled);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵattribute"]("name", ctx.name)("aria-checked", ctx.checked.toString())("aria-label", ctx.ariaLabel)("aria-labelledby", ctx.ariaLabelledby);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("matRippleTrigger", _r0)("matRippleDisabled", ctx.disableRipple || ctx.disabled)("matRippleCentered", true)("matRippleRadius", 20)("matRippleAnimation", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](17, _c3));
-        }
-      },
-      directives: [_angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatRipple"], _angular_cdk_observers__WEBPACK_IMPORTED_MODULE_0__["CdkObserveContent"]],
-      styles: [".mat-slide-toggle{display:inline-block;height:24px;max-width:100%;line-height:24px;white-space:nowrap;outline:none;-webkit-tap-highlight-color:transparent}.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container{transform:translate3d(16px, 0, 0)}[dir=rtl] .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container{transform:translate3d(-16px, 0, 0)}.mat-slide-toggle.mat-disabled{opacity:.38}.mat-slide-toggle.mat-disabled .mat-slide-toggle-label,.mat-slide-toggle.mat-disabled .mat-slide-toggle-thumb-container{cursor:default}.mat-slide-toggle-label{display:flex;flex:1;flex-direction:row;align-items:center;height:inherit;cursor:pointer}.mat-slide-toggle-content{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-slide-toggle-label-before .mat-slide-toggle-label{order:1}.mat-slide-toggle-label-before .mat-slide-toggle-bar{order:2}[dir=rtl] .mat-slide-toggle-label-before .mat-slide-toggle-bar,.mat-slide-toggle-bar{margin-right:8px;margin-left:0}[dir=rtl] .mat-slide-toggle-bar,.mat-slide-toggle-label-before .mat-slide-toggle-bar{margin-left:8px;margin-right:0}.mat-slide-toggle-bar-no-side-margin{margin-left:0;margin-right:0}.mat-slide-toggle-thumb-container{position:absolute;z-index:1;width:20px;height:20px;top:-3px;left:0;transform:translate3d(0, 0, 0);transition:all 80ms linear;transition-property:transform}._mat-animation-noopable .mat-slide-toggle-thumb-container{transition:none}[dir=rtl] .mat-slide-toggle-thumb-container{left:auto;right:0}.mat-slide-toggle-thumb{height:20px;width:20px;border-radius:50%}.mat-slide-toggle-bar{position:relative;width:36px;height:14px;flex-shrink:0;border-radius:8px}.mat-slide-toggle-input{bottom:0;left:10px}[dir=rtl] .mat-slide-toggle-input{left:auto;right:10px}.mat-slide-toggle-bar,.mat-slide-toggle-thumb{transition:all 80ms linear;transition-property:background-color;transition-delay:50ms}._mat-animation-noopable .mat-slide-toggle-bar,._mat-animation-noopable .mat-slide-toggle-thumb{transition:none}.mat-slide-toggle .mat-slide-toggle-ripple{position:absolute;top:calc(50% - 20px);left:calc(50% - 20px);height:40px;width:40px;z-index:1;pointer-events:none}.mat-slide-toggle .mat-slide-toggle-ripple .mat-ripple-element:not(.mat-slide-toggle-persistent-ripple){opacity:.12}.mat-slide-toggle-persistent-ripple{width:100%;height:100%;transform:none}.mat-slide-toggle-bar:hover .mat-slide-toggle-persistent-ripple{opacity:.04}.mat-slide-toggle:not(.mat-disabled).cdk-keyboard-focused .mat-slide-toggle-persistent-ripple{opacity:.12}.mat-slide-toggle-persistent-ripple,.mat-slide-toggle.mat-disabled .mat-slide-toggle-bar:hover .mat-slide-toggle-persistent-ripple{opacity:0}@media(hover: none){.mat-slide-toggle-bar:hover .mat-slide-toggle-persistent-ripple{display:none}}.cdk-high-contrast-active .mat-slide-toggle-thumb,.cdk-high-contrast-active .mat-slide-toggle-bar{border:1px solid}.cdk-high-contrast-active .mat-slide-toggle.cdk-keyboard-focused .mat-slide-toggle-bar{outline:2px dotted;outline-offset:5px}\n"],
-      encapsulation: 2,
-      changeDetection: 0
-    });
-    /** @nocollapse */
-
-    MatSlideToggle.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-      }, {
-        type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_3__["FocusMonitor"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-      }, {
-        type: String,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Attribute"],
-          args: ['tabindex']
-        }]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-      }, {
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-          args: [MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS]
-        }]
-      }, {
-        type: String,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-          args: [_angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["ANIMATION_MODULE_TYPE"]]
-        }]
-      }, {
-        type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_4__["Directionality"],
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-        }]
-      }];
-    };
-
-    MatSlideToggle.propDecorators = {
-      _thumbEl: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-        args: ['thumbContainer']
-      }],
-      _thumbBarEl: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-        args: ['toggleBar']
-      }],
-      name: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      id: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      labelPosition: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      ariaLabel: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-        args: ['aria-label']
-      }],
-      ariaLabelledby: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-        args: ['aria-labelledby']
-      }],
-      required: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      checked: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-      }],
-      change: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-      }],
-      toggleChange: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-      }],
-      dragChange: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-      }],
-      _inputElement: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-        args: ['input']
-      }]
-    };
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](MatSlideToggle, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
-        args: [{
-          selector: 'mat-slide-toggle',
-          exportAs: 'matSlideToggle',
-          host: {
-            'class': 'mat-slide-toggle',
-            '[id]': 'id',
-            // Needs to be `-1` so it can still receive programmatic focus.
-            '[attr.tabindex]': 'disabled ? null : -1',
-            '[attr.aria-label]': 'null',
-            '[attr.aria-labelledby]': 'null',
-            '[class.mat-checked]': 'checked',
-            '[class.mat-disabled]': 'disabled',
-            '[class.mat-slide-toggle-label-before]': 'labelPosition == "before"',
-            '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"'
-          },
-          template: "<label [attr.for]=\"inputId\" class=\"mat-slide-toggle-label\" #label>\n  <div #toggleBar class=\"mat-slide-toggle-bar\"\n       [class.mat-slide-toggle-bar-no-side-margin]=\"!labelContent.textContent || !labelContent.textContent.trim()\">\n\n    <input #input class=\"mat-slide-toggle-input cdk-visually-hidden\" type=\"checkbox\"\n           role=\"switch\"\n           [id]=\"inputId\"\n           [required]=\"required\"\n           [tabIndex]=\"tabIndex\"\n           [checked]=\"checked\"\n           [disabled]=\"disabled\"\n           [attr.name]=\"name\"\n           [attr.aria-checked]=\"checked.toString()\"\n           [attr.aria-label]=\"ariaLabel\"\n           [attr.aria-labelledby]=\"ariaLabelledby\"\n           (change)=\"_onChangeEvent($event)\"\n           (click)=\"_onInputClick($event)\">\n\n    <div class=\"mat-slide-toggle-thumb-container\" #thumbContainer>\n      <div class=\"mat-slide-toggle-thumb\"></div>\n      <div class=\"mat-slide-toggle-ripple mat-focus-indicator\" mat-ripple\n           [matRippleTrigger]=\"label\"\n           [matRippleDisabled]=\"disableRipple || disabled\"\n           [matRippleCentered]=\"true\"\n           [matRippleRadius]=\"20\"\n           [matRippleAnimation]=\"{enterDuration: 150}\">\n\n        <div class=\"mat-ripple-element mat-slide-toggle-persistent-ripple\"></div>\n      </div>\n    </div>\n\n  </div>\n\n  <span class=\"mat-slide-toggle-content\" #labelContent (cdkObserveContent)=\"_onLabelTextChange()\">\n    <!-- Add an invisible span so JAWS can read the label -->\n    <span style=\"display:none\">&nbsp;</span>\n    <ng-content></ng-content>\n  </span>\n</label>\n",
-          providers: [MAT_SLIDE_TOGGLE_VALUE_ACCESSOR],
-          inputs: ['disabled', 'disableRipple', 'color', 'tabIndex'],
-          encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-          changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
-          styles: [".mat-slide-toggle{display:inline-block;height:24px;max-width:100%;line-height:24px;white-space:nowrap;outline:none;-webkit-tap-highlight-color:transparent}.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container{transform:translate3d(16px, 0, 0)}[dir=rtl] .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container{transform:translate3d(-16px, 0, 0)}.mat-slide-toggle.mat-disabled{opacity:.38}.mat-slide-toggle.mat-disabled .mat-slide-toggle-label,.mat-slide-toggle.mat-disabled .mat-slide-toggle-thumb-container{cursor:default}.mat-slide-toggle-label{display:flex;flex:1;flex-direction:row;align-items:center;height:inherit;cursor:pointer}.mat-slide-toggle-content{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-slide-toggle-label-before .mat-slide-toggle-label{order:1}.mat-slide-toggle-label-before .mat-slide-toggle-bar{order:2}[dir=rtl] .mat-slide-toggle-label-before .mat-slide-toggle-bar,.mat-slide-toggle-bar{margin-right:8px;margin-left:0}[dir=rtl] .mat-slide-toggle-bar,.mat-slide-toggle-label-before .mat-slide-toggle-bar{margin-left:8px;margin-right:0}.mat-slide-toggle-bar-no-side-margin{margin-left:0;margin-right:0}.mat-slide-toggle-thumb-container{position:absolute;z-index:1;width:20px;height:20px;top:-3px;left:0;transform:translate3d(0, 0, 0);transition:all 80ms linear;transition-property:transform}._mat-animation-noopable .mat-slide-toggle-thumb-container{transition:none}[dir=rtl] .mat-slide-toggle-thumb-container{left:auto;right:0}.mat-slide-toggle-thumb{height:20px;width:20px;border-radius:50%}.mat-slide-toggle-bar{position:relative;width:36px;height:14px;flex-shrink:0;border-radius:8px}.mat-slide-toggle-input{bottom:0;left:10px}[dir=rtl] .mat-slide-toggle-input{left:auto;right:10px}.mat-slide-toggle-bar,.mat-slide-toggle-thumb{transition:all 80ms linear;transition-property:background-color;transition-delay:50ms}._mat-animation-noopable .mat-slide-toggle-bar,._mat-animation-noopable .mat-slide-toggle-thumb{transition:none}.mat-slide-toggle .mat-slide-toggle-ripple{position:absolute;top:calc(50% - 20px);left:calc(50% - 20px);height:40px;width:40px;z-index:1;pointer-events:none}.mat-slide-toggle .mat-slide-toggle-ripple .mat-ripple-element:not(.mat-slide-toggle-persistent-ripple){opacity:.12}.mat-slide-toggle-persistent-ripple{width:100%;height:100%;transform:none}.mat-slide-toggle-bar:hover .mat-slide-toggle-persistent-ripple{opacity:.04}.mat-slide-toggle:not(.mat-disabled).cdk-keyboard-focused .mat-slide-toggle-persistent-ripple{opacity:.12}.mat-slide-toggle-persistent-ripple,.mat-slide-toggle.mat-disabled .mat-slide-toggle-bar:hover .mat-slide-toggle-persistent-ripple{opacity:0}@media(hover: none){.mat-slide-toggle-bar:hover .mat-slide-toggle-persistent-ripple{display:none}}.cdk-high-contrast-active .mat-slide-toggle-thumb,.cdk-high-contrast-active .mat-slide-toggle-bar{border:1px solid}.cdk-high-contrast-active .mat-slide-toggle.cdk-keyboard-focused .mat-slide-toggle-bar{outline:2px dotted;outline-offset:5px}\n"]
-        }]
-      }], function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
-        }, {
-          type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_3__["FocusMonitor"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-        }, {
-          type: String,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Attribute"],
-            args: ['tabindex']
-          }]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS]
-          }]
-        }, {
-          type: String,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["ANIMATION_MODULE_TYPE"]]
-          }]
-        }, {
-          type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_4__["Directionality"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
-          }]
-        }];
-      }, {
-        name: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        id: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        labelPosition: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        ariaLabel: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['aria-label']
-        }],
-        ariaLabelledby: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
-          args: ['aria-labelledby']
-        }],
-        change: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        toggleChange: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        dragChange: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        required: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        checked: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        _thumbEl: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['thumbContainer']
-        }],
-        _thumbBarEl: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['toggleBar']
-        }],
-        _inputElement: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['input']
-        }]
-      });
-    })();
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/material/slide-toggle/slide-toggle-required-validator.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /** @type {?} */
-
-
-    var MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR = {
-      provide: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NG_VALIDATORS"],
-      useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(
-      /**
-      * @return {?}
-      */
-      function () {
-        return MatSlideToggleRequiredValidator;
-      }),
-      multi: true
-    };
-    /**
-     * Validator for Material slide-toggle components with the required attribute in a
-     * template-driven form. The default validator for required form controls asserts
-     * that the control value is not undefined but that is not appropriate for a slide-toggle
-     * where the value is always defined.
-     *
-     * Required slide-toggle form controls are valid when checked.
-     */
-
-    var MatSlideToggleRequiredValidator =
-    /*#__PURE__*/
-    function (_angular_forms__WEBPA) {
-      _inherits(MatSlideToggleRequiredValidator, _angular_forms__WEBPA);
-
-      var _super2 = _createSuper(MatSlideToggleRequiredValidator);
-
-      function MatSlideToggleRequiredValidator() {
-        _classCallCheck(this, MatSlideToggleRequiredValidator);
-
-        return _super2.apply(this, arguments);
-      }
-
-      return MatSlideToggleRequiredValidator;
-    }(_angular_forms__WEBPACK_IMPORTED_MODULE_6__["CheckboxRequiredValidator"]);
-
-    MatSlideToggleRequiredValidator.ɵfac = function MatSlideToggleRequiredValidator_Factory(t) {
-      return ɵMatSlideToggleRequiredValidator_BaseFactory(t || MatSlideToggleRequiredValidator);
-    };
-
-    MatSlideToggleRequiredValidator.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
-      type: MatSlideToggleRequiredValidator,
-      selectors: [["mat-slide-toggle", "required", "", "formControlName", ""], ["mat-slide-toggle", "required", "", "formControl", ""], ["mat-slide-toggle", "required", "", "ngModel", ""]],
-      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]]
-    });
-
-    var ɵMatSlideToggleRequiredValidator_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetInheritedFactory"](MatSlideToggleRequiredValidator);
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](MatSlideToggleRequiredValidator, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
-        args: [{
-          selector: "mat-slide-toggle[required][formControlName],\n             mat-slide-toggle[required][formControl], mat-slide-toggle[required][ngModel]",
-          providers: [MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR]
-        }]
-      }], null, null);
-    })();
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/material/slide-toggle/slide-toggle-module.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * This module is used by both original and MDC-based slide-toggle implementations.
-     */
-    // tslint:disable-next-line:class-name
-
-
-    var _MatSlideToggleRequiredValidatorModule = function _MatSlideToggleRequiredValidatorModule() {
-      _classCallCheck(this, _MatSlideToggleRequiredValidatorModule);
-    };
-
-    _MatSlideToggleRequiredValidatorModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
-      type: _MatSlideToggleRequiredValidatorModule
-    });
-    _MatSlideToggleRequiredValidatorModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-      factory: function _MatSlideToggleRequiredValidatorModule_Factory(t) {
-        return new (t || _MatSlideToggleRequiredValidatorModule)();
-      }
-    });
-
-    (function () {
-      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](_MatSlideToggleRequiredValidatorModule, {
-        declarations: [MatSlideToggleRequiredValidator],
-        exports: [MatSlideToggleRequiredValidator]
-      });
-    })();
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](_MatSlideToggleRequiredValidatorModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
-        args: [{
-          exports: [MatSlideToggleRequiredValidator],
-          declarations: [MatSlideToggleRequiredValidator]
-        }]
-      }], null, null);
-    })();
-
-    var MatSlideToggleModule = function MatSlideToggleModule() {
-      _classCallCheck(this, MatSlideToggleModule);
-    };
-
-    MatSlideToggleModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
-      type: MatSlideToggleModule
-    });
-    MatSlideToggleModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-      factory: function MatSlideToggleModule_Factory(t) {
-        return new (t || MatSlideToggleModule)();
-      },
-      imports: [[_MatSlideToggleRequiredValidatorModule, _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatCommonModule"], _angular_cdk_observers__WEBPACK_IMPORTED_MODULE_0__["ObserversModule"]], _MatSlideToggleRequiredValidatorModule, _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatCommonModule"]]
-    });
-
-    (function () {
-      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](MatSlideToggleModule, {
-        declarations: function declarations() {
-          return [MatSlideToggle];
-        },
-        imports: function imports() {
-          return [_MatSlideToggleRequiredValidatorModule, _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatCommonModule"], _angular_cdk_observers__WEBPACK_IMPORTED_MODULE_0__["ObserversModule"]];
-        },
-        exports: function exports() {
-          return [_MatSlideToggleRequiredValidatorModule, MatSlideToggle, _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatCommonModule"]];
-        }
-      });
-    })();
-    /*@__PURE__*/
-
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](MatSlideToggleModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
-        args: [{
-          imports: [_MatSlideToggleRequiredValidatorModule, _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatCommonModule"], _angular_cdk_observers__WEBPACK_IMPORTED_MODULE_0__["ObserversModule"]],
-          exports: [_MatSlideToggleRequiredValidatorModule, MatSlideToggle, _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MatCommonModule"]],
-          declarations: [MatSlideToggle]
-        }]
-      }], null, null);
-    })();
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: src/material/slide-toggle/public-api.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * Generated bundle index. Do not edit.
-     */
-    //# sourceMappingURL=slide-toggle.js.map
-
-    /***/
-
-  },
-
   /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/assets/assets.component.html":
   /*!****************************************************************************************!*\
@@ -1890,7 +811,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "submitAssetMaintenanceForm",
         value: function submitAssetMaintenanceForm(form) {
-          var _this3 = this;
+          var _this = this;
 
           if (!this.isEditAssetMaintenance) {
             var details = {
@@ -1912,20 +833,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
             this.assetService.addAssetMaintenancePlan(assetMaintenancePlan).subscribe(function (res) {
               if (res.message) {
-                _this3.isAssetMaintenanceSubmitted = false;
+                _this.isAssetMaintenanceSubmitted = false;
 
-                _this3.sharedService.setAlertMessage("Asset Maintenance added successfully");
+                _this.sharedService.setAlertMessage("Asset Maintenance added successfully");
 
-                _this3.router.navigate(['ams/assets/view']);
+                _this.router.navigate(['ams/assets/view']);
               } else {
-                _this3.isAssetMaintenanceSubmitted = false;
-                _this3.isError = true;
-                _this3.alertMessage = res.errorMessage;
+                _this.isAssetMaintenanceSubmitted = false;
+                _this.isError = true;
+                _this.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this3.isAssetMaintenanceSubmitted = false;
-              _this3.isError = true;
-              _this3.alertMessage = "Some error occured";
+              _this.isAssetMaintenanceSubmitted = false;
+              _this.isError = true;
+              _this.alertMessage = "Some error occured";
             });
           } else {
             var _details = {
@@ -1948,20 +869,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
             this.assetService.updateAssetMaintenancePlan(updateMaintenancePlan).subscribe(function (res) {
               if (res.message) {
-                _this3.isAssetMaintenanceSubmitted = false;
+                _this.isAssetMaintenanceSubmitted = false;
 
-                _this3.sharedService.setAlertMessage("Asset Maintenance updated successfully");
+                _this.sharedService.setAlertMessage("Asset Maintenance updated successfully");
 
-                _this3.router.navigate(['ams/assets/view']);
+                _this.router.navigate(['ams/assets/view']);
               } else {
-                _this3.isAssetMaintenanceSubmitted = false;
-                _this3.isError = true;
-                _this3.alertMessage = res.errorMessage;
+                _this.isAssetMaintenanceSubmitted = false;
+                _this.isError = true;
+                _this.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this3.isAssetMaintenanceSubmitted = false;
-              _this3.isError = true;
-              _this3.alertMessage = "Some error occured";
+              _this.isAssetMaintenanceSubmitted = false;
+              _this.isError = true;
+              _this.alertMessage = "Some error occured";
             });
           }
         }
@@ -1977,7 +898,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this2 = this;
 
           this.assetMaintenance = {};
           this.assetMaintenance.maintenanceStatusId = "";
@@ -1986,13 +907,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.route.params['value'].id != undefined && this.route.params['value'].type == undefined) {
             this.isEditAssetMaintenance = true;
             this.assetService.getAllAssetMaintenancePlanByAssetId(this.route.params['value'].id).subscribe(function (res) {
-              _this4.allAssetMaintenanceData = res;
+              _this2.allAssetMaintenanceData = res;
 
-              var assetMaintenance = _this4.allAssetMaintenanceData.filter(function (item) {
+              var assetMaintenance = _this2.allAssetMaintenanceData.filter(function (item) {
                 return item.maintenanceStatusId == 273; // only due items
               });
 
-              _this4.assetMaintenance = assetMaintenance[0];
+              _this2.assetMaintenance = assetMaintenance[0];
             });
           }
 
@@ -2001,17 +922,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             LookupTypeId: 64
           };
           this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-            _this4.statusTypeData = res;
+            _this2.statusTypeData = res;
           }, function (error) {});
           this.assetService.getAllAssetByAssetId(this.route.params['value'].id).subscribe(function (res) {
-            _this4.isAssetMaintenanceLoaded = true;
-            _this4.assetData = res[0];
+            _this2.isAssetMaintenanceLoaded = true;
+            _this2.assetData = res[0];
           });
           var assetCategoryParams = {
             LookupTypeId: 19
           };
           this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
-            _this4.assetCategoryData = res.filter(function (item) {
+            _this2.assetCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -2163,17 +1084,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AddMaintenanceComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this3 = this;
 
           this.maintenance.isMaintainedbyStaff = true;
           this.activatedRoute.queryParams.subscribe(function (params) {
             if (params) {
-              _this5.assetId = params.assetId;
+              _this3.assetId = params.assetId;
             }
           });
           this.route.paramMap.subscribe(function (params) {
             if (params) {
-              _this5.assetMaintenancePlanId = params.get('id');
+              _this3.assetMaintenancePlanId = params.get('id');
             }
           });
 
@@ -2184,7 +1105,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(params);
             this.assetService.getAllAssetMaintenancePlanById(params).subscribe(function (res) {
               console.log(res);
-              _this5.maintenance = res[0] ? res[0] : {};
+              _this3.maintenance = res[0] ? res[0] : {};
             });
           }
 
@@ -2194,12 +1115,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "setMainSubType",
         value: function setMainSubType(id) {
-          var _this6 = this;
+          var _this4 = this;
 
           if (this.mainType && this.mainType.length > 0) {
             this.mainType.filter(function (val) {
               if (val.id == id) {
-                _this6.mainSubType = val.subCategory;
+                _this4.mainSubType = val.subCategory;
               }
             });
           } // if(this.isEdit){
@@ -2246,7 +1167,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addMaintenance",
         value: function addMaintenance() {
-          var _this7 = this;
+          var _this5 = this;
 
           var reqObj = {};
           reqObj.assetMaintenancePlanId = 0;
@@ -2275,18 +1196,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(res);
 
             if (res.message) {
-              _this7.sharedService.setAlertMessage("Asset Maintenance added successfully");
+              _this5.sharedService.setAlertMessage("Asset Maintenance added successfully");
 
-              _this7.isAssetLoaded = false;
+              _this5.isAssetLoaded = false;
 
-              _this7.router.navigate(['ams/assets/manage-maintenance']);
+              _this5.router.navigate(['ams/assets/manage-maintenance']);
             }
           });
         }
       }, {
         key: "updateMaintenance",
         value: function updateMaintenance() {
-          var _this8 = this;
+          var _this6 = this;
 
           var reqObj = {};
           reqObj.assetMaintenancePlanId = this.maintenance.assetMaintenancePlanId;
@@ -2313,20 +1234,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           params.assetMaintenancePlan = reqObj;
           this.assetService.updateAssetMaintenancePlan(params).subscribe(function (res) {
             if (res) {
-              _this8.sharedService.setAlertMessage("Asset maintenance updated successfully");
+              _this6.sharedService.setAlertMessage("Asset maintenance updated successfully");
 
-              _this8.isAssetLoaded = false;
+              _this6.isAssetLoaded = false;
 
-              _this8.router.navigate(['ams/assets/manage-maintenance']);
+              _this6.router.navigate(['ams/assets/manage-maintenance']);
             }
 
-            _this8.isAssetLoaded = false;
+            _this6.isAssetLoaded = false;
           });
         }
       }, {
         key: "getAllMaintenance",
         value: function getAllMaintenance() {
-          var _this9 = this;
+          var _this7 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2337,15 +1258,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this9.isAssetLoaded = false;
-              _this9.mainType = res ? res : [];
+              _this7.isAssetLoaded = false;
+              _this7.mainType = res ? res : [];
 
-              if (_this9.isEdit && _this9.maintenance.maintenanceTypeId) {
-                _this9.setMainSubType(_this9.maintenance.maintenanceTypeId);
+              if (_this7.isEdit && _this7.maintenance.maintenanceTypeId) {
+                _this7.setMainSubType(_this7.maintenance.maintenanceTypeId);
               } else {
-                _this9.maintenance.maintenanceTypeId = _this9.mainType && _this9.mainType.length > 0 ? _this9.mainType[0].id : '';
+                _this7.maintenance.maintenanceTypeId = _this7.mainType && _this7.mainType.length > 0 ? _this7.mainType[0].id : '';
 
-                _this9.setMainSubType(_this9.maintenance.maintenanceTypeId);
+                _this7.setMainSubType(_this7.maintenance.maintenanceTypeId);
               }
             }
           });
@@ -2358,14 +1279,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this10 = this;
+          var _this8 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
           this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
             if (res) {
-              _this10.assetList = res ? res : [];
-              _this10.assetId = !_this10.assetId ? _this10.assetList && _this10.assetList.length > 0 && _this10.assetList[0].assetId : '';
+              _this8.assetList = res ? res : [];
+              _this8.assetId = !_this8.assetId ? _this8.assetList && _this8.assetList.length > 0 && _this8.assetList[0].assetId : '';
             }
           });
         }
@@ -2551,7 +1472,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "submitAddAssetForm",
         value: function submitAddAssetForm(form) {
-          var _this11 = this;
+          var _this9 = this;
 
           if (!this.isEditAsset) {
             var addAssetDetails = {
@@ -2603,21 +1524,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
             this.assetService.addAsset(addAssetParams).subscribe(function (res) {
               if (res.message) {
-                _this11.isAssetSubmitted = false;
+                _this9.isAssetSubmitted = false;
 
-                _this11.sharedService.setAlertMessage("Asset added successfully");
+                _this9.sharedService.setAlertMessage("Asset added successfully");
 
-                _this11.addInsurance(res.message); //this.router.navigate(['ams/assets/view']);
+                _this9.addInsurance(res.message); //this.router.navigate(['ams/assets/view']);
 
               } else {
-                _this11.isAssetSubmitted = false;
-                _this11.isError = true;
-                _this11.alertMessage = res.errorMessage;
+                _this9.isAssetSubmitted = false;
+                _this9.isError = true;
+                _this9.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this11.isAssetSubmitted = false;
-              _this11.isError = true;
-              _this11.alertMessage = "Some error occured";
+              _this9.isAssetSubmitted = false;
+              _this9.isError = true;
+              _this9.alertMessage = "Some error occured";
             });
           } else {
             var editAssetDetails = {
@@ -2670,28 +1591,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
             this.assetService.updateAsset(editAssetParams).subscribe(function (res) {
               if (res.message) {
-                _this11.isAssetSubmitted = false;
+                _this9.isAssetSubmitted = false;
 
-                _this11.sharedService.setAlertMessage("Asset updated successfully"); // this.router.navigate(['ams/assets/view']);
+                _this9.sharedService.setAlertMessage("Asset updated successfully"); // this.router.navigate(['ams/assets/view']);
 
 
-                _this11.updateInsurance(res.message);
+                _this9.updateInsurance(res.message);
               } else {
-                _this11.isAssetSubmitted = false;
-                _this11.isError = true;
-                _this11.alertMessage = res.errorMessage;
+                _this9.isAssetSubmitted = false;
+                _this9.isError = true;
+                _this9.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this11.isAssetSubmitted = false;
-              _this11.isError = true;
-              _this11.alertMessage = "Some error occured";
+              _this9.isAssetSubmitted = false;
+              _this9.isError = true;
+              _this9.alertMessage = "Some error occured";
             });
           }
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this10 = this;
 
           this.asset = {};
           this.asset.assetCategoryId = "";
@@ -2704,12 +1625,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               assetId: this.route.params['value'].id
             };
             this.assetService.getAllAssetByAssetId(params).subscribe(function (res) {
-              _this12.asset = res[0];
+              _this10.asset = res[0];
             });
             var reqInsuranceParam = {};
             reqInsuranceParam.AssetId = params.assetId;
             this.assetService.getAllAssetInsurancePlanByAssetId(reqInsuranceParam).subscribe(function (res) {
-              _this12.insurance = res[0] ? res[0] : {};
+              _this10.insurance = res[0] ? res[0] : {};
             });
           }
 
@@ -2717,7 +1638,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             LookupTypeId: 19
           };
           this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
-            _this12.assetCategoryData = res.filter(function (item) {
+            _this10.assetCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -2725,7 +1646,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendprParams).subscribe(function (res) {
-            _this12.vendorDataList = res.filter(function (item) {
+            _this10.vendorDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -2734,13 +1655,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }; //maintenance status 
 
           this.lookupService.getLookupValueByLookupTypeId(assetStatusParams).subscribe(function (res) {
-            _this12.statusTypeData = res;
+            _this10.statusTypeData = res;
           }, function (error) {});
         }
       }, {
         key: "updateInsurance",
         value: function updateInsurance(assetId) {
-          var _this13 = this;
+          var _this11 = this;
 
           var reqObj = {};
           reqObj = {
@@ -2765,16 +1686,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log(res);
             }
           }, function (error) {
-            _this13.isAssetSubmitted = false;
-            _this13.isError = true;
-            _this13.alertMessage = "Some error occured";
+            _this11.isAssetSubmitted = false;
+            _this11.isError = true;
+            _this11.alertMessage = "Some error occured";
           });
           this.router.navigate(['ams/assets/view']);
         }
       }, {
         key: "addInsurance",
         value: function addInsurance(assetId) {
-          var _this14 = this;
+          var _this12 = this;
 
           var reqObj = {};
           reqObj = {
@@ -2799,9 +1720,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log(res);
             }
           }, function (error) {
-            _this14.isAssetSubmitted = false;
-            _this14.isError = true;
-            _this14.alertMessage = "Some error occured";
+            _this12.isAssetSubmitted = false;
+            _this12.isError = true;
+            _this12.alertMessage = "Some error occured";
           });
           this.router.navigate(['ams/assets/view']);
         }
@@ -2989,25 +1910,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this15 = this;
+          var _this13 = this;
 
           this.assetService.getAllAssetMaintenancePlanByAssetId(this.assetId).subscribe(function (res) {
-            _this15.isAssetMaintenanceLoaded = true;
-            _this15.maintenanceDataList = res;
+            _this13.isAssetMaintenanceLoaded = true;
+            _this13.maintenanceDataList = res;
 
-            if (_this15.totalItems > _this15.itemLimit) {
-              _this15.ItemEndIndex = _this15.itemLimit;
+            if (_this13.totalItems > _this13.itemLimit) {
+              _this13.ItemEndIndex = _this13.itemLimit;
             } else {
-              _this15.ItemEndIndex = _this15.totalItems;
+              _this13.ItemEndIndex = _this13.totalItems;
             }
 
-            _this15.totalItems = _this15.maintenanceDataList.length;
+            _this13.totalItems = _this13.maintenanceDataList.length;
           });
           var params = {
             LookupTypeId: 64
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this15.statusTypeData = res;
+            _this13.statusTypeData = res;
           }, function (error) {});
         }
       }]);
@@ -3140,7 +2061,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".icon-tabs {\n  display: flex;\n  justify-content: center;\n}\n.icon-tabs li {\n  width: 100%;\n  text-align: center;\n  margin-bottom: 20px;\n  padding: 0;\n  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  border-radius: 6px !important;\n}\n.icon-tabs li a {\n  color: #585858;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  font-size: 1.6rem;\n  padding: 10px 25px;\n  position: relative;\n  background-color: #ffffff;\n}\n.icon-tabs li a.active {\n  background-color: #3f51b5;\n  color: #ffffff;\n}\n.setup-search {\n  position: absolute;\n  top: 18px;\n  padding-left: 10px;\n  font-size: 1.3rem;\n  color: #8391a1;\n}\n.sub-dot {\n  width: 6px;\n  height: 6px;\n  border: 1px solid;\n  border-radius: 50%;\n}\n.mat-slide-toggle-content {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n}\n.subCategory {\n  padding-top: 10px;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  padding-bottom: 10px;\n}\n.subCategory li {\n  list-style-type: circle;\n}\n.card-body:hover {\n  background-color: white !important;\n}\n.wd-100 {\n  width: 100%;\n}\n.wd-50 {\n  width: 50%;\n}\n.cus-input {\n  border-radius: 8px;\n  border: 1px solid #dadada;\n  padding-left: 10px;\n  height: 30px;\n}\n.fa-floppy-o {\n  color: #54b941;\n}\n.fa-times {\n  color: #ff3638;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYXNzZXRzL2NvbXBvbmVudHMvYXNzZXRzLXNldHVwL2Fzc2V0cy1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL2Fzc2V0cy9jb21wb25lbnRzL2Fzc2V0cy1zZXR1cC9hc3NldHMtc2V0dXAuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL21peGlucy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFJQTtFQUNJLGFBQUE7RUFDQSx1QkFBQTtBQ0hKO0FESUk7RUFDSSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtFQUNBLFVBQUE7RUVZTiw2Q0ZYTTtFRVlOLGtERlpNO0VFYU4scURGYk07RUVMUCw2QkFBQTtBRFFEO0FERFE7RUFDSSxjR2tGRDtFQ2xEVCxxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUE2QkEsaUJBQUE7RUo1RFUsa0JBQUE7RUFDQSxrQkdkUDtFSGVPLHlCR2tHSjtBRjdGUjtBREpZO0VBQ0kseUJHdUNQO0VIdENPLGNHK0ZSO0FGekZSO0FER0E7RUFDRSxrQkc3Qkc7RUg4QkgsU0FBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxjRzFCVztBRjBCYjtBREdBO0VBQ0UsVUFBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDQUY7QURFQTtFSVBFLHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7QUhTRjtBRERBO0VBQ0UsaUJBQUE7RUliQSxxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0VKV0Esb0JBQUE7QUNRRjtBRE5FO0VBQ0UsdUJBQUE7QUNRSjtBRExBO0VBQ0Usa0NBQUE7QUNRRjtBRExBO0VBQ0UsV0FBQTtBQ1FGO0FETEE7RUFDRSxVQUFBO0FDUUY7QURMQTtFQUNFLGtCQUFBO0VBQ0UseUJBQUE7RUFDQSxrQkFBQTtFQUNBLFlBQUE7QUNRSjtBRE5BO0VBQ0UsY0d4QlE7QUZpQ1Y7QUROQTtFQUNDLGNHaEVVO0FGeUVYIiwiZmlsZSI6InNyYy9hcHAvYW1zL2Fzc2V0cy9jb21wb25lbnRzL2Fzc2V0cy1zZXR1cC9hc3NldHMtc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLmljb24tdGFic3tcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGxpIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgQGluY2x1ZGUgYm94LXNoYWRvdygwIDJweCAzcHggLTFweCByZ2JhKCRibGFjaywgMC4xKSk7XG4gICAgICAgIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoNnB4KTtcbiAgICAgICAgYSB7XG4gICAgICAgICAgICBjb2xvcjogJGdyZXktNzAwO1xuICAgICAgICAgICAgQGluY2x1ZGUgaGVhZC1tZWRpdW07XG4gICAgICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW5vcm1hbCk7XG4gICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDI1cHg7ICAgICAgICAgICAgICBcbiAgICAgICAgICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJHdoaXRlO1xuICAgICAgICAgICAgJi5hY3RpdmUge1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICRtLWJsdWU7XG4gICAgICAgICAgICAgICAgY29sb3I6ICR3aGl0ZTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgXG4gICAgICAgIH1cbiAgICB9XG59XG5cblxuXG4uc2V0dXAtc2VhcmNoIHtcbiAgcG9zaXRpb246ICRhYnM7XG4gIHRvcDogMThweDtcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xuICBmb250LXNpemU6IDEuM3JlbTtcbiAgY29sb3I6ICRsaWdodC1ibHVlO1xufVxuXG4uc3ViLWRvdHtcbiAgd2lkdGg6IDZweDtcbiAgaGVpZ2h0OiA2cHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuLm1hdC1zbGlkZS10b2dnbGUtY29udGVudCB7XG4gIEBpbmNsdWRlIGhlYWQtcmVndWxhcigpO1xufVxuXG5cbi5zdWJDYXRlZ29yeSB7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICBAaW5jbHVkZSBoZWFkLXJlZ3VsYXIoKTtcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XG5cbiAgbGkge1xuICAgIGxpc3Qtc3R5bGUtdHlwZTogY2lyY2xlO1xuICB9XG59XG4uY2FyZC1ib2R5OmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGUgIWltcG9ydGFudDtcbn1cblxuLndkLTEwMCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4ud2QtNTAge1xuICB3aWR0aDogNTAlO1xufVxuXG4uY3VzLWlucHV0e1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI2RhZGFkYTtcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG4gICAgaGVpZ2h0OiAzMHB4O1xufVxuLmZhLWZsb3BweS1ve1xuICBjb2xvcjogJG0tZ3JlZW4gO1xufVxuXG4uZmEtdGltZXN7XG4gY29sb3I6ICRzLXJlZC0wMjtcbn0iLCIuaWNvbi10YWJzIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG4uaWNvbi10YWJzIGxpIHtcbiAgd2lkdGg6IDEwMCU7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgcGFkZGluZzogMDtcbiAgYm94LXNoYWRvdzogMCAycHggM3B4IC0xcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAtbW96LWJveC1zaGFkb3c6IDAgMnB4IDNweCAtMXB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAwIDJweCAzcHggLTFweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xufVxuLmljb24tdGFicyBsaSBhIHtcbiAgY29sb3I6ICM1ODU4NTg7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xuICBmb250LXNpemU6IDEuNnJlbTtcbiAgcGFkZGluZzogMTBweCAyNXB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7XG59XG4uaWNvbi10YWJzIGxpIGEuYWN0aXZlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzNmNTFiNTtcbiAgY29sb3I6ICNmZmZmZmY7XG59XG5cbi5zZXR1cC1zZWFyY2gge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMThweDtcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xuICBmb250LXNpemU6IDEuM3JlbTtcbiAgY29sb3I6ICM4MzkxYTE7XG59XG5cbi5zdWItZG90IHtcbiAgd2lkdGg6IDZweDtcbiAgaGVpZ2h0OiA2cHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5tYXQtc2xpZGUtdG9nZ2xlLWNvbnRlbnQge1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbi5zdWJDYXRlZ29yeSB7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xufVxuLnN1YkNhdGVnb3J5IGxpIHtcbiAgbGlzdC1zdHlsZS10eXBlOiBjaXJjbGU7XG59XG5cbi5jYXJkLWJvZHk6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZSAhaW1wb3J0YW50O1xufVxuXG4ud2QtMTAwIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi53ZC01MCB7XG4gIHdpZHRoOiA1MCU7XG59XG5cbi5jdXMtaW5wdXQge1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNkYWRhZGE7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbiAgaGVpZ2h0OiAzMHB4O1xufVxuXG4uZmEtZmxvcHB5LW8ge1xuICBjb2xvcjogIzU0Yjk0MTtcbn1cblxuLmZhLXRpbWVzIHtcbiAgY29sb3I6ICNmZjM2Mzg7XG59IiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cblxuQG1peGluIGJvcmRlci1yYWRpdXMgKCRyYWRpdXMpIHtcblx0LXdlYmtpdC1ib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG5cdC1tb3otYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHRib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzICgkcmFkaXVzKSB7XG4gIC13ZWJraXQtYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gb3BhY2l0eSAoJHZhbHVlKSB7XG4gIG9wYWNpdHk6ICR2YWx1ZTtcbiAgLW1vei1vcGFjaXR5OiAkdmFsdWU7XG4gIC13ZWJraXQtb3BhY2l0eTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNoYWRvdyAoJHJ1bGVzLi4uKSB7XG4gIGJveC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei1ib3gtc2hhZG93OiAkcnVsZXM7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gdGV4dC1zaGFkb3cgKCRydWxlcykge1xuICB0ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtbW96LXRleHQtc2hhZG93OiAkcnVsZXM7XG4gIC13ZWJraXQtdGV4dC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRyYW5zZm9ybSAoJHJ1bGVzKSB7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0LW1vei10cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xuXHR0cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gdHJhbnNpdGlvbiAoJHJ1bGVzLi4uKSB7XG5cdC13ZWJraXQtdHJhbnNpdGlvbjogJHJ1bGVzO1xuXHQtbW96LXRyYW5zaXRpb246ICRydWxlcztcblx0dHJhbnNpdGlvbjogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYW5pbWF0aW9uLWRlbGF5ICgkdmFsdWUpIHtcbiAgLXdlYmtpdC1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgLW1vei1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2l6aW5nICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1ib3gtc2l6aW5nOiAkcnVsZXM7XG4gIC1tb3otYm94LXNpemluZzogJHJ1bGVzO1xuICBib3gtc2l6aW5nOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBhcHBlYXJhbmNlICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiAkcnVsZXM7XG4gIC1tb3otYXBwZWFyYW5jZTogJHJ1bGVzO1xufVxuXG5AbWl4aW4gZGVzZWxlY3QgKCkge1xuICAtbW96LXVzZXItc2VsZWN0OiAtbW96LW5vbmU7XG5cdC1raHRtbC11c2VyLXNlbGVjdDogbm9uZTtcblx0LXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcblx0LW8tdXNlci1zZWxlY3Q6IG5vbmU7XG5cdHVzZXItc2VsZWN0OiBub25lO1xufVxuXG5AbWl4aW4gdmlzaWJpbGl0eSAoJHJ1bGVzKSB7XG4gIHZpc2liaWxpdHk6ICRydWxlcztcbn1cblxuQG1peGluIG5vLW1wICgpIHtcbiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGNpcmNsZXMoJHIsICRiZzpudWxsLCAkdGM6bnVsbCkge1xuICB3aWR0aDogJHI7XG4gIGhlaWdodDogJHI7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDpjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOmNlbnRlcjtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGJnO1xuICBjb2xvcjogJHRjO1xuICBAaW5jbHVkZSBib3JkZXItcmFkaXVzKCRyKTtcbn1cblxuQG1peGluIGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMuLi4pIHtcbiAgLy8gRGlyZWN0aW9uIGhhcyBiZWVuIG9taXR0ZWQgYW5kIGhhcHBlbnMgdG8gYmUgYSBjb2xvci1zdG9wXG4gIEBpZiBpcy1kaXJlY3Rpb24oJGRpcmVjdGlvbikgPT0gZmFsc2Uge1xuICAgICRjb2xvci1zdG9wczogJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzO1xuICAgICRkaXJlY3Rpb246IDE4MGRlZztcbiAgfVxuXG4gIGJhY2tncm91bmQ6IG50aChudGgoJGNvbG9yLXN0b3BzLCAxKSwgMSk7XG4gIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGxlZ2FjeS1kaXJlY3Rpb24oJGRpcmVjdGlvbiksICRjb2xvci1zdG9wcyk7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMpO1xufVxuXG5AbWl4aW4gcGxhY2Vob2xkZXIge1xuICAmOjotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHtAY29udGVudH1cbiAgJjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6Oi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAge0Bjb250ZW50fVxuICAmOi1tcy1pbnB1dC1wbGFjZWhvbGRlciAgICAgIHtAY29udGVudH0gIFxufVxuXG5cbiIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJGQtY3lhbi0wMzojMDBkMWZhO1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGltZS1ncmVlbi0wMzogIzUyYzU3MDtcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtbWVkaXVtLTA0OjMwO1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuQG1peGluIHB1YmxpYy1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIGhlYWQtbGlnaHQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbn1cblxuQG1peGluIGhlYWQtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNzAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiJdfQ== */";
+    __webpack_exports__["default"] = ".icon-tabs {\n  display: flex;\n  justify-content: center;\n}\n.icon-tabs li {\n  width: 100%;\n  text-align: center;\n  margin-bottom: 20px;\n  padding: 0;\n  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  border-radius: 6px !important;\n}\n.icon-tabs li a {\n  color: #585858;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  font-size: 1.6rem;\n  padding: 10px 25px;\n  position: relative;\n  background-color: #ffffff;\n}\n.icon-tabs li a.active {\n  background-color: #3f51b5;\n  color: #ffffff;\n}\n.setup-search {\n  position: absolute;\n  top: 18px;\n  padding-left: 10px;\n  font-size: 1.3rem;\n  color: #8391a1;\n}\n.sub-dot {\n  width: 6px;\n  height: 6px;\n  border: 1px solid;\n  border-radius: 50%;\n}\n.mat-slide-toggle-content {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n}\n.subCategory {\n  padding-top: 10px;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  padding-bottom: 10px;\n}\n.subCategory li {\n  list-style-type: circle;\n}\n.card-body:hover {\n  background-color: white !important;\n}\n.wd-100 {\n  width: 100%;\n}\n.wd-50 {\n  width: 50%;\n}\n.cus-input {\n  border-radius: 8px;\n  border: 1px solid #dadada;\n  padding-left: 10px;\n  height: 30px;\n}\n.fa-floppy-o {\n  color: #54b941;\n}\n.fa-times {\n  color: #ff3638;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYXNzZXRzL2NvbXBvbmVudHMvYXNzZXRzLXNldHVwL2Fzc2V0cy1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL2Fzc2V0cy9jb21wb25lbnRzL2Fzc2V0cy1zZXR1cC9hc3NldHMtc2V0dXAuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL21peGlucy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFJQTtFQUNJLGFBQUE7RUFDQSx1QkFBQTtBQ0hKO0FESUk7RUFDSSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtFQUNBLFVBQUE7RUVZTiw2Q0ZYTTtFRVlOLGtERlpNO0VFYU4scURGYk07RUVMUCw2QkFBQTtBRFFEO0FERFE7RUFDSSxjR2tGRDtFQ2xEVCxxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUE2QkEsaUJBQUE7RUo1RFUsa0JBQUE7RUFDQSxrQkdkUDtFSGVPLHlCR2tHSjtBRjdGUjtBREpZO0VBQ0kseUJHdUNQO0VIdENPLGNHK0ZSO0FGekZSO0FER0E7RUFDRSxrQkc3Qkc7RUg4QkgsU0FBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxjRzFCVztBRjBCYjtBREdBO0VBQ0UsVUFBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDQUY7QURFQTtFSVBFLHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7QUhTRjtBRERBO0VBQ0UsaUJBQUE7RUliQSxxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0VKV0Esb0JBQUE7QUNRRjtBRE5FO0VBQ0UsdUJBQUE7QUNRSjtBRExBO0VBQ0Usa0NBQUE7QUNRRjtBRExBO0VBQ0UsV0FBQTtBQ1FGO0FETEE7RUFDRSxVQUFBO0FDUUY7QURMQTtFQUNFLGtCQUFBO0VBQ0UseUJBQUE7RUFDQSxrQkFBQTtFQUNBLFlBQUE7QUNRSjtBRE5BO0VBQ0UsY0d4QlE7QUZpQ1Y7QUROQTtFQUNDLGNHaEVVO0FGeUVYIiwiZmlsZSI6InNyYy9hcHAvYW1zL2Fzc2V0cy9jb21wb25lbnRzL2Fzc2V0cy1zZXR1cC9hc3NldHMtc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLmljb24tdGFic3tcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGxpIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgQGluY2x1ZGUgYm94LXNoYWRvdygwIDJweCAzcHggLTFweCByZ2JhKCRibGFjaywgMC4xKSk7XG4gICAgICAgIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoNnB4KTtcbiAgICAgICAgYSB7XG4gICAgICAgICAgICBjb2xvcjogJGdyZXktNzAwO1xuICAgICAgICAgICAgQGluY2x1ZGUgaGVhZC1tZWRpdW07XG4gICAgICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW5vcm1hbCk7XG4gICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDI1cHg7ICAgICAgICAgICAgICBcbiAgICAgICAgICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJHdoaXRlO1xuICAgICAgICAgICAgJi5hY3RpdmUge1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICRtLWJsdWU7XG4gICAgICAgICAgICAgICAgY29sb3I6ICR3aGl0ZTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgXG4gICAgICAgIH1cbiAgICB9XG59XG5cblxuXG4uc2V0dXAtc2VhcmNoIHtcbiAgcG9zaXRpb246ICRhYnM7XG4gIHRvcDogMThweDtcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xuICBmb250LXNpemU6IDEuM3JlbTtcbiAgY29sb3I6ICRsaWdodC1ibHVlO1xufVxuXG4uc3ViLWRvdHtcbiAgd2lkdGg6IDZweDtcbiAgaGVpZ2h0OiA2cHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuLm1hdC1zbGlkZS10b2dnbGUtY29udGVudCB7XG4gIEBpbmNsdWRlIGhlYWQtcmVndWxhcigpO1xufVxuXG5cbi5zdWJDYXRlZ29yeSB7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICBAaW5jbHVkZSBoZWFkLXJlZ3VsYXIoKTtcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XG5cbiAgbGkge1xuICAgIGxpc3Qtc3R5bGUtdHlwZTogY2lyY2xlO1xuICB9XG59XG4uY2FyZC1ib2R5OmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGUgIWltcG9ydGFudDtcbn1cblxuLndkLTEwMCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4ud2QtNTAge1xuICB3aWR0aDogNTAlO1xufVxuXG4uY3VzLWlucHV0e1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI2RhZGFkYTtcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG4gICAgaGVpZ2h0OiAzMHB4O1xufVxuLmZhLWZsb3BweS1ve1xuICBjb2xvcjogJG0tZ3JlZW4gO1xufVxuXG4uZmEtdGltZXN7XG4gY29sb3I6ICRzLXJlZC0wMjtcbn0iLCIuaWNvbi10YWJzIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG4uaWNvbi10YWJzIGxpIHtcbiAgd2lkdGg6IDEwMCU7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgcGFkZGluZzogMDtcbiAgYm94LXNoYWRvdzogMCAycHggM3B4IC0xcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAtbW96LWJveC1zaGFkb3c6IDAgMnB4IDNweCAtMXB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiAwIDJweCAzcHggLTFweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xufVxuLmljb24tdGFicyBsaSBhIHtcbiAgY29sb3I6ICM1ODU4NTg7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xuICBmb250LXNpemU6IDEuNnJlbTtcbiAgcGFkZGluZzogMTBweCAyNXB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7XG59XG4uaWNvbi10YWJzIGxpIGEuYWN0aXZlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzNmNTFiNTtcbiAgY29sb3I6ICNmZmZmZmY7XG59XG5cbi5zZXR1cC1zZWFyY2gge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMThweDtcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xuICBmb250LXNpemU6IDEuM3JlbTtcbiAgY29sb3I6ICM4MzkxYTE7XG59XG5cbi5zdWItZG90IHtcbiAgd2lkdGg6IDZweDtcbiAgaGVpZ2h0OiA2cHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5tYXQtc2xpZGUtdG9nZ2xlLWNvbnRlbnQge1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbi5zdWJDYXRlZ29yeSB7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xufVxuLnN1YkNhdGVnb3J5IGxpIHtcbiAgbGlzdC1zdHlsZS10eXBlOiBjaXJjbGU7XG59XG5cbi5jYXJkLWJvZHk6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZSAhaW1wb3J0YW50O1xufVxuXG4ud2QtMTAwIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi53ZC01MCB7XG4gIHdpZHRoOiA1MCU7XG59XG5cbi5jdXMtaW5wdXQge1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNkYWRhZGE7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbiAgaGVpZ2h0OiAzMHB4O1xufVxuXG4uZmEtZmxvcHB5LW8ge1xuICBjb2xvcjogIzU0Yjk0MTtcbn1cblxuLmZhLXRpbWVzIHtcbiAgY29sb3I6ICNmZjM2Mzg7XG59IiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cblxuQG1peGluIGJvcmRlci1yYWRpdXMgKCRyYWRpdXMpIHtcblx0LXdlYmtpdC1ib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG5cdC1tb3otYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHRib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzICgkcmFkaXVzKSB7XG4gIC13ZWJraXQtYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gb3BhY2l0eSAoJHZhbHVlKSB7XG4gIG9wYWNpdHk6ICR2YWx1ZTtcbiAgLW1vei1vcGFjaXR5OiAkdmFsdWU7XG4gIC13ZWJraXQtb3BhY2l0eTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNoYWRvdyAoJHJ1bGVzLi4uKSB7XG4gIGJveC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei1ib3gtc2hhZG93OiAkcnVsZXM7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gdGV4dC1zaGFkb3cgKCRydWxlcykge1xuICB0ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtbW96LXRleHQtc2hhZG93OiAkcnVsZXM7XG4gIC13ZWJraXQtdGV4dC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRyYW5zZm9ybSAoJHJ1bGVzKSB7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0LW1vei10cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xuXHR0cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gdHJhbnNpdGlvbiAoJHJ1bGVzLi4uKSB7XG5cdC13ZWJraXQtdHJhbnNpdGlvbjogJHJ1bGVzO1xuXHQtbW96LXRyYW5zaXRpb246ICRydWxlcztcblx0dHJhbnNpdGlvbjogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYW5pbWF0aW9uLWRlbGF5ICgkdmFsdWUpIHtcbiAgLXdlYmtpdC1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgLW1vei1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2l6aW5nICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1ib3gtc2l6aW5nOiAkcnVsZXM7XG4gIC1tb3otYm94LXNpemluZzogJHJ1bGVzO1xuICBib3gtc2l6aW5nOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBhcHBlYXJhbmNlICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiAkcnVsZXM7XG4gIC1tb3otYXBwZWFyYW5jZTogJHJ1bGVzO1xufVxuXG5AbWl4aW4gZGVzZWxlY3QgKCkge1xuICAtbW96LXVzZXItc2VsZWN0OiAtbW96LW5vbmU7XG5cdC1raHRtbC11c2VyLXNlbGVjdDogbm9uZTtcblx0LXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcblx0LW8tdXNlci1zZWxlY3Q6IG5vbmU7XG5cdHVzZXItc2VsZWN0OiBub25lO1xufVxuXG5AbWl4aW4gdmlzaWJpbGl0eSAoJHJ1bGVzKSB7XG4gIHZpc2liaWxpdHk6ICRydWxlcztcbn1cblxuQG1peGluIG5vLW1wICgpIHtcbiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGNpcmNsZXMoJHIsICRiZzpudWxsLCAkdGM6bnVsbCkge1xuICB3aWR0aDogJHI7XG4gIGhlaWdodDogJHI7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDpjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOmNlbnRlcjtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGJnO1xuICBjb2xvcjogJHRjO1xuICBAaW5jbHVkZSBib3JkZXItcmFkaXVzKCRyKTtcbn1cblxuQG1peGluIGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMuLi4pIHtcbiAgLy8gRGlyZWN0aW9uIGhhcyBiZWVuIG9taXR0ZWQgYW5kIGhhcHBlbnMgdG8gYmUgYSBjb2xvci1zdG9wXG4gIEBpZiBpcy1kaXJlY3Rpb24oJGRpcmVjdGlvbikgPT0gZmFsc2Uge1xuICAgICRjb2xvci1zdG9wczogJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzO1xuICAgICRkaXJlY3Rpb246IDE4MGRlZztcbiAgfVxuXG4gIGJhY2tncm91bmQ6IG50aChudGgoJGNvbG9yLXN0b3BzLCAxKSwgMSk7XG4gIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGxlZ2FjeS1kaXJlY3Rpb24oJGRpcmVjdGlvbiksICRjb2xvci1zdG9wcyk7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMpO1xufVxuXG5AbWl4aW4gZmxpcCgkZGlyZWN0aW9uKSB7XG4gIHRyYW5zZm9ybSA6IHJvdGF0ZVkoJGRpcmVjdGlvbik7XG59XG5cbkBtaXhpbiBwbGFjZWhvbGRlciB7XG4gICY6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIge0Bjb250ZW50fVxuICAmOi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAgIHtAY29udGVudH1cbiAgJjo6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6LW1zLWlucHV0LXBsYWNlaG9sZGVyICAgICAge0Bjb250ZW50fSAgXG59XG5cblxuIiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */";
     /***/
   },
 
@@ -3243,7 +2164,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AssetsSetupComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this16 = this;
+          var _this14 = this;
 
           this.getAllCategory();
           this.getAllMaintenance();
@@ -3253,27 +2174,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var param = {};
               param = {
                 categoryId: id,
-                deletedBy: parseInt(_this16.cookieService.get('userId'))
+                deletedBy: parseInt(_this14.cookieService.get('userId'))
               };
 
-              _this16.lookupService.deleteCategory(param).subscribe(function (res) {
+              _this14.lookupService.deleteCategory(param).subscribe(function (res) {
                 // _.each(this.categoryList, (type) => {
                 // 	if (type.id == id) {
                 // 		type.isActive = false;
                 // 	}
                 // })
-                _this16.getAllCategory();
+                _this14.getAllCategory();
 
-                _this16.getAllMaintenance();
+                _this14.getAllMaintenance();
 
                 setTimeout(function () {
-                  if (_this16.delType == "maintenance") {
-                    _this16.sharedService.setAlertMessage("Maintenance type deleted successfully");
+                  if (_this14.delType == "maintenance") {
+                    _this14.sharedService.setAlertMessage("Maintenance type deleted successfully");
                   } else {
-                    _this16.sharedService.setAlertMessage("Asset Category deleted successfully");
+                    _this14.sharedService.setAlertMessage("Asset Category deleted successfully");
                   }
 
-                  _this16.sharedService.setUnitListDeleteIndex(null);
+                  _this14.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -3284,7 +2205,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addSetUp",
         value: function addSetUp(name, type, value, e) {
-          var _this17 = this;
+          var _this15 = this;
 
           // let data:any={};
           // data.name=type;
@@ -3302,9 +2223,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(result);
 
             if (result) {
-              _this17.getAllCategory();
+              _this15.getAllCategory();
 
-              _this17.getAllMaintenance();
+              _this15.getAllMaintenance();
             }
           });
         }
@@ -3352,7 +2273,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editSubCategory",
         value: function editSubCategory(data) {
-          var _this18 = this;
+          var _this16 = this;
 
           var reqObj = {};
           reqObj.id = data.id;
@@ -3373,20 +2294,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           params.subcategoryLookupTypeId = 68;
           this.lookupService.upsertSubCategory(params).subscribe(function (res) {
             if (res) {
-              _this18.sharedService.setAlertMessage("Sub Category updated successfully");
+              _this16.sharedService.setAlertMessage("Sub Category updated successfully");
 
-              _this18.isAssetLoaded = false;
+              _this16.isAssetLoaded = false;
 
-              _this18.getAllCategory();
+              _this16.getAllCategory();
 
-              _this18.currIndex = -1;
+              _this16.currIndex = -1;
             }
           });
         }
       }, {
         key: "getAllMaintenance",
         value: function getAllMaintenance() {
-          var _this19 = this;
+          var _this17 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3397,9 +2318,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this19.isAssetLoaded = false;
-              _this19.mainType = res ? res : [];
-              _this19.tempMainType = _this19.mainType; // if (this.data && this.data.type === 'addSubType') {
+              _this17.isAssetLoaded = false;
+              _this17.mainType = res ? res : [];
+              _this17.tempMainType = _this17.mainType; // if (this.data && this.data.type === 'addSubType') {
               // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
               // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
               // 	// console.log(this.category);
@@ -3415,7 +2336,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this20 = this;
+          var _this18 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3426,16 +2347,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this20.isAssetLoaded = false;
-              _this20.categoryList = res ? res : [];
-              _this20.tempCategoryList = _this20.categoryList;
+              _this18.isAssetLoaded = false;
+              _this18.categoryList = res ? res : [];
+              _this18.tempCategoryList = _this18.categoryList;
             }
           });
         }
       }, {
         key: "editMaintenance",
         value: function editMaintenance(data) {
-          var _this21 = this;
+          var _this19 = this;
 
           var reqObj = {};
           reqObj.id = data.id;
@@ -3453,13 +2374,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(res, res);
 
             if (res) {
-              _this21.sharedService.setAlertMessage("Maintenance sub types updated successfully");
+              _this19.sharedService.setAlertMessage("Maintenance sub types updated successfully");
 
-              _this21.isAssetLoaded = false;
+              _this19.isAssetLoaded = false;
 
-              _this21.getAllMaintenance();
+              _this19.getAllMaintenance();
 
-              _this21.mainCurrIndex = -1;
+              _this19.mainCurrIndex = -1;
             }
           });
         }
@@ -3811,7 +2732,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function AssetsViewComponent(injector, dialog, router, route, assetService, vendorService, lookupService, sharedService, cookieService) {
-        var _this22 = this;
+        var _this20 = this;
 
         _classCallCheck(this, AssetsViewComponent);
 
@@ -3842,12 +2763,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               LookupTypeId: 19
             };
 
-            _this22.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this22.assetCategoryData = res.filter(function (item) {
+            _this20.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+              _this20.assetCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this22.getAssetCategoryData(_this22.assetCategoryId);
+              _this20.getAssetCategoryData(_this20.assetCategoryId);
             });
           }
         });
@@ -3974,16 +2895,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAssetCategoryData",
         value: function getAssetCategoryData(id) {
-          var _this23 = this;
+          var _this21 = this;
 
           this.isAssetLoaded = false;
           underscore__WEBPACK_IMPORTED_MODULE_11__["each"](this.assetCategoryData, function (item, index) {
             if (id != "All") {
               if (item.lookupValueId == parseInt(id)) {
-                _this23.assetCategoryName = item.lookupValueName;
+                _this21.assetCategoryName = item.lookupValueName;
               }
             } else {
-              _this23.assetCategoryName = "";
+              _this21.assetCategoryName = "";
             }
           });
           var params = {
@@ -3991,24 +2912,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
             if (id != "All") {
-              _this23.assetListData = res.filter(function (item) {
+              _this21.assetListData = res.filter(function (item) {
                 return item.assetCategoryId == parseInt(id) && item.isActive;
               });
             } else {
-              _this23.assetListData = res.filter(function (item) {
+              _this21.assetListData = res.filter(function (item) {
                 return item.isActive;
               });
             }
 
-            _this23.totalItems = _this23.assetListData.length;
+            _this21.totalItems = _this21.assetListData.length;
 
-            if (_this23.totalItems > _this23.itemLimit) {
-              _this23.ItemEndIndex = _this23.itemLimit;
+            if (_this21.totalItems > _this21.itemLimit) {
+              _this21.ItemEndIndex = _this21.itemLimit;
             } else {
-              _this23.ItemEndIndex = _this23.totalItems;
+              _this21.ItemEndIndex = _this21.totalItems;
             }
 
-            _this23.isAssetLoaded = true;
+            _this21.isAssetLoaded = true;
           });
         }
       }, {
@@ -4052,7 +2973,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this24 = this;
+          var _this22 = this;
 
           this.asset = {};
 
@@ -4062,19 +2983,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
-              _this24.isAssetLoaded = false;
-              _this24.assetListData = res.filter(function (item) {
+              _this22.isAssetLoaded = false;
+              _this22.assetListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this24.totalItems = _this24.assetListData.length;
+              _this22.totalItems = _this22.assetListData.length;
 
-              if (_this24.totalItems > _this24.itemLimit) {
-                _this24.ItemEndIndex = _this24.itemLimit;
+              if (_this22.totalItems > _this22.itemLimit) {
+                _this22.ItemEndIndex = _this22.itemLimit;
               } else {
-                _this24.ItemEndIndex = _this24.totalItems;
+                _this22.ItemEndIndex = _this22.totalItems;
               }
 
-              _this24.isAssetLoaded = true;
+              _this22.isAssetLoaded = true;
             });
           } else {
             this.assetCategoryId = "" + this.route.params['value'].id;
@@ -4085,7 +3006,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }; //asset condition
 
           this.lookupService.getLookupValueByLookupTypeId(assetContparams).subscribe(function (res) {
-            _this24.assetConditionData = res.filter(function (item) {
+            _this22.assetConditionData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4093,7 +3014,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this24.vendorDataList = res.filter(function (item) {
+            _this22.vendorDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4101,7 +3022,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.assetService.getAllAssetMaintenancePlanByApartmentId(assetParams).subscribe(function (res) {
-            _this24.assetMaintenaceDataList = res.filter(function (item) {
+            _this22.assetMaintenaceDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4109,31 +3030,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             LookupTypeId: 64
           };
           this.lookupService.getLookupValueByLookupTypeId(statusparams).subscribe(function (res) {
-            _this24.statusTypeData = res;
+            _this22.statusTypeData = res;
           }, function (error) {}); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
               var params = {
                 assetId: id,
-                deleteBy: parseInt(_this24.cookieService.get('userId'))
+                deleteBy: parseInt(_this22.cookieService.get('userId'))
               };
 
-              _this24.assetService.deleteAsset(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this24.assetListData, function (type) {
+              _this22.assetService.deleteAsset(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this22.assetListData, function (type) {
                   if (type.assetId == id) {
                     type.isActive = false;
                   }
                 });
                 setTimeout(function () {
-                  _this24.assetListData = _this24.assetListData.filter(function (type) {
+                  _this22.assetListData = _this22.assetListData.filter(function (type) {
                     return type.assetId !== id;
                   });
-                  _this24.totalItems = _this24.assetListData.length;
+                  _this22.totalItems = _this22.assetListData.length;
 
-                  _this24.sharedService.setAlertMessage("Asset deleted");
+                  _this22.sharedService.setAlertMessage("Asset deleted");
 
-                  _this24.sharedService.setUnitListDeleteIndex(null);
+                  _this22.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -4316,7 +3237,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(LastMaintenanceComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this25 = this;
+          var _this23 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -4386,9 +3307,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.route.paramMap.subscribe(function (params) {
             if (params) {
-              _this25.assetId = params.get('id');
+              _this23.assetId = params.get('id');
 
-              _this25.getAssetById();
+              _this23.getAssetById();
             }
           });
           this.getAllCategory();
@@ -4418,7 +3339,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAssetById",
         value: function getAssetById() {
-          var _this26 = this;
+          var _this24 = this;
 
           if (this.assetId) {
             var params = {
@@ -4427,11 +3348,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.assetService.getAllAssetByAssetId(params).subscribe(function (res) {
               // this.assetList = res;
               if (res) {
-                _this26.gridSourceData = {
+                _this24.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this26.assetData = new jqx.dataAdapter(_this26.gridSourceData);
+                _this24.assetData = new jqx.dataAdapter(_this24.gridSourceData);
               }
             });
           }
@@ -4445,7 +3366,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this27 = this;
+          var _this25 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -4456,7 +3377,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this27.categoryList.push({
+                  _this25.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4468,7 +3389,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this28 = this;
+          var _this26 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -4477,7 +3398,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this28.subCategoryList.push({
+                  _this26.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4494,7 +3415,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this29 = this;
+          var _this27 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -4503,7 +3424,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this29.assetList.push({
+                  _this27.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -4862,7 +3783,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getMaintenaceHistory",
         value: function getMaintenaceHistory() {
-          var _this30 = this;
+          var _this28 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -4886,11 +3807,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var responeData = [];
               responeData = res;
               console.log(res);
-              _this30.gridSourceData = {
+              _this28.gridSourceData = {
                 localdata: responeData.length > 0 ? responeData : [],
                 datatype: "array"
               };
-              _this30.assetsHistoryData = new jqx.dataAdapter(_this30.gridSourceData);
+              _this28.assetsHistoryData = new jqx.dataAdapter(_this28.gridSourceData);
             }
           });
         }
@@ -4918,7 +3839,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this31 = this;
+          var _this29 = this;
 
           if (this.histroySearch != "") {
             var filterGroup = new jqx.filter();
@@ -4931,7 +3852,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this31.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this29.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -4942,7 +3863,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onStatusFilter",
         value: function onStatusFilter() {
-          var _this32 = this;
+          var _this30 = this;
 
           if (this.historyStatus != "") {
             var filterGroup = new jqx.filter();
@@ -4955,7 +3876,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield == 'historyStatus') {
-                _this32.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this30.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -4966,7 +3887,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this33 = this;
+          var _this31 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -4977,7 +3898,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this33.categoryList.push({
+                  _this31.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4989,7 +3910,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this34 = this;
+          var _this32 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -4998,7 +3919,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this34.subCategoryList.push({
+                  _this32.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -5015,7 +3936,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this35 = this;
+          var _this33 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -5024,7 +3945,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this35.assetList.push({
+                  _this33.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -5454,13 +4375,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ManageMaintenanceComponent, [{
         key: "onItemSelect",
         value: function onItemSelect(item) {
-          var _this36 = this;
+          var _this34 = this;
 
           var filterArr = [];
 
           if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
             this.tempMaintenanceList.filter(function (val) {
-              if (_this36.search.categorys && val.assetCategoryName === _this36.search.categorys[0].itemName || _this36.search.subCategory && val.assetSubcategoryName === _this36.search.subCategory[0].itemName || _this36.search.assets && val.assetName === _this36.search.assets[0].itemName) {
+              if (_this34.search.categorys && val.assetCategoryName === _this34.search.categorys[0].itemName || _this34.search.subCategory && val.assetSubcategoryName === _this34.search.subCategory[0].itemName || _this34.search.assets && val.assetName === _this34.search.assets[0].itemName) {
                 filterArr.push(val);
               }
             });
@@ -5499,7 +4420,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this37 = this;
+          var _this35 = this;
 
           this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]); // delete maintenance
 
@@ -5508,16 +4429,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var param = {};
               param = {
                 assetMaintenancePlanId: id,
-                deleteBy: parseInt(_this37.cookieService.get('userId'))
+                deleteBy: parseInt(_this35.cookieService.get('userId'))
               };
 
-              _this37.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
-                _this37.getMaintenaceList();
+              _this35.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
+                _this35.getMaintenaceList();
 
                 setTimeout(function () {
-                  _this37.sharedService.setAlertMessage("Maintenance  deleted successfully");
+                  _this35.sharedService.setAlertMessage("Maintenance  deleted successfully");
 
-                  _this37.sharedService.setUnitListDeleteIndex(null);
+                  _this35.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -5526,7 +4447,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           this.route.paramMap.subscribe(function (params) {
             if (params) {
-              _this37.assetId = params.get('id');
+              _this35.assetId = params.get('id');
             }
           }); // this.search.assetId = 17;
           // this.getAllCategory();
@@ -5570,7 +4491,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this38 = this;
+          var _this36 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -5581,7 +4502,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this38.categoryList.push({
+                  _this36.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -5593,7 +4514,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this39 = this;
+          var _this37 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -5602,7 +4523,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this39.subCategoryList.push({
+                  _this37.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -5619,7 +4540,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this40 = this;
+          var _this38 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -5628,7 +4549,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this40.assetList.push({
+                  _this38.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -5640,21 +4561,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getMaintenaceList",
         value: function getMaintenaceList() {
-          var _this41 = this;
+          var _this39 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
           params.active = 1;
           this.assetService.getAllAssetMaintenancePlanByApartmentIdStatus(params).subscribe(function (res) {
             if (res) {
-              _this41.maintenanceList = res.length > 0 ? res : [];
-              _this41.tempMaintenanceList = _this41.maintenanceList;
-              _this41.totalItems = _this41.maintenanceList.length;
+              _this39.maintenanceList = res.length > 0 ? res : [];
+              _this39.tempMaintenanceList = _this39.maintenanceList;
+              _this39.totalItems = _this39.maintenanceList.length;
 
-              if (_this41.totalItems > _this41.itemLimit) {
-                _this41.ItemEndIndex = _this41.itemLimit;
+              if (_this39.totalItems > _this39.itemLimit) {
+                _this39.ItemEndIndex = _this39.itemLimit;
               } else {
-                _this41.ItemEndIndex = _this41.totalItems;
+                _this39.ItemEndIndex = _this39.totalItems;
               }
             }
           });
