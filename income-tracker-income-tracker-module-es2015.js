@@ -1211,11 +1211,11 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
         else {
             this.invoiceGLAccountsData.amount = 0;
         }
-        this.calculateVat();
         this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - parseFloat(this.invoiceGLAccountsData.discountAmount);
         this.invoiceGLAccountsData.form = this.invoiceForm.valid;
         this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
         this.fieldParams.emit(this.invoiceGLAccountsArray);
+        this.calculateVat();
     }
     onCommentChange(value, index) {
         this.invoiceGLAccountsData.comments = value;
@@ -1262,11 +1262,11 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
             this.invoiceGLAccountsData.discountAmount = 0;
             this.invoiceGLAccountsData.discountDirectAmt = 0;
         }
-        this.calculateVat();
         this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - this.invoiceGLAccountsData.discountAmount;
         this.invoiceGLAccountsData.form = this.invoiceForm.valid;
         this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
         this.fieldParams.emit(this.invoiceGLAccountsArray);
+        this.calculateVat();
     }
     calculateDiscountPeso(value, index) {
         if (value != null) {
@@ -1277,28 +1277,29 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
             this.invoiceGLAccountsData.discountAmount = 0;
             this.invoiceGLAccountsData.discountDirectAmt = 0;
         }
-        this.calculateVat();
         this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - this.invoiceGLAccountsData.discountAmount;
         this.invoiceGLAccountsData.form = this.invoiceForm.valid;
         this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
         this.fieldParams.emit(this.invoiceGLAccountsArray);
+        this.calculateVat();
     }
     onVatChange(event, index) {
         if (event != null) {
             this.invoiceGLAccountsData.isTax = true;
             this.invoiceGLAccountsData.vatid = event.lookupValueName;
             var percent = parseFloat(event.lookupValueName) / 100;
-            this.custInvoiceTaxData.invoiceTaxId = event.lookupValueId;
-            this.currentVatLookupId = event.lookupValueId;
             this.custInvoiceTaxData.isAdded = true;
+            this.custInvoiceTaxData.invoiceTaxId = event.lookupValueId;
+            this.custInvoiceTaxData.custInvoiceId = new Date().valueOf(); // generate unique id;
+            this.currentTaxId = event.lookupValueId;
             this.custInvoiceTaxData.invoiceTotalAmount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
             this.taxParams.emit(this.custInvoiceTaxData);
         }
         else {
             this.invoiceGLAccountsData.isTax = false;
-            this.invoiceGLAccountsData.vatid = "";
+            this.invoiceGLAccountsData.vatid = 0;
             var percent = 0;
-            this.custInvoiceTaxData.invoiceTaxId = this.currentVatLookupId;
+            this.custInvoiceTaxData.invoiceTaxId = this.currentTaxId;
             this.custInvoiceTaxData.isAdded = false;
             this.custInvoiceTaxData.invoiceTotalAmount = 0;
             this.taxParams.emit(this.custInvoiceTaxData);
@@ -1310,22 +1311,10 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
     }
     calculateVat() {
         if (this.invoiceGLAccountsData.isTax) {
-            var percent = parseFloat(this.invoiceGLAccountsData.vatid) / 100;
+            var percent = parseInt(this.invoiceGLAccountsData.vatid) / 100;
             this.invoiceGLAccountsData.vatamount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
             this.custInvoiceTaxData.invoiceTotalAmount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
             this.taxParams.emit(this.custInvoiceTaxData);
-            if (this.invoiceGLAccountsData.vatid == "12.5") {
-                this.invoiceGLAccountsData.tax1Id = "12.5";
-                this.invoiceGLAccountsData.tax2Id = "";
-                this.invoiceGLAccountsData.tax1Amount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
-                this.invoiceGLAccountsData.tax2Amount = 0;
-            }
-            else {
-                this.invoiceGLAccountsData.tax2Id = "15";
-                this.invoiceGLAccountsData.tax1Id = "";
-                this.invoiceGLAccountsData.tax2Amount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
-                this.invoiceGLAccountsData.tax1Amount = 0;
-            }
         }
     }
     ngOnInit() {
@@ -1525,23 +1514,22 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
     }
     getCustTaxInvoiceParams(event) {
         if (event.isAdded) {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, item => {
-                if (item.lookupValueId == event.invoiceTaxId) {
-                    item.custVatTypeAmount = parseFloat(event.invoiceTotalAmount).toFixed(2);
-                }
-            });
-            this.custInvoiceTaxArray.push(event);
+            if (!this.custInvoiceTaxArray.includes(event))
+                this.custInvoiceTaxArray.push(event);
         }
         else {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, item => {
-                if (item.lookupValueId == event.invoiceTaxId) {
-                    item.custVatTypeAmount = 0;
-                }
-            });
             this.custInvoiceTaxArray = this.custInvoiceTaxArray.filter(item => {
-                return item.invoiceTaxId != event.invoiceTaxId;
+                return item.custInvoiceId != event.custInvoiceId;
             });
         }
+        this.vatTypeDataList.forEach(item => {
+            var data = this.custInvoiceTaxArray.filter(invoice => {
+                return item.lookupValueId == invoice.invoiceTaxId;
+            });
+            item.custVatTypeAmount = data.reduce((total, invoice) => {
+                return total + invoice.invoiceTotalAmount;
+            }, 0);
+        });
     }
     onDiscountFinalChange(event) {
         if (event != null) {
