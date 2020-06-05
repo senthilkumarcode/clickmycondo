@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poiManagement\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower</label>\n          <select class=\"form-control\" >\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" >\n            <!--<option value=\"\">None</option>-->\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" (click)=\"browseFile()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/poiAdd.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/brand-jpg.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/brand-png.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" (change)=\"mapUpload($event)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poiManagement\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower{{selectedTower}}</label>\n          <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n            <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n            <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      </div>\n      <div class=\"col-md-6 d-flex justify-content-end align-items-center\">\n        <button class=\"btn blue\" *ngIf=\"isShowBuilder\" (click)=\"updateProperty()\" >\n          Publish\n        </button>\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" (click)=\"browseFile()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" (change)=\"mapUpload($event)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>");
 
 /***/ }),
 
@@ -300,19 +300,113 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddFloorUnitGraphicComponent", function() { return AddFloorUnitGraphicComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
+/* harmony import */ var _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/controllers/Document */ "./src/app/api/controllers/Document.ts");
+
+
+
+
 
 
 var graph;
 let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
-    constructor(element) {
+    constructor(element, apartmentService, documentService, cookieService, fileDetailService) {
         this.element = element;
+        this.apartmentService = apartmentService;
+        this.documentService = documentService;
+        this.cookieService = cookieService;
+        this.fileDetailService = fileDetailService;
         this.loading = true;
         this.isShowBuilder = false;
         this.bNo = 0;
         this.fNo = 0;
+        this.towerList = [];
+        this.floorList = [];
+    }
+    onKeyDown(event) {
+        let e = event;
+        if (e.shiftKey && e.keyCode === 46) {
+            graph.deleteSelected();
+            // this.updateGraph();
+        }
     }
     ngOnInit() {
         this.bootMe();
+        this.getBlockList();
+    }
+    getBlockList() {
+        let param = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(param).subscribe((resp) => {
+            this.towerList = resp;
+            this.selectedTower = this.towerList[0].apartmentBlockId;
+            this.getFloorList();
+        }, error => {
+        });
+    }
+    getFloorList() {
+        let getFloorParam = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentblockId: this.selectedTower
+        };
+        this.apartmentService.getApartmentBlockFloorByApartmentIdBlockId(getFloorParam).subscribe((resp) => {
+            this.floorList = resp;
+            this.selectedFloor = this.floorList[0].apartmentBlockFloorId;
+            this.getPropertyMap(this.floorList[0].PropertymapfileID);
+        }, error => {
+        });
+    }
+    selectFloor() {
+        if (this.selectedFloor) {
+            this.floorList.filter(key => {
+                if (key.FloorID == this.selectedFloor) {
+                    this.getPropertyMap(key.PropertymapfileID);
+                }
+            });
+        }
+    }
+    getPropertyMap(propertyId) {
+        let getFloorProperty = {
+            propertyMapFileId: propertyId
+        };
+        this.apartmentService.getPropertyMapFileById(getFloorProperty).subscribe((resp) => {
+            this.floorPropertyData = resp;
+            this.assignData(this.floorPropertyData);
+        }, error => {
+        });
+    }
+    assignData(data) {
+        if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0 && data.mapJsonFile != "") {
+            this.isShowBuilder = true;
+            setTimeout(() => {
+                graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
+                graph.deleteGraph();
+                localStorage.setItem('graphData', data.mapJsonFile);
+                graph.customGraphUpdate();
+            }, 1);
+        }
+        else if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0) {
+            this.isShowBuilder = true;
+            setTimeout(() => {
+                graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
+            }, 1);
+        }
+        else {
+            this.isShowBuilder = false;
+        }
+    }
+    getImage(floorPictureFileDetailsId) {
+        let downloadParam = {
+            fileNameOnBlob: floorPictureFileDetailsId,
+            savefileNameWithPath: ''
+        };
+        this.fileDetailService.downloadAsync(downloadParam).subscribe(resp => {
+            return resp;
+        }, error => {
+        });
     }
     bootMe() {
         let docEl = document.documentElement, bodyEl = document.getElementsByTagName('body')[0];
@@ -335,15 +429,155 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
             graph.customImageUpdalod(reader.result);
         };
         reader.readAsDataURL(event.target.files[0]);
+        console.log('files', event.target.files);
+        this.uploadImage(event.target.files[0]);
         this.isShowBuilder = true;
-        // }else{
-        // var fileUpload = $(this.element.nativeElement).find("input[id='hidden-bg-upload']");
-        // fileUpload.trigger("click");
-        // this.isShowBuilder = true;
-        // setTimeout(() =>{
-        //   this.isShowBuilder = false;
-        // },300)
         // }
+    }
+    uploadImage(event) {
+        let file = event;
+        console.log('file', file);
+        let uploadParam = {
+            file: file,
+            Description: 'FileName',
+            InsertedBy: parseInt(this.cookieService.get('userId')),
+            ApartmentID: parseInt(this.cookieService.get('apartmentId'))
+        };
+        console.log('formdata', uploadParam);
+        this.fileDetailService.addFileDetailsWithFileOption(uploadParam).subscribe((resp) => {
+            if (resp && resp.error) {
+            }
+            else {
+                this.addPropertyMap(resp);
+            }
+        }, error => {
+        });
+        // let uploadDetails = {
+        //   "ApartmentId" : parseInt(this.cookieService.get('apartmentId')),
+        //   "ApartmentBlockUnitId" : 20,
+        //   "UserDocumentCategoryId" : 222,
+        //   "UserDocumentTypeId" : 1,
+        //   "UserDocumentAccessibleToId" :1,
+        //   "UserId" : null,
+        //   "UserDocumentName" : 'test',
+        //   "Description" : "test document",
+        //   "IsActive":true,
+        //   "InsertedBy":1,
+        //   "IsPublic" : true,
+        //   "files" : event
+        // }
+        // this.documentService.addUserDocument(uploadDetails).subscribe((res:any) => {       
+        //   // this.getCategoryData(this.uploadcategoryId)
+        // },
+        // error => {
+        //   console.log(error)
+        // });    
+    }
+    addPropertyMap(imageId) {
+        this.downloadGraph();
+        let addPropertyMap = {
+            propertyMapFile: {
+                "propertyMapFileId": 0,
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentBlockId": 0,
+                "description": "",
+                "isIndoor": true,
+                "floorno": 0,
+                "floorLabel": "",
+                "floorPictureFileDetailsId": imageId,
+                "mapJsonFile": JSON.stringify(this.updatedGraph),
+                "isActive": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": 0,
+                "updatedOn": new Date().toISOString(),
+                "apartmentBlockFloorId": 0
+            }
+        };
+        this.apartmentService.addPropertyMapFile(addPropertyMap).subscribe((resp) => {
+            console.log('resp', resp);
+            this.floorPropertyData = resp;
+            this.assignData(this.floorPropertyData);
+        }, error => {
+        });
+    }
+    updateProperty() {
+        this.downloadGraph();
+        let updatePropertyMap = {
+            propertyMapFile: {
+                "propertyMapFileId": this.floorPropertyData.propertyMapFileId,
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentBlockId": 0,
+                "description": "",
+                "isIndoor": true,
+                "floorno": 0,
+                "floorLabel": "",
+                "floorPictureFileDetailsId": this.floorPropertyData.floorPictureFileDetailsId,
+                "mapJsonFile": JSON.stringify(this.updatedGraph),
+                "isActive": true,
+                "insertedBy": 0,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedOn": new Date().toISOString(),
+                "apartmentBlockFloorId": 0
+            }
+        };
+        this.apartmentService.updatePropertyMapFile(updatePropertyMap).subscribe((resp) => {
+            console.log('resp', resp);
+            this.floorPropertyData = resp;
+            this.assignData(this.floorPropertyData);
+        }, error => {
+        });
+    }
+    downloadGraph() {
+        var savePFNodes = [];
+        var saveEdges = [];
+        var savePFEdges = [];
+        var prefix = this.bNo + "_" + this.fNo + "_";
+        var sid, tid;
+        var nobj;
+        this.savePFNode = [];
+        graph.nodes.forEach(function (val, i) {
+            nobj = {};
+            nobj.id = prefix + val.id;
+            nobj.x = val.x;
+            nobj.y = val.y;
+            nobj.poiId = val.poiId;
+            nobj.kind = val.kind;
+            savePFNodes.push(nobj);
+        });
+        this.savePFNode = savePFNodes;
+        graph.edges.forEach(function (val, i) {
+            saveEdges.push({ source: val.source.id, target: val.target.id });
+            sid = prefix + val.source.id;
+            tid = prefix + val.target.id;
+            savePFEdges.push({ source: sid, target: tid });
+        });
+        var fullObj = {
+            maponly: {
+                idct: graph.idct,
+                buildingNo: this.bNo,
+                floorNo: this.fNo,
+                nodes: graph.nodes,
+                edges: saveEdges
+            }, output: {
+                floorNo: this.fNo,
+                nodes: savePFNodes,
+                edges: savePFEdges
+            }
+        };
+        this.updatedGraph = fullObj;
+        /*fullObj.maponly.idct = graph.idct
+        fullObj.maponly.buildingNo = this.bNo
+        fullObj.maponly.floorNo = this.fNo
+        fullObj.maponly.nodes = graph.nodes
+        fullObj.maponly.edges = saveEdges
+        fullObj.output.floorNo = this.fNo
+        fullObj.output.nodes = savePFNodes
+        fullObj.output.edges = savePFEdges*/
+        // var blob = new Blob([JSON.stringify(fullObj)], {type: "text/plain;charset=utf-8"});
+        // //for time being commented out
+        // saveAs(blob, "mydag.json");
     }
     browseFile() {
         var fileUpload = $(this.element.nativeElement).find("input[id='hidden-bg-upload']");
@@ -351,7 +585,11 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     }
 };
 AddFloorUnitGraphicComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
+    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
+    { type: _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
+    { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('poiId'),
@@ -365,13 +603,23 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('nodeKind'),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
 ], AddFloorUnitGraphicComponent.prototype, "nodeKind", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('document:keydown', ['$event']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], AddFloorUnitGraphicComponent.prototype, "onKeyDown", null);
 AddFloorUnitGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-add-floor-unit-graphic',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-floor-unit-graphic.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-floor-unit-graphic.component.scss */ "./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
+        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
+        _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
+        src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"]])
 ], AddFloorUnitGraphicComponent);
 
 

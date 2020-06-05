@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"poiManagement\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower</label>\n          <select class=\"form-control\" >\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" >\n            <!--<option value=\"\">None</option>-->\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" (click)=\"browseFile()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/poiAdd.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/brand-jpg.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/brand-png.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" (change)=\"mapUpload($event)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>";
+    __webpack_exports__["default"] = "<div class=\"poiManagement\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower{{selectedTower}}</label>\n          <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n            <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n            <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      </div>\n      <div class=\"col-md-6 d-flex justify-content-end align-items-center\">\n        <button class=\"btn blue\" *ngIf=\"isShowBuilder\" (click)=\"updateProperty()\" >\n          Publish\n        </button>\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" (click)=\"browseFile()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" (change)=\"mapUpload($event)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>";
     /***/
   },
 
@@ -487,26 +487,157 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../../api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/FileDetails */
+    "./src/app/api/controllers/FileDetails.ts");
+    /* harmony import */
+
+
+    var _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../api/controllers/Document */
+    "./src/app/api/controllers/Document.ts");
 
     var graph;
 
     var AddFloorUnitGraphicComponent =
     /*#__PURE__*/
     function () {
-      function AddFloorUnitGraphicComponent(element) {
+      function AddFloorUnitGraphicComponent(element, apartmentService, documentService, cookieService, fileDetailService) {
         _classCallCheck(this, AddFloorUnitGraphicComponent);
 
         this.element = element;
+        this.apartmentService = apartmentService;
+        this.documentService = documentService;
+        this.cookieService = cookieService;
+        this.fileDetailService = fileDetailService;
         this.loading = true;
         this.isShowBuilder = false;
         this.bNo = 0;
         this.fNo = 0;
+        this.towerList = [];
+        this.floorList = [];
       }
 
       _createClass(AddFloorUnitGraphicComponent, [{
+        key: "onKeyDown",
+        value: function onKeyDown(event) {
+          var e = event;
+
+          if (e.shiftKey && e.keyCode === 46) {
+            graph.deleteSelected(); // this.updateGraph();
+          }
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
           this.bootMe();
+          this.getBlockList();
+        }
+      }, {
+        key: "getBlockList",
+        value: function getBlockList() {
+          var _this2 = this;
+
+          var param = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(param).subscribe(function (resp) {
+            _this2.towerList = resp;
+            _this2.selectedTower = _this2.towerList[0].apartmentBlockId;
+
+            _this2.getFloorList();
+          }, function (error) {});
+        }
+      }, {
+        key: "getFloorList",
+        value: function getFloorList() {
+          var _this3 = this;
+
+          var getFloorParam = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentblockId: this.selectedTower
+          };
+          this.apartmentService.getApartmentBlockFloorByApartmentIdBlockId(getFloorParam).subscribe(function (resp) {
+            _this3.floorList = resp;
+            _this3.selectedFloor = _this3.floorList[0].apartmentBlockFloorId;
+
+            _this3.getPropertyMap(_this3.floorList[0].PropertymapfileID);
+          }, function (error) {});
+        }
+      }, {
+        key: "selectFloor",
+        value: function selectFloor() {
+          var _this4 = this;
+
+          if (this.selectedFloor) {
+            this.floorList.filter(function (key) {
+              if (key.FloorID == _this4.selectedFloor) {
+                _this4.getPropertyMap(key.PropertymapfileID);
+              }
+            });
+          }
+        }
+      }, {
+        key: "getPropertyMap",
+        value: function getPropertyMap(propertyId) {
+          var _this5 = this;
+
+          var getFloorProperty = {
+            propertyMapFileId: propertyId
+          };
+          this.apartmentService.getPropertyMapFileById(getFloorProperty).subscribe(function (resp) {
+            _this5.floorPropertyData = resp;
+
+            _this5.assignData(_this5.floorPropertyData);
+          }, function (error) {});
+        }
+      }, {
+        key: "assignData",
+        value: function assignData(data) {
+          var _this6 = this;
+
+          if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0 && data.mapJsonFile != "") {
+            this.isShowBuilder = true;
+            setTimeout(function () {
+              graph.customImageUpdalod(_this6.getImage(data.floorPictureFileDetailsId));
+              graph.deleteGraph();
+              localStorage.setItem('graphData', data.mapJsonFile);
+              graph.customGraphUpdate();
+            }, 1);
+          } else if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0) {
+            this.isShowBuilder = true;
+            setTimeout(function () {
+              graph.customImageUpdalod(_this6.getImage(data.floorPictureFileDetailsId));
+            }, 1);
+          } else {
+            this.isShowBuilder = false;
+          }
+        }
+      }, {
+        key: "getImage",
+        value: function getImage(floorPictureFileDetailsId) {
+          var downloadParam = {
+            fileNameOnBlob: floorPictureFileDetailsId,
+            savefileNameWithPath: ''
+          };
+          this.fileDetailService.downloadAsync(downloadParam).subscribe(function (resp) {
+            return resp;
+          }, function (error) {});
         }
       }, {
         key: "bootMe",
@@ -535,14 +666,171 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           reader.readAsDataURL(event.target.files[0]);
-          this.isShowBuilder = true; // }else{
-          // var fileUpload = $(this.element.nativeElement).find("input[id='hidden-bg-upload']");
-          // fileUpload.trigger("click");
-          // this.isShowBuilder = true;
-          // setTimeout(() =>{
-          //   this.isShowBuilder = false;
-          // },300)
+          console.log('files', event.target.files);
+          this.uploadImage(event.target.files[0]);
+          this.isShowBuilder = true; // }
+        }
+      }, {
+        key: "uploadImage",
+        value: function uploadImage(event) {
+          var _this7 = this;
+
+          var file = event;
+          console.log('file', file);
+          var uploadParam = {
+            file: file,
+            Description: 'FileName',
+            InsertedBy: parseInt(this.cookieService.get('userId')),
+            ApartmentID: parseInt(this.cookieService.get('apartmentId'))
+          };
+          console.log('formdata', uploadParam);
+          this.fileDetailService.addFileDetailsWithFileOption(uploadParam).subscribe(function (resp) {
+            if (resp && resp.error) {} else {
+              _this7.addPropertyMap(resp);
+            }
+          }, function (error) {}); // let uploadDetails = {
+          //   "ApartmentId" : parseInt(this.cookieService.get('apartmentId')),
+          //   "ApartmentBlockUnitId" : 20,
+          //   "UserDocumentCategoryId" : 222,
+          //   "UserDocumentTypeId" : 1,
+          //   "UserDocumentAccessibleToId" :1,
+          //   "UserId" : null,
+          //   "UserDocumentName" : 'test',
+          //   "Description" : "test document",
+          //   "IsActive":true,
+          //   "InsertedBy":1,
+          //   "IsPublic" : true,
+          //   "files" : event
           // }
+          // this.documentService.addUserDocument(uploadDetails).subscribe((res:any) => {       
+          //   // this.getCategoryData(this.uploadcategoryId)
+          // },
+          // error => {
+          //   console.log(error)
+          // });    
+        }
+      }, {
+        key: "addPropertyMap",
+        value: function addPropertyMap(imageId) {
+          var _this8 = this;
+
+          this.downloadGraph();
+          var addPropertyMap = {
+            propertyMapFile: {
+              "propertyMapFileId": 0,
+              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentBlockId": 0,
+              "description": "",
+              "isIndoor": true,
+              "floorno": 0,
+              "floorLabel": "",
+              "floorPictureFileDetailsId": imageId,
+              "mapJsonFile": JSON.stringify(this.updatedGraph),
+              "isActive": true,
+              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": 0,
+              "updatedOn": new Date().toISOString(),
+              "apartmentBlockFloorId": 0
+            }
+          };
+          this.apartmentService.addPropertyMapFile(addPropertyMap).subscribe(function (resp) {
+            console.log('resp', resp);
+            _this8.floorPropertyData = resp;
+
+            _this8.assignData(_this8.floorPropertyData);
+          }, function (error) {});
+        }
+      }, {
+        key: "updateProperty",
+        value: function updateProperty() {
+          var _this9 = this;
+
+          this.downloadGraph();
+          var updatePropertyMap = {
+            propertyMapFile: {
+              "propertyMapFileId": this.floorPropertyData.propertyMapFileId,
+              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentBlockId": 0,
+              "description": "",
+              "isIndoor": true,
+              "floorno": 0,
+              "floorLabel": "",
+              "floorPictureFileDetailsId": this.floorPropertyData.floorPictureFileDetailsId,
+              "mapJsonFile": JSON.stringify(this.updatedGraph),
+              "isActive": true,
+              "insertedBy": 0,
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": parseInt(this.cookieService.get('userId')),
+              "updatedOn": new Date().toISOString(),
+              "apartmentBlockFloorId": 0
+            }
+          };
+          this.apartmentService.updatePropertyMapFile(updatePropertyMap).subscribe(function (resp) {
+            console.log('resp', resp);
+            _this9.floorPropertyData = resp;
+
+            _this9.assignData(_this9.floorPropertyData);
+          }, function (error) {});
+        }
+      }, {
+        key: "downloadGraph",
+        value: function downloadGraph() {
+          var savePFNodes = [];
+          var saveEdges = [];
+          var savePFEdges = [];
+          var prefix = this.bNo + "_" + this.fNo + "_";
+          var sid, tid;
+          var nobj;
+          this.savePFNode = [];
+          graph.nodes.forEach(function (val, i) {
+            nobj = {};
+            nobj.id = prefix + val.id;
+            nobj.x = val.x;
+            nobj.y = val.y;
+            nobj.poiId = val.poiId;
+            nobj.kind = val.kind;
+            savePFNodes.push(nobj);
+          });
+          this.savePFNode = savePFNodes;
+          graph.edges.forEach(function (val, i) {
+            saveEdges.push({
+              source: val.source.id,
+              target: val.target.id
+            });
+            sid = prefix + val.source.id;
+            tid = prefix + val.target.id;
+            savePFEdges.push({
+              source: sid,
+              target: tid
+            });
+          });
+          var fullObj = {
+            maponly: {
+              idct: graph.idct,
+              buildingNo: this.bNo,
+              floorNo: this.fNo,
+              nodes: graph.nodes,
+              edges: saveEdges
+            },
+            output: {
+              floorNo: this.fNo,
+              nodes: savePFNodes,
+              edges: savePFEdges
+            }
+          };
+          this.updatedGraph = fullObj;
+          /*fullObj.maponly.idct = graph.idct
+          fullObj.maponly.buildingNo = this.bNo
+          fullObj.maponly.floorNo = this.fNo
+          fullObj.maponly.nodes = graph.nodes
+          fullObj.maponly.edges = saveEdges
+          fullObj.output.floorNo = this.fNo
+          fullObj.output.nodes = savePFNodes
+          fullObj.output.edges = savePFEdges*/
+          // var blob = new Blob([JSON.stringify(fullObj)], {type: "text/plain;charset=utf-8"});
+          // //for time being commented out
+          // saveAs(blob, "mydag.json");
         }
       }, {
         key: "browseFile",
@@ -558,12 +846,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     AddFloorUnitGraphicComponent.ctorParameters = function () {
       return [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+      }, {
+        type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+      }, {
+        type: _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+      }, {
+        type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"]
       }];
     };
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('poiId'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])], AddFloorUnitGraphicComponent.prototype, "poiId", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('nodeId'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])], AddFloorUnitGraphicComponent.prototype, "nodeId", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('nodeKind'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])], AddFloorUnitGraphicComponent.prototype, "nodeKind", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('document:keydown', ['$event']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], AddFloorUnitGraphicComponent.prototype, "onKeyDown", null);
     AddFloorUnitGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-add-floor-unit-graphic',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -572,7 +869,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-floor-unit-graphic.component.scss */
       "./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])], AddFloorUnitGraphicComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"]])], AddFloorUnitGraphicComponent);
     /***/
   },
 
@@ -746,20 +1043,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getApartmentTowerAndFloor",
         value: function getApartmentTowerAndFloor(pagetype) {
-          var _this2 = this;
+          var _this10 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
             if (res.length > 0) {
-              _this2.pageType = pagetype;
-              _this2.noOfTowers = res.length;
-              _this2.tableInfo = true;
-              _this2.formData = [];
+              _this10.pageType = pagetype;
+              _this10.noOfTowers = res.length;
+              _this10.tableInfo = true;
+              _this10.formData = [];
 
               for (var i = 0; i < res.length; i++) {
-                _this2.floorControlArray.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+                _this10.floorControlArray.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
                   'apartmentBlock': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]({
                     value: "Tower".concat(i + 1),
                     disabled: true
@@ -771,27 +1068,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }));
 
                 var blockId = {
-                  apartmentId: parseInt(_this2.cookieService.get('apartmentId')),
+                  apartmentId: parseInt(_this10.cookieService.get('apartmentId')),
                   apartmentBlockId: res[i].apartmentBlockId
                 };
 
-                _this2.initalFloor(blockId, res[i], i);
+                _this10.initalFloor(blockId, res[i], i);
               }
             } else {
-              _this2.pageType = 'create';
+              _this10.pageType = 'create';
             }
           });
         }
       }, {
         key: "initalFloor",
         value: function initalFloor(blockId, tower, index) {
-          var _this3 = this;
+          var _this11 = this;
 
           this.apartmentService.getViewFloorNoBlockUnitNumberByApartmentId(blockId).subscribe(function (res) {
             if (res.length > 0) {
               res[0].apartmentBlockNumber = tower.apartmentBlockNumber;
               res[0].button = false;
-              res[0].edit = _this3.pageType == 'create' ? false : true;
+              res[0].edit = _this11.pageType == 'create' ? false : true;
               res.forEach(function (data) {
                 data.apartmentBlockUnitNumber = data.apartmentBlockUnitNumbers;
                 var unitSplit = data.apartmentBlockUnitNumbers.split(',');
@@ -813,7 +1110,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
 
-              _this3.formData.splice(index, 0, res);
+              _this11.formData.splice(index, 0, res);
             } else {
               for (var _i = 0; _i < tower.totalnofloors; _i++) {
                 var _entity = {
@@ -834,14 +1131,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 res.push(_entity);
               }
 
-              _this3.formData.splice(index, 0, res);
+              _this11.formData.splice(index, 0, res);
             }
           });
         }
       }, {
         key: "towerSubmit",
         value: function towerSubmit() {
-          var _this4 = this;
+          var _this12 = this;
 
           var params = {};
           params.apartmentBlocks = [];
@@ -863,7 +1160,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var apiMethod = this.pageType == 'create' ? 'addApartmentBlock' : 'updateApartmentBlock';
           this.apartmentService[apiMethod](params).subscribe(function (res) {
-            _this4.getApartmentTowerAndFloor(_this4.pageType);
+            _this12.getApartmentTowerAndFloor(_this12.pageType);
           });
         }
       }, {
@@ -893,7 +1190,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "newTowerSubmit",
         value: function newTowerSubmit() {
-          var _this5 = this;
+          var _this13 = this;
 
           var params = {};
           params.apartmentBlocks = [];
@@ -914,38 +1211,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.apartmentService.addApartmentBlock(params).subscribe(function (res) {
-            _this5.getApartmentTowerAndFloor('edit');
+            _this13.getApartmentTowerAndFloor('edit');
 
-            _this5.newTower = false;
+            _this13.newTower = false;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this6 = this;
+          var _this14 = this;
 
           this.getApartmentTowerAndFloor('edit');
           this.towerSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["distinctUntilChanged"])()).subscribe(function (value) {
-            _this6.formData = [];
+            _this14.formData = [];
 
-            if (_this6.noOfTowers > 0) {
-              _this6.tableInfo = true;
+            if (_this14.noOfTowers > 0) {
+              _this14.tableInfo = true;
 
-              if (_this6.floorControlArray.length > 0) {
-                while (_this6.floorControlArray.length != 0) {
-                  _this6.floorControlArray.removeAt(0);
+              if (_this14.floorControlArray.length > 0) {
+                while (_this14.floorControlArray.length != 0) {
+                  _this14.floorControlArray.removeAt(0);
                 }
 
-                for (var i = 0; i < _this6.noOfTowers; i++) {
-                  _this6.addTower(i);
+                for (var i = 0; i < _this14.noOfTowers; i++) {
+                  _this14.addTower(i);
                 }
               } else {
-                for (var _i2 = 0; _i2 < _this6.noOfTowers; _i2++) {
-                  _this6.addTower(_i2);
+                for (var _i2 = 0; _i2 < _this14.noOfTowers; _i2++) {
+                  _this14.addTower(_i2);
                 }
               }
             } else {
-              _this6.tableInfo = false;
+              _this14.tableInfo = false;
             }
           });
         }
@@ -1088,13 +1385,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this7 = this;
+          var _this15 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this7.unitBlocksData = res;
+            _this15.unitBlocksData = res;
           });
           this.unitArray = Array(this.unitCount).fill(0).map(function (x, i) {
             return i;
@@ -1229,7 +1526,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddUnitForm",
         value: function submitAddUnitForm(form) {
-          var _this8 = this;
+          var _this16 = this;
 
           this.isUnitSubmitted = true;
           this.apartmentBlockUnit = {
@@ -1255,26 +1552,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentBlockUnits: this.apartmentBlockUnit
           };
           this.apartmentService.addApartmentBlockUnit(params).subscribe(function (res) {
-            _this8.isUnitAdded = true;
+            _this16.isUnitAdded = true;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this17 = this;
 
           this.unit = {};
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this9.unitBlocksData = res;
+            _this17.unitBlocksData = res;
           });
           var unitParams = {
             LookupTypeId: 1
           };
           this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
-            _this9.unitTypeData = res;
+            _this17.unitTypeData = res;
           });
         }
       }]);

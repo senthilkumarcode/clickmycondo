@@ -252,10 +252,10 @@ GraphCreator.prototype.customImageUpdalod = function (imageSrc) {
 
 GraphCreator.prototype.customGraphUpdate = function () {
   var thisGraph  =this;
-//   if(localStorage.getItem('graphData')){
-    // var fullObj = JSON.parse(localStorage.getItem('graphData'));
-    // var jsonObj = fullObj.maponly; //new structure
-//   }
+  if(localStorage.getItem('graphData')){
+    var fullObj = JSON.parse(localStorage.getItem('graphData'));
+    var jsonObj = fullObj.maponly; //new structure
+  }
   thisGraph.deleteGraph(true);
   thisGraph.nodes = jsonObj.nodes;
   //thisGraph.setIdCt(jsonObj.nodes.length + 1);
@@ -594,7 +594,7 @@ GraphCreator.prototype.updateGraph = function() {
     // add new nodes
     var newGs = thisGraph.circles.enter().append("g");
   newGs.attr('class', function(d) {
-    // localStorage.setItem('poiInfo',JSON.stringify(d));
+    localStorage.setItem('poiInfo',JSON.stringify(d));
     if (d.kind === 'P') {
       return consts.circlePOIClass
     } else if (d.kind === 'E') {
