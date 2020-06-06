@@ -815,6 +815,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onPrivateCatDelete(detail) {
           var dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
           var lookupValueId = dataRecord.lookupValueId;
+          console.log("lookupValueId", lookupValueId);
           this.modalService.showConfirmModal(lookupValueId);
         }
       }, {
@@ -899,7 +900,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.commonData = [{
             text: 'Category',
             datafield: 'lookupValueName',
-            width: 100,
+            width: 200,
             pinned: true,
             cellsrenderer: cellsrendererCommon,
             renderer: columnrendererCommon
@@ -942,7 +943,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editCommonCatEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEventCommon(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
             },
             renderer: columnrendererCommon
-          }]; //get all staff type
+          }]; //get all ticketType type
 
           var ticketType = {
             LookupTypeId: 7
@@ -950,13 +951,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.lookupService.getLookupValueByLookupTypeId(ticketType).subscribe(function (res) {
             _this6.ticketTypeData = res;
             _this6.isTicketAddLoaded = true;
-          }, function (error) {}); //get all private category
+          }, function (error) {}); //get all category
+
+          this.getTicketListByCategory(); // delete lookupvalue
+
+          this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValue) {
+            _this6.isCategoryDataLoaded = false;
+
+            if (lookupValue != null) {
+              var deleteParam = {
+                "lookupValueId": lookupValue,
+                "updateUserId": parseInt(_this6.cookieService.get('userId'))
+              };
+
+              _this6.lookupService.deleteLookupvalue(deleteParam).subscribe(function (res) {
+                _this6.getTicketListByCategory();
+              }, function (error) {
+                _this6.isError = true;
+                _this6.errorMessage = 'Could not delete ticket category ';
+              });
+            }
+          });
+        }
+      }, {
+        key: "getTicketListByCategory",
+        value: function getTicketListByCategory() {
+          var _this7 = this;
 
           var categoryParams = {
             LookupTypeId: 16
           };
           this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-            _this6.privateCategory = res.filter(function (item) {
+            _this7.privateCategory = res.filter(function (item) {
               return item['isActive'] === true;
             });
             var categoryPrivateListData = res.filter(function (item) {
@@ -965,75 +991,44 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             categoryPrivateListData.forEach(function (element) {
               element.lookupValueName === "Electrical" ? (element.supervisor_name = "David", element.level1 = "john", element.level2 = "daniel", element.l1escdays = 8, element.l2escdays = 5) : element.lookupValueName === "Painting" ? element.supervisor_name = "John" : element.lookupValueName === "Refrigerator" ? element.supervisor_name = "Sam" : '';
             });
-            _this6.categoryPrivateListData = categoryPrivateListData;
+            _this7.categoryPrivateListData = categoryPrivateListData;
 
-            _this6.categoryPrivateListData.sort(function (a, b) {
+            _this7.categoryPrivateListData.sort(function (a, b) {
               return a.lookupValueName.localeCompare(b.lookupValueName);
             });
 
-            _this6.gridSourceDataPrivate = {
-              localdata: _this6.categoryPrivateListData,
+            _this7.gridSourceDataPrivate = {
+              localdata: _this7.categoryPrivateListData,
               datatype: "array"
             };
-            _this6.categoryPrivateListData = new jqx.dataAdapter(_this6.gridSourceDataPrivate); //get all common category
+            _this7.categoryPrivateListData = new jqx.dataAdapter(_this7.gridSourceDataPrivate); //get all common category
 
             var commonListParams = {
               LookupTypeId: 17
             };
 
-            _this6.lookupService.getLookupValueByLookupTypeId(commonListParams).subscribe(function (res) {
-              _this6.commonCategory = res.filter(function (item) {
+            _this7.lookupService.getLookupValueByLookupTypeId(commonListParams).subscribe(function (res) {
+              _this7.commonCategory = res.filter(function (item) {
                 return item['isActive'] === true;
               });
+              console.log("this.commonCategory", _this7.commonCategory);
               var categoryCommonListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this6.categoryCommonListData = categoryCommonListData;
+              _this7.categoryCommonListData = categoryCommonListData;
 
-              _this6.categoryCommonListData.sort(function (a, b) {
+              _this7.categoryCommonListData.sort(function (a, b) {
                 return a.lookupValueName.localeCompare(b.lookupValueName);
               });
 
-              _this6.gridSourceDataCommon = {
-                localdata: _this6.categoryCommonListData,
+              _this7.gridSourceDataCommon = {
+                localdata: _this7.categoryCommonListData,
                 datatype: "array"
               };
-              _this6.categoryCommonListData = new jqx.dataAdapter(_this6.gridSourceDataCommon);
-              _this6.isCategoryDataLoaded = true;
+              _this7.categoryCommonListData = new jqx.dataAdapter(_this7.gridSourceDataCommon);
+              _this7.isCategoryDataLoaded = true;
             }, function (error) {});
-          }, function (error) {}); // delete lookupvalue
-
-          this.sharedService.unitlistdeleteindexcast.subscribe(function (index) {
-            if (index != null) {
-              if (_this6.staffDeleteTypeId == "27") {
-                var params = {
-                  lookupValueId: _this6.categoryPrivateListData[index].id,
-                  updateUserId: parseInt(_this6.cookieService.get('userId'))
-                };
-              } else {
-                var params = {
-                  lookupValueId: _this6.categoryCommonListData[index].id,
-                  updateUserId: parseInt(_this6.cookieService.get('userId'))
-                };
-              }
-
-              _this6.isCategoryDataLoaded = false;
-
-              _this6.userService.deleteUserById(params).subscribe(function (res) {
-                if (_this6.staffDeleteTypeId == "26") {
-                  _this6.categoryPrivateListData.splice(index, 1);
-                } else {
-                  _this6.categoryCommonListData.splice(index, 1);
-                }
-
-                _this6.isCategoryDataLoaded = true;
-
-                _this6.sharedService.setUnitListDeleteIndex(null);
-              }, function (error) {
-                console.log(error);
-              });
-            }
-          });
+          }, function (error) {});
         }
       }]);
 

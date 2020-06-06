@@ -41,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t<form novalidate>\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\t\t\t\n\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance</span>\n\t\t</h4>\n\t\t<!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t\tCurrent Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t         >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <!-- <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option> -->\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Sub Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t         >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <!-- <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option> -->\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint. Record No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Maint Record No\" \n                                        name=\"staffName\" [(ngModel)]=\"staffName\" >\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Title</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Title\" \n                                        name=\"staffName\" [(ngModel)]=\"staffName\" >\n\t\t\t\t            \t\t</div>\n                                </div>\t\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"asset.maitainPlannedDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" [(ngModel)]=\"asset.actualMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                             \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maint. performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"isMaintainedbyStaff\"   (change)=\"isMaintainedbyStaff = true\" [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"isMaintainedbyStaff\"  (change)=\"isMaintainedbyStaff = false\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" *ngIf=\"isMaintainedbyStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n                                        name=\"staffName\" [(ngModel)]=\"maintainedbyStaff\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" *ngIf=\"isMaintainedbyStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintenanceByCompany\" >\n\t\t\t                \t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t <quill-editor\n\t\t\t\t\t\t\t\t\t class=\"quill-editor\"\n\t\t\t\t\t\t\t\t\t name=\"ckeditor\"\n\t\t\t\t\t\t\t\t\t [placeholder]=\"editorPlacehorder\"\n\t\t\t\t\t\t\t\t\t [(ngModel)]=\"message.ckeditor\"\n\t\t\t\t\t\t\t\t\t (onContentChanged)=\"onContentChanged($event)\">\n\t\t\t\t\t\t\t\t  </quill-editor>\n\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"labourCost\" [(ngModel)]=\"labourCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"partCost\" [(ngModel)]=\"part\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>VAT</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"vat\" [(ngModel)]=\"vat\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"withHoldingTax\" [(ngModel)]=\"WithHoldingTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                              \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"TotalBilledAmount\" [(ngModel)]=\"TotalBilledAmount\" >\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"asset.plannedDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"nextPlannedDate\" [owlDateTime]=\"nextPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"nextPlannedDate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"asset.nextPlannedDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                       \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"   name=\"files\" #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>                             \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\">Submit</button>\n                    </li>\n                    <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t<form novalidate>\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\t\t\t\n\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance</span>\n\t\t</h4>\n\t\t<!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t\tCurrent Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of categoriesData\" [value]=\"item.genMaintenanceCategoryId\">{{ item.genMaintenanceCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Sub Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of subCategoriesData\" [value]=\"item.genMaintenanceSubCategoryId\">{{ item.genMaintenanceSubCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint. Record No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Maint Record No\" \n                                        name=\"staffName\" [(ngModel)]=\"staffName\" >\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Title</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Title\" \n                                        name=\"staffName\" [(ngModel)]=\"maintain.maintTitle\" >\n\t\t\t\t            \t\t</div>\n                                </div>\t\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"maintain.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" [(ngModel)]=\"maintain.actualMaintDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"lastMaintenance\" placeholder=\"Last Maintenance Date\" [(ngModel)]=\"maintain.lastMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #lastMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                             \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maint. performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"isMaintainedbyStaff\"   (change)=\"isMaintainedbyStaff = true\" [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"isMaintainedbyStaff\"  (change)=\"isMaintainedbyStaff = false\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" *ngIf=\"isMaintainedbyStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n                                        name=\"staffName\" [(ngModel)]=\"maintain.maintenanceByPerson\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" *ngIf=\"isMaintainedbyStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintain.maintenanceByCompany\" >\n\t\t\t                \t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t <quill-editor\n\t\t\t\t\t\t\t\t\t class=\"quill-editor\"\n\t\t\t\t\t\t\t\t\t name=\"ckeditor\"\n\t\t\t\t\t\t\t\t\t [placeholder]=\"editorPlacehorder\"\n\t\t\t\t\t\t\t\t\t [(ngModel)]=\"message.ckeditor\"\n\t\t\t\t\t\t\t\t\t (onContentChanged)=\"onContentChanged($event)\">\n\t\t\t\t\t\t\t\t  </quill-editor>\n\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"maintLaborCost\" [(ngModel)]=\"maintain.maintLaborCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"maintPartsCost\" [(ngModel)]=\"maintain.maintPartsCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>VAT</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"vat\" [(ngModel)]=\"maintain.maintVat\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"withHoldingTax\" [(ngModel)]=\"maintain.maintWithTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                              \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"TotalBilledAmount\" [(ngModel)]=\"maintain.maintenanceTotalBilledAmt\" >\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"maintain.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"TotalBilledAmount\" [(ngModel)]=\"maintain.maintenanceTotalBilledAmt\" > -->\n\t\t\t\t\t\t\t\t\t\t <input class=\"form-control\" name=\"nextPlannedDate\" [owlDateTime]=\"nextPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"nextPlannedDate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"maintain.alertBeforeDays\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                       \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"   name=\"files\" #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>                             \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\">Submit</button>\n                    </li>\n                    <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n";
     /***/
   },
 
@@ -121,7 +121,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"confirm-modal-wrapper\">\n\t<div class=\"close-icon\" mat-dialog-close>\n\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t</div>\n\t<div class=\"title\">\n\t\t<h5>Confirmation Status</h5>\n\t</div>\n\t<div class=\"desp\" *ngIf=\"!comments\">\n\t\t<p>Are you sure want to <span class=\"status\">{{data.value | titlecase}}</span> ?</p>\n    </div>\n    <div class=\"desp\" *ngIf=\"comments\">\n        <div class=\"col-sm-12 pl-0 pr-0\">\n            <div class=\"input-box\">\n                <!-- <label>Reason</label> -->\n                <textarea placeholder=\"Enter Reason\" name=\"staffComments\"></textarea>\n                </div>\n        </div> \n    </div>\n    <div class=\"d-flex justify-content-end mb-4\" *ngIf=\"comments\">      \n    <a href=\"javascript:void(0)\" class=\"btn blue mr-4\"  mat-dialog-close  >Submit</a>\n    </div>\n\t<div class=\"btn-wrapper\" *ngIf=\"!comments\">\n        <a href=\"javascript:void(0)\" class=\"btn blue mr-3\"   *ngIf=\"!comments\" (click)=\"comments = true\" >Yes</a>\n   \n\t\t<a href=\"javascript:void(0)\" class=\"btn trans-white\" mat-dialog-close *ngIf=\"!comments\" >No</a>\n\t</div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"confirm-modal-wrapper\">\n\t<div class=\"close-icon\" mat-dialog-close>\n\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t</div>\n\t<div class=\"title\">\n\t\t<h5>Confirmation Status</h5>\n\t</div>\n\t<div class=\"desp\" *ngIf=\"!comments\">\n\t\t<p>Are you sure want to <span class=\"status\">{{data.value | titlecase}}</span> ?</p>\n    </div>\n    <div class=\"desp\" *ngIf=\"comments\">\n        <div class=\"col-sm-12 pl-0 pr-0\">\n            <div class=\"input-box\">\n                <label> Rejection Reason</label>\n                <textarea placeholder=\"Enter Reason\" name=\"staffComments\"></textarea>\n                </div>\n        </div> \n    </div>\n    <div class=\"d-flex justify-content-end mb-4\" *ngIf=\"comments\">      \n    <a href=\"javascript:void(0)\" class=\"btn blue mr-4\"  mat-dialog-close  >Submit</a>\n    </div>\n\t<div class=\"btn-wrapper\" *ngIf=\"!comments\">\n        <a href=\"javascript:void(0)\" class=\"btn blue mr-3\"   *ngIf=\"!comments\" (click)=\"comments = true\" >Yes</a>\n   \n\t\t<a href=\"javascript:void(0)\" class=\"btn trans-white\" mat-dialog-close *ngIf=\"!comments\" >No</a>\n\t</div>\n</div>";
     /***/
   },
 
@@ -454,21 +454,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/GenMaint */
+    "./src/app/api/controllers/GenMaint.ts");
 
     var MaintainOperationalMaintananceComponent =
     /*#__PURE__*/
     function () {
-      function MaintainOperationalMaintananceComponent() {
+      function MaintainOperationalMaintananceComponent(genMaintService) {
         _classCallCheck(this, MaintainOperationalMaintananceComponent);
 
+        this.genMaintService = genMaintService;
         this.isMaintainedbyStaff = true;
         this.asset = {};
         this.message = {};
+        this.subCategoriesData = [];
+        this.categoriesData = [];
+        this.maintain = {};
       }
 
       _createClass(MaintainOperationalMaintananceComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.getAllCategory();
+          this.getAllSubCategory();
+        }
       }, {
         key: "uploadFile",
         value: function uploadFile(event) {
@@ -499,10 +512,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onContentChanged",
         value: function onContentChanged(event) {}
+      }, {
+        key: "getAllCategory",
+        value: function getAllCategory() {
+          var _this4 = this;
+
+          this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
+            if (res) {
+              _this4.categoriesData = res ? res : [];
+            }
+          });
+        }
+      }, {
+        key: "getAllSubCategory",
+        value: function getAllSubCategory() {
+          var _this5 = this;
+
+          this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
+            if (res) {
+              _this5.subCategoriesData = res ? res : [];
+            }
+          });
+        }
       }]);
 
       return MaintainOperationalMaintananceComponent;
     }();
+
+    MaintainOperationalMaintananceComponent.ctorParameters = function () {
+      return [{
+        type: src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_2__["GenMaintService"]
+      }];
+    };
 
     MaintainOperationalMaintananceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-maintain-operational-maintanance',
@@ -512,7 +553,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./maintain-operational-maintanance.component.scss */
       "./src/app/ams/operational-maintanance/maintain-operational-maintanance/maintain-operational-maintanance.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], MaintainOperationalMaintananceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_2__["GenMaintService"]])], MaintainOperationalMaintananceComponent);
     /***/
   },
 
@@ -804,7 +845,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getStatusList",
         value: function getStatusList() {
-          var _this4 = this;
+          var _this6 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -813,7 +854,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this4.statusData = res ? res : [];
+              _this6.statusData = res ? res : [];
             }
           });
         }
@@ -910,25 +951,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _initial_maintanance_initial_maintanance_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./initial-maintanance/initial-maintanance.component */
-    "./src/app/ams/operational-maintanance/initial-maintanance/initial-maintanance.component.ts");
-    /* harmony import */
-
-
-    var _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./maintain-operational-maintanance/maintain-operational-maintanance.component */
     "./src/app/ams/operational-maintanance/maintain-operational-maintanance/maintain-operational-maintanance.component.ts");
     /* harmony import */
 
 
-    var _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./operational-maintanance-list/operational-maintanance-list.component */
     "./src/app/ams/operational-maintanance/operational-maintanance-list/operational-maintanance-list.component.ts");
     /* harmony import */
 
 
-    var _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./operational-maintanance-history/operational-maintanance-history.component */
     "./src/app/ams/operational-maintanance/operational-maintanance-history/operational-maintanance-history.component.ts");
 
@@ -939,18 +974,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'setup',
       component: _operational_maintanance_setup_operational_maintanance_setup_component__WEBPACK_IMPORTED_MODULE_3__["OperationalMaintananceSetupComponent"]
-    }, {
-      path: 'initial-maintanance',
-      component: _initial_maintanance_initial_maintanance_component__WEBPACK_IMPORTED_MODULE_4__["InitialMaintananceComponent"]
-    }, {
+    }, // { path: 'initial-maintanance', component: InitialMaintananceComponent},
+    {
       path: 'maintain-operational-maintanance',
-      component: _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_5__["MaintainOperationalMaintananceComponent"]
+      component: _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_4__["MaintainOperationalMaintananceComponent"]
     }, {
       path: 'operational-maintanance-list',
-      component: _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_6__["OperationalMaintananceListComponent"]
+      component: _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_5__["OperationalMaintananceListComponent"]
     }, {
       path: 'operational-maintanance-history',
-      component: _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_7__["OperationalMaintananceHistoryComponent"]
+      component: _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_6__["OperationalMaintananceHistoryComponent"]
     }, {
       path: '**',
       redirectTo: 'setup',
@@ -1071,7 +1104,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(OperationalMaintananceSetupComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this7 = this;
 
           this.getAllCategory();
           this.getAllSubCategory();
@@ -1081,21 +1114,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (id != null) {
               var param = {};
 
-              if (_this5.deleteSubCatgory == true) {
+              if (_this7.deleteSubCatgory == true) {
                 param = {
                   genMaintenanceSubCategoryId: id,
-                  deleteBy: parseInt(_this5.cookieService.get('userId'))
+                  deleteBy: parseInt(_this7.cookieService.get('userId'))
                 };
 
-                _this5.genMaintService.deleteGenMaintenanceSubCategory(param).subscribe(function (res) {
+                _this7.genMaintService.deleteGenMaintenanceSubCategory(param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this5.sharedService.setAlertMessage(" Sub Category deleted successfully");
+                    _this7.sharedService.setAlertMessage(" Sub Category deleted successfully");
 
-                    _this5.sharedService.setUnitListDeleteIndex(null);
+                    _this7.sharedService.setUnitListDeleteIndex(null);
 
-                    _this5.getAllSubCategory();
+                    _this7.getAllSubCategory();
 
-                    _this5.deleteSubCatgory = false;
+                    _this7.deleteSubCatgory = false;
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -1103,16 +1136,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               } else {
                 param = {
                   genMaintenanceCategoryId: id,
-                  deleteBy: parseInt(_this5.cookieService.get('userId'))
+                  deleteBy: parseInt(_this7.cookieService.get('userId'))
                 };
 
-                _this5.genMaintService.deleteGenMaintenanceCategory(param).subscribe(function (res) {
+                _this7.genMaintService.deleteGenMaintenanceCategory(param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this5.sharedService.setAlertMessage("Category deleted successfully");
+                    _this7.sharedService.setAlertMessage("Category deleted successfully");
 
-                    _this5.sharedService.setUnitListDeleteIndex(null);
+                    _this7.sharedService.setUnitListDeleteIndex(null);
 
-                    _this5.getAllCategory();
+                    _this7.getAllCategory();
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -1179,18 +1212,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this6 = this;
+          var _this8 = this;
 
           this.isAssetLoaded = true;
           this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
             if (res) {
-              _this6.categoriesData = res ? res : [];
-              _this6.totalItems = _this6.categoriesData.length;
+              _this8.categoriesData = res ? res : [];
+              _this8.totalItems = _this8.categoriesData.length;
 
-              if (_this6.totalItems > _this6.itemLimit) {
-                _this6.ItemEndIndex = _this6.itemLimit;
+              if (_this8.totalItems > _this8.itemLimit) {
+                _this8.ItemEndIndex = _this8.itemLimit;
               } else {
-                _this6.ItemEndIndex = _this6.totalItems;
+                _this8.ItemEndIndex = _this8.totalItems;
               }
             }
           });
@@ -1198,7 +1231,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addCategory",
         value: function addCategory(data) {
-          var _this7 = this;
+          var _this9 = this;
 
           var reqObj = {};
           reqObj = {
@@ -1215,19 +1248,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.model = reqObj;
           this.genMaintService.addGenMaintenanceCategory(params).subscribe(function (res) {
             if (res) {
-              _this7.sharedService.setAlertMessage("Category added successfully");
+              _this9.sharedService.setAlertMessage("Category added successfully");
 
-              _this7.isAssetLoaded = false;
-              _this7.row = {};
+              _this9.isAssetLoaded = false;
+              _this9.row = {};
 
-              _this7.getAllCategory();
+              _this9.getAllCategory();
             }
           });
         }
       }, {
         key: "updateCategory",
         value: function updateCategory(data) {
-          var _this8 = this;
+          var _this10 = this;
 
           var reqObj = {};
           reqObj = {
@@ -1244,30 +1277,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.model = reqObj;
           this.genMaintService.updateGenMaintenanceCategory(params).subscribe(function (res) {
             if (res) {
-              _this8.sharedService.setAlertMessage("Category updated successfully");
+              _this10.sharedService.setAlertMessage("Category updated successfully");
 
-              _this8.isAssetLoaded = false;
-              _this8.opIndex = -1;
+              _this10.isAssetLoaded = false;
+              _this10.opIndex = -1;
             }
           });
         }
       }, {
         key: "getAllSubCategory",
         value: function getAllSubCategory() {
-          var _this9 = this;
+          var _this11 = this;
 
           this.isAssetLoaded = true;
           this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
             if (res) {
-              _this9.isAssetLoaded = false;
-              _this9.subCategoriesData = res ? res : [];
-              _this9.tempSubCategoriesData = res ? res : [];
-              _this9.subTotalItems = _this9.subCategoriesData.length;
+              _this11.isAssetLoaded = false;
+              _this11.subCategoriesData = res ? res : [];
+              _this11.tempSubCategoriesData = res ? res : [];
+              _this11.subTotalItems = _this11.subCategoriesData.length;
 
-              if (_this9.subTotalItems > _this9.subItemLimit) {
-                _this9.subItemEndIndex = _this9.subItemLimit;
+              if (_this11.subTotalItems > _this11.subItemLimit) {
+                _this11.subItemEndIndex = _this11.subItemLimit;
               } else {
-                _this9.subItemEndIndex = _this9.subTotalItems;
+                _this11.subItemEndIndex = _this11.subTotalItems;
               }
             }
           });
@@ -1275,7 +1308,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addSubCategory",
         value: function addSubCategory(data) {
-          var _this10 = this;
+          var _this12 = this;
 
           var reqObj = {};
           reqObj = {
@@ -1294,19 +1327,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.model = reqObj;
           this.genMaintService.addGenMaintenanceSubCategory(params).subscribe(function (res) {
             if (res) {
-              _this10.sharedService.setAlertMessage(" Sub Category added successfully");
+              _this12.sharedService.setAlertMessage(" Sub Category added successfully");
 
-              _this10.isAssetLoaded = false;
-              _this10.subCatgory = {};
+              _this12.isAssetLoaded = false;
+              _this12.subCatgory = {};
 
-              _this10.getAllSubCategory();
+              _this12.getAllSubCategory();
             }
           });
         }
       }, {
         key: "updateSubCategory",
         value: function updateSubCategory(data) {
-          var _this11 = this;
+          var _this13 = this;
 
           var reqObj = {};
           reqObj = {
@@ -1325,12 +1358,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.model = reqObj;
           this.genMaintService.updateGenMaintenanceSubCategory(params).subscribe(function (res) {
             if (res) {
-              _this11.sharedService.setAlertMessage("Sub Category updated successfully");
+              _this13.sharedService.setAlertMessage("Sub Category updated successfully");
 
-              _this11.isAssetLoaded = false;
-              _this11.opSubIndex = -1;
+              _this13.isAssetLoaded = false;
+              _this13.opSubIndex = -1;
 
-              _this11.getAllSubCategory();
+              _this13.getAllSubCategory();
             }
           });
         }

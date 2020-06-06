@@ -81,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n<div class=\"card table-card mb-30\" >\n  <div class=\"card-header\">\n\n    <div class=\"row\">\n      <div class=\"col-sm-6 d-flex align-items-center\">\n        <h5>Initial Stock <span class=\"badge lime-green\">{{totalItems}}</span>\n        </h5>\n      </div>\n      <div class=\"col-sm-6 d-flex justify-content-end align-items-center\">\n      \n        <div class=\"col-sm-6\">\n          <div class=\"select-box\">\n            <h6 class=\"pb-1\">Select Warehouse</h6>\n            <select name=\"searchWarehouse\" id=\"assetCategory\" class=\"form-control\" [(ngModel)]=\"search.searchWarehouse\" (change)=\"filterCategoryItem(search.searchWarehouse)\" required>\n              <option value=\"\"  selected>All</option>\n              <option  [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\"  *ngFor=\"let item of  warehouseData\" [value]=\"item.warehouseId\">\n              <span *ngIf=\"item.warehouseName != null\">  \n                {{ item.warehouseName | titlecase }} \n              </span>\n              </option>\n               </select>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"select-box\">\n            <h6 class=\"pb-1\">Select Material</h6>\n            <select name=\"assetCategory\" id=\"assetCategory\" class=\"form-control\" required>\n              <option value=\"\" disabled selected hidden>Select</option>\n              <!-- <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option> -->\n            </select>\n          </div>\n        </div>\n        <!-- <a class=\"btn lime-green mt_5\"\n\t\t\t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Maintenance</span>\n\t\t\t\t\t</a>\n\t\t\t\t\t -->\n        <!-- </li> -->\n        <!-- </ul> -->\n      </div>\n    </div>\n  </div>\n  <div class=\"card-body p-0\">\n    <form>\n      <table class=\"table\" [ngClass]=\"isMobileView()\">\n        <thead>\n          <tr>\n            <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Warehouse Name <span\n                [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n            <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Inventory Item <span\n                [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n            <th scope=\"col\" (click)=\"sortUnitData('phone')\">Initial Stock <span\n                [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n            <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Stock As On Date <span\n                [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n            <th scope=\"col\">Action</th>\n          </tr>\n        </thead>\n        <tbody>\n        \n\n\n          <ng-container>\n            <!-- <form #warehouseForm = \"ngForm\" name=\"warehouseForm\"  novalidate> -->\n            <tr>\n              <td>                \n                <mat-form-field class=\"w-100\">\n                  <mat-select name=\"warId\" [(ngModel)]=\"row.warehouseId\" >\n                    <mat-option *ngFor=\"let item of  warehouseData\"\n                      [value]=\"item.warehouseId\">\n                      {{ item.warehouseName }}</mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </td>\n              <td>\n                <mat-form-field class=\"w-100\">\n                  <input matInput type=\"text\" name=\"matId\" [(ngModel)]=\"row.materialId\">\n                </mat-form-field>\n              </td>\n              <td>\n                <mat-form-field class=\"w-100\">\n                  <input matInput type=\"text\" name=\"initalQty\" [(ngModel)]=\"row.initalStockQty\">\n                </mat-form-field>\n              </td>\n              <td>\n             \n                <div class=\"input-box mb-0\">\n                    <input class=\"form-control stock-date\" name=\"stockDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"stockasonDate\"\n                     [owlDateTimeTrigger]=\"stockasonDate\" \n                     placeholder=\"\" [(ngModel)]=\"row.stockasonDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #stockasonDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                      </div>    \n                    </div>                              \n              </td>\n              <td>\n                <i class=\"fa fa-floppy-o save-icon\"\n                  [ngStyle]=\"!row.warehouseId || !row.materialId || !row.initalStockQty || !row.stockasonDate ?{'pointer-events':'none','opacity':'0.4'}:''\"\n                  (click)=\"addWareHouse(row)\" aria-hidden=\"true\"></i>\n                <!-- <i class=\"fa fa-trash pl-2\" (click)=\"deleteRow(i,'null')\"\n\t\t\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"></i> -->\n              </td>\n            </tr>\n            <!-- </form> -->\n          </ng-container>\n          <ng-container\n            *ngFor=\"let list of initalStockData | slice:ItemStartIndex:ItemEndIndex;let inventoryIndex=index\">\n            <tr>\n              <td>             \n               <span [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\">\n                <span *ngFor=\" let item of  warehouseData\">\n                  <span *ngIf=\"item.warehouseId == list.warehouseId\" >{{item.warehouseName}}</span>\n                </span>\n              </span>\n                <mat-form-field class=\"w-100\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n                  <mat-select name=\"warehouseId\" [(ngModel)]=\"list.warehouseId\" >\n                    <mat-option *ngFor=\"let item of  warehouseData\"\n                      [value]=\"item.warehouseId\">\n                      {{ item.warehouseName }}</mat-option>\n                  </mat-select>\n                </mat-form-field>              \n              </td>\n              <td>\n                <span [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\">\n                  {{list.materialId}}\n                </span>\n                <mat-form-field class=\"w-100\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n                  <input matInput type=\"text\" name=\"materialId\" [(ngModel)]=\"list.materialId\">\n                </mat-form-field>\n\n              </td>\n              <td>\n                <span [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\">\n                  {{list.initalStockQty}}\n                </span>\n                <mat-form-field class=\"w-100\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n                  <input matInput type=\"text\" name=\"initalStockQty\" [(ngModel)]=\"list.initalStockQty\">\n                </mat-form-field>\n              </td>\n              <td>\n                <span [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\">\n                  {{list.stockasonDate?(list.stockasonDate | date: 'dd/MM/yyyy'):'--'}}\n                </span>                \n                <div class=\"input-box mb-0\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n                  <input class=\"form-control stock-date\" name=\"stockasonDate\"\n                   [owlDateTime]=\"stockasonDate\"\n                   [owlDateTimeTrigger]=\"stockasonDate\" \n                   placeholder=\"\" [(ngModel)]=\"list.stockasonDate\" required>\n                  <owl-date-time #stockasonDate [pickerType]=\"'calendar'\"></owl-date-time>\n                  <div class=\"date-btn\">\n                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                    </div>    \n                  </div>\n              </td>\n              <td>\n                <i class=\"fa fa-pencil-square-o pl-2\" title=\"edit\"\n                  [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\"\n                  (click)=\"wareHouseIndex = inventoryIndex\" aria-hidden=\"true\"></i>\n                <i class=\"fa fa-floppy-o pl-2 pr-3 pad-top\" title=\"save\"\n                  [ngStyle]=\"!list.warehouseId || !list.materialId || !list.initalStockQty \n                  || !list.stockasonDate?{'pointer-events':'none','opacity':'0.4'}:''\"\n                  *ngIf=\"wareHouseIndex == inventoryIndex\" (click)=\"updateWareHouse(list)\"></i>\n                <i class=\"fa fa-times pad-top pl-2\" title=\"cancel\" *ngIf=\"wareHouseIndex == inventoryIndex\"\n                  (click)=\"wareHouseIndex = -1\"></i>\n                <i class=\"fa fa-trash pl-2\" (click)=\"deleteRow(index,list)\"\n                  [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\" aria-hidden=\"true\"></i>\n\n              </td>\n            </tr>\n          </ng-container>\n        </tbody>\n\n      </table>\n      <app-pagination  *ngIf=\"totalItems\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n        (outputParams)=\"getIndexParams($event)\">\n      </app-pagination>\n     \n    </form>    \n  </div>\n\n</div>";
+    __webpack_exports__["default"] = "\n<div class=\"card table-card mb-30\" >\n  <div class=\"card-header\">\n\n    <div class=\"row\">\n      <div class=\"col-sm-6 d-flex align-items-center\">\n        <h5>Initial Stock <span class=\"badge lime-green\">{{totalItems}}</span>\n        </h5>\n      </div>\n      <div class=\"col-sm-6 d-flex justify-content-end align-items-center\">\n        <li (click)=\"download()\" class=\"list-inline-item pt-26\">\n          <a  class=\"btn trans-white mt_5\">\n            <i-feather  name=\"printer\" class=\"icon print\" >\n              <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"feather feather-printer\">\n            <polyline points=\"6 9 6 2 18 2 18 9\"></polyline>\n            <path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path>\n            <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"></rect>\n            </svg>\n         </i-feather>\n         <span >Export</span>\n        </a>\n      </li>\n        <div class=\"col-sm-6\">\n          <div class=\"select-box\">\n            <h6 class=\"pb-1\">Select Warehouse</h6>\n            <select name=\"searchWarehouse\" id=\"assetCategory\" class=\"form-control\" [(ngModel)]=\"search.searchWarehouse\" (change)=\"filterCategoryItem(search.searchWarehouse)\" required>\n              <option value=\"\"  selected>All</option>\n              <option  [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\"  *ngFor=\"let item of  warehouseData\" [value]=\"item.warehouseId\">\n              <span *ngIf=\"item.warehouseName != null\">  \n                {{ item.warehouseName | titlecase }} \n              </span>\n              </option>\n               </select>\n          </div>\n        </div>\n        <div class=\"col-sm-6\" *ngIf=\"check\">\n          <div class=\"select-box\">\n            <h6 class=\"pb-1\">Select Material</h6>\n            <select name=\"assetCategory\" id=\"assetCategory\" class=\"form-control\" required>\n              <option value=\"\" disabled selected hidden>Select</option>\n              <!-- <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option> -->\n            </select>\n          </div>\n        </div>\n        <!-- <a class=\"btn lime-green mt_5\"\n\t\t\t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Maintenance</span>\n\t\t\t\t\t</a>\n\t\t\t\t\t -->\n        <!-- </li> -->\n        <!-- </ul> -->\n      </div>\n    </div>\n  </div>\n  <div class=\"card-body p-0\">\n    <form>\n      <table class=\"table\" [ngClass]=\"isMobileView()\" #data>\n        <thead>\n          <tr>\n            <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Warehouse Name <span\n                [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n            <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Inventory Item <span\n                [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n            <th scope=\"col\" (click)=\"sortUnitData('phone')\">Initial Stock <span\n                [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n            <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Stock As On Date <span\n                [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n            <th scope=\"col\">Action</th>\n          </tr>\n        </thead>\n        <tbody>\n      \n          <ng-container>\n            <!-- <form #warehouseForm = \"ngForm\" name=\"warehouseForm\"  novalidate> -->\n            <tr>\n              <td>                \n                <mat-form-field class=\"w-100\">\n                  <mat-select name=\"warId\" [(ngModel)]=\"row.warehouseId\" >\n                    <mat-option *ngFor=\"let item of  warehouseData\"\n                      [value]=\"item.warehouseId\">\n                      {{ item.warehouseName }}</mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </td>\n              <td>\n                <mat-form-field class=\"w-100\">\n                  <input matInput type=\"text\" name=\"matId\" [(ngModel)]=\"row.materialId\">\n                </mat-form-field>\n              </td>\n              <td>\n                <mat-form-field class=\"w-100\">\n                  <input matInput type=\"text\" name=\"initalQty\" [(ngModel)]=\"row.initalStockQty\">\n                </mat-form-field>\n              </td>\n              <td>\n             \n                <div class=\"input-box mb-0\">\n                    <input class=\"form-control stock-date\" name=\"stockDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"stockasonDate\"\n                     [owlDateTimeTrigger]=\"stockasonDate\" \n                     placeholder=\"\" [(ngModel)]=\"row.stockasonDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #stockasonDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                      </div>    \n                    </div>                              \n              </td>\n              <td>\n                <i class=\"fa fa-floppy-o save-icon\"\n                  [ngStyle]=\"!row.warehouseId || !row.materialId || !row.initalStockQty || !row.stockasonDate ?{'pointer-events':'none','opacity':'0.4'}:''\"\n                  (click)=\"addWareHouse(row)\" aria-hidden=\"true\"></i>\n                <!-- <i class=\"fa fa-trash pl-2\" (click)=\"deleteRow(i,'null')\"\n\t\t\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"></i> -->\n              </td>\n            </tr>\n            <!-- </form> -->\n          </ng-container>\n          <ng-container\n            *ngFor=\"let list of initalStockData | slice:ItemStartIndex:ItemEndIndex;let inventoryIndex=index\">\n            <tr>\n              <td>             \n               <span [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\">\n                <span *ngFor=\" let item of  warehouseData\">\n                  <span *ngIf=\"item.warehouseId == list.warehouseId\" >{{item.warehouseName}}</span>\n                </span>\n              </span>\n                <mat-form-field class=\"w-100\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n                  <mat-select name=\"warehouseId\" [(ngModel)]=\"list.warehouseId\" >\n                    <mat-option *ngFor=\"let item of  warehouseData\"\n                      [value]=\"item.warehouseId\">\n                      {{ item.warehouseName }}</mat-option>\n                  </mat-select>\n                </mat-form-field>              \n              </td>\n              <td>\n                <span [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\">\n                  {{list.materialId}}\n                </span>\n                <mat-form-field class=\"w-100\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n                  <input matInput type=\"text\" name=\"materialId\" [(ngModel)]=\"list.materialId\">\n                </mat-form-field>\n\n              </td>\n              <td>\n                <span [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\">\n                  {{list.initalStockQty}}\n                </span>\n                <mat-form-field class=\"w-100\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n                  <input matInput type=\"text\" name=\"initalStockQty\" [(ngModel)]=\"list.initalStockQty\">\n                </mat-form-field>\n              </td>\n              <td>\n                <span [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\">\n                  {{list.stockasonDate?(list.stockasonDate | date: 'dd/MM/yyyy'):'--'}}\n                </span>                \n                <div class=\"input-box mb-0\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n                  <input class=\"form-control stock-date\" name=\"stockasonDate\"\n                   [owlDateTime]=\"stockasonDate\"\n                   [owlDateTimeTrigger]=\"stockasonDate\" \n                   placeholder=\"\" [(ngModel)]=\"list.stockasonDate\" required>\n                  <owl-date-time #stockasonDate [pickerType]=\"'calendar'\"></owl-date-time>\n                  <div class=\"date-btn\">\n                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                    </div>    \n                  </div>\n              </td>\n              <td>\n                <i class=\"fa fa-pencil-square-o pl-2\" title=\"edit\"\n                  [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\"\n                  (click)=\"wareHouseIndex = inventoryIndex\" aria-hidden=\"true\"></i>\n                <i class=\"fa fa-floppy-o pl-2 pr-3 pad-top\" title=\"save\"\n                  [ngStyle]=\"!list.warehouseId || !list.materialId || !list.initalStockQty \n                  || !list.stockasonDate?{'pointer-events':'none','opacity':'0.4'}:''\"\n                  *ngIf=\"wareHouseIndex == inventoryIndex\" (click)=\"updateWareHouse(list)\"></i>\n                <i class=\"fa fa-times pad-top pl-2\" title=\"cancel\" *ngIf=\"wareHouseIndex == inventoryIndex\"\n                  (click)=\"wareHouseIndex = -1\"></i>\n                <i class=\"fa fa-trash pl-2\" (click)=\"deleteRow(index,list)\"\n                  [ngStyle]=\"wareHouseIndex == inventoryIndex?{'display':'none'}:''\" aria-hidden=\"true\"></i>\n\n              </td>\n            </tr>\n          </ng-container>\n        </tbody>\n\n      </table>\n      <app-pagination  *ngIf=\"totalItems\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n        (outputParams)=\"getIndexParams($event)\">\n      </app-pagination>\n     \n    </form>    \n  </div>\n\n</div>";
     /***/
   },
 
@@ -101,7 +101,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper inventory-outer\">\n\t\n\t<form novalidate>\n\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\n\t\t\t<span>Internal Transfer</span>\n\n\t\t</h4>\n<!-- \n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>From Warehouse *</label>\n                                        <select name=\"warehouseId\"  class=\"form-control\"\n                                            [(ngModel)]=\"transfer.fromWarehouseId\" required>\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\" \n                                            *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseId\">\n                                                {{ item.warehouseName }}\n                                            </option>\n                                        </select>\n                                    </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>To Warehouse</label>\n                                        <select name=\"warehouseId\"  class=\"form-control\"\n                                            [(ngModel)]=\"transfer.toWarehouseId\" required >\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\" \n                                            *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseId\">\n                                                {{ item.warehouseName }}\n                                            </option>\n                                        </select>\n                                    </div>\n                                </div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 filter-list\">\n                                    <label>Inventory Item</label>                                  \n                                    <angular2-multiselect  name=\"inventoryItem\" [data]=\"materialItemData\" [(ngModel)]=\"selectedItem\"\n                                    [settings]=\"settings\" (onSelect)=\"onItemSelect($event)\"\n                                    (onDeSelect)=\"OnItemDeSelect($event)\" (onSelectAll)=\"onSelectAll($event)\"\n                                    (onDeSelectAll)=\"onDeSelectAll($event)\">\n                                  </angular2-multiselect>\n                                </div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Type</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"transfer.assetCategoryId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Staff</label>\n                                        <select name=\"inGoodsincomingReceivedbyStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"transfer.iN_GoodsincomingReceivedbyStaffID\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>\n                                    \n                                    </div>\n                                </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Incharge</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Staff Name\" name=\"depreciation\" [(ngModel)]=\"transfer.depreciationPercentage\" required>\n\t\t\t                \t\t</div>\n                                </div>\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Reason</label>\n\t\t\t\t\t                    <textarea placeholder=\"Enter Reason\" name=\"comments\" [(ngModel)]=\"transfer.comments\"></textarea>\n\t\t\t\t\t                </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Qty </label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Total Qty\" name=\"totalStockQty\" [(ngModel)]=\"transfer.totalStockQty\"  OnlyNumber=\"true\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"addInternalTransfer()\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper inventory-outer\">\n\t\n\t<form novalidate>\n\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\n\t\t\t<span>Internal Transfer</span>\n\n\t\t</h4>\n<!-- \n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>From Warehouse *</label>\n                                        <select name=\"warehouseId\"  class=\"form-control\"\n                                            [(ngModel)]=\"transfer.fromWarehouseId\" required>\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\" \n                                            *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseId\">\n                                                {{ item.warehouseName }}\n                                            </option>\n                                        </select>\n                                    </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>To Warehouse</label>\n                                        <select name=\"warehouseId\"  class=\"form-control\"\n                                            [(ngModel)]=\"transfer.toWarehouseId\" required >\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\" \n                                            *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseId\">\n                                                {{ item.warehouseName }}\n                                            </option>\n                                        </select>\n                                    </div>\n                                </div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 filter-list\">\n                                    <label>Inventory Item</label>                                  \n                                    <angular2-multiselect  name=\"inventoryItem\" [data]=\"materialItemData\" [(ngModel)]=\"selectedItem\"\n                                    [settings]=\"settings\" (onSelect)=\"onItemSelect($event)\"\n                                    (onDeSelect)=\"OnItemDeSelect($event)\" (onSelectAll)=\"onSelectAll($event)\"\n                                    (onDeSelectAll)=\"onDeSelectAll($event)\">\n                                  </angular2-multiselect>\n                                </div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Type</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"transfer.assetCategoryId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\t\t\t\t\t -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 filter-list\">\n                                    <div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Issue By Staff</label>\n\t\t\t\t\t\t\t\t\t\t<angular2-multiselect  name=\"issueByStaff\" [data]=\"staffList\" [(ngModel)]=\"issueByStaff\"\n\t\t\t\t\t\t\t\t\t\t[settings]=\"settings\" (onSelect)=\"onItemSelectByStaff($event)\"\t\t\t\t\t\t\t\t\t\t\n                                        (onDeSelect)=\"OnItemDeSelectByStaff($event)\" (onSelectAll)=\"onSelectAllByStaff($event)\"\n                                        (onDeSelectAll)=\"onDeSelectAllByStaff($event)\">\n\t\t\t\t\t\t\t\t\t   </angular2-multiselect>\n                                        <!-- <select name=\"inGoodsincomingReceivedbyStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"transfer.iN_GoodsincomingReceivedbyStaffID\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>                                     -->\n                                    </div>\n                                </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 filter-list\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Issue to Staff</label>\n\t\t\t\t\t\t\t\t\t\t<!-- <select name=\"inGoodsincomingReceivedbyStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"transfer.ouT_TowhomissuedStaffID\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n\t\t\t\t\t\t\t\t\t\t</option> -->\n\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"input-box\"> -->\n\t\t\t\t\t\t\t\t\t\t\t<!-- <label>Issue to Staff</label> -->\n\t\t\t\t\t\t\t\t\t\t\t<angular2-multiselect  name=\"issueToStaff\" [data]=\"staffList\" [(ngModel)]=\"issueToStaff\"\n\t\t\t\t\t\t\t\t\t\t\t[settings]=\"settings\" (onSelect)=\"onItemSelectToStaff($event)\"\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(onDeSelect)=\"OnItemDeSelectToStaff($event)\" (onSelectAll)=\"onSelectAllToStaff($event)\"\n\t\t\t\t\t\t\t\t\t\t\t(onDeSelectAll)=\"onDeSelectAllToStaff($event)\">\n\t\t\t\t\t\t\t\t\t\t   </angular2-multiselect>\n                                    <!-- </select>    -->\n\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Qty </label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Total Qty\" name=\"totalStockQty\" [(ngModel)]=\"transfer.totalStockQty\"  OnlyNumber=\"true\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Reason</label>\n\t\t\t\t\t                    <textarea placeholder=\"Enter Reason\" name=\"comments\" [(ngModel)]=\"transfer.comments\"></textarea>\n\t\t\t\t\t                </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"addInternalTransfer()\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
     /***/
   },
 
@@ -121,7 +121,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper inventory-outer\">\n    <form #addReceivingForm=\"ngForm\" name=\"receivingForm\"  novalidate>    \n        <h4 class=\"main-title-mini float-left mt-3\">\n            <span *ngIf=\"!isEditAsset\">Receiving</span>\n        </h4>\n        <!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n        </div> -->\n        <!-- <form #addReceivingForm=\"ngForm\" name=\"receivingForm\"  novalidate> -->\n        <div class=\"card clear mb-30\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                    <!-- <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li> -->\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>Warehouse ID*</label>\n                                        <select name=\"warehouseId\"  class=\"form-control\"\n                                            [(ngModel)]=\"receiving.warehouseId\" required (change)=\"getAvailableStock()\">\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\" \n                                            *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseId\">\n                                                {{ item.warehouseName }}\n                                            </option>\n                                        </select>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <label>Inventory Item *</label>                              \n                                <angular2-multiselect  name=\"inventoryItem\" [data]=\"materialItemData\" [(ngModel)]=\"selectedItem\"\n                                [settings]=\"assetSettings\" (onSelect)=\"onItemSelect($event)\"\n                                (onDeSelect)=\"OnItemDeSelect($event)\" (onSelectAll)=\"onSelectAll($event)\"\n                                (onDeSelectAll)=\"onDeSelectAll($event)\">\n                              </angular2-multiselect>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Available Stock\"\n                                            name=\"availableStockQty\" disabled [(ngModel)]=\"receiving.availableStockQty\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>PO Number</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter PO No\" name=\"inPonumber\"\n                                            [(ngModel)]=\"receiving.inPonumber\" required>\n                                    </div>\n                                </div>                                \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>SKU / BarCode</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter SKU /BarCode\" name=\"depreciation\"\n                                            [(ngModel)]=\"receiving.sku\" >\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Verified by Staff</label>\n                                        <select name=\"inGoodsincomingReceivedbyStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"receiving.inGoodsincomingReceivedbyStaffId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>\n                                    \n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Count/ Quality Verified</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                        [(ngModel)]=\"receiving.inCountQualityVerified\" required placeholder=\"Enter Count\" name=\"depreciation\" OnlyNumber=\"true\">\n                                            \n                                    </div>\n                                </div>\n                               \n\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Receive Goods Date</label>\n                                        <input class=\"form-control\" name=\"inStockReceivedDate\" [owlDateTime]=\"inStockReceivedDate\"\n                                            [owlDateTimeTrigger]=\"inStockReceivedDate\"\n                                            placeholder=\"Received Goods Date\" [(ngModel)]=\"receiving.inStockReceivedDate\"\n                                            required>\n                                        <owl-date-time #inStockReceivedDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"inStockReceivedDate\">\n                                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                            </i-feather>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Received Goods QTY</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Received Goods QTY\" name=\"inReceivedStockQty\"\n                                            [(ngModel)]=\"receiving.inReceivedStockQty\"\n                                            (change)=\"!receiving.inActualStockMovedIn && (receiving.inActualStockMovedIn =receiving.inReceivedStockQty)\" >\n                                    </div>\n                                </div> \n                              \n                                \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Damage / Returned </label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Damage/Returned\" name=\"inDamageReturnedQty\"\n                                            [(ngModel)]=\"receiving.inDamageReturnedQty\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Actualy Stock Moved in</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Stock\" name=\"inActualStockMovedIn\"\n                                            [(ngModel)]=\"receiving.inActualStockMovedIn\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Cost</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Total Cost\" name=\"inTotalCost\"\n                                            [(ngModel)]=\"receiving.inTotalCost\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Receving Reason </label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"inReceivingReason\" [(ngModel)]=\"receiving.inReceivingReason\"></textarea>\n                                        </div>\n                                </div>  \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul class=\"list-inline float-right\">\n                    <li class=\"list-inline-item\">\n                        <!-- [disabled]=\"addReceivingForm.invalid\" -->\n                        <button class=\"btn blue mr-2\" (click)=\"addReceiving()\" >Submit</button>\n                        <button class=\"btn blue mr-2\" (click)=\"updateReceiving()\">Update</button>\n                    </li>\n                </ul>\n            </div>\n        </div>\n       <!-- </form> -->\n        <mat-card class=\"mt-4 p-0\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-2\">\n                            <label>Inventory Item</label>\n                        </div>\n                        <div class=\"col-sm-2\"> <label>Qty</label> </div>\n                        <div class=\"col-sm-2\"> <label>Final Qty</label> </div>\n                        <div class=\"col-sm-2\"> <label>Type</label> </div>\n                        <div class=\"col-sm-2\"> <label>Transaction Date</label> </div>\n                        <div class=\"col-sm-2\"> <label>Status</label> </div>\n                    </div>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"row pb-2\" *ngFor=\"let list of inventoryList\">\n                        <div class=\"col-sm-2\"><label></label> </div>\n                        <div class=\"col-sm-2\"><label>11</label></div>\n                        <div class=\"col-sm-2\"><label>Receiving</label></div>\n                        <div class=\"col-sm-2\"><label>12/12/2020</label></div>\n                        <div class=\"col-sm-2\"><label>50</label></div>\n                        <div class=\"col-sm-2\"><label>Added</label> </div>\n                    </div>\n                </div>\n            </div>\n        </mat-card>\n  </form>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper inventory-outer\" id=\"outertop\">\n    <form #addReceivingForm=\"ngForm\" name=\"receivingForm\"  novalidate>    \n        <h4 class=\"main-title-mini float-left mt-3\">\n            <span *ngIf=\"!isEditAsset\">Receiving</span>\n        </h4>\n        <!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n        </div> -->\n        <!-- <form #addReceivingForm=\"ngForm\" name=\"receivingForm\"  novalidate> -->\n        <div class=\"card clear mb-30\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                    <!-- <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li> -->\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>Warehouse ID*</label>\n                                        <select name=\"warehouseId\"  class=\"form-control\"\n                                            [(ngModel)]=\"receiving.warehouseId\" required (change)=\"getAvailableStock()\">\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\" \n                                            *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseId\">\n                                                {{ item.warehouseName }}\n                                            </option>\n                                        </select>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <label>Inventory Item *</label>                              \n                                <angular2-multiselect  name=\"inventoryItem\" [data]=\"materialItemData\" [(ngModel)]=\"selectedItem\"\n                                [settings]=\"assetSettings\" (onSelect)=\"onItemSelect($event)\"\n                                (onDeSelect)=\"OnItemDeSelect($event)\" (onSelectAll)=\"onSelectAll($event)\"\n                                (onDeSelectAll)=\"onDeSelectAll($event)\">\n                              </angular2-multiselect>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Available Stock\"\n                                            name=\"availableStockQty\" disabled [(ngModel)]=\"receiving.availableStockQty\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <div class=\"input-box\">\n                                        <label>PO Number</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter PO No\" name=\"inPonumber\"\n                                            [(ngModel)]=\"receiving.inPonumber\" required>\n                                    </div>\n                                </div>                                \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>SKU / BarCode</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter SKU /BarCode\" name=\"depreciation\"\n                                            [(ngModel)]=\"receiving.sku\" required >\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <div class=\"input-box\">\n                                        <label>Verified by Staff*</label>\n                                        <!-- <select name=\"inGoodsincomingReceivedbyStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"receiving.inGoodsincomingReceivedbyStaffId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select> -->\n\n                                    <angular2-multiselect  name=\"issueToStaff\" [data]=\"staffList\" [(ngModel)]=\"issueToStaff\"\n\t\t\t\t\t\t\t\t\t\t\t[settings]=\"assetSettings\" (onSelect)=\"onItemSelectToStaff($event)\"\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(onDeSelect)=\"OnItemDeSelectToStaff($event)\" (onSelectAll)=\"onSelectAllToStaff($event)\"\n\t\t\t\t\t\t\t\t\t\t\t(onDeSelectAll)=\"onDeSelectAllToStaff($event)\">\n\t\t\t\t\t\t\t\t\t\t   </angular2-multiselect>                                    \n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Count/ Quality Verified</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                        [(ngModel)]=\"receiving.inCountQualityVerified\" required placeholder=\"Enter Count\" name=\"depreciation\" OnlyNumber=\"true\">\n                                      \n                                    </div>\n                                </div>                             \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Receive Goods Date</label>\n                                        <input class=\"form-control\" name=\"inStockReceivedDate\" [owlDateTime]=\"inStockReceivedDate\"\n                                            [owlDateTimeTrigger]=\"inStockReceivedDate\"\n                                            placeholder=\"Received Goods Date\" [(ngModel)]=\"receiving.inStockReceivedDate\"\n                                            required>\n                                        <owl-date-time #inStockReceivedDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"inStockReceivedDate\">\n                                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                            </i-feather>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Received Goods QTY</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Received Goods QTY\" name=\"inReceivedStockQty\"\n                                            [(ngModel)]=\"receiving.inReceivedStockQty\"\n                                            (change)=\"!receiving.inActualStockMovedIn && (receiving.inActualStockMovedIn =receiving.inReceivedStockQty)\" required >\n                                    </div>\n                                </div> \n                              \n                                \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Damage / Returned </label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Damage/Returned\" name=\"inDamageReturnedQty\"\n                                            [(ngModel)]=\"receiving.inDamageReturnedQty\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Actualy Stock Moved in</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Stock\" name=\"inActualStockMovedIn\"\n                                            [(ngModel)]=\"receiving.inActualStockMovedIn\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Cost</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Total Cost\" name=\"inTotalCost\"\n                                            [(ngModel)]=\"receiving.inTotalCost\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Receving Reason </label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"inReceivingReason\" [(ngModel)]=\"receiving.inReceivingReason\"></textarea>\n                                        </div>\n                                </div>  \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul class=\"list-inline float-right\">\n                    <li class=\"list-inline-item\">\n                        <!-- [disabled]=\"addReceivingForm.invalid\" -->\n                        <button class=\"btn blue mr-2\" *ngIf=\"!isEdit\" [disabled]=\"addReceivingForm.invalid\" (click)=\"addReceiving()\" >Submit</button>\n                        <!-- <button class=\"btn blue mr-2\" *ngIf=\"isEdit\" (click)=\"updateReceiving()\">Update</button> -->\n                    </li>\n                </ul>\n            </div>\n        </div>\n       <!-- </form> -->\n        <mat-card class=\"mt-4 p-0\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-2\">\n                            <label>Inventory Item</label>\n                        </div>\n                        <div class=\"col-sm-2\"> <label>Qty</label> </div>\n                        <div class=\"col-sm-2\"> <label>Final Qty</label> </div>\n                        <!-- <div class=\"col-sm-2\"> <label>Type</label> </div> -->\n                        <div class=\"col-sm-2\"> <label>Transaction Date</label> </div>\n                        <div class=\"col-sm-2\"> <label>Status</label> </div>\n                        <div class=\"col-sm-2\"> <label>Action</label> </div>\n                    </div>\n                </div>\n                <div class=\"card-body\">                                        \n                    <div class=\"row pb-2\" *ngFor=\"let list of inventoryList | slice:ItemStartIndex:ItemEndIndex \">\n                        <div class=\"col-sm-2\"><label>{{list.material1?list.material1:'--'}}</label> </div>\n                        <div class=\"col-sm-2\"><label>{{list.availableStockQty?list.availableStockQty:'--'}}</label></div>\n                        <!-- <div class=\"col-sm-2\"><label>--</label></div> -->\n                        <div class=\"col-sm-2\"><label>--</label></div>\n                        <div class=\"col-sm-2\"><label>{{list.inStockReceivedDate | date: 'dd/MM/yyyy'}}</label></div>\n                        <div class=\"col-sm-2\"><label>--</label> </div>\n                        <div class=\"col-sm-2\"><label>\n                      <i class=\"fa fa-pencil-square-o pl-2\" [ngStyle]=\"!edit?{'pointer-events':'none','opacity':'0.4'}:''\" title=\"edit\"                  \n                        (click)=\"setUpdate(list);\" aria-hidden=\"true\">\n                    </i>            \n                <i class=\"fa fa-trash pl-2\" [ngStyle]=\"!edit?{'pointer-events':'none','opacity':'0.4'}:''\" (click)=\"deleteRow(index,list)\"\n                  aria-hidden=\"true\"></i>\n\n                        </label> </div>\n                    </div>\n                </div>\n                <app-pagination  *ngIf=\"totalItems\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n            </div>\n        </mat-card>\n  </form>\n</div>";
     /***/
   },
 
@@ -181,7 +181,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper inventory-outer\">\n    <form novalidate>\n        <h4 class=\"main-title-mini float-left mt-3\">\n            <span *ngIf=\"!isEditAsset\">Stock Consumptions</span>\n        </h4>\n        <!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n        <div class=\"card clear mb-30\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>Warehouse*</label>\n                                        <select name=\"warehouseId\"  class=\"form-control\"\n                                        [(ngModel)]=\"stock.warehouseId\" required (change)=\"getAvailableStock()\">\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\" \n                                        *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseId\">\n                                            {{ item.warehouseName }}\n                                        </option>\n                                    </select>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <label>Inventory Item</label>                                  \n                                    <angular2-multiselect  name=\"inventoryItem\" [data]=\"materialItemData\" [(ngModel)]=\"selectedItem\"\n                                    [settings]=\"settings\" (onSelect)=\"onItemSelect($event)\"\n                                    (onDeSelect)=\"OnItemDeSelect($event)\" (onSelectAll)=\"onSelectAll($event)\"\n                                    (onDeSelectAll)=\"onDeSelectAll($event)\">\n                                  </angular2-multiselect>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Available Stock\"\n                                            name=\"availableStockQty\" disabled [(ngModel)]=\"stock.availableStockQty\" required>\n                                    </div>\n                                </div>\n                                <!-- <div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>Type </label>\n                                        <select name=\"assetCategory\"  class=\"form-control\"\n                                            [(ngModel)]=\"asset.assetCategoryId\" required>\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">\n                                                {{ item.lookupValueName }}</option>\n                                        </select>\n                                    </div>\n                                </div> -->\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Issue To Staff</label>\n                                        <select name=\"outTowhomissuedStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"stock.outTowhomissuedStaffId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>\n                                    \n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Qty Consumed</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Total Qty\"\n                                            name=\"outTotalQtyConsumedBy\" [(ngModel)]=\"stock.outTotalQtyConsumedBy\">\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Person who received</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Person who received\" name=\"depreciation\"\n                                            [(ngModel)]=\"stock.depreciationPercentage\" required>\n                                    </div>\n                                </div>  \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Reason for Consuming</label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"outOutgoingReason\" \n                                        [(ngModel)]=\"stock.outOutgoingReason\"></textarea>\n                                        </div>\n                                </div>                                                             \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Date of Consumption</label>\n                                        <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"outDateofconsumption\"\n                                            [owlDateTimeTrigger]=\"outDateofconsumption\"\n                                            placeholder=\"Date of Consumption\" [(ngModel)]=\"stock.outDateofconsumption\"\n                                            required>\n                                        <owl-date-time #outDateofconsumption [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"outDateofconsumption\">\n                                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                            </i-feather>\n                                        </div>\n                                    </div>\n                                </div>                                                          \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul class=\"list-inline float-right\">\n                    <li class=\"list-inline-item\">\n                        <button class=\"btn blue mr-2\" (click)=\"addStock()\">Submit</button>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <mat-card class=\"mt-4 p-0\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-2\">\n                            <label>Inventory Item</label>\n                        </div>\n                        <div class=\"col-sm-2\"> <label>Qty</label> </div>\n                        <div class=\"col-sm-2\"> <label>Final Qty</label> </div>\n                        <div class=\"col-sm-2\"> <label>Type</label> </div>\n                        <div class=\"col-sm-2\"> <label>Transaction Date</label> </div>\n                        <div class=\"col-sm-2\"> <label>Status</label> </div>\n                    </div>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"row pb-2\" *ngFor=\"let list of ['1','2','3']\">\n                        <div class=\"col-sm-2\"><label>Spoon</label> </div>\n                        <div class=\"col-sm-2\"><label>11</label></div>\n                        <div class=\"col-sm-2\"><label>Receiving</label></div>\n                        <div class=\"col-sm-2\"><label>12/12/2020</label></div>\n                        <div class=\"col-sm-2\"><label>50</label></div>\n                        <div class=\"col-sm-2\"><label>Added</label> </div>\n                    </div>\n                </div>\n            </div>\n        </mat-card>\n    </form>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper inventory-outer\">\n    <form  name=\"inventoryStock\" #inventory=\"ngForm\" novalidate>\n        <h4 class=\"main-title-mini float-left mt-3\">\n            <span *ngIf=\"!isEditAsset\">Stock Consumptions</span>\n        </h4>\n        <!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n        <div class=\"card clear mb-30\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>Warehouse*</label>\n                                        <select name=\"warehouseId\"  class=\"form-control\"\n                                        [(ngModel)]=\"stock.warehouseId\" required (change)=\"getAvailableStock()\">\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option [ngStyle]=\"!item.warehouseName?{'display':'none'}:''\" \n                                        *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseId\">\n                                            {{ item.warehouseName }}\n                                        </option>\n                                    </select>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <label>Inventory Item</label>                                  \n                                    <angular2-multiselect  name=\"inventoryItem\" [data]=\"materialItemData\" [(ngModel)]=\"selectedItem\"\n                                    [settings]=\"settings\" (onSelect)=\"onItemSelect($event)\"\n                                    (onDeSelect)=\"OnItemDeSelect($event)\" (onSelectAll)=\"onSelectAll($event)\"\n                                    (onDeSelectAll)=\"onDeSelectAll($event)\">\n                                  </angular2-multiselect>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Available Stock\"\n                                            name=\"availableStockQty\" disabled [(ngModel)]=\"stock.availableStockQty\" required>\n                                    </div>\n                                </div>\n                                <!-- <div class=\"col-sm-4\">\n                                    <div class=\"select-box\">\n                                        <label>Type </label>\n                                        <select name=\"assetCategory\"  class=\"form-control\"\n                                            [(ngModel)]=\"asset.assetCategoryId\" required>\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">\n                                                {{ item.lookupValueName }}</option>\n                                        </select>\n                                    </div>\n                                </div> -->\n                                <!-- <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Issue To Staff</label>\n                                        <select name=\"outTowhomissuedStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"stock.outTowhomissuedStaffId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>\n                                    \n                                    </div>\n                                </div> -->\n                               \n                                <div class=\"col-sm-4 filter-list\">\n                                    <label>Issue  Staff</label>                                  \n                                    <angular2-multiselect  name=\"issueByStaff\" [data]=\"staffList\" [(ngModel)]=\"stock.outTowhomissuedStaffId\"\n                                    [settings]=\"settings\" (onSelect)=\"onItemSelectByStaff($event)\"\n                                    (onDeSelect)=\"OnItemDeSelectByStaff($event)\" (onSelectAll)=\"onSelectAllByStaff($event)\"\n                                    (onDeSelectAll)=\"onDeSelectAllByStaff($event)\">\n                                  </angular2-multiselect>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Date of Consumption</label>\n                                        <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"outDateofconsumption\"\n                                            [owlDateTimeTrigger]=\"outDateofconsumption\"\n                                            placeholder=\"Date of Consumption\" [(ngModel)]=\"stock.outDateofconsumption\"\n                                            required>\n                                        <owl-date-time #outDateofconsumption [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"outDateofconsumption\">\n                                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                            </i-feather>\n                                        </div>\n                                    </div>\n                                </div>  \n                               \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Person who received</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Person who received\" name=\"depreciation\"\n                                            [(ngModel)]=\"stock.depreciationPercentage\" required>\n                                    </div>\n                                </div>  \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Reason for Consuming</label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"outOutgoingReason\" \n                                        [(ngModel)]=\"stock.outOutgoingReason\" ></textarea>\n                                        </div>\n                                </div>                                                             \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Qty Consumed</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Total Qty\"\n                                            name=\"outTotalQtyConsumedBy\" OnlyNumber=\"true\" [(ngModel)]=\"stock.outTotalQtyConsumedBy\" required>\n                                    </div>\n                                </div>                                                   \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul class=\"list-inline float-right\">\n                    <li class=\"list-inline-item\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <mat-card class=\"mt-4 p-0\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-2\">\n                            <label>Inventory Item</label>\n                        </div>\n                        <div class=\"col-sm-2\"> <label>Qty</label> </div>\n                        <div class=\"col-sm-2\"> <label>Final Qty</label> </div>\n                        <!-- <div class=\"col-sm-2\"> <label>Type</label> </div> -->\n                        <div class=\"col-sm-2\"> <label>Transaction Date</label> </div>\n                        <div class=\"col-sm-2\"> <label>Status</label> </div>\n                    </div>\n                </div>\n                <div class=\"card-body\">                                        \n                    <div class=\"row pb-2\" *ngFor=\"let list of inventoryList | slice:ItemStartIndex:ItemEndIndex \">\n                        <div class=\"col-sm-2\"><label>{{list.material1?list.material1:'--'}}</label> </div>\n                        <div class=\"col-sm-2\"><label>{{list.availableStockQty?list.availableStockQty:'--'}}</label></div>\n                        <!-- <div class=\"col-sm-2\"><label>--</label></div> -->\n                        <div class=\"col-sm-2\"><label>--</label></div>\n                        <div class=\"col-sm-2\"><label>{{list.inStockReceivedDate | date: 'dd/MM/yyyy'}}</label></div>\n                        <div class=\"col-sm-2\"><label>--</label> </div>\n                        <div class=\"col-sm-2\"><label>\n                      <i class=\"fa fa-pencil-square-o pl-2\" title=\"edit\"                  \n                        (click)=\"setUpdate(list);\" [ngStyle]=\"!edit?{'pointer-events':'none','opcity':'0.4'}:''\" aria-hidden=\"true\">\n                    </i>            \n                <i class=\"fa fa-trash pl-2\" [ngStyle]=\"!edit?{'pointer-events':'none','opcity':'0.4'}:''\" (click)=\"deleteRow(index,list)\"\n                  aria-hidden=\"true\"></i>\n\n                        </label> </div>\n                    </div>\n                </div>\n                <app-pagination  *ngIf=\"totalItems\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n            </div>\n        </mat-card>\n    </form>\n</div>";
     /***/
   },
 
@@ -1415,7 +1415,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "header {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n\n.stock-date {\n  border-color: rgba(0, 0, 0, 0.42);\n  border-top: none;\n  border-left: none;\n  border-right: none;\n}\n\ninput:focus {\n  outline: none;\n  box-shadow: unset;\n}\n\n.save-icon {\n  padding-left: 7px;\n  padding-top: 27px;\n}\n\n.fa-times {\n  color: #ff3638;\n}\n\n.search-left {\n  left: 2px !important;\n}\n\n.pad-top {\n  padding-top: 22px;\n}\n\n@media only screen and (min-width: 300px) and (max-width: 767px) {\n  .card.table-card .card-body {\n    overflow: scroll;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW52ZW50b3J5L2NvbXBvbmVudHMvaW52ZW50b3J5LWluaXRpYWwtc3RvY2svaW52ZW50b3J5LWluaXRpYWwtc3RvY2suY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9pbnZlbnRvcnkvY29tcG9uZW50cy9pbnZlbnRvcnktaW5pdGlhbC1zdG9jay9pbnZlbnRvcnktaW5pdGlhbC1zdG9jay5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0E7RUFDSSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUNGSjs7QURLRTtFQUNFLGVBQUE7QUNGSjs7QURLRTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUNGSjs7QURLRTtFQUNFLGFBQUE7QUNGSjs7QURLRTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FDRko7O0FES0U7RUFDRSxhQUFBO0FDRko7O0FES0U7RUFDRSxVQUFBO0FDRko7O0FES0U7RUFDRSxZQUFBO0FDRko7O0FES0U7RUFDRSxhQUFBO0FDRko7O0FESUU7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsYUFBQTtBQ0RKOztBREtFO0VBQ0UsaUNBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUNGSjs7QURLRTtFQUNFLGFBQUE7RUFDQSxpQkFBQTtBQ0ZKOztBRElBO0VBQ0UsaUJBQUE7RUFDQSxpQkFBQTtBQ0RGOztBRE1BO0VBQ0MsY0U1RFU7QUR5RFg7O0FES0E7RUFDRSxvQkFBQTtBQ0ZGOztBREtBO0VBQ0UsaUJBQUE7QUNGRjs7QURJRTtFQUVFO0lBQ0EsZ0JBQUE7RUNGRjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYW1zL2ludmVudG9yeS9jb21wb25lbnRzL2ludmVudG9yeS1pbml0aWFsLXN0b2NrL2ludmVudG9yeS1pbml0aWFsLXN0b2NrLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG5AaW1wb3J0ICcuLi8uLi8uLi8uLi8uLi9zY3NzL2ZvbnRzLnNjc3MnO1xuXG5oZWFkZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMzMzM7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgb3ZlcmZsb3c6IGF1dG87XG4gICAgcG9zaXRpb246IHN0aWNreTtcbiAgICB0b3A6MDtcbiAgICBwYWRkaW5nOiAxNXB4O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICAgIG1hcmdpbi1ib3R0b206IDUwcHg7XG4gIH1cbiAgXG4gIG1hdC1pY29uIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gIH1cbiAgXG4gIC5hY3Rpb24tY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICBwYWRkaW5nOiAyMHB4O1xuICB9XG4gIFxuICAudGFibGUge1xuICAgIHBhZGRpbmc6IDIwcHg7XG4gIH1cbiAgXG4gIC50YWJsZSB0Ym9keSB0ciB0ZCxcbiAgLnRhYmxlIHRoZWFkIHRoLFxuICAudGFibGUgdGhlYWQge1xuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xuICB9XG4gIFxuICAub3V0cHV0IHtcbiAgICBwYWRkaW5nOiAyMHB4O1xuICB9XG4gIFxuICAuZGVsZXRlIHtcbiAgICBjb2xvcjogcmVkICA7XG4gIH1cbiAgXG4gIC5kb25lIHtcbiAgICBjb2xvcjogZ3JlZW47XG4gIH1cbiAgXG4gIC5lZGl0IHtcbiAgICBjb2xvcjogeWVsbG93O1xuICB9XG4gIHNwYW4udWktY29sdW1uLXJlc2l6ZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgICBjdXJzb3I6IGNvbC1yZXNpemU7XG4gICAgcGFkZGluZzogMzBweDtcbiAgXG4gIH1cbiAgXG4gIC5zdG9jay1kYXRle1xuICAgIGJvcmRlci1jb2xvcjogcmdiYSgwLDAsMCwuNDIpO1xuICAgIGJvcmRlci10b3A6IG5vbmU7XG4gICAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gICAgYm9yZGVyLXJpZ2h0OiBub25lO1xuICB9XG5cbiAgaW5wdXQ6Zm9jdXN7XG4gICAgb3V0bGluZTogbm9uZTtcbiAgICBib3gtc2hhZG93OiB1bnNldDtcbn1cbi5zYXZlLWljb24ge1xuICBwYWRkaW5nLWxlZnQ6IDdweDsgXG4gIHBhZGRpbmctdG9wOiAyN3B4O1xufVxuXG5cblxuLmZhLXRpbWVze1xuIGNvbG9yOiAkcy1yZWQtMDI7XG59XG4uc2VhcmNoLWxlZnR7XG4gIGxlZnQ6IDJweCAhaW1wb3J0YW50O1xufVxuXG4ucGFkLXRvcHtcbiAgcGFkZGluZy10b3A6IDIycHg7XG59XG4gIEBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aDogMzAwcHgpIGFuZCAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuY2FyZC50YWJsZS1jYXJkIHsgXG4gICAgLmNhcmQtYm9keSB7XG4gICAgb3ZlcmZsb3c6IHNjcm9sbDtcbiB9XG4gIH1cbn0iLCJoZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICBjb2xvcjogI2ZmZjtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIHBvc2l0aW9uOiBzdGlja3k7XG4gIHRvcDogMDtcbiAgcGFkZGluZzogMTVweDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBtYXJnaW4tYm90dG9tOiA1MHB4O1xufVxuXG5tYXQtaWNvbiB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmFjdGlvbi1jb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi50YWJsZSB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi50YWJsZSB0Ym9keSB0ciB0ZCxcbi50YWJsZSB0aGVhZCB0aCxcbi50YWJsZSB0aGVhZCB7XG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZWUyZTY7XG59XG5cbi5vdXRwdXQge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4uZGVsZXRlIHtcbiAgY29sb3I6IHJlZDtcbn1cblxuLmRvbmUge1xuICBjb2xvcjogZ3JlZW47XG59XG5cbi5lZGl0IHtcbiAgY29sb3I6IHllbGxvdztcbn1cblxuc3Bhbi51aS1jb2x1bW4tcmVzaXplciB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogY29sLXJlc2l6ZTtcbiAgcGFkZGluZzogMzBweDtcbn1cblxuLnN0b2NrLWRhdGUge1xuICBib3JkZXItY29sb3I6IHJnYmEoMCwgMCwgMCwgMC40Mik7XG4gIGJvcmRlci10b3A6IG5vbmU7XG4gIGJvcmRlci1sZWZ0OiBub25lO1xuICBib3JkZXItcmlnaHQ6IG5vbmU7XG59XG5cbmlucHV0OmZvY3VzIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogdW5zZXQ7XG59XG5cbi5zYXZlLWljb24ge1xuICBwYWRkaW5nLWxlZnQ6IDdweDtcbiAgcGFkZGluZy10b3A6IDI3cHg7XG59XG5cbi5mYS10aW1lcyB7XG4gIGNvbG9yOiAjZmYzNjM4O1xufVxuXG4uc2VhcmNoLWxlZnQge1xuICBsZWZ0OiAycHggIWltcG9ydGFudDtcbn1cblxuLnBhZC10b3Age1xuICBwYWRkaW5nLXRvcDogMjJweDtcbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoOiAzMDBweCkgYW5kIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5jYXJkLnRhYmxlLWNhcmQgLmNhcmQtYm9keSB7XG4gICAgb3ZlcmZsb3c6IHNjcm9sbDtcbiAgfVxufSIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJGQtY3lhbi0wMzojMDBkMWZhO1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGltZS1ncmVlbi0wMzogIzUyYzU3MDtcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtbWVkaXVtLTA0OjMwO1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iXX0= */";
+    __webpack_exports__["default"] = "header {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.output {\n  padding: 20px;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n\n.stock-date {\n  border-color: rgba(0, 0, 0, 0.42);\n  border-top: none;\n  border-left: none;\n  border-right: none;\n}\n\ninput:focus {\n  outline: none;\n  box-shadow: unset;\n}\n\n.save-icon {\n  padding-left: 7px;\n  padding-top: 27px;\n}\n\n.fa-times {\n  color: #ff3638;\n}\n\n.search-left {\n  left: 2px !important;\n}\n\n.pad-top {\n  padding-top: 22px;\n}\n\n@media only screen and (min-width: 300px) and (max-width: 767px) {\n  .card.table-card .card-body {\n    overflow: scroll;\n  }\n}\n\n.pt-26 {\n  padding-top: 26px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW52ZW50b3J5L2NvbXBvbmVudHMvaW52ZW50b3J5LWluaXRpYWwtc3RvY2svaW52ZW50b3J5LWluaXRpYWwtc3RvY2suY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9pbnZlbnRvcnkvY29tcG9uZW50cy9pbnZlbnRvcnktaW5pdGlhbC1zdG9jay9pbnZlbnRvcnktaW5pdGlhbC1zdG9jay5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0E7RUFDSSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUNGSjs7QURLRTtFQUNFLGVBQUE7QUNGSjs7QURLRTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUNGSjs7QURLRTtFQUNFLGFBQUE7QUNGSjs7QURLRTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FDRko7O0FES0U7RUFDRSxhQUFBO0FDRko7O0FEZ0JFO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7QUNiSjs7QURpQkU7RUFDRSxpQ0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ2RKOztBRGlCRTtFQUNFLGFBQUE7RUFDQSxpQkFBQTtBQ2RKOztBRGdCQTtFQUNFLGlCQUFBO0VBQ0EsaUJBQUE7QUNiRjs7QURrQkE7RUFDQyxjRTVEVTtBRDZDWDs7QURpQkE7RUFDRSxvQkFBQTtBQ2RGOztBRGlCQTtFQUNFLGlCQUFBO0FDZEY7O0FEZ0JFO0VBRUU7SUFDQSxnQkFBQTtFQ2RGO0FBQ0Y7O0FEaUJBO0VBQ0UsaUJBQUE7QUNmRiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbnZlbnRvcnkvY29tcG9uZW50cy9pbnZlbnRvcnktaW5pdGlhbC1zdG9jay9pbnZlbnRvcnktaW5pdGlhbC1zdG9jay5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuQGltcG9ydCAnLi4vLi4vLi4vLi4vLi4vc2Nzcy9mb250cy5zY3NzJztcblxuaGVhZGVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICAgIGNvbG9yOiAjZmZmO1xuICAgIG92ZXJmbG93OiBhdXRvO1xuICAgIHBvc2l0aW9uOiBzdGlja3k7XG4gICAgdG9wOjA7XG4gICAgcGFkZGluZzogMTVweDtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICBtYXJnaW4tYm90dG9tOiA1MHB4O1xuICB9XG4gIFxuICBtYXQtaWNvbiB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICB9XG4gIFxuICAuYWN0aW9uLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgcGFkZGluZzogMjBweDtcbiAgfVxuICBcbiAgLnRhYmxlIHtcbiAgICBwYWRkaW5nOiAyMHB4O1xuICB9XG4gIFxuICAudGFibGUgdGJvZHkgdHIgdGQsXG4gIC50YWJsZSB0aGVhZCB0aCxcbiAgLnRhYmxlIHRoZWFkIHtcbiAgICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RlZTJlNjtcbiAgfVxuICBcbiAgLm91dHB1dCB7XG4gICAgcGFkZGluZzogMjBweDtcbiAgfVxuICBcbiAgLy8gLmRlbGV0ZSB7XG4gIC8vICAgY29sb3I6IHJlZCAgO1xuICAvLyB9XG4gIFxuICAvLyAuZG9uZSB7XG4gIC8vICAgY29sb3I6IGdyZWVuO1xuICAvLyB9XG4gIFxuICAvLyAuZWRpdCB7XG4gIC8vICAgY29sb3I6IHllbGxvdztcbiAgLy8gfVxuICBzcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICAgIHBhZGRpbmc6IDMwcHg7XG4gIFxuICB9XG4gIFxuICAuc3RvY2stZGF0ZXtcbiAgICBib3JkZXItY29sb3I6IHJnYmEoMCwwLDAsLjQyKTtcbiAgICBib3JkZXItdG9wOiBub25lO1xuICAgIGJvcmRlci1sZWZ0OiBub25lO1xuICAgIGJvcmRlci1yaWdodDogbm9uZTtcbiAgfVxuXG4gIGlucHV0OmZvY3Vze1xuICAgIG91dGxpbmU6IG5vbmU7XG4gICAgYm94LXNoYWRvdzogdW5zZXQ7XG59XG4uc2F2ZS1pY29uIHtcbiAgcGFkZGluZy1sZWZ0OiA3cHg7IFxuICBwYWRkaW5nLXRvcDogMjdweDtcbn1cblxuXG5cbi5mYS10aW1lc3tcbiBjb2xvcjogJHMtcmVkLTAyO1xufVxuLnNlYXJjaC1sZWZ0e1xuICBsZWZ0OiAycHggIWltcG9ydGFudDtcbn1cblxuLnBhZC10b3B7XG4gIHBhZGRpbmctdG9wOiAyMnB4O1xufVxuICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDMwMHB4KSBhbmQgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgLmNhcmQudGFibGUtY2FyZCB7IFxuICAgIC5jYXJkLWJvZHkge1xuICAgIG92ZXJmbG93OiBzY3JvbGw7XG4gfVxuICB9XG59XG4ucHQtMjZ7XG4gIHBhZGRpbmctdG9wOiAyNnB4O1xufSIsImhlYWRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzMzM7XG4gIGNvbG9yOiAjZmZmO1xuICBvdmVyZmxvdzogYXV0bztcbiAgcG9zaXRpb246IHN0aWNreTtcbiAgdG9wOiAwO1xuICBwYWRkaW5nOiAxNXB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG59XG5cbm1hdC1pY29uIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHRib2R5IHRyIHRkLFxuLnRhYmxlIHRoZWFkIHRoLFxuLnRhYmxlIHRoZWFkIHtcbiAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RlZTJlNjtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbnNwYW4udWktY29sdW1uLXJlc2l6ZXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBjdXJzb3I6IGNvbC1yZXNpemU7XG4gIHBhZGRpbmc6IDMwcHg7XG59XG5cbi5zdG9jay1kYXRlIHtcbiAgYm9yZGVyLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNDIpO1xuICBib3JkZXItdG9wOiBub25lO1xuICBib3JkZXItbGVmdDogbm9uZTtcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xufVxuXG5pbnB1dDpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IHVuc2V0O1xufVxuXG4uc2F2ZS1pY29uIHtcbiAgcGFkZGluZy1sZWZ0OiA3cHg7XG4gIHBhZGRpbmctdG9wOiAyN3B4O1xufVxuXG4uZmEtdGltZXMge1xuICBjb2xvcjogI2ZmMzYzODtcbn1cblxuLnNlYXJjaC1sZWZ0IHtcbiAgbGVmdDogMnB4ICFpbXBvcnRhbnQ7XG59XG5cbi5wYWQtdG9wIHtcbiAgcGFkZGluZy10b3A6IDIycHg7XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aDogMzAwcHgpIGFuZCAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuY2FyZC50YWJsZS1jYXJkIC5jYXJkLWJvZHkge1xuICAgIG92ZXJmbG93OiBzY3JvbGw7XG4gIH1cbn1cbi5wdC0yNiB7XG4gIHBhZGRpbmctdG9wOiAyNnB4O1xufSIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJGQtY3lhbi0wMzojMDBkMWZhO1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGltZS1ncmVlbi0wMzogIzUyYzU3MDtcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtbWVkaXVtLTA0OjMwO1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iXX0= */";
     /***/
   },
 
@@ -1486,11 +1486,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/api/controllers/PurchaseOrder */
     "./src/app/api/controllers/PurchaseOrder.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_csv_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/services/csv.service */
+    "./src/app/shared/services/csv.service.ts");
 
     var InventoryInitialStockComponent =
     /*#__PURE__*/
     function () {
-      function InventoryInitialStockComponent(router, injector, sharedService, cookieService, fb, purchaseOrderService) {
+      function InventoryInitialStockComponent(router, injector, sharedService, cookieService, fb, purchaseOrderService, csvService) {
         _classCallCheck(this, InventoryInitialStockComponent);
 
         this.router = router;
@@ -1499,6 +1505,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.cookieService = cookieService;
         this.fb = fb;
         this.purchaseOrderService = purchaseOrderService;
+        this.csvService = csvService;
         this.row = {};
         this.search = {
           'searchWarehouse': ''
@@ -1596,6 +1603,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               });
             }
           });
+        }
+      }, {
+        key: "download",
+        value: function download() {
+          var headerArray = ['warehouseId', 'materialId', 'initalStockQty', 'stockasonDate'];
+          this.csvService.downloadFile(this.initalStockData, headerArray, 'IntialStock');
         }
       }, {
         key: "ngAfterViewInit",
@@ -1828,9 +1841,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]
       }, {
         type: src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_7__["PurchaseOrderService"]
+      }, {
+        type: src_app_shared_services_csv_service__WEBPACK_IMPORTED_MODULE_8__["CsvService"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('data', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", InventoryInitialStockComponent)], InventoryInitialStockComponent.prototype, "data", void 0);
     InventoryInitialStockComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-inventory-initial-stock',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1839,7 +1857,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./inventory-initial-stock.component.scss */
       "./src/app/ams/inventory/components/inventory-initial-stock/inventory-initial-stock.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"], src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_7__["PurchaseOrderService"]])], InventoryInitialStockComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"], src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_7__["PurchaseOrderService"], src_app_shared_services_csv_service__WEBPACK_IMPORTED_MODULE_8__["CsvService"]])], InventoryInitialStockComponent);
     /***/
   },
 
@@ -1942,6 +1960,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.settings = {};
         this.selectedItem = [];
         this.materialItemData = [];
+        this.issueToStaff = [];
+        this.issueByStaff = [];
       }
 
       _createClass(InventoryInternalTransferComponent, [{
@@ -1990,6 +2010,60 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(items);
         }
       }, {
+        key: "onItemSelectByStaff",
+        value: function onItemSelectByStaff(item) {
+          console.log(item);
+          this.transfer.iN_GoodsincomingReceivedbyStaffID = item.id;
+        }
+      }, {
+        key: "OnItemDeSelectByStaff",
+        value: function OnItemDeSelectByStaff(item) {
+          console.log(item);
+          console.log(this.selectedItems);
+        }
+      }, {
+        key: "selectedItemsByStaff",
+        value: function selectedItemsByStaff(selectedItems) {
+          console.log(selectedItems);
+        }
+      }, {
+        key: "onSelectAllByStaff",
+        value: function onSelectAllByStaff(items) {
+          console.log(items);
+        }
+      }, {
+        key: "onDeSelectAllByStaff",
+        value: function onDeSelectAllByStaff(items) {
+          console.log(items);
+        }
+      }, {
+        key: "onItemSelectToStaff",
+        value: function onItemSelectToStaff(item) {
+          console.log(item);
+          this.transfer.ouT_TowhomissuedStaffID = item.id;
+        }
+      }, {
+        key: "OnItemDeSelectToStaff",
+        value: function OnItemDeSelectToStaff(item) {
+          console.log(item);
+          console.log(this.selectedItems);
+        }
+      }, {
+        key: "selectedItemsToStaff",
+        value: function selectedItemsToStaff(selectedItems) {
+          console.log(selectedItems);
+        }
+      }, {
+        key: "onSelectAllToStaff",
+        value: function onSelectAllToStaff(items) {
+          console.log(items);
+        }
+      }, {
+        key: "onDeSelectAllToStaff",
+        value: function onDeSelectAllToStaff(items) {
+          console.log(items);
+        }
+      }, {
         key: "getAllGetAllWarehouse",
         value: function getAllGetAllWarehouse() {
           var _this19 = this;
@@ -2015,11 +2089,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           queryParamBase = {
             apartmentId: this.cookieService.get('apartmentId')
           };
-          this.isAssetLoaded = true;
           this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this20.isAssetLoaded = false;
-              _this20.staffList = res ? res : [];
+              // this.staffList = res ? res : [];
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this20.staffList.push({
+                    'id': val.staffId,
+                    'itemName': val.firstName
+                  });
+                });
+              }
             }
           });
         }
@@ -2062,7 +2142,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "comments": this.transfer.comments,
             "apartmentId": this.cookieService.get('apartmentId'),
             "iN_GoodsincomingReceivedbyStaffID": Number(this.transfer.iN_GoodsincomingReceivedbyStaffID),
-            "ouT_TowhomissuedStaffID": null,
+            "ouT_TowhomissuedStaffID": Number(this.transfer.ouT_TowhomissuedStaffID),
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date(),
@@ -2074,7 +2154,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.inventoryService.addInventoryInternalTransferTransaction(params).subscribe(function (res) {
             console.log(res, res);
 
-            if (res) {
+            if (res && res.message) {
               _this22.sharedService.setAlertMessage("Transfer Item added successfully");
 
               _this22.isAssetLoaded = false; //    this.row={};
@@ -2194,11 +2274,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/api/controllers/Staff */
     "./src/app/api/controllers/Staff.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../../../../shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
 
     var InventoryReceivingComponent =
     /*#__PURE__*/
     function () {
-      function InventoryReceivingComponent(cookieService, purchaseOrderService, sharedService, inventoryService, staffService) {
+      function InventoryReceivingComponent(cookieService, purchaseOrderService, sharedService, inventoryService, staffService, lookupService, injector) {
         _classCallCheck(this, InventoryReceivingComponent);
 
         this.cookieService = cookieService;
@@ -2206,6 +2298,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.sharedService = sharedService;
         this.inventoryService = inventoryService;
         this.staffService = staffService;
+        this.lookupService = lookupService;
+        this.injector = injector;
         this.asset = {};
         this.receiving = {};
         this.materialSetting = {};
@@ -2214,11 +2308,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.selectedItem = [];
         this.staffList = [];
         this.inventoryList = [];
+        this.ItemStartIndex = 0;
+        this.itemLimit = 5;
+        this.issueToStaff = [];
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
       }
 
       _createClass(InventoryReceivingComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this23 = this;
+
           this.getAllGetAllWarehouse();
           this.getMaterials();
           this.getAllStaff();
@@ -2241,6 +2341,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             enableSearchFilter: true,
             badgeShowLimit: 3
           };
+          this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            if (id != null) {
+              var param = {};
+              param = {
+                inventoryId: id,
+                deleteBy: parseInt(_this23.cookieService.get('userId'))
+              };
+
+              _this23.inventoryService.deleteInventory(param).subscribe(function (res) {
+                setTimeout(function () {
+                  _this23.sharedService.setAlertMessage("Received item deleted successfully");
+
+                  _this23.sharedService.setUnitListDeleteIndex(null); // this.deleteType = '';
+                  // this.getAllInventory();
+
+                }, 500);
+              }, function (error) {
+                console.log(error);
+              });
+            }
+          });
         }
       }, {
         key: "onItemSelect",
@@ -2271,9 +2392,49 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(items);
         }
       }, {
+        key: "onItemSelectToStaff",
+        value: function onItemSelectToStaff(item) {
+          console.log(item);
+          this.receiving.inGoodsincomingReceivedbyStaffId = item.id;
+        }
+      }, {
+        key: "OnItemDeSelectToStaff",
+        value: function OnItemDeSelectToStaff(item) {
+          console.log(item);
+          console.log(this.selectedItems);
+        }
+      }, {
+        key: "selectedItemsToStaff",
+        value: function selectedItemsToStaff(selectedItems) {
+          console.log(selectedItems);
+        }
+      }, {
+        key: "onSelectAllToStaff",
+        value: function onSelectAllToStaff(items) {
+          console.log(items);
+        }
+      }, {
+        key: "onDeSelectAllToStaff",
+        value: function onDeSelectAllToStaff(items) {
+          console.log(items);
+        }
+      }, {
+        key: "deleteRow",
+        value: function deleteRow(index, data) {
+          this.modalService.showConfirmModal(data.inventoryTransactionId);
+        }
+      }, {
+        key: "setUpdate",
+        value: function setUpdate(list) {
+          var mainDiv = document.getElementById('outertop'); // mainDiv.scrollTop = 0;
+
+          mainDiv.scrollIntoView();
+          this.receiving = list;
+        }
+      }, {
         key: "getAllGetAllWarehouse",
         value: function getAllGetAllWarehouse() {
-          var _this23 = this;
+          var _this24 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2283,14 +2444,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
               // this.warehouseData = [];
-              _this23.warehouseData = res && res.length > 0 ? res : [];
+              _this24.warehouseData = res && res.length > 0 ? res : [];
             }
           });
         }
       }, {
+        key: "getIndexParams",
+        value: function getIndexParams(event) {
+          this.ItemStartIndex = event.ItemStartIndex;
+          this.ItemEndIndex = event.ItemEndIndex;
+          this.itemLimit = event.itemLimit;
+        }
+      }, {
         key: "getAllStaff",
         value: function getAllStaff() {
-          var _this24 = this;
+          var _this25 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2299,15 +2467,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isAssetLoaded = true;
           this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this24.isAssetLoaded = false;
-              _this24.staffList = res ? res : [];
+              _this25.isAssetLoaded = false; // this.staffList = res ? res : [];
+
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this25.staffList.push({
+                    'id': val.staffId,
+                    'itemName': val.firstName
+                  });
+                });
+              }
             }
           });
         }
       }, {
         key: "updateReceiving",
         value: function updateReceiving() {
-          var _this25 = this;
+          var _this26 = this;
 
           var receivingObj = {};
           receivingObj = {
@@ -2343,19 +2519,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(res, res);
 
             if (res) {
-              _this25.sharedService.setAlertMessage("Receiving Item updated successfully");
+              _this26.sharedService.setAlertMessage("Receiving Item updated successfully");
 
-              _this25.isAssetLoaded = false;
-              _this25.receiving = {};
+              _this26.isAssetLoaded = false;
+              _this26.receiving = {};
 
-              _this25.getAllReceivingItem();
+              _this26.getAllReceivingItem();
             }
           });
         }
       }, {
         key: "addReceiving",
         value: function addReceiving() {
-          var _this26 = this;
+          var _this27 = this;
 
           var receivingObj = {};
           receivingObj = {
@@ -2387,16 +2563,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var params = {};
           params.inventoryTransaction = receivingObj;
           this.inventoryService.addInventoryTransaction(params).subscribe(function (res) {
-            console.log(res, res);
-
+            // console.log(res, res);
             if (res) {
-              _this26.sharedService.setAlertMessage("Receiving Item added successfully");
+              _this27.sharedService.setAlertMessage("Receiving Item added successfully");
 
-              _this26.isAssetLoaded = false; //    this.row={};
+              _this27.isAssetLoaded = false; //    this.row={};
 
-              _this26.receiving = {};
+              _this27.receiving = {};
+              _this27.selectedItem = [];
+              _this27.issueToStaff = [];
 
-              _this26.getAllReceivingItem(); //   this.getMaterials();
+              _this27.getAllReceivingItem(); //   this.getMaterials();
 
             }
           });
@@ -2404,7 +2581,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMaterials",
         value: function getMaterials() {
-          var _this27 = this;
+          var _this28 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2414,20 +2591,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res) {
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this27.materialItemData.push({
+                  _this28.materialItemData.push({
                     'id': val.materialId,
                     'itemName': val.material1
                   });
                 });
               }
 
-              console.log(_this27.materialItemData);
+              console.log(_this28.materialItemData);
             }
           });
         }
       }, {
         key: "getAvailableStock",
         value: function getAvailableStock() {
+          var _this29 = this;
+
           if (!this.receiving.materialId && !this.receiving.warehouseId) {
             return;
           }
@@ -2435,26 +2614,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var queryParamBase = {};
           queryParamBase = {
             apartmentId: this.cookieService.get('apartmentId')
-          }; // this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe((res: any) => {
-          // 	if (res) {	
-          // 	 this.receiving.availableStockQty =0
-          // 	}
-          // });
+          };
+          this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
+            if (res) {
+              console.log(res);
+              _this29.receiving.availableStockQty = 1;
+            }
+          });
         }
       }, {
         key: "getAllReceivingItem",
         value: function getAllReceivingItem() {
-          var _this28 = this;
+          var _this30 = this;
 
           var queryParamBase = {};
           queryParamBase = {
-            apartmentId: this.cookieService.get('apartmentId')
-          };
-          this.isAssetLoaded = true;
+            apartmentId: this.cookieService.get('apartmentId'),
+            active: 1
+          }; // this.isAssetLoaded = true;
+
           this.inventoryService.getAllInventoryTransactionByApartmentIdStatus(queryParamBase).subscribe(function (res) {
             if (res) {
               // this.warehouseData = [];
-              _this28.inventoryList = res && res.length > 0 ? res : [];
+              _this30.inventoryList = res && res.length > 0 ? res : [];
+              console.log(_this30.inventoryList);
+              _this30.totalItems = _this30.inventoryList.length;
+
+              if (_this30.totalItems > _this30.itemLimit) {
+                _this30.ItemEndIndex = _this30.itemLimit;
+              } else {
+                _this30.ItemEndIndex = _this30.totalItems;
+              }
             }
           });
         }
@@ -2474,6 +2664,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: src_app_api_controllers_Inventory__WEBPACK_IMPORTED_MODULE_5__["InventoryService"]
       }, {
         type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
       }];
     };
 
@@ -2485,7 +2679,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./inventory-receiving.component.scss */
       "./src/app/ams/inventory/components/inventory-receiving/inventory-receiving.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"], src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_3__["PurchaseOrderService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Inventory__WEBPACK_IMPORTED_MODULE_5__["InventoryService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"]])], InventoryReceivingComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"], src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_3__["PurchaseOrderService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Inventory__WEBPACK_IMPORTED_MODULE_5__["InventoryService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], InventoryReceivingComponent);
     /***/
   },
 
@@ -2747,7 +2941,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addSetUp",
         value: function addSetUp(name, type, value, e) {
-          var _this29 = this;
+          var _this31 = this;
 
           console.log(type, value);
           var dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
@@ -2763,7 +2957,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(result);
 
             if (result) {
-              _this29.getAllInventory();
+              _this31.getAllInventory();
             }
           });
         } // code  filter function 
@@ -2785,7 +2979,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this30 = this;
+          var _this32 = this;
 
           this.getAllInventory();
           this.getAllStaff();
@@ -2796,43 +2990,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.getAllGetAllWarehouse();
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
-              if (_this30.deleteType == 'categoryDelete') {
+              if (_this32.deleteType == 'categoryDelete') {
                 var param = {};
                 param = {
                   categoryId: id,
-                  deletedBy: parseInt(_this30.cookieService.get('userId'))
+                  deletedBy: parseInt(_this32.cookieService.get('userId'))
                 };
 
-                _this30.lookupService.deleteCategory(param).subscribe(function (res) {
+                _this32.lookupService.deleteCategory(param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this30.sharedService.setAlertMessage("Category deleted successfully");
+                    _this32.sharedService.setAlertMessage("Category deleted successfully");
 
-                    _this30.sharedService.setUnitListDeleteIndex(null);
+                    _this32.sharedService.setUnitListDeleteIndex(null);
 
-                    _this30.deleteType = '';
+                    _this32.deleteType = '';
 
-                    _this30.getAllInventory();
+                    _this32.getAllInventory();
                   }, 500);
                 }, function (error) {
                   console.log(error);
                 });
-              } else if (_this30.deleteMaterial == true) {
+              } else if (_this32.deleteMaterial == true) {
                 var _param = {};
                 _param = {
                   lookupValueId: id,
-                  updateUserId: parseInt(_this30.cookieService.get('userId'))
+                  updateUserId: parseInt(_this32.cookieService.get('userId'))
                 };
 
-                _this30.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
+                _this32.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this30.sharedService.setAlertMessage("Material type deleted successfully");
+                    _this32.sharedService.setAlertMessage("Material type deleted successfully");
 
-                    _this30.sharedService.setUnitListDeleteIndex(null);
+                    _this32.sharedService.setUnitListDeleteIndex(null);
 
-                    _this30.deleteType = '';
-                    _this30.deleteMaterial = false;
+                    _this32.deleteType = '';
+                    _this32.deleteMaterial = false;
 
-                    _this30.getAllMaterial();
+                    _this32.getAllMaterial();
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -2840,18 +3034,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               } else {
                 var _param2 = {};
                 _param2 = {
-                  apartmentId: _this30.cookieService.get('apartmentId'),
+                  apartmentId: _this32.cookieService.get('apartmentId'),
                   warehouseId: id,
-                  deleteBy: parseInt(_this30.cookieService.get('userId'))
+                  deleteBy: parseInt(_this32.cookieService.get('userId'))
                 };
 
-                _this30.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
-                  _this30.getAllGetAllWarehouse();
+                _this32.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
+                  _this32.getAllGetAllWarehouse();
 
                   setTimeout(function () {
-                    _this30.sharedService.setAlertMessage("Warehouse deleted successfully");
+                    _this32.sharedService.setAlertMessage("Warehouse deleted successfully");
 
-                    _this30.sharedService.setUnitListDeleteIndex(null);
+                    _this32.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -2953,7 +3147,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllGetAllWarehouse",
         value: function getAllGetAllWarehouse() {
-          var _this31 = this;
+          var _this33 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2963,13 +3157,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
               // this.warehouseData = [];
-              _this31.warehouseData = res && res.length > 0 ? res : [];
-              _this31.isAssetLoaded = false;
-              _this31.tempWarehouseData = _this31.warehouseData;
-              _this31.totalItems = _this31.warehouseData.length;
+              _this33.warehouseData = res && res.length > 0 ? res : [];
+              _this33.isAssetLoaded = false;
+              _this33.tempWarehouseData = _this33.warehouseData;
+              _this33.totalItems = _this33.warehouseData.length;
 
-              if (_this31.warehouseData && _this31.warehouseData.length > 0) {
-                _this31.warehouseData.filter(function (val) {
+              if (_this33.warehouseData && _this33.warehouseData.length > 0) {
+                _this33.warehouseData.filter(function (val) {
                   if (val.warehouseName == '') {
                     delete val.warehouseName;
                     delete val.warehouseId;
@@ -2977,10 +3171,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 });
               }
 
-              if (_this31.totalItems > _this31.itemLimit) {
-                _this31.ItemEndIndex = _this31.itemLimit;
+              if (_this33.totalItems > _this33.itemLimit) {
+                _this33.ItemEndIndex = _this33.itemLimit;
               } else {
-                _this31.ItemEndIndex = _this31.totalItems;
+                _this33.ItemEndIndex = _this33.totalItems;
               }
             }
           });
@@ -2988,7 +3182,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addWareHouse",
         value: function addWareHouse(data) {
-          var _this32 = this;
+          var _this34 = this;
 
           var reqObj = {};
           reqObj = {
@@ -3010,19 +3204,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.warehouseobj = reqObj;
           this.purchaseOrderService.addWarehouse(params).subscribe(function (res) {
             if (res) {
-              _this32.sharedService.setAlertMessage("Warehouse added successfully");
+              _this34.sharedService.setAlertMessage("Warehouse added successfully");
 
-              _this32.isAssetLoaded = false;
-              _this32.row = {};
+              _this34.isAssetLoaded = false;
+              _this34.row = {};
 
-              _this32.getAllGetAllWarehouse();
+              _this34.getAllGetAllWarehouse();
             }
           });
         }
       }, {
         key: "updateWareHouse",
         value: function updateWareHouse(data) {
-          var _this33 = this;
+          var _this35 = this;
 
           var reqObj = {};
           reqObj = {
@@ -3044,18 +3238,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.warehouseobj = reqObj;
           this.purchaseOrderService.updateWarehouse(params).subscribe(function (res) {
             if (res) {
-              _this33.sharedService.setAlertMessage("Warehouse Updated successfully");
+              _this35.sharedService.setAlertMessage("Warehouse Updated successfully");
 
-              _this33.isAssetLoaded = false; // this.isEditRow = false;
+              _this35.isAssetLoaded = false; // this.isEditRow = false;
 
-              _this33.wareHouseIndex = -1;
+              _this35.wareHouseIndex = -1;
             }
           });
         }
       }, {
         key: "getAllStaff",
         value: function getAllStaff() {
-          var _this34 = this;
+          var _this36 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3064,8 +3258,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isAssetLoaded = true;
           this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this34.isAssetLoaded = false;
-              _this34.staffList = res ? res : [];
+              _this36.isAssetLoaded = false;
+              _this36.staffList = res ? res : [];
             }
           });
         }
@@ -3076,7 +3270,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllInventory",
         value: function getAllInventory() {
-          var _this35 = this;
+          var _this37 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3087,9 +3281,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this35.isAssetLoaded = false;
-              _this35.inventoryCategoryList = res ? res : [];
-              _this35.tempCategoryList = _this35.inventoryCategoryList;
+              _this37.isAssetLoaded = false;
+              _this37.inventoryCategoryList = res ? res : [];
+              _this37.tempCategoryList = _this37.inventoryCategoryList;
             }
           });
         }
@@ -3106,7 +3300,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editInventory",
         value: function editInventory(data) {
-          var _this36 = this;
+          var _this38 = this;
 
           var reqObj = {};
           reqObj.id = data.id;
@@ -3122,20 +3316,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.subcategoryLookupTypeId = 175;
           this.lookupService.upsertSubCategory(params).subscribe(function (res) {
             if (res) {
-              _this36.sharedService.setAlertMessage("Inventory sub types updated successfully");
+              _this38.sharedService.setAlertMessage("Inventory sub types updated successfully");
 
-              _this36.isAssetLoaded = false;
+              _this38.isAssetLoaded = false;
 
-              _this36.getAllInventory();
+              _this38.getAllInventory();
 
-              _this36.inventoryCurrIndex = -1;
+              _this38.inventoryCurrIndex = -1;
             }
           });
         }
       }, {
         key: "getAllLocation",
         value: function getAllLocation() {
-          var _this37 = this;
+          var _this39 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3144,15 +3338,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isAssetLoaded = true;
           this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this37.isAssetLoaded = false;
-              _this37.locationList = res ? res : [];
+              _this39.isAssetLoaded = false;
+              _this39.locationList = res ? res : [];
             }
           });
         }
       }, {
         key: "getAllMaterial",
         value: function getAllMaterial() {
-          var _this38 = this;
+          var _this40 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3162,14 +3356,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isAssetLoaded = true;
           this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this38.isAssetLoaded = false;
-              _this38.materialList = res ? res : [];
-              _this38.typeTotalItems = _this38.materialList.length;
+              _this40.isAssetLoaded = false;
+              _this40.materialList = res ? res : [];
+              _this40.typeTotalItems = _this40.materialList.length;
 
-              if (_this38.typeTotalItems > _this38.typeItemLimit) {
-                _this38.typeItemEndIndex = _this38.typeItemLimit;
+              if (_this40.typeTotalItems > _this40.typeItemLimit) {
+                _this40.typeItemEndIndex = _this40.typeItemLimit;
               } else {
-                _this38.typeItemEndIndex = _this38.typeTotalItems;
+                _this40.typeItemEndIndex = _this40.typeTotalItems;
               }
             }
           });
@@ -3177,7 +3371,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addMaterialType",
         value: function addMaterialType(data) {
-          var _this39 = this;
+          var _this41 = this;
 
           var reqObj = {};
           console.log(data);
@@ -3199,23 +3393,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           param.lookupvalue = reqObj;
           this.lookupService.addLookupValue(param).subscribe(function (res) {
             if (res) {
-              _this39.sharedService.setAlertMessage("Material type added successfully");
+              _this41.sharedService.setAlertMessage("Material type added successfully");
 
-              _this39.isAssetLoaded = false;
-              _this39.typeRow = {};
+              _this41.isAssetLoaded = false;
+              _this41.typeRow = {};
 
-              _this39.getAllMaterial();
+              _this41.getAllMaterial();
             } else if (res.body.errorMessage) {
-              _this39.isError = true;
-              _this39.errorMessage = 'Not Added it already exist';
-              _this39.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+              _this41.isError = true;
+              _this41.errorMessage = 'Not Added it already exist';
+              _this41.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
             }
           });
         }
       }, {
         key: "updateMaterial",
         value: function updateMaterial(data) {
-          var _this40 = this;
+          var _this42 = this;
 
           console.log(data);
           var reqObj = {};
@@ -3237,14 +3431,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           param.lookupvalue = reqObj;
           this.lookupService.updateLookupValue(param).subscribe(function (res) {
             if (res) {
-              _this40.sharedService.setAlertMessage("Material type updated successfully");
+              _this42.sharedService.setAlertMessage("Material type updated successfully");
 
-              _this40.isAssetLoaded = false;
-              _this40.currMaterialIndex = -1;
+              _this42.isAssetLoaded = false;
+              _this42.currMaterialIndex = -1;
             } else if (res.body.errorMessage) {
-              _this40.isError = true;
-              _this40.errorMessage = 'Not Added it already exist';
-              _this40.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+              _this42.isError = true;
+              _this42.errorMessage = 'Not Added it already exist';
+              _this42.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
             }
           });
         }
@@ -3534,6 +3728,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.materialItemData = [];
         this.stock = {};
         this.staffList = [];
+        this.ItemStartIndex = 0;
+        this.itemLimit = 5;
+        this.inventoryList = [];
       }
 
       _createClass(InventoryStockAdjustmentsComponent, [{
@@ -3544,6 +3741,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.stock.outTowhomissuedStaffId = "";
           this.getMaterials();
           this.getAllGetAllWarehouse();
+          this.getAllItem();
           this.settings = {
             singleSelection: true,
             text: "Search",
@@ -3558,6 +3756,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onItemSelect(item) {
           console.log(item);
           this.stock.materialId = item.id;
+          this.getAvailableStock();
         }
       }, {
         key: "OnItemDeSelect",
@@ -3581,9 +3780,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(items);
         }
       }, {
+        key: "onItemSelectByStaff",
+        value: function onItemSelectByStaff(item) {
+          console.log(item);
+          this.stock.outTowhomissuedStaffId = item.id;
+        }
+      }, {
+        key: "OnItemDeSelectByStaff",
+        value: function OnItemDeSelectByStaff(item) {
+          console.log(item);
+          console.log(this.selectedItems);
+        }
+      }, {
+        key: "selectedItemsByStaff",
+        value: function selectedItemsByStaff(selectedItems) {
+          console.log(selectedItems);
+        }
+      }, {
+        key: "onSelectAllByStaff",
+        value: function onSelectAllByStaff(items) {
+          console.log(items);
+        }
+      }, {
+        key: "onDeSelectAllByStaff",
+        value: function onDeSelectAllByStaff(items) {
+          console.log(items);
+        }
+      }, {
         key: "getAllGetAllWarehouse",
         value: function getAllGetAllWarehouse() {
-          var _this41 = this;
+          var _this43 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3592,14 +3818,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
               // this.warehouseData = [];
-              _this41.warehouseData = res && res.length > 0 ? res : [];
+              _this43.warehouseData = res && res.length > 0 ? res : [];
             }
           });
         }
       }, {
         key: "getMaterials",
         value: function getMaterials() {
-          var _this42 = this;
+          var _this44 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3609,7 +3835,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res) {
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this42.materialItemData.push({
+                  _this44.materialItemData.push({
                     'id': val.materialId,
                     'itemName': val.material1
                   });
@@ -3621,7 +3847,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addStock",
         value: function addStock() {
-          var _this43 = this;
+          var _this45 = this;
 
           var stockReqobj = {};
           stockReqobj = {
@@ -3646,39 +3872,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "updatedBy": null,
             "updatedOn": new Date()
           };
-          debugger;
           var params = {};
           params.inventoryTransaction = stockReqobj;
           this.inventoryService.addInventoryTransaction(params).subscribe(function (res) {
-            console.log(res, res);
-
             if (res) {
-              _this43.sharedService.setAlertMessage("Stock Item added successfully");
+              _this45.sharedService.setAlertMessage("Stock Item added successfully");
 
-              _this43.isAssetLoaded = false;
+              _this45.isAssetLoaded = false;
+
+              _this45.getAllItem();
             }
           });
         }
       }, {
         key: "getAvailableStock",
         value: function getAvailableStock() {
-          if (!this.stock.materialId && !this.stock.warehouseId) {
+          var _this46 = this;
+
+          if (!this.stock.materialId || !this.stock.warehouseId) {
             return;
           }
 
           var queryParamBase = {};
           queryParamBase = {
             apartmentId: this.cookieService.get('apartmentId')
-          }; // this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe((res: any) => {
-          // 	if (res) {	
-          // 	 this.receiving.availableStockQty =0
-          // 	}
-          // });
+          };
+          this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
+            if (res) {
+              _this46.stock.availableStockQty = 1;
+            }
+          });
         }
       }, {
         key: "getAllStaff",
         value: function getAllStaff() {
-          var _this44 = this;
+          var _this47 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -3687,8 +3915,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isAssetLoaded = true;
           this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this44.isAssetLoaded = false;
-              _this44.staffList = res ? res : [];
+              _this47.isAssetLoaded = false; // this.staffList = res ? res : [];
+
+              if (res && res.length > 0) {
+                res.filter(function (val) {
+                  _this47.staffList.push({
+                    'id': val.staffId,
+                    'itemName': val.firstName
+                  });
+                });
+              }
+            }
+          });
+        }
+      }, {
+        key: "getAllItem",
+        value: function getAllItem() {
+          var _this48 = this;
+
+          var queryParamBase = {};
+          queryParamBase = {
+            apartmentId: this.cookieService.get('apartmentId'),
+            active: 1
+          }; // this.isAssetLoaded = true;
+
+          this.inventoryService.getAllInventoryTransactionByApartmentIdStatus(queryParamBase).subscribe(function (res) {
+            if (res) {
+              // this.warehouseData = [];
+              _this48.inventoryList = res && res.length > 0 ? res : [];
+              console.log(_this48.inventoryList);
+              _this48.totalItems = _this48.inventoryList.length;
+
+              if (_this48.totalItems > _this48.itemLimit) {
+                _this48.ItemEndIndex = _this48.itemLimit;
+              } else {
+                _this48.ItemEndIndex = _this48.totalItems;
+              }
             }
           });
         }
@@ -4026,7 +4288,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function InventoryViewComponent(injector, dialog, router, route, inventoryService, vendorService, lookupService, sharedService, cookieService) {
-        var _this45 = this;
+        var _this49 = this;
 
         _classCallCheck(this, InventoryViewComponent);
 
@@ -4054,7 +4316,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
         router.events.subscribe(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-            _this45.getAllInventories();
+            _this49.getAllInventories();
           }
         });
       }
@@ -4135,87 +4397,87 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllInventories",
         value: function getAllInventories() {
-          var _this46 = this;
+          var _this50 = this;
 
           this.isInventoryLoaded = false;
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.inventoryService.getAllInventoryByApartmentId(params).subscribe(function (res) {
-            _this46.inventoryListData = res.filter(function (item) {
+            _this50.inventoryListData = res.filter(function (item) {
               return item.isActive;
             });
 
-            if (_this46.route.params['value'].id != undefined) {
-              _this46.inventoryListData = _this46.inventoryListData.filter(function (item) {
-                return item.inventoryCategoryId == _this46.route.params['value'].id && item.isActive;
+            if (_this50.route.params['value'].id != undefined) {
+              _this50.inventoryListData = _this50.inventoryListData.filter(function (item) {
+                return item.inventoryCategoryId == _this50.route.params['value'].id && item.isActive;
               });
-              underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this46.inventoryCategoryData, function (item, index) {
-                if (item.lookupValueId == _this46.route.params['value'].id) {
-                  _this46.inventoryCategoryName = item.lookupValueName;
-                  _this46.inventoryCategory = item.lookupValueId;
+              underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this50.inventoryCategoryData, function (item, index) {
+                if (item.lookupValueId == _this50.route.params['value'].id) {
+                  _this50.inventoryCategoryName = item.lookupValueName;
+                  _this50.inventoryCategory = item.lookupValueId;
                 }
 
-                _this46.isInventoryLoaded = true;
+                _this50.isInventoryLoaded = true;
               });
             }
 
-            _this46.totalItems = _this46.inventoryListData.length;
+            _this50.totalItems = _this50.inventoryListData.length;
 
-            if (_this46.totalItems > _this46.itemLimit) {
-              _this46.ItemEndIndex = _this46.itemLimit;
+            if (_this50.totalItems > _this50.itemLimit) {
+              _this50.ItemEndIndex = _this50.itemLimit;
             } else {
-              _this46.ItemEndIndex = _this46.totalItems;
+              _this50.ItemEndIndex = _this50.totalItems;
             }
 
-            _this46.isInventoryLoaded = true;
+            _this50.isInventoryLoaded = true;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this47 = this;
+          var _this51 = this;
 
           this.inventory = {};
           var params = {
             LookupTypeId: 20
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this47.inventoryCategoryData = res.filter(function (item) {
+            _this51.inventoryCategoryData = res.filter(function (item) {
               return item.isActive;
             });
 
-            _this47.getAllInventories();
+            _this51.getAllInventories();
           });
           var vendorParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this47.vendorListData = res;
+            _this51.vendorListData = res;
           }); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
               var params = {
                 inventoryId: id,
-                deleteBy: parseInt(_this47.cookieService.get('userId'))
+                deleteBy: parseInt(_this51.cookieService.get('userId'))
               };
 
-              _this47.inventoryService.deleteInventory(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this47.inventoryListData, function (type) {
+              _this51.inventoryService.deleteInventory(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this51.inventoryListData, function (type) {
                   if (type.inventoryId == id) {
                     type.isActive = false;
                   }
                 });
                 setTimeout(function () {
-                  _this47.inventoryListData = _this47.inventoryListData.filter(function (type) {
+                  _this51.inventoryListData = _this51.inventoryListData.filter(function (type) {
                     return type.id !== id;
                   });
-                  _this47.totalItems = _this47.inventoryListData.length;
+                  _this51.totalItems = _this51.inventoryListData.length;
 
-                  _this47.sharedService.setAlertMessage("Inventory deleted");
+                  _this51.sharedService.setAlertMessage("Inventory deleted");
 
-                  _this47.sharedService.setUnitListDeleteIndex(null);
+                  _this51.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);

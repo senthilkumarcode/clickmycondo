@@ -545,6 +545,7 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
     onPrivateCatDelete(detail) {
         let dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
         let lookupValueId = dataRecord.lookupValueId;
+        console.log("lookupValueId", lookupValueId);
         this.modalService.showConfirmModal(lookupValueId);
     }
     onCommonCatDelete(detail) {
@@ -619,7 +620,7 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
         this.commonData = [{
                 text: 'Category',
                 datafield: 'lookupValueName',
-                width: 100,
+                width: 200,
                 pinned: true,
                 cellsrenderer: cellsrendererCommon,
                 renderer: columnrendererCommon
@@ -663,7 +664,7 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
                 },
                 renderer: columnrendererCommon
             }];
-        //get all staff type
+        //get all ticketType type
         let ticketType = {
             LookupTypeId: 7
         };
@@ -672,7 +673,26 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
             this.isTicketAddLoaded = true;
         }, error => {
         });
-        //get all private category
+        //get all category
+        this.getTicketListByCategory();
+        // delete lookupvalue
+        this.sharedService.unitlistdeleteindexcast.subscribe(lookupValue => {
+            this.isCategoryDataLoaded = false;
+            if (lookupValue != null) {
+                let deleteParam = {
+                    "lookupValueId": lookupValue,
+                    "updateUserId": parseInt(this.cookieService.get('userId'))
+                };
+                this.lookupService.deleteLookupvalue(deleteParam).subscribe((res) => {
+                    this.getTicketListByCategory();
+                }, error => {
+                    this.isError = true;
+                    this.errorMessage = 'Could not delete ticket category ';
+                });
+            }
+        });
+    }
+    getTicketListByCategory() {
         let categoryParams = {
             LookupTypeId: 16
         };
@@ -697,6 +717,7 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
             };
             this.lookupService.getLookupValueByLookupTypeId(commonListParams).subscribe((res) => {
                 this.commonCategory = res.filter((item) => item['isActive'] === true);
+                console.log("this.commonCategory", this.commonCategory);
                 var categoryCommonListData = res.filter(item => {
                     return item.isActive;
                 });
@@ -711,36 +732,6 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
             }, error => {
             });
         }, error => {
-        });
-        // delete lookupvalue
-        this.sharedService.unitlistdeleteindexcast.subscribe(index => {
-            if (index != null) {
-                if (this.staffDeleteTypeId == "27") {
-                    var params = {
-                        lookupValueId: this.categoryPrivateListData[index].id,
-                        updateUserId: parseInt(this.cookieService.get('userId'))
-                    };
-                }
-                else {
-                    var params = {
-                        lookupValueId: this.categoryCommonListData[index].id,
-                        updateUserId: parseInt(this.cookieService.get('userId'))
-                    };
-                }
-                this.isCategoryDataLoaded = false;
-                this.userService.deleteUserById(params).subscribe((res) => {
-                    if (this.staffDeleteTypeId == "26") {
-                        this.categoryPrivateListData.splice(index, 1);
-                    }
-                    else {
-                        this.categoryCommonListData.splice(index, 1);
-                    }
-                    this.isCategoryDataLoaded = true;
-                    this.sharedService.setUnitListDeleteIndex(null);
-                }, error => {
-                    console.log(error);
-                });
-            }
         });
     }
 };
