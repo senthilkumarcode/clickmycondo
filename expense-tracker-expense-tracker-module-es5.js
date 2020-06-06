@@ -81,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"expense-multi-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isVendorDataLoaded\">\n\n\t\t<div class=\"card-header at-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<div class=\"sub-details\" *ngIf=\"isVendorDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Vendor Name: </span>{{vendorDataList[0].vendorName}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Vendor Category: </span>{{getCategoryName(vendorDataList[0].vendorCategoryId)}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{vendorDataList[0].contactPerson}}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isVendorDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorDataLoaded\">\n\n\t\t<form #postExpenseMultiInvoiceForm = \"ngForm\" name=\"postExpenseMultiInvoiceForm\" (ngSubmit)=\"submitExpenseMultiInvoiceForm(postExpenseMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isDisabled()\" [tabindex]=\"isTabDisabled()\">\n\t\t\t\t\t\t\t\t<owl-date-time #vendorInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"vendorInvoiceDate\" [ngClass]=\"isDisabled()\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isDisabled()\" [tabindex]=\"isTabDisabled()\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isDisabled()\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t<div class=\"w-250 heads\">Account Type*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t<div class=\"w-200 heads\">Description*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t<div class=\"w-150 heads\">Withholding Tax*</div>\n\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Net Amount</div>\n\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\" \n\t\t\t\t\t\t*ngFor=\"let invoiceVendorAccountsData of invoiceVendorAccountsArray; let i = index\" \n\t\t\t\t\t\tapp-expense-post-multi-invoice-fields\n\t\t\t\t\t\t[invoiceVendorAccountsArray] = \"invoiceVendorAccountsArray\" \n\t\t\t\t\t\t[invoiceVendorAccountsData] = \"invoiceVendorAccountsData\"\n\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t(taxParams) = \"getVendorTaxInvoiceParams($event)\">\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmountAfterdiscount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<p>Input VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<p>Withholding Tax</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.totalWthtaxAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-3 col-6\">\n\t\t\t\t\t\t\t<p>Total Net Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-3 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.vendorInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postExpenseMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"expense-multi-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isVendorDataLoaded\">\n\n\t\t<div class=\"card-header at-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<div class=\"sub-details\" *ngIf=\"isVendorDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Vendor Name: </span>{{vendorDataList[0].vendorName}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Vendor Category: </span>{{getCategoryName(vendorDataList[0].vendorCategoryId)}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{vendorDataList[0].contactPerson}}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isVendorDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorDataLoaded\">\n\n\t\t<form #postExpenseMultiInvoiceForm = \"ngForm\" name=\"postExpenseMultiInvoiceForm\" (ngSubmit)=\"submitExpenseMultiInvoiceForm(postExpenseMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.vendorInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isDisabled()\" [tabindex]=\"isTabDisabled()\">\n\t\t\t\t\t\t\t\t<owl-date-time #vendorInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"vendorInvoiceDate\" [ngClass]=\"isDisabled()\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isDisabled()\" [tabindex]=\"isTabDisabled()\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isDisabled()\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t<div class=\"w-250 heads\">Account Type*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t<div class=\"w-200 heads\">Description*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t<div class=\"w-150 heads\">Withholding Tax*</div>\n\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t<div class=\"w-120 heads\">Net Amount</div>\n\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\" \n\t\t\t\t\t\t*ngFor=\"let invoiceVendorAccountsData of invoiceVendorAccountsArray; let i = index\" \n\t\t\t\t\t\tapp-expense-post-multi-invoice-fields\n\t\t\t\t\t\t[invoiceVendorAccountsArray] = \"invoiceVendorAccountsArray\" \n\t\t\t\t\t\t[invoiceVendorAccountsData] = \"invoiceVendorAccountsData\"\n\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t(taxParams) = \"getVendorTaxInvoiceParams($event)\"\n\t\t\t\t\t\t(deleteVatParams) = \"getVatParams($event)\">\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmountAfterdiscount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<p>Input VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<p>Withholding Tax</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.totalWthtaxAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-3 col-6\">\n\t\t\t\t\t\t\t<p>Total Net Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-3 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.vendorInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postExpenseMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>";
     /***/
   },
 
@@ -1055,6 +1055,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.glAccountIndicator = "Expenses";
         this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.taxParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.deleteVatParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
       }
 
       _createClass(ExpensePostMultiInvoiceFieldsComponent, [{
@@ -1063,7 +1064,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsArray.splice(this.index, 1);
           this.fieldParams.emit(this.invoiceVendorAccountsArray);
           this.vendorinvoiceTaxData.isAdded = false;
-          this.taxParams.emit(this.vendorinvoiceTaxData);
+          this.deleteVatParams.emit(this.invoiceVendorAccountsData.insertedOn);
         }
       }, {
         key: "isArrayOne",
@@ -1104,6 +1105,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
           this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
           this.fieldParams.emit(this.invoiceVendorAccountsArray);
+          this.taxParams.emit(this.vendorinvoiceTaxData);
         }
       }, {
         key: "onInvoiceAmountChange",
@@ -1118,6 +1120,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
           this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
           this.fieldParams.emit(this.invoiceVendorAccountsArray);
+          this.taxParams.emit(this.vendorinvoiceTaxData);
           this.calculateVat();
         }
       }, {
@@ -1140,6 +1143,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
           this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
           this.fieldParams.emit(this.invoiceVendorAccountsArray);
+          this.taxParams.emit(this.vendorinvoiceTaxData);
         }
       }, {
         key: "onDiscountAdded",
@@ -1171,6 +1175,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
           this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
           this.fieldParams.emit(this.invoiceVendorAccountsArray);
+          this.taxParams.emit(this.vendorinvoiceTaxData);
           this.calculateVat();
         }
       }, {
@@ -1189,6 +1194,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
           this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
           this.fieldParams.emit(this.invoiceVendorAccountsArray);
+          this.taxParams.emit(this.vendorinvoiceTaxData);
           this.calculateVat();
         }
       }, {
@@ -1208,10 +1214,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.invoiceVendorAccountsData.tax1Vatid = event.lookupValueId;
             var percent = parseFloat(event.lookupValueName) / 100;
             this.vendorinvoiceTaxData.isAdded = true;
-            this.vendorinvoiceTaxData.vendorinvoiceTaxId = new Date().valueOf(); // generate unique id
+            this.vendorinvoiceTaxData.vendorInvoiceId = new Date().valueOf(); // generate unique id
 
-            this.currentTaxId = this.vendorinvoiceTaxData.vendorinvoiceTaxId;
-            this.vendorinvoiceTaxData.invoiceTaxId = event.lookupValueId;
+            this.currentVendorInvoiceId = this.vendorinvoiceTaxData.vendorInvoiceId;
+            this.vendorinvoiceTaxData.vendorInvoiceTypeId = event.lookupValueId;
+            this.vendorinvoiceTaxData.invoiceTaxId = parseInt(event.lookupValueName);
             this.vendorinvoiceTaxData.invoiceTotalAmount = parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount) * percent;
             this.taxParams.emit(this.vendorinvoiceTaxData);
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
@@ -1220,15 +1227,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.invoiceVendorAccountsData.vatid = 0;
             this.invoiceVendorAccountsData.tax1Vatid = "";
             var percent = 0;
-            this.vendorinvoiceTaxData.vendorinvoiceTaxId = this.currentTaxId;
             this.vendorinvoiceTaxData.isAdded = false;
+            this.vendorinvoiceTaxData.vendorInvoiceId = this.currentVendorInvoiceId;
+            this.vendorinvoiceTaxData.vendorInvoiceTypeId = 0;
+            this.vendorinvoiceTaxData.invoiceTaxId = 0;
             this.vendorinvoiceTaxData.invoiceTotalAmount = 0;
-            this.taxParams.emit(this.vendorinvoiceTaxData);
           }
 
+          this.vendorinvoiceTaxData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
           this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
           this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
           this.fieldParams.emit(this.invoiceVendorAccountsArray);
+          this.taxParams.emit(this.vendorinvoiceTaxData);
         }
       }, {
         key: "calculateVat",
@@ -1236,8 +1246,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.invoiceVendorAccountsData.isTax1Vat) {
             var percent = parseInt(this.invoiceVendorAccountsData.vatid) / 100;
             this.vendorinvoiceTaxData.invoiceTotalAmount = parseFloat(this.invoiceVendorAccountsData.lineAmountAfterDiscount) * percent;
-            this.taxParams.emit(this.vendorinvoiceTaxData);
+            this.vendorinvoiceTaxData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
+            this.taxParams.emit(this.vendorinvoiceTaxData);
           }
         }
       }, {
@@ -1258,6 +1269,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
           this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
           this.fieldParams.emit(this.invoiceVendorAccountsArray);
+          this.taxParams.emit(this.vendorinvoiceTaxData);
         }
       }, {
         key: "ngOnInit",
@@ -1267,14 +1279,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.vendorinvoiceTaxData = {
             "vendorinvoiceTaxId": 0,
             "vendorInvoiceId": 0,
+            "vendorInvoiceTypeId": 0,
+            "vendorInvoiceIndex": this.invoiceVendorAccountsData.insertedOn,
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
             "apartmentBlockUnitId": null,
             "isAdded": true,
             "invoiceTaxId": 0,
             "invoiceTotalAmount": 0,
             "wthtaxAmountId": "",
-            "withHoldingDirectAmt": 0,
             "wthtaxAmount": 0,
+            "lineAmountAfterDiscount": 0,
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
@@ -1336,6 +1350,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], ExpensePostMultiInvoiceFieldsComponent.prototype, "isEditInvoice", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], ExpensePostMultiInvoiceFieldsComponent.prototype, "fieldParams", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], ExpensePostMultiInvoiceFieldsComponent.prototype, "taxParams", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], ExpensePostMultiInvoiceFieldsComponent.prototype, "deleteVatParams", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('postExpenseMultiInvoiceFieldsForm', {
       "static": true
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"])], ExpensePostMultiInvoiceFieldsComponent.prototype, "invoiceForm", void 0);
@@ -1515,7 +1530,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
             "updatedBy": null,
-            "updatedOn": new Date().toISOString(),
+            "updatedOn": null,
             "tax1": this.invoiceVendorAccountsData.tax1,
             "tax2": this.invoiceVendorAccountsData.tax2,
             "tax3": this.invoiceVendorAccountsData.tax3,
@@ -1555,61 +1570,82 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.invoiceVendorAccountsArray, function (item) {
             return !item.form;
           });
-          /*//check for different wthtax
-           this.invoice.isSameWthtax = this.invoiceVendorAccountsArray.every(item => {
-             var value = this.invoiceVendorAccountsArray[0].wthtaxAmount
-             return item.wthtaxAmount === value
-           })*/
-
           var subAmountAfterdiscount = this.invoiceVendorAccountsArray.map(function (item) {
             return item.lineAmountAfterDiscount;
           }).reduce(function (a, b) {
             return a + b;
           });
-          this.invoice.subAmountAfterdiscount = parseFloat(subAmountAfterdiscount).toFixed(2); //for only one line item
+          this.invoice.subAmountAfterdiscount = parseFloat(subAmountAfterdiscount).toFixed(2);
+          var validLineItems = this.invoiceVendorAccountsArray.filter(function (item) {
+            return item.form;
+          }); //for only one line item
 
-          if (this.invoiceVendorAccountsArray.length == 1) {
+          if (validLineItems.length == 1) {
             var totalVatamount = this.vendorinvoiceTaxArray.reduce(function (total, item) {
               return total + item.invoiceTotalAmount;
             }, 0);
             this.invoice.totalVatamount = parseFloat(totalVatamount).toFixed(2);
             var value = parseInt(this.invoiceVendorAccountsArray[0].wthtaxAmount) / 100;
             this.invoice.totalWthtaxAmount = ((this.invoice.subAmountAfterdiscount - this.invoice.totalVatamount) * value).toFixed(2);
+            this.invoice.vendorInvoiceAmount = (parseFloat(this.invoice.subAmountAfterdiscount) - parseFloat(this.invoice.totalWthtaxAmount)).toFixed(2);
           } //for more than one item
           else {
-              var _totalVatamount = this.vendorinvoiceTaxArray.reduce(function (total, item) {
-                return total + item.invoiceTotalAmount;
-              }, 0);
-
-              this.invoice.totalVatamount = parseFloat(_totalVatamount).toFixed(2);
               var totalWthtaxAmount = this.invoiceVendorAccountsArray.filter(function (item) {
                 return item.form;
               }).reduce(function (total, item) {
                 var withTaxvalue = parseInt(item.wthtaxAmount) / 100;
                 var vatvalue = parseInt(item.vatid) / 100;
-                return total + (item.lineAmountAfterDiscount / 1 + vatvalue) * withTaxvalue;
+                return total + item.lineAmountAfterDiscount / (1 + vatvalue) * withTaxvalue;
               }, 0);
               this.invoice.totalWthtaxAmount = parseFloat(totalWthtaxAmount).toFixed(2);
+              this.invoice.vendorInvoiceAmount = (parseFloat(this.invoice.subAmountAfterdiscount) - parseFloat(this.invoice.totalWthtaxAmount)).toFixed(2);
             }
-
-          this.invoice.vendorInvoiceAmount = (parseFloat(this.invoice.subAmountAfterdiscount) - parseFloat(this.invoice.totalWthtaxAmount)).toFixed(2);
         }
       }, {
         key: "getVendorTaxInvoiceParams",
         value: function getVendorTaxInvoiceParams(event) {
-          var _this8 = this;
-
           if (event.isAdded) {
             if (!this.vendorinvoiceTaxArray.includes(event)) this.vendorinvoiceTaxArray.push(event);
           } else {
             this.vendorinvoiceTaxArray = this.vendorinvoiceTaxArray.filter(function (item) {
-              return item.vendorinvoiceTaxId != event.vendorinvoiceTaxId;
+              return item.vendorinvoiceTaxId != event.vendorInvoiceId;
+            });
+          }
+
+          this.calculateInputVats();
+        }
+      }, {
+        key: "getVatParams",
+        value: function getVatParams(event) {
+          this.vendorinvoiceTaxArray = this.vendorinvoiceTaxArray.filter(function (item) {
+            return item.vendorInvoiceIndex != event;
+          });
+          this.calculateInputVats();
+        }
+      }, {
+        key: "calculateInputVats",
+        value: function calculateInputVats() {
+          var _this8 = this;
+
+          var validLineItems = this.invoiceVendorAccountsArray.filter(function (item) {
+            return item.form;
+          });
+
+          if (validLineItems.length > 1) {
+            this.vendorinvoiceTaxArray.forEach(function (item) {
+              var vatvalue = parseInt(item.invoiceTaxId) / 100;
+              item.invoiceTotalAmount = item.lineAmountAfterDiscount / (1 + vatvalue) * vatvalue;
+            });
+          } else {
+            this.vendorinvoiceTaxArray.forEach(function (item) {
+              var vatvalue = parseInt(item.invoiceTaxId) / 100;
+              item.invoiceTotalAmount = item.lineAmountAfterDiscount * vatvalue;
             });
           }
 
           this.vatTypeDataList.forEach(function (item) {
             var data = _this8.vendorinvoiceTaxArray.filter(function (invoice) {
-              return item.lookupValueId == invoice.invoiceTaxId;
+              return item.lookupValueId == invoice.vendorInvoiceTypeId;
             });
 
             item.custVatTypeAmount = data.reduce(function (total, invoice) {
@@ -1686,7 +1722,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           this.vendorinvoiceTaxArray.map(function (item) {
             delete item.isAdded;
-            delete item.withHoldingDirectAmt;
+            delete item.vendorInvoiceIndex;
+            delete item.lineAmountAfterDiscount;
             return item;
           });
 
@@ -1851,7 +1888,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
             "updatedBy": null,
-            "updatedOn": new Date().toISOString(),
+            "updatedOn": null,
             "tax1": this.invoiceVendorAccountsData.tax1,
             "tax2": this.invoiceVendorAccountsData.tax2,
             "tax3": this.invoiceVendorAccountsData.tax3,
@@ -1887,7 +1924,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
             "updatedBy": null,
-            "updatedOn": new Date().toISOString(),
+            "updatedOn": null,
             "tax1": this.invoiceVendorAccountsData.tax1,
             "tax2": this.invoiceVendorAccountsData.tax2,
             "tax3": this.invoiceVendorAccountsData.tax3,
