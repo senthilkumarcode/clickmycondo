@@ -2650,7 +2650,10 @@ let ExpenseViewInvoiceHistoryComponent = class ExpenseViewInvoiceHistoryComponen
         this.accountsService.getGlAccountsByGroupId(accountParams).subscribe((res) => {
             this.glAccountListData = res;
         });
-        this.accountsService.getVendorPaymenntHistoryById(this.route.params['value'].id).subscribe((res) => {
+        let paymentParams = {
+            VendorID: this.route.params['value'].id
+        };
+        this.accountsService.getVendorPaymenntHistoryById(paymentParams).subscribe((res) => {
             this.invoiceDataList = res;
             this.totalItems = this.invoiceDataList.length;
             this.gridSourceData = {

@@ -78,6 +78,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.html":
+/*!****************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.html ***!
+  \****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n<ng-container *ngIf=\"isReceiptSubmitted\">\n\t<form #reverseIncomeReceiptsForm = \"ngForm\" name=\"reverseIncomeReceiptsForm\" (ngSubmit)=\"submitReverseIncomeReceiptsForm(reverseIncomeReceiptsForm)\"  novalidate>\n\n\t\t<div class=\"row\">\n\t\t\t\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t            <label>Comments</label>\n\t\t            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"receipts.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<button class=\"btn blue\" [disabled]=\"reverseIncomeReceiptsForm.invalid\">Submit</button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n</ng-container>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.html":
 /*!****************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.html ***!
@@ -204,7 +217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-view-invoice-history-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isInvoiceDataLoaded\">\n\t\t\n\t\t<div class=\"card-header at-header\" *ngIf=\"isAccountDataLoaded\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-income-tracker-filter \n\t*ngIf=\"isInvoiceDataLoaded\"\n\t(fieldParams) = getFieldParams($event)\n\t>\n\t\t\n\t</app-income-tracker-filter>\n\n\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\n\t\t<ul class=\"legends list-inline\">\n\t\t\t<li class=\"list-inline-item\"><span class=\"squares medium green\">C</span>Credit</li>\n\t\t\t<li class=\"list-inline-item\"><span class=\"squares medium red\">R</span>Reversed</li>\n\t\t</ul>\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Account History <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t\t<p *ngIf=\"isAccountDataLoaded\">Resident under {{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" >\n\t    \t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t\n\n\t  \t\t<div class=\"card-body p-0\">\n\t  \t\t\t\n\t  \t\t\t\n\t  \t\t\t<table class=\"table table-checker table-resizable\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t     <th scope=\"col\">Posted Date\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('postedOn')\" [ngClass]=\"getFieldOrderBy('postedDate')\"></span>\n\t\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"postedDate\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'postedDate')\"\n\t\t\t\t\t      \t></app-simple-date-box>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Bill No\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('billNo')\" [ngClass]=\"getFieldOrderBy('billNo')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Bill No\" [(ngModel)]=\"columnField['billNo']\" (ngModelChange)=\"selectColInput('billNo')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Receipt No\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('receiptNo')\" [ngClass]=\"getFieldOrderBy('receiptNo')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Bill No\" [(ngModel)]=\"columnField['receiptNo']\" (ngModelChange)=\"selectColInput('receiptNo')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Billed Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('invoiceAmount')\" [ngClass]=\"getFieldOrderBy('invoiceAmount')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Bill No\" [(ngModel)]=\"columnField['invoiceAmount']\" (ngModelChange)=\"selectColInput('invoiceAmount')\" > \n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Receipt Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('amountPaid')\" [ngClass]=\"getFieldOrderBy('amountPaid')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Bill No\" [(ngModel)]=\"columnField['amountPaid']\" (ngModelChange)=\"selectColInput('amountPaid')\" >  \n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Due\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('balance')\" [ngClass]=\"getFieldOrderBy('balance')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Bill No\" [(ngModel)]=\"columnField['balance']\" (ngModelChange)=\"selectColInput('balance')\" >  \n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th class=\"max-50 text-center\">Status\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th  class=\"simple-actions\" scope=\"col\">Actions\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let invoice of invoiceDataList | simpleSearch: invoiceData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t\t      <td class=\"name\">\n\t\t\t\t\t      <a href=\"javascript:void(0)\" class=\"t-decor\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t\t      \t{{getInvoiceDate(i, invoice.postedDate)}}</a>\n\t\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<p>Account</p>\n\t\t\t\t\t\t\t    \t\t\t<small>{{invoice.account}}</small>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<p>Comment</p>\n\t\t\t\t\t\t\t    \t\t\t<small>{{invoice.comments}}</small>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"grey\"><a href=\"javascript:void(0)\" class=\"t-decor tc-s-blue\">{{invoice.billNo}}</a></td>\n\t\t\t\t\t      <td class=\"grey\"><a href=\"javascript:void(0)\" class=\"t-decor tc-s-blue\">{{invoice.receiptNo}}</a></td>\n\t\t\t\t\t      <td class=\"name\">{{invoice.invoiceAmount}}</td>\n\t\t\t\t\t      <td class=\"name\">{{invoice.amountPaid}}</td>\n\t\t\t\t\t      <td class=\"name\">{{invoice.balance}}</td>\n\t\t\t\t\t      <!--<td class=\"name text-center\">\n\t\t\t\t\t      \t<span *ngIf=\"invoice.isReversed\">Y</span>\n\t\t\t\t\t      \t<span *ngIf=\"!invoice.isReversed\">N</span>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"name text-center\">\n\t\t\t\t\t      \t<span *ngIf=\"invoice.isCreditNote\">Y</span>\n\t\t\t\t\t      \t<span *ngIf=\"!invoice.isCreditNote\">N</span>\n\t\t\t\t\t      </td> -->\n\t\t\t\t\t      <td class=\"name text-center\">\n\t\t\t\t\t      \t<span class=\"squares medium ml-1\" [ngClass]=\"invoice.isReversed ? 'red' : ''\">\n\t\t\t\t\t      \t\t<span *ngIf=\"invoice.isReversed\">R</span>\n\t\t\t\t\t      \t\t<span *ngIf=\"invoice.isCreditNote\">C</span>\n\t\t\t\t\t      \t</span>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"name text-center\">\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" placement=\"top\" [ngbPopover]=\"popReverseContent\" triggers=\"mouseenter:mouseleave\" [ngClass]=\"invoice.isReversed ? 'disabled' : 'reverse' \"role=\"button\" data-toggle=\"dropdown\" id=\"reverseDropDownMenu\" aria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t      \t\t<img class=\"svg reverse\" src=\"assets/images/undo-icon.svg\">\n\t\t\t\t\t\t      \t<ng-template #popReverseContent>\n\t\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t\t    \t<h6>Reverse</h6>\n\t\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      \t</a>\n\t\t\t\t\t      \t<div class=\"dropdown-menu page-menu\" aria-labelledby=\"reverseDropDownMenu\" (click)=\"stopPropagation($event)\">\n\t\t\t\t      \t\t\t<form #reverseInvoiceForm = \"ngForm\" name=\"reverseInvoiceForm\"  novalidate>\n\t\t\t\t      \t\t\t\t\t\n\t\t\t\t      \t\t\t\t<app-loader *ngIf=\"!isReverseSubmitted\"></app-loader>\n\t\t\t\t      \t\t\t\t\t\n\t\t      \t\t\t\t\t\t\n\t\t\t      \t\t\t\t\t\t<div class=\"row\" [ngClass]=\"isReverseSubmitted ? '' : 'slideup'\">\n\t\t\t      \t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t      \t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t                <label>Comments</label>\n\t\t\t\t\t\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"reverse.comment\" required>\n\t\t\t\t\t\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"btn blue t-no-decor\" (click)=\"reverseItem(invoice)\" [ngClass]=\"reverseInvoiceForm.invalid ? 'disabled' :''\">Submit</a>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t      \t\t\t\t\t\t</div>\n\n\n\t\t\t\t      \t\t\t</form>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t\t      \t*ngIf=\"invoice.billNo != null\"\n\t\t\t\t\t      \trouterLink=\"/ams/income/edit-invoice/{{invoice.billNo}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t      \t</a>\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t\t      \t*ngIf=\"invoice.receiptNo != null\"\n\t\t\t\t\t      \trouterLink=\"/ams/income/edit-invoice/{{invoice.receiptNo}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t      \t</a>\n\t    \t\t\t\t  </td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-view-invoice-history-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isInvoiceDataLoaded\">\n\t\t\n\t\t<div class=\"card-header at-header\" *ngIf=\"isAccountDataLoaded\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-income-tracker-filter \n\t*ngIf=\"isInvoiceDataLoaded\"\n\t(fieldParams) = getFieldParams($event)\n\t>\n\t\t\n\t</app-income-tracker-filter>\n\n\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\n\t\t<ul class=\"legends list-inline\">\n\t\t\t<li class=\"list-inline-item\"><span class=\"squares medium green\">C</span>Credit</li>\n\t\t\t<li class=\"list-inline-item\"><span class=\"squares medium red\">R</span>Reversed</li>\n\t\t</ul>\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Account History <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t\t<p *ngIf=\"isAccountDataLoaded\">Resident under {{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" >\n\t    \t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t\n\n\t  \t\t<div class=\"card-body p-0\">\n\t  \t\t\t\n\t  \t\t\t\n\t  \t\t\t<table class=\"table table-checker table-resizable\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t     <th scope=\"col\">Posted Date\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('postedOn')\" [ngClass]=\"getFieldOrderBy('postedDate')\"></span>\n\t\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"postedDate\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'postedDate')\"\n\t\t\t\t\t      \t></app-simple-date-box>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Bill No\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('billNo')\" [ngClass]=\"getFieldOrderBy('billNo')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Bill No\" [(ngModel)]=\"columnField['billNo']\" (ngModelChange)=\"selectColInput('billNo')\" >\n\t\t\t\t\t\t  </th>\n\t\t\t\t\t\t  <th scope=\"col\">Reversal Id\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('reversalid')\" [ngClass]=\"getFieldOrderBy('reversalid')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Reversal Id\" [(ngModel)]=\"columnField['reversalid']\" (ngModelChange)=\"selectColInput('reversalid')\" >\n\t\t\t\t\t\t</th>\n\t\t\t\t\t      <th scope=\"col\">Receipt No\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('receiptNo')\" [ngClass]=\"getFieldOrderBy('receiptNo')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Receipt No\" [(ngModel)]=\"columnField['receiptNo']\" (ngModelChange)=\"selectColInput('receiptNo')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Billed Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('invoiceAmount')\" [ngClass]=\"getFieldOrderBy('invoiceAmount')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Billed Amount\" [(ngModel)]=\"columnField['invoiceAmount']\" (ngModelChange)=\"selectColInput('invoiceAmount')\" > \n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Receipt Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('amountPaid')\" [ngClass]=\"getFieldOrderBy('amountPaid')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Receipt Amount\" [(ngModel)]=\"columnField['amountPaid']\" (ngModelChange)=\"selectColInput('amountPaid')\" >  \n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Due\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('balance')\" [ngClass]=\"getFieldOrderBy('balance')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Due\" [(ngModel)]=\"columnField['balance']\" (ngModelChange)=\"selectColInput('balance')\" >  \n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th class=\"max-50 text-center\">Status\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th  class=\"simple-actions\" scope=\"col\">Actions\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let invoice of invoiceDataList | simpleSearch: invoiceData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t\t      <td class=\"name\">\n\t\t\t\t\t      <a href=\"javascript:void(0)\" class=\"t-decor\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t\t      \t{{getInvoiceDate(i, invoice.postedDate)}}</a>\n\t\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<p>Account</p>\n\t\t\t\t\t\t\t    \t\t\t<small>{{invoice.account}}</small>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<p>Comment</p>\n\t\t\t\t\t\t\t    \t\t\t<small>{{invoice.comments}}</small>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      </td>\n\t\t\t\t\t\t  <td class=\"grey\"><a href=\"javascript:void(0)\" class=\"t-decor tc-s-blue\">{{invoice.billNo}}</a></td>\n\t\t\t\t\t\t  <td class=\"grey\"><a href=\"javascript:void(0)\" class=\"t-decor tc-s-blue\">{{invoice.reversalId}}</a></td>\n\t\t\t\t\t      <td class=\"grey\"><a href=\"javascript:void(0)\" class=\"t-decor tc-s-blue\">{{invoice.receiptNo}}</a></td>\n\t\t\t\t\t      <td class=\"name\">{{invoice.invoiceAmount}}</td>\n\t\t\t\t\t      <td class=\"name\">{{invoice.amountPaid}}</td>\n\t\t\t\t\t      <td class=\"name\">{{invoice.balance}}</td>\n\t\t\t\t\t      <!--<td class=\"name text-center\">\n\t\t\t\t\t      \t<span *ngIf=\"invoice.isReversed\">Y</span>\n\t\t\t\t\t      \t<span *ngIf=\"!invoice.isReversed\">N</span>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"name text-center\">\n\t\t\t\t\t      \t<span *ngIf=\"invoice.isCreditNote\">Y</span>\n\t\t\t\t\t      \t<span *ngIf=\"!invoice.isCreditNote\">N</span>\n\t\t\t\t\t      </td> -->\n\t\t\t\t\t      <td class=\"name text-center\">\n\t\t\t\t\t      \t<span class=\"squares medium ml-1\" [ngClass]=\"invoice.isReversed ? 'red' : ''\">\n\t\t\t\t\t      \t\t<span *ngIf=\"invoice.isReversed\">R</span>\n\t\t\t\t\t      \t\t<span *ngIf=\"invoice.isCreditNote\">C</span>\n\t\t\t\t\t      \t</span>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"name text-center\">\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" placement=\"top\" [ngbPopover]=\"popReverseContent\" triggers=\"mouseenter:mouseleave\" [ngClass]=\"invoice.isReversed ? 'disabled' : 'reverse' \"role=\"button\" data-toggle=\"dropdown\" id=\"reverseDropDownMenu\" aria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t      \t\t<img class=\"svg reverse\" src=\"assets/images/undo-icon.svg\">\n\t\t\t\t\t\t      \t<ng-template #popReverseContent>\n\t\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t\t    \t<h6>Reverse</h6>\n\t\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      \t</a>\n\t\t\t\t\t      \t<div class=\"dropdown-menu page-menu\" aria-labelledby=\"reverseDropDownMenu\" (click)=\"stopPropagation($event)\">\n\t\t\t\t      \t\t\t<form #reverseInvoiceForm = \"ngForm\" name=\"reverseInvoiceForm\"  novalidate>\n\t\t\t\t      \t\t\t\t\t\n\t\t\t\t      \t\t\t\t<app-loader *ngIf=\"!isReverseSubmitted\"></app-loader>\n\t\t\t\t      \t\t\t\t\t\n\t\t      \t\t\t\t\t\t\n\t\t\t      \t\t\t\t\t\t<div class=\"row\" [ngClass]=\"isReverseSubmitted ? '' : 'slideup'\">\n\t\t\t      \t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t      \t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t                <label>Comments</label>\n\t\t\t\t\t\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"reverse.comment\" required>\n\t\t\t\t\t\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"btn blue t-no-decor\" (click)=\"reverseItem(invoice)\" [ngClass]=\"reverseInvoiceForm.invalid ? 'disabled' :''\">Submit</a>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t      \t\t\t\t\t\t</div>\n\n\n\t\t\t\t      \t\t\t</form>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t\t      \t*ngIf=\"invoice.billNo != null\"\n\t\t\t\t\t      \trouterLink=\"/ams/income/edit-invoice/{{invoice.billNo}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t      \t</a>\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t\t      \t*ngIf=\"invoice.receiptNo != null\"\n\t\t\t\t\t      \trouterLink=\"/ams/income/edit-invoice/{{invoice.receiptNo}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t      \t</a>\n\t    \t\t\t\t  </td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n");
 
 /***/ }),
 
@@ -217,7 +230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-view-invoice-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<!-- <ul class=\"legends list-inline\">\n\t\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>Pending</li>\n\t\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Nill</li>\n\t\t</ul> -->\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>All Invoices <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t  \t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t\n\t\t\t\t\n\t\t\t\t<jqxPopover \n\t\t\t\t#reversePopOver \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[showCloseButton]=\"submitFlag\" \n\t\t\t\t[selector]=\"reversePopOverSelector\"\n\t\t\t\t[position]=\"'left'\"\n\t\t\t\t>\n\t\t\t\t\t<app-income-invoice-reverse (childEvent)=\"onClose($event)\" [invoice]=\"invoice\"></app-income-invoice-reverse>\n\t\t\t\t</jqxPopover>\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n\t<ng-template #viewInvoiceDetailsRef let-invoice>\n\n\t\t<div class=\"invoice-info info-modal-box rel\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h6>Invoice Info</h6>\n\t\t\t</div>\n\n\t\t\t<app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isInvoicePrintLoaded\">\n\t\t\t\t<div class=\"card no-shadow\">\n\t\t\t\t\t<div id=\"InvoiceElement\">\n\t\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t\t<h5 class=\"text-center\">{{apartmentDetails.apartmentName}}</h5>\n\t\t\t\t\t\t\t<div class=\"other-info text-center mt-2\">\n\t\t\t\t\t\t\t\t<div class=\"address\">{{apartmentDetails.address1}}</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"other-info grey text-center mt-2\">\n\t\t\t\t\t\t\t\t<div class=\"address\">Mobile No: {{apartmentDetails.phoneNumber}}</div>\n\t\t\t\t\t\t\t\t<div class=\"email ml-3\">Email: {{apartmentDetails.emailId}}</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t<p><span>Tower Unit:</span> {{invoice.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t\t<p><span>Contact Person:</span> </p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6 text-lg-right\">\n\t\t\t\t\t\t\t\t\t<p><span>Invoice ID:</span> {{invoice.custInvoiceId}}</p>\n\t\t\t\t\t\t\t\t\t<p><span>Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 border-bottom\">\n\t\t\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t<th>Income Accounts</th>\n\t\t\t\t\t\t\t\t\t\t<th>Rate</th>\n\t\t\t\t\t\t\t\t\t\t<th>Comments</th>\n\t\t\t\t\t\t\t\t\t\t<th>Discount</th>\n\t\t\t\t\t\t\t\t\t\t<th>Tax</th>\n\t\t\t\t\t\t\t\t\t\t<th>Amount</th>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of invoice.invoiceGLAccounts; let i = index\">\n\t\t\t\t\t\t\t\t\t\t<td>{{item.glaccountName}}</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.comments}}</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.vatamount}} [{{ getVatType(custTaxDetails[i])}}%]</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.lineItemTotal + item.vatamount}}</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Final Discount:</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<tr class=\"total\">\n\t\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Total Amount:</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body no-border pb-0\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<p class=\"bottom\">{{apartmentTerms[0].termsTemplate}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body no-border pt-0\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 mt-5 text-center\">\n\t\t\t\t\t\t\t\t<div class=\"btn blue sf small\" (click)=\"printInvoice()\">Print</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t</ng-template>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-view-invoice-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/income/subledger\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Sub Ledger</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<!-- <ul class=\"legends list-inline\">\n\t\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>Pending</li>\n\t\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Nill</li>\n\t\t</ul> -->\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>All Invoices <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"invoiceData\" \n\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t  \t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t\n\t\t\t\t\n\t\t\t\t<jqxPopover \n\t\t\t\t#reversePopOver \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[showCloseButton]=\"submitFlag\" \n\t\t\t\t[selector]=\"reversePopOverSelector\"\n\t\t\t\t[position]=\"'left'\"\n\t\t\t\t>\n\t\t\t\t\t<app-income-invoice-reverse (childEvent)=\"onClose($event)\" [invoice]=\"invoice\"></app-income-invoice-reverse>\n\t\t\t\t</jqxPopover>\n\n\t  \t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n\t<ng-template #viewInvoiceDetailsRef let-invoice>\n\n\t\t<div class=\"invoice-info info-modal-box rel\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h6>Invoice Info</h6>\n\t\t\t</div>\n\n\t\t\t<app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isInvoicePrintLoaded\">\n\t\t\t\t<div class=\"card no-shadow\">\n\t\t\t\t\t<div id=\"InvoiceElement\">\n\t\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t\t<h5 class=\"text-center\">{{apartmentDetails.apartmentName}}</h5>\n\t\t\t\t\t\t\t<div class=\"other-info text-center mt-2\">\n\t\t\t\t\t\t\t\t<div class=\"address\">{{apartmentDetails.address1}}</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"other-info grey text-center mt-2\">\n\t\t\t\t\t\t\t\t<div class=\"address\">Mobile No: {{apartmentDetails.phoneNumber}}</div>\n\t\t\t\t\t\t\t\t<div class=\"email ml-3\">Email: {{apartmentDetails.emailId}}</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t<p><span>Tower Unit:</span> {{invoice.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t\t<p><span>Contact Person:</span> </p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6 text-lg-right\">\n\t\t\t\t\t\t\t\t\t<p><span>Invoice ID:</span> {{invoice.custInvoiceId}}</p>\n\t\t\t\t\t\t\t\t\t<p><span>Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 border-bottom\">\n\t\t\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t<th>Income Accounts</th>\n\t\t\t\t\t\t\t\t\t\t<th>Rate</th>\n\t\t\t\t\t\t\t\t\t\t<th>Comments</th>\n\t\t\t\t\t\t\t\t\t\t<th>Discount</th>\n\t\t\t\t\t\t\t\t\t\t<th>Tax</th>\n\t\t\t\t\t\t\t\t\t\t<th>Amount</th>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of invoice.invoiceGLAccounts; let i = index\">\n\t\t\t\t\t\t\t\t\t\t<td>{{item.glaccountName}}</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.comments}}</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.vatamount}} [{{ getVatType(custTaxDetails[i])}}%]</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.lineItemTotal + item.vatamount}}</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Final Discount:</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<tr class=\"total\">\n\t\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Total Amount:</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body no-border pb-0\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<p class=\"bottom\">{{apartmentTerms[0].termsTemplate}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body no-border pt-0\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 mt-5 text-center\">\n\t\t\t\t\t\t\t\t<div class=\"btn blue sf small\" (click)=\"printInvoice()\">Print</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t</ng-template>\n\n</div>");
 
 /***/ }),
 
@@ -230,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-receipts-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isReceiptsLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptsLoaded\">\n\n\n\t\t<div class=\"card table-card clear\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Total Receipts <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"receiptsData\" >\n\t    \t\t\t</li>\n\t    \t\t\t<li class=\"list-inline-item\">\n\t    \t\t\t\t<a class=\"btn trans-white mt_5\">\n\t    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n\t    \t\t\t\t\t<span>Print</span>\n\t    \t\t\t\t</a>\n\t    \t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">Receipt No \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('receiptNumber')\" [ngClass]=\"getFieldOrderBy('receiptNumber')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Receipt No\" [(ngModel)]=\"columnField['receiptNumber']\" (ngModelChange)=\"selectColInput('receiptNumber')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Name \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"NAME\" [(ngModel)]=\"columnField['name']\" (ngModelChange)=\"selectColInput('name')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Payment Date\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('paymentDateFormat')\" [ngClass]=\"getFieldOrderBy('paymentDateFormat')\"></span>\n\t\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"paymentDateFormat\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'paymentDateFormat')\"\n\t\t\t\t\t      \t></app-simple-date-box>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Tower Unit\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Tower Unit\" [(ngModel)]=\"columnField['block_Unit']\" (ngModelChange)=\"selectColInput('block_Unit')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Credit Note Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('amount')\" [ngClass]=\"getFieldOrderBy('amount')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"columnField['amount']\" (ngModelChange)=\"selectColInput('amount')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tEmail Sent\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isEmailsent']\" (ngModelChange)=\"selectColInput('isEmailsent')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tSMS Sent\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isSmssent']\" (ngModelChange)=\"selectColInput('isSmssent')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let receipt of receiptsDataList | simpleSearch: receiptsData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t\t      <td class=\"name\">{{receipt.receiptNumber}}</td>\n\t\t\t\t\t      <td class=\"grey\">\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t\t      \t{{receipt.name}}</a>\n\t\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<p>Comments</p>\n\t\t\t\t\t\t\t    \t\t\t<small>{{receipt.comment}}</small>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"grey\">{{getDate(receipt, receipt.paymentDate)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{receipt.block_Unit}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{receipt.amount}}</td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"receipt.isEmailsent\" >\n\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"setActive(item)\"></span>\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"receipt.isSmssent\" >\n\t\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"setActive(item)\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      \t</div>\n\t\t\t\t\t      </td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-receipts-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isReceiptsLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptsLoaded\">\n\n\n\t\t<div class=\"card table-card clear\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Total Receipts <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"receiptsData\" \n\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<li class=\"list-inline-item\">\n\t    \t\t\t\t<a class=\"btn trans-white mt_5\">\n\t    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n\t    \t\t\t\t\t<span>Print</span>\n\t    \t\t\t\t</a>\n\t    \t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"receiptsDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid>\n\t\t\n\t\t\t\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver \n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"submitFlag\" \n\t\t\t[selector]=\"reversePopOverSelectorReceipt\"\n\t\t\t[position]=\"'left'\"\n\t\t\t>\n\t\t\t\t<app-income-receipts-reverse (childEvent)=\"onClose($event)\" [receipts]=\"receipts\">\n\n\t\t\t\t</app-income-receipts-reverse>\n\t\t\t</jqxPopover>\n\t  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">Receipt No \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('receiptNumber')\" [ngClass]=\"getFieldOrderBy('receiptNumber')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Receipt No\" [(ngModel)]=\"columnField['receiptNumber']\" (ngModelChange)=\"selectColInput('receiptNumber')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Name \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"NAME\" [(ngModel)]=\"columnField['name']\" (ngModelChange)=\"selectColInput('name')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Payment Date\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('paymentDateFormat')\" [ngClass]=\"getFieldOrderBy('paymentDateFormat')\"></span>\n\t\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"paymentDateFormat\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'paymentDateFormat')\"\n\t\t\t\t\t      \t></app-simple-date-box>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Tower Unit\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Tower Unit\" [(ngModel)]=\"columnField['block_Unit']\" (ngModelChange)=\"selectColInput('block_Unit')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Credit Note Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('amount')\" [ngClass]=\"getFieldOrderBy('amount')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"columnField['amount']\" (ngModelChange)=\"selectColInput('amount')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tEmail Sent\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isEmailsent']\" (ngModelChange)=\"selectColInput('isEmailsent')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tSMS Sent\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isSmssent']\" (ngModelChange)=\"selectColInput('isSmssent')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let receipt of receiptsDataList | simpleSearch: receiptsData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t\t      <td class=\"name\">{{receipt.receiptNumber}}</td>\n\t\t\t\t\t      <td class=\"grey\">\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t\t      \t{{receipt.name}}</a>\n\t\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<p>Comments</p>\n\t\t\t\t\t\t\t    \t\t\t<small>{{receipt.comment}}</small>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"grey\">{{getDate(receipt, receipt.paymentDate)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{receipt.block_Unit}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{receipt.amount}}</td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"receipt.isEmailsent\" >\n\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"setActive(item)\"></span>\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"receipt.isSmssent\" >\n\t\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"setActive(item)\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      \t</div>\n\t\t\t\t\t      </td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination> -->\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -597,8 +610,8 @@ let IncomeInvoiceReverseComponent = class IncomeInvoiceReverseComponent {
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
             "insertedOn": new Date().toISOString(),
-            "updatedBy": null,
-            "updatedOn": null,
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString(),
             "transReference1": "string",
             "transReference2": "string",
             "glAcctIndicator": "Income"
@@ -1905,6 +1918,120 @@ IncomePostMultiInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
 
 /***/ }),
 
+/***/ "./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.scss":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.scss ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1yZWNlaXB0cy1yZXZlcnNlL2luY29tZS1yZWNlaXB0cy1yZXZlcnNlLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.ts":
+/*!************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.ts ***!
+  \************************************************************************************************************/
+/*! exports provided: IncomeReceiptsReverseComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeReceiptsReverseComponent", function() { return IncomeReceiptsReverseComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+
+
+
+
+
+let IncomeReceiptsReverseComponent = class IncomeReceiptsReverseComponent {
+    constructor(accountsService, sharedService, cookieService) {
+        this.accountsService = accountsService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isReceiptSubmitted = true;
+        this.isError = false;
+        this.alertMessage = "";
+        this.childEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    submitReverseIncomeReceiptsForm(form) {
+        this.isReceiptSubmitted = false;
+        let details = {
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentBlockUnitId": this.receipts.apartmentBlockUnitID,
+            "amount": this.receipts.amount,
+            "collectionId": this.receipts.collectionId,
+            "invoiceId": this.receipts.invoiceId,
+            "isEmailSent": this.receipts.isEmailSent,
+            "isSmssent": this.receipts.isSmssent,
+            "comment": this.receipts.comment,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString()
+        };
+        let params = {
+            custCollectionReversal: details
+        };
+        this.accountsService.addCustCollectionReversal(params).subscribe((res) => {
+            if (res.message) {
+                this.isReceiptSubmitted = true;
+                this.sharedService.setAlertMessage("Invoice reversed successfully");
+            }
+            else {
+                this.isReceiptSubmitted = true;
+                this.isError = true;
+                this.alertMessage = res.errorMessage;
+            }
+        }, error => {
+            //this.isReceiptSubmitted = true;
+            this.isError = true;
+            this.alertMessage = "Some error occured";
+        }, () => {
+            this.isReceiptSubmitted = true;
+            this.childEvent.emit(true);
+        });
+    }
+    ngOnInit() {
+    }
+};
+IncomeReceiptsReverseComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeReceiptsReverseComponent.prototype, "receipts", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeReceiptsReverseComponent.prototype, "childEvent", void 0);
+IncomeReceiptsReverseComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-receipts-reverse',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-receipts-reverse.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-receipts-reverse.component.scss */ "./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+], IncomeReceiptsReverseComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.scss":
 /*!**************************************************************************************************!*\
   !*** ./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.scss ***!
@@ -2098,6 +2225,20 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
             {
                 text: 'Due',
                 datafield: 'due',
+                width: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'advance',
+                datafield: 'advance',
+                width: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'credits',
+                datafield: 'credits',
                 width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -3589,6 +3730,14 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
         let creditNoteId = dataRecord.creditNoteId;
         this.router.navigateByUrl('/ams/income/edit-credit/' + creditNoteId);
     }
+    onUpdateInvoice(detail) {
+        var invoice = this.datagrid.getrowdata(detail.rowId);
+        // this.updateInvoiceItem(invoice, detail.column);
+    }
+    onUpdateInvoiceSms(detail) {
+        var invoice = this.datagrid.getrowdata(detail.rowId);
+        // this.updateInvoiceItem(invoice, detail.column);
+    }
     ngOnInit() {
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3619,14 +3768,16 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
                 renderer: columnrenderer
             }, {
                 text: 'Collection Id',
-                datafield: 'c',
+                datafield: 'collectionId',
                 cellsrenderer: cellsrenderer,
                 minwidth: 170,
                 renderer: columnrenderer
             }, {
                 text: 'Posted Date',
-                datafield: 'd',
-                cellsrenderer: cellsrenderer,
+                datafield: 'updatedOn',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.constantsService.dateFormat) + '</div>';
+                },
                 minwidth: 80,
                 renderer: columnrenderer
             }, {
@@ -3641,23 +3792,48 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
                 cellsrenderer: cellsrenderer,
                 minwidth: 80,
                 renderer: columnrenderer
-            }, {
-                text: 'Sent Email',
-                datafield: 'g',
-                minwidth: 80,
-                cellsrenderer: (row) => {
-                    return '<span class="slider round" onClick="updateCreditItem(' + row + ')"></span>';
-                },
-                renderer: columnrenderer
-            }, {
-                text: 'Sms/Email',
-                datafield: 'h',
-                minwidth: 80,
-                cellsrenderer: (row) => {
-                    return '<span class="slider round" onClick="updateCreditItem(' + row + ')"></span>';
-                },
-                renderer: columnrenderer
             },
+            //{
+            //   text: 'Sent Email',
+            //   datafield: 'isEmailSent',      
+            //   minwidth: 80,
+            //   cellsrenderer: (row: number, column: string, value: boolean): string => {
+            //     var chkedProperty;
+            //     if(value){
+            //       chkedProperty = 'checked="true"';
+            //     }
+            //     else {
+            //       chkedProperty = '';
+            //     }
+            //       return '<div class="jqx-custom-inner-cell">'
+            //                 + '<label class="switch float-left">'
+            //                   + '<input type="checkbox" id="invoiceEmail" name="invoiceEmail"'+ chkedProperty +'>'
+            //                   + '<div class="slider round" onClick="updateInvoiceEvent('+ row + ', \'email\')"></div>'
+            //                 + '</label>'
+            //           + '</div>'
+            //     },
+            //     renderer: columnrenderer
+            // }, {
+            //   text: 'Sms/Email',
+            //   datafield: 'isSmssent',      
+            //   minwidth: 80,
+            //   cellsrenderer: (row: number, column: string, value: boolean): string => {
+            //     var chkedProperty;
+            //     if(value){
+            //       chkedProperty = 'checked="true"';
+            //     }
+            //     else {
+            //       chkedProperty = '';
+            //     }
+            //       return '<div class="jqx-custom-inner-cell">'
+            //                 + '<label class="switch float-left">'
+            //                   + '<input type="checkbox" id="invoiceEmail" name="invoiceEmail"'+ chkedProperty +'>'
+            //                   + '<div class="slider round" onClick="updateInvoiceEventSms('+ row + ', \'email\')"></div>'
+            //                 + '</label>'
+            //           + '</div>'
+            //     },
+            //     renderer: columnrenderer
+            // },
             {
                 text: 'Actions',
                 cellsalign: 'center',
@@ -3675,7 +3851,7 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
         let params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
-        this.accountsService.getCreditNotesByApartmentIdStatus(params).subscribe((res) => {
+        this.accountsService.getCreditNotesByApartmentId(params).subscribe((res) => {
             this.creditNoteDataList = res;
             this.gridSourceData = {
                 localdata: this.creditNoteDataList,
@@ -3729,6 +3905,18 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
 ], IncomeViewCreditComponent.prototype, "onEditCreditNotes", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onUpdateInvoice', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeViewCreditComponent.prototype, "onUpdateInvoice", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onUpdateInvoiceSms', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeViewCreditComponent.prototype, "onUpdateInvoiceSms", null);
 IncomeViewCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-view-credit',
@@ -3754,6 +3942,26 @@ function editCreditNotes(row) {
     window.dispatchEvent(event);
 }
 window.editCreditNotes = editCreditNotes;
+function updateInvoiceEvent(row, type) {
+    var event = new CustomEvent('onUpdateInvoice', {
+        detail: {
+            rowId: row,
+            column: type
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.updateInvoiceEvent = updateInvoiceEvent;
+function updateInvoiceEventSms(row, type) {
+    var event = new CustomEvent('onUpdateInvoiceSms', {
+        detail: {
+            rowId: row,
+            column: type
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.updateInvoiceEventSms = updateInvoiceEventSms;
 
 
 /***/ }),
@@ -4483,8 +4691,6 @@ let IncomeViewInvoiceComponent = class IncomeViewInvoiceComponent {
         var invoice = this.datagrid.getrowdata(detail.rowId);
         this.updateInvoiceItem(invoice, detail.column);
     }
-    onclose(event) {
-    }
     getVatType(custInvoiceItem) {
         var id = custInvoiceItem.invoiceTaxId;
         var data = this.vatTypeDataList.filter(item => {
@@ -4719,8 +4925,8 @@ let IncomeViewInvoiceComponent = class IncomeViewInvoiceComponent {
                     datafield: 'isReversed',
                     cellsrenderer: (row, coloumn, value) => {
                         let isreverse = value;
-                        let reverse = { 'obj1': 'show', 'obj2': 'hide' };
-                        let rdata = { 'obj1': 'hide', 'obj2': 'show' };
+                        let reverse = { 'obj1': 'd-block', 'obj2': 'd-none' };
+                        let rdata = { 'obj1': 'd-none', 'obj2': 'd-block' };
                         let valueData = isreverse === false ? reverse : rdata;
                         let elemId = invoiceDataList[row].custInvoiceId;
                         // return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent('+ row +')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="'+ elemId +'" onClick="editReverseEvent('+ row +')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>'
@@ -4895,6 +5101,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxwindow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover.ts");
+/* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+
+
+
+
 
 
 
@@ -4903,10 +5117,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
-    constructor(dialog, accountsService, cookieService) {
+    constructor(dialog, accountsService, cookieService, constantsService) {
         this.dialog = dialog;
         this.accountsService = accountsService;
         this.cookieService = cookieService;
+        this.constantsService = constantsService;
         this.isReceiptsLoaded = false;
         this.receiptsData = "";
         this.ItemStartIndex = 0;
@@ -4916,6 +5131,7 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
         this.isMobile = false;
         this.selectedInput = "";
         this.columnField = {};
+        this.submitFlag = true;
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -4982,13 +5198,60 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
             this.columnField = {};
         }
     }
-    ngOnInit() {
+    onGlSearchFilter() {
+        if (this.receiptsData != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.receiptsData;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    onEditReverse(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.receipts = dataRecord;
+        this.reversePopOverSelectorReceipt = '#' + this.receipts.receiptNumber;
+        setTimeout(() => {
+            this.reversePopOver.createComponent();
+            this.reversePopOver.open();
+        }, 100);
+    }
+    onUpdateInvoice(detail) {
+        var invoice = this.datagrid.getrowdata(detail.rowId);
+        // this.updateInvoiceItem(invoice, detail.column);
+    }
+    onClose(event) {
+        this.submitFlag = true;
+        this.tablebinding();
+    }
+    tablebinding() {
         let params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
-        this.accountsService.getIncomeTrackerReceiptsByApartmentId(params).subscribe((res) => {
+        this.accountsService.getIncomeTrackerReceiptsByApartmentId(params)
+            .subscribe((res) => {
             this.receiptsDataList = res;
+            this.receipts = this.receiptsDataList[0];
+            this.reversePopOverSelectorReceipt = '#' + this.receipts.receiptNumber;
+            this.gridSourceData = {
+                localdata: this.receiptsDataList,
+                datatype: "array"
+            };
+            this.receiptsDataList = new jqx.dataAdapter(this.gridSourceData);
             this.totalItems = this.receiptsDataList.length;
+            console.log('aaa', this.receiptsDataList);
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;
             }
@@ -5000,12 +5263,142 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
             console.log(error);
         });
     }
+    ngOnInit() {
+        this.popperDataSource = {
+            localdata: true,
+            datatype: "boolean"
+        };
+        this.submitFlag = new jqx.dataAdapter(this.popperDataSource);
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.columnData = [{
+                text: 'Receipt No',
+                datafield: 'receiptNumber',
+                width: 120,
+                pinned: true,
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell"><a href="javascript:void(0)" class="mr-2 t-decor" onClick="downloadInvoiceEvent(' + row + ')">' + value + '</a></div>';
+                },
+                renderer: columnrenderer
+            },
+            {
+                text: 'Name',
+                datafield: 'name',
+                minwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Payment Date',
+                datafield: 'paymentDate',
+                minwidth: 120,
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format(this.constantsService.dateFormat) + '</div>';
+                },
+                renderer: columnrenderer
+            },
+            {
+                text: 'Tower Unit',
+                datafield: 'block_Unit',
+                minwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Credit Note Amount',
+                datafield: 'amount',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Sent Email',
+                datafield: 'isEmailSent',
+                minwidth: 120,
+                cellsrenderer: (row, column, value) => {
+                    var chkedProperty;
+                    if (value) {
+                        chkedProperty = 'checked="true"';
+                    }
+                    else {
+                        chkedProperty = '';
+                    }
+                    return '<div class="jqx-custom-inner-cell">'
+                        + '<label class="switch float-left">'
+                        + '<input type="checkbox" id="invoiceEmail" name="invoiceEmail"' + chkedProperty + '>'
+                        + '<div class="slider round" onClick="updateInvoiceEvent(' + row + ', \'email\')"></div>'
+                        + '</label>'
+                        + '</div>';
+                },
+                renderer: columnrenderer
+            },
+            {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                minwidth: 120,
+                datafield: 'isReversed',
+                cellsrenderer: (row, coloumn, value) => {
+                    let isreverse = value;
+                    let reverse = { 'obj1': 'd-block', 'obj2': 'd-none' };
+                    let rdata = { 'obj1': 'd-none', 'obj2': 'd-block' };
+                    let valueData = isreverse === false ? reverse : rdata;
+                    let elemId = this.receiptsDataList.loadedData[row].receiptNumber;
+                    // return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent('+ row +')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="'+ elemId +'" onClick="editReverseEvent('+ row +')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>'
+                    return '<div class="simple-actions">'
+                        + '<div class="' + valueData.obj1 + '">'
+                        + '<div href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">'
+                        + '<i class="fa fa-repeat icon delete" aria-hidden="true"></i>'
+                        + '</div>'
+                        + '</div>'
+                        + '<div>'
+                        + '<span class="' + valueData.obj2 + '">R</span>'
+                        + '</div>'
+                        + '</div>';
+                },
+                renderer: columnrenderer
+            }];
+        this.tablebinding();
+    }
 };
 IncomeViewReceiptsComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
+    { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"] }
 ];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__["jqxGridComponent"])
+], IncomeViewReceiptsComponent.prototype, "datagrid", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('reversePopWindow', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxwindow__WEBPACK_IMPORTED_MODULE_8__["jqxWindowComponent"])
+], IncomeViewReceiptsComponent.prototype, "reversePopWindow", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('reversePopOver', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_9__["jqxPopoverComponent"])
+], IncomeViewReceiptsComponent.prototype, "reversePopOver", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("viewInvoiceDetailsRef", { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+], IncomeViewReceiptsComponent.prototype, "viewInvoiceDetailsRef", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditReverse', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeViewReceiptsComponent.prototype, "onEditReverse", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onUpdateInvoice', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeViewReceiptsComponent.prototype, "onUpdateInvoice", null);
 IncomeViewReceiptsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-view-receipts',
@@ -5014,9 +5407,29 @@ IncomeViewReceiptsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+        _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"]])
 ], IncomeViewReceiptsComponent);
 
+function editReverseEvent(row) {
+    var event = new CustomEvent('onEditReverse', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.editReverseEvent = editReverseEvent;
+function updateInvoiceEvent(row, type) {
+    var event = new CustomEvent('onUpdateInvoice', {
+        detail: {
+            rowId: row,
+            column: type
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.updateInvoiceEvent = updateInvoiceEvent;
 
 
 /***/ }),
@@ -5177,6 +5590,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_tracker_reports_income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.ts");
 /* harmony import */ var _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component.ts");
 /* harmony import */ var _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/income-tracker-filter/income-tracker-filter.component */ "./src/app/ams/income-tracker/components/income-tracker-filter/income-tracker-filter.component.ts");
+/* harmony import */ var _components_income_receipts_reverse_income_receipts_reverse_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/income-receipts-reverse/income-receipts-reverse.component */ "./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.ts");
+
 
 
 
@@ -5224,7 +5639,8 @@ IncomeTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_income_tracker_setup_income_tracker_setup_component__WEBPACK_IMPORTED_MODULE_20__["IncomeTrackerSetupComponent"],
             _components_income_tracker_reports_income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_21__["IncomeTrackerReportsCustomerComponent"],
             _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_22__["IncomeTrackerReportsVendorComponent"],
-            _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_23__["IncomeTrackerFilterComponent"]
+            _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_23__["IncomeTrackerFilterComponent"],
+            _components_income_receipts_reverse_income_receipts_reverse_component__WEBPACK_IMPORTED_MODULE_24__["IncomeReceiptsReverseComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

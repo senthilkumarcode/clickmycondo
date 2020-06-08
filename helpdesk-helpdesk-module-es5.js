@@ -81,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>\n  helpdesk-unassigned works!\n</p>\n";
+    __webpack_exports__["default"] = "›<div class=\"helpdesk-all-tickets-wrapper\">\n\n\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t<ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots common\"></span><span>Common</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots private\"></span>Private</li>\n\t</ul>\n\n\t<ul class=\"legends ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span><span>High</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots medium\"></span>Medium</li>\n\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots low\"></span>Low</li>\n\t</ul>\n\n\n\t<div class=\"card clear table-card\" *ngIf=\"isTicketDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Unassigned Tickets <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<!-- <li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/helpdesk/add-ticket\"\n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Ticket</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li> -->\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid\n\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\"\n\t\t\t\t[source]=\"ticketListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid>\n\n\n  \t\t</div>\n\n\t</div>\n\n</div>\n";
     /***/
   },
 
@@ -1168,22 +1168,312 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/Ticket */
+    "./src/app/api/controllers/Ticket.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ../../../../shared/services/modal.service */
+    "./src/app/shared/services/modal.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
     var HelpdeskUnassignedComponent =
     /*#__PURE__*/
     function () {
-      function HelpdeskUnassignedComponent() {
+      function HelpdeskUnassignedComponent(router, injector, userService, staffService, ticketService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, HelpdeskUnassignedComponent);
+
+        this.router = router;
+        this.injector = injector;
+        this.userService = userService;
+        this.staffService = staffService;
+        this.ticketService = ticketService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.ticketData = "";
+        this.isTicketDataLoaded = false;
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
       }
 
       _createClass(HelpdeskUnassignedComponent, [{
+        key: "onEditTicket",
+        value: function onEditTicket(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var ticketId = dataRecord.ticketId;
+          this.router.navigateByUrl('/ams/helpdesk/edit-ticket/' + ticketId);
+        }
+      }, {
+        key: "onTicketDelete",
+        value: function onTicketDelete(detail) {
+          this.modalService.showConfirmModal(detail.rowId);
+        }
+      }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'helpdeskData');
+        }
+      }, {
+        key: "isAdmin",
+        value: function isAdmin() {
+          return this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff' ? true : false;
+        }
+      }, {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this8 = this;
+
+          if (this.ticketData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.ticketData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this8.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this9 = this;
+
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Ticket ID',
+            datafield: 'ticketId',
+            width: 100,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Type',
+            datafield: 'ticketTypeId_Label',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
+            },
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Status',
+            datafield: 'ticketStatusId_Label',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell"><span class="badge small min text-capitalize ' + getClassName(value) + '">' + value + '</span></div>';
+            },
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Category',
+            datafield: 'ticketCategoryId_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Priority',
+            datafield: 'ticketPriorityId_Label',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
+            },
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Description',
+            datafield: 'description',
+            cellsrenderer: cellsrenderer,
+            minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Assigned to',
+            datafield: 'assignedTo_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 150,
+            renderer: columnrenderer
+          }, {
+            text: 'Requested By',
+            datafield: 'raisedby_Label',
+            cellsrenderer: cellsrenderer,
+            minwidth: 150,
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+            },
+            renderer: columnrenderer
+          }];
+
+          if (this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff') {
+            var params = {
+              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
+              //filter active true items
+              var ticketListData = res.filter(function (data) {
+                return data.isActive && data.assignedTo == null;
+              });
+
+              for (var i = 0; i < ticketListData.length; i++) {
+                if (ticketListData[i].ticketStatusId_Label == 'New') {
+                  ticketListData[i].ticketStatusId_Label = 'inprogress';
+                }
+              }
+
+              console.log('ticketListData', ticketListData);
+              _this9.gridSourceData = {
+                localdata: ticketListData,
+                datatype: "array"
+              };
+              _this9.ticketListData = new jqx.dataAdapter(_this9.gridSourceData);
+              _this9.isTicketDataLoaded = true;
+            }, function (error) {});
+          }
+
+          if (this.cookieService.get('userRole') == 'Tenant' || this.cookieService.get('userRole') == 'Owner') {
+            var _params3 = {
+              raisedUserId: parseInt(this.cookieService.get('userId'))
+            };
+            this.ticketService.getTicketsByRaisedUserId(_params3).subscribe(function (res) {
+              //filter active true items
+              var ticketListData = res.filter(function (data) {
+                return data.isActive;
+              });
+              _this9.gridSourceData = {
+                localdata: ticketListData,
+                datatype: "array"
+              };
+              _this9.ticketListData = new jqx.dataAdapter(_this9.gridSourceData);
+              _this9.isTicketDataLoaded = true;
+            }, function (error) {});
+          } // delete item
+
+
+          this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            if (id != null) {
+              var dataRecord = _this9.datagrid.getrowdata(id);
+
+              var ticketId = dataRecord.ticketId;
+              var _params4 = {
+                ticketId: ticketId,
+                deleteBy: parseInt(_this9.cookieService.get('userId'))
+              };
+
+              _this9.ticketService.deleteTicket(_params4).subscribe(function (res) {
+                /*_.each(this.ticketListData, (type)=>{
+                  if(type.ticketId == id){
+                    type.isActive = false;
+                  }
+                })*/
+                setTimeout(function () {
+                  /*this.ticketListData = this.ticketListData.filter((type) => type.ticketId !== id);*/
+                  _this9.datagrid.deleterow(id);
+
+                  _this9.totalItems = _this9.ticketListData.length;
+
+                  _this9.sharedService.setAlertMessage("Ticket deleted");
+
+                  _this9.sharedService.setUnitListDeleteIndex(null);
+                }, 500);
+              }, function (error) {
+                console.log(error);
+              });
+            }
+          });
+        }
       }]);
 
       return HelpdeskUnassignedComponent;
     }();
 
+    HelpdeskUnassignedComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+      }, {
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+      }, {
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"]
+      }, {
+        type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+      }, {
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])], HelpdeskUnassignedComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditTicket', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], HelpdeskUnassignedComponent.prototype, "onEditTicket", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onTicketDelete', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], HelpdeskUnassignedComponent.prototype, "onTicketDelete", null);
     HelpdeskUnassignedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-helpdesk-unassigned',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1192,7 +1482,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./helpdesk-unassigned.component.scss */
       "./src/app/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], HelpdeskUnassignedComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], HelpdeskUnassignedComponent);
+
+    function getClassName(value) {
+      var name = value.split('-');
+      return name[0].toLowerCase();
+    }
+
+    window.getClassName = getClassName;
+
+    function showConfirmDeleteEvent(row) {
+      var event = new CustomEvent('onTicketDelete', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.showConfirmDeleteEvent = showConfirmDeleteEvent;
+
+    function editTicketEvent(row) {
+      var event = new CustomEvent('onEditTicket', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editTicketEvent = editTicketEvent;
     /***/
   },
 

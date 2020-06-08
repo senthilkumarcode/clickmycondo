@@ -3494,7 +3494,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
             _this18.glAccountListData = res;
           });
-          this.accountsService.getVendorPaymenntHistoryById(this.route.params['value'].id).subscribe(function (res) {
+          var paymentParams = {
+            VendorID: this.route.params['value'].id
+          };
+          this.accountsService.getVendorPaymenntHistoryById(paymentParams).subscribe(function (res) {
             _this18.invoiceDataList = res;
             _this18.totalItems = _this18.invoiceDataList.length;
             _this18.gridSourceData = {

@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"staff-attendance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isEntryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isEntryDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Entries <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"entryData\" \n\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-entry\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Attendance</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\"\n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"creditNoteDataList\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName\n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tJob Title\n\t\t\t\t      \t<span (click)=\"sortUnitData('jobTitle')\" [ngClass]=\"getFieldOrderBy('jobTitle')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Job Title\" [(ngModel)]=\"columnField['jobTitle']\" (ngModelChange)=\"selectColInput('jobTitle')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">In Time <span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Time<span (click)=\"sortUnitData('outTime')\" [ngClass]=\"getFieldOrderBy('outTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">In Gate <span (click)=\"sortUnitData('inGateId')\" [ngClass]=\"getFieldOrderBy('inGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Gate <span (click)=\"sortUnitData('outGateId')\" [ngClass]=\"getFieldOrderBy('outGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">comments <span (click)=\"sortUnitData('notes')\" [ngClass]=\"getFieldOrderBy('notes')\"></span></th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let entry of entryListData | simpleSearch: staffData | \n\t\t\t\t    sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{getStaffName(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"name\">{{getJobTitle(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.inTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.outTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getInGateName(entry.inGateId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getOutGateName(entry.outGateId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{entry.notes}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-entry/{{entry.attendanceId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"staff-attendance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isEntryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isEntryDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Entries <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"entryData\" \n\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-entry\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Attendance</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\"\n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"entryListData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName\n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tJob Title\n\t\t\t\t      \t<span (click)=\"sortUnitData('jobTitle')\" [ngClass]=\"getFieldOrderBy('jobTitle')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Job Title\" [(ngModel)]=\"columnField['jobTitle']\" (ngModelChange)=\"selectColInput('jobTitle')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">In Time <span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Time<span (click)=\"sortUnitData('outTime')\" [ngClass]=\"getFieldOrderBy('outTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">In Gate <span (click)=\"sortUnitData('inGateId')\" [ngClass]=\"getFieldOrderBy('inGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Gate <span (click)=\"sortUnitData('outGateId')\" [ngClass]=\"getFieldOrderBy('outGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">comments <span (click)=\"sortUnitData('notes')\" [ngClass]=\"getFieldOrderBy('notes')\"></span></th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let entry of entryListData | simpleSearch: staffData | \n\t\t\t\t    sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{getStaffName(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"name\">{{getJobTitle(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.inTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.outTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getInGateName(entry.inGateId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getOutGateName(entry.outGateId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{entry.notes}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-entry/{{entry.attendanceId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -1260,19 +1260,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_7___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/services/constants.service */
+    "./src/app/shared/services/constants.service.ts");
 
     var StaffAttendanceComponent =
     /*#__PURE__*/
     function () {
-      function StaffAttendanceComponent(staffService, lookupService, cookieService) {
+      function StaffAttendanceComponent(staffService, lookupService, cookieService, constantsService, router) {
         _classCallCheck(this, StaffAttendanceComponent);
 
         this.staffService = staffService;
         this.lookupService = lookupService;
         this.cookieService = cookieService;
+        this.constantsService = constantsService;
+        this.router = router;
         this.isEntryDataLoaded = false;
         this.unitFieldType = "unitno";
         this.unitOrder = true;
@@ -1316,7 +1348,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSelectChange",
         value: function onSelectChange(event, type, name) {
-          if (!underscore__WEBPACK_IMPORTED_MODULE_5__["isEmpty"](event)) {
+          if (!underscore__WEBPACK_IMPORTED_MODULE_6__["isEmpty"](event)) {
             this.selectedInput = type;
             this.columnField[type] = event[name];
           } else {
@@ -1414,10 +1446,105 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
           var _this8 = this;
 
+          if (this.entryData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.entryData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this8.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "onEditAttendenceStaff",
+        value: function onEditAttendenceStaff(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var attendanceId = dataRecord.attendanceId;
+          this.router.navigateByUrl('/ams/staff/edit-entry/' + attendanceId);
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this9 = this;
+
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'Name',
+            datafield: 'apartmentId',
+            width: 120,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Job itle',
+            datafield: 'attendanceId',
+            width: 120,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Intime',
+            datafield: 'inTime',
+            minwidth: 120,
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this9.constantsService.dateFormat) + '</div>';
+            },
+            renderer: columnrenderer
+          }, {
+            text: 'Outtime',
+            datafield: 'outTime',
+            minwidth: 120,
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this9.constantsService.dateFormat) + '</div>';
+            },
+            renderer: columnrenderer
+          }, {
+            text: 'Ingate',
+            datafield: 'inGateId',
+            minwidth: 120,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Outgate',
+            datafield: 'outGateId',
+            minwidth: 150,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Comments',
+            datafield: 'insertedBy',
+            minwidth: 120,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            minwidth: 120,
+            cellsrenderer: function cellsrenderer(row, coloumn, value) {
+              return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2" onClick="editAttendenceStaff(' + row + ')">' + '<i class="icon fa fa-pencil edit" aria-hidden="true"></i>' + '</a>' + '</div>';
+            },
+            renderer: columnrenderer
+          }];
           this.entry = {};
           this.staffDetails = [];
           this.gateDataList = [];
@@ -1428,28 +1555,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.staffService.getAllAttendancesByApartmentId(params).subscribe(function (res) {
             //filter active true items
-            _this8.entryListData = res.filter(function (data) {
+            _this9.entryListData = res.filter(function (data) {
               return data.isActive;
             });
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this8.entryListData, function (item) {
-              _this8.staffService.getStaffByStaffId(item.staffId).subscribe(function (staff) {
-                _this8.staffDetails.push(staff[0]);
+            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this9.entryListData, function (item) {
+              _this9.staffService.getStaffByStaffId(item.staffId).subscribe(function (staff) {
+                _this9.staffDetails.push(staff[0]);
               });
             });
+            console.log('entryListData', _this9.entryListData);
+            _this9.gridSourceData = {
+              localdata: _this9.entryListData,
+              datatype: "array"
+            };
+            _this9.entryListData = new jqx.dataAdapter(_this9.gridSourceData);
             var dataListparams = {
-              apartmentId: parseInt(_this8.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this9.cookieService.get('apartmentId'))
             }; //get all gates
 
-            _this8.staffService.getAllGatesByApartmentId(dataListparams).subscribe(function (res) {
-              _this8.gateDataList = res;
+            _this9.staffService.getAllGatesByApartmentId(dataListparams).subscribe(function (res) {
+              _this9.gateDataList = res;
             });
 
             var officialListparams = {
               LookupTypeId: 26
             }; //get all offical staff 
 
-            _this8.lookupService.getLookupValueByLookupTypeId(officialListparams).subscribe(function (res) {
-              _this8.officalStaffsDataList = res.filter(function (item) {
+            _this9.lookupService.getLookupValueByLookupTypeId(officialListparams).subscribe(function (res) {
+              _this9.officalStaffsDataList = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -1458,21 +1591,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               LookupTypeId: 27
             }; //get all personal staffs 
 
-            _this8.lookupService.getLookupValueByLookupTypeId(personalListparams).subscribe(function (res) {
-              _this8.personalStaffsDataList = res.filter(function (item) {
+            _this9.lookupService.getLookupValueByLookupTypeId(personalListparams).subscribe(function (res) {
+              _this9.personalStaffsDataList = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
 
-            _this8.totalItems = _this8.entryListData.length;
+            _this9.totalItems = _this9.entryListData.length;
 
-            if (_this8.totalItems > _this8.itemLimit) {
-              _this8.ItemEndIndex = _this8.itemLimit;
+            if (_this9.totalItems > _this9.itemLimit) {
+              _this9.ItemEndIndex = _this9.itemLimit;
             } else {
-              _this8.ItemEndIndex = _this8.totalItems;
+              _this9.ItemEndIndex = _this9.totalItems;
             }
 
-            _this8.isEntryDataLoaded = true;
+            _this9.isEntryDataLoaded = true;
           });
         }
       }]);
@@ -1487,9 +1620,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }, {
+        type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])], StaffAttendanceComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditAttendenceStaff', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], StaffAttendanceComponent.prototype, "onEditAttendenceStaff", null);
     StaffAttendanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-staff-attendance',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1498,7 +1639,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./staff-attendance.component.scss */
       "./src/app/ams/staff-manager/components/staff-attendance/staff-attendance.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], StaffAttendanceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])], StaffAttendanceComponent);
+
+    function editAttendenceStaff(row) {
+      var event = new CustomEvent('onEditAttendenceStaff', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editAttendenceStaff = editAttendenceStaff;
     /***/
   },
 
@@ -1629,7 +1781,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitGateForm",
         value: function submitGateForm(form) {
-          var _this9 = this;
+          var _this10 = this;
 
           this.isGateLoaded = false;
 
@@ -1649,11 +1801,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.staffService.addGate(params).subscribe(function (res) {
               if (res.message) {
-                _this9.isGateLoaded = true;
+                _this10.isGateLoaded = true;
 
-                _this9.sharedService.setAlertMessage("Gate added Successfully!");
+                _this10.sharedService.setAlertMessage("Gate added Successfully!");
 
-                _this9.getAllGates();
+                _this10.getAllGates();
               }
             }, function (error) {});
           } else {
@@ -1673,11 +1825,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.staffService.updateGate(_params3).subscribe(function (res) {
               if (res.message) {
-                _this9.isGateLoaded = true;
+                _this10.isGateLoaded = true;
 
-                _this9.sharedService.setAlertMessage("Gate updated Successfully!");
+                _this10.sharedService.setAlertMessage("Gate updated Successfully!");
 
-                _this9.getAllGates();
+                _this10.getAllGates();
               }
             }, function (error) {});
           }
@@ -1685,22 +1837,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllGates",
         value: function getAllGates() {
-          var _this10 = this;
+          var _this11 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.staffService.getAllGatesByApartmentId(params).subscribe(function (res) {
-            _this10.isGateTableLoaded = true;
-            _this10.gateListData = res.filter(function (item) {
+            _this11.isGateTableLoaded = true;
+            _this11.gateListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this10.totalItems = _this10.gateListData.length;
+            _this11.totalItems = _this11.gateListData.length;
 
-            if (_this10.totalItems > _this10.itemLimit) {
-              _this10.ItemEndIndex = _this10.itemLimit;
+            if (_this11.totalItems > _this11.itemLimit) {
+              _this11.ItemEndIndex = _this11.itemLimit;
             } else {
-              _this10.ItemEndIndex = _this10.totalItems;
+              _this11.ItemEndIndex = _this11.totalItems;
             }
           }, function (error) {});
         }
@@ -1712,12 +1864,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addGate",
         value: function addGate() {
-          var _this11 = this;
+          var _this12 = this;
 
           this.isEditGate = false;
           this.isAddGateLoaded = false;
           setTimeout(function () {
-            _this11.isAddGateLoaded = true;
+            _this12.isAddGateLoaded = true;
           }, 10);
           setTimeout(function () {
             var elem = document.querySelector('.add-gate-card');
@@ -1731,16 +1883,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editGate",
         value: function editGate(id) {
-          var _this12 = this;
+          var _this13 = this;
 
           this.isEditGate = true;
           this.isGateLoaded = false;
           this.staffService.getGateByGateId(id).subscribe(function (res) {
-            _this12.isGateLoaded = true;
-            _this12.gate = res[0];
-            _this12.isAddGateLoaded = false;
+            _this13.isGateLoaded = true;
+            _this13.gate = res[0];
+            _this13.isAddGateLoaded = false;
             setTimeout(function () {
-              _this12.isAddGateLoaded = true;
+              _this13.isAddGateLoaded = true;
             }, 10);
             setTimeout(function () {
               var elem = document.querySelector('.add-gate-card');
@@ -1760,27 +1912,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this13 = this;
+          var _this14 = this;
 
           this.gate = {};
           this.getAllGates(); // delete gate
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
             if (item != null) {
-              _this13.isGateTableLoaded = false;
+              _this14.isGateTableLoaded = false;
               var params = {
                 gateId: item.gateId,
-                deleteBy: parseInt(_this13.cookieService.get('userId'))
+                deleteBy: parseInt(_this14.cookieService.get('userId'))
               };
 
-              _this13.staffService.deleteGate(params).subscribe(function (res) {
-                _this13.gateListData = _this13.gateListData.filter(function (type) {
+              _this14.staffService.deleteGate(params).subscribe(function (res) {
+                _this14.gateListData = _this14.gateListData.filter(function (type) {
                   return type.gateId !== item.gateId;
                 });
 
-                _this13.sharedService.setUnitListDeleteIndex(null);
+                _this14.sharedService.setUnitListDeleteIndex(null);
 
-                _this13.isGateTableLoaded = true;
+                _this14.isGateTableLoaded = true;
               });
             }
           });
@@ -2016,7 +2168,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this14 = this;
+          var _this15 = this;
 
           if (this.staffData != "") {
             var filtergroup = new jqx.filter();
@@ -2029,7 +2181,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this15.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2047,7 +2199,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this15 = this;
+          var _this16 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2100,31 +2252,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }];
           this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
             //filter inactive true items
-            _this15.staffListData = res.filter(function (data) {
+            _this16.staffListData = res.filter(function (data) {
               return !data.isActive;
             });
-            _this15.gridSourceData = {
-              localdata: _this15.staffListData,
+            _this16.gridSourceData = {
+              localdata: _this16.staffListData,
               datatype: "array"
             };
-            _this15.staffListData = new jqx.dataAdapter(_this15.gridSourceData);
-            console.log("staffListData Inactive", _this15.staffListData);
-            _this15.totalItems = _this15.staffListData.length;
+            _this16.staffListData = new jqx.dataAdapter(_this16.gridSourceData);
+            console.log("staffListData Inactive", _this16.staffListData);
+            _this16.totalItems = _this16.staffListData.length;
 
-            if (_this15.totalItems > _this15.itemLimit) {
-              _this15.ItemEndIndex = _this15.itemLimit;
+            if (_this16.totalItems > _this16.itemLimit) {
+              _this16.ItemEndIndex = _this16.itemLimit;
             } else {
-              _this15.ItemEndIndex = _this15.totalItems;
+              _this16.ItemEndIndex = _this16.totalItems;
             }
 
-            _this15.isStaffDataLoaded = true;
+            _this16.isStaffDataLoaded = true;
           });
           var staffParams = {
             LookupTypeId: 25
           }; //staff type
 
           this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
-            _this15.staffTypeData = res.filter(function (item) {
+            _this16.staffTypeData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -2133,17 +2285,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //offical category type
 
           this.lookupService.getLookupValueByLookupTypeId(staffOfficialParams).subscribe(function (res) {
-            _this15.staffOfficalCategoryData = res.filter(function (item) {
+            _this16.staffOfficalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            console.log(_this15.staffOfficalCategoryData);
+            console.log(_this16.staffOfficalCategoryData);
           }, function (error) {});
           var staffPersonalParams = {
             LookupTypeId: 27
           }; //personal category type
 
           this.lookupService.getLookupValueByLookupTypeId(staffPersonalParams).subscribe(function (res) {
-            _this15.staffPersonalCategoryData = res.filter(function (item) {
+            _this16.staffPersonalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -2438,7 +2590,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this16 = this;
+          var _this17 = this;
 
           if (this.staffData != "") {
             var filtergroup = new jqx.filter();
@@ -2451,7 +2603,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this16.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this17.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2476,7 +2628,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this17 = this;
+          var _this18 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2523,31 +2675,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }];
           this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
             //filter active true items
-            _this17.staffListData = res.filter(function (data) {
+            _this18.staffListData = res.filter(function (data) {
               return data.isActive;
             });
-            _this17.gridSourceData = {
-              localdata: _this17.staffListData,
+            _this18.gridSourceData = {
+              localdata: _this18.staffListData,
               datatype: "array"
             };
-            _this17.staffListData = new jqx.dataAdapter(_this17.gridSourceData);
-            console.log("staffListData", _this17.staffListData);
-            _this17.totalItems = _this17.staffListData.length;
+            _this18.staffListData = new jqx.dataAdapter(_this18.gridSourceData);
+            console.log("staffListData", _this18.staffListData);
+            _this18.totalItems = _this18.staffListData.length;
 
-            if (_this17.totalItems > _this17.itemLimit) {
-              _this17.ItemEndIndex = _this17.itemLimit;
+            if (_this18.totalItems > _this18.itemLimit) {
+              _this18.ItemEndIndex = _this18.itemLimit;
             } else {
-              _this17.ItemEndIndex = _this17.totalItems;
+              _this18.ItemEndIndex = _this18.totalItems;
             }
 
-            _this17.isStaffDataLoaded = true;
+            _this18.isStaffDataLoaded = true;
           });
           var staffParams = {
             LookupTypeId: 25
           }; //staff type
 
           this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
-            _this17.staffTypeData = res.filter(function (item) {
+            _this18.staffTypeData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -2556,17 +2708,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //offical category type
 
           this.lookupService.getLookupValueByLookupTypeId(officialParams).subscribe(function (res) {
-            _this17.staffOfficalCategoryData = res.filter(function (item) {
+            _this18.staffOfficalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            console.log(_this17.staffOfficalCategoryData);
+            console.log(_this18.staffOfficalCategoryData);
           }, function (error) {});
           var officialCategoryParams = {
             LookupTypeId: 27
           }; //personal category type
 
           this.lookupService.getLookupValueByLookupTypeId(officialCategoryParams).subscribe(function (res) {
-            _this17.staffPersonalCategoryData = res.filter(function (item) {
+            _this18.staffPersonalCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {}); // delete item
@@ -2575,24 +2727,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (id != null) {
               var params = {
                 staffId: id,
-                deleteBy: parseInt(_this17.cookieService.get('userId'))
+                deleteBy: parseInt(_this18.cookieService.get('userId'))
               };
 
-              _this17.staffService.deleteStaff(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this17.staffListData, function (type) {
+              _this18.staffService.deleteStaff(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this18.staffListData, function (type) {
                   if (type.staffId == id) {
                     type.isActive = false;
                   }
                 });
                 setTimeout(function () {
-                  _this17.staffListData = _this17.staffListData.filter(function (type) {
+                  _this18.staffListData = _this18.staffListData.filter(function (type) {
                     return type.staffId !== id;
                   });
-                  _this17.totalItems = _this17.staffListData.length;
+                  _this18.totalItems = _this18.staffListData.length;
 
-                  _this17.sharedService.setAlertMessage("Staff deleted");
+                  _this18.sharedService.setAlertMessage("Staff deleted");
 
-                  _this17.sharedService.setUnitListDeleteIndex(null);
+                  _this18.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -3044,14 +3196,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitStaffForm",
         value: function submitStaffForm(form) {
-          var _this18 = this;
+          var _this19 = this;
 
           this.isError = false; //offical category
 
           if (this.staffType == "115") {
             this.staffTypeId = 26;
             var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryOffcialData, function (item) {
-              return item.lookupValueName === _this18.staffCategory;
+              return item.lookupValueName === _this19.staffCategory;
             });
 
             if (categoryAvailable) {
@@ -3076,18 +3228,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: details
                 };
                 this.lookupService.addLookupValue(params).subscribe(function (res) {
-                  _this18.isStaffLoaded = true;
-                  _this18.isCategoryDataLoaded = false;
+                  _this19.isStaffLoaded = true;
+                  _this19.isCategoryDataLoaded = false;
                   var params = {
-                    LookupTypeId: _this18.staffTypeId
+                    LookupTypeId: _this19.staffTypeId
                   };
 
-                  _this18.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this19.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryOffcialListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this18.categoryOffcialListData = categoryOffcialListData;
-                    _this18.isCategoryDataLoaded = true;
+                    _this19.categoryOffcialListData = categoryOffcialListData;
+                    _this19.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               } else {
@@ -3106,19 +3258,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details3
                 };
                 this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
-                  _this18.isStaffLoaded = true;
-                  _this18.isCategoryDataLoaded = false;
-                  _this18.isEditStaffCategory = false;
+                  _this19.isStaffLoaded = true;
+                  _this19.isCategoryDataLoaded = false;
+                  _this19.isEditStaffCategory = false;
                   var params = {
-                    LookupTypeId: _this18.staffTypeId
+                    LookupTypeId: _this19.staffTypeId
                   };
 
-                  _this18.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this19.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryOffcialListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this18.categoryOffcialListData = categoryOffcialListData;
-                    _this18.isCategoryDataLoaded = true;
+                    _this19.categoryOffcialListData = categoryOffcialListData;
+                    _this19.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               }
@@ -3126,7 +3278,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.staffTypeId = 27;
             var categoryAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.categoryPersonalData, function (item) {
-              return item.lookupValueName === _this18.staffCategory;
+              return item.lookupValueName === _this19.staffCategory;
             });
 
             if (categoryAvailable) {
@@ -3151,18 +3303,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details4
                 };
                 this.lookupService.addLookupValue(_params5).subscribe(function (res) {
-                  _this18.isStaffLoaded = true;
-                  _this18.isCategoryDataLoaded = false;
+                  _this19.isStaffLoaded = true;
+                  _this19.isCategoryDataLoaded = false;
                   var params = {
-                    LookupTypeId: _this18.staffTypeId
+                    LookupTypeId: _this19.staffTypeId
                   };
 
-                  _this18.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this19.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryPersonalListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this18.categoryPersonalListData = categoryPersonalListData;
-                    _this18.isCategoryDataLoaded = true;
+                    _this19.categoryPersonalListData = categoryPersonalListData;
+                    _this19.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               } else {
@@ -3181,19 +3333,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: _details5
                 };
                 this.lookupService.updateLookupValue(_params6).subscribe(function (res) {
-                  _this18.isStaffLoaded = true;
-                  _this18.isCategoryDataLoaded = false;
-                  _this18.isEditStaffCategory = false;
+                  _this19.isStaffLoaded = true;
+                  _this19.isCategoryDataLoaded = false;
+                  _this19.isEditStaffCategory = false;
                   var params = {
-                    LookupTypeId: _this18.staffTypeId
+                    LookupTypeId: _this19.staffTypeId
                   };
 
-                  _this18.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                  _this19.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                     var categoryPersonalListData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this18.categoryPersonalListData = categoryPersonalListData;
-                    _this18.isCategoryDataLoaded = true;
+                    _this19.categoryPersonalListData = categoryPersonalListData;
+                    _this19.isCategoryDataLoaded = true;
                   }, function (error) {});
                 }, function (error) {});
               }
@@ -3203,15 +3355,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this19 = this;
+          var _this20 = this;
 
           var params = {
             LookupTypeId: 25
           }; //get all staff type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this19.staffCategoryData = res;
-            _this19.isStaffLoaded = true;
+            _this20.staffCategoryData = res;
+            _this20.isStaffLoaded = true;
           }, function (error) {});
           var categoryParams = {
             LookupTypeId: 26
@@ -3221,46 +3373,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var categoryOffcialListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this19.categoryOffcialListData = categoryOffcialListData;
+            _this20.categoryOffcialListData = categoryOffcialListData;
             var categoryPersonalParams = {
               LookupTypeId: 27
             }; //get all personal category
 
-            _this19.lookupService.getLookupValueByLookupTypeId(categoryPersonalParams).subscribe(function (res) {
+            _this20.lookupService.getLookupValueByLookupTypeId(categoryPersonalParams).subscribe(function (res) {
               var categoryPersonalListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this19.categoryPersonalListData = categoryPersonalListData;
-              _this19.isCategoryDataLoaded = true;
+              _this20.categoryPersonalListData = categoryPersonalListData;
+              _this20.isCategoryDataLoaded = true;
             }, function (error) {});
           }, function (error) {}); // delete lookupvalue
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (index) {
             if (index != null) {
-              if (_this19.staffDeleteTypeId == "115") {
+              if (_this20.staffDeleteTypeId == "115") {
                 var params = {
-                  lookupValueId: _this19.categoryOffcialListData[index].lookupValueId,
-                  updateUserId: parseInt(_this19.cookieService.get('userId'))
+                  lookupValueId: _this20.categoryOffcialListData[index].lookupValueId,
+                  updateUserId: parseInt(_this20.cookieService.get('userId'))
                 };
               } else {
                 var params = {
-                  lookupValueId: _this19.categoryPersonalListData[index].lookupValueId,
-                  updateUserId: parseInt(_this19.cookieService.get('userId'))
+                  lookupValueId: _this20.categoryPersonalListData[index].lookupValueId,
+                  updateUserId: parseInt(_this20.cookieService.get('userId'))
                 };
               }
 
-              _this19.isCategoryDataLoaded = false;
+              _this20.isCategoryDataLoaded = false;
 
-              _this19.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                if (_this19.staffDeleteTypeId == "115") {
-                  _this19.categoryOffcialListData.splice(index, 1);
+              _this20.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                if (_this20.staffDeleteTypeId == "115") {
+                  _this20.categoryOffcialListData.splice(index, 1);
                 } else {
-                  _this19.categoryPersonalListData.splice(index, 1);
+                  _this20.categoryPersonalListData.splice(index, 1);
                 }
 
-                _this19.isCategoryDataLoaded = true;
+                _this20.isCategoryDataLoaded = true;
 
-                _this19.sharedService.setUnitListDeleteIndex(null);
+                _this20.sharedService.setUnitListDeleteIndex(null);
               }, function (error) {
                 console.log(error);
               });
@@ -3474,7 +3626,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitShiftsForm",
         value: function submitShiftsForm(form) {
-          var _this20 = this;
+          var _this21 = this;
 
           this.isShiftsLoaded = false;
 
@@ -3495,11 +3647,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.staffService.addShift(params).subscribe(function (res) {
               if (res.message) {
-                _this20.isShiftsLoaded = true;
+                _this21.isShiftsLoaded = true;
 
-                _this20.sharedService.setAlertMessage("Shift added Successfully!");
+                _this21.sharedService.setAlertMessage("Shift added Successfully!");
 
-                _this20.getAllShifts();
+                _this21.getAllShifts();
               }
             }, function (error) {});
           } else {
@@ -3520,11 +3672,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.staffService.updateShift(_params7).subscribe(function (res) {
               if (res.message) {
-                _this20.isShiftsLoaded = true;
+                _this21.isShiftsLoaded = true;
 
-                _this20.sharedService.setAlertMessage("Shift updated Successfully!");
+                _this21.sharedService.setAlertMessage("Shift updated Successfully!");
 
-                _this20.getAllShifts();
+                _this21.getAllShifts();
               }
             }, function (error) {});
           }
@@ -3532,12 +3684,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addShift",
         value: function addShift() {
-          var _this21 = this;
+          var _this22 = this;
 
           this.isEditShift = false;
           this.isAddShiftLoaded = false;
           setTimeout(function () {
-            _this21.isAddShiftLoaded = true;
+            _this22.isAddShiftLoaded = true;
           }, 10);
           setTimeout(function () {
             var elem = document.querySelector('.add-shift-card');
@@ -3551,11 +3703,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editShift",
         value: function editShift(shift) {
-          var _this22 = this;
+          var _this23 = this;
 
           this.isAddShiftLoaded = false;
           setTimeout(function () {
-            _this22.isAddShiftLoaded = true;
+            _this23.isAddShiftLoaded = true;
           }, 10);
           this.isEditShift = true;
           this.shiftTypeId = shift.shiftTypeId;
@@ -3584,31 +3736,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllShifts",
         value: function getAllShifts() {
-          var _this23 = this;
+          var _this24 = this;
 
           this.isShiftTableLoaded = false;
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.staffService.getAllShiftsByApartmentId(params).subscribe(function (res) {
-            _this23.shiftsListData = res.filter(function (item) {
+            _this24.shiftsListData = res.filter(function (item) {
               return item.isActive;
             });
-            _this23.totalItems = _this23.shiftsListData.length;
+            _this24.totalItems = _this24.shiftsListData.length;
 
-            if (_this23.totalItems > _this23.itemLimit) {
-              _this23.ItemEndIndex = _this23.itemLimit;
+            if (_this24.totalItems > _this24.itemLimit) {
+              _this24.ItemEndIndex = _this24.itemLimit;
             } else {
-              _this23.ItemEndIndex = _this23.totalItems;
+              _this24.ItemEndIndex = _this24.totalItems;
             }
 
-            _this23.isShiftTableLoaded = true;
+            _this24.isShiftTableLoaded = true;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this24 = this;
+          var _this25 = this;
 
           this.shift = {};
           this.getAllShifts();
@@ -3617,7 +3769,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //shift type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this24.shiftTypeList = res.filter(function (item) {
+            _this25.shiftTypeList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {}); // delete item
@@ -3626,18 +3778,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (item != null) {
               var params = {
                 shiftId: item.shiftId,
-                deleteBy: parseInt(_this24.cookieService.get('userId'))
+                deleteBy: parseInt(_this25.cookieService.get('userId'))
               };
-              _this24.isShiftTableLoaded = false;
+              _this25.isShiftTableLoaded = false;
 
-              _this24.staffService.deleteShift(params).subscribe(function (res) {
-                _this24.shiftsListData = _this24.shiftsListData.filter(function (type) {
+              _this25.staffService.deleteShift(params).subscribe(function (res) {
+                _this25.shiftsListData = _this25.shiftsListData.filter(function (type) {
                   return type.shiftId !== item.shiftId;
                 });
 
-                _this24.sharedService.setUnitListDeleteIndex(null);
+                _this25.sharedService.setUnitListDeleteIndex(null);
 
-                _this24.isShiftTableLoaded = true;
+                _this25.isShiftTableLoaded = true;
               }, function (error) {
                 console.log(error);
               });
