@@ -2892,7 +2892,6 @@ let ExpenseViewInvoiceComponent = class ExpenseViewInvoiceComponent {
                 localData: this.invoiceDataList,
                 datatype: "array"
             });
-            console.log('invoiceDataList', this.invoiceDataList);
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;
             }

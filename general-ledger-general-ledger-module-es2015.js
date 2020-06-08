@@ -505,7 +505,8 @@ let AddGlAccountComponent = class AddGlAccountComponent {
                 glAccountId: this.glAccountId,
             };
             this.accountsService.getGlAccountsId(params).subscribe((res) => {
-                this.gl = res[0];
+                if (res[0] != undefined)
+                    this.gl = res[0];
                 if (this.group == 'Income' || this.group == 'Expenses') {
                     this.gl.openingBalance = 0;
                 }

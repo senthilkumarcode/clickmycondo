@@ -781,7 +781,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               glAccountId: this.glAccountId
             };
             this.accountsService.getGlAccountsId(params).subscribe(function (res) {
-              _this2.gl = res[0];
+              if (res[0] != undefined) _this2.gl = res[0];
 
               if (_this2.group == 'Income' || _this2.group == 'Expenses') {
                 _this2.gl.openingBalance = 0;

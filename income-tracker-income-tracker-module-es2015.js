@@ -4630,7 +4630,6 @@ let IncomeViewInvoiceComponent = class IncomeViewInvoiceComponent {
                 datatype: "array"
             };
             this.invoiceDataList = new jqx.dataAdapter(this.gridSourceData);
-            console.log('invoiceDataList', this.invoiceDataList);
             /*this.getSourceDataAdapter = (datafield: string): any => {
               let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
               return dataAdapter;

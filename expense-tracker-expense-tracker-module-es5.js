@@ -3805,7 +3805,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               localData: _this20.invoiceDataList,
               datatype: "array"
             });
-            console.log('invoiceDataList', _this20.invoiceDataList);
 
             if (_this20.totalItems > _this20.itemLimit) {
               _this20.ItemEndIndex = _this20.itemLimit;

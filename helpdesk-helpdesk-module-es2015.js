@@ -545,7 +545,6 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
     onPrivateCatDelete(detail) {
         let dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
         let lookupValueId = dataRecord.lookupValueId;
-        console.log("lookupValueId", lookupValueId);
         this.modalService.showConfirmModal(lookupValueId);
     }
     onCommonCatDelete(detail) {
@@ -717,7 +716,6 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
             };
             this.lookupService.getLookupValueByLookupTypeId(commonListParams).subscribe((res) => {
                 this.commonCategory = res.filter((item) => item['isActive'] === true);
-                console.log("this.commonCategory", this.commonCategory);
                 var categoryCommonListData = res.filter(item => {
                     return item.isActive;
                 });

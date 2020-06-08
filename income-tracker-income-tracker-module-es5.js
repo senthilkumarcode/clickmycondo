@@ -6258,7 +6258,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datatype: "array"
             };
             _this46.invoiceDataList = new jqx.dataAdapter(_this46.gridSourceData);
-            console.log('invoiceDataList', _this46.invoiceDataList);
             /*this.getSourceDataAdapter = (datafield: string): any => {
               let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
               return dataAdapter;

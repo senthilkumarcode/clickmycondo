@@ -815,7 +815,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onPrivateCatDelete(detail) {
           var dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
           var lookupValueId = dataRecord.lookupValueId;
-          console.log("lookupValueId", lookupValueId);
           this.modalService.showConfirmModal(lookupValueId);
         }
       }, {
@@ -1011,7 +1010,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this7.commonCategory = res.filter(function (item) {
                 return item['isActive'] === true;
               });
-              console.log("this.commonCategory", _this7.commonCategory);
               var categoryCommonListData = res.filter(function (item) {
                 return item.isActive;
               });
