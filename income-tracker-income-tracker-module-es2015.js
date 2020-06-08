@@ -169,6 +169,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.html":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.html ***!
+  \*************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card table-card mb-30\" *ngIf=\"isAutoInvoicingDataLoaded\">\n    <div class=\"card-header\">\n\n        <div class=\"row\">\n            <div class=\"col-sm-6 d-flex align-items-center\">\n                <h5>Auto Invoicing <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n            </div>\n\n        </div>\n    </div>\n    <div class=\"card-body p-0\">\n        <form>\n            <table class=\"table colname\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\" (click)=\"sortUnitData('glaccountId')\">GL Account<span\n                                [ngClass]=\"getFieldOrderBy('glaccountId')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('tower')\">Tower<span\n                                [ngClass]=\"getFieldOrderBy('tower')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('feeperSqftpermonth')\">Fee per Sqft/month<span\n                                [ngClass]=\"getFieldOrderBy('feeperSqftpermonth')\"></span></th>\n                        <!-- <th scope=\"col\" (click)=\"sortUnitData('monthQuarterlyYear')\">M/Q/A<span\n                                [ngClass]=\"getFieldOrderBy('monthQuarterlyYear')\"></span></th> -->\n                        <th scope=\"col\" (click)=\"sortUnitData('fixedFee')\">Fixed Fee<span\n                                [ngClass]=\"getFieldOrderBy('fixedFee')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('vatId')\">% VAT ID<span\n                                [ngClass]=\"getFieldOrderBy('vatId')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('taxId')\">% Tax ID<span\n                                [ngClass]=\"getFieldOrderBy('taxId')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('effectiveDate')\">effective Date<span\n                                [ngClass]=\"getFieldOrderBy('effectiveDate')\"></span></th>\n                        <th scope=\"col\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <ng-container>\n                        <tr>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <mat-select name=\"glacc\" [(ngModel)]=\"row.glaccountId\">\n                                        <mat-option *ngFor=\"let item of glAccountList\" [value]=\"item.glaccountId\">\n                                            {{ item.glaccountNumber}} - {{ item.glaccountName }}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <!-- <mat-form-field class=\"w-100\">\n                                        <input matInput type=\"text\" name=\"blockId\" [(ngModel)]=\"row.apartmentBlockId\">\n                                    </mat-form-field> -->\n                                <mat-form-field class=\"w-100\">\n                                    <mat-select name=\"blockId\" [(ngModel)]=\"row.tower\">\n                                        <mat-option *ngFor=\"let item of blockDataList\" [value]=\"item.apartmentBlockId\">\n                                            {{ item.apartmentBlockNumber}}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <input matInput type=\"text\" name=\"fpspm\" [(ngModel)]=\"row.feeperSqftpermonth\">\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <input matInput type=\"text\" name=\"fixFee\" [(ngModel)]=\"row.fixedFee\">\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <mat-select name=\"vat\" [(ngModel)]=\"row.vatId\">\n                                        <mat-option *ngFor=\"let item of vatPecentageDataList\"\n                                            [value]=\"item.lookupValueId\">\n                                            {{ item.lookupValueName }}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <mat-select name=\"tax\" [(ngModel)]=\"row.taxId\">\n                                        <mat-option *ngFor=\"let item of taxPecentageDataList\"\n                                            [value]=\"item.lookupValueId\">\n                                            {{ item.lookupValueName }}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <div class=\"input-box mb-0\">\n                                    <input class=\"form-control stock-date\" name=\"effecDate\"\n                                        [owlDateTime]=\"effectiveDate\" [owlDateTimeTrigger]=\"effectiveDate\"\n                                        placeholder=\"\" [(ngModel)]=\"row.effectiveDate\" required>\n                                    <owl-date-time #effectiveDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                    <div class=\"date-btn\">\n                                        <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                    </div>\n                                </div>\n                            </td>\n                            <td>\n                                <i class=\"fa fa-floppy-o save-icon\"\n                                    [ngStyle]=\"!row.glaccountId || !row.tower || !row.feeperSqftpermonth || !row.fixedFee || !row.vatId || !row.taxId || !row.effectiveDate?{'pointer-events':'none','opacity':'0.4'}:''\"\n                                    (click)=\"addAutoinvoiceConfig(row)\" aria-hidden=\"true\"></i>\n                                <!-- <i class=\"fa fa-trash pl-2\" (click)=\"deleteRow(i,'null')\"\n\t\t\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"></i> -->\n                            </td>\n                        </tr>\n                        <!-- </form> -->\n                    </ng-container>\n                    <ng-container\n                        *ngFor=\"let list of autoInvoicingData | slice:ItemStartIndex:ItemEndIndex;let autoInvoiceIndex=index\">\n                        <tr>\n                            <td>\n                                <span [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\">\n                                    <span *ngFor=\" let item of glAccountList\">\n                                        <span *ngIf=\"item.glaccountId == list.glaccountId\">{{ item.glaccountNumber}} -\n                                            {{ item.glaccountName }}</span>\n                                    </span>\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\">\n                                    <mat-select name=\"glaccountId\" [(ngModel)]=\"list.glaccountId\">\n                                        <mat-option *ngFor=\"let item of glAccountList\" [value]=\"item.glaccountId\">\n                                            {{ item.glaccountNumber}} - {{ item.glaccountName }}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\">\n                                    <span *ngFor=\" let item of blockDataList\">\n                                        <span\n                                            *ngIf=\"item.apartmentBlockId == list.tower\">{{ item.apartmentBlockNumber}}</span>\n                                    </span>\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\">\n                                    <mat-select name=\"apartmentBlockId\" [(ngModel)]=\"list.tower\">\n                                        <mat-option *ngFor=\"let item of blockDataList\" [value]=\"item.apartmentBlockId\">\n                                            {{ item.apartmentBlockNumber}}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\">\n                                    {{list.feeperSqftpermonth}}\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\">\n                                    <input matInput type=\"text\" name=\"feeperSqftpermonth\"\n                                        [(ngModel)]=\"list.feeperSqftpermonth\">\n                                </mat-form-field>\n\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\">\n                                    {{list.fixedFee}}\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\">\n                                    <input matInput type=\"text\" name=\"fixedFee\" [(ngModel)]=\"list.fixedFee\">\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\">\n                                    <span *ngFor=\" let item of vatPecentageDataList\">\n                                        <span *ngIf=\"list.vatId == item.lookupValueId\">{{item.lookupValueName}}</span>\n                                    </span>\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\">\n                                    <mat-select name=\"vatId\" [(ngModel)]=\"list.vatId\">\n                                        <mat-option *ngFor=\"let item of  vatPecentageDataList\"\n                                            [value]=\"item.lookupValueId\">\n                                            {{ item.lookupValueName }}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\">\n                                    <span *ngFor=\" let item of taxPecentageDataList\">\n                                        <span *ngIf=\"list.taxId == item.lookupValueId\">{{item.lookupValueName}}</span>\n                                    </span>\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\">\n                                    <mat-select name=\"taxId\" [(ngModel)]=\"list.taxId\">\n                                        <mat-option *ngFor=\"let item of taxPecentageDataList\"\n                                            [value]=\"item.lookupValueId\">\n                                            {{ item.lookupValueName }}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\">\n                                    {{list.effectiveDate?(list.effectiveDate | date: 'dd/MM/yyyy'):'--'}}\n                                </span>\n                                <div class=\"input-box mb-0\" *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\">\n                                    <input class=\"form-control stock-date\" name=\"effectiveDate\"\n                                        [owlDateTime]=\"effectiveDate\" [owlDateTimeTrigger]=\"effectiveDate\"\n                                        placeholder=\"\" [(ngModel)]=\"list.effectiveDate\" required>\n                                    <owl-date-time #effectiveDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                    <div class=\"date-btn\">\n                                        <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                    </div>\n                                </div>\n                            </td>\n                            <td>\n                                <i class=\"fa fa-pencil-square-o pl-2\" title=\"edit\"\n                                    [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\"\n                                    (click)=\"updateAutoInvoiceIndex = autoInvoiceIndex\" aria-hidden=\"true\"></i>\n                                <i class=\"fa fa-floppy-o pl-2 pr-3 pad-top\" title=\"save\"\n                                    [ngStyle]=\"!list.glaccountId || !list.tower || !list.feeperSqftpermonth || !list.fixedFee || !list.vatId || !list.taxId || !list.effectiveDate?{'pointer-events':'none','opacity':'0.4'}:''\"\n                                    *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\"\n                                    (click)=\"updateAutoinvoiceConfig(list)\"></i>\n                                <i class=\"fa fa-times pad-top pl-2\" title=\"cancel\"\n                                    *ngIf=\"updateAutoInvoiceIndex == autoInvoiceIndex\"\n                                    (click)=\"updateAutoInvoiceIndex = -1\"></i>\n                                <i class=\"fa fa-trash pl-2\" (click)=\"deleteRow(index,list)\"\n                                    [ngStyle]=\"updateAutoInvoiceIndex == autoInvoiceIndex?{'display':'none'}:''\"\n                                    aria-hidden=\"true\"></i>\n\n                            </td>\n                        </tr>\n                    </ng-container>\n                </tbody>\n\n            </table>\n            <app-pagination *ngIf=\"autoInvoicingData.length > 0 \" [totalItems]=\"totalItems\"\n                [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n                (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            <!-- <div class=\"action-container\">\n                <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                <button mat-raised-button [disabled]=\"autoInvoicingTable.invalid\" type=\"submit\"\n                    (click)=\"submitForm()\">Submit</button>\n            </div> -->\n        </form>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.html":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.html ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"float-left\">\n            <h5>General</h5>\n        </div>\n    </div>\n    <div class=\"card-body profile-section\">\n        <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n        <!-- <app-loader *ngIf=\"!isSettingsDataLoaded\"></app-loader> -->\n        <ng-container >\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"select-box\">\n                        <label>Currency Type*</label>\n                        <!-- <input type=\"text\" name=\"lookupValueName\" [(ngModel)]=\"currencylookupValueName\"\n                            class=\"form-control\" readonly> -->\n                        <select name=\"lookupValueName\" id=\"lookupValueName\" class=\"form-control\"\n                            [(ngModel)]=\"currencylookupValueName\" readonly>\n                            <option value=\"\" disabled selected hidden>select</option>\n                            <option *ngFor=\"let item of currencyTypeDataList\" [label]=\"item.lookupValueName\"\n                                [value]=\"item.lookupValueName\">\n                               {{item.lookupValueName}}</option>\n                        </select>\n                    </div>\n                </div>\n            </div>\n        </ng-container>\n\n    </div>\n\n    <!-- AR controlGL account -->\n\n    <!-- <div class=\"card-body profile-section\">\n\n        <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n        <app-loader *ngIf=\"!isSettingsDataLoaded\"></app-loader>\n\n        <ng-container *ngIf=\"isSettingsDataLoaded && !isEditReconciliation\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>AR Control GL Account*</label>\n                        <select name=\"glaccountId\" id=\"glaccountId\" class=\"form-control\"\n                            [(ngModel)]=\"custAccData.glaccountId\" required readonly>\n                            <option value=\"\" disabled selected hidden>select</option>\n                            <option *ngFor=\"let item of glAccountListData\" [label]=\"item.glaccountName\"\n                                [value]=\"item.glaccountId\">\n                                {{ item.glaccountNumber}} - {{ item.glaccountName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-2 add-btn\" *ngIf=\"!isEditReconciliation\">\n                    <a class=\"btn lime-green\" (click)=\"editReconciliation()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                    </a>\n                </div>\n            </div>\n        </ng-container>\n\n        <ng-container *ngIf=\"isSettingsDataLoaded && isEditReconciliation\">\n\n            <form #glAccount=\"ngForm\" name=\"glAccount\" (ngSubmit)=\"addCustAccount(custAccData)\" novalidate>\n\n                <div class=\"row\">\n\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>AR Control GL Account*</label>\n                            <select name=\"glaccountId\" id=\"glaccountId\" class=\"form-control\"\n                                [(ngModel)]=\"custAccData.glaccountId\" required>\n                                <option value=\"\" disabled selected hidden>select</option>\n                                <option *ngFor=\"let item of glAccountListData\" [label]=\"item.glaccountName\"\n                                    [value]=\"item.glaccountId\">\n                                    {{ item.glaccountNumber}} - {{ item.glaccountName }}</option>\n                            </select>\n                        </div>\n                    </div>\n\n                    <div class=\"col-sm-2\">\n                        <div>\n                            <button class=\"btn blue mr-2 save-button\" [disabled]=\"glAccount.invalid\">Save</button>\n                        </div>\n                        <div class=\"icon-wrapper back-button\" *ngIf=\"isEditReconciliation\">\n                            <i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"editReconciliation()\"></i-feather>\n                        </div>\n                    </div>\n                </div>\n\n            </form>\n        </ng-container>\n    </div> -->\n\n    <!-- AR Control GL Account* -->\n    <div class=\"card-body profile-section\">\n        <ng-container>\n            <div class=\"row\">\n                <div class=\"col-sm-6 mb-30 select-box\">\n                    <label>AR Control GL Account*</label>\n                    <div class=\"card clear\" id=\"accordion1\">\n                        <div class=\"card-body p-0\">\n                            <ul class=\"list-group tabs clear\">\n                                <li class=\"list-group-item\" #accordion1 data-toggle=\"collapse\" data-target=\"#glAcc\"\n                                    aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                                    <span class=\"font-med\">AR Control GL Account*</span>&nbsp;<span\n                                        *ngIf=\"glAccountListData.length!=0\">({{glAccountListData.length}})</span>\n                                </li>\n                                <div id=\"glAcc\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion1\">\n                                    <div class=\"details\">\n                                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                                            <thead>\n                                                <tr>\n                                                    <th class=\"name\">GL Account</th>\n                                                    <th class=\"action\">Action</th>\n                                                </tr>\n                                            </thead>\n                                            <tbody *ngIf=\"glAccountListData.length!=0\">\n                                                <tr *ngFor=\"let item of glAccountListData;index as i;\">\n                                                    <td class=\"name\"> {{ item.glaccountNumber}} -\n                                                        {{ item.glaccountName }}</td>\n                                                    <td class=\"action\">\n                                                        <a class=\"pr-2 add lime-green\" (click)=\"addCustAccount(item)\">\n                                                            <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                                                        </a>\n                                                        <!-- <a class=\"pr-2\" (click)=\"addCustAccount(item)\">\n                                                            <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                                                        </a> -->\n                                                    </td>\n                                                </tr>\n                                            </tbody>\n                                        </table>\n                                    </div>\n                                </div>\n                            </ul>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ng-container>\n    </div>\n\n    <!-- custIncome -->\n    <div class=\"card-body profile-section\">\n        <ng-container>\n            <div class=\"row\">\n                <div class=\"col-sm-6 mb-30 select-box\">\n                    <label>Customer Income Payment Term*</label>\n                    <!-- <p class=\"font-med mb-2\"><b>Customer Income Payment Term*</b></p> -->\n                    <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                            <tr>\n                                <th>\n                                    <input type=\"text\" class=\"tablewidth form-control\" placeholder=\"Enter\"\n                                        name=\"lookupValueName\" [(ngModel)]=\"customerIncomeValue.lookupValueName\">\n                                </th>\n                                <th width=\"5%\">\n                                    <a class=\"btn lime-green\" (click)=\"addLookupValue('customerIncomeValue')\">\n                                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                                    </a>\n                                </th>\n                            </tr>\n                        </thead>\n                    </table>\n                    <div class=\"card clear\" id=\"accordion1\">\n                        <div class=\"card-body p-0\">\n                            <ul class=\"list-group tabs clear\">\n                                <li class=\"list-group-item\" #accordion1 data-toggle=\"collapse\"\n                                    data-target=\"#CustomerIncome\" aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                                    <span class=\"font-med\">Customer Income Payment Term List</span>&nbsp;<span\n                                        *ngIf=\"custIncomelist.length!=0\">({{custIncomelist.length}})</span>\n                                </li>\n                                <div id=\"CustomerIncome\" class=\"collapse\" aria-labelledby=\"headingOne\"\n                                    data-parent=\"#accordion1\">\n                                    <div class=\"details\">\n                                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                                            <thead>\n                                                <tr>\n                                                    <th class=\"name\">Lookup Value Name</th>\n                                                    <th class=\"action\">Action</th>\n                                                </tr>\n                                            </thead>\n                                            <tbody *ngIf=\"custIncomelist.length!=0\">\n                                                <tr *ngFor=\"let item of custIncomelist;index as i;\">\n                                                    <td class=\"name\">{{item.lookupValueName}}</td>\n                                                    <td class=\"action\">\n                                                        <a class=\"pr-2\"\n                                                            (click)=\"editLookupValue(i, 'customerIncomeValue',item)\">\n                                                            <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                                        </a>\n                                                        <a (click)=\"deleteLookupvalue(i, 'customerIncomeValue',item)\">\n                                                            <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                                        </a>\n                                                    </td>\n                                                </tr>\n                                            </tbody>\n                                        </table>\n                                    </div>\n                                </div>\n                            </ul>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ng-container>\n    </div>\n    <!-- vatValue -->\n    <div class=\"card-body profile-section\">\n        <ng-container>\n            <div class=\"row\">\n                <div class=\"col-sm-6 mb-30 select-box\">\n                    <!-- <p class=\"font-med mb-2\"><b>% VAT*</b></p> -->\n                    <label>% VAT*</label>\n                    <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                            <tr>\n                                <th>\n                                    <input type=\"text\" class=\"tablewidth form-control\" placeholder=\"Enter\"\n                                        name=\"lookupValueName\" [(ngModel)]=\"vatValue.lookupValueName\">\n                                </th>\n                                <th width=\"5%\">\n                                    <a class=\"btn lime-green\" (click)=\"addLookupValue('vatValue')\">\n                                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                                    </a>\n                                </th>\n                            </tr>\n                        </thead>\n                    </table>\n                    <div class=\"card clear\" id=\"accordion1\">\n                        <div class=\"card-body p-0\">\n                            <ul class=\"list-group tabs clear\">\n                                <li class=\"list-group-item\" #accordion1 data-toggle=\"collapse\" data-target=\"#VatValue\"\n                                    aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                                    <span class=\"font-med\">% VAT</span> &nbsp;<span\n                                        *ngIf=\"vatPecentageDataList.length!=0\">({{vatPecentageDataList.length}})</span>\n                                </li>\n                                <div id=\"VatValue\" class=\"collapse\" aria-labelledby=\"headingOne\"\n                                    data-parent=\"#accordion1\">\n                                    <div class=\"details\">\n                                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                                            <thead>\n                                                <tr>\n                                                    <th class=\"name\">% Vat Id</th>\n                                                    <th class=\"action\">Action</th>\n                                                </tr>\n                                            </thead>\n                                            <tbody *ngIf=\"vatPecentageDataList.length!=0\">\n                                                <tr *ngFor=\"let item of vatPecentageDataList;index as i;\">\n                                                    <td class=\"name\">{{item.lookupValueName}}</td>\n                                                    <td class=\"action\">\n                                                        <a class=\"pr-2\" (click)=\"editLookupValue(i, 'vatValue',item)\">\n                                                            <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                                        </a>\n                                                        <a (click)=\"deleteLookupvalue(i, 'vatValue',item)\">\n                                                            <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                                        </a>\n                                                    </td>\n                                                </tr>\n                                            </tbody>\n                                        </table>\n                                    </div>\n                                </div>\n                            </ul>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ng-container>\n    </div>\n    <!-- taxValue -->\n    <div class=\"card-body profile-section\">\n        <ng-container>\n            <div class=\"row\">\n                <div class=\"col-sm-6 mb-30 select-box\">\n                    <!-- <p class=\"font-med mb-2\"><b>% TAX*</b></p> -->\n                    <label>% TAX*</label>\n                    <table class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                            <tr>\n                                <th>\n                                    <input type=\"text\" class=\"tablewidth form-control\" placeholder=\"Enter\"\n                                        name=\"lookupValueName\" [(ngModel)]=\"taxValue.lookupValueName\">\n                                </th>\n                                <th width=\"5%\">\n                                    <a class=\"btn lime-green\" (click)=\"addLookupValue('taxValue')\">\n                                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                                    </a>\n                                </th>\n                            </tr>\n                        </thead>\n                    </table>\n                    <div class=\"card clear\" id=\"accordion1\">\n                        <div class=\"card-body p-0\">\n                            <ul class=\"list-group tabs clear\">\n                                <li class=\"list-group-item\" #accordion1 data-toggle=\"collapse\" data-target=\"#taxValue\"\n                                    aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                                    <span class=\"font-med\">% Tax</span> &nbsp;<span\n                                        *ngIf=\"taxPecentageDataList.length!=0\">({{taxPecentageDataList.length}})</span>\n                                </li>\n                                <div id=\"taxValue\" class=\"collapse\" aria-labelledby=\"headingOne\"\n                                    data-parent=\"#accordion1\">\n                                    <div class=\"details\">\n                                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                                            <thead>\n                                                <tr>\n                                                    <th class=\"name\">% Tax Id</th>\n                                                    <th class=\"action\">Action</th>\n                                                </tr>\n                                            </thead>\n                                            <tbody *ngIf=\"taxPecentageDataList.length!=0\">\n                                                <tr *ngFor=\"let item of taxPecentageDataList;index as i;\">\n                                                    <td class=\"name\">{{item.lookupValueName}}</td>\n                                                    <td class=\"action\">\n                                                        <a class=\"pr-2\" (click)=\"editLookupValue(i, 'taxValue',item)\">\n                                                            <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                                        </a>\n                                                        <a (click)=\"deleteLookupvalue(i, 'taxValue',item)\">\n                                                            <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                                        </a>\n                                                    </td>\n                                                </tr>\n                                            </tbody>\n                                        </table>\n                                    </div>\n                                </div>\n                            </ul>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ng-container>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.html":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.html ***!
+  \***********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card table-card mb-30\" *ngIf=\"isPenaltySetupDataLoaded\">\n    <div class=\"card-header\">\n\n        <div class=\"row\">\n            <div class=\"col-sm-6 d-flex align-items-center\">\n                <h5>Penalty Setup<span class=\"badge lime-green\">{{totalItems}}</span></h5>\n            </div>\n\n        </div>\n    </div>\n    <div class=\"card-body p-0\">\n        <form>\n            <table class=\"table colname\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\" (click)=\"sortUnitData('glAcccountId')\">GL Account<span\n                                [ngClass]=\"getFieldOrderBy('glAcccountId')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('penaltyTypeFrequencyConfigId')\">Penalty Type<span\n                                [ngClass]=\"getFieldOrderBy('penaltyTypeFrequencyConfigId')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('apartmentBlockId')\">Tower<span\n                                [ngClass]=\"getFieldOrderBy('apartmentBlockId')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('penaltyAmount')\">Flat Penalty Amount<span\n                                [ngClass]=\"getFieldOrderBy('penaltyAmount')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('interest')\">Late Payment Interest<span\n                                [ngClass]=\"getFieldOrderBy('interest')\"></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('effectiveDate')\">Effective Date<span\n                                [ngClass]=\"getFieldOrderBy('effectiveDate')\"></span></th>\n                        <th scope=\"col\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <ng-container>\n                        <tr>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <mat-select name=\"glacc\" [(ngModel)]=\"row.glaccountId\">\n                                        <mat-option *ngFor=\"let item of glAccountList\" [value]=\"item.glaccountId\">\n                                            {{ item.glaccountNumber}} - {{ item.glaccountName }}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <input matInput type=\"text\" name=\"penaltyTypefreq\"\n                                        [(ngModel)]=\"row.penaltyTypeFrequencyConfigId\">\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <!-- <mat-form-field class=\"w-100\">\n                                    <input matInput type=\"text\" name=\"blockId\" [(ngModel)]=\"row.apartmentBlockId\">\n                                </mat-form-field> -->\n                                <mat-form-field class=\"w-100\">\n                                    <mat-select name=\"blockId\" [(ngModel)]=\"row.apartmentBlockId\">\n                                        <mat-option *ngFor=\"let item of blockDataList\" [value]=\"item.apartmentBlockId\">\n                                            {{ item.apartmentBlockNumber}}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <input matInput type=\"text\" name=\"penaltyAmt\" [(ngModel)]=\"row.penaltyAmount\">\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"w-100\">\n                                    <input matInput type=\"text\" name=\"intrst\" [(ngModel)]=\"row.interest\">\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <div class=\"input-box mb-0\">\n                                    <input class=\"form-control stock-date\" name=\"effecDate\"\n                                        [owlDateTime]=\"effectiveDate\" [owlDateTimeTrigger]=\"effectiveDate\"\n                                        placeholder=\"\" [(ngModel)]=\"row.effectiveDate\" required>\n                                    <owl-date-time #effectiveDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                    <div class=\"date-btn\">\n                                        <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                    </div>\n                                </div>\n                            </td>\n                            <td>\n                                <i class=\"fa fa-floppy-o save-icon\"\n                                    [ngStyle]=\"!row.glaccountId || !row.penaltyTypeFrequencyConfigId || !row.apartmentBlockId || !row.penaltyAmount || !row.interest || !row.effectiveDate?{'pointer-events':'none','opacity':'0.4'}:''\"\n                                    (click)=\"addPenaltyConfig(row)\" aria-hidden=\"true\"></i>\n                            </td>\n                            <!-- <td>\n                                <i class=\"fa fa-floppy-o save-icon\"\n                                    [ngStyle]=\" !row.penaltyTypeFrequencyConfigId || !row.apartmentBlockId || !row.penaltyAmount || !row.interest || !row.effectiveDate?{'pointer-events':'none','opacity':'0.4'}:''\"\n                                    (click)=\"addPenaltyConfig(row)\" aria-hidden=\"true\"></i>\n                            </td> -->\n                        </tr>\n                        <!-- </form> -->\n                    </ng-container>\n\n                    <ng-container\n                        *ngFor=\"let list of penaltyData | slice:ItemStartIndex:ItemEndIndex;let penaltyIndex=index\">\n                        <tr>\n                            <td>\n                                <span [ngStyle]=\"updatePenaltyRowIndex == penaltyIndex?{'display':'none'}:''\">\n                                    <span *ngFor=\" let item of glAccountList\">\n                                        <span *ngIf=\"item.glaccountId == list.glaccountId\">{{ item.glaccountNumber}} -\n                                            {{ item.glaccountName }}</span>\n                                    </span>\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updatePenaltyRowIndex == penaltyIndex\">\n                                    <mat-select name=\"glaccountId\" [(ngModel)]=\"list.glaccountId\">\n                                        <mat-option *ngFor=\"let item of glAccountList\" [value]=\"item.glaccountId\">\n                                            {{ item.glaccountNumber}} - {{ item.glaccountName }}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updatePenaltyRowIndex == penaltyIndex?{'display':'none'}:''\">\n                                    {{list.penaltyTypeFrequencyConfigId}}\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updatePenaltyRowIndex == penaltyIndex\">\n                                    <input matInput type=\"text\" name=\"penaltyTypeFrequencyConfigId\"\n                                        [(ngModel)]=\"list.penaltyTypeFrequencyConfigId\">\n                                </mat-form-field>\n\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updatePenaltyRowIndex == penaltyIndex?{'display':'none'}:''\">\n                                    <span *ngFor=\" let item of blockDataList\">\n                                        <span\n                                            *ngIf=\"item.apartmentBlockId == list.apartmentBlockId\">{{ item.apartmentBlockNumber}}</span>\n                                    </span>\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updatePenaltyRowIndex == penaltyIndex\">\n                                    <mat-select name=\"apartmentBlockId\" [(ngModel)]=\"list.apartmentBlockId\">\n                                        <mat-option *ngFor=\"let item of blockDataList\" [value]=\"item.apartmentBlockId\">\n                                            {{ item.apartmentBlockNumber}}</mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updatePenaltyRowIndex == penaltyIndex?{'display':'none'}:''\">\n                                    {{list.penaltyAmount}}\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updatePenaltyRowIndex == penaltyIndex\">\n                                    <input matInput type=\"text\" name=\"penaltyAmount\" [(ngModel)]=\"list.penaltyAmount\">\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updatePenaltyRowIndex == penaltyIndex?{'display':'none'}:''\">\n                                    {{list.interest}}\n                                </span>\n                                <mat-form-field class=\"w-100\" *ngIf=\"updatePenaltyRowIndex == penaltyIndex\">\n                                    <input matInput type=\"text\" name=\"interest\" [(ngModel)]=\"list.interest\">\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <span [ngStyle]=\"updatePenaltyRowIndex == penaltyIndex?{'display':'none'}:''\">\n                                    {{list.effectiveDate?(list.effectiveDate | date: 'dd/MM/yyyy'):'--'}}\n                                </span>\n                                <div class=\"input-box mb-0\" *ngIf=\"updatePenaltyRowIndex == penaltyIndex\">\n                                    <input class=\"form-control stock-date\" name=\"effectiveDate\"\n                                        [owlDateTime]=\"effectiveDate\" [owlDateTimeTrigger]=\"effectiveDate\"\n                                        placeholder=\"\" [(ngModel)]=\"list.effectiveDate\" required>\n                                    <owl-date-time #effectiveDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                    <div class=\"date-btn\">\n                                        <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                    </div>\n                                </div>\n                            </td>\n                            <td>\n                                <i class=\"fa fa-pencil-square-o pl-2\" title=\"edit\"\n                                    [ngStyle]=\"updatePenaltyRowIndex == penaltyIndex?{'display':'none'}:''\"\n                                    (click)=\"updatePenaltyRowIndex = penaltyIndex\" aria-hidden=\"true\"></i>\n                                <!-- <i class=\"fa fa-floppy-o pl-2 pr-3 pad-top\" title=\"save\"\n                                    [ngStyle]=\"!list.glaccountId || !list.penaltyTypeFrequencyConfigId || !list.apartmentBlockId || !list.penaltyAmount || !list.interest || !list.effectiveDate?{'pointer-events':'none','opacity':'0.4'}:''\"\n                                    *ngIf=\"updatePenaltyRowIndex == penaltyIndex\"\n                                    (click)=\"updateAutoinvoiceConfig(list)\"></i> -->\n                                <i class=\"fa fa-floppy-o pl-2 pr-3 pad-top\" title=\"save\"\n                                    [ngStyle]=\" !list.penaltyTypeFrequencyConfigId || !list.apartmentBlockId || !list.penaltyAmount || !list.interest || !list.effectiveDate?{'pointer-events':'none','opacity':'0.4'}:''\"\n                                    *ngIf=\"updatePenaltyRowIndex == penaltyIndex\"\n                                    (click)=\"updatePenaltyConfig(list)\"></i>\n                                <i class=\"fa fa-times pad-top pl-2\" title=\"cancel\"\n                                    *ngIf=\"updatePenaltyRowIndex == penaltyIndex\"\n                                    (click)=\"updatePenaltyRowIndex = -1\"></i>\n                                <i class=\"fa fa-trash pl-2\" (click)=\"deleteRow(index,list)\"\n                                    [ngStyle]=\"updatePenaltyRowIndex == penaltyIndex?{'display':'none'}:''\"\n                                    aria-hidden=\"true\"></i>\n\n                            </td>\n                        </tr>\n\n                    </ng-container>\n                </tbody>\n\n            </table>\n            <app-pagination *ngIf=\"penaltyData.length > 0 \" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            <!-- <div class=\"action-container\">\n                <button mat-raised-button type=\"submit\" (click)=\"addPenaltyRow()\">Add row</button>\n                <button mat-raised-button [disabled]=\"penaltyTable.invalid\" type=\"submit\"\n                    (click)=\"submitPenaltySetupForm()\">Submit</button>\n            </div> -->\n        </form>\n    </div>\n</div>\n<div class=\"card table-card mb-30\" *ngIf=\"isPenaltySetupDataLoaded\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-6 d-flex align-items-center\">\n                <h5>Penalty Type</h5>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body p-0 \">\n        <table class=\"table colname \" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                    <th scope=\"col\" class=\"staticTable\">Penalty Type</th>\n                    <th scope=\"col\">Description</th>\n                </tr>\n            </thead>\n            <tbody>\n                <ng-container *ngFor=\"let data of penaltyTypeDataList ; let i=index\">\n                    <tr>\n                        <td>{{data.penaltyTypedata}}</td>\n                        <td>{{data.description}}</td>\n                    </tr>\n                </ng-container>\n            </tbody>\n        </table>\n    </div>\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.html":
 /*!**********************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.html ***!
@@ -178,7 +217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"parking-mangae-allocated-slots-list-wrapper\">  \n\n    <app-nav-pills-tabs [navArray] =\"navArray\"></app-nav-pills-tabs>\n    <div class=\"d-block\">\n\t\t<div class=\"pt-3\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n    </div>\n  \n</div> -->\n\n<div class=\"setup-outer\">\n\t<mat-tab-group>\n\t\t<mat-tab label=\"General\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h5>General</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body profile-section\">\n\t\t\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t\t\t<app-loader *ngIf=\"!isSettingsDataLoaded\"></app-loader>\n\n\t\t\t\t\t<div class=\"icon-wrapper float-right editbutton\" *ngIf=\"!isEditCurrency\">\n\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"editCurrency()\"></i-feather>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"icon-wrapper float-right editbutton \" *ngIf=\"isEditCurrency\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"editCurrency()\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && !isEditCurrency\">\n\n\t\t\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitCurrencyForm(incomeSettingsForm)\" novalidate>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Currency Type*</label>\n\t\t\t\t\t\t\t\t\t\t<!-- <p>{{setting.currencyId}}</p> -->\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"currencyId\" [(ngModel)]=\"setting.currencyId\"\n\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" readonly>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\n\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && isEditCurrency\">\n\n\t\t\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitIncomeSettingsForm(incomeSettingsForm)\" novalidate>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Currency Type*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"currencyType\" id=\"currencyType\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.currencyId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of currencyTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.lookupValueName\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<!-- <ul class=\"list-inline\">\n\t\t\t\t\t\t\t\t\t\t<li class=\"list-inline-item\"> -->\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2 save\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"incomeSettingsForm.invalid\">Save</button>\n\t\t\t\t\t\t\t\t\t<!-- </li>\n\t\t\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<!-- <div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t[disabled]=\"incomeSettingsForm.invalid\">Save</button>\n\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</ng-container>\n\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body profile-section\">\n\n\t\t\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t\t\t<app-loader *ngIf=\"!isSettingsDataLoaded\"></app-loader>\n\n\t\t\t\t\t<div class=\"icon-wrapper float-right editbutton\" *ngIf=\"!isEditReconciliation\">\n\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"editReconciliation()\"></i-feather>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"icon-wrapper float-right editbutton\" *ngIf=\"isEditReconciliation\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"editReconciliation()\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && !isEditReconciliation\">\n\n\t\t\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitInvoicingForm(incomeSettingsForm)\" novalidate>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Customer Reconciliation Account*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"invoicedata\" [(ngModel)]=\"setting.invoicedata\"\n\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" readonly>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\n\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && isEditReconciliation\">\n\n\t\t\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitInvoicingForm(incomeSettingsForm)\" novalidate>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Customer Reconciliation Account*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"invoicedata\" id=\"invoicedata\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.invoicedata\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2 save\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"incomeSettingsForm.invalid\">Save</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"card-body profile-section\">\n\n\t\t\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t\t\t<app-loader *ngIf=\"!isSettingsDataLoaded\"></app-loader>\n\n\t\t\t\t\t<div class=\"icon-wrapper float-right editbutton\" *ngIf=\"!isPenaltyEdit\">\n\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showPenaltyEditForm()\"></i-feather>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"icon-wrapper float-right editbutton\" *ngIf=\"isPenaltyEdit\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showPenaltyEditForm()\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && !isPenaltyEdit\">\n\n\t\t\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitPenaltyForm(incomeSettingsForm)\" novalidate>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Customer Income Payment Term*</label>\n\t\t\t\t\t\t\t\t\t\t<input [(ngModel)]=\"setting.paymentTerm\" class=\"form-control\" name=\"paymentTerm\"\n\t\t\t\t\t\t\t\t\t\t\treadonly>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\n\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && isPenaltyEdit\">\n\n\t\t\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitPenaltyForm(incomeSettingsForm)\" novalidate>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Customer Income Payment Term*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"paymentTerm\" id=\"paymentTerm\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.paymentTerm\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of paymentInvoiceDataList\"\n\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.description\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.description }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2 save\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"incomeSettingsForm.invalid\">Save</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\n\t\t\t\t<!-- TAX POLICY -->\n\n\t\t\t\t<div class=\"card-body profile-section\">\n\n\t\t\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t\t\t<app-loader *ngIf=\"!isSettingsDataLoaded\"></app-loader>\n\n\t\t\t\t\t<div class=\"icon-wrapper float-right editbutton\" *ngIf=\"!isEditTaxPolicy\">\n\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"editTaxPolicy()\"></i-feather>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"icon-wrapper float-right editbutton\" *ngIf=\"isEditTaxPolicy\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"editTaxPolicy()\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && !isEditTaxPolicy\">\n\t\t\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitTaxPolicy(incomeSettingsForm)\" novalidate>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\" *ngIf=\"setting.vatPercentage\">\n\t\t\t\t\t\t\t\t\t\t<label>% VAT</label>\n\t\t\t\t\t\t\t\t\t\t<input [(ngModel)]=\"setting.vatPercentage\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"vatPercentage\" readonly>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\" *ngIf=\"setting.taxPercentage\">\n\t\t\t\t\t\t\t\t\t\t<label>% VAT</label>\n\t\t\t\t\t\t\t\t\t\t<input [(ngModel)]=\"setting.taxPercentage\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"taxPercentage\" readonly>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</ng-container>\n\t\t\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && isEditTaxPolicy\">\n\n\t\t\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitTaxPolicy(incomeSettingsForm)\" novalidate>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Slect your Tax policy*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"slotType\" id=\"vat\" [(ngModel)]=\"slotType\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"vatValuebutton()\" value=\"1\" type=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"vat\">% VAT</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"slotType\" id=\"tax\" [(ngModel)]=\"slotType\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"taxValuebutton()\" value=\"2\" type=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"tax\">% Tax</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"(value == 1 || setting.vatPercentage)  && !(value == 2) \">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>% VAT</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"vatPercentage\" id=\"vatPercentage\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.vatPercentage\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"(value == 2 || setting.taxPercentage) && !(value == 1)\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>% TAX</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"taxPercentage\" id=\"taxPercentage\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.taxPercentage\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\"\n\t\t\t\t\t\t\t\t\t*ngIf=\" (value == 1 || setting.vatPercentage) ||  (value == 2 || setting.taxPercentage)\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2 save\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"incomeSettingsForm.invalid\">Save</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</mat-tab>\n\t\t<mat-tab label=\"Auto Invoicing\">\n\n\n\t\t\t<div class=\"card table-card mb-30\" *ngIf=\"isAutoInvoicingDataLoaded\">\n\t\t\t\t<div class=\"card-header\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t\t<h5>Auto Invoicing <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t\t<form [formGroup]=\"autoInvoicingTable\">\n\t\t\t\t\t\t<table class=\"table colname\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('glAccount')\">GL Account<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('glAccount')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('feePerMonth')\">Fee per Sqft/month<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('feePerMonth')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('monthQuarterlyYear')\">M/Q/A<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('monthQuarterlyYear')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('fixedFee')\">Fixed Fee<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('fixedFee')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('vatId')\">% VAT ID<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('vatId')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('taxId')\">% Tax ID<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('taxId')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('effectiveFrom')\">effective from<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('effectiveFrom')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<ng-container formArrayName=\"tableRows\"\n\t\t\t\t\t\t\t\t\t*ngFor=\"let group of getFormControls.controls ; let i=index\">\n\t\t\t\t\t\t\t\t\t<tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-select formControlName=\"glAccount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"glacc1\">glacc1</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"glacc2\">glacc2</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-select>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"feePerMonth\">\n\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-select formControlName=\"monthQuarterlyYear\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"mqyList1\">mqyList1</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"mqyList2\">mqyList2</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"mqyList3\">mqyList3</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-select>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"fixedFee\">\n\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-select formControlName=\"vatId\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"vatId1\">vatId1</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"vatId2\">vatId2</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-select>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-select formControlName=\"taxId\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"taxId1\">taxId1</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"taxId2\">taxId2</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-select>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"effectiveFrom\">\n\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" (click)=\"deleteRow(i)\">delete_forever</mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<tr *ngIf=\"!group.get('isEditable').value\">\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{group.get('glAccount').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{group.get('feePerMonth').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{group.get('monthQuarterlyYear').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{group.get('fixedFee').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{group.get('vatId').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{group.get('taxId').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{group.get('effectiveFrom').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\n\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t</tbody>\n\n\t\t\t\t\t\t</table>\n\t\t\t\t\t\t<div class=\"action-container\">\n\t\t\t\t\t\t\t<button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n\t\t\t\t\t\t\t<button mat-raised-button [disabled]=\"autoInvoicingTable.invalid\" type=\"submit\"\n\t\t\t\t\t\t\t\t(click)=\"submitForm()\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</mat-tab>\n\t\t<mat-tab label=\"Penalty Setup\">\n\n\t\t\t<div class=\"card table-card mb-30\" *ngIf=\"isPenaltyDataLoaded\">\n\t\t\t\t<div class=\"card-header\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t\t<h5>Penalty Setup<span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t\t<form [formGroup]=\"penaltyTable\">\n\t\t\t\t\t\t<table class=\"table colname\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('penalatyAmount')\">Penalty Amount<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('penalatyAmount')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('penaltyTypes')\">Penalty Type<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('penaltyTypes')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('activated')\">Activated<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('activated')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('effectiveDate')\">Effective Date<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('effectiveDate')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('flatFree')\">Flat Free<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('flatFree')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('interestPercent')\">Interest %<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('interestPercent')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('blockId')\">Block ID<span\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('blockId')\"></span></th>\n\t\t\t\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<ng-container formArrayName=\"tablePenaltyRows\"\n\t\t\t\t\t\t\t\t\t*ngFor=\"let penaltyGroup of getPenaltyFormControls.controls ; let i=index\">\n\t\t\t\t\t\t\t\t\t<tr *ngIf=\"penaltyGroup.get('isPenaltyEditable').value\" [formGroupName]=\"i\">\n\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"penalatyAmount\">\n\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-select formControlName=\"penaltyTypes\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"penaltyType1\">penaltyType1</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"penaltyType2\">penaltyType2</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-select>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"activated\">\n\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"effectiveDate\">\n\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-select formControlName=\"flatFree\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"yes\">YES</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"no\">NO</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-select>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"interestPercent\">\n\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-select formControlName=\"blockId\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"block1\">block1</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option value=\"block2\">block2</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-select>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" (click)=\"deletePenaltyRow(i)\">delete_forever\n\t\t\t\t\t\t\t\t\t\t\t</mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"done\" (click)=\"donePenaltyRow(penaltyGroup)\">done\n\t\t\t\t\t\t\t\t\t\t\t</mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<tr *ngIf=\"!penaltyGroup.get('isPenaltyEditable').value\">\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{penaltyGroup.get('penalatyAmount').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{penaltyGroup.get('penaltyTypes').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{penaltyGroup.get('activated').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{penaltyGroup.get('effectiveDate').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{penaltyGroup.get('flatFree').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{penaltyGroup.get('interestPercent').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t{{penaltyGroup.get('blockId').value}}\n\t\t\t\t\t\t\t\t\t\t</td>\n\n\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"edit\" (click)=\"editPenaltyRow(penaltyGroup)\">edit\n\t\t\t\t\t\t\t\t\t\t\t</mat-icon>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t</tbody>\n\n\t\t\t\t\t\t</table>\n\t\t\t\t\t\t<div class=\"action-container\">\n\t\t\t\t\t\t\t<button mat-raised-button type=\"submit\" (click)=\"addPenaltyRow()\">Add row</button>\n\t\t\t\t\t\t\t<button mat-raised-button [disabled]=\"penaltyTable.invalid\" type=\"submit\"\n\t\t\t\t\t\t\t\t(click)=\"submitPenaltySetupForm()\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"card table-card mb-30\" *ngIf=\"isPenaltyDataLoaded\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t\t<h5>Penalty Type</h5>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t\t<table class=\"table colname\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\">Penalty Type</th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">Description</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<ng-container *ngFor=\"let data of penaltyTypeDataList ; let i=index\">\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td >{{data.penaltyTypedata}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{data.description}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-tab>\n\t</mat-tab-group>\n</div>\n\n\n\n<!-- <div class=\"income-tracker-setup-wrapper profile-section\">\n\n\t<div class=\"card\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>Settings</h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-body\">\n\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isSettingsDataLoaded\"></app-loader>\n\n\t\t\t<div class=\"icon-wrapper float-right\" *ngIf=\"!isEdit\">\n\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t\t\t</div>\n\n\t\t\t<div class=\"icon-wrapper float-right \" *ngIf=\"isEdit\">\n\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t\t\t</div>\n\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && !isEdit\">\n\n\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t(ngSubmit)=\"submitIncomeSettingsForm(incomeSettingsForm)\" novalidate>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Currency Type*</label>\n\t\t\t\t\t\t\t\t<p>{{setting.currencyId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Customer Reconciliation Account*</label>\n\t\t\t\t\t\t\t\t<p>{{setting.glAccountId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Customer Income Payment Term*</label>\n\t\t\t\t\t\t\t\t<p>{{setting.paymentTerm}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Customer Invoice VAT %*</label>\n\t\t\t\t\t\t\t\t<p>{{setting.vatPercentage}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isSettingsDataLoaded && isEdit\">\n\n\t\t\t\t<form #incomeSettingsForm=\"ngForm\" name=\"incomeSettingsForm\"\n\t\t\t\t\t(ngSubmit)=\"submitIncomeSettingsForm(incomeSettingsForm)\" novalidate>\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Currency Type*</label>\n\t\t\t\t\t\t\t\t<select name=\"currencyType\" id=\"currencyType\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.currencyId\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of currencyTypeDataList\" [value]=\"item.lookupValueName\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Customer Reconciliation Account*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" name=\"glAccount\" id=\"glAccount\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.glAccountId\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Customer Income Payment Term*</label>\n\t\t\t\t\t\t\t\t<select name=\"paymentTerm\" id=\"paymentTerm\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.paymentTerm\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of paymentInvoiceDataList\" [value]=\"item.description\">\n\t\t\t\t\t\t\t\t\t\t{{ item.description }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Customer Invoice VAT %*</label>\n\t\t\t\t\t\t\t\t<select name=\"invoiceVat\" id=\"invoiceVat\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"setting.vatPercentage\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vatPecentageDataList\" [value]=\"item.lookupValueName\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"incomeSettingsForm.invalid\">Save</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\n\t\t</div>\n\n\t</div>\n\n\t<div class=\"card mt-30\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>Customer Penalty</h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-body\">\n\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isPenaltyDataLoaded\"></app-loader>\n\t\t\t<div class=\"icon-wrapper float-right\" *ngIf=\"!isPenaltyEdit\">\n\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showPenaltyEditForm()\"></i-feather>\n\t\t\t</div>\n\n\t\t\t<div class=\"icon-wrapper float-right \" *ngIf=\"isPenaltyEdit\">\n\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showPenaltyEditForm()\"></i-feather>\n\t\t\t</div>\n\t\t\t<ng-container *ngIf=\"isPenaltyDataLoaded && !isPenaltyEdit\">\n\n\t\t\t\t<form #incomePenaltySettingsForm=\"ngForm\" name=\"incomePenaltySettingsForm\"\n\t\t\t\t\t(ngSubmit)=\"submitIncomePenaltySettingsForm(incomePenaltySettingsForm)\" novalidate>\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Type*</label>\n\t\t\t\t\t\t\t\t<p>{{penalty.penaltyTypeId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Flat rate for Late payment*</label>\n\t\t\t\t\t\t\t\t<p>{{penalty.latePaymentId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>% Penalty*</label>\n\t\t\t\t\t\t\t\t<p>{{penalty.penaltyPercentage}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Grace Period for Invoice*</label>\n\t\t\t\t\t\t\t\t<p>{{penalty.gracePeriodInvoiceId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\t\t\t<ng-container *ngIf=\"isPenaltyDataLoaded && isPenaltyEdit\">\n\n\t\t\t\t<form #incomePenaltySettingsForm=\"ngForm\" name=\"incomePenaltySettingsForm\"\n\t\t\t\t\t(ngSubmit)=\"submitIncomePenaltySettingsForm(incomePenaltySettingsForm)\" novalidate>\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Type*</label>\n\t\t\t\t\t\t\t\t<select name=\"penaltyType\" id=\"penaltyType\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"penalty.penaltyTypeId\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of penaltyDataList\" [value]=\"item.lookupValueName\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Flat rate for Late payment*</label>\n\t\t\t\t\t\t\t\t<select name=\"latePayment\" id=\"latePayment\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"penalty.latePaymentId\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of lastPaymentDataList\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueId }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>% Penalty*</label>\n\t\t\t\t\t\t\t\t<select name=\"penaltyPercentage\" id=\"penaltyPercentage\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"penalty.penaltyPercentage\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of penaltyPercentageDataList\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueId }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Grace Period for Invoice*</label>\n\t\t\t\t\t\t\t\t<select name=\"gracePeriodInvoice\" id=\"gracePeriodInvoice\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"penalty.gracePeriodInvoiceId\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of gracePeriodInvoiceDataList\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"item.lookupValueName\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"incomePenaltySettingsForm.invalid\">Save</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t</div>\n\n</div> -->");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-mangae-allocated-slots-list-wrapper\">  \n\n    <app-nav-pills-tabs [navArray] =\"navArray\"></app-nav-pills-tabs>\n    <div class=\"d-block\">\n\t\t<div class=\"pt-3\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n    </div>\n  \n</div>");
 
 /***/ }),
 
@@ -243,7 +282,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-receipts-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isReceiptsLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptsLoaded\">\n\n\n\t\t<div class=\"card table-card clear\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Total Receipts <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"receiptsData\" \n\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<li class=\"list-inline-item\">\n\t    \t\t\t\t<a class=\"btn trans-white mt_5\">\n\t    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n\t    \t\t\t\t\t<span>Print</span>\n\t    \t\t\t\t</a>\n\t    \t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"receiptsDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid>\n\t\t\n\t\t\t\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver \n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"submitFlag\" \n\t\t\t[selector]=\"reversePopOverSelectorReceipt\"\n\t\t\t[position]=\"'left'\"\n\t\t\t>\n\t\t\t\t<app-income-receipts-reverse (childEvent)=\"onClose($event)\" [receipts]=\"receipts\">\n\n\t\t\t\t</app-income-receipts-reverse>\n\t\t\t</jqxPopover>\n\t  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">Receipt No \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('receiptNumber')\" [ngClass]=\"getFieldOrderBy('receiptNumber')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Receipt No\" [(ngModel)]=\"columnField['receiptNumber']\" (ngModelChange)=\"selectColInput('receiptNumber')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Name \n\t\t\t\t\t      \t<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"NAME\" [(ngModel)]=\"columnField['name']\" (ngModelChange)=\"selectColInput('name')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Payment Date\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('paymentDateFormat')\" [ngClass]=\"getFieldOrderBy('paymentDateFormat')\"></span>\n\t\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"paymentDateFormat\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'paymentDateFormat')\"\n\t\t\t\t\t      \t></app-simple-date-box>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Tower Unit\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Tower Unit\" [(ngModel)]=\"columnField['block_Unit']\" (ngModelChange)=\"selectColInput('block_Unit')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Credit Note Amount\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('amount')\" [ngClass]=\"getFieldOrderBy('amount')\"></span>\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"columnField['amount']\" (ngModelChange)=\"selectColInput('amount')\" >\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tEmail Sent\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isEmailsent']\" (ngModelChange)=\"selectColInput('isEmailsent')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t      <th scope=\"col\">\n\t\t\t\t\t      \tSMS Sent\n\t\t\t\t\t      \t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['isSmssent']\" (ngModelChange)=\"selectColInput('isSmssent')\" >\n\t\t\t\t\t  \t  </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let receipt of receiptsDataList | simpleSearch: receiptsData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t\t      <td class=\"name\">{{receipt.receiptNumber}}</td>\n\t\t\t\t\t      <td class=\"grey\">\n\t\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t\t      \t{{receipt.name}}</a>\n\t\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t\t    \t\t\t<p>Comments</p>\n\t\t\t\t\t\t\t    \t\t\t<small>{{receipt.comment}}</small>\n\t\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td class=\"grey\">{{getDate(receipt, receipt.paymentDate)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{receipt.block_Unit}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{receipt.amount}}</td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"receipt.isEmailsent\" >\n\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"setActive(item)\"></span>\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      </td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t\t  <input type=\"checkbox\" [(ngModel)]=\"receipt.isSmssent\" >\n\t\t\t\t\t\t\t\t\t  <span class=\"slider round\" (click)=\"setActive(item)\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t      \t</div>\n\t\t\t\t\t      </td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination> -->\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-receipts-wrapper\">\n\n\t<app-loader *ngIf=\"!isReceiptsLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptsLoaded\">\n\n\n\t\t<div class=\"card table-card clear\">\n\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Total Receipts <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"receiptsData\" \n\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t    \t\t\t<li class=\"list-inline-item\">\n\t    \t\t\t\t<a class=\"btn trans-white mt_5\">\n\t    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n\t    \t\t\t\t\t<span>Print</span>\n\t    \t\t\t\t</a>\n\t    \t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t\t\t<div class=\"card-body p-0\">\n\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"receiptsDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid>\n\t\t\n\t\t\t\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver \n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"submitFlag\" \n\t\t\t[selector]=\"reversePopOverSelectorReceipt\"\n\t\t\t[position]=\"'left'\"\n\t\t\t>\n\t\t\t\t<app-income-receipts-reverse (childEvent)=\"onClose($event)\" [receipts]=\"receipts\">\n\n\t\t\t\t</app-income-receipts-reverse>\n\t\t\t</jqxPopover>\n\t  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\">Receipt No\n\t\t\t\t\t\t\t\t<span (click)=\"sortUnitData('receiptNumber')\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('receiptNumber')\"></span>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Receipt No\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['receiptNumber']\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"selectColInput('receiptNumber')\">\n\t\t\t\t\t\t\t</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Name\n\t\t\t\t\t\t\t\t<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"NAME\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['name']\" (ngModelChange)=\"selectColInput('name')\">\n\t\t\t\t\t\t\t</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Payment Date\n\t\t\t\t\t\t\t\t<span (click)=\"sortUnitData('paymentDateFormat')\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('paymentDateFormat')\"></span>\n\t\t\t\t\t\t\t\t<app-simple-date-box [dateModel]=\"paymentDateFormat\"\n\t\t\t\t\t\t\t\t\t(inputChange)=\"onDateChange($event, 'paymentDateFormat')\"></app-simple-date-box>\n\t\t\t\t\t\t\t</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Tower Unit\n\t\t\t\t\t\t\t\t<span (click)=\"sortUnitData('block_Unit')\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('block_Unit')\"></span>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Tower Unit\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['block_Unit']\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"selectColInput('block_Unit')\">\n\t\t\t\t\t\t\t</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Credit Note Amount\n\t\t\t\t\t\t\t\t<span (click)=\"sortUnitData('amount')\" [ngClass]=\"getFieldOrderBy('amount')\"></span>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Amount\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['amount']\" (ngModelChange)=\"selectColInput('amount')\">\n\t\t\t\t\t\t\t</th>\n\t\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\t\tEmail Sent\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['isEmailsent']\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"selectColInput('isEmailsent')\">\n\t\t\t\t\t\t\t</th>\n\t\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\t\tSMS Sent\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['isSmssent']\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"selectColInput('isSmssent')\">\n\t\t\t\t\t\t\t</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr\n\t\t\t\t\t\t\t*ngFor=\"let receipt of receiptsDataList | simpleSearch: receiptsData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t\t\t\t<td class=\"name\" (click)=\"downloadReceiptEvent()\"><a>{{receipt.receiptNumber}}</a></td>\n\t\t\t\t\t\t\t<td class=\"grey\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\"\n\t\t\t\t\t\t\t\t\ttriggers=\"mouseenter:mouseleave\">\n\t\t\t\t\t\t\t\t\t{{receipt.name}}</a>\n\t\t\t\t\t\t\t\t<ng-template #popContent>\n\t\t\t\t\t\t\t\t\t<div class=\"pop-desp\">\n\t\t\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>Comments</p>\n\t\t\t\t\t\t\t\t\t\t\t\t<small>{{receipt.comment}}</small>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</ng-template>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{getDate(receipt, receipt.paymentDate)}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{receipt.block_Unit}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{receipt.amount}}</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" [(ngModel)]=\"receipt.isEmailsent\">\n\t\t\t\t\t\t\t\t\t<span class=\"slider round\" (click)=\"setActive(item)\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" [(ngModel)]=\"receipt.isSmssent\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"slider round\" (click)=\"setActive(item)\"></span>\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination> -->\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\t<ng-template #viewReceiptsDetailsRef let-receipt>\n\n\t\t<div class=\"invoice-info info-modal-box rel\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h6>RECEIPT</h6>\n\t\t\t</div>\n\n\t\t\t<app-loader *ngIf=\"!isReceiptPrintLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isReceiptPrintLoaded\">\n\t\t\t\t<div class=\"card no-shadow\">\n\t\t\t\t\t<div id=\"InvoiceElement\">\n\t\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t\t<h5 class=\"text-center\">Purva Fountainsquare</h5>\n\t\t\t\t\t\t\t<div class=\"other-info text-center mt-2\">\n\t\t\t\t\t\t\t\t<div class=\"address\">Purva Fountain Square Marathahalli Junction,, Bangalore, Karnataka\n\t\t\t\t\t\t\t\t\t- 560037</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"other-info grey text-center mt-2\">\n\t\t\t\t\t\t\t\t<div class=\"address\">Phone: 08042181514</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"email ml-3\">Email: {{apartmentDetails.emailId}}</div> -->\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t<p><span>Tower Unit:</span> 2 </p>\n\t\t\t\t\t\t\t\t\t<p><span>Contact Person:</span> </p>\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<p><span>Receipt ID:</span> {{receiptInfoDetails[0].collectionId}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<p><span>Receipt Date:</span> {{getReceiptInfoDate(receiptInfoDetails[0].postedOn)}}\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 unit\">\n\t\t\t\t\t\t\t\t\t<p>Received from .... of Unit ....</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 border-bottom\">\n\t\t\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t<th>Account Applied</th>\n\t\t\t\t\t\t\t\t\t\t<th>Bill NO & Date</th>\n\t\t\t\t\t\t\t\t\t\t<th>Amount RCVD</th>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of receiptInfoDetails[0].collectionInvoice; let i = index\">\n\t\t\t\t\t\t\t\t\t\t<td>{{item.comment}}</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.insertedOn}}</td>\n\t\t\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t\t\t<!-- <td>{{item.lineItemTotal + item.vatamount}}</td> -->\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<!-- <tr>\n\t\t\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Final Discount:</td>\n\t\t\t\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t<tr class=\"total\">\n\t\t\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Total Amount:</td>\n\t\t\t\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t\t\t\t</tr> -->\n\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body no-border pb-0\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 unit\">\n\t\t\t\t\t\t\t\t\t<p>Payment Instrument : Online Payment</p>\n\t\t\t\t\t\t\t\t\t<p>Instrument Bank : Gateway</p>\n\t\t\t\t\t\t\t\t\t<p>Reference NO : PFS002577930</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body no-border pb-0\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-center\">\n\t\t\t\t\t\t\t\t\t<p class=\"bottom\">Transaction is Successful</p>\n\t\t\t\t\t\t\t\t\t<p class=\"bottom\">Electronically generated, does not require signature</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 generated\">\n\t\t\t\t\t\t\t\t\t<p>Generated from <span>ADDA</span></p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body no-border pt-0\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 mt-5 text-center\">\n\t\t\t\t\t\t\t\t<div class=\"btn blue sf small\" (click)=\"printInvoice()\">Print</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t</ng-template>\n\n</div>");
 
 /***/ }),
 
@@ -1324,7 +1363,7 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
     }
     calculateVat() {
         if (this.invoiceGLAccountsData.isTax) {
-            var percent = parseInt(this.invoiceGLAccountsData.vatid) / 100;
+            var percent = parseFloat(this.invoiceGLAccountsData.vatid) / 100;
             this.invoiceGLAccountsData.vatamount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
             this.custInvoiceTaxData.invoiceTotalAmount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
             this.taxParams.emit(this.custInvoiceTaxData);
@@ -1531,6 +1570,11 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 this.custInvoiceTaxArray.push(event);
         }
         else {
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, item => {
+                if (item.lookupValueId == event.invoiceTaxId) {
+                    item.custVatTypeAmount = 0;
+                }
+            });
             this.custInvoiceTaxArray = this.custInvoiceTaxArray.filter(item => {
                 return item.custInvoiceId != event.custInvoiceId;
             });
@@ -3147,36 +3191,38 @@ IncomeTrackerReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 
 /***/ }),
 
-/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.scss":
-/*!********************************************************************************************************!*\
-  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.scss ***!
-  \********************************************************************************************************/
+/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.scss":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.scss ***!
+  \***********************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".save {\n  margin: 25px 0px 0px 25px;\n}\n\n.editbutton {\n  margin: 20px 10px 0px 0px;\n}\n\n.card.table-card .card-body {\n  overflow: hidden;\n}\n\n.wd-100 {\n  width: 100%;\n}\n\n.wd-50 {\n  width: 50%;\n}\n\nheader {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.colname th,\ntd {\n  padding: 14px 10px 14px 10px;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLXRyYWNrZXItc2V0dXAvaW5jb21lLXRyYWNrZXItc2V0dXAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBS0E7RUFDRSx5QkFBQTtBQ0pGOztBRE1BO0VBQ0UseUJBQUE7QUNIRjs7QURRQTtFQUNFLGdCQUFBO0FDTEY7O0FEUUE7RUFDRSxXQUFBO0FDTEY7O0FEUUE7RUFDRSxVQUFBO0FDTEY7O0FEUUE7RUFDRSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUNMRjs7QURRQTtFQUNFLGVBQUE7QUNMRjs7QURRQTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUNMRjs7QURRQTtFQUNFLGFBQUE7QUNMRjs7QURRQTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FDTEY7O0FEUUE7O0VBRUUsNEJBQUE7QUNMRjs7QURRQTtFQUNFLGFBQUE7QUNMRjs7QURRQTtFQUNFLFVBQUE7QUNMRjs7QURRQTtFQUNFLFlBQUE7QUNMRjs7QURRQTtFQUNFLGFBQUE7QUNMRjs7QURPQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0FDSkYiLCJmaWxlIjoic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCIuLi8uLi8uLi8uLi8uLi9zY3NzL2ZvbnRzLnNjc3NcIjtcbkBpbXBvcnQgXCIuLi8uLi8uLi8uLi8uLi9zY3NzL3ZhcmlhYmxlcy5zY3NzXCI7XG5cbi8vIGdlbmVyYWxcblxuLnNhdmUge1xuICBtYXJnaW46IDI1cHggMHB4IDBweCAyNXB4O1xufVxuLmVkaXRidXR0b24ge1xuICBtYXJnaW46IDIwcHggMTBweCAwcHggMHB4O1xufVxuXG4vL2F1dG8taW52b2ljaW5nXG5cbi5jYXJkLnRhYmxlLWNhcmQgLmNhcmQtYm9keSB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi53ZC0xMDAge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLndkLTUwIHtcbiAgd2lkdGg6IDUwJTtcbn1cblxuaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcbn1cblxubWF0LWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5hY3Rpb24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUgdGJvZHkgdHIgdGQsXG4udGFibGUgdGhlYWQgdGgsXG4udGFibGUgdGhlYWQge1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuXG4uY29sbmFtZSB0aCxcbnRkIHtcbiAgcGFkZGluZzogMTRweCAxMHB4IDE0cHggMTBweDtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkO1xufVxuXG4uZG9uZSB7XG4gIGNvbG9yOiBncmVlbjtcbn1cblxuLmVkaXQge1xuICBjb2xvcjogeWVsbG93O1xufVxuc3Bhbi51aS1jb2x1bW4tcmVzaXplciB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogY29sLXJlc2l6ZTtcbiAgcGFkZGluZzogMzBweDtcbn1cblxuIiwiLnNhdmUge1xuICBtYXJnaW46IDI1cHggMHB4IDBweCAyNXB4O1xufVxuXG4uZWRpdGJ1dHRvbiB7XG4gIG1hcmdpbjogMjBweCAxMHB4IDBweCAwcHg7XG59XG5cbi5jYXJkLnRhYmxlLWNhcmQgLmNhcmQtYm9keSB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi53ZC0xMDAge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLndkLTUwIHtcbiAgd2lkdGg6IDUwJTtcbn1cblxuaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcbn1cblxubWF0LWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5hY3Rpb24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUgdGJvZHkgdHIgdGQsXG4udGFibGUgdGhlYWQgdGgsXG4udGFibGUgdGhlYWQge1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuXG4uY29sbmFtZSB0aCxcbnRkIHtcbiAgcGFkZGluZzogMTRweCAxMHB4IDE0cHggMTBweDtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkO1xufVxuXG4uZG9uZSB7XG4gIGNvbG9yOiBncmVlbjtcbn1cblxuLmVkaXQge1xuICBjb2xvcjogeWVsbG93O1xufVxuXG5zcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICBwYWRkaW5nOiAzMHB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".card.table-card .card-body {\n  overflow: hidden;\n}\n\n.wd-100 {\n  width: 100%;\n}\n\n.wd-50 {\n  width: 50%;\n}\n\nheader {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.colname th,\ntd {\n  padding: 14px 10px 14px 10px;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n\n.effective-date {\n  border-color: rgba(0, 0, 0, 0.42);\n  border-top: none;\n  border-left: none;\n  border-right: none;\n}\n\ninput:focus {\n  outline: none;\n  box-shadow: unset;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n\n.stock-date {\n  border-color: rgba(0, 0, 0, 0.42);\n  border-top: none;\n  border-left: none;\n  border-right: none;\n}\n\ninput:focus {\n  outline: none;\n  box-shadow: unset;\n}\n\n.save-icon {\n  padding-left: 7px;\n  padding-top: 27px;\n}\n\n.fa-floppy-o {\n  color: #54b941;\n}\n\n.cus-input {\n  border-radius: 8px;\n  border: 1px solid #dadada;\n  padding-left: 10px;\n  height: 30px;\n}\n\n.save-icon {\n  padding-left: 7px;\n  padding-top: 27px;\n}\n\n.fa-times {\n  color: #ff3638;\n}\n\n.search-left {\n  left: 2px !important;\n}\n\n.pad-top {\n  padding-top: 22px;\n}\n\n@media only screen and (min-width: 300px) and (max-width: 767px) {\n  .card.table-card .card-body {\n    overflow: scroll;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC1hdXRvLWludm9pY2luZy9pbmNvbWUtdHJhY2tlci1zZXR1cC1hdXRvLWludm9pY2luZy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLXRyYWNrZXItc2V0dXAvaW5jb21lLXRyYWNrZXItc2V0dXAtYXV0by1pbnZvaWNpbmcvaW5jb21lLXRyYWNrZXItc2V0dXAtYXV0by1pbnZvaWNpbmcuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0ksZ0JBQUE7QUNBSjs7QURHRTtFQUNFLFdBQUE7QUNBSjs7QURHRTtFQUNFLFVBQUE7QUNBSjs7QURHRTtFQUNFLHNCQUFBO0VBQ0EsV0FBQTtFQUNBLGNBQUE7RUFDQSx3QkFBQTtFQUFBLGdCQUFBO0VBQ0EsTUFBQTtFQUNBLGFBQUE7RUFDQSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxtQkFBQTtBQ0FKOztBREdFO0VBQ0UsZUFBQTtBQ0FKOztBREdFO0VBQ0UsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsYUFBQTtBQ0FKOztBREdFO0VBQ0UsYUFBQTtBQ0FKOztBREdFOzs7RUFHRSw4QkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7QUNBSjs7QURHRTs7RUFFRSw0QkFBQTtBQ0FKOztBREdFO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7QUNBSjs7QURHRTtFQUNFLGlDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDQUo7O0FERUU7RUFDRSxhQUFBO0VBQ0EsaUJBQUE7QUNDSjs7QURFRTtFQUNFLGVBQUE7QUNDSjs7QURFRTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUNDSjs7QURFRTtFQUNFLGFBQUE7QUNDSjs7QURFRTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FDQ0o7O0FERUU7RUFDRSxhQUFBO0FDQ0o7O0FERUU7RUFDRSxVQUFBO0FDQ0o7O0FERUU7RUFDRSxZQUFBO0FDQ0o7O0FERUU7RUFDRSxhQUFBO0FDQ0o7O0FEQ0U7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsYUFBQTtBQ0VKOztBREVFO0VBQ0UsaUNBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUNDSjs7QURFRTtFQUNFLGFBQUE7RUFDQSxpQkFBQTtBQ0NKOztBRENBO0VBQ0UsaUJBQUE7RUFDQSxpQkFBQTtBQ0VGOztBRENBO0VBQ0UsY0U3RVE7QUQrRVY7O0FEQUE7RUFDRSxrQkFBQTtFQUNFLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0FDR0o7O0FEREE7RUFDRSxpQkFBQTtFQUNBLGlCQUFBO0FDSUY7O0FEREE7RUFDQyxjRS9IVTtBRG1JWDs7QURGQTtFQUNFLG9CQUFBO0FDS0Y7O0FERkE7RUFDRSxpQkFBQTtBQ0tGOztBREhFO0VBRUU7SUFDQSxnQkFBQTtFQ0tGO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC1hdXRvLWludm9pY2luZy9pbmNvbWUtdHJhY2tlci1zZXR1cC1hdXRvLWludm9pY2luZy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uLy4uLy4uLy4uLy4uLy4uL3Njc3MvZm9udHMuc2Nzcyc7XG4uY2FyZC50YWJsZS1jYXJkIC5jYXJkLWJvZHkge1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gIH1cbiAgXG4gIC53ZC0xMDAge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG4gIFxuICAud2QtNTAge1xuICAgIHdpZHRoOiA1MCU7XG4gIH1cbiAgXG4gIGhlYWRlciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgICBjb2xvcjogI2ZmZjtcbiAgICBvdmVyZmxvdzogYXV0bztcbiAgICBwb3NpdGlvbjogc3RpY2t5O1xuICAgIHRvcDogMDtcbiAgICBwYWRkaW5nOiAxNXB4O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICAgIG1hcmdpbi1ib3R0b206IDUwcHg7XG4gIH1cbiAgXG4gIG1hdC1pY29uIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gIH1cbiAgXG4gIC5hY3Rpb24tY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICBwYWRkaW5nOiAyMHB4O1xuICB9XG4gIFxuICAudGFibGUge1xuICAgIHBhZGRpbmc6IDIwcHg7XG4gIH1cbiAgXG4gIC50YWJsZSB0Ym9keSB0ciB0ZCxcbiAgLnRhYmxlIHRoZWFkIHRoLFxuICAudGFibGUgdGhlYWQge1xuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xuICB9XG4gIFxuICAuY29sbmFtZSB0aCxcbiAgdGQge1xuICAgIHBhZGRpbmc6IDE0cHggMTBweCAxNHB4IDEwcHg7XG4gIH1cbiAgXG4gIHNwYW4udWktY29sdW1uLXJlc2l6ZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgICBjdXJzb3I6IGNvbC1yZXNpemU7XG4gICAgcGFkZGluZzogMzBweDtcbiAgfVxuICBcbiAgLmVmZmVjdGl2ZS1kYXRle1xuICAgIGJvcmRlci1jb2xvcjogcmdiYSgwLDAsMCwuNDIpO1xuICAgIGJvcmRlci10b3A6IG5vbmU7XG4gICAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gICAgYm9yZGVyLXJpZ2h0OiBub25lO1xuICB9XG4gIGlucHV0OmZvY3Vze1xuICAgIG91dGxpbmU6IG5vbmU7XG4gICAgYm94LXNoYWRvdzogdW5zZXQ7XG4gIH1cblxuICBtYXQtaWNvbiB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICB9XG4gIFxuICAuYWN0aW9uLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgcGFkZGluZzogMjBweDtcbiAgfVxuICBcbiAgLnRhYmxlIHtcbiAgICBwYWRkaW5nOiAyMHB4O1xuICB9XG4gIFxuICAudGFibGUgdGJvZHkgdHIgdGQsXG4gIC50YWJsZSB0aGVhZCB0aCxcbiAgLnRhYmxlIHRoZWFkIHtcbiAgICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RlZTJlNjtcbiAgfVxuICBcbiAgLm91dHB1dCB7XG4gICAgcGFkZGluZzogMjBweDtcbiAgfVxuICBcbiAgLmRlbGV0ZSB7XG4gICAgY29sb3I6IHJlZCAgO1xuICB9XG4gIFxuICAuZG9uZSB7XG4gICAgY29sb3I6IGdyZWVuO1xuICB9XG4gIFxuICAuZWRpdCB7XG4gICAgY29sb3I6IHllbGxvdztcbiAgfVxuICBzcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICAgIHBhZGRpbmc6IDMwcHg7XG4gIFxuICB9XG4gIFxuICAuc3RvY2stZGF0ZXtcbiAgICBib3JkZXItY29sb3I6IHJnYmEoMCwwLDAsLjQyKTtcbiAgICBib3JkZXItdG9wOiBub25lO1xuICAgIGJvcmRlci1sZWZ0OiBub25lO1xuICAgIGJvcmRlci1yaWdodDogbm9uZTtcbiAgfVxuXG4gIGlucHV0OmZvY3Vze1xuICAgIG91dGxpbmU6IG5vbmU7XG4gICAgYm94LXNoYWRvdzogdW5zZXQ7XG59XG4uc2F2ZS1pY29uIHtcbiAgcGFkZGluZy1sZWZ0OiA3cHg7IFxuICBwYWRkaW5nLXRvcDogMjdweDtcbn1cblxuLmZhLWZsb3BweS1ve1xuICBjb2xvcjogJG0tZ3JlZW4gO1xufVxuLmN1cy1pbnB1dHtcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICNkYWRhZGE7XG4gICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xuICAgIGhlaWdodDogMzBweDtcbn1cbi5zYXZlLWljb24ge1xuICBwYWRkaW5nLWxlZnQ6IDdweDsgXG4gIHBhZGRpbmctdG9wOiAyN3B4O1xufVxuXG4uZmEtdGltZXN7XG4gY29sb3I6ICRzLXJlZC0wMjtcbn1cbi5zZWFyY2gtbGVmdHtcbiAgbGVmdDogMnB4ICFpbXBvcnRhbnQ7XG59XG5cbi5wYWQtdG9we1xuICBwYWRkaW5nLXRvcDogMjJweDtcbn1cbiAgQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoOiAzMDBweCkgYW5kIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5jYXJkLnRhYmxlLWNhcmQgeyBcbiAgICAuY2FyZC1ib2R5IHtcbiAgICBvdmVyZmxvdzogc2Nyb2xsO1xuIH1cbiAgfVxufSIsIi5jYXJkLnRhYmxlLWNhcmQgLmNhcmQtYm9keSB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi53ZC0xMDAge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLndkLTUwIHtcbiAgd2lkdGg6IDUwJTtcbn1cblxuaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcbn1cblxubWF0LWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5hY3Rpb24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUgdGJvZHkgdHIgdGQsXG4udGFibGUgdGhlYWQgdGgsXG4udGFibGUgdGhlYWQge1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuXG4uY29sbmFtZSB0aCxcbnRkIHtcbiAgcGFkZGluZzogMTRweCAxMHB4IDE0cHggMTBweDtcbn1cblxuc3Bhbi51aS1jb2x1bW4tcmVzaXplciB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogY29sLXJlc2l6ZTtcbiAgcGFkZGluZzogMzBweDtcbn1cblxuLmVmZmVjdGl2ZS1kYXRlIHtcbiAgYm9yZGVyLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNDIpO1xuICBib3JkZXItdG9wOiBub25lO1xuICBib3JkZXItbGVmdDogbm9uZTtcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xufVxuXG5pbnB1dDpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IHVuc2V0O1xufVxuXG5tYXQtaWNvbiB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmFjdGlvbi1jb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi50YWJsZSB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi50YWJsZSB0Ym9keSB0ciB0ZCxcbi50YWJsZSB0aGVhZCB0aCxcbi50YWJsZSB0aGVhZCB7XG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZWUyZTY7XG59XG5cbi5vdXRwdXQge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4uZGVsZXRlIHtcbiAgY29sb3I6IHJlZDtcbn1cblxuLmRvbmUge1xuICBjb2xvcjogZ3JlZW47XG59XG5cbi5lZGl0IHtcbiAgY29sb3I6IHllbGxvdztcbn1cblxuc3Bhbi51aS1jb2x1bW4tcmVzaXplciB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogY29sLXJlc2l6ZTtcbiAgcGFkZGluZzogMzBweDtcbn1cblxuLnN0b2NrLWRhdGUge1xuICBib3JkZXItY29sb3I6IHJnYmEoMCwgMCwgMCwgMC40Mik7XG4gIGJvcmRlci10b3A6IG5vbmU7XG4gIGJvcmRlci1sZWZ0OiBub25lO1xuICBib3JkZXItcmlnaHQ6IG5vbmU7XG59XG5cbmlucHV0OmZvY3VzIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogdW5zZXQ7XG59XG5cbi5zYXZlLWljb24ge1xuICBwYWRkaW5nLWxlZnQ6IDdweDtcbiAgcGFkZGluZy10b3A6IDI3cHg7XG59XG5cbi5mYS1mbG9wcHktbyB7XG4gIGNvbG9yOiAjNTRiOTQxO1xufVxuXG4uY3VzLWlucHV0IHtcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCAjZGFkYWRhO1xuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG4gIGhlaWdodDogMzBweDtcbn1cblxuLnNhdmUtaWNvbiB7XG4gIHBhZGRpbmctbGVmdDogN3B4O1xuICBwYWRkaW5nLXRvcDogMjdweDtcbn1cblxuLmZhLXRpbWVzIHtcbiAgY29sb3I6ICNmZjM2Mzg7XG59XG5cbi5zZWFyY2gtbGVmdCB7XG4gIGxlZnQ6IDJweCAhaW1wb3J0YW50O1xufVxuXG4ucGFkLXRvcCB7XG4gIHBhZGRpbmctdG9wOiAyMnB4O1xufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDMwMHB4KSBhbmQgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgLmNhcmQudGFibGUtY2FyZCAuY2FyZC1ib2R5IHtcbiAgICBvdmVyZmxvdzogc2Nyb2xsO1xuICB9XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiJdfQ== */");
 
 /***/ }),
 
-/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.ts":
-/*!******************************************************************************************************!*\
-  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.ts ***!
-  \******************************************************************************************************/
-/*! exports provided: IncomeTrackerSetupComponent */
+/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.ts":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.ts ***!
+  \*********************************************************************************************************************************************************/
+/*! exports provided: IncomeTrackerSetupAutoInvoicingComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerSetupComponent", function() { return IncomeTrackerSetupComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerSetupAutoInvoicingComponent", function() { return IncomeTrackerSetupAutoInvoicingComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 
 
 
@@ -3184,30 +3230,661 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let IncomeTrackerSetupComponent = class IncomeTrackerSetupComponent {
-    constructor(accountsService, lookupService, sharedService, cookieService, fb) {
+
+
+let IncomeTrackerSetupAutoInvoicingComponent = class IncomeTrackerSetupAutoInvoicingComponent {
+    constructor(accountsService, lookupService, sharedService, cookieService, fb, apartmentService, injector) {
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.fb = fb;
-        this.isSettingsDataLoaded = true;
-        this.isPenaltyDataLoaded = true;
-        this.isError = false;
-        this.errorMessage = false;
-        this.glAccountIndicator = "Income";
-        this.isEdit = false;
-        this.isEditCurrency = false;
-        this.isEditReconciliation = false;
-        this.isEditTaxPolicy = false;
-        this.isPenaltyEdit = false;
-        this.vatValue = null;
-        //auto-invoicing
+        this.apartmentService = apartmentService;
+        this.injector = injector;
         this.isAutoInvoicingDataLoaded = false;
         this.unitFieldType = "unitno";
         this.unitOrder = false;
-        //penalty
+        this.autoInvoicingData = [];
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.row = {};
+        this.deleteType = false;
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    sortUnitData(type) {
+        this.unitFieldType = type;
+        this.unitOrder = !this.unitOrder;
+    }
+    getFieldOrderBy(type) {
+        if (this.unitFieldType == type) {
+            return this.unitOrder ? 'desc' : 'asc';
+        }
+        else
+            return '';
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
+    }
+    addAutoinvoiceConfig(data) {
+        let reqObj = {};
+        reqObj = {
+            "id": data.id,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "tower": data.tower,
+            "category": "string",
+            "glaccountId": data.glaccountId,
+            "feeperSqftpermonth": data.feeperSqftpermonth,
+            "fixedFee": data.fixedFee,
+            "vatId": data.vatId,
+            "taxId": data.taxId,
+            "active": true,
+            "effectiveDate": data.effectiveDate,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString,
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString,
+        };
+        let params = {};
+        params.autoinvoiceConfig = reqObj;
+        this.accountsService.addAutoinvoiceConfig(params).subscribe((res) => {
+            if (res) {
+                this.sharedService.setAlertMessage("Auto invoice config added successfully");
+                this.row = {};
+                this.getAutoinvoiceConfigByApartmentId();
+            }
+        });
+    }
+    updateAutoinvoiceConfig(data) {
+        let reqObj = {};
+        reqObj = {
+            "id": data.id,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "tower": data.tower,
+            "category": "string",
+            "glaccountId": data.glaccountId,
+            "feeperSqftpermonth": parseInt(data.feeperSqftpermonth),
+            "fixedFee": parseInt(data.fixedFee),
+            "vatId": parseInt(data.vatId),
+            "taxId": parseInt(data.taxId),
+            "active": true,
+            "effectiveDate": data.effectiveDate,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString,
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString,
+        };
+        let params = {};
+        params.autoinvoiceConfig = reqObj;
+        this.accountsService.updateAutoinvoiceConfig(params).subscribe((res) => {
+            if (res) {
+                this.sharedService.setAlertMessage("Auto invoice config Updated successfully");
+                this.isEditRow = false;
+                this.updateAutoInvoiceIndex = -1;
+                this.row = {};
+                this.getAutoinvoiceConfigByApartmentId();
+            }
+        });
+    }
+    getAutoinvoiceConfigByApartmentId() {
+        let queryParamBase = {};
+        queryParamBase = {
+            apartmentId: this.cookieService.get('apartmentId'),
+        };
+        this.accountsService.getAutoinvoiceConfigByApartmentId(queryParamBase).subscribe((res) => {
+            if (res) {
+                this.autoInvoicingData = res && res.length > 0 ? res : [];
+                console.log("auto invoice ", this.autoInvoicingData);
+                this.totalItems = this.autoInvoicingData.length;
+                if (this.totalItems > this.itemLimit) {
+                    this.ItemEndIndex = this.itemLimit;
+                }
+                else {
+                    this.ItemEndIndex = this.totalItems;
+                }
+            }
+        });
+    }
+    getGlAccountsIdbyGlAccountTypeId() {
+        let queryParamBase = {};
+        queryParamBase = {
+            apartmentId: this.cookieService.get('apartmentId'),
+            GLAccountTypeId: 165
+        };
+        this.accountsService.getGlAccountsIdbyGlAccountTypeId(queryParamBase).subscribe((res) => {
+            if (res) {
+                this.glAccountList = res ? res : [];
+                console.log(this.glAccountList);
+            }
+        });
+    }
+    getApartmentBlockByApartmentId() {
+        let blockListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(blockListParams).subscribe((res) => {
+            this.blockDataList = res ? res : [];
+        });
+    }
+    deleteRow(index, data) {
+        this.deleteType = true;
+        console.log("data.id", data);
+        this.modalService.showConfirmModal(data.id);
+    }
+    ngOnInit() {
+        this.isAutoInvoicingDataLoaded = true;
+        this.getApartmentBlockByApartmentId();
+        //VAT
+        let vatListParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            LookupTypeId: 77
+        };
+        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
+            this.vatPecentageDataList = res.filter(item => {
+                return item.isActive;
+            });
+        });
+        //TAx
+        let taxListParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            LookupTypeId: 183
+        };
+        this.lookupService.getLookupValueByLookupTypeId(taxListParams).subscribe((res) => {
+            this.taxPecentageDataList = res.filter(item => {
+                return item.isActive;
+            });
+        });
+        this.getGlAccountsIdbyGlAccountTypeId();
+        setTimeout(() => {
+            this.getAutoinvoiceConfigByApartmentId();
+        }, 1000);
+        //DeleteRow
+        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            console.log("id", id);
+            if (id != null) {
+                if (this.deleteType) {
+                    let deleteparam = {};
+                    deleteparam = {
+                        apartmentId: this.cookieService.get('apartmentId'),
+                        Id: id,
+                        deleteBy: parseInt(this.cookieService.get('userId'))
+                    };
+                    this.accountsService.deleteAutoinvoiceConfig(deleteparam).subscribe((res) => {
+                        if (res.message) {
+                            this.getAutoinvoiceConfigByApartmentId();
+                            setTimeout(() => {
+                                this.sharedService.setAlertMessage("Auto invoicing deleted successfully");
+                                this.sharedService.setUnitListDeleteIndex(null);
+                            }, 500);
+                        }
+                        else {
+                            this.sharedService.setAlertMessage(res.errorMessage);
+                        }
+                        this.deleteType = true;
+                    }, error => {
+                        console.log(error);
+                    });
+                }
+            }
+        });
+    }
+};
+IncomeTrackerSetupAutoInvoicingComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
+];
+IncomeTrackerSetupAutoInvoicingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-tracker-setup-auto-invoicing',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-setup-auto-invoicing.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-setup-auto-invoicing.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
+], IncomeTrackerSetupAutoInvoicingComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.scss":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.scss ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".save {\n  margin: 25px 0px 0px 25px;\n}\n\n.editbutton {\n  margin: 28px 10px 0px 0px;\n}\n\n.select-box label {\n  font-size: 13px;\n  font-family: \"Lato\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  font-size: 1.2rem;\n  color: #585858;\n  margin: 0 0 7px 0;\n  text-transform: uppercase;\n  letter-spacing: 0.4px;\n}\n\n.mini-table-1 {\n  width: 100%;\n}\n\n.mini-table-1 th {\n  font-size: 1.3rem;\n  width: 404px;\n}\n\n.mini-table-1 td {\n  font-size: 1.3rem;\n}\n\n.mini-table-1 .name {\n  max-width: 30%;\n  min-width: 30%;\n}\n\n.mini-table-1 .action {\n  width: 10%;\n  max-width: 10%;\n  min-width: 10%;\n}\n\n.mini-table-1 .desc {\n  width: 50%;\n  max-width: 50%;\n  min-width: 50%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .desc {\n    display: none !important;\n  }\n}\n\n.mini-table-1 .inc-desc {\n  width: 60%;\n  max-width: 60%;\n  min-width: 60%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .inc-desc {\n    display: none !important;\n  }\n}\n\n.mini-table-1 .inc-wdesc {\n  width: 70%;\n  max-width: 70%;\n  min-width: 70%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .inc-wdesc {\n    display: none !important;\n  }\n}\n\n.card .card-body .tabs li {\n  font-size: 12px;\n}\n\n.add-btn {\n  float: left;\n  margin: 25px 0px 0px 70px;\n}\n\n.tablewidth {\n  width: 80%;\n}\n\n.card {\n  width: 100%;\n  margin: 12px 0px;\n}\n\n.back-button {\n  margin: 28px 0px 0px 132px;\n}\n\n.save-button {\n  margin: 25px 0px 0px 0px;\n  float: left;\n}\n\n.currency {\n  padding-right: 0px;\n}\n\n.glacc {\n  width: 377px;\n  float: left;\n}\n\n.add {\n  color: black;\n  margin-left: 10px;\n}\n\ni-feather {\n  width: 18px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC1nZW5lcmFsL2luY29tZS10cmFja2VyLXNldHVwLWdlbmVyYWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS10cmFja2VyLXNldHVwL2luY29tZS10cmFja2VyLXNldHVwLWdlbmVyYWwvaW5jb21lLXRyYWNrZXItc2V0dXAtZ2VuZXJhbC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLQTtFQUNFLHlCQUFBO0FDSkY7O0FETUE7RUFDRSx5QkFBQTtBQ0hGOztBRE1FO0VBQ0UsZUFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7RUFDQSxpQkFBQTtFQUNBLGNBQUE7RUFDQSxpQkFBQTtFQUNBLHlCQUFBO0VBQ0EscUJBQUE7QUNISjs7QURPQTtFQUNFLFdBQUE7QUNKRjs7QURNRTtFRWdEQSxpQkFBQTtFRjlDSSxZQUFBO0FDSk47O0FETUU7RUU0Q0EsaUJBQUE7QUQvQ0Y7O0FETUU7RUFDSSxjQUFBO0VBQ0EsY0FBQTtBQ0pOOztBRE1FO0VBQ0ksVUFBQTtFQUNBLGNBQUE7RUFDQSxjQUFBO0FDSk47O0FETUU7RUFDSSxVQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7QUNKTjs7QURLTTtFQUpKO0lBS1Esd0JBQUE7RUNGUjtBQUNGOztBRElFO0VBQ0ksVUFBQTtFQUNBLGNBQUE7RUFDQSxjQUFBO0FDRk47O0FER007RUFKSjtJQUtRLHdCQUFBO0VDQVI7QUFDRjs7QURFRTtFQUNJLFVBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBQ0FOOztBRENNO0VBSko7SUFLUSx3QkFBQTtFQ0VSO0FBQ0Y7O0FEQ0E7RUFDRSxlQUFBO0FDRUY7O0FEQUE7RUFDRSxXQUFBO0VBQ0EseUJBQUE7QUNHRjs7QUREQTtFQUNFLFVBQUE7QUNJRjs7QURGQTtFQUNFLFdBQUE7RUFDQSxnQkFBQTtBQ0tGOztBREhBO0VBQ0UsMEJBQUE7QUNNRjs7QURKQTtFQUNFLHdCQUFBO0VBQ0EsV0FBQTtBQ09GOztBRExBO0VBQ0Usa0JBQUE7QUNRRjs7QUROQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0FDU0Y7O0FEUEE7RUFDRSxZQUFBO0VBQ0EsaUJBQUE7QUNVRjs7QURSQTtFQUNFLFdBQUE7QUNXRiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS10cmFja2VyLXNldHVwL2luY29tZS10cmFja2VyLXNldHVwLWdlbmVyYWwvaW5jb21lLXRyYWNrZXItc2V0dXAtZ2VuZXJhbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCIuLi8uLi8uLi8uLi8uLi8uLi9zY3NzL3ZhcmlhYmxlcy5zY3NzXCI7XG5AaW1wb3J0IFwiLi4vLi4vLi4vLi4vLi4vLi4vc2Nzcy9taXhpbnMuc2Nzc1wiO1xuQGltcG9ydCBcIi4uLy4uLy4uLy4uLy4uLy4uL3Njc3MvZm9udHMuc2Nzc1wiO1xuLy8gQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbi8vIEBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcbi5zYXZlIHtcbiAgbWFyZ2luOiAyNXB4IDBweCAwcHggMjVweDtcbn1cbi5lZGl0YnV0dG9uIHtcbiAgbWFyZ2luOiAyOHB4IDEwcHggMHB4IDBweDtcbn1cbi5zZWxlY3QtYm94IHtcbiAgbGFiZWwge1xuICAgIGZvbnQtc2l6ZTogMTNweDtcbiAgICBmb250LWZhbWlseTogXCJMYXRvXCIsIHNhbnMtc2VyaWY7XG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gICAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgICBmb250LXNpemU6IDEuMnJlbTtcbiAgICBjb2xvcjogIzU4NTg1ODtcbiAgICBtYXJnaW46IDAgMCA3cHggMDtcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICAgIGxldHRlci1zcGFjaW5nOiAwLjRweDtcbiAgfVxufVxuXG4ubWluaS10YWJsZS0xIHtcbiAgd2lkdGg6IDEwMCU7XG4gIFxuICB0aCB7XG4gICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsZXIpO1xuICAgICAgd2lkdGg6IDQwNHB4O1xuICB9XG4gIHRkIHtcbiAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGxlcik7IFxuICB9XG4gIC5uYW1lIHtcbiAgICAgIG1heC13aWR0aDozMCU7XG4gICAgICBtaW4td2lkdGg6MzAlO1xuICB9XG4gIC5hY3Rpb24ge1xuICAgICAgd2lkdGg6IDEwJTtcbiAgICAgIG1heC13aWR0aDoxMCU7XG4gICAgICBtaW4td2lkdGg6MTAlO1xuICB9XG4gIC5kZXNjIHtcbiAgICAgIHdpZHRoOjUwJTtcbiAgICAgIG1heC13aWR0aDo1MCU7XG4gICAgICBtaW4td2lkdGg6NTAlO1xuICAgICAgQG1lZGlhIChtYXgtd2lkdGg6ICA3NjdweCkge1xuICAgICAgICAgIGRpc3BsYXkgOiBub25lICFpbXBvcnRhbnQ7XG4gICAgICB9XG4gIH1cbiAgLmluYy1kZXNjIHtcbiAgICAgIHdpZHRoOjYwJTtcbiAgICAgIG1heC13aWR0aDo2MCU7XG4gICAgICBtaW4td2lkdGg6NjAlOyBcbiAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgICBkaXNwbGF5IDogbm9uZSAhaW1wb3J0YW50O1xuICAgICAgfVxuICB9XG4gIC5pbmMtd2Rlc2Mge1xuICAgICAgd2lkdGg6NzAlO1xuICAgICAgbWF4LXdpZHRoOjcwJTtcbiAgICAgIG1pbi13aWR0aDo3MCU7XG4gICAgICBAbWVkaWEgKG1heC13aWR0aDogIDc2N3B4KSB7XG4gICAgICAgICAgZGlzcGxheSA6IG5vbmUgIWltcG9ydGFudDtcbiAgICAgIH1cbiAgfVxufVxuLmNhcmQgLmNhcmQtYm9keSAudGFicyBsaXtcbiAgZm9udC1zaXplIDogMTJweDtcbn1cbi5hZGQtYnRuIHtcbiAgZmxvYXQ6IGxlZnQ7XG4gIG1hcmdpbjogMjVweCAwcHggMHB4IDcwcHg7XG59XG4udGFibGV3aWR0aHtcbiAgd2lkdGg6IDgwJTtcbn1cbi5jYXJke1xuICB3aWR0aDogMTAwJTtcbiAgbWFyZ2luOiAxMnB4IDBweDtcbn1cbi5iYWNrLWJ1dHRvbntcbiAgbWFyZ2luOiAyOHB4IDBweCAwcHggMTMycHg7XG59XG4uc2F2ZS1idXR0b257XG4gIG1hcmdpbjogMjVweCAwcHggMHB4IDBweDtcbiAgZmxvYXQ6IGxlZnQ7XG59XG4uY3VycmVuY3kge1xuICBwYWRkaW5nLXJpZ2h0OiAwcHg7XG59XG4uZ2xhY2N7XG4gIHdpZHRoOiAzNzdweDtcbiAgZmxvYXQ6IGxlZnQ7XG59XG4uYWRke1xuICBjb2xvcjpibGFjaztcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XG59XG5pLWZlYXRoZXIge1xuICB3aWR0aDogMThweDtcbn0iLCIuc2F2ZSB7XG4gIG1hcmdpbjogMjVweCAwcHggMHB4IDI1cHg7XG59XG5cbi5lZGl0YnV0dG9uIHtcbiAgbWFyZ2luOiAyOHB4IDEwcHggMHB4IDBweDtcbn1cblxuLnNlbGVjdC1ib3ggbGFiZWwge1xuICBmb250LXNpemU6IDEzcHg7XG4gIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgZm9udC1zaXplOiAxLjJyZW07XG4gIGNvbG9yOiAjNTg1ODU4O1xuICBtYXJnaW46IDAgMCA3cHggMDtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuNHB4O1xufVxuXG4ubWluaS10YWJsZS0xIHtcbiAgd2lkdGg6IDEwMCU7XG59XG4ubWluaS10YWJsZS0xIHRoIHtcbiAgZm9udC1zaXplOiAxLjNyZW07XG4gIHdpZHRoOiA0MDRweDtcbn1cbi5taW5pLXRhYmxlLTEgdGQge1xuICBmb250LXNpemU6IDEuM3JlbTtcbn1cbi5taW5pLXRhYmxlLTEgLm5hbWUge1xuICBtYXgtd2lkdGg6IDMwJTtcbiAgbWluLXdpZHRoOiAzMCU7XG59XG4ubWluaS10YWJsZS0xIC5hY3Rpb24ge1xuICB3aWR0aDogMTAlO1xuICBtYXgtd2lkdGg6IDEwJTtcbiAgbWluLXdpZHRoOiAxMCU7XG59XG4ubWluaS10YWJsZS0xIC5kZXNjIHtcbiAgd2lkdGg6IDUwJTtcbiAgbWF4LXdpZHRoOiA1MCU7XG4gIG1pbi13aWR0aDogNTAlO1xufVxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5taW5pLXRhYmxlLTEgLmRlc2Mge1xuICAgIGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDtcbiAgfVxufVxuLm1pbmktdGFibGUtMSAuaW5jLWRlc2Mge1xuICB3aWR0aDogNjAlO1xuICBtYXgtd2lkdGg6IDYwJTtcbiAgbWluLXdpZHRoOiA2MCU7XG59XG5AbWVkaWEgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgLm1pbmktdGFibGUtMSAuaW5jLWRlc2Mge1xuICAgIGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDtcbiAgfVxufVxuLm1pbmktdGFibGUtMSAuaW5jLXdkZXNjIHtcbiAgd2lkdGg6IDcwJTtcbiAgbWF4LXdpZHRoOiA3MCU7XG4gIG1pbi13aWR0aDogNzAlO1xufVxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5taW5pLXRhYmxlLTEgLmluYy13ZGVzYyB7XG4gICAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O1xuICB9XG59XG5cbi5jYXJkIC5jYXJkLWJvZHkgLnRhYnMgbGkge1xuICBmb250LXNpemU6IDEycHg7XG59XG5cbi5hZGQtYnRuIHtcbiAgZmxvYXQ6IGxlZnQ7XG4gIG1hcmdpbjogMjVweCAwcHggMHB4IDcwcHg7XG59XG5cbi50YWJsZXdpZHRoIHtcbiAgd2lkdGg6IDgwJTtcbn1cblxuLmNhcmQge1xuICB3aWR0aDogMTAwJTtcbiAgbWFyZ2luOiAxMnB4IDBweDtcbn1cblxuLmJhY2stYnV0dG9uIHtcbiAgbWFyZ2luOiAyOHB4IDBweCAwcHggMTMycHg7XG59XG5cbi5zYXZlLWJ1dHRvbiB7XG4gIG1hcmdpbjogMjVweCAwcHggMHB4IDBweDtcbiAgZmxvYXQ6IGxlZnQ7XG59XG5cbi5jdXJyZW5jeSB7XG4gIHBhZGRpbmctcmlnaHQ6IDBweDtcbn1cblxuLmdsYWNjIHtcbiAgd2lkdGg6IDM3N3B4O1xuICBmbG9hdDogbGVmdDtcbn1cblxuLmFkZCB7XG4gIGNvbG9yOiBibGFjaztcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XG59XG5cbmktZmVhdGhlciB7XG4gIHdpZHRoOiAxOHB4O1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.ts":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.ts ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: IncomeTrackerSetupGeneralComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerSetupGeneralComponent", function() { return IncomeTrackerSetupGeneralComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+
+
+
+
+
+let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponent {
+    constructor(accountsService, lookupService, sharedService, cookieService) {
+        this.accountsService = accountsService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isError = false;
+        this.errorMessage = false;
+        this.glAccountListData = [];
+        this.glAccountIndicator = "Income";
+        this.currencyTypeDataList = [];
+        this.isEdit = false;
+        this.isEditReconciliation = false;
+        this.isCustIncomeAdd = false;
+        this.value = {};
+        this.custAccData = {};
+        this.percentageValue = {
+            lookupTypeId: 0,
+            lookupValueName: ''
+        };
+        this.assignValue = {};
+        this.customerIncomeValue = {
+            lookupTypeId: 74,
+            lookupValueId: 0,
+            lookupValueName: ''
+        };
+        this.custIncomelist = [];
+        this.edit = false;
+        this.vatValue = {};
+        this.vatPecentageDataList = [];
+        this.taxValue = {};
+        this.taxPecentageDataList = [];
+    }
+    vatValuebutton() {
+        this.value = 1;
+        console.log("value1 = ", this.value);
+        this.percentageValue.lookupTypeId = 77;
+        console.log("vatvalue ", this.percentageValue);
+    }
+    taxValuebutton() {
+        this.value = 2;
+        console.log("value2 = ", this.value);
+        this.percentageValue.lookupTypeId = 183;
+        console.log("vatvalue ", this.percentageValue);
+    }
+    addnewLookupvalue() {
+        console.log("percentage value : ", this.percentageValue);
+        this.addLookupValue(this.percentageValue);
+    }
+    addCustAccount(data) {
+        console.log("add cust ", data);
+        let reqObj = {};
+        reqObj = {
+            "custAccountId": 0,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "glaccountId": parseInt(data.glaccountId),
+            "comment": "AR Control GL Account",
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString,
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString,
+        };
+        let params = {};
+        params.custAccount = reqObj;
+        this.accountsService.addCustAccount(params).subscribe((res) => {
+            if (res.message) {
+                this.sharedService.setAlertMessage("Custom account added successfully");
+                // this.row ={};
+            }
+            else {
+                this.sharedService.setAlertMessage(res.errorMessage);
+            }
+        });
+        this.isEditReconciliation = !this.isEditReconciliation;
+    }
+    getCustomerLookupValueByLookupTypeId() {
+        //customerpayment
+        let custPayParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            LookupTypeId: 74
+        };
+        this.lookupService.getLookupValueByLookupTypeId(custPayParams).subscribe((res) => {
+            this.custIncomelist = res.filter(item => {
+                return item.isActive;
+            });
+            this.custIncomelist = this.custIncomelist && this.custIncomelist.length > 0 ? this.custIncomelist : [];
+            // this.customerIncomeValue.lookupValueId = this.custIncomelist[0].lookupValueId;
+        });
+    }
+    getVatgetLookupValueByLookupTypeId() {
+        //VAT
+        let vatListParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            LookupTypeId: 77
+        };
+        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
+            this.vatPecentageDataList = res.filter(item => {
+                return item.isActive;
+            });
+        });
+    }
+    getTaxgetLookupValueByLookupTypeId() {
+        //TAx
+        let taxListParams = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            LookupTypeId: 183
+        };
+        this.lookupService.getLookupValueByLookupTypeId(taxListParams).subscribe((res) => {
+            this.taxPecentageDataList = res.filter(item => {
+                return item.isActive;
+            });
+        });
+    }
+    //workpermitMethod
+    addLookupValue(listName) {
+        if (listName == 'customerIncomeValue') {
+            this.assignValue.lookupTypeId = 74;
+            this.assignValue.lookupValueName = this.customerIncomeValue.lookupValueName;
+            this.assignValue.lookupValueId = this.customerIncomeValue.lookupValueId;
+        }
+        else if (listName == 'vatValue') {
+            this.assignValue.lookupTypeId = 77;
+            this.assignValue.lookupValueName = this.vatValue.lookupValueName;
+            this.assignValue.lookupValueId = this.vatValue.lookupValueId;
+        }
+        else if (listName == 'taxValue') {
+            this.assignValue.lookupTypeId = 183;
+            this.assignValue.lookupValueName = this.taxValue.lookupValueName;
+            this.assignValue.lookupValueId = this.taxValue.lookupValueId;
+        }
+        if (this.edit) {
+            let reqObj = {};
+            reqObj = {
+                "lookupValueId": this.assignValue.lookupValueId,
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "lookupTypeId": this.assignValue.lookupTypeId,
+                "lookupValueName": this.assignValue.lookupValueName,
+                "description": "string",
+                "isActive": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString,
+                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedOn": new Date().toISOString,
+                "menuName": "string",
+                "notes": "string",
+                "isCommon": false,
+                "module": "string",
+                "subModule": "string",
+                "isDisabled": true
+            };
+            let params = {};
+            params.lookupvalue = reqObj;
+            this.lookupService.updateLookupValue(params).subscribe((res) => {
+                this.edit = false;
+                if (res.message) {
+                    this.sharedService.setAlertMessage("LookupValue updated successfully");
+                    this.assignValue = {};
+                    if (listName == 'customerIncomeValue') {
+                        this.getCustomerLookupValueByLookupTypeId();
+                        this.customerIncomeValue = {};
+                    }
+                    else if (listName == 'vatValue') {
+                        this.getVatgetLookupValueByLookupTypeId();
+                        this.vatValue = {};
+                    }
+                    else if (listName == 'taxValue') {
+                        this.getTaxgetLookupValueByLookupTypeId();
+                        this.taxValue = {};
+                    }
+                }
+                else {
+                    if (res.errorMessage == "updateLookupValue Not Added as it already exist.") {
+                        this.sharedService.setAlertMessage("LookupValue not added as it already exist");
+                    }
+                    else {
+                        this.sharedService.setAlertMessage(res.errorMessage);
+                    }
+                }
+            });
+        }
+        else {
+            let reqObj = {};
+            reqObj = {
+                "lookupValueId": 0,
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "lookupTypeId": this.assignValue.lookupTypeId,
+                "lookupValueName": this.assignValue.lookupValueName,
+                "description": "string",
+                "isActive": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString,
+                "updatedBy": 0,
+                "updatedOn": new Date().toISOString,
+                "menuName": "string",
+                "notes": "string",
+                "isCommon": false,
+                "module": "string",
+                "subModule": "string",
+                "isDisabled": true
+            };
+            let params = {};
+            params.lookupvalue = reqObj;
+            console.log("added value ", params);
+            this.lookupService.addLookupValue(params).subscribe((res) => {
+                if (res.message) {
+                    this.sharedService.setAlertMessage("LookupType added successfully");
+                    this.assignValue = {};
+                    if (listName == 'customerIncomeValue') {
+                        this.getCustomerLookupValueByLookupTypeId();
+                        this.customerIncomeValue = {};
+                    }
+                    else if (listName == 'vatValue') {
+                        this.getVatgetLookupValueByLookupTypeId();
+                        this.vatValue = {};
+                    }
+                    else if (listName == 'taxValue') {
+                        this.getTaxgetLookupValueByLookupTypeId();
+                        this.taxValue = {};
+                    }
+                }
+                else {
+                    if (res.errorMessage == "addLookupValue Not Added as it already exist.") {
+                        this.sharedService.setAlertMessage("LookupValue not added as it already exist");
+                    }
+                    else {
+                        this.sharedService.setAlertMessage(res.errorMessage);
+                    }
+                }
+            });
+        }
+    }
+    editLookupValue(index, listName, data) {
+        this.edit = true;
+        if (listName == 'customerIncomeValue') {
+            this.customerIncomeValue.lookupValueName = data.lookupValueName;
+            this.customerIncomeValue.lookupValueId = data.lookupValueId;
+            console.log("customerIncomeValue == > ", this.customerIncomeValue);
+        }
+        else if (listName == 'vatValue') {
+            this.vatValue.lookupValueName = data.lookupValueName;
+            this.vatValue.lookupValueId = data.lookupValueId;
+            console.log("vatValue ", this.vatValue);
+        }
+        else if (listName == 'taxValue') {
+            this.taxValue.lookupValueName = data.lookupValueName;
+            this.taxValue.lookupValueId = data.lookupValueId;
+            console.log("taxValue ", this.taxValue);
+        }
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    deleteLookupvalue(index, listName, data) {
+        var params = {
+            lookupValueId: data.lookupValueId,
+            updateUserId: parseInt(this.cookieService.get('userId'))
+        };
+        this.lookupService.deleteLookupvalue(params).subscribe((res) => {
+            if (res.message) {
+                this.sharedService.setAlertMessage('Lookup value deleted successfully');
+                if (listName == 'customerIncomeValue') {
+                    this.getCustomerLookupValueByLookupTypeId();
+                }
+                else if (listName == 'vatValue') {
+                    this.getVatgetLookupValueByLookupTypeId();
+                }
+                else if (listName == 'taxValue') {
+                    this.getTaxgetLookupValueByLookupTypeId();
+                }
+            }
+            else {
+                this.sharedService.setAlertMessage(res.errorMessage);
+            }
+        });
+    }
+    ngOnInit() {
+        this.getCustomerLookupValueByLookupTypeId();
+        this.getVatgetLookupValueByLookupTypeId();
+        this.getTaxgetLookupValueByLookupTypeId();
+        //currency type
+        let params = {
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            LookupTypeId: 101
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
+            this.currencyTypeDataList = res.filter(item => {
+                return item.isActive;
+            });
+            this.currencylookupValueName = this.currencyTypeDataList[0].lookupValueName;
+            console.log("current type", this.currencyTypeDataList);
+        });
+        //GLAccountTypeId
+        let glAccountTypeIdparams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            GLAccountTypeId: 165
+        };
+        this.accountsService.getGlAccountsIdbyGlAccountTypeId(glAccountTypeIdparams).subscribe((res) => {
+            this.glAccountListData = res.filter(item => {
+                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
+            });
+            console.log("GL ACC ", this.glAccountListData);
+            this.custAccData.glaccountId = this.glAccountListData[0].glaccountId;
+        });
+    }
+    editReconciliation() {
+        this.isEditReconciliation = !this.isEditReconciliation;
+    }
+};
+IncomeTrackerSetupGeneralComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+];
+IncomeTrackerSetupGeneralComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-tracker-setup-general',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-setup-general.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-setup-general.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+], IncomeTrackerSetupGeneralComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.scss":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.scss ***!
+  \*********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".card.table-card .card-body {\n  overflow: hidden;\n}\n\n.wd-100 {\n  width: 100%;\n}\n\n.wd-50 {\n  width: 50%;\n}\n\nheader {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.colname th,\ntd {\n  padding: 14px 10px 14px 10px;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n\n.effective-date {\n  border-color: rgba(0, 0, 0, 0.42);\n  border-top: none;\n  border-left: none;\n  border-right: none;\n}\n\ninput:focus {\n  outline: none;\n  box-shadow: unset;\n}\n\n.card.table-card .card-body {\n  overflow: hidden;\n}\n\n.subCategory {\n  padding-top: 10px;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  padding-bottom: 10px;\n}\n\n.subCategory li {\n  list-style-type: circle;\n}\n\n.wd-100 {\n  width: 100%;\n}\n\n.wd-50 {\n  width: 50%;\n}\n\nheader {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n\n.stock-date {\n  border-color: rgba(0, 0, 0, 0.42);\n  border-top: none;\n  border-left: none;\n  border-right: none;\n}\n\ninput:focus {\n  outline: none;\n  box-shadow: unset;\n}\n\n.save-icon {\n  padding-left: 7px;\n  padding-top: 27px;\n}\n\n.fa-times {\n  color: #ff3638;\n}\n\n.search-left {\n  left: 2px !important;\n}\n\n.pad-top {\n  padding-top: 22px;\n}\n\n@media only screen and (min-width: 300px) and (max-width: 767px) {\n  .card.table-card .card-body {\n    overflow: scroll;\n  }\n}\n\n.staticTable {\n  width: 280px;\n}\n\nform input:required.ng-dirty.ng-invalid {\n  border: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC1wZW5hbHR5LXNldHVwL2luY29tZS10cmFja2VyLXNldHVwLXBlbmFsdHktc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS10cmFja2VyLXNldHVwL2luY29tZS10cmFja2VyLXNldHVwLXBlbmFsdHktc2V0dXAvaW5jb21lLXRyYWNrZXItc2V0dXAtcGVuYWx0eS1zZXR1cC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0E7RUFDRSxnQkFBQTtBQ0ZGOztBREtBO0VBQ0UsV0FBQTtBQ0ZGOztBREtBO0VBQ0UsVUFBQTtBQ0ZGOztBREtBO0VBQ0Usc0JBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLHdCQUFBO0VBQUEsZ0JBQUE7RUFDQSxNQUFBO0VBQ0EsYUFBQTtFQUNBLGFBQUE7RUFDQSw4QkFBQTtFQUNBLG1CQUFBO0FDRkY7O0FES0E7RUFDRSxlQUFBO0FDRkY7O0FES0E7RUFDRSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxhQUFBO0FDRkY7O0FES0E7RUFDRSxhQUFBO0FDRkY7O0FETUE7OztFQUdFLDhCQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQ0FBQTtBQ0hGOztBRE1BOztFQUVFLDRCQUFBO0FDSEY7O0FETUE7RUFDRSxhQUFBO0FDSEY7O0FETUE7RUFDRSxVQUFBO0FDSEY7O0FETUE7RUFDRSxZQUFBO0FDSEY7O0FETUE7RUFDRSxhQUFBO0FDSEY7O0FES0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsYUFBQTtBQ0ZGOztBREtBO0VBQ0UsaUNBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUNGRjs7QURJQTtFQUNFLGFBQUE7RUFDQSxpQkFBQTtBQ0RGOztBRElBO0VBQ0UsZ0JBQUE7QUNERjs7QURJQTtFQUNFLGlCQUFBO0VFdERBLHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7RUZvREEsb0JBQUE7QUNHRjs7QURGRTtFQUNFLHVCQUFBO0FDSUo7O0FEQUE7RUFDRSxXQUFBO0FDR0Y7O0FEQUE7RUFDRSxVQUFBO0FDR0Y7O0FEQUE7RUFDRSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUNHRjs7QURBQTtFQUNFLGVBQUE7QUNHRjs7QURBQTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUNHRjs7QURBQTtFQUNFLGFBQUE7QUNHRjs7QURBQTtFQUNFLFVBQUE7QUNHRjs7QURBQTtFQUNFLFlBQUE7QUNHRjs7QURBQTtFQUNFLGFBQUE7QUNHRjs7QUREQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0FDSUY7O0FEREE7RUFDRSxpQ0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0lGOztBRERBO0VBQ0UsYUFBQTtFQUNBLGlCQUFBO0FDSUY7O0FERkE7RUFDRSxpQkFBQTtFQUNBLGlCQUFBO0FDS0Y7O0FERkE7RUFDRSxjR3ZKUztBRjRKWDs7QURIQTtFQUNFLG9CQUFBO0FDTUY7O0FESEE7RUFDRSxpQkFBQTtBQ01GOztBREpBO0VBRUk7SUFDRSxnQkFBQTtFQ01KO0FBQ0Y7O0FESEE7RUFDRSxZQUFBO0FDS0Y7O0FERkE7RUFDRSxZQUFBO0FDS0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC1wZW5hbHR5LXNldHVwL2luY29tZS10cmFja2VyLXNldHVwLXBlbmFsdHktc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwiLi4vLi4vLi4vLi4vLi4vLi4vc2Nzcy9mb250cy5zY3NzXCI7XG5AaW1wb3J0IFwiLi4vLi4vLi4vLi4vLi4vLi4vc2Nzcy92YXJpYWJsZXMuc2Nzc1wiO1xuXG4uY2FyZC50YWJsZS1jYXJkIC5jYXJkLWJvZHkge1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuXG4ud2QtMTAwIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi53ZC01MCB7XG4gIHdpZHRoOiA1MCU7XG59XG5cbmhlYWRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzMzM7XG4gIGNvbG9yOiAjZmZmO1xuICBvdmVyZmxvdzogYXV0bztcbiAgcG9zaXRpb246IHN0aWNreTtcbiAgdG9wOiAwO1xuICBwYWRkaW5nOiAxNXB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG59XG5cbm1hdC1pY29uIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuXG4udGFibGUgdGJvZHkgdHIgdGQsXG4udGFibGUgdGhlYWQgdGgsXG4udGFibGUgdGhlYWQge1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuXG4uY29sbmFtZSB0aCxcbnRkIHtcbiAgcGFkZGluZzogMTRweCAxMHB4IDE0cHggMTBweDtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkO1xufVxuXG4uZG9uZSB7XG4gIGNvbG9yOiBncmVlbjtcbn1cblxuLmVkaXQge1xuICBjb2xvcjogeWVsbG93O1xufVxuc3Bhbi51aS1jb2x1bW4tcmVzaXplciB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogY29sLXJlc2l6ZTtcbiAgcGFkZGluZzogMzBweDtcbn1cblxuLmVmZmVjdGl2ZS1kYXRlIHtcbiAgYm9yZGVyLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNDIpO1xuICBib3JkZXItdG9wOiBub25lO1xuICBib3JkZXItbGVmdDogbm9uZTtcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xufVxuaW5wdXQ6Zm9jdXMge1xuICBvdXRsaW5lOiBub25lO1xuICBib3gtc2hhZG93OiB1bnNldDtcbn1cblxuLmNhcmQudGFibGUtY2FyZCAuY2FyZC1ib2R5IHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLnN1YkNhdGVnb3J5IHtcbiAgcGFkZGluZy10b3A6IDEwcHg7XG4gIEBpbmNsdWRlIGhlYWQtcmVndWxhcigpO1xuICBwYWRkaW5nLWJvdHRvbTogMTBweDtcbiAgbGkge1xuICAgIGxpc3Qtc3R5bGUtdHlwZTogY2lyY2xlO1xuICB9XG59XG5cbi53ZC0xMDAge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLndkLTUwIHtcbiAgd2lkdGg6IDUwJTtcbn1cblxuaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcbn1cblxubWF0LWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5hY3Rpb24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4ub3V0cHV0IHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLmRlbGV0ZSB7XG4gIGNvbG9yOiByZWQ7XG59XG5cbi5kb25lIHtcbiAgY29sb3I6IGdyZWVuO1xufVxuXG4uZWRpdCB7XG4gIGNvbG9yOiB5ZWxsb3c7XG59XG5zcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICBwYWRkaW5nOiAzMHB4O1xufVxuXG4uc3RvY2stZGF0ZSB7XG4gIGJvcmRlci1jb2xvcjogcmdiYSgwLCAwLCAwLCAwLjQyKTtcbiAgYm9yZGVyLXRvcDogbm9uZTtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbn1cblxuaW5wdXQ6Zm9jdXMge1xuICBvdXRsaW5lOiBub25lO1xuICBib3gtc2hhZG93OiB1bnNldDtcbn1cbi5zYXZlLWljb24ge1xuICBwYWRkaW5nLWxlZnQ6IDdweDtcbiAgcGFkZGluZy10b3A6IDI3cHg7XG59XG5cbi5mYS10aW1lcyB7XG4gIGNvbG9yOiAkcy1yZWQtMDI7XG59XG4uc2VhcmNoLWxlZnQge1xuICBsZWZ0OiAycHggIWltcG9ydGFudDtcbn1cblxuLnBhZC10b3Age1xuICBwYWRkaW5nLXRvcDogMjJweDtcbn1cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aDogMzAwcHgpIGFuZCAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuY2FyZC50YWJsZS1jYXJkIHtcbiAgICAuY2FyZC1ib2R5IHtcbiAgICAgIG92ZXJmbG93OiBzY3JvbGw7XG4gICAgfVxuICB9XG59XG4uc3RhdGljVGFibGUge1xuICB3aWR0aDogMjgwcHg7XG59XG5cbmZvcm0gaW5wdXQ6cmVxdWlyZWQubmctZGlydHkubmctaW52YWxpZCB7XG4gIGJvcmRlcjpub25lO1xufSIsIi5jYXJkLnRhYmxlLWNhcmQgLmNhcmQtYm9keSB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi53ZC0xMDAge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLndkLTUwIHtcbiAgd2lkdGg6IDUwJTtcbn1cblxuaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcbn1cblxubWF0LWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5hY3Rpb24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUgdGJvZHkgdHIgdGQsXG4udGFibGUgdGhlYWQgdGgsXG4udGFibGUgdGhlYWQge1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuXG4uY29sbmFtZSB0aCxcbnRkIHtcbiAgcGFkZGluZzogMTRweCAxMHB4IDE0cHggMTBweDtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkO1xufVxuXG4uZG9uZSB7XG4gIGNvbG9yOiBncmVlbjtcbn1cblxuLmVkaXQge1xuICBjb2xvcjogeWVsbG93O1xufVxuXG5zcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICBwYWRkaW5nOiAzMHB4O1xufVxuXG4uZWZmZWN0aXZlLWRhdGUge1xuICBib3JkZXItY29sb3I6IHJnYmEoMCwgMCwgMCwgMC40Mik7XG4gIGJvcmRlci10b3A6IG5vbmU7XG4gIGJvcmRlci1sZWZ0OiBub25lO1xuICBib3JkZXItcmlnaHQ6IG5vbmU7XG59XG5cbmlucHV0OmZvY3VzIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogdW5zZXQ7XG59XG5cbi5jYXJkLnRhYmxlLWNhcmQgLmNhcmQtYm9keSB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi5zdWJDYXRlZ29yeSB7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xufVxuLnN1YkNhdGVnb3J5IGxpIHtcbiAgbGlzdC1zdHlsZS10eXBlOiBjaXJjbGU7XG59XG5cbi53ZC0xMDAge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLndkLTUwIHtcbiAgd2lkdGg6IDUwJTtcbn1cblxuaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcbn1cblxubWF0LWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5hY3Rpb24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4ub3V0cHV0IHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLmRlbGV0ZSB7XG4gIGNvbG9yOiByZWQ7XG59XG5cbi5kb25lIHtcbiAgY29sb3I6IGdyZWVuO1xufVxuXG4uZWRpdCB7XG4gIGNvbG9yOiB5ZWxsb3c7XG59XG5cbnNwYW4udWktY29sdW1uLXJlc2l6ZXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBjdXJzb3I6IGNvbC1yZXNpemU7XG4gIHBhZGRpbmc6IDMwcHg7XG59XG5cbi5zdG9jay1kYXRlIHtcbiAgYm9yZGVyLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNDIpO1xuICBib3JkZXItdG9wOiBub25lO1xuICBib3JkZXItbGVmdDogbm9uZTtcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xufVxuXG5pbnB1dDpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IHVuc2V0O1xufVxuXG4uc2F2ZS1pY29uIHtcbiAgcGFkZGluZy1sZWZ0OiA3cHg7XG4gIHBhZGRpbmctdG9wOiAyN3B4O1xufVxuXG4uZmEtdGltZXMge1xuICBjb2xvcjogI2ZmMzYzODtcbn1cblxuLnNlYXJjaC1sZWZ0IHtcbiAgbGVmdDogMnB4ICFpbXBvcnRhbnQ7XG59XG5cbi5wYWQtdG9wIHtcbiAgcGFkZGluZy10b3A6IDIycHg7XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aDogMzAwcHgpIGFuZCAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuY2FyZC50YWJsZS1jYXJkIC5jYXJkLWJvZHkge1xuICAgIG92ZXJmbG93OiBzY3JvbGw7XG4gIH1cbn1cbi5zdGF0aWNUYWJsZSB7XG4gIHdpZHRoOiAyODBweDtcbn1cblxuZm9ybSBpbnB1dDpyZXF1aXJlZC5uZy1kaXJ0eS5uZy1pbnZhbGlkIHtcbiAgYm9yZGVyOiBub25lO1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.ts":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.ts ***!
+  \*******************************************************************************************************************************************************/
+/*! exports provided: IncomeTrackerSetupPenaltySetupComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerSetupPenaltySetupComponent", function() { return IncomeTrackerSetupPenaltySetupComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
+
+
+
+
+
+
+
+
+let IncomeTrackerSetupPenaltySetupComponent = class IncomeTrackerSetupPenaltySetupComponent {
+    constructor(accountsService, lookupService, sharedService, cookieService, injector, apartmentService, fb) {
+        this.accountsService = accountsService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.injector = injector;
+        this.apartmentService = apartmentService;
+        this.fb = fb;
+        this.unitFieldType = "unitno";
+        this.unitOrder = false;
         this.isPenaltySetupDataLoaded = false;
+        this.penaltyData = [];
+        this.itemLimit = 10;
+        this.ItemStartIndex = 0;
+        this.row = {};
+        this.deleteType = false;
         //penaltydatalistTable
         this.penaltyTypeDataList = [
             {
@@ -3227,50 +3904,18 @@ let IncomeTrackerSetupComponent = class IncomeTrackerSetupComponent {
                 description: ""
             },
         ];
+        this.isActiveList = [
+            {
+                id: 1,
+                isactive: "yes"
+            },
+            {
+                id: 2,
+                isactive: "no"
+            }
+        ];
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
-    //General
-    submitCurrencyForm() {
-        this.setting.currencyId = this.setting.currencyId;
-        this.sharedService.setAlertMessage("updated successfully");
-    }
-    // submitIncomeSettingsForm(form) {
-    // 	this.setting.currencyId = this.setting.currencyId;
-    // 	this.setting.glAccountId = this.setting.glAccountId;
-    // 	this.setting.paymentTerm = this.setting.paymentTerm;
-    // 	this.setting.vatPercentage = this.setting.vatPercentage;
-    // 	this.isEdit = false;
-    // 	this.sharedService.setAlertMessage("updated successfully");
-    // }
-    //   submitIncomePenalitySettingsForm(form){
-    // 	this.penalty.penaltyTypeId = "Daily Interest";
-    // 	this.penalty.latePaymentId = "124";
-    // 	this.penalty.penaltyPercentage = "10";
-    // 	this.penalty.gracePeriodInvoiceId = "50";
-    // 	this.isPenaltyEdit = false;
-    // 	this.sharedService.setAlertMessage("updated successfully");
-    //   }
-    submitInvoicingForm() {
-        this.setting.invoicedata = this.setting.invoicedata;
-        this.sharedService.setAlertMessage("updated successfully");
-    }
-    submitPenaltyForm() {
-        this.setting.paymentTerm = this.setting.paymentTerm;
-        this.sharedService.setAlertMessage("updated successfully");
-    }
-    submitTaxPolicy() {
-        this.setting.vatPercentage = this.setting.vatPercentage;
-        this.setting.taxPercentage = this.setting.taxPercentage;
-        this.sharedService.setAlertMessage("updated successfully");
-    }
-    vatValuebutton() {
-        this.value = 1;
-        console.log("value1 = ", this.value);
-    }
-    taxValuebutton() {
-        this.value = 2;
-        console.log("value2 = ", this.value);
-    }
-    //auto-invoicing & penalty-setup
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
@@ -3285,220 +3930,248 @@ let IncomeTrackerSetupComponent = class IncomeTrackerSetupComponent {
         else
             return '';
     }
-    //auto-invoicing
-    initiateForm() {
-        return this.fb.group({
-            glAccount: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            feePerMonth: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            monthQuarterlyYear: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            fixedFee: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            vatId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            taxId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            effectiveFrom: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            isEditable: [true]
+    addPenaltyConfig(data) {
+        let reqObj = {};
+        reqObj = {
+            "penaltyId": 0,
+            "penaltyAmount": data.penaltyAmount,
+            "isActive": true,
+            "effectiveDate": data.effectiveDate,
+            "isFlatfee": true,
+            "interest": data.interest,
+            "description": "string",
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString,
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentBlockId": data.apartmentBlockId,
+            "penaltyTypeFrequencyConfigId": data.penaltyTypeFrequencyConfigId
+        };
+        let params = {};
+        params.penaltyConfig = reqObj;
+        console.log("added data ", params);
+        this.accountsService.addPenaltyConfig(params).subscribe((res) => {
+            if (res.message) {
+                this.sharedService.setAlertMessage("Penalty Setup Config added successfully");
+                this.isAssetLoaded = false;
+                this.row = {};
+                this.getAllPenaltyConfigByApartmentId();
+            }
+            else {
+                this.sharedService.setAlertMessage(res.errorMessage);
+            }
         });
     }
-    addRow() {
-        const control = this.autoInvoicingTable.get('tableRows');
-        control.push(this.initiateForm());
-    }
-    deleteRow(index) {
-        const control = this.autoInvoicingTable.get('tableRows');
-        control.removeAt(index);
-    }
-    editRow(group) {
-        group.get('isEditable').setValue(true);
-    }
-    doneRow(group) {
-        group.get('isEditable').setValue(false);
-    }
-    saveUserDetails() {
-        console.log("Auto invoicing => ", this.autoInvoicingTable.value);
-    }
-    get getFormControls() {
-        const control = this.autoInvoicingTable.get('tableRows');
-        return control;
-    }
-    submitForm() {
-        const control = this.autoInvoicingTable.get('tableRows');
-        this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-        console.log(this.touchedRows);
-    }
-    //penalty
-    initiatePenaltyForm() {
-        return this.fb.group({
-            penalatyAmount: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            penaltyTypes: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            activated: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            effectiveDate: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            flatFree: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            interestPercent: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            blockId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            isPenaltyEditable: [true]
+    updatePenaltyConfig(data) {
+        let reqObj = {};
+        reqObj = {
+            "penaltyId": data.penaltyId,
+            "penaltyAmount": data.penaltyAmount,
+            "isActive": data.isActive,
+            "effectiveDate": data.effectiveDate,
+            "isFlatfee": data.isFlatfee,
+            "interest": data.interest,
+            "description": "string",
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString,
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentBlockId": data.apartmentBlockId,
+            "penaltyTypeFrequencyConfigId": data.penaltyTypeFrequencyConfigId
+        };
+        let params = {};
+        params.penaltyConfig = reqObj;
+        this.accountsService.updatePenaltyConfig(params).subscribe((res) => {
+            if (res) {
+                this.sharedService.setAlertMessage("Penalty setup config Updated successfully");
+                // this.isAssetLoaded = false;
+                this.isEditRow = false;
+                this.updatePenaltyRowIndex = -1;
+                this.getAllPenaltyConfigByApartmentId();
+            }
         });
     }
-    addPenaltyRow() {
-        const penaltyControl = this.penaltyTable.get('tablePenaltyRows');
-        penaltyControl.push(this.initiatePenaltyForm());
+    deleteRow(index, data) {
+        // const control = this.userTable.get('tableRows') as FormArray;
+        // control.removeAt(index);
+        console.log(data.penaltyId);
+        this.deleteType = true;
+        this.modalService.showConfirmModal(data.penaltyId);
     }
-    deletePenaltyRow(index) {
-        const penaltyControl = this.penaltyTable.get('tablePenaltyRows');
-        penaltyControl.removeAt(index);
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
     }
-    editPenaltyRow(penaltyGroup) {
-        penaltyGroup.get('isPenaltyEditable').setValue(true);
+    getAllPenaltyConfigByApartmentId() {
+        let queryParamBase = {};
+        queryParamBase = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+        };
+        this.isAssetLoaded = true;
+        this.accountsService.getAllPenaltyConfigByApartmentId(queryParamBase).subscribe((res) => {
+            if (res) {
+                console.log("resp of penalty", res);
+                // this.penaltyData = [];
+                this.penaltyData = res && res.length > 0 ? res : [];
+                this.isAssetLoaded = false;
+                // this.tempWarehouseData = this.warehouseData;
+                this.totalItems = this.penaltyData.length;
+                if (this.totalItems > this.itemLimit) {
+                    this.ItemEndIndex = this.itemLimit;
+                }
+                else {
+                    this.ItemEndIndex = this.totalItems;
+                }
+            }
+        });
     }
-    donePenaltyRow(penaltyGroup) {
-        penaltyGroup.get('isPenaltyEditable').setValue(false);
+    getPenaltyConfigByPenaltyId() {
+        let queryParamBase = {};
+        console.log("data[0]", this.penaltyData);
+        queryParamBase = {
+            PenaltyId: 1
+        };
+        this.isAssetLoaded = true;
+        this.accountsService.getPenaltyConfigByPenaltyId(queryParamBase).subscribe((res) => {
+            if (res) {
+                this.isAssetLoaded = false;
+                this.penaltyType = res ? res : [];
+                console.log("penalty type ==> ", this.penaltyType);
+            }
+        });
     }
-    savePenaltyDetails() {
-        console.log("Penalty setup list => ", this.penaltyTable.value);
+    getGlAccountsIdbyGlAccountTypeId() {
+        let queryParamBase = {};
+        queryParamBase = {
+            apartmentId: this.cookieService.get('apartmentId'),
+            GLAccountTypeId: 165
+        };
+        //  this.isAssetLoaded = true;
+        this.accountsService.getGlAccountsIdbyGlAccountTypeId(queryParamBase).subscribe((res) => {
+            if (res) {
+                // this.isAssetLoaded = false;
+                this.glAccountList = res ? res : [];
+                console.log(this.glAccountList);
+            }
+        });
     }
-    get getPenaltyFormControls() {
-        const penaltyControl = this.penaltyTable.get('tablePenaltyRows');
-        return penaltyControl;
-    }
-    submitPenaltySetupForm() {
-        const penaltyControl = this.penaltyTable.get('tablePenaltyRows');
-        this.touchedPenaltyRows = penaltyControl.controls.filter(row => row.touched).map(row => row.value);
-        console.log(this.touchedPenaltyRows);
+    getApartmentBlockByApartmentId() {
+        let blockListParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(blockListParams).subscribe((res) => {
+            this.blockDataList = res ? res : [];
+        });
     }
     ngOnInit() {
-        //tabs
-        this.navArray = [
-            { link: 'general', name: 'General' },
-            { link: 'auto-invocing', name: 'Auto Invoicing' },
-            { link: 'penalty', name: 'Penalty Setup' }
-        ];
-        //auto-invoicing
-        this.isAutoInvoicingDataLoaded = true;
-        this.touchedRows = [];
-        this.autoInvoicingTable = this.fb.group({
-            tableRows: this.fb.array([])
-        });
-        this.addRow();
-        //penalty
         this.isPenaltySetupDataLoaded = true;
-        this.touchedPenaltyRows = [];
-        this.penaltyTable = this.fb.group({
-            tablePenaltyRows: this.fb.array([])
+        // this.addPenaltyRow();
+        this.getGlAccountsIdbyGlAccountTypeId();
+        this.getPenaltyConfigByPenaltyId();
+        this.getAllPenaltyConfigByApartmentId();
+        this.getApartmentBlockByApartmentId();
+        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            if (id != null) {
+                if (this.deleteType) {
+                    let param = {};
+                    param = {
+                        apartmentId: this.cookieService.get('apartmentId'),
+                        PenaltyId: id,
+                        deleteBy: parseInt(this.cookieService.get('userId'))
+                    };
+                    this.accountsService.deletePenaltyConfig(param).subscribe((res) => {
+                        if (res.message) {
+                            this.getAllPenaltyConfigByApartmentId();
+                            setTimeout(() => {
+                                this.sharedService.setAlertMessage("Penalty deleted successfully");
+                                this.sharedService.setUnitListDeleteIndex(null);
+                            }, 500);
+                        }
+                        else {
+                            this.sharedService.setAlertMessage(res.errorMessage);
+                        }
+                        this.deleteType = false;
+                    }, error => {
+                        console.log(error);
+                    });
+                }
+            }
         });
-        this.addPenaltyRow();
-        // < -- General
-        this.setting = {};
-        this.setting.currencyId = "dollor";
-        this.setting.invoicedata = "1234";
-        this.setting.paymentTerm = "abcd";
-        this.setting.vatPercentage = "10";
-        //this.setting.taxPercentage = "20";
-        // this.penalty = {};
-        // this.penalty.penaltyTypeId = "Daily Interest";
-        // this.penalty.latePaymentId = "124";
-        // this.penalty.penaltyPercentage = "10";
-        // this.penalty.gracePeriodInvoiceId = "50";
-        let params = {
-            LookupTypeId: 88
-        };
-        //currency type
-        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
-            this.currencyTypeDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        this.accountsService.getAllGlAccounts().subscribe((res) => {
-            this.glAccountListData = res.filter(item => {
-                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
-            });
-        });
-        let invoiceListParams = {
-            LookupTypeId: 88
-        };
-        //payment term
-        this.lookupService.getLookupValueByLookupTypeId(invoiceListParams).subscribe((res) => {
-            this.paymentInvoiceDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        let vatListParams = {
-            LookupTypeId: 77
-        };
-        //VAT
-        this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
-            this.vatPecentageDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        let penalityListParams = {
-            LookupTypeId: 80
-        };
-        //penalty
-        this.lookupService.getLookupValueByLookupTypeId(penalityListParams).subscribe((res) => {
-            this.penaltyDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        let lateListParams = {
-            LookupTypeId: 81
-        };
-        //late payment
-        this.lookupService.getLookupValueByLookupTypeId(lateListParams).subscribe((res) => {
-            this.lastPaymentDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        let penalityParams = {
-            LookupTypeId: 82
-        };
-        //% Penalty percentage
-        this.lookupService.getLookupValueByLookupTypeId(penalityParams).subscribe((res) => {
-            this.penaltyPercentageDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        let graceListParams = {
-            LookupTypeId: 83
-        };
-        //% grace period for invoice
-        this.lookupService.getLookupValueByLookupTypeId(graceListParams).subscribe((res) => {
-            this.gracePeriodInvoiceDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-    }
-    // showEditForm() {
-    // 	this.isEdit = !this.isEdit;
-    // }
-    editCurrency() {
-        this.isEditCurrency = !this.isEditCurrency;
-    }
-    editReconciliation() {
-        this.isEditReconciliation = !this.isEditReconciliation;
-    }
-    showPenaltyEditForm() {
-        this.isPenaltyEdit = !this.isPenaltyEdit;
-    }
-    editTaxPolicy() {
-        this.isEditTaxPolicy = !this.isEditTaxPolicy;
     }
 };
-IncomeTrackerSetupComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+IncomeTrackerSetupPenaltySetupComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
 ];
+IncomeTrackerSetupPenaltySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-tracker-setup-penalty-setup',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-setup-penalty-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-setup-penalty-setup.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
+], IncomeTrackerSetupPenaltySetupComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.scss":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.scss ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".save {\n  margin: 25px 0px 0px 25px;\n}\n\n.editbutton {\n  margin: 20px 10px 0px 0px;\n}\n\n.card.table-card .card-body {\n  overflow: hidden;\n}\n\n.wd-100 {\n  width: 100%;\n}\n\n.wd-50 {\n  width: 50%;\n}\n\nheader {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.colname th,\ntd {\n  padding: 14px 10px 14px 10px;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n\n.effective-date {\n  border-color: rgba(0, 0, 0, 0.42);\n  border-top: none;\n  border-left: none;\n  border-right: none;\n}\n\ninput:focus {\n  outline: none;\n  box-shadow: unset;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLXRyYWNrZXItc2V0dXAvaW5jb21lLXRyYWNrZXItc2V0dXAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBS0E7RUFDRSx5QkFBQTtBQ0pGOztBRE1BO0VBQ0UseUJBQUE7QUNIRjs7QURRQTtFQUNFLGdCQUFBO0FDTEY7O0FEUUE7RUFDRSxXQUFBO0FDTEY7O0FEUUE7RUFDRSxVQUFBO0FDTEY7O0FEUUE7RUFDRSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUNMRjs7QURRQTtFQUNFLGVBQUE7QUNMRjs7QURRQTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUNMRjs7QURRQTtFQUNFLGFBQUE7QUNMRjs7QURRQTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FDTEY7O0FEUUE7O0VBRUUsNEJBQUE7QUNMRjs7QURRQTtFQUNFLGFBQUE7QUNMRjs7QURRQTtFQUNFLFVBQUE7QUNMRjs7QURRQTtFQUNFLFlBQUE7QUNMRjs7QURRQTtFQUNFLGFBQUE7QUNMRjs7QURPQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0FDSkY7O0FET0E7RUFDRSxpQ0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0pGOztBRE1BO0VBQ0UsYUFBQTtFQUNBLGlCQUFBO0FDSEYiLCJmaWxlIjoic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdHJhY2tlci1zZXR1cC9pbmNvbWUtdHJhY2tlci1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCIuLi8uLi8uLi8uLi8uLi9zY3NzL2ZvbnRzLnNjc3NcIjtcbkBpbXBvcnQgXCIuLi8uLi8uLi8uLi8uLi9zY3NzL3ZhcmlhYmxlcy5zY3NzXCI7XG5cbi8vIGdlbmVyYWxcblxuLnNhdmUge1xuICBtYXJnaW46IDI1cHggMHB4IDBweCAyNXB4O1xufVxuLmVkaXRidXR0b24ge1xuICBtYXJnaW46IDIwcHggMTBweCAwcHggMHB4O1xufVxuXG4vL2F1dG8taW52b2ljaW5nXG5cbi5jYXJkLnRhYmxlLWNhcmQgLmNhcmQtYm9keSB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi53ZC0xMDAge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLndkLTUwIHtcbiAgd2lkdGg6IDUwJTtcbn1cblxuaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWJvdHRvbTogNTBweDtcbn1cblxubWF0LWljb24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5hY3Rpb24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUge1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4udGFibGUgdGJvZHkgdHIgdGQsXG4udGFibGUgdGhlYWQgdGgsXG4udGFibGUgdGhlYWQge1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNkZWUyZTY7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGVlMmU2O1xufVxuXG4uY29sbmFtZSB0aCxcbnRkIHtcbiAgcGFkZGluZzogMTRweCAxMHB4IDE0cHggMTBweDtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkO1xufVxuXG4uZG9uZSB7XG4gIGNvbG9yOiBncmVlbjtcbn1cblxuLmVkaXQge1xuICBjb2xvcjogeWVsbG93O1xufVxuc3Bhbi51aS1jb2x1bW4tcmVzaXplciB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogY29sLXJlc2l6ZTtcbiAgcGFkZGluZzogMzBweDtcbn1cblxuLmVmZmVjdGl2ZS1kYXRle1xuICBib3JkZXItY29sb3I6IHJnYmEoMCwwLDAsLjQyKTtcbiAgYm9yZGVyLXRvcDogbm9uZTtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbn1cbmlucHV0OmZvY3Vze1xuICBvdXRsaW5lOiBub25lO1xuICBib3gtc2hhZG93OiB1bnNldDtcbn0iLCIuc2F2ZSB7XG4gIG1hcmdpbjogMjVweCAwcHggMHB4IDI1cHg7XG59XG5cbi5lZGl0YnV0dG9uIHtcbiAgbWFyZ2luOiAyMHB4IDEwcHggMHB4IDBweDtcbn1cblxuLmNhcmQudGFibGUtY2FyZCAuY2FyZC1ib2R5IHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLndkLTEwMCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4ud2QtNTAge1xuICB3aWR0aDogNTAlO1xufVxuXG5oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICBjb2xvcjogI2ZmZjtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIHBvc2l0aW9uOiBzdGlja3k7XG4gIHRvcDogMDtcbiAgcGFkZGluZzogMTVweDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBtYXJnaW4tYm90dG9tOiA1MHB4O1xufVxuXG5tYXQtaWNvbiB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmFjdGlvbi1jb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi50YWJsZSB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi50YWJsZSB0Ym9keSB0ciB0ZCxcbi50YWJsZSB0aGVhZCB0aCxcbi50YWJsZSB0aGVhZCB7XG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2RlZTJlNjtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZWUyZTY7XG59XG5cbi5jb2xuYW1lIHRoLFxudGQge1xuICBwYWRkaW5nOiAxNHB4IDEwcHggMTRweCAxMHB4O1xufVxuXG4ub3V0cHV0IHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLmRlbGV0ZSB7XG4gIGNvbG9yOiByZWQ7XG59XG5cbi5kb25lIHtcbiAgY29sb3I6IGdyZWVuO1xufVxuXG4uZWRpdCB7XG4gIGNvbG9yOiB5ZWxsb3c7XG59XG5cbnNwYW4udWktY29sdW1uLXJlc2l6ZXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBjdXJzb3I6IGNvbC1yZXNpemU7XG4gIHBhZGRpbmc6IDMwcHg7XG59XG5cbi5lZmZlY3RpdmUtZGF0ZSB7XG4gIGJvcmRlci1jb2xvcjogcmdiYSgwLCAwLCAwLCAwLjQyKTtcbiAgYm9yZGVyLXRvcDogbm9uZTtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbn1cblxuaW5wdXQ6Zm9jdXMge1xuICBvdXRsaW5lOiBub25lO1xuICBib3gtc2hhZG93OiB1bnNldDtcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.ts":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.ts ***!
+  \******************************************************************************************************/
+/*! exports provided: IncomeTrackerSetupComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerSetupComponent", function() { return IncomeTrackerSetupComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let IncomeTrackerSetupComponent = class IncomeTrackerSetupComponent {
+    ngOnInit() {
+        this.navArray = [
+            { link: 'general', name: 'General' },
+            { link: 'auto-invoicing', name: 'Auto Invoicing' },
+            { link: 'penalty-setup', name: 'Penalty Setup' }
+        ];
+    }
+};
 IncomeTrackerSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-tracker-setup',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-tracker-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-setup.component.scss */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
+    })
 ], IncomeTrackerSetupComponent);
 
 
@@ -5079,7 +5752,7 @@ window.updateInvoiceEvent = updateInvoiceEvent;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS12aWV3LXJlY2VpcHRzL2luY29tZS12aWV3LXJlY2VpcHRzLmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .material .mat-dialog-container {\n  width: 1200px;\n  height: 650px;\n  overflow: auto;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box h5 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  color: #52c570;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box .other-info .address,\n::ng-deep .material .mat-dialog-container .info-modal-box .other-info .email {\n  font-family: \"Lato\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  font-size: 1.4rem;\n  display: inline-block;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box .other-info.grey .address,\n::ng-deep .material .mat-dialog-container .info-modal-box .other-info.grey .email {\n  color: #8391a1;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box .details {\n  padding: 10px 19px;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box .details p {\n  font-size: 1.4rem;\n  color: #8391a1;\n  float: right;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box .details p span {\n  color: #373946;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box .table thead th {\n  padding: 12px 20px;\n  background-color: #eaeaea;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box .table tr.total td {\n  font-family: \"Lato\", sans-serif;\n  font-weight: 700;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-rendering: optimizeLegibility;\n}\n::ng-deep .material .mat-dialog-container .info-modal-box p.bottom {\n  font-size: 1.3rem;\n}\n.unit p {\n  font-size: 14px;\n}\n.generated p span {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  color: #52c570;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtdmlldy1yZWNlaXB0cy9pbmNvbWUtdmlldy1yZWNlaXB0cy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLXZpZXctcmVjZWlwdHMvaW5jb21lLXZpZXctcmVjZWlwdHMuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL2ZvbnRzLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlBO0VBQ0UsYUFBQTtFQUNBLGFBQUE7RUFDQSxjQUFBO0FDSEY7QURLSTtFRXNDRixxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUZ0Q0ksY0cwQ1U7QUYzQ2hCO0FESU07O0VFK0NKLCtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7RUFhQSxpQkFBQTtFRjVETSxxQkFBQTtBQ0VSO0FEQ1E7O0VBRUUsY0daRztBRmFiO0FER0k7RUFDRSxrQkFBQTtBQ0ROO0FERU07RUVpREosaUJBQUE7RUYvQ00sY0dwQks7RUhxQkwsWUFBQTtBQ0FSO0FEQ1E7RUFDRSxjRzZEQztBRjVEWDtBREdJO0VBQ0Usa0JBQUE7RUFDQSx5QkdnRUs7QUZqRVg7QURJTTtFRTBCSiwrQkFBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSxtQ0FBQTtFQUNBLGtDQUFBO0VBQ0Esa0NBQUE7QUQzQkY7QURBSTtFRStCRixpQkFBQTtBRDVCRjtBRElFO0VBQ0UsZUFBQTtBQ0RKO0FETVE7RUViTixxQ0FBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUZhVSxjR1RJO0FGUWhCIiwiZmlsZSI6InNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLXZpZXctcmVjZWlwdHMvaW5jb21lLXZpZXctcmVjZWlwdHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuOjpuZy1kZWVwIC5tYXRlcmlhbCAubWF0LWRpYWxvZy1jb250YWluZXIge1xuICB3aWR0aDogMTIwMHB4O1xuICBoZWlnaHQ6IDY1MHB4O1xuICBvdmVyZmxvdzogYXV0bztcbiAgLmluZm8tbW9kYWwtYm94IHtcbiAgICBoNSB7XG4gICAgICBAaW5jbHVkZSBoZWFkLW1lZGl1bTtcbiAgICAgIGNvbG9yOiAkbGltZS1ncmVlbi0wMztcbiAgICB9XG4gICAgLm90aGVyLWluZm8ge1xuICAgICAgLmFkZHJlc3MsXG4gICAgICAuZW1haWwge1xuICAgICAgICBAaW5jbHVkZSBkZXNwLXJlZ3VsYXI7XG4gICAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xuICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgICB9XG4gICAgICAmLmdyZXkge1xuICAgICAgICAuYWRkcmVzcyxcbiAgICAgICAgLmVtYWlsIHtcbiAgICAgICAgICBjb2xvcjogJGxpZ2h0LWJsdWU7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gICAgLmRldGFpbHMge1xuICAgICAgcGFkZGluZzogMTBweCAxOXB4O1xuICAgICAgcCB7XG4gICAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xuICAgICAgICBjb2xvcjogJGxpZ2h0LWJsdWU7XG4gICAgICAgIGZsb2F0OiByaWdodDtcbiAgICAgICAgc3BhbiB7XG4gICAgICAgICAgY29sb3I6ICRncmV5LTgwMDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgICAudGFibGUgdGhlYWQgdGgge1xuICAgICAgcGFkZGluZzogMTJweCAyMHB4O1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogJGdyZXktNDUwO1xuICAgIH1cbiAgICAudGFibGUge1xuICAgICAgdHIudG90YWwgdGQge1xuICAgICAgICBAaW5jbHVkZSBkZXNwLW1lZGl1bTtcbiAgICAgIH1cbiAgICB9XG4gICAgcC5ib3R0b20ge1xuICAgICAgQGluY2x1ZGUgZnQtY2FsYygkZm9udC1zbWFsbGVyKTtcbiAgICB9XG4gIH1cbn1cblxuLnVuaXQge1xuICBwIHtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gIH1cbn1cbi5nZW5lcmF0ZWR7XG4gICAgcHtcbiAgICAgICAgc3BhbntcbiAgICAgICAgICAgIEBpbmNsdWRlIGhlYWQtbWVkaXVtO1xuICAgICAgICAgICAgY29sb3I6ICRsaW1lLWdyZWVuLTAzOztcbiAgICAgICAgfVxuICAgIH1cbiAgIFxufSIsIjo6bmctZGVlcCAubWF0ZXJpYWwgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcbiAgd2lkdGg6IDEyMDBweDtcbiAgaGVpZ2h0OiA2NTBweDtcbiAgb3ZlcmZsb3c6IGF1dG87XG59XG46Om5nLWRlZXAgLm1hdGVyaWFsIC5tYXQtZGlhbG9nLWNvbnRhaW5lciAuaW5mby1tb2RhbC1ib3ggaDUge1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbiAgY29sb3I6ICM1MmM1NzA7XG59XG46Om5nLWRlZXAgLm1hdGVyaWFsIC5tYXQtZGlhbG9nLWNvbnRhaW5lciAuaW5mby1tb2RhbC1ib3ggLm90aGVyLWluZm8gLmFkZHJlc3MsXG46Om5nLWRlZXAgLm1hdGVyaWFsIC5tYXQtZGlhbG9nLWNvbnRhaW5lciAuaW5mby1tb2RhbC1ib3ggLm90aGVyLWluZm8gLmVtYWlsIHtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICBmb250LXNpemU6IDEuNHJlbTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuOjpuZy1kZWVwIC5tYXRlcmlhbCAubWF0LWRpYWxvZy1jb250YWluZXIgLmluZm8tbW9kYWwtYm94IC5vdGhlci1pbmZvLmdyZXkgLmFkZHJlc3MsXG46Om5nLWRlZXAgLm1hdGVyaWFsIC5tYXQtZGlhbG9nLWNvbnRhaW5lciAuaW5mby1tb2RhbC1ib3ggLm90aGVyLWluZm8uZ3JleSAuZW1haWwge1xuICBjb2xvcjogIzgzOTFhMTtcbn1cbjo6bmctZGVlcCAubWF0ZXJpYWwgLm1hdC1kaWFsb2ctY29udGFpbmVyIC5pbmZvLW1vZGFsLWJveCAuZGV0YWlscyB7XG4gIHBhZGRpbmc6IDEwcHggMTlweDtcbn1cbjo6bmctZGVlcCAubWF0ZXJpYWwgLm1hdC1kaWFsb2ctY29udGFpbmVyIC5pbmZvLW1vZGFsLWJveCAuZGV0YWlscyBwIHtcbiAgZm9udC1zaXplOiAxLjRyZW07XG4gIGNvbG9yOiAjODM5MWExO1xuICBmbG9hdDogcmlnaHQ7XG59XG46Om5nLWRlZXAgLm1hdGVyaWFsIC5tYXQtZGlhbG9nLWNvbnRhaW5lciAuaW5mby1tb2RhbC1ib3ggLmRldGFpbHMgcCBzcGFuIHtcbiAgY29sb3I6ICMzNzM5NDY7XG59XG46Om5nLWRlZXAgLm1hdGVyaWFsIC5tYXQtZGlhbG9nLWNvbnRhaW5lciAuaW5mby1tb2RhbC1ib3ggLnRhYmxlIHRoZWFkIHRoIHtcbiAgcGFkZGluZzogMTJweCAyMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWFlYWVhO1xufVxuOjpuZy1kZWVwIC5tYXRlcmlhbCAubWF0LWRpYWxvZy1jb250YWluZXIgLmluZm8tbW9kYWwtYm94IC50YWJsZSB0ci50b3RhbCB0ZCB7XG4gIGZvbnQtZmFtaWx5OiBcIkxhdG9cIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cbjo6bmctZGVlcCAubWF0ZXJpYWwgLm1hdC1kaWFsb2ctY29udGFpbmVyIC5pbmZvLW1vZGFsLWJveCBwLmJvdHRvbSB7XG4gIGZvbnQtc2l6ZTogMS4zcmVtO1xufVxuXG4udW5pdCBwIHtcbiAgZm9udC1zaXplOiAxNHB4O1xufVxuXG4uZ2VuZXJhdGVkIHAgc3BhbiB7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIiwgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xuICBjb2xvcjogIzUyYzU3MDtcbn0iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuQG1peGluIHB1YmxpYy1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIGhlYWQtbGlnaHQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbn1cblxuQG1peGluIGhlYWQtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNzAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJGQtY3lhbi0wMzojMDBkMWZhO1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGltZS1ncmVlbi0wMzogIzUyYzU3MDtcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtbWVkaXVtLTA0OjMwO1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iXX0= */");
 
 /***/ }),
 
@@ -5104,7 +5777,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxwindow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover.ts");
-/* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
 
 
 
@@ -5131,6 +5804,7 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
         this.isMobile = false;
         this.selectedInput = "";
         this.columnField = {};
+        this.isReceiptPrintLoaded = false;
         this.submitFlag = true;
     }
     getIndexParams(event) {
@@ -5231,6 +5905,27 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
     onUpdateInvoice(detail) {
         var invoice = this.datagrid.getrowdata(detail.rowId);
         // this.updateInvoiceItem(invoice, detail.column);
+    }
+    //receiptInfo
+    downloadReceiptEvent() {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            collectionId: 188
+        };
+        this.isReceiptPrintLoaded = false;
+        this.accountsService.getCollectionByCollectionId(params).subscribe((res) => {
+            // this.custTaxDetails = res[0].custinvoiceTax
+            this.isReceiptPrintLoaded = true;
+            this.receiptInfoDetails = res;
+            console.log("receipt list ", res);
+        });
+        this.dialog.open(this.viewReceiptsDetailsRef, {
+            panelClass: 'material',
+            data: this.receiptInfoDetails
+        });
+    }
+    getReceiptInfoDate(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.constantsService.dateFormat);
     }
     onClose(event) {
         this.submitFlag = true;
@@ -5369,8 +6064,12 @@ IncomeViewReceiptsComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"] }
+    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"] }
 ];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("viewReceiptsDetailsRef", { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+], IncomeViewReceiptsComponent.prototype, "viewReceiptsDetailsRef", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__["jqxGridComponent"])
@@ -5408,7 +6107,7 @@ IncomeViewReceiptsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"]])
+        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"]])
 ], IncomeViewReceiptsComponent);
 
 function editReverseEvent(row) {
@@ -5461,6 +6160,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_tracker_setup_income_tracker_setup_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup.component.ts");
 /* harmony import */ var _components_income_tracker_reports_income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.ts");
 /* harmony import */ var _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component.ts");
+/* harmony import */ var _components_income_tracker_setup_income_tracker_setup_general_income_tracker_setup_general_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.ts");
+/* harmony import */ var _components_income_tracker_setup_income_tracker_setup_auto_invoicing_income_tracker_setup_auto_invoicing_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.ts");
+/* harmony import */ var _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.ts");
+
+
+
 
 
 
@@ -5480,7 +6185,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'subledger', pathMatch: 'full' },
-    { path: 'settings', component: _components_income_tracker_setup_income_tracker_setup_component__WEBPACK_IMPORTED_MODULE_14__["IncomeTrackerSetupComponent"] },
+    {
+        path: 'settings', component: _components_income_tracker_setup_income_tracker_setup_component__WEBPACK_IMPORTED_MODULE_14__["IncomeTrackerSetupComponent"],
+        children: [
+            { path: 'general', component: _components_income_tracker_setup_income_tracker_setup_general_income_tracker_setup_general_component__WEBPACK_IMPORTED_MODULE_17__["IncomeTrackerSetupGeneralComponent"], pathMatch: 'full' },
+            { path: 'auto-invoicing', component: _components_income_tracker_setup_income_tracker_setup_auto_invoicing_income_tracker_setup_auto_invoicing_component__WEBPACK_IMPORTED_MODULE_18__["IncomeTrackerSetupAutoInvoicingComponent"] },
+            { path: 'penalty-setup', component: _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_19__["IncomeTrackerSetupPenaltySetupComponent"] },
+            { path: '**', redirectTo: 'general', pathMatch: 'full' }
+        ]
+    },
     { path: 'subledger', component: _components_income_sub_ledger_income_sub_ledger_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSubLedgerComponent"] },
     { path: 'view-invoice-history/:id', component: _components_income_view_invoice_history_income_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_7__["IncomeViewInvoiceHistoryComponent"] },
     { path: 'all-invoices', component: _components_income_view_invoice_income_view_invoice_component__WEBPACK_IMPORTED_MODULE_6__["IncomeViewInvoiceComponent"] },
@@ -5591,6 +6304,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component */ "./src/app/ams/income-tracker/components/income-tracker-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component.ts");
 /* harmony import */ var _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/income-tracker-filter/income-tracker-filter.component */ "./src/app/ams/income-tracker/components/income-tracker-filter/income-tracker-filter.component.ts");
 /* harmony import */ var _components_income_receipts_reverse_income_receipts_reverse_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/income-receipts-reverse/income-receipts-reverse.component */ "./src/app/ams/income-tracker/components/income-receipts-reverse/income-receipts-reverse.component.ts");
+/* harmony import */ var _components_income_tracker_setup_income_tracker_setup_general_income_tracker_setup_general_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.ts");
+/* harmony import */ var _components_income_tracker_setup_income_tracker_setup_auto_invoicing_income_tracker_setup_auto_invoicing_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.ts");
+/* harmony import */ var _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.ts");
+
+
+
 
 
 
@@ -5640,7 +6359,10 @@ IncomeTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_income_tracker_reports_income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_21__["IncomeTrackerReportsCustomerComponent"],
             _components_income_tracker_reports_income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_22__["IncomeTrackerReportsVendorComponent"],
             _components_income_tracker_filter_income_tracker_filter_component__WEBPACK_IMPORTED_MODULE_23__["IncomeTrackerFilterComponent"],
-            _components_income_receipts_reverse_income_receipts_reverse_component__WEBPACK_IMPORTED_MODULE_24__["IncomeReceiptsReverseComponent"]
+            _components_income_receipts_reverse_income_receipts_reverse_component__WEBPACK_IMPORTED_MODULE_24__["IncomeReceiptsReverseComponent"],
+            _components_income_tracker_setup_income_tracker_setup_general_income_tracker_setup_general_component__WEBPACK_IMPORTED_MODULE_25__["IncomeTrackerSetupGeneralComponent"],
+            _components_income_tracker_setup_income_tracker_setup_auto_invoicing_income_tracker_setup_auto_invoicing_component__WEBPACK_IMPORTED_MODULE_26__["IncomeTrackerSetupAutoInvoicingComponent"],
+            _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_27__["IncomeTrackerSetupPenaltySetupComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
