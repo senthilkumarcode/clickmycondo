@@ -7523,7 +7523,7 @@ let SidebarComponent = class SidebarComponent {
             this.activeNav = name;
         }
         else {
-            if (event.target.className.indexOf('nav-link') == -1) {
+            if (!event.target.hasAttribute('name')) {
                 this.activeNav = '';
             }
         }

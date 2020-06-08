@@ -12143,7 +12143,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.activeNav != name) {
             this.activeNav = name;
           } else {
-            if (event.target.className.indexOf('nav-link') == -1) {
+            if (!event.target.hasAttribute('name')) {
               this.activeNav = '';
             }
           }
