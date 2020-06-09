@@ -6,6 +6,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["moveinout-tracker-moveinout-tracker-module"], {
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.html":
+  /*!***********************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.html ***!
+    \***********************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsMoveinoutTrackerComponentsCreateMoveinCreateMoveinComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"user-movein-maintain-wrapper\">\n\n\t<div class=\"d-flex align-items-center\">\n\t\t<h5 class=\"mb-4\">\n\t\t\t<span>Add Movein</span>\n\t\t</h5>\n\n\t\t<div class=\"float-left\">\n\t\t\t<a href=\"javascript:void(0)\" class=\"btn lime-green mt_5\" routerLink=\"/ams/moveinout-tracker/movein\" routerLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\tCancel\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear mb-3 details-card\">\n\t\t<div class=\"card-header no-border\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"sub-details\">\n\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t<img class=\"mr-3 svg\" src=\"assets/images/user-liner-icon.svg\" width=\"20\">\n\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t<h6 class=\"head\">User </h6>\n\t\t\t\t\t\t\t<p>{{userName}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t<img class=\"mr-3 svg\" src=\"assets/images/apartment2-icon.svg\" width=\"20\">\n\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t<h6 class=\"head\">Block No </h6>\n\t\t\t\t\t\t\t<p>{{apartmentBlockNumber}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"lists\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t<img class=\"mr-3 svg\" src=\"assets/images/apartment2-icon.svg\" width=\"20\">\n\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t<h6 class=\"head\">Unit No </h6>\n\t\t\t\t\t\t\t<p>{{apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear\">\n\n\t\t<form #createMoveInForm=\"ngForm\" name=\"createMoveInForm\" (ngSubmit)=\"submitCreateMoveInForm(createMoveInForm)\" novalidate>\n\n\t\t\t<div class=\"card-body\">\n\n\t\t\t\t<app-loader *ngIf=\"!isMoveinSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isMoveinSubmitted\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Family Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter count\"\n\t\t\t\t\t\t\t\t\tname=\"familyCount\" [(ngModel)]=\"movein.familyCount\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>MoveIn Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"moveInDate\" [owlDateTime]=\"moveInDate\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"moveInDate\" placeholder=\"Date\" (change)=\"dateChange()\" [(ngModel)]=\"movein.inDate\" [min]=\"min\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #moveInDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"moveInDate\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<span *ngIf=\"showDateError\" style=\"color:red\">Date should be equal to or greater than current date</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>MoveIn Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"moveInTime\" [owlDateTime]=\"moveInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"moveInTime\" placeholder=\"Date\" [(ngModel)]=\"movein.inTime\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #moveInTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"moveInTime\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"clock\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box select-box\">\n\t\t\t\t\t\t\t\t<label>Requested By<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<select name=\"raisedBy\" id=\"raisedBy\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"movein.reqUserId\">\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of raisedByData\" [value]=\"item.userId\">{{ item.firstName }}\n\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"comment\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"movein.comment\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"form-group col-sm-4\">\n\t\t\t\t\t\t\t<label for=\"\" class=\"control-label\">Are you a foriegn national?</label>\n\t\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t  <div class=\"form-check form-check-inline\">\n\t\t\t\t\t\t\t\t<input class=\"form-check-input\" type=\"radio\" [(ngModel)]=\"category\" name=\"inlineRadio1\" id=\"inlineRadio1\" value=\"Yes\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"inlineRadio1\">Yes</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t  <div class=\"form-check form-check-inline\">\n\t\t\t\t\t\t\t\t<input class=\"form-check-input\" type=\"radio\" [(ngModel)]=\"category\" name=\"inlineRadio1\" id=\"inlineRadio2\" value=\"No\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"inlineRadio2\">No</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"movein-box\">\n\t\t\t\t\t\t\t\t<p>Information message:</p>\n\t\t\t\t\t\t\t\t<p>upload below mandatory documents*</p>\n\t\t\t\t\t\t\t\t<p>Driving licence</p>\n\t\t\t\t\t\t\t\t<p>Passport</p>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t\t<div class=\"card-body border-top\" *ngIf=\"isMoveinSubmitted\">\n\t\t\t\t<h6 class=\"sub-title mb-20\">\n\t\t\t\t\t<span class=\"icon-wrapper\">\n\t\t\t\t\t\t<i-feather class=\"icon upload\" name=\"upload\"></i-feather>\n\t\t\t\t\t</span>\n\t\t\t\t\t<span>Document to upload</span>\n\t\t\t\t</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box select-box\">\n\t\t\t\t\t\t\t<label>Document type</label>\n\t\t\t\t\t\t\t<select name=\"documentConfigId\" id=\"documentConfigId\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"documentConfigId\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of documentDataList\" [value]=\"item.id\">{{ item.description }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"comment\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"documentComment\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t<div class=\"input-box mb-0\">\n\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\"\n\t\t\t\t\t\t\t\t[ngClass]=\"documentConfigId == '' ? 'disabled' : ''\">\n\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploader type=\"file\" (change)=\"uploadFile($event)\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"movein.file\" multiple>\n\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Add file</label>\n\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t\t<div class=\"card-body border-top\" *ngIf=\"isMoveinSubmitted\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"!createMoveInForm.valid\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.html":
   /*!*************************************************************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.html ***!
@@ -21,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"movein-admin-history-wrapper\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    <ul class=\"legends list-inline\" *ngIf=\"isDataLoaded\">\n        <li class=\"list-inline-item\"><span><img src=\"assets/images/movein-icon.svg\" class=\"svg\" width=\"17\" height=\"17\"\n                    alt=\"Moved In\"></span>Moved In</li>\n        <li class=\"list-inline-item\"><span class=\"dots grey-850\"></span>Cancelled</li>\n        <li class=\"list-inline-item\"><span class=\"dots m-yellow\"></span>Rejected</li>\n    </ul>\n    <div class=\"card clear table-card\" *ngIf=\"isDataLoaded\">\n\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>History <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n            </div>\n\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveInOutHitoryData\" (ngModelChange)=\"onGlSearchFilter()\">\n                </li>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n\n            <!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\n                <thead>\n                    <tr>\n                        <th scope=\"col\">\n                            Name\n                            <span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Name\"\n                                [(ngModel)]=\"columnField['userName']\" (ngModelChange)=\"selectColInput('userName')\">\n                        </th>\n                        <th scope=\"col\">\n                            Unit Details <span (click)=\"sortUnitData('apartmentBlockNumber')\"\n                                [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Block No\"\n                                [(ngModel)]=\"columnField['apartmentBlockNumber']\"\n                                (ngModelChange)=\"selectColInput('apartmentBlockNumber')\">\n                        </th>\n\n                        <th scope=\"col\">\n                            Phone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Phone\"\n                                [(ngModel)]=\"columnField['mobile']\" (ngModelChange)=\"selectColInput('mobile')\">\n                        </th>\n                        <th scope=\"col\">\n                            Email <span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Email\"\n                                [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\">\n                        </th>\n                        <th scope=\"col\">Date\n                            <span (click)=\"sortUnitData('inDateData')\" [ngClass]=\"getFieldOrderBy('inDateData')\"></span>\n                            <app-simple-date-box [dateModel]=\"inDateData\"\n                                (inputChange)=\"onDateChange($event, 'inDateData')\"></app-simple-date-box>\n                        </th>\n                        <th scope=\"col\">Time\n                            <span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Email\"\n                                [(ngModel)]=\"columnField['inTime']\" (ngModelChange)=\"selectColInput('inTime')\">\n                        </th>\n                        <th scope=\"col\">Status\n                            <span (click)=\"sortUnitData('statusId')\" [ngClass]=\"getFieldOrderBy('statusId')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Status\"\n                                [(ngModel)]=\"columnField['statusId']\" (ngModelChange)=\"selectColInput('statusId')\">\n                        </th>\n                        <th></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr\n                        *ngFor=\"let movein of moveInDataList | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: moveInOutHitoryData | columnSearch: columnField:selectedInput ; let i = index\">\n                        <td class=\"name\">{{movein.userName}}</td>\n                        <td class=\"grey\">{{getBlockNo(movein, movein.apartmentBlockUnitId)}},\n                            {{getBlockUnitNo(movein, movein.apartmentBlockUnitId)}}\n                        </td>\n                        <td class=\"grey\">{{movein.mobile}}</td>\n                        <td class=\"grey\">{{movein.email}}</td>\n                        <td class=\"grey\">{{ getDate(movein, movein.inDate) }}</td>\n                        <td class=\"grey\">{{ getTime(movein.inTime) }}</td>\n                        <td class=\"grey\">\n                            <span class=\"dots mr-3\" [ngClass]=\"getApproveStatus(movein.statusId)\"></span>\n                        </td>\n                        <td>\n                            <div class=\"icon-wrapper\" *ngIf=\"movein.statusId == 375\">\n                                <img src=\"assets/images/movein-icon.svg\" class=\"svg\" width=\"17\" height=\"17\"\n                                    alt=\"Moved In\">\n                            </div>\n                        </td>\n                    </tr>\n\n                </tbody>\n\n            </table>\n            <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n                <p class=\"snippet\">No Data Available</p>\n            </div>\n            <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n                [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination> -->\n            <jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n        </div>\n\n    </div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"movein-admin-history-wrapper\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    <ul class=\"legends list-inline\" *ngIf=\"isDataLoaded\">\n        <li class=\"list-inline-item\"><span><img src=\"assets/images/movein-icon.svg\" class=\"svg\" width=\"17\" height=\"17\"\n                    alt=\"Moved In\"></span>Moved In</li>\n        <li class=\"list-inline-item\"><span class=\"dots grey-850\"></span>Cancelled</li>\n        <li class=\"list-inline-item\"><span class=\"dots m-yellow\"></span>Rejected</li>\n    </ul>\n    <div class=\"card clear table-card\" *ngIf=\"isDataLoaded\">\n\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>History <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n            </div>\n\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveInOutHitoryData\" (ngModelChange)=\"onGlSearchFilter()\">\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n\n            <!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\n                <thead>\n                    <tr>\n                        <th scope=\"col\">\n                            Name\n                            <span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Name\"\n                                [(ngModel)]=\"columnField['userName']\" (ngModelChange)=\"selectColInput('userName')\">\n                        </th>\n                        <th scope=\"col\">\n                            Unit Details <span (click)=\"sortUnitData('apartmentBlockNumber')\"\n                                [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Block No\"\n                                [(ngModel)]=\"columnField['apartmentBlockNumber']\"\n                                (ngModelChange)=\"selectColInput('apartmentBlockNumber')\">\n                        </th>\n\n                        <th scope=\"col\">\n                            Phone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Phone\"\n                                [(ngModel)]=\"columnField['mobile']\" (ngModelChange)=\"selectColInput('mobile')\">\n                        </th>\n                        <th scope=\"col\">\n                            Email <span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Email\"\n                                [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\">\n                        </th>\n                        <th scope=\"col\">Date\n                            <span (click)=\"sortUnitData('inDateData')\" [ngClass]=\"getFieldOrderBy('inDateData')\"></span>\n                            <app-simple-date-box [dateModel]=\"inDateData\"\n                                (inputChange)=\"onDateChange($event, 'inDateData')\"></app-simple-date-box>\n                        </th>\n                        <th scope=\"col\">Time\n                            <span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Email\"\n                                [(ngModel)]=\"columnField['inTime']\" (ngModelChange)=\"selectColInput('inTime')\">\n                        </th>\n                        <th scope=\"col\">Status\n                            <span (click)=\"sortUnitData('statusId')\" [ngClass]=\"getFieldOrderBy('statusId')\"></span>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Status\"\n                                [(ngModel)]=\"columnField['statusId']\" (ngModelChange)=\"selectColInput('statusId')\">\n                        </th>\n                        <th></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr\n                        *ngFor=\"let movein of moveInDataList | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: moveInOutHitoryData | columnSearch: columnField:selectedInput ; let i = index\">\n                        <td class=\"name\">{{movein.userName}}</td>\n                        <td class=\"grey\">{{getBlockNo(movein, movein.apartmentBlockUnitId)}},\n                            {{getBlockUnitNo(movein, movein.apartmentBlockUnitId)}}\n                        </td>\n                        <td class=\"grey\">{{movein.mobile}}</td>\n                        <td class=\"grey\">{{movein.email}}</td>\n                        <td class=\"grey\">{{ getDate(movein, movein.inDate) }}</td>\n                        <td class=\"grey\">{{ getTime(movein.inTime) }}</td>\n                        <td class=\"grey\">\n                            <span class=\"dots mr-3\" [ngClass]=\"getApproveStatus(movein.statusId)\"></span>\n                        </td>\n                        <td>\n                            <div class=\"icon-wrapper\" *ngIf=\"movein.statusId == 375\">\n                                <img src=\"assets/images/movein-icon.svg\" class=\"svg\" width=\"17\" height=\"17\"\n                                    alt=\"Moved In\">\n                            </div>\n                        </td>\n                    </tr>\n\n                </tbody>\n\n            </table>\n            <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n                <p class=\"snippet\">No Data Available</p>\n            </div>\n            <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n                [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination> -->\n            <jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n        </div>\n\n    </div>\n\n</div>";
     /***/
   },
 
@@ -41,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"movein-maintain-wrapper\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear card-table\" *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>MoveIn <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveInData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tName\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tBlock No <span (click)=\"sortUnitData('apartmentBlockNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Unit No <span (click)=\"sortUnitData('apartmentBlockUnitNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tPhone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tEmail <span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Expected Date\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inDateData')\" [ngClass]=\"getFieldOrderBy('inDateData')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Expected Time\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t\t\t\tActions\n\t\t\t\t\t\t</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr\n\t\t\t\t\t\t*ngFor=\"let movein of moveInDataList | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: moveInData | columnSearch: columnField:selectedInput ; let i = index\">\n\t\t\t\t\t\t<td class=\"name\">{{movein.userName}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockNo(movein, movein.apartmentBlockUnitId)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockUnitNo(movein, movein.apartmentBlockUnitId)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{movein.mobile}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{movein.email}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getDate(movein, movein.inDate) }}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getTime(movein.inTime) }}</td>\n\t\t\t\t\t\t<td class=\"name actions text-center\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"moveInCancelDropDown\"\n\t\t\t\t\t\t\t\taria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/eye-icon.svg\" class=\"svg\" width=\"17\" height=\"17\" alt=\"Move In\">\n\t\t\t\t\t\t\t</div></a>\n\t\t\t\t\t\t\t<div *ngIf=\"movein.comments != null && movein.comments !=''\" class=\"dropdown-menu action-menu dropdown-menu-right\" aria-labelledby=\"moveInCancelDropDown\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\">{{ movein.comments }}</a></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</tbody>\n\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"snippet\">No Data Available</p>\n\t\t\t</div>\n\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n\t\t\t\t[itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t</app-pagination> -->\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"movein-maintain-wrapper\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear card-table\" *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>MoveIn <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveInData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t</ul>\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tName\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tBlock No <span (click)=\"sortUnitData('apartmentBlockNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Unit No <span (click)=\"sortUnitData('apartmentBlockUnitNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tPhone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tEmail <span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Expected Date\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inDateData')\" [ngClass]=\"getFieldOrderBy('inDateData')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Expected Time\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t\t\t\tActions\n\t\t\t\t\t\t</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr\n\t\t\t\t\t\t*ngFor=\"let movein of moveInDataList | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: moveInData | columnSearch: columnField:selectedInput ; let i = index\">\n\t\t\t\t\t\t<td class=\"name\">{{movein.userName}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockNo(movein, movein.apartmentBlockUnitId)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockUnitNo(movein, movein.apartmentBlockUnitId)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{movein.mobile}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{movein.email}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getDate(movein, movein.inDate) }}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getTime(movein.inTime) }}</td>\n\t\t\t\t\t\t<td class=\"name actions text-center\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"moveInCancelDropDown\"\n\t\t\t\t\t\t\t\taria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/eye-icon.svg\" class=\"svg\" width=\"17\" height=\"17\" alt=\"Move In\">\n\t\t\t\t\t\t\t</div></a>\n\t\t\t\t\t\t\t<div *ngIf=\"movein.comments != null && movein.comments !=''\" class=\"dropdown-menu action-menu dropdown-menu-right\" aria-labelledby=\"moveInCancelDropDown\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\">{{ movein.comments }}</a></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</tbody>\n\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"snippet\">No Data Available</p>\n\t\t\t</div>\n\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n\t\t\t\t[itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t</app-pagination> -->\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -61,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"movein-maintain-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ul class=\"legends list-inline\" *ngIf=\"isDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>Un Approved</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Approved</li>\n\t</ul>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>MoveIn <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveInData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<button class=\"btn lime-green\" (click)=\"navigateToMovein()\" type=\"button\">Add MoveIn</button>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tName\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Name\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['userName']\" (ngModelChange)=\"selectColInput('userName')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tUnit Details <span (click)=\"sortUnitData('apartmentBlockNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Block No\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['apartmentBlockNumber']\"\n\t\t\t\t\t\t\t\t(ngModelChange)=\"selectColInput('apartmentBlockNumber')\">\n\t\t\t\t\t\t</th>\n\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tPhone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Phone\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['mobile']\" (ngModelChange)=\"selectColInput('mobile')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tEmail <span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Expected Date\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inDateData')\" [ngClass]=\"getFieldOrderBy('inDateData')\"></span>\n\t\t\t\t\t\t\t<app-simple-date-box [dateModel]=\"inDateData\"\n\t\t\t\t\t\t\t\t(inputChange)=\"onDateChange($event, 'inDateData')\"></app-simple-date-box>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Expected Time\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['inTime']\" (ngModelChange)=\"selectColInput('inTime')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Status\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('statusId')\" [ngClass]=\"getFieldOrderBy('statusId')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Status\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['statusId']\" (ngModelChange)=\"selectColInput('statusId')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t\t\t\tActions\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th></th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr\n\t\t\t\t\t\t*ngFor=\"let movein of moveInDataList | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: moveInData | columnSearch: columnField:selectedInput ; let i = index\">\n\t\t\t\t\t\t<td class=\"name\">{{movein.userName}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockNo(movein, movein.apartmentBlockUnitId)}},\n\t\t\t\t\t\t\t{{getBlockUnitNo(movein, movein.apartmentBlockUnitId)}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class=\"grey\">{{movein.mobile}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{movein.email}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getDate(movein, movein.inDate) }}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getTime(movein.inTime) }}</td>\n\t\t\t\t\t\t<td class=\"grey\">\n\t\t\t\t\t\t\t<span class=\"dots mr-3\" [ngClass]=\"getApproveStatus(movein.statusId)\"></span>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class=\"name actions text-center\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"moveInDropDown\"\n\t\t\t\t\t\t\t\taria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t\t\t\t<span class=\"action-dot\"></span>\n\t\t\t\t\t\t\t\t<span class=\"action-dot\"></span>\n\t\t\t\t\t\t\t\t<span class=\"action-dot\"></span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t<div class=\"dropdown-menu action-menu dropdown-menu-right\" aria-labelledby=\"moveInDropDown\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"approveMoveIn(movein, 'approve')\"\n\t\t\t\t\t\t\t\t\t*ngIf=\"movein.statusId == 372\">Approve</a>\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"approveMoveIn(movein, 'reject')\"\n\t\t\t\t\t\t\t\t\t*ngIf=\"movein.statusId == 372\">Reject</a>\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link grey\"\n\t\t\t\t\t\t\t\t\t*ngIf=\"movein.statusId == 373\">Approved</a>\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link grey\"\n\t\t\t\t\t\t\t\t\t*ngIf=\"movein.statusId == 374\">Rejected</a>\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showMoveInDetails(movein)\">View</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\" *ngIf=\"movein.statusId == 373\" (click)=\"chekInUser(movein, i)\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/checkin-icon.svg\" class=\"svg\" width=\"17\" height=\"17\"\n\t\t\t\t\t\t\t\t\talt=\"Check In\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</tbody>\n\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"snippet\">No Data Available</p>\n\t\t\t</div>\n\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n\t\t\t\t[itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t</app-pagination> -->\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"movein-maintain-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ul class=\"legends list-inline\" *ngIf=\"isDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>Un Approved</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Approved</li>\n\t</ul>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>MoveIn <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveInData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<button class=\"btn lime-green\" (click)=\"navigateToMovein()\" type=\"button\">Add MoveIn</button>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tName\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Name\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['userName']\" (ngModelChange)=\"selectColInput('userName')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tUnit Details <span (click)=\"sortUnitData('apartmentBlockNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Block No\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['apartmentBlockNumber']\"\n\t\t\t\t\t\t\t\t(ngModelChange)=\"selectColInput('apartmentBlockNumber')\">\n\t\t\t\t\t\t</th>\n\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tPhone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Phone\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['mobile']\" (ngModelChange)=\"selectColInput('mobile')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tEmail <span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Expected Date\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inDateData')\" [ngClass]=\"getFieldOrderBy('inDateData')\"></span>\n\t\t\t\t\t\t\t<app-simple-date-box [dateModel]=\"inDateData\"\n\t\t\t\t\t\t\t\t(inputChange)=\"onDateChange($event, 'inDateData')\"></app-simple-date-box>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Expected Time\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['inTime']\" (ngModelChange)=\"selectColInput('inTime')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Status\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('statusId')\" [ngClass]=\"getFieldOrderBy('statusId')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Status\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['statusId']\" (ngModelChange)=\"selectColInput('statusId')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t\t\t\tActions\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\">\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th></th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr\n\t\t\t\t\t\t*ngFor=\"let movein of moveInDataList | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: moveInData | columnSearch: columnField:selectedInput ; let i = index\">\n\t\t\t\t\t\t<td class=\"name\">{{movein.userName}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockNo(movein, movein.apartmentBlockUnitId)}},\n\t\t\t\t\t\t\t{{getBlockUnitNo(movein, movein.apartmentBlockUnitId)}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class=\"grey\">{{movein.mobile}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{movein.email}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getDate(movein, movein.inDate) }}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getTime(movein.inTime) }}</td>\n\t\t\t\t\t\t<td class=\"grey\">\n\t\t\t\t\t\t\t<span class=\"dots mr-3\" [ngClass]=\"getApproveStatus(movein.statusId)\"></span>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class=\"name actions text-center\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"moveInDropDown\"\n\t\t\t\t\t\t\t\taria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t\t\t\t<span class=\"action-dot\"></span>\n\t\t\t\t\t\t\t\t<span class=\"action-dot\"></span>\n\t\t\t\t\t\t\t\t<span class=\"action-dot\"></span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t<div class=\"dropdown-menu action-menu dropdown-menu-right\" aria-labelledby=\"moveInDropDown\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"approveMoveIn(movein, 'approve')\"\n\t\t\t\t\t\t\t\t\t*ngIf=\"movein.statusId == 372\">Approve</a>\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"approveMoveIn(movein, 'reject')\"\n\t\t\t\t\t\t\t\t\t*ngIf=\"movein.statusId == 372\">Reject</a>\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link grey\"\n\t\t\t\t\t\t\t\t\t*ngIf=\"movein.statusId == 373\">Approved</a>\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link grey\"\n\t\t\t\t\t\t\t\t\t*ngIf=\"movein.statusId == 374\">Rejected</a>\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showMoveInDetails(movein)\">View</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\" *ngIf=\"movein.statusId == 373\" (click)=\"chekInUser(movein, i)\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/checkin-icon.svg\" class=\"svg\" width=\"17\" height=\"17\"\n\t\t\t\t\t\t\t\t\talt=\"Check In\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</tbody>\n\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"snippet\">No Data Available</p>\n\t\t\t</div>\n\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n\t\t\t\t[itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t</app-pagination> -->\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -141,7 +161,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"moveout-maintain-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear card-table\" *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>MoveOut <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveOutData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tName\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tBlock No <span (click)=\"sortUnitData('apartmentBlockNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Unit No <span (click)=\"sortUnitData('apartmentBlockUnitNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tPhone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tEmail <span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Date\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('outDateData')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('outDateData')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Time\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t\t\t\tActions\n\t\t\t\t\t\t</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr\n\t\t\t\t\t\t*ngFor=\"let moveout of moveOutDataList | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: moveOutData | columnSearch: columnField:selectedInput ; let i = index\">\n\t\t\t\t\t\t<td class=\"name\">{{moveout.userName}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockNo(moveout, moveout.apartmentBlockUnitId)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockUnitNo(moveout, moveout.apartmentBlockUnitId)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{moveout.mobile}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{moveout.email}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getDate(moveout, moveout.outDate) }}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getTime(moveout.outTime) }}</td>\n\t\t\t\t\t\t<td class=\"name actions text-center\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"moveOutCancelDropDown\"\n\t\t\t\t\t\t\t\taria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/eye-icon.svg\" class=\"svg\" width=\"17\" height=\"17\" alt=\"Move In\">\n\t\t\t\t\t\t\t</div></a>\n\t\t\t\t\t\t\t<div *ngIf=\"moveout.comments != null && moveout.comments !=''\" class=\"dropdown-menu action-menu dropdown-menu-right\" aria-labelledby=\"moveOutCancelDropDown\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\">{{ moveout.comments }}</a></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</tbody>\n\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"snippet\">No Data Available</p>\n\t\t\t</div>\n\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n\t\t\t\t[itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t</app-pagination> -->\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t</div>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"moveout-maintain-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear card-table\" *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>MoveOut <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveOutData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t</ul>\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tName\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tBlock No <span (click)=\"sortUnitData('apartmentBlockNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Unit No <span (click)=\"sortUnitData('apartmentBlockUnitNumber')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tPhone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">\n\t\t\t\t\t\t\tEmail <span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Date\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('outDateData')\"\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('outDateData')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Time\n\t\t\t\t\t\t\t<span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t\t\t\tActions\n\t\t\t\t\t\t</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr\n\t\t\t\t\t\t*ngFor=\"let moveout of moveOutDataList | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: moveOutData | columnSearch: columnField:selectedInput ; let i = index\">\n\t\t\t\t\t\t<td class=\"name\">{{moveout.userName}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockNo(moveout, moveout.apartmentBlockUnitId)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getBlockUnitNo(moveout, moveout.apartmentBlockUnitId)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{moveout.mobile}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{moveout.email}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getDate(moveout, moveout.outDate) }}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{ getTime(moveout.outTime) }}</td>\n\t\t\t\t\t\t<td class=\"name actions text-center\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"moveOutCancelDropDown\"\n\t\t\t\t\t\t\t\taria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/eye-icon.svg\" class=\"svg\" width=\"17\" height=\"17\" alt=\"Move In\">\n\t\t\t\t\t\t\t</div></a>\n\t\t\t\t\t\t\t<div *ngIf=\"moveout.comments != null && moveout.comments !=''\" class=\"dropdown-menu action-menu dropdown-menu-right\" aria-labelledby=\"moveOutCancelDropDown\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\">{{ moveout.comments }}</a></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</tbody>\n\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"snippet\">No Data Available</p>\n\t\t\t</div>\n\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n\t\t\t\t[itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t</app-pagination> -->\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t</div>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -161,7 +181,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"moveout-maintain-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ul class=\"legends list-inline\" *ngIf=\"isDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>Un Approved</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Approved</li>\n\t</ul>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>MoveOut <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveOutData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n  \t\t\t\t\n  \t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName \n\t\t\t\t      \t<span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n\t\t\t            <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['userName']\" \n\t\t\t            (ngModelChange)=\"selectColInput('userName')\" >\n\t\t\t\t      </th>\n\t\t\t\t\t  <th scope=\"col\">\n\t\t\t\t\t\tTower Unit <span  (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Tower Unit\" [(ngModel)]=\"columnField['block_Unit']\" (ngModelChange)=\"selectColInput('block_Unit')\" >\n\t\t\t\t\t  </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tPhone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['mobile']\" (ngModelChange)=\"selectColInput('mobile')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tEmail <span  (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Date \n\t\t\t\t      \t<span (click)=\"sortUnitData('outDateData')\" [ngClass]=\"getFieldOrderBy('outDateData')\"></span>\n\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"outDateData\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'outDateData')\"\n\t\t\t\t\t    ></app-simple-date-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Time \n\t\t\t\t      \t<span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['inTime']\" (ngModelChange)=\"selectColInput('inTime')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t     <tbody>\n\t\t\t\t    <tr *ngFor=\"let moveout of moveOutDataList | simpleSearch: moveOutData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\"><span class=\"dots mr-3\" [ngClass]=\"getApproveStatus(moveout.approvedBy)\"></span>{{moveout.userName}}</td>\n\t\t\t\t      <td class=\"grey\">{{moveout.block_Unit}}</td>\n\t\t\t\t      <td class=\"grey\">{{moveout.mobile}}</td>\n\t\t\t\t      <td class=\"grey\">{{moveout.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{ getDate(moveout, moveout.outDate) }}</td>\n\t\t\t\t      <td class=\"grey\">{{ getTime(moveout.outTime) }}</td>\n\t\t\t\t      <td class=\"name actions text-center\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"moveOutDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t      \t\t<span class=\"action-dot\"></span>\n\t\t\t\t      \t\t<span class=\"action-dot\"></span>\n\t\t\t\t      \t\t<span class=\"action-dot\"></span>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<div class=\"dropdown-menu action-menu dropdown-menu-right\" aria-labelledby=\"moveOutDropDown\">\n\t\t\t\t      \t\t<a href=\"javascript:void(0)\" (click)=\"approveMoveOut(moveout)\" *ngIf=\"moveout.approvedBy == null\">Approve/Reject</a>\n\t\t\t\t      \t\t<a href=\"javascript:void(0)\" class=\"no-link grey\" *ngIf=\"moveout.approvedBy != null\">Approved</a>\n\t\t\t\t      \t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/moveinout-tracker/edit-moveout/{{moveout.id}}\">Edit</a>\n\t\t\t\t      \t</div>\n    \t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t\t    \n\t\t\t    </tbody>\n\n  \t\t\t</table>\n  \t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n  \t\t</div>\n\t\t\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"moveout-maintain-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ul class=\"legends list-inline\" *ngIf=\"isDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>Un Approved</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Approved</li>\n\t</ul>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>MoveOut <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"moveOutData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n  \t\t\t\t\n  \t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName \n\t\t\t\t      \t<span (click)=\"sortUnitData('userName')\" [ngClass]=\"getFieldOrderBy('userName')\"></span>\n\t\t\t            <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['userName']\" \n\t\t\t            (ngModelChange)=\"selectColInput('userName')\" >\n\t\t\t\t      </th>\n\t\t\t\t\t  <th scope=\"col\">\n\t\t\t\t\t\tTower Unit <span  (click)=\"sortUnitData('block_Unit')\" [ngClass]=\"getFieldOrderBy('block_Unit')\"></span>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Tower Unit\" [(ngModel)]=\"columnField['block_Unit']\" (ngModelChange)=\"selectColInput('block_Unit')\" >\n\t\t\t\t\t  </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tPhone <span (click)=\"sortUnitData('mobile')\" [ngClass]=\"getFieldOrderBy('mobile')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['mobile']\" (ngModelChange)=\"selectColInput('mobile')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tEmail <span  (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Date \n\t\t\t\t      \t<span (click)=\"sortUnitData('outDateData')\" [ngClass]=\"getFieldOrderBy('outDateData')\"></span>\n\t\t\t\t      \t<app-simple-date-box \n\t\t\t\t\t      \t[dateModel]=\"outDateData\"\n\t\t\t\t\t      \t(inputChange) = \"onDateChange($event, 'outDateData')\"\n\t\t\t\t\t    ></app-simple-date-box>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Time \n\t\t\t\t      \t<span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['inTime']\" (ngModelChange)=\"selectColInput('inTime')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t     <tbody>\n\t\t\t\t    <tr *ngFor=\"let moveout of moveOutDataList | simpleSearch: moveOutData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\"><span class=\"dots mr-3\" [ngClass]=\"getApproveStatus(moveout.approvedBy)\"></span>{{moveout.userName}}</td>\n\t\t\t\t      <td class=\"grey\">{{moveout.block_Unit}}</td>\n\t\t\t\t      <td class=\"grey\">{{moveout.mobile}}</td>\n\t\t\t\t      <td class=\"grey\">{{moveout.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{ getDate(moveout, moveout.outDate) }}</td>\n\t\t\t\t      <td class=\"grey\">{{ getTime(moveout.outTime) }}</td>\n\t\t\t\t      <td class=\"name actions text-center\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" role=\"button\" data-toggle=\"dropdown\" id=\"moveOutDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n\t\t\t\t      \t\t<span class=\"action-dot\"></span>\n\t\t\t\t      \t\t<span class=\"action-dot\"></span>\n\t\t\t\t      \t\t<span class=\"action-dot\"></span>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<div class=\"dropdown-menu action-menu dropdown-menu-right\" aria-labelledby=\"moveOutDropDown\">\n\t\t\t\t      \t\t<a href=\"javascript:void(0)\" (click)=\"approveMoveOut(moveout)\" *ngIf=\"moveout.approvedBy == null\">Approve/Reject</a>\n\t\t\t\t      \t\t<a href=\"javascript:void(0)\" class=\"no-link grey\" *ngIf=\"moveout.approvedBy != null\">Approved</a>\n\t\t\t\t      \t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/moveinout-tracker/edit-moveout/{{moveout.id}}\">Edit</a>\n\t\t\t\t      \t</div>\n    \t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t\t    \n\t\t\t    </tbody>\n\n  \t\t\t</table>\n  \t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n  \t\t</div>\n\t\t\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -182,6 +202,391 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     __webpack_exports__["default"] = "<router-outlet></router-outlet>";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.scss":
+  /*!*********************************************************************************************!*\
+    !*** ./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.scss ***!
+    \*********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsMoveinoutTrackerComponentsCreateMoveinCreateMoveinComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9tb3ZlaW5vdXQtdHJhY2tlci9jb21wb25lbnRzL2NyZWF0ZS1tb3ZlaW4vY3JlYXRlLW1vdmVpbi5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.ts":
+  /*!*******************************************************************************************!*\
+    !*** ./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.ts ***!
+    \*******************************************************************************************/
+
+  /*! exports provided: CreateMoveinComponent */
+
+  /***/
+  function srcAppAmsMoveinoutTrackerComponentsCreateMoveinCreateMoveinComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CreateMoveinComponent", function () {
+      return CreateMoveinComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/MoveInOut */
+    "./src/app/api/controllers/MoveInOut.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_8___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    /* harmony import */
+
+
+    var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/api/controllers/FileDetails */
+    "./src/app/api/controllers/FileDetails.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+
+    var CreateMoveinComponent =
+    /*#__PURE__*/
+    function () {
+      function CreateMoveinComponent(router, route, moveInOutService, userService, apartmentService, lookupService, sharedService, cookieService, fileDetailsService) {
+        _classCallCheck(this, CreateMoveinComponent);
+
+        this.router = router;
+        this.route = route;
+        this.moveInOutService = moveInOutService;
+        this.userService = userService;
+        this.apartmentService = apartmentService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.fileDetailsService = fileDetailsService;
+        this.apartmentBlockNumber = "";
+        this.apartmentBlockUnitNumber = "";
+        this.isMoveinSubmitted = true;
+        this.isError = false;
+        this.alertMessage = "";
+        this.isDataLoaded = false;
+        this.userName = "";
+        this.documentConfigId = "";
+        this.documentComment = "";
+        this.isFileAdded = false;
+        this.fileList = [];
+        this.listOfFiles = [];
+        this.min = new Date();
+        this.showDateError = false;
+      }
+
+      _createClass(CreateMoveinComponent, [{
+        key: "getBlock",
+        value: function getBlock() {
+          var _this = this;
+
+          var params = {
+            apartmentBlockUnitId: parseInt(this.apartmentBlockUnitId)
+          };
+          this.apartmentService.getApartmentBlockUnitById(params).subscribe(function (res) {
+            _this.apartmentBlockNumber = res[0].apartmentBlockNumber;
+            _this.apartmentBlockUnitNumber = res[0].apartmentBlockUnitNumber;
+          }, function (error) {
+            console.log(error);
+          });
+        }
+      }, {
+        key: "uploadFile",
+        value: function uploadFile(event) {
+          this.isFileAdded = true;
+
+          for (var i = 0; i <= event.target.files.length - 1; i++) {
+            var selectedFile = event.target.files[i];
+            this.fileList.push(selectedFile);
+            this.listOfFiles.push({
+              'name': selectedFile.name,
+              'size': selectedFile.size
+            });
+            console.log(this.fileList[0]);
+          }
+        }
+      }, {
+        key: "deleteFile",
+        value: function deleteFile(index) {
+          // Delete the item from fileNames list
+          this.listOfFiles.splice(index, 1); // delete file from FileList
+
+          this.fileList.splice(index, 1);
+          this.selectedFile = null;
+
+          if (this.fileList.length == 0 && this.listOfFiles.length == 0) {
+            this.isFileAdded = false;
+          }
+        }
+      }, {
+        key: "bytesToSize",
+        value: function bytesToSize(bytes) {
+          if (bytes < 1024) return bytes + " Bytes";else if (bytes < 1048576) return (bytes / 1024).toFixed(3) + " KB";else if (bytes < 1073741824) return (bytes / 1048576).toFixed(3) + " MB";else return (bytes / 1073741824).toFixed(3) + " GB";
+        }
+      }, {
+        key: "isFileEmpty",
+        value: function isFileEmpty() {
+          return this.fileList.length == 0;
+        }
+      }, {
+        key: "dateChange",
+        value: function dateChange() {
+          this.showDateError = false;
+        }
+      }, {
+        key: "submitCreateMoveInForm",
+        value: function submitCreateMoveInForm(form) {
+          var _this2 = this;
+
+          var selectedDate = new Date(this.movein.inDate);
+          var now = new Date();
+
+          if (selectedDate < now) {
+            this.showDateError = true;
+          } else {
+            this.isMoveinSubmitted = false;
+            var details = {
+              "inDate": this.movein.inDate,
+              "inTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.movein.inTime).format('HH:mm:ss'),
+              "familyCount": this.movein.familyCount,
+              "comments": this.movein.comment,
+              "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+              "reqUserId": parseInt(this.movein.reqUserId),
+              "statusId": 372,
+              "approvedBy": null,
+              "approvedDate": null,
+              "isActive": true,
+              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": null,
+              "updatedOn": null,
+              "apartmentId": parseInt(this.cookieService.get('apartmentId'))
+            };
+            var params = {
+              moveIn: details
+            };
+            this.moveInOutService.addMoveIn(params).subscribe(function (res) {
+              if (res.message) {
+                var file_params = {
+                  'file': _this2.fileList[0],
+                  'Description': _this2.documentComment,
+                  'InsertedBy': parseInt(_this2.cookieService.get('userId')),
+                  'ApartmentID': parseInt(_this2.cookieService.get('apartmentId'))
+                };
+
+                _this2.fileDetailsService.addFileDetailsWithFileOption(file_params).subscribe(function (res) {
+                  var fileDetails = {
+                    "moveInId": parseInt(res.message),
+                    "moveInOutConfigId": parseInt(_this2.documentConfigId),
+                    "fileDetailsId": 0,
+                    "comments": _this2.documentComment,
+                    "isActive": true,
+                    "insertedBy": parseInt(_this2.cookieService.get('userId')),
+                    "insertedOn": new Date().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null
+                  };
+                  var fileParams = {
+                    moveIn: fileDetails,
+                    file: _this2.fileList[0],
+                    apartmentId: parseInt(_this2.cookieService.get('apartmentId'))
+                  };
+
+                  _this2.moveInOutService.addMoveInDetails(fileParams).subscribe(function (res) {
+                    if (res.message) {
+                      _this2.isMoveinSubmitted = true;
+
+                      _this2.sharedService.setAlertMessage("Movein added successfully");
+
+                      _this2.router.navigate(['ams/moveinout-tracker/movein']);
+                    } else {
+                      _this2.isMoveinSubmitted = true;
+                      _this2.isError = true;
+                      _this2.alertMessage = res.errorMessage;
+                    }
+                  }, function (error) {
+                    _this2.isMoveinSubmitted = true;
+                  });
+                }, function (error) {});
+              } else {
+                _this2.isMoveinSubmitted = true;
+                _this2.isError = true;
+                _this2.alertMessage = res.errorMessage;
+              }
+            }, function (error) {
+              _this2.isMoveinSubmitted = true;
+            });
+          }
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this3 = this;
+
+          this.getUserRole = this.cookieService.get('userRole');
+          this.movein = {};
+          var params = {
+            userId: parseInt(this.cookieService.get('userId'))
+          };
+          this.apartmentService.getAllApartmentBlockUnitUsersByUserId(params).subscribe(function (res) {
+            if (res == undefined || res.length == 0) {
+              _this3.apartmentBlockUnitId = "";
+            } else {
+              _this3.apartmentBlockUnitId = "" + res[0].apartmentBlockUnitId;
+
+              _this3.getBlock();
+            }
+          }, function (error) {});
+          var blockParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          }; //get apartment blocks
+
+          this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
+            _this3.blocksData = res;
+          });
+          var statusParams = {
+            LookupTypeId: 73
+          }; //status 
+
+          this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
+            _this3.statusTypeData = res.filter(function (item) {
+              return item.isActive;
+            });
+          }, function (error) {});
+          var docParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.moveInOutService.getMoveInOutConfigByApartmentId(docParams).subscribe(function (res) {
+            _this3.documentDataList = res.filter(function (item) {
+              return item.isActive;
+            });
+          }, function (error) {
+            console.log(error);
+          });
+          var userParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          }; //get all users
+
+          this.userService.getAllUsersByApartmentId(userParams).subscribe(function (res) {
+            _this3.userDetails = res;
+            _this3.raisedByData = res;
+            _this3.raisedByData = res.filter(function (item) {
+              return item.userId == parseInt(_this3.cookieService.get('userId'));
+            });
+            _this3.movein.reqUserId = _this3.raisedByData[0].userId;
+            _this3.userName = _this3.raisedByData[0].firstName + ' ' + _this3.raisedByData[0].lastName;
+            _this3.isDataLoaded = true;
+          }, function (error) {});
+        }
+      }]);
+
+      return CreateMoveinComponent;
+    }();
+
+    CreateMoveinComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_4__["MoveInOutService"]
+      }, {
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+      }, {
+        type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"]
+      }];
+    };
+
+    CreateMoveinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-create-movein',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./create-movein.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./create-movein.component.scss */
+      "./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_4__["MoveInOutService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"]])], CreateMoveinComponent);
     /***/
   },
 
@@ -422,7 +827,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this = this;
+          var _this4 = this;
 
           if (this.moveInOutHitoryData != "") {
             var filtergroup = new jqx.filter();
@@ -435,7 +840,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this4.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -444,9 +849,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'moveinHistoryData');
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this2 = this;
+          var _this5 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -499,7 +909,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Time',
             datafield: 'inTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this2.getTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this5.getTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -527,45 +937,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             statusIds: "374,375,380"
           };
           this.moveInOutService.getMoveInByStatusIds(params).subscribe(function (res) {
-            _this2.moveInDataList = res.filter(function (item) {
+            _this5.moveInDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this2.gridSourceData = {
-              localdata: _this2.moveInDataList,
+            _this5.gridSourceData = {
+              localdata: _this5.moveInDataList,
               datatype: "array"
             };
-            _this2.listData = new jqx.dataAdapter(_this2.gridSourceData);
-            _this2.totalItems = _this2.moveInDataList.length;
+            _this5.listData = new jqx.dataAdapter(_this5.gridSourceData);
+            _this5.totalItems = _this5.moveInDataList.length;
 
-            if (_this2.totalItems > _this2.itemLimit) {
-              _this2.ItemEndIndex = _this2.itemLimit;
+            if (_this5.totalItems > _this5.itemLimit) {
+              _this5.ItemEndIndex = _this5.itemLimit;
             } else {
-              _this2.ItemEndIndex = _this2.totalItems;
+              _this5.ItemEndIndex = _this5.totalItems;
             }
 
-            _this2.isDataLoaded = true;
+            _this5.isDataLoaded = true;
           });
           this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-            _this2.blockUnitData = res;
+            _this5.blockUnitData = res;
           });
           this.getStatusName();
         }
       }, {
         key: "getStatusName",
         value: function getStatusName() {
-          var _this3 = this;
+          var _this6 = this;
 
           var params = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 92
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this3.statusNames = res.filter(function (item) {
+            _this6.statusNames = res.filter(function (item) {
               return item.isActive;
             });
 
-            _this3.statusNames.forEach(function (element) {
-              _this3.statusType[element.lookupValueId] = element;
+            _this6.statusNames.forEach(function (element) {
+              _this6.statusType[element.lookupValueId] = element;
             });
           });
         }
@@ -804,7 +1214,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this4 = this;
+          var _this7 = this;
 
           if (this.moveInData != "") {
             var filtergroup = new jqx.filter();
@@ -817,13 +1227,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this4.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this7.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
           } else {
             this.datagrid.clearfilters();
           }
+        }
+      }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'moveInCancelData');
         }
       }, {
         key: "getApproveStatus",
@@ -833,7 +1248,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this8 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -886,7 +1301,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Expected Time',
             datafield: 'inTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this5.getTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this8.getTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -903,30 +1318,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             renderer: columnrenderer
           }];
           var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            statusIds: "380"
           }; // tslint:disable-next-line:radix
 
-          this.moveInOutService.getMoveInByApartmentId(params).subscribe(function (res) {
-            _this5.moveInDataList = res.filter(function (item) {
-              return item.statusId === 380;
+          this.moveInOutService.getMoveInByStatusIds(params).subscribe(function (res) {
+            _this8.moveInDataList = res.filter(function (item) {
+              return item.isActive;
             });
-            _this5.gridSourceData = {
-              localdata: _this5.moveInDataList,
+            _this8.gridSourceData = {
+              localdata: _this8.moveInDataList,
               datatype: "array"
             };
-            _this5.listData = new jqx.dataAdapter(_this5.gridSourceData);
-            _this5.totalItems = _this5.moveInDataList.length;
+            _this8.listData = new jqx.dataAdapter(_this8.gridSourceData);
+            _this8.totalItems = _this8.moveInDataList.length;
 
-            if (_this5.totalItems > _this5.itemLimit) {
-              _this5.ItemEndIndex = _this5.itemLimit;
+            if (_this8.totalItems > _this8.itemLimit) {
+              _this8.ItemEndIndex = _this8.itemLimit;
             } else {
-              _this5.ItemEndIndex = _this5.totalItems;
+              _this8.ItemEndIndex = _this8.totalItems;
             }
 
-            _this5.isDataLoaded = true;
+            _this8.isDataLoaded = true;
           });
           this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-            _this5.blockUnitData = res;
+            _this8.blockUnitData = res;
           });
         }
       }]);
@@ -1088,6 +1504,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
     "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var src_app_shared_components_view_movein_detail_view_movein_detail_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! src/app/shared/components/view-movein-detail/view-movein-detail.component */
+    "./src/app/shared/components/view-movein-detail/view-movein-detail.component.ts");
 
     var MoveinMaintainComponent =
     /*#__PURE__*/
@@ -1170,6 +1592,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return moment__WEBPACK_IMPORTED_MODULE_10__(timeData).format('HH:mm A');
         }
       }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'moveInMaintainData');
+        }
+      }, {
         key: "isMobileView",
         value: function isMobileView() {
           return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -1236,7 +1663,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "approveMoveIn",
         value: function approveMoveIn(detail) {
-          var _this6 = this;
+          var _this9 = this;
 
           var data = this.datagrid.getrowdata(detail.rowId);
           var type = detail.column;
@@ -1268,29 +1695,60 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var params = {
             moveIn: details
           };
+          this.isDataLoaded = false;
           this.moveInOutService.updateMoveIn(params).subscribe(function (res) {
             if (res.message) {
               if (type == 'approve') {
-                _this6.sharedService.setAlertMessage("Movein approved successfully");
+                _this9.sharedService.setAlertMessage("Movein approved successfully");
 
-                data.statusId = 373;
-                data.statusName = 'Approved';
-                data.approvedBy = parseInt(_this6.cookieService.get('userId'));
+                var _params = {
+                  apartmentId: parseInt(_this9.cookieService.get('apartmentId')),
+                  statusIds: "372,373"
+                };
+
+                _this9.moveInOutService.getMoveInByStatusIds(_params).subscribe(function (res) {
+                  _this9.moveInDataList = res.filter(function (item) {
+                    return item.isActive;
+                  });
+                  _this9.gridSourceData = {
+                    localdata: _this9.moveInDataList,
+                    datatype: "array"
+                  };
+                  _this9.listData = new jqx.dataAdapter(_this9.gridSourceData);
+                  _this9.totalItems = _this9.moveInDataList.length;
+                  _this9.isDataLoaded = true;
+                });
               } else {
-                data.statusId = 374;
-                data.statusName = 'Rejected';
-                data.approvedBy = null;
+                _this9.sharedService.setAlertMessage("Movein Rejected");
+
+                var _params2 = {
+                  apartmentId: parseInt(_this9.cookieService.get('apartmentId')),
+                  statusIds: "372,373"
+                };
+
+                _this9.moveInOutService.getMoveInByStatusIds(_params2).subscribe(function (res) {
+                  _this9.moveInDataList = res.filter(function (item) {
+                    return item.isActive;
+                  });
+                  _this9.gridSourceData = {
+                    localdata: _this9.moveInDataList,
+                    datatype: "array"
+                  };
+                  _this9.listData = new jqx.dataAdapter(_this9.gridSourceData);
+                  _this9.totalItems = _this9.moveInDataList.length;
+                  _this9.isDataLoaded = true;
+                });
               }
             } else {
-              _this6.isError = true;
-              _this6.alertMessage = res.errorMessage;
+              _this9.isError = true;
+              _this9.alertMessage = res.errorMessage;
             }
           }, function (error) {});
         }
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this7 = this;
+          var _this10 = this;
 
           if (this.moveInData != "") {
             var filtergroup = new jqx.filter();
@@ -1303,7 +1761,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this7.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this10.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -1314,7 +1772,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this11 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1367,7 +1825,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Expected Time',
             datafield: 'inTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this8.getTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this11.getTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -1392,24 +1850,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 120,
             cellclassname: 'action-cell',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              var id_ = _this8.moveInDataList[row].statusId;
+              var id_ = _this11.moveInDataList[row].statusId;
 
               if (id_ == 372) {
-                return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveInDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveInDropDown">' + '<a href="javascript:void(0)" onClick="approveMoveIn(' + row + ', \'approve\')" >Approve</a>' + ' <a href="javascript:void(0)" onClick="approveMoveIn(' + row + ', \'reject\')" *ngIf="id_ == 372">Reject</a>' + '<a href="javascript:void(0)" onClick="showMoveInDetails(' + row + ')">View</a>' + '</div>' + '</div>';
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveInDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveInDropDown">' + '<a href="javascript:void(0)" onClick="approveMoveIn(' + row + ', \'approve\')" >Approve</a>' + ' <a href="javascript:void(0)" onClick="approveMoveIn(' + row + ', \'reject\')" *ngIf="id_ == 372">Reject</a>' + '<a href="javascript:void(0)" onClick="showMoveInDetails(' + row + ')">Edit</a>' + '</div>' + '</div>';
               } else if (id_ == 373) {
-                return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveInDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveInDropDown">' + ' <a  href="javascript:void(0)" class="no-link grey" *ngIf="id_ == 373">Approved</a>' + '<a href="javascript:void(0)" onClick="showMoveInDetails(' + row + ')">View</a>' + '</div>' + '</div>';
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveInDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveInDropDown">' + ' <a  href="javascript:void(0)" class="no-link grey" *ngIf="id_ == 373">Approved</a>' + '<a href="javascript:void(0)" onClick="showMoveInDetails(' + row + ')">Edit</a>' + '</div>' + '</div>';
               } else if (id_ == 374) {
-                return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveInDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveInDropDown">' + '<a href="javascript:void(0)" class="no-link grey" *ngIf="id_ == 374">Rejected</a>' + '<a href="javascript:void(0)" onClick="showMoveInDetails(' + row + ')">View</a>' + '</div>' + '</div>';
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveInDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveInDropDown">' + '<a href="javascript:void(0)" class="no-link grey" *ngIf="id_ == 374">Rejected</a>' + '<a href="javascript:void(0)" onClick="showMoveInDetails(' + row + ')">Edit</a>' + '</div>' + '</div>';
               }
             },
             renderer: columnrenderer
           }, {
-            text: '',
+            text: 'Check-In',
             cellsalign: 'center',
             align: 'center',
             width: 120,
             cellsrenderer: function cellsrenderer(row, column, value) {
-              var id_ = _this8.moveInDataList[row].statusId;
+              var id_ = _this11.moveInDataList[row].statusId;
 
               if (id_ == 373) {
                 return '<div class="icon-wrapper"  onClick="chekInUser(' + row + ')">' + '<img src="assets/images/checkin-icon.svg" class="svg" width="17" height="17" alt="Check In">' + '</div>';
@@ -1422,39 +1880,66 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             statusIds: "372,373"
           };
           this.moveInOutService.getMoveInByStatusIds(params).subscribe(function (res) {
-            _this8.moveInDataList = res.filter(function (item) {
+            _this11.moveInDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this8.gridSourceData = {
-              localdata: _this8.moveInDataList,
+            _this11.gridSourceData = {
+              localdata: _this11.moveInDataList,
               datatype: "array"
             };
-            _this8.listData = new jqx.dataAdapter(_this8.gridSourceData);
-            _this8.totalItems = _this8.moveInDataList.length;
+            _this11.listData = new jqx.dataAdapter(_this11.gridSourceData);
+            _this11.totalItems = _this11.moveInDataList.length;
 
-            if (_this8.totalItems > _this8.itemLimit) {
-              _this8.ItemEndIndex = _this8.itemLimit;
+            if (_this11.totalItems > _this11.itemLimit) {
+              _this11.ItemEndIndex = _this11.itemLimit;
             } else {
-              _this8.ItemEndIndex = _this8.totalItems;
+              _this11.ItemEndIndex = _this11.totalItems;
             }
 
-            _this8.isDataLoaded = true;
+            _this11.isDataLoaded = true;
           });
           this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-            _this8.blockUnitData = res;
+            _this11.blockUnitData = res;
           });
           this.getStatusName();
         }
       }, {
         key: "showMoveInDetails",
         value: function showMoveInDetails(detail) {
+          var _this12 = this;
+
           var details = this.datagrid.getrowdata(detail.rowId);
-          this.modalService.showMoveInDetails(details);
+          var dialogRef = this.dialog.open(src_app_shared_components_view_movein_detail_view_movein_detail_component__WEBPACK_IMPORTED_MODULE_14__["ViewMoveinDetailComponent"], {
+            width: '400px',
+            data: {
+              data: details
+            }
+          });
+          dialogRef.afterClosed().subscribe(function (result) {
+            _this12.isDataLoaded = false;
+            var params = {
+              apartmentId: parseInt(_this12.cookieService.get('apartmentId')),
+              statusIds: "372,373"
+            };
+
+            _this12.moveInOutService.getMoveInByStatusIds(params).subscribe(function (res) {
+              _this12.moveInDataList = res.filter(function (item) {
+                return item.isActive;
+              });
+              _this12.gridSourceData = {
+                localdata: _this12.moveInDataList,
+                datatype: "array"
+              };
+              _this12.listData = new jqx.dataAdapter(_this12.gridSourceData);
+              _this12.totalItems = _this12.moveInDataList.length;
+              _this12.isDataLoaded = true;
+            });
+          });
         }
       }, {
         key: "chekInUser",
         value: function chekInUser(detail) {
-          var _this9 = this;
+          var _this13 = this;
 
           var data = this.datagrid.getrowdata(detail.rowId);
           var message = "Do you want to check In?";
@@ -1480,7 +1965,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 "approvedDate": data.approvedDate,
                 "insertedBy": data.insertedBy,
                 "insertedOn": data.insertedOn,
-                "updatedBy": parseInt(_this9.cookieService.get('userId')),
+                "updatedBy": parseInt(_this13.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString(),
                 "apartmentId": data.apartmentId,
                 "userName": data.userName,
@@ -1494,37 +1979,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var params = {
                 moveIn: details
               };
-              _this9.isDataLoaded = false;
+              _this13.isDataLoaded = false;
 
-              _this9.moveInOutService.updateMoveIn(params).subscribe(function (res) {
+              _this13.moveInOutService.updateMoveIn(params).subscribe(function (res) {
                 if (res.message) {
-                  _this9.sharedService.setAlertMessage("Checked In successfully");
+                  _this13.sharedService.setAlertMessage("Checked In successfully");
 
-                  var _params = {
-                    apartmentId: parseInt(_this9.cookieService.get('apartmentId')),
+                  var _params3 = {
+                    apartmentId: parseInt(_this13.cookieService.get('apartmentId')),
                     statusIds: "372,373"
                   };
 
-                  _this9.moveInOutService.getMoveInByStatusIds(_params).subscribe(function (res) {
-                    _this9.moveInDataList = res.filter(function (item) {
+                  _this13.moveInOutService.getMoveInByStatusIds(_params3).subscribe(function (res) {
+                    _this13.moveInDataList = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this9.gridSourceData = {
-                      localdata: _this9.moveInDataList,
+                    _this13.gridSourceData = {
+                      localdata: _this13.moveInDataList,
                       datatype: "array"
                     };
-                    _this9.listData = new jqx.dataAdapter(_this9.gridSourceData);
-                    _this9.totalItems = _this9.moveInDataList.length;
+                    _this13.listData = new jqx.dataAdapter(_this13.gridSourceData);
+                    _this13.totalItems = _this13.moveInDataList.length;
+                    _this13.isDataLoaded = true;
                   });
-
-                  _this9.isDataLoaded = true;
                 } else {
-                  _this9.isError = true;
-                  _this9.isDataLoaded = true;
-                  _this9.alertMessage = res.errorMessage;
+                  _this13.isError = true;
+                  _this13.isDataLoaded = true;
+                  _this13.alertMessage = res.errorMessage;
                 }
               }, function (error) {
-                _this9.isDataLoaded = true;
+                _this13.isDataLoaded = true;
               });
             }
           });
@@ -1532,19 +2016,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getStatusName",
         value: function getStatusName() {
-          var _this10 = this;
+          var _this14 = this;
 
           var params = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 92
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this10.statusNames = res.filter(function (item) {
+            _this14.statusNames = res.filter(function (item) {
               return item.isActive;
             });
 
-            _this10.statusNames.forEach(function (element) {
-              _this10.statusType[element.lookupValueId] = element;
+            _this14.statusNames.forEach(function (element) {
+              _this14.statusType[element.lookupValueId] = element;
             });
           });
         }
@@ -1967,10 +2451,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateDocType",
         value: function updateDocType(document) {
-          var _this11 = this;
+          var _this15 = this;
 
           setTimeout(function () {
-            _this11.isDataLoaded = false;
+            _this15.isDataLoaded = false;
             var details = {
               "id": parseInt(document.id),
               "description": document.description,
@@ -1981,50 +2465,50 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "comments": document.comments,
               "isMandate": document.isMandate,
               "isActive": document.isActive,
-              "insertedBy": parseInt(_this11.cookieService.get('userId')),
+              "insertedBy": parseInt(_this15.cookieService.get('userId')),
               "insertedOn": new Date().toISOString(),
-              "updatedBy": parseInt(_this11.cookieService.get('userId')),
+              "updatedBy": parseInt(_this15.cookieService.get('userId')),
               "updatedOn": new Date().toISOString(),
-              "apartmentId": parseInt(_this11.cookieService.get('apartmentId'))
+              "apartmentId": parseInt(_this15.cookieService.get('apartmentId'))
             };
             var params = {
               moveInOutConfig: details
             };
 
-            _this11.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
+            _this15.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
               if (res.message) {
-                _this11.isDataLoaded = true;
+                _this15.isDataLoaded = true;
 
-                _this11.sharedService.setAlertMessage("MoveIn Configuration updated successfully");
+                _this15.sharedService.setAlertMessage("MoveIn Configuration updated successfully");
               } else {
-                _this11.isDataLoaded = true;
+                _this15.isDataLoaded = true;
               }
             }, function (error) {
-              _this11.isDataLoaded = true;
+              _this15.isDataLoaded = true;
             });
           }, 1000);
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this16 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.moveInOutService.getMoveInOutConfigByApartmentId(params).subscribe(function (res) {
-            _this12.documentDataList = res.filter(function (item) {
+            _this16.documentDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this12.totalItems = _this12.documentDataList.length;
+            _this16.totalItems = _this16.documentDataList.length;
 
-            if (_this12.totalItems > _this12.itemLimit) {
-              _this12.ItemEndIndex = _this12.itemLimit;
+            if (_this16.totalItems > _this16.itemLimit) {
+              _this16.ItemEndIndex = _this16.itemLimit;
             } else {
-              _this12.ItemEndIndex = _this12.totalItems;
+              _this16.ItemEndIndex = _this16.totalItems;
             }
 
-            _this12.isDataLoaded = true;
+            _this16.isDataLoaded = true;
           }, function (error) {
             console.log(error);
           }); //document type
@@ -2033,19 +2517,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 72
           };
           this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe(function (res) {
-            _this12.documentTypeDataList = res.filter(function (item) {
+            _this16.documentTypeDataList = res.filter(function (item) {
               return item.isActive;
             });
 
-            _this12.documentTypeDataList.forEach(function (element) {
-              _this12.documentTypeListObject[element.lookupValueId] = element;
+            _this16.documentTypeDataList.forEach(function (element) {
+              _this16.documentTypeListObject[element.lookupValueId] = element;
             });
           }, function (error) {});
         }
       }, {
         key: "openDocCriteria",
         value: function openDocCriteria() {
-          var _this13 = this;
+          var _this17 = this;
 
           var dialogRef = this.dialog.open(src_app_shared_components_add_doc_criteria_add_doc_criteria_component__WEBPACK_IMPORTED_MODULE_8__["AddDocCriteriaComponent"], {
             width: '400px',
@@ -2056,7 +2540,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           dialogRef.afterClosed().subscribe(function (result) {
             if (result.details) {
               var document = result.details;
-              _this13.isDataLoaded = false;
+              _this17.isDataLoaded = false;
               var details = {
                 "description": document.description,
                 "documentTypeId": parseInt(document.documentTypeId),
@@ -2067,31 +2551,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 "isMandate": document.isMandate,
                 "isActive": document.isActive,
                 "isForeignNational": document.isForeignNational,
-                "insertedBy": parseInt(_this13.cookieService.get('userId')),
+                "insertedBy": parseInt(_this17.cookieService.get('userId')),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
-                "apartmentId": parseInt(_this13.cookieService.get('apartmentId'))
+                "apartmentId": parseInt(_this17.cookieService.get('apartmentId'))
               };
               var params = {
                 moveInOutConfig: details
               };
 
-              _this13.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
+              _this17.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
                 if (res.message) {
-                  _this13.sharedService.setAlertMessage("Document Criteria Added successfully");
+                  _this17.sharedService.setAlertMessage("Document Criteria Added successfully");
 
-                  var _params2 = {
-                    apartmentId: parseInt(_this13.cookieService.get('apartmentId'))
+                  var _params4 = {
+                    apartmentId: parseInt(_this17.cookieService.get('apartmentId'))
                   };
 
-                  _this13.moveInOutService.getMoveInOutConfigByApartmentId(_params2).subscribe(function (res) {
-                    _this13.documentDataList = res.filter(function (item) {
+                  _this17.moveInOutService.getMoveInOutConfigByApartmentId(_params4).subscribe(function (res) {
+                    _this17.documentDataList = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this13.isDataLoaded = true;
+                    _this17.isDataLoaded = true;
                   }, function (error) {
-                    _this13.isDataLoaded = true;
+                    _this17.isDataLoaded = true;
                   });
                 }
               });
@@ -2101,7 +2585,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "openDocCriteriaEdit",
         value: function openDocCriteriaEdit(docData) {
-          var _this14 = this;
+          var _this18 = this;
 
           var dialogRef = this.dialog.open(src_app_shared_components_add_doc_criteria_add_doc_criteria_component__WEBPACK_IMPORTED_MODULE_8__["AddDocCriteriaComponent"], {
             width: '400px',
@@ -2113,7 +2597,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           dialogRef.afterClosed().subscribe(function (result) {
             if (result.details) {
               var document = result.details;
-              _this14.isDataLoaded = false;
+              _this18.isDataLoaded = false;
               var details = {
                 "id": parseInt(document.id),
                 "description": document.description,
@@ -2127,29 +2611,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 "isForeignNational": document.isForeignNational,
                 "insertedBy": document.insertedBy,
                 "insertedOn": document.insertedOn,
-                "updatedBy": parseInt(_this14.cookieService.get('userId')),
+                "updatedBy": parseInt(_this18.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString(),
-                "apartmentId": parseInt(_this14.cookieService.get('apartmentId'))
+                "apartmentId": parseInt(_this18.cookieService.get('apartmentId'))
               };
               var params = {
                 moveInOutConfig: details
               };
 
-              _this14.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
+              _this18.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
                 if (res.message) {
-                  _this14.sharedService.setAlertMessage("Document Criteria updated successfully");
+                  _this18.sharedService.setAlertMessage("Document Criteria updated successfully");
 
-                  var _params3 = {
-                    apartmentId: parseInt(_this14.cookieService.get('apartmentId'))
+                  var _params5 = {
+                    apartmentId: parseInt(_this18.cookieService.get('apartmentId'))
                   };
 
-                  _this14.moveInOutService.getMoveInOutConfigByApartmentId(_params3).subscribe(function (res) {
-                    _this14.documentDataList = res.filter(function (item) {
+                  _this18.moveInOutService.getMoveInOutConfigByApartmentId(_params5).subscribe(function (res) {
+                    _this18.documentDataList = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this14.isDataLoaded = true;
+                    _this18.isDataLoaded = true;
                   }, function (error) {
-                    _this14.isDataLoaded = true;
+                    _this18.isDataLoaded = true;
                   });
                 }
               });
@@ -2159,7 +2643,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "openDeleteConfirm",
         value: function openDeleteConfirm(docId) {
-          var _this15 = this;
+          var _this19 = this;
 
           var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmModalComponent"], {
             width: '400px',
@@ -2167,38 +2651,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this15.isDataLoaded = false;
+              _this19.isDataLoaded = false;
               var params = {
                 Id: parseInt(docId),
-                deleteBy: parseInt(_this15.cookieService.get('userId'))
+                deleteBy: parseInt(_this19.cookieService.get('userId'))
               };
 
-              _this15.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
+              _this19.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
                 if (res.message) {
-                  var _params4 = {
-                    apartmentId: parseInt(_this15.cookieService.get('apartmentId'))
+                  var _params6 = {
+                    apartmentId: parseInt(_this19.cookieService.get('apartmentId'))
                   };
 
-                  _this15.moveInOutService.getMoveInOutConfigByApartmentId(_params4).subscribe(function (res) {
-                    _this15.documentDataList = res.filter(function (item) {
+                  _this19.moveInOutService.getMoveInOutConfigByApartmentId(_params6).subscribe(function (res) {
+                    _this19.documentDataList = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this15.totalItems = _this15.documentDataList.length;
+                    _this19.totalItems = _this19.documentDataList.length;
 
-                    if (_this15.totalItems > _this15.itemLimit) {
-                      _this15.ItemEndIndex = _this15.itemLimit;
+                    if (_this19.totalItems > _this19.itemLimit) {
+                      _this19.ItemEndIndex = _this19.itemLimit;
                     } else {
-                      _this15.ItemEndIndex = _this15.totalItems;
+                      _this19.ItemEndIndex = _this19.totalItems;
                     }
 
-                    _this15.isDataLoaded = true;
+                    _this19.isDataLoaded = true;
                   }, function (error) {
                     console.log(error);
                   });
                 }
               }, function (error) {
                 console.log(error);
-                _this15.isDataLoaded = true;
+                _this19.isDataLoaded = true;
               });
             }
           });
@@ -2395,7 +2879,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this16 = this;
+          var _this20 = this;
 
           if (this.moveOutData != "") {
             var filtergroup = new jqx.filter();
@@ -2408,7 +2892,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this16.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this20.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2484,6 +2968,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'moveOutCancelData');
+        }
+      }, {
         key: "getApproveStatus",
         value: function getApproveStatus(data) {
           if (data == null) return 'high';else return 'low';
@@ -2491,7 +2980,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "approveMoveOut",
         value: function approveMoveOut(data) {
-          var _this17 = this;
+          var _this21 = this;
 
           var moveOutData = data;
           moveOutData.approvedBy = parseInt(this.cookieService.get('userId'));
@@ -2499,22 +2988,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isMoveOutSubmitted = false;
           this.moveInOutService.updateMoveOut(moveOutData).subscribe(function (res) {
             if (res.message) {
-              _this17.isMoveOutSubmitted = true;
+              _this21.isMoveOutSubmitted = true;
 
-              _this17.sharedService.setAlertMessage("Moveout approved successfully");
+              _this21.sharedService.setAlertMessage("Moveout approved successfully");
             } else {
-              _this17.isMoveOutSubmitted = true;
-              _this17.isError = true;
-              _this17.alertMessage = res.errorMessage;
+              _this21.isMoveOutSubmitted = true;
+              _this21.isError = true;
+              _this21.alertMessage = res.errorMessage;
             }
           }, function (error) {
-            _this17.isMoveOutSubmitted = true;
+            _this21.isMoveOutSubmitted = true;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this18 = this;
+          var _this22 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2567,7 +3056,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Expected Time',
             datafield: 'outTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this18.getTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this22.getTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -2584,30 +3073,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             renderer: columnrenderer
           }];
           var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            statusIds: "380"
           };
-          this.moveInOutService.getMoveOutByApartmentId(params).subscribe(function (res) {
-            _this18.moveOutDataList = res.filter(function (item) {
-              return res.statusId === 380;
+          this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
+            _this22.moveOutDataList = res.filter(function (item) {
+              return item.isActive;
             });
-            console.log(_this18.moveOutDataList);
-            _this18.gridSourceData = {
-              localdata: _this18.moveOutDataList,
+            console.log(_this22.moveOutDataList);
+            _this22.gridSourceData = {
+              localdata: _this22.moveOutDataList,
               datatype: "array"
             };
-            _this18.listData = new jqx.dataAdapter(_this18.gridSourceData);
-            _this18.totalItems = _this18.moveOutDataList.length;
+            _this22.listData = new jqx.dataAdapter(_this22.gridSourceData);
+            _this22.totalItems = _this22.moveOutDataList.length;
 
-            if (_this18.totalItems > _this18.itemLimit) {
-              _this18.ItemEndIndex = _this18.itemLimit;
+            if (_this22.totalItems > _this22.itemLimit) {
+              _this22.ItemEndIndex = _this22.itemLimit;
             } else {
-              _this18.ItemEndIndex = _this18.totalItems;
+              _this22.ItemEndIndex = _this22.totalItems;
             }
 
-            _this18.isDataLoaded = true;
+            _this22.isDataLoaded = true;
           });
           this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-            _this18.blockUnitData = res;
+            _this22.blockUnitData = res;
           });
         }
       }]);
@@ -2876,6 +3366,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'moveOutMaintainData');
+        }
+      }, {
         key: "getApproveStatus",
         value: function getApproveStatus(data) {
           if (data == null) return 'high';else return 'low';
@@ -2883,31 +3378,75 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "approveMoveOut",
         value: function approveMoveOut(detail) {
-          var _this19 = this;
+          var _this23 = this;
 
           var data = this.datagrid.getrowdata(detail.rowId);
           var moveOutData = data;
-          moveOutData.approvedBy = parseInt(this.cookieService.get('userId'));
-          moveOutData.approvedDate = new Date().toISOString();
-          this.isMoveOutSubmitted = false;
-          this.moveInOutService.updateMoveOut(moveOutData).subscribe(function (res) {
+          var details = {
+            "id": moveOutData.id,
+            "outDate": moveOutData.outDate,
+            "outTime": moment__WEBPACK_IMPORTED_MODULE_7__(moveOutData.outTime).format('HH:mm:ss'),
+            "comments": moveOutData.comments,
+            "isActive": moveOutData.isActive,
+            "familyCount": moveOutData.familyCount,
+            "apartmentBlockUnitId": moveOutData.apartmentBlockUnitId,
+            "reqUserId": moveOutData.reqUserId,
+            "statusId": 373,
+            "noDue": moveOutData.noDue,
+            "approvedBy": parseInt(this.cookieService.get('userId')),
+            "approvedDate": new Date().toISOString(),
+            "insertedBy": moveOutData.insertedBy,
+            "insertedOn": moveOutData.insertedOn,
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date().toISOString(),
+            "apartmentId": moveOutData.apartmentId,
+            "userName": moveOutData.userName,
+            "mobile": moveOutData.mobile,
+            "email": moveOutData.email,
+            "block_Unit": moveOutData.block_Unit,
+            "requestType": moveOutData.requestType,
+            "statusName": 'Approved',
+            "serialNo": moveOutData.serialNo
+          };
+          var params = {
+            moveOut: details
+          };
+          this.moveInOutService.updateMoveOut(params).subscribe(function (res) {
             if (res.message) {
-              _this19.isMoveOutSubmitted = true;
+              _this23.sharedService.setAlertMessage("Moveout approved successfully");
 
-              _this19.sharedService.setAlertMessage("Moveout approved successfully");
+              _this23.isDataLoaded = false;
+              var _params7 = {
+                apartmentId: parseInt(_this23.cookieService.get('apartmentId')),
+                statusIds: "372,373"
+              };
+
+              _this23.moveInOutService.getMoveOutByStatusIds(_params7).subscribe(function (res) {
+                _this23.moveOutDataList = res.filter(function (item) {
+                  return item.isActive;
+                });
+                console.log(_this23.moveOutDataList);
+                _this23.gridSourceData = {
+                  localdata: _this23.moveOutDataList,
+                  datatype: "array"
+                };
+                _this23.listData = new jqx.dataAdapter(_this23.gridSourceData);
+                _this23.totalItems = _this23.moveOutDataList.length;
+                _this23.isDataLoaded = true;
+              });
             } else {
-              _this19.isMoveOutSubmitted = true;
-              _this19.isError = true;
-              _this19.alertMessage = res.errorMessage;
+              _this23.isDataLoaded = true;
+              _this23.isError = true;
+              _this23.alertMessage = res.errorMessage;
             }
           }, function (error) {
-            _this19.isMoveOutSubmitted = true;
+            _this23.isMoveOutSubmitted = true;
           });
         }
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this20 = this;
+          var _this24 = this;
 
           if (this.moveOutData != "") {
             var filtergroup = new jqx.filter();
@@ -2920,7 +3459,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this20.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this24.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2931,7 +3470,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this21 = this;
+          var _this25 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2984,9 +3523,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Time',
             datafield: 'outTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this21.getTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this25.getTime(value) + '</div>';
             },
             minwidth: 170,
+            renderer: columnrenderer
+          }, {
+            text: 'Status',
+            datafield: 'statusId',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              if (value == 372) {
+                return '<span class="dots high"></span>';
+              } else if (value == 373) {
+                return '<span class="dots low"></span>';
+              }
+            },
             renderer: columnrenderer
           }, {
             text: 'Actions',
@@ -2995,41 +3548,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 120,
             cellclassname: 'action-cell',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              var id_ = _this21.moveOutDataList[row].approvedBy;
+              var id_ = _this25.moveOutDataList[row].approvedBy;
 
               if (id_ == null) {
                 return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveOutDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveOutDropDown">' + '<a href="javascript:void(0)" onClick="approveMoveOut(' + row + ')">Approve</a>' + '<a href="javascript:void(0)" onClick="navigateTo(' + row + ')">Edit</a>' + '</div>' + '</div>';
-              } else if (id_ == !null) {
-                return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveOutDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveOutDropDown">' + '<a href="javascript:void(0)" class="no-link grey">Approved</a>' + '<a href="javascript:void(0)" routerLink="/ams/moveinout-tracker/edit-moveout/{{moveout.id}}">Edit</a>' + '</div>' + '</div>';
+              } else if (id_ != null) {
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveOutDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="moveOutDropDown">' + '<a href="javascript:void(0)" class="no-link grey">Approved</a>' + '<a href="javascript:void(0)" onClick="navigateTo(' + row + ')">Edit</a>' + '</div>' + '</div>';
               }
             },
             renderer: columnrenderer
           }];
           var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            statusIds: "372,373"
           };
-          this.moveInOutService.getMoveOutByApartmentId(params).subscribe(function (res) {
-            _this21.moveOutDataList = res.filter(function (item) {
+          this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
+            _this25.moveOutDataList = res.filter(function (item) {
               return item.isActive;
             });
-            console.log(_this21.moveOutDataList);
-            _this21.gridSourceData = {
-              localdata: _this21.moveOutDataList,
+            console.log(_this25.moveOutDataList);
+            _this25.gridSourceData = {
+              localdata: _this25.moveOutDataList,
               datatype: "array"
             };
-            _this21.listData = new jqx.dataAdapter(_this21.gridSourceData);
-            _this21.totalItems = _this21.moveOutDataList.length;
+            _this25.listData = new jqx.dataAdapter(_this25.gridSourceData);
+            _this25.totalItems = _this25.moveOutDataList.length;
 
-            if (_this21.totalItems > _this21.itemLimit) {
-              _this21.ItemEndIndex = _this21.itemLimit;
+            if (_this25.totalItems > _this25.itemLimit) {
+              _this25.ItemEndIndex = _this25.itemLimit;
             } else {
-              _this21.ItemEndIndex = _this21.totalItems;
+              _this25.ItemEndIndex = _this25.totalItems;
             }
 
-            _this21.isDataLoaded = true;
+            _this25.isDataLoaded = true;
           });
           this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-            _this21.blockUnitData = res;
+            _this25.blockUnitData = res;
           });
         }
       }, {
@@ -3061,7 +3615,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])], MoveoutMaintainComponent.prototype, "datagrid", void 0);
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:approveMoveIn', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], MoveoutMaintainComponent.prototype, "approveMoveOut", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:approveMoveOut', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], MoveoutMaintainComponent.prototype, "approveMoveOut", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:navigateTo', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], MoveoutMaintainComponent.prototype, "navigateTo", null);
     MoveoutMaintainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-moveout-maintain',
@@ -3182,6 +3736,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./components/movein-admin-history/movein-admin-history.component */
     "./src/app/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.ts");
+    /* harmony import */
+
+
+    var _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./components/create-movein/create-movein.component */
+    "./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.ts");
 
     var routes = [{
       path: '',
@@ -3210,7 +3770,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       component: _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_9__["MoveinMoveoutCancelComponent"]
     }, {
       path: 'create-movein',
-      component: _shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_7__["UserMoveinComponent"]
+      component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_11__["CreateMoveinComponent"]
     }, {
       path: 'movein-history',
       component: _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_10__["MoveinAdminHistoryComponent"]
@@ -3413,13 +3973,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./components/movein-admin-history/movein-admin-history.component */
     "./src/app/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.ts");
+    /* harmony import */
+
+
+    var _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! ./components/create-movein/create-movein.component */
+    "./src/app/ams/moveinout-tracker/components/create-movein/create-movein.component.ts");
 
     var MoveinoutTrackerModule = function MoveinoutTrackerModule() {
       _classCallCheck(this, MoveinoutTrackerModule);
     };
 
     MoveinoutTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_moveinout_tracker_component__WEBPACK_IMPORTED_MODULE_5__["MoveinoutTrackerComponent"], _components_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_6__["MoveinSetupComponent"], _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_7__["MoveinMaintainComponent"], _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_13__["MoveinAdminHistoryComponent"], _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_8__["MoveoutMaintainComponent"], _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_9__["MoveinReportsComponent"], _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_10__["MoveinMoveoutCancelComponent"], _components_movein_cancel_movein_cancel_component__WEBPACK_IMPORTED_MODULE_11__["MoveinCancelComponent"], _components_moveout_cancel_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_12__["MoveoutCancelComponent"]],
+      declarations: [_moveinout_tracker_component__WEBPACK_IMPORTED_MODULE_5__["MoveinoutTrackerComponent"], _components_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_6__["MoveinSetupComponent"], _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_7__["MoveinMaintainComponent"], _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_13__["MoveinAdminHistoryComponent"], _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_8__["MoveoutMaintainComponent"], _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_9__["MoveinReportsComponent"], _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_10__["MoveinMoveoutCancelComponent"], _components_movein_cancel_movein_cancel_component__WEBPACK_IMPORTED_MODULE_11__["MoveinCancelComponent"], _components_moveout_cancel_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_12__["MoveoutCancelComponent"], _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_14__["CreateMoveinComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _moveinout_tracker_routing_module__WEBPACK_IMPORTED_MODULE_3__["MoveinoutTrackerRoutingModule"]],
       bootstrap: [_moveinout_tracker_component__WEBPACK_IMPORTED_MODULE_5__["MoveinoutTrackerComponent"]]
     })], MoveinoutTrackerModule);

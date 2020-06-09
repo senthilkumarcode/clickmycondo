@@ -127,7 +127,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card table-card mb-30\">\n\n\n        <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n                <table class=\"table rule\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Violation Id<span></span></th>\n                            <th scope=\"col\" colspan=\"15\"></th>\n    \n                            <th scope=\"col\" (click)=\"sortUnitData('phone')\">Rule No<span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                            <th scope=\"col\" colspan=\"15\"></th>\n    \n                            <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n    \n                            <tr *ngIf=\"!group.get('isEditable').value\">\n                                <td>\n                                    {{group.get('category').value}}\n                                </td>\n                                <td colspan=\"15\">\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n                                                <th scope=\"col\">Unit Id<span></span></th>\n                                                <th scope=\"col\">Block Id<span></span></th>\n    \n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\" {{violation?.get('descViolationNo').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n                                                <th scope=\"col\">Resident<span></span></th>\n                                                <th scope=\"col\">Category<span></span></th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n                                                        {{violation?.get('descViolationNo').value}}\n                                                    </td>\n                                                    <td>\n                                                        <mat-form-field>\n                                                            <mat-select  value=\"{{group.get('category').value}}\">\n                                                                <mat-option *ngFor=\"let item of allViolationCategory\"\n                                                                    [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</mat-option>\n                                                            </mat-select>\n                                                        </mat-form-field>\n    \n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                </td>\n    \n                                <td>\n                                    {{group.get('ruleno').value}}\n                                </td>\n    \n    \n                                <td colspan=\"15\">\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n                                                <th scope=\"col\">Stop What</th>\n                                                <th scope=\"col\">Until date</th>\n    \n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n                                                        <mat-form-field>\n                                                            <mat-select>\n                                                                <mat-option *ngFor=\"let item of allViolationPrivilege\"\n                                                                    [value]=\"item.stopPriveldgeDays\">{{\n                                                                    item.stopPriveldgeDays }}</mat-option>\n                                                            </mat-select>\n                                                        </mat-form-field>\n                                                    </td>\n                                                    <td>\n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n    \n                                                <th scope=\"col\">Violation Comments</th>\n                                                <th scope=\"col\">Admin Comments</th>\n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{violation?.get('descViolationNo').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{violation?.get('stopprivledges').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                </td>\n                                <td>\n                                    <div class=\"row\">\n                                        <button mat-raised-button class=\"col-12\" type=\"submit\" (click)=\"confirmPrivilege(i)\">Confirm Stop</button>\n                                        <button mat-raised-button class=\"col-12\" type=\"submit\" (click)=\"updateviolationstatus(i,1048)\">Cancel stop</button>\n                                        <button mat-raised-button class=\"col-12\" type=\"submit\" (click)=\"updateviolationstatus(i,406)\">Close Violation</button>\n                                    </div>\n                                </td>\n    \n    \n                            </tr>\n                        </ng-container>\n                    </tbody>\n    \n                </table>\n    \n            </form>\n    \n    \n        </div>\n    \n    </div>\n";
+    __webpack_exports__["default"] = "<div class=\"card table-card mb-30\">\n\n\n        <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n                <table class=\"table rule\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Violation Id</th>\n                            <th scope=\"col\" colspan=\"15\"></th>\n    \n                            <th scope=\"col\" (click)=\"sortUnitData('phone')\">Rule No</th>\n                            <th scope=\"col\" colspan=\"15\"></th>\n    \n                            <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n    \n                            <tr *ngIf=\"!group.get('isEditable').value\" [formGroupName]=\"i\">\n                                <td>\n                                    {{group.get('voilationId').value}}\n                                </td>\n                                <td colspan=\"15\">\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n                                                <th scope=\"col\">Unit Id</th>\n                                                <th scope=\"col\">Block Id</th>\n    \n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container >\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td class=\"pr-4\">\n    \n                                                        {{group.get('block').value}}\n                                                    </td>\n                                                    <td class=\"pr-4\">\n    \n                                                            {{group.get('unitId').value}}\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n                                                <th scope=\"col\">Resident</th>\n                                                <th scope=\"col\">Category</th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container>\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td  class=\"pr-4\">\n                                                        {{group?.get('unitOwnerName').value}}\n                                                    </td>\n                                                    <td class=\"pr-4\">\n                                                            {{group.get('category').value}}\n                                                       \n    \n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                </td>\n    \n                                <td>\n                                    {{group.get('ruleno').value}}\n                                </td>\n    \n    \n                                <td colspan=\"15\">\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n                                                <th scope=\"col\">Stop What</th>\n                                                <th scope=\"col\">Until date</th>\n    \n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container>\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n                                                        <mat-form-field>\n                                                            <!-- {{group.get('stopWhat').value}} -->\n                                                            <mat-select formControlName=\"stopWhat\" value=\"{{group.get('stopWhat').value}}\">\n                                                                <mat-option *ngFor=\"let item of allViolationPrivilege\"\n                                                                    [value]=\"item.name\">{{\n                                                                    item.name }}</mat-option>\n                                                            </mat-select>\n                                                        </mat-form-field>\n                                                    </td>\n                                                    <td>\n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" value=\"{{group?.get('untilDate').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                    <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n    \n    \n    \n                                                <th scope=\"col\">Violation Comments</th>\n                                                <th scope=\"col\">Admin Comments</th>\n    \n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container>\n                                                <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n    \n                                                       {{group.get('violationComments').value}}\n                                                    </td>\n                                                    <td>\n    \n                                                        <mat-form-field>\n                                                            <input matInput type=\"text\" formControlName=\"adminComments\" value=\"{{group.get('adminComments').value}}\">\n                                                        </mat-form-field>\n                                                    </td>\n    \n    \n                                                </tr>\n                                            </ng-container>\n                                        </tbody>\n                                    </table>\n                                </td>\n                                <td>\n                                    <div class=\"row\">\n                                            <a class=\"btn lime-green mt_5 col-sm-2 btn-srch mr-2\" href=\"javascript:void(0)\" (click)=\"confirmPrivilege(group)\"\n                                                role=\"button\" data-toggle=\"dropdown\" id=\"addWorkPermits\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                                                <span>Confirm Stop</span>\n                                            </a>\n                                            <a class=\"btn lime-green mt_5 col-sm-2 btn-srch mr-2\" href=\"javascript:void(0)\" (click)=\"updateviolationstatus(group.get('voilationId').value,1048)\"\n                                            role=\"button\" data-toggle=\"dropdown\" id=\"addWorkPermits\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                                            <span>Cancel stop</span>\n                                        </a>\n                                        <a class=\"btn lime-green mt_5 col-sm-2 btn-srch mr-2\" href=\"javascript:void(0)\" (click)=\"updateviolationstatus(group.get('voilationId').value,406)\"\n                                        role=\"button\" data-toggle=\"dropdown\" id=\"addWorkPermits\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                                        <span>Close Violation</span>\n                                    </a>\n\n                                    </div>\n                                </td>\n    \n    \n                            </tr>\n                        </ng-container>\n                    </tbody>\n    \n                </table>\n    \n            </form>\n    \n    \n        </div>\n    \n    </div>\n";
     /***/
   },
 
@@ -247,7 +247,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"workpermit-setup-wrapper\">\n\t\n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n                    Create Violation Category &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"typeCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details-category\">\n    \n                <form #createCategoryTypeForm = \"ngForm\" name=\"createCategoryTypeForm\" (ngSubmit)=\"submitCreateCategoryTypeForm(createCategoryTypeForm)\"  novalidate>\n                <div class=\"row p-category\">\n                    <div class=\"\n                    col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Category</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryname\" [(ngModel)]=\"category.categoryname\" value=\"{{category.categoryname}}\" required>\n                        </div>\n                    </div>\n    \n                    <div class=\"col-sm-6\">\n                            <div class=\"input-box\">\n                                <label>Description</label>\n                                <textarea class=\"form-control\" placeholder=\"Enter\" name=\"Description\" [(ngModel)]=\"category.Description\" value=\"{{category.Description}}\" required></textarea>\n                            </div>\n                        </div>\n    \n                    <div class=\"col-sm-2\">\n                    <div class=\"input-box p-25\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"createCategoryTypeForm.invalid\">Submit</button>\n                    </div>\n                    </div>\n                </div>\n                </form>\n    \n                <table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                          <th scope=\"col\" (click)=\"sortUnitData('lookupValueId')\">Category ID<span [ngClass]=\"getFieldOrderBy('lookupValueId')\"></span></th>\n                          <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th>\n                          <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                          <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let violationcategory of allViolationCategory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: wpData ; let i = index\">\n                          <td class=\"name\">{{violationcategory.lookupValueId}}</td>\n                          <td class=\"grey\">{{violationcategory.lookupValueName}}</td>\n                          <td class=\"grey\">{{violationcategory.description}}</td>\n                          <td class=\"grey\">\n                            <a class=\"\" (click)=\"openEditViolationCategory(violationcategory)\"><i-feather class=\"icon edit\" name=\"edit\" ></i-feather></a>&nbsp;\n                            <a class=\"\" (click)=\"showConfirmViolationCategory(violationcategory.lookupValueId)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>\n                          </td>\n                        </tr>\n                    </tbody>\n                </table>\n                \n                <app-pagination \n                    [totalItems]=\"totalItems\"  \n                    [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex] = \"ItemEndIndex\"\n                    [itemLimit] = \"itemLimit\"\n                    (outputParams) = \"getIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#natureCollapseOne\" aria-expanded=\"true\" aria-controls=\"naturecollapseOne\">\n                    Stop Privledge &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"natureCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details-privilege\">\n    \n                <form #createsStopPrivledgeForm = \"ngForm\" name=\"createsStopPrivledgeForm\" (ngSubmit)=\"submitCreatesStopPrivledgeForm(createsStopPrivledgeForm)\"  novalidate>\n                <div class=\"row p-category\">\n                    <div class=\"col-sm-2\">\n                        <div class=\"input-box\">\n                            <label>StopPrivledgeName*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"StopPrivledgeName\" [(ngModel)]=\"privledge.StopPrivledgeName\" valu=\"{{privledge.StopPrivledgeName}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Stopwhat Description</label>\n                            <!-- <select class=\"form-control\" name=\"ViolationDescription\" [(ngModel)]=\"privledge.ViolationDescription\" value=\"{{privledge.ViolationDescription}}\" required>\n                                <option value=\"\">Seelct</option>\n                                <option *ngFor=\"let item of allMenus\" [value]=\"item.screenId\">{{ item.screenName }}</option>\n                            </select> -->\n                            <!-- <textarea class=\"form-control\" placeholder=\"Enter\" name=\"ViolationDescription\" [(ngModel)]=\"privledge.ViolationDescription\" value=\"{{privledge.ViolationDescription}}\" required></textarea> -->\n                            <mat-form-field class=\"p0\">\n                                    <mat-select class=\"drop-down\" placeholder=\"Select Stopwhat\" name=\"ViolationDescription\" [(ngModel)]=\"privledge.ViolationDescription\"  multiple #selectionModel=\"ngModel\"  value=\"{{privledge.ViolationDescription}}\" required>\n                                            <app-select-check-all [model]=\"selectionModel\" [values]=\"allMenus\"></app-select-check-all>\n                                          \n                                      <mat-option *ngFor=\"let item of allMenus\" [value]=\"item\">{{ item }}</mat-option>\n                                    </mat-select>\n                                  </mat-form-field>\n \n                                 \n                        </div>\n                    </div>\n                    <div class=\"col-sm-3\">\n                        <div class=\"input-box\">\n                            <label>Period of Stop Privledges (days)</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"PeriodOfPrivledges\" [(ngModel)]=\"privledge.PeriodOfPrivledges\" value=\"{{privledge.PeriodOfPrivledges}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\">\n                    <div class=\"input-box p-25\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"createsStopPrivledgeForm.invalid\">Submit</button>\n                    </div>\n                    </div>\n                    \n                </div>\n                </form>\n    \n                <table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                          <th scope=\"col\" >ID<span ></span></th>\n                          <th scope=\"col\" >StopPrivledge Name <span ></span></th>\n                          <th scope=\"col\" >Stopwhat Description <span></span></th>\n                          <th scope=\"col\" >Period of Stop Privledge <span></span></th>\n                          <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let privledge of allViolationPrivilege | orderBy : PunitFieldType: PunitOrder | slice:NWItemStartIndex:PItemEndIndex | simpleSearch: nwData ; let i = index\">\n                          <td class=\"name\">{{privledge.id}}</td>\n                          <td class=\"grey\">{{privledge.name}}</td>\n                          <td class=\"grey\">{{privledge.description}}</td>\n                          <td class=\"grey\">{{privledge.stopPriveldgeDays}}</td>\n                          <td class=\"grey\">\n                            <a class=\"\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"openEditStopPrivilege(privledge)\"></i-feather></a>&nbsp;\n                            <a class=\"\"><i-feather class=\"icon delete\" name=\"trash\" (click)=\"showConfirmModal(privledge.id)\"></i-feather></a>\n                          </td>\n                        </tr>\n                    </tbody>\n                </table>\n                \n                <app-pagination \n                    [totalItems]=\"PtotalItems\"  \n                    [ItemStartIndex]=\"PItemStartIndex\"\n                    [ItemEndIndex] = \"PItemEndIndex\"\n                    [itemLimit] = \"NWitemLimit\"\n                    (outputParams) = \"getPIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#violationCollapseOne\" aria-expanded=\"true\" aria-controls=\"naturecollapseOne\">\n                    Create Violation Rule &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"violationCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details\" id=\"details\">\n    \n            \n                <app-loader *ngIf=\"!isViolationDataLoaded\"></app-loader>\n    \n    <div class=\"card table-card mb-30\" *ngIf=\"isViolationDataLoaded\">\n    \n    \n        <div class=\"card-body p-0\">\n                <form [formGroup]=\"userTable\">\n        <table class=\"table rule\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                      <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Category<span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                      <th scope=\"col\" (click)=\"sortUnitData('phone')\">Rule No<span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                      <th scope=\"col\" colspan=\"15\"></th>\n    \n                      <th scope=\"col\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                      <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                        <td>\n                        <mat-form-field>\n                            <mat-select  formControlName=\"category\">\n                            <mat-option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</mat-option>\n                            </mat-select>\n                        </mat-form-field>\n                        \n                        \n                        </td>\n                        <td>\n                          <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"ruleno\">\n                            \n                          </mat-form-field>\n                        </td>\n                        <td colspan=\"15\">\n                            <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                <thead>\n                                    <tr>\n                                      <th scope=\"col\" >Violation No </th>\n                                      <th scope=\"col\" >Penalty Amount </th>\n                                      <th scope=\"col\" class=\"desc\" >Violation Description</th>\n                                      <th scope=\"col\" >Stop privilege</th>\n                                      <th scope=\"col\" ></th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <ng-container formArrayName=\"violationTable\" *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                      <tr  [formGroupName]=\"j\">\n                                            <td>\n                                                <label class=\"text-center label-index\">{{j + 1}}.</label>\n                                            </td>\n                                        <td>\n                                        <mat-form-field>\n                                            <input matInput type=\"text\" formControlName=\"fineViolationNo\">\n                                        </mat-form-field>\n                                        </td>\n                                        <td>\n                                          <mat-form-field class=\"desc-content\">\n                                                <input matInput type=\"text\" formControlName=\"descViolationNo\">\n                                            \n                                          </mat-form-field>\n                                        </td>\n                                        <td>\n                                          <mat-form-field>\n                                                \n                                                <mat-select  formControlName=\"stopprivledges\">\n                                                    <mat-option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.name\">{{ item.name }}</mat-option>\n                                                    </mat-select>\n                                          </mat-form-field>\n                                        </td>\n                                        <td>\n                                            <div class=\"action-icon\">\n                                                    <a class=\"\" (click)=\"clearviolationRow(i, j)\"><i-feather class=\"icon check\" name=\"x\" ></i-feather></a>&nbsp;\n                                                    <a class=\"\" (click)=\"deleteviolationRow(i, j)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>&nbsp;\n                                                   \n                                                <!-- <mat-icon class=\"delete\" (click)=\"clearviolationRow(i, j)\">close</mat-icon> -->\n                                                <!-- <mat-icon class=\"delete\" (click)=\"deleteviolationRow(i, j)\">delete_forever</mat-icon> -->\n                                            </div>\n                                        </td>\n                                      </tr>\n                                      </ng-container>\n                                </tbody>\n                                <tfoot>\n                                        \n                                                <button mat-raised-button type=\"submit\" (click)=\"addRowViolation(i)\">Add row</button>\n                                                \n                                             \n                                </tfoot>\n                                </table>\n                        </td>\n                        \n                        \n                        <td>\n                                <a class=\"\" (click)=\"deleteRow(i)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>&nbsp;\n                                <a class=\"\" (click)=\"doneRow(group, i)\"><i-feather class=\"icon check\" name=\"check\" ></i-feather></a>&nbsp;\n                          <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i)\">delete_forever</mat-icon>\n                          <mat-icon class=\"done\" (click)=\"doneRow(group, i)\">done</mat-icon> -->\n                          \n                        </td>\n                      </tr>\n                      <tr *ngIf=\"!group.get('isEditable').value\" >\n                        <td>\n                          {{group.get('category').value}}\n                        </td>\n                        <td>\n                          {{group.get('ruleno').value}}\n                        </td>\n                        <td colspan=\"8\">\n                                <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n                                              <th scope=\"col\" >Violation No </th>\n                                              <th scope=\"col\" >Fine Violation No </th>\n                                              <th scope=\"col\" >Desc Violation No</th>\n                                              <th scope=\"col\" >Stop Privledges</th>\n                                              <th scope=\"col\" ></th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                              <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n                                                        <label class=\"text-center label-index\">{{j + 1}}.</label>\n                                                    \n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('fineViolationNo').value}}\n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('descViolationNo').value}}\n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('stopprivledges').value}}\n                                                    </td>\n                                                    <td>\n    \n                                                    </td>\n                                              </tr>\n                                              </ng-container>\n                                        </tbody>\n                                        </table>\n                        </td>\n                        \n                        \n                        <td>\n                                <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon> -->\n                                <a class=\"\" (click)=\"editRow(group)\"><i-feather class=\"icon edit\" name=\"edit\" ></i-feather></a>&nbsp;\n                                <a class=\"\" (click)=\"showConfirmViolationRule(group.get('ruleId').value,i)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>&nbsp;\n                          \n                        </td>\n                      </tr>\n                    </ng-container>\n                  </tbody>\n                \n            </table>\n            <div class=\"action-container\">\n                    <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                    <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n                  </div>\n            </form>\n    \n            <!-- <div class=\"output\">\n                    <p>Form Data:  {{userTable.value | json}}</p>\n                      <p>Is Valid: {{userTable.valid}}</p>\n                  </div> -->\n        </div>\n    \n    </div>\n    \n            \n                \n                <app-pagination \n                    [totalItems]=\"NWtotalItems\"  \n                    [ItemStartIndex]=\"NWItemStartIndex\"\n                    [ItemEndIndex] = \"NWItemEndIndex\"\n                    [itemLimit] = \"NWitemLimit\"\n                    (outputParams) = \"getIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n    </div>\n    \n";
+    __webpack_exports__["default"] = "<div class=\"workpermit-setup-wrapper\">\n\t\n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#typeCollapseOne\" aria-expanded=\"true\" aria-controls=\"typecollapseOne\">\n                    Create Violation Category &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"typeCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details-category\">\n    \n                <form #createCategoryTypeForm = \"ngForm\" name=\"createCategoryTypeForm\" (ngSubmit)=\"submitCreateCategoryTypeForm(createCategoryTypeForm)\"  novalidate>\n                <div class=\"row p-category\">\n                    <div class=\"\n                    col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Category</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryname\" [(ngModel)]=\"category.categoryname\" value=\"{{category.categoryname}}\" required>\n                        </div>\n                    </div>\n    \n                    <div class=\"col-sm-6\">\n                            <div class=\"input-box\">\n                                <label>Description</label>\n                                <textarea class=\"form-control\" placeholder=\"Enter\" name=\"Description\" [(ngModel)]=\"category.Description\" value=\"{{category.Description}}\" required></textarea>\n                            </div>\n                        </div>\n    \n                    <div class=\"col-sm-2\">\n                    <div class=\"input-box p-25\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"createCategoryTypeForm.invalid\">Submit</button>\n                    </div>\n                    </div>\n                </div>\n                </form>\n    \n                <table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                          <th scope=\"col\" (click)=\"sortUnitData('lookupValueId')\">Category ID<span [ngClass]=\"getFieldOrderBy('lookupValueId')\"></span></th>\n                          <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th>\n                          <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                          <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let violationcategory of allViolationCategory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: wpData ; let i = index\">\n                          <td class=\"name\">{{violationcategory.lookupValueId}}</td>\n                          <td class=\"grey\">{{violationcategory.lookupValueName}}</td>\n                          <td class=\"grey\">{{violationcategory.description}}</td>\n                          <td class=\"grey\">\n                            <a class=\"\" (click)=\"openEditViolationCategory(violationcategory)\"><i-feather class=\"icon edit\" name=\"edit\" ></i-feather></a>&nbsp;\n                            <a class=\"\" (click)=\"showConfirmViolationCategory(violationcategory.lookupValueId)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>\n                          </td>\n                        </tr>\n                    </tbody>\n                </table>\n                \n                <app-pagination \n                    [totalItems]=\"totalItems\"  \n                    [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex] = \"ItemEndIndex\"\n                    [itemLimit] = \"itemLimit\"\n                    (outputParams) = \"getIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#natureCollapseOne\" aria-expanded=\"true\" aria-controls=\"naturecollapseOne\">\n                    Stop Privledge &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"natureCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details-privilege\">\n    \n                <form #createsStopPrivledgeForm = \"ngForm\" name=\"createsStopPrivledgeForm\" (ngSubmit)=\"submitCreatesStopPrivledgeForm(createsStopPrivledgeForm)\"  novalidate>\n                <div class=\"row p-category\">\n                    <div class=\"col-sm-2\">\n                        <div class=\"input-box\">\n                            <label>StopPrivledgeName*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"StopPrivledgeName\" [(ngModel)]=\"privledge.StopPrivledgeName\" valu=\"{{privledge.StopPrivledgeName}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Stopwhat Description</label>\n                            <!-- <select class=\"form-control\" name=\"ViolationDescription\" [(ngModel)]=\"privledge.ViolationDescription\" value=\"{{privledge.ViolationDescription}}\" required>\n                                <option value=\"\">Seelct</option>\n                                <option *ngFor=\"let item of allMenus\" [value]=\"item.screenId\">{{ item.screenName }}</option>\n                            </select> -->\n                            <!-- <textarea class=\"form-control\" placeholder=\"Enter\" name=\"ViolationDescription\" [(ngModel)]=\"privledge.ViolationDescription\" value=\"{{privledge.ViolationDescription}}\" required></textarea> -->\n                            <mat-form-field class=\"p0\">\n                                    <mat-select class=\"drop-down\" placeholder=\"Select Stopwhat\" name=\"ViolationDescription\" [(ngModel)]=\"privledge.ViolationDescription\"  multiple #selectionModel=\"ngModel\"  value=\"{{privledge.ViolationDescription}}\" required>\n                                            <app-select-check-all [model]=\"selectionModel\" [values]=\"allMenus\"></app-select-check-all>\n                                          \n                                      <mat-option *ngFor=\"let item of allMenus\" [value]=\"item\">{{ item }}</mat-option>\n                                    </mat-select>\n                                  </mat-form-field>\n \n                                 \n                        </div>\n                    </div>\n                    <div class=\"col-sm-3\">\n                        <div class=\"input-box\">\n                            <label>Period of Stop Privledges (days)</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"PeriodOfPrivledges\" [(ngModel)]=\"privledge.PeriodOfPrivledges\" value=\"{{privledge.PeriodOfPrivledges}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\">\n                    <div class=\"input-box p-25\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"createsStopPrivledgeForm.invalid\">Submit</button>\n                    </div>\n                    </div>\n                    \n                </div>\n                </form>\n    \n                <table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n                    <thead>\n                        <tr>\n                          <th scope=\"col\" >ID<span ></span></th>\n                          <th scope=\"col\" >StopPrivledge Name <span ></span></th>\n                          <th scope=\"col\" >Stopwhat Description <span></span></th>\n                          <th scope=\"col\" >Period of Stop Privledge <span></span></th>\n                          <th scope=\"col\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let privledge of allViolationPrivilege | orderBy : PunitFieldType: PunitOrder | slice:NWItemStartIndex:PItemEndIndex | simpleSearch: nwData ; let i = index\">\n                          <td class=\"name\">{{privledge.id}}</td>\n                          <td class=\"grey\">{{privledge.name}}</td>\n                          <td class=\"grey\">{{privledge.description}}</td>\n                          <td class=\"grey\">{{privledge.stopPriveldgeDays}}</td>\n                          <td class=\"grey\">\n                            <a class=\"\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"openEditStopPrivilege(privledge)\"></i-feather></a>&nbsp;\n                            <a class=\"\"><i-feather class=\"icon delete\" name=\"trash\" (click)=\"showConfirmModal(privledge.id)\"></i-feather></a>\n                          </td>\n                        </tr>\n                    </tbody>\n                </table>\n                \n                <app-pagination \n                    [totalItems]=\"PtotalItems\"  \n                    [ItemStartIndex]=\"PItemStartIndex\"\n                    [ItemEndIndex] = \"PItemEndIndex\"\n                    [itemLimit] = \"NWitemLimit\"\n                    (outputParams) = \"getPIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n        <div class=\"card clear form-group\" id=\"accordion\">\n            <div class=\"card-body p-0\">\n                <ul class=\"list-group tabs clear\">\n                <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#violationCollapseOne\" aria-expanded=\"true\" aria-controls=\"naturecollapseOne\">\n                    Create Violation Rule &nbsp;<!--<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>-->\n                </li>\n                <div id=\"violationCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                <div class=\"details\" id=\"details\">\n    \n            \n                <app-loader *ngIf=\"!isViolationDataLoaded\"></app-loader>\n    \n    <div class=\"card table-card mb-30\" *ngIf=\"isViolationDataLoaded\">\n    \n    \n        <div class=\"card-body p-0\">\n                <form [formGroup]=\"userTable\">\n        <table class=\"table rule\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                      <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Category<span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                      <th scope=\"col\" (click)=\"sortUnitData('phone')\">Rule No<span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                      <th scope=\"col\" colspan=\"15\"></th>\n    \n                      <th scope=\"col\">Action</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                      <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                        <td>\n                        <mat-form-field>\n                            <mat-select  formControlName=\"category\">\n                            <mat-option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</mat-option>\n                            </mat-select>\n                        </mat-form-field>\n                        \n                        \n                        </td>\n                        <td>\n                          <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"ruleno\">\n                            \n                          </mat-form-field>\n                        </td>\n                        <td colspan=\"15\">\n                            <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                <thead>\n                                    <tr>\n                                      <th scope=\"col\" >Violation No </th>\n                                      <th scope=\"col\" >Penalty Amount </th>\n                                      <th scope=\"col\" class=\"desc\" >Violation Description</th>\n                                      <th scope=\"col\" >Stop privilege</th>\n                                      <th scope=\"col\" ></th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <ng-container formArrayName=\"violationTable\" *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                      <tr  [formGroupName]=\"j\">\n                                            <td>\n                                                <label class=\"text-center label-index\">{{j + 1}}.</label>\n                                            </td>\n                                        <td>\n                                        <mat-form-field>\n                                            <input matInput type=\"text\" formControlName=\"fineViolationNo\">\n                                        </mat-form-field>\n                                        </td>\n                                        <td>\n                                          <mat-form-field class=\"desc-content\">\n                                                <input matInput type=\"text\" formControlName=\"descViolationNo\">\n                                            \n                                          </mat-form-field>\n                                        </td>\n                                        <td>\n                                          <mat-form-field>\n                                                \n                                                <mat-select  formControlName=\"stopprivledges\">\n                                                    <mat-option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.id\">{{ item.name }}</mat-option>\n                                                    </mat-select>\n                                          </mat-form-field>\n                                        </td>\n                                        <td>\n                                            <div class=\"action-icon\">\n                                                    <a class=\"\" (click)=\"clearviolationRow(i, j)\"><i-feather class=\"icon check\" name=\"x\" ></i-feather></a>&nbsp;\n                                                    <a class=\"\" (click)=\"deleteviolationRow(i, j)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>&nbsp;\n                                                   \n                                                <!-- <mat-icon class=\"delete\" (click)=\"clearviolationRow(i, j)\">close</mat-icon> -->\n                                                <!-- <mat-icon class=\"delete\" (click)=\"deleteviolationRow(i, j)\">delete_forever</mat-icon> -->\n                                            </div>\n                                        </td>\n                                      </tr>\n                                      </ng-container>\n                                </tbody>\n                                <tfoot>\n                                        \n                                                <button mat-raised-button type=\"submit\" (click)=\"addRowViolation(i)\">Add row</button>\n                                                \n                                             \n                                </tfoot>\n                                </table>\n                        </td>\n                        \n                        \n                        <td>\n                                <a class=\"\" (click)=\"deleteRow(i)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>&nbsp;\n                                <a class=\"\" (click)=\"doneRow(group, i)\"><i-feather class=\"icon check\" name=\"check\" ></i-feather></a>&nbsp;\n                          <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i)\">delete_forever</mat-icon>\n                          <mat-icon class=\"done\" (click)=\"doneRow(group, i)\">done</mat-icon> -->\n                          \n                        </td>\n                      </tr>\n                      <tr *ngIf=\"!group.get('isEditable').value\" >\n                        <td>\n                          {{group.get('category').value}}\n                        </td>\n                        <td>\n                          {{group.get('ruleno').value}}\n                        </td>\n                        <td colspan=\"8\">\n                                <table class=\"table violation\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n                                              <th scope=\"col\" >Violation No </th>\n                                              <th scope=\"col\" >Fine Violation No </th>\n                                              <th scope=\"col\" >Desc Violation No</th>\n                                              <th scope=\"col\" >Stop Privledges</th>\n                                              <th scope=\"col\" ></th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container *ngFor=\"let violation of violationForm(i).controls ; let j=index\">\n                                              <tr *ngIf=\"!group.get('isEditable').value\">\n                                                    <td>\n                                                        <label class=\"text-center label-index\">{{j + 1}}.</label>\n                                                    \n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('fineViolationNo').value}}\n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('descViolationNo').value}}\n                                                    </td>\n                                                    <td>\n                                                        {{violation?.get('stopprivledges').value}}\n                                                    </td>\n                                                    <td>\n    \n                                                    </td>\n                                              </tr>\n                                              </ng-container>\n                                        </tbody>\n                                        </table>\n                        </td>\n                        \n                        \n                        <td>\n                                <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon> -->\n                                <a class=\"\" (click)=\"editRow(group)\"><i-feather class=\"icon edit\" name=\"edit\" ></i-feather></a>&nbsp;\n                                <a class=\"\" (click)=\"showConfirmViolationRule(group.get('ruleId').value,i)\"><i-feather class=\"icon delete\" name=\"trash\" ></i-feather></a>&nbsp;\n                          \n                        </td>\n                      </tr>\n                    </ng-container>\n                  </tbody>\n                \n            </table>\n            <div class=\"action-container\">\n                    <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                    <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n                  </div>\n            </form>\n    \n            <!-- <div class=\"output\">\n                    <p>Form Data:  {{userTable.value | json}}</p>\n                      <p>Is Valid: {{userTable.valid}}</p>\n                  </div> -->\n        </div>\n    \n    </div>\n    \n            \n                \n                <app-pagination \n                    [totalItems]=\"NWtotalItems\"  \n                    [ItemStartIndex]=\"NWItemStartIndex\"\n                    [ItemEndIndex] = \"NWItemEndIndex\"\n                    [itemLimit] = \"NWitemLimit\"\n                    (outputParams) = \"getIndexParams($event)\">\t\n                </app-pagination>\n    \n                        \n                </div>\n                </div>\t\n                </ul>\n            </div>\n        </div>\n    \n    </div>\n    \n";
     /***/
   },
 
@@ -1462,7 +1462,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".table th, .table td {\n  padding: 5px 25px !important;\n  width: 10px !important;\n  border: 1px solid #dae0cd !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdmlvbGF0aW9uL2NvbXBvbmVudHMvc3RvcC1wcml2aWxlZ2Uvc3RvcC1wcml2aWxlZ2UuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy92aW9sYXRpb24vY29tcG9uZW50cy9zdG9wLXByaXZpbGVnZS9zdG9wLXByaXZpbGVnZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDRCQUFBO0VBRUEsc0JBQUE7RUFDQSxvQ0FBQTtBQ0FKIiwiZmlsZSI6InNyYy9hcHAvYW1zL3Zpb2xhdGlvbi9jb21wb25lbnRzL3N0b3AtcHJpdmlsZWdlL3N0b3AtcHJpdmlsZWdlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRhYmxlIHRoLCAudGFibGUgdGR7XG4gICAgcGFkZGluZzogNXB4IDI1cHggIWltcG9ydGFudDtcbiAgICAvLyBtYXgtd2lkdGg6IDEwcHggIWltcG9ydGFudDtcbiAgICB3aWR0aDogMTBweCAhaW1wb3J0YW50O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICNkYWUwY2QgIWltcG9ydGFudDtcbn1cblxuXG4iLCIudGFibGUgdGgsIC50YWJsZSB0ZCB7XG4gIHBhZGRpbmc6IDVweCAyNXB4ICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiAxMHB4ICFpbXBvcnRhbnQ7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNkYWUwY2QgIWltcG9ydGFudDtcbn0iXX0= */";
+    __webpack_exports__["default"] = ".table th, .table td {\n  padding: 5px 12px;\n  width: 10px;\n  border: 1px solid #dae0cd !important;\n}\n\n.pr-4 {\n  padding-right: 4px !important;\n}\n\n::ng-deep .mat-form-field-infix {\n  width: 135px !important;\n}\n\n.btn {\n  min-width: 118px !important;\n}\n\n.mt_5 {\n  margin: -5px 0 0 4px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdmlvbGF0aW9uL2NvbXBvbmVudHMvc3RvcC1wcml2aWxlZ2Uvc3RvcC1wcml2aWxlZ2UuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy92aW9sYXRpb24vY29tcG9uZW50cy9zdG9wLXByaXZpbGVnZS9zdG9wLXByaXZpbGVnZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFBO0VBRUEsV0FBQTtFQUNBLG9DQUFBO0FDQUo7O0FESUE7RUFDSSw2QkFBQTtBQ0RKOztBRElBO0VBQ0ksdUJBQUE7QUNESjs7QURJQTtFQUNJLDJCQUFBO0FDREo7O0FESUE7RUFDSSwrQkFBQTtBQ0RKIiwiZmlsZSI6InNyYy9hcHAvYW1zL3Zpb2xhdGlvbi9jb21wb25lbnRzL3N0b3AtcHJpdmlsZWdlL3N0b3AtcHJpdmlsZWdlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRhYmxlIHRoLCAudGFibGUgdGR7XG4gICAgcGFkZGluZzogNXB4IDEycHg7XG4gICAgLy8gbWF4LXdpZHRoOiAxMHB4ICFpbXBvcnRhbnQ7XG4gICAgd2lkdGg6IDEwcHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI2RhZTBjZCAhaW1wb3J0YW50O1xufVxuXG5cbi5wci00e1xuICAgIHBhZGRpbmctcmlnaHQ6IDRweCAhaW1wb3J0YW50O1xufVxuXG46Om5nLWRlZXAgLm1hdC1mb3JtLWZpZWxkLWluZml4e1xuICAgIHdpZHRoOiAxMzVweCAhaW1wb3J0YW50O1xufVxuXG4uYnRue1xuICAgIG1pbi13aWR0aDogMTE4cHggIWltcG9ydGFudDtcbn1cblxuLm10XzV7XG4gICAgbWFyZ2luOiAtNXB4IDAgMCA0cHggIWltcG9ydGFudDtcbn0iLCIudGFibGUgdGgsIC50YWJsZSB0ZCB7XG4gIHBhZGRpbmc6IDVweCAxMnB4O1xuICB3aWR0aDogMTBweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2RhZTBjZCAhaW1wb3J0YW50O1xufVxuXG4ucHItNCB7XG4gIHBhZGRpbmctcmlnaHQ6IDRweCAhaW1wb3J0YW50O1xufVxuXG46Om5nLWRlZXAgLm1hdC1mb3JtLWZpZWxkLWluZml4IHtcbiAgd2lkdGg6IDEzNXB4ICFpbXBvcnRhbnQ7XG59XG5cbi5idG4ge1xuICBtaW4td2lkdGg6IDExOHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5tdF81IHtcbiAgbWFyZ2luOiAtNXB4IDAgMCA0cHggIWltcG9ydGFudDtcbn0iXX0= */";
     /***/
   },
 
@@ -1566,6 +1566,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.getViolationRule();
           this.getViolationCategory();
           this.getViolationPrivilege();
+          this.getAllViolationPrivilege();
           this.touchedRows = [];
           this.userTable = this.fb.group({
             tableRows: this.fb.array([])
@@ -1646,49 +1647,44 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this18.violationService.getViolationRule(params1).subscribe(function (rule) {
                 _this18.ruleListData = rule.filter(function (x) {
                   return x.isActive === true;
-                });
-
-                var control = _this18.userTable.get('tableRows'); // control.clear();
-                // tslint:disable-next-line:no-shadowed-variable
-
-
-                _this18.ruleListData.forEach(function (element, index) {
-                  var formcontrol = _this18.userTable.get('tableRows');
-
-                  formcontrol.push(_this18.fb.group({
-                    ruleId: [element.id],
-                    category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                    ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
-                    violationTable: _this18.fb.array([]),
-                    isEditable: [false]
-                  }));
-                  var violationnoArr = [];
-                  var elem1 = element.fineViolationNo1 + ',' + element.descViolationNo1 + ',' + element.violationPrivilegeId1;
-                  var elem2 = element.fineViolationNo2 + ',' + element.descViolationNo2 + ',' + element.violationPrivilegeId2;
-                  var elem3 = element.fineViolationNo3 + ',' + element.descViolationNo3 + ',' + element.violationPrivilegeId3;
-                  var elem4 = element.fineViolationNo4 + ',' + element.descViolationNo4 + ',' + element.violationPrivilegeId4;
-                  var elem5 = element.fineViolationNo5 + ',' + element.descViolationNo5 + ',' + element.violationPrivilegeId5;
-                  violationnoArr.push(elem1);
-                  violationnoArr.push(elem2);
-                  violationnoArr.push(elem3);
-                  violationnoArr.push(elem4);
-                  violationnoArr.push(elem5);
-                  violationnoArr.forEach(function (element2, index) {
-                    var control1 = formcontrol.controls[formcontrol.length - 1];
-                    var violation = control1.get('violationTable');
-
-                    var _index = index + 1;
-
-                    var _fineViolation = element['fineViolationNo' + _index];
-                    var _descViolation = element['descViolationNo' + _index];
-                    var _violationPrivilege = element['violationPrivilegeId' + _index];
-                    violation.push(_this18.fb.group({
-                      fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                      descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
-                      stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
-                    })); // console.log(violation);
-                  });
-                });
+                }); //   const control =  this.userTable.get('tableRows') as FormArray;
+                //   // control.clear();
+                //   // tslint:disable-next-line:no-shadowed-variable
+                // this.ruleListData.forEach((element, index) => {
+                //   const formcontrol =  this.userTable.get('tableRows') as FormArray;
+                //   formcontrol.push(this.fb.group({
+                //     ruleId: [element.id],
+                //     category: [element.violationCategoryId, Validators.required],
+                //     ruleno: [element.name, [Validators.required]],
+                //     violationTable: this.fb.array([]),
+                //     isEditable: [false]
+                //   }));
+                //   const violationnoArr = [];
+                //   const elem1 =  element.fineViolationNo1 + ',' + element.descViolationNo1 + ',' + element.violationPrivilegeId1;
+                //   const elem2 =  element.fineViolationNo2 + ',' + element.descViolationNo2 + ',' + element.violationPrivilegeId2;
+                //   const elem3 =  element.fineViolationNo3 + ',' + element.descViolationNo3 + ',' + element.violationPrivilegeId3;
+                //   const elem4 =  element.fineViolationNo4 + ',' + element.descViolationNo4 + ',' + element.violationPrivilegeId4;
+                //   const elem5 =  element.fineViolationNo5 + ',' + element.descViolationNo5 + ',' + element.violationPrivilegeId5;
+                //   violationnoArr.push(elem1);
+                //   violationnoArr.push(elem2);
+                //   violationnoArr.push(elem3);
+                //   violationnoArr.push(elem4);
+                //   violationnoArr.push(elem5);
+                //   violationnoArr.forEach((element2, index) => {
+                //     const control1 = formcontrol.controls[formcontrol.length - 1];
+                //     const violation = control1.get('violationTable') as FormArray;
+                //     const _index = index + 1;
+                //     const _fineViolation = element['fineViolationNo' + _index];
+                //     const _descViolation = element['descViolationNo' + _index];
+                //     const _violationPrivilege = element['violationPrivilegeId' + _index];
+                //     violation.push(this.fb.group({
+                //       fineViolationNo: [_fineViolation, Validators.required],
+                //       descViolationNo: [_descViolation, [Validators.required]],
+                //       stopprivledges: [_violationPrivilege, [Validators.required]],
+                //     }));
+                //     // console.log(violation);
+                //   });
+                // });
 
                 _this18.isDataLoaded = true;
               }, function (error) {
@@ -1877,23 +1873,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "AddStopPrivilege",
-        value: function AddStopPrivilege(id) {
+        value: function AddStopPrivilege(group) {
           var _this21 = this;
 
           var statusparams = {
             model: {
               /** format: int32 */
-              stopPreviledgeId: 1,
+              stopPreviledgeId: 0,
 
               /** format: int32 */
-              violationId: id,
+              violationId: group.get('voilationId').value,
 
               /** format: int32 */
-              violationPrivilegeId: 1,
+              violationPrivilegeId: group.get('violationPrivilegeId').value,
 
               /** format: date-time */
-              untilDate: '',
-              adminComments: '',
+              untilDate: group.get('untilDate').value,
+              adminComments: group.get('adminComments').value,
               isActive: true,
 
               /** format: int32 */
@@ -1974,21 +1970,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var control = _this22.userTable.get('tableRows');
 
             control.clear(); // tslint:disable-next-line:no-shadowed-variable
-
-            _this22.ruleListData.forEach(function (element, index) {
-              var formcontrol = _this22.userTable.get('tableRows');
-
-              formcontrol.push(_this22.fb.group({
-                directoryRecordId: [element.directoryRecordId],
-                serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
-                contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(10)]],
-                isEditable: [false]
-              }));
-            });
-
-            _this22.addRow();
+            // this.allViolationStopPrivilege.forEach((element, index) => {
+            //   const formcontrol =  this.userTable.get('tableRows') as FormArray;
+            //   formcontrol.push(this.fb.group({
+            //     directoryRecordId: [element.directoryRecordId],
+            //     serviceType: [element.serviceName, Validators.required],
+            //     email: [element.email, [Validators.email, Validators.required]],
+            //     contactperson: [element.contactPersonName, Validators.required],
+            //     phone: [element.phone, [Validators.required, Validators.maxLength(10)]],
+            //     isEditable: [false]
+            //   }));
+            // });
+            // this.addRow();
 
             _this22.isDataLoaded = true;
           }, function (error) {
@@ -2017,41 +2010,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               };
 
               _this23.violationService.getViolationRule(params1).subscribe(function (rule) {
-                _this23.ruleListData = rule;
-
-                var control = _this23.userTable.get('tableRows'); // control.clear();
-                // tslint:disable-next-line:no-shadowed-variable
-
-
-                _this23.ruleListData.forEach(function (element, index) {
-                  var formcontrol = _this23.userTable.get('tableRows');
-
-                  formcontrol.push(_this23.fb.group({
-                    ruleId: [element.id],
-                    category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                    ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
-                    violationTable: _this23.fb.array([]),
-                    isEditable: [false]
-                  }));
-                  var violationnoArr = [];
-                  var elem1 = element.fineViolationNo1 + ',' + element.descViolationNo1 + ',' + element.violationPrivilegeId1;
-                  violationnoArr.push(elem1);
-                  violationnoArr.forEach(function (element2, index) {
-                    var control1 = formcontrol.controls[formcontrol.length - 1];
-                    var violation = control1.get('violationTable');
-
-                    var _index = index + 1;
-
-                    var _fineViolation = element['fineViolationNo' + _index];
-                    var _descViolation = element['descViolationNo' + _index];
-                    var _violationPrivilege = element['violationPrivilegeId' + _index];
-                    violation.push(_this23.fb.group({
-                      fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                      descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
-                      stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
-                    }));
-                  });
-                });
+                _this23.ruleListData = rule; //   const control =  this.userTable.get('tableRows') as FormArray;
+                //   // control.clear();
+                //   // tslint:disable-next-line:no-shadowed-variable
+                // this.ruleListData.forEach((element, index) => {
+                //   const formcontrol =  this.userTable.get('tableRows') as FormArray;
+                //   formcontrol.push(this.fb.group({
+                //     ruleId: [element.id],
+                //     category: [element.violationCategoryId, Validators.required],
+                //     ruleno: [element.name, [Validators.required]],
+                //     violationTable: this.fb.array([]),
+                //     isEditable: [false]
+                //   }));
+                //   const violationnoArr = [];
+                //   const elem1 =  element.fineViolationNo1 + ',' + element.descViolationNo1 + ',' + element.violationPrivilegeId1;
+                //   violationnoArr.push(elem1);
+                //   violationnoArr.forEach((element2, index) => {
+                //     const control1 = formcontrol.controls[formcontrol.length - 1];
+                //     const violation = control1.get('violationTable') as FormArray;
+                //     const _index = index + 1;
+                //     const _fineViolation = element['fineViolationNo' + _index];
+                //     const _descViolation = element['descViolationNo' + _index];
+                //     const _violationPrivilege = element['violationPrivilegeId' + _index];
+                //     violation.push(this.fb.group({
+                //       fineViolationNo: [_fineViolation, Validators.required],
+                //       descViolationNo: [_descViolation, [Validators.required]],
+                //       stopprivledges: [_violationPrivilege, [Validators.required]],
+                //     }));
+                //   });
+                // });
 
                 _this23.isDataLoaded = true;
               }, function (error) {
@@ -2088,6 +2075,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             } else {
               _this24.PItemEndIndex = _this24.PtotalItems;
             }
+          });
+        }
+      }, {
+        key: "getAllViolationPrivilege",
+        value: function getAllViolationPrivilege() {
+          var _this25 = this;
+
+          var privilegeparams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.violationService.getViolationStopPreviledges(privilegeparams).subscribe(function (res) {
+            _this25.allViolationStopPrivilege = res;
+
+            var control = _this25.userTable.get('tableRows'); // control.clear();
+            // tslint:disable-next-line:no-shadowed-variable
+
+
+            _this25.allViolationStopPrivilege.forEach(function (element, index) {
+              var formcontrol = _this25.userTable.get('tableRows');
+
+              formcontrol.push(_this25.fb.group({
+                voilationId: [element.voilationId],
+                category: [element.violationCategory],
+                ruleno: [element.violationRuleName],
+                stopWhat: [element.stopWhat],
+                untilDate: [element.untilDate],
+                unitOwnerName: [element.unitOwnerName],
+                violationComments: [element.comments],
+                adminComments: [element.adminComments],
+                block: [element.apartmentBlockNumber],
+                unitId: [element.apartmentBlockUnitId],
+                violationPrivilegeId: [element.violationPrivilegeId],
+                violationTable: _this25.fb.array([]),
+                isEditable: [false]
+              }));
+            });
           });
         }
       }, {
@@ -2237,7 +2260,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submit",
         value: function submit() {
-          var _this25 = this;
+          var _this26 = this;
 
           var lookupparams = {
             model: {
@@ -2255,9 +2278,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.violationService.addViolationDispute(lookupparams).subscribe(function (res) {
             if (res) {
-              _this25.sharedService.setAlertMessage(res.message);
+              _this26.sharedService.setAlertMessage(res.message);
 
-              _this25.dispute = {
+              _this26.dispute = {
                 disputeID: 0,
                 disputeComments: '',
                 disputeStatus: ''
@@ -2269,7 +2292,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateviolationstatus",
         value: function updateviolationstatus(id, statusid) {
-          var _this26 = this;
+          var _this27 = this;
 
           var statusparams = {
             voilationId: id,
@@ -2278,9 +2301,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.violationService.updateViolationStatus(statusparams).subscribe(function (res) {
             var list = res;
 
-            _this26.sharedService.setAlertMessage(res.message);
+            _this27.sharedService.setAlertMessage(res.message);
 
-            _this26.outputEvent.emit(true);
+            _this27.outputEvent.emit(true);
           });
         }
       }]);
@@ -2489,7 +2512,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getViolationRule",
         value: function getViolationRule(violationCateogoryId) {
-          var _this27 = this;
+          var _this28 = this;
 
           var _apartment_Id = parseInt(this.cookieService.get('apartmentId'));
 
@@ -2498,22 +2521,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             ViolationCategoryId: violationCateogoryId
           };
           this.violationService.getViolationRule(params1).subscribe(function (rule) {
-            _this27.ruleListData = rule;
+            _this28.ruleListData = rule;
           }, function (error) {
-            _this27.isError = true;
+            _this28.isError = true;
           });
         }
       }, {
         key: "getViolationCategory",
         value: function getViolationCategory() {
-          var _this28 = this;
+          var _this29 = this;
 
           var params = {
             LookupTypeId: 78,
             active: 1
           };
           this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-            _this28.allViolationCategory = res;
+            _this29.allViolationCategory = res;
           });
         }
       }, {
@@ -2535,7 +2558,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getviolationById",
         value: function getviolationById(id) {
-          var _this29 = this;
+          var _this30 = this;
 
           var params = {
             ViolationId: id
@@ -2544,10 +2567,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var getViolationData = res;
 
             if (getViolationData.violationCategoryId > 0) {
-              _this29.getViolationRule(getViolationData.violationCategoryId);
+              _this30.getViolationRule(getViolationData.violationCategoryId);
             }
 
-            _this29.violationData = {
+            _this30.violationData = {
               id: getViolationData.id,
               apartmentBlockId: getViolationData.apartmentBlockId,
               primaryContactName: getViolationData.primaryContact,
@@ -2576,7 +2599,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this30 = this;
+          var _this31 = this;
 
           var params = {
             model: {
@@ -2611,14 +2634,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.violationService.updateViolations(params).subscribe(function (res) {
             if (res) {
-              _this30.sharedService.setAlertMessage(res.message);
+              _this31.sharedService.setAlertMessage(res.message);
             } else {}
           });
         }
       }, {
         key: "uploadImage_new",
         value: function uploadImage_new(e) {
-          var _this31 = this;
+          var _this32 = this;
 
           this.fileList = e.dataTransfer ? e.dataTransfer.files : e.target.files;
           var reader = new FileReader();
@@ -2642,7 +2665,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   var target = e.target;
                   var fileResult = target.result;
                   console.log(fileResult);
-                  _this31.violationData.uploadImage = fileResult;
+                  _this32.violationData.uploadImage = fileResult;
                 };
 
                 reader.readAsDataURL(item);
@@ -2849,7 +2872,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ViewViolationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this32 = this;
+          var _this33 = this;
 
           this.category = {
             categoryId: 0,
@@ -2862,16 +2885,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this32.blockListData = res;
+            _this33.blockListData = res;
 
-            _this32.getAllBlockData();
+            _this33.getAllBlockData();
           });
           var Lookupparams = {
             LookupTypeId: 78,
             active: 1
           };
           this.lookupService.getLookupValueByLookupTypeIdStatus(Lookupparams).subscribe(function (res) {
-            _this32.allViolationCategory = res;
+            _this33.allViolationCategory = res;
           });
         }
       }, {
@@ -2916,7 +2939,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllViolation",
         value: function getAllViolation() {
-          var _this33 = this;
+          var _this34 = this;
 
           var statusparams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -2925,45 +2948,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.violationService.getAllViolationsByStatus(statusparams).subscribe(function (res) {
             var list = res;
 
-            if (_this33.selectWaivedOff === true) {
+            if (_this34.selectWaivedOff === true) {
               list = list.filter(function (x) {
                 return x.violationStatusId === 404;
               });
-            } else if (_this33.selectDisputed === true) {
+            } else if (_this34.selectDisputed === true) {
               list = list.filter(function (x) {
                 return x.violationStatusId === 402;
               });
-            } else if (_this33.selectedVioaltionCategory !== "") {
+            } else if (_this34.selectedVioaltionCategory !== "") {
               list = list.filter(function (x) {
-                return x.violationCategoryId === _this33.selectedVioaltionCategory;
+                return x.violationCategoryId === _this34.selectedVioaltionCategory;
               });
-            } else if (_this33.selectedBlockNumerId !== "") {
+            } else if (_this34.selectedBlockNumerId !== "") {
               list = list.filter(function (x) {
-                return x.apartmentBlockId === _this33.selectedBlockNumerId;
+                return x.apartmentBlockId === _this34.selectedBlockNumerId;
               });
-            } else if (_this33.selectedfromDate !== null) {
+            } else if (_this34.selectedfromDate !== null) {
               list = list.filter(function (x) {
-                return x.insertedOn >= _this33.selectedfromDate;
+                return x.insertedOn >= _this34.selectedfromDate;
               });
-            } else if (_this33.selectedtoDate !== null) {
+            } else if (_this34.selectedtoDate !== null) {
               list = list.filter(function (x) {
-                return x.insertedOn <= _this33.selectedtoDate;
+                return x.insertedOn <= _this34.selectedtoDate;
               });
             }
 
-            _this33.testdata = list;
-            _this33.allViolationListData = [];
+            _this34.testdata = list;
+            _this34.allViolationListData = [];
 
-            _this33.getBindData(list);
+            _this34.getBindData(list);
           });
         }
       }, {
         key: "getBindData",
         value: function getBindData(list) {
-          var _this34 = this;
+          var _this35 = this;
 
           list.forEach(function (element, index) {
-            _this34.allViolationListData.push({
+            _this35.allViolationListData.push({
               id: '#typeCollapse_' + index,
               data: element
             });
@@ -2972,15 +2995,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllStatus",
         value: function getAllStatus() {
-          var _this35 = this;
+          var _this36 = this;
 
           var statusparams = {
             LookupTypeId: 79,
             active: 1
           };
           this.lookupService.getLookupValueByLookupTypeIdStatus(statusparams).subscribe(function (res) {
-            _this35.violationStatusData = res;
-            console.log(_this35.violationStatusData);
+            _this36.violationStatusData = res;
+            console.log(_this36.violationStatusData);
           });
         }
       }, {
@@ -2994,7 +3017,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "openDispute",
         value: function openDispute(violation) {
-          var _this36 = this;
+          var _this37 = this;
 
           var dialogRef = this.dialog.open(_create_dispute_create_dispute_component__WEBPACK_IMPORTED_MODULE_11__["CreateDisputeComponent"], {
             width: '900px',
@@ -3006,7 +3029,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           dialogRef.componentInstance.violationId = violation.id;
           dialogRef.componentInstance.violation = violation;
           dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-            _this36.getAllViolation();
+            _this37.getAllViolation();
           });
           dialogRef.afterClosed().subscribe(function (result) {});
         }
@@ -3034,7 +3057,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateviolationstatus",
         value: function updateviolationstatus(id, statusid) {
-          var _this37 = this;
+          var _this38 = this;
 
           var statusparams = {
             voilationId: id,
@@ -3043,9 +3066,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.violationService.updateViolationStatus(statusparams).subscribe(function (res) {
             var list = res;
 
-            _this37.sharedService.setAlertMessage(res.message);
+            _this38.sharedService.setAlertMessage(res.message);
 
-            _this37.getAllViolation();
+            _this38.getAllViolation();
           });
         }
       }, {
@@ -3281,7 +3304,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCreateCategoryTypeForm",
         value: function submitCreateCategoryTypeForm(form) {
-          var _this38 = this;
+          var _this39 = this;
 
           var lookupparams = {
             lookupvalue: {
@@ -3303,9 +3326,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.updateLookupValue(lookupparams).subscribe(function (res) {
             if (res) {
-              _this38.sharedService.setAlertMessage("Violation Category Updated Successfully");
+              _this39.sharedService.setAlertMessage("Violation Category Updated Successfully");
 
-              _this38.category = {
+              _this39.category = {
                 categoryId: 0,
                 categoryname: '',
                 Description: ''
@@ -3470,7 +3493,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getallMenu",
         value: function getallMenu() {
-          var _this39 = this;
+          var _this40 = this;
 
           var params = {
             active: 1
@@ -3480,7 +3503,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             menuData.forEach(function (element) {
               var data = element.screenName;
 
-              _this39.allMenus.push(data.replace("Admin_Main_", ""));
+              _this40.allMenus.push(data.replace("Admin_Main_", ""));
             });
           });
         }
@@ -3498,7 +3521,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCreatesStopPrivledgeForm",
         value: function submitCreatesStopPrivledgeForm(form) {
-          var _this40 = this;
+          var _this41 = this;
 
           var lookupparams = {
             Id: this.privledge.privilegeId === 0 ? 0 : this.privledge.privilegeId,
@@ -3514,13 +3537,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.violationService.updateViolationPrivilege(lookupparams).subscribe(function (res) {
             if (res) {
-              _this40.sharedService.setAlertMessage("updated Successfully");
+              _this41.sharedService.setAlertMessage("updated Successfully");
 
-              _this40.dialogRef.close(false);
+              _this41.dialogRef.close(false);
 
-              _this40.outputEvent.emit(true);
+              _this41.outputEvent.emit(true);
 
-              _this40.privledge = {
+              _this41.privledge = {
                 privilegeId: 0,
                 ViolationName: '',
                 ViolationDescription: '',
@@ -3674,7 +3697,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".details {\n  margin: 0 auto;\n  overflow: hidden;\n  position: relative;\n}\n.details .shrink-table {\n  min-width: 3000px;\n  margin: 0 0 0 12px;\n  transition: all 0.3s ease;\n  overflow: auto;\n}\n.details .buttons {\n  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  -moz-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  -webkit-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  position: absolute;\n  right: 0;\n  z-index: 2;\n  background-color: #5cd694;\n  height: 49px;\n}\n.details .buttons a {\n  display: inline-block;\n  height: 100% !important;\n}\n.details .buttons a i {\n  font-size: 2.4rem;\n  color: #ffffff;\n  margin: 0 10px;\n  position: relative;\n  top: 2px;\n}\n.details .buttons a:hover, .details .buttons a:focus {\n  outline: none;\n}\n.details .buttons a:hover i, .details .buttons a:focus i {\n  color: #1f7a49;\n}\n.details {\n  overflow: auto;\n}\n.rule td, .rule th {\n  width: 20px;\n  border: 2px solid #dee2e6;\n  margin-left: auto !important;\n  margin-right: auto !important;\n}\n.rule td .mat-form-field, .rule th .mat-form-field {\n  width: 75px;\n}\n.rule td .edit, .rule th .edit {\n  cursor: pointer;\n}\n.rule td .delete, .rule th .delete {\n  cursor: pointer;\n}\n.rule td .done, .rule th .done {\n  cursor: pointer;\n}\n.rule td .violation td, .rule td .violation th, .rule th .violation td, .rule th .violation th {\n  width: 150px;\n  margin-left: auto !important;\n  margin-right: auto !important;\n  padding: 8px;\n}\n.rule td .violation td, .rule th .violation td {\n  padding-top: 0;\n  padding-bottom: 0;\n  text-align: center;\n}\n.rule td .violation td .label-index, .rule th .violation td .label-index {\n  margin-top: 20px;\n}\n.rule td .violation td .action-icon, .rule th .violation td .action-icon {\n  width: 40px;\n  align-items: center;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 15px;\n  cursor: pointer;\n}\n.rule td .violation th, .rule th .violation th {\n  padding: 10px;\n}\n.rule td .violation .desc, .rule th .violation .desc {\n  width: 500px !important;\n  text-align: center;\n}\n.rule td .violation .desc-content, .rule th .violation .desc-content {\n  width: 170px !important;\n}\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n.p-category {\n  padding: 10px;\n}\n.p-25 {\n  padding-top: 25px;\n}\n.edit, .delete {\n  cursor: pointer;\n}\n.drop-down {\n  border: 1px solid #dedede;\n  background-color: #ffffff;\n  border-radius: 3px !important;\n  font-family: \"Lato\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  font-size: 1.4rem;\n  color: #373946;\n  padding: 0 10px;\n  height: 38px;\n}\n.p0 {\n  padding: 0 !important;\n}\n::ng-deep .mat-form-field-infix {\n  border-top: 0px !important;\n  padding: 0px !important;\n  width: 340px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdmlvbGF0aW9uL2NvbXBvbmVudHMvdmlvbGF0aW9uLXNldHVwL3Zpb2xhdGlvbi1zZXR1cC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiLCJzcmMvYXBwL2Ftcy92aW9sYXRpb24vY29tcG9uZW50cy92aW9sYXRpb24tc2V0dXAvdmlvbGF0aW9uLXNldHVwLmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9taXhpbnMuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFJQTtFQUVJLGNBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQ0hDO0FDREw7QUZLSTtFQUlJLGlCQUFBO0VBQ0Esa0JBQUE7RUc2QlAseUJINUJPO0VBQ0EsY0FBQTtBRUpSO0FGT0k7RUdJRiw4Q0hITTtFR0lOLG1ESEpNO0VHS04sc0RITE07RUFDQSxrQkNqQkg7RURrQkcsUUFBQTtFQUNBLFVBQUE7RUFFQSx5QkMwQks7RUR4QkwsWUFBQTtBRUxSO0FGTU87RUFDSSxxQkFBQTtFQUNBLHVCQ3FJTDtBQ3pJTjtBRktXO0VJK0NULGlCQUFBO0VKN0NhLGNDcUZQO0VEcEZPLGNBQUE7RUFDQSxrQkM5QlY7RUQrQk8sUUFBQTtBRUhaO0FGS1c7RUFDSSxhQUFBO0FFSGY7QUZJZTtFQUNJLGNBQUE7QUVGbkI7QUZTQTtFQUNJLGNBQUE7QUVOSjtBRlVJO0VBQ0ksV0FBQTtFQUNBLHlCQUFBO0VBQ0EsNEJBQUE7RUFDQSw2QkFBQTtBRVBSO0FGVVE7RUFDSSxXQUFBO0FFUlo7QUZXUTtFQUNJLGVBQUE7QUVUWjtBRldRO0VBQ0ksZUFBQTtBRVRaO0FGV1E7RUFDSSxlQUFBO0FFVFo7QUZhWTtFQUNJLFlBQUE7RUFDQSw0QkFBQTtFQUNBLDZCQUFBO0VBQ0EsWUFBQTtBRVhoQjtBRmNZO0VBQ0ksY0FBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUVaaEI7QUZlZ0I7RUFFSSxnQkFBQTtBRWRwQjtBRmlCZ0I7RUFDSSxXQUFBO0VBQ0EsbUJBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0FFZnBCO0FGa0JZO0VBQ0ssYUFBQTtBRWhCakI7QUZtQlk7RUFDSSx1QkFBQTtFQUNBLGtCQUFBO0FFakJoQjtBRm9CWTtFQUNJLHVCQUFBO0FFbEJoQjtBRndCQTtFQUNJLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUVyQko7QUZ5QkU7RUFDSSxhQUFBO0FFdEJOO0FGeUJFO0VBQ0ksaUJBQUE7QUV0Qk47QUZ5QkU7RUFDSSxlQUFBO0FFdEJOO0FGeUJFO0VBQ0UseUJBQUE7RUFDQSx5QkFBQTtFQUNBLDZCQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQ0FBQTtFQUNBLGlCQUFBO0VBQ0EsY0FBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FFdEJKO0FGeUJFO0VBQ0kscUJBQUE7QUV0Qk47QUZ5QkU7RUFDSSwwQkFBQTtFQUNBLHVCQUFBO0VBQ0EsdUJBQUE7QUV0Qk4iLCJmaWxlIjoic3JjL2FwcC9hbXMvdmlvbGF0aW9uL2NvbXBvbmVudHMvdmlvbGF0aW9uLXNldHVwL3Zpb2xhdGlvbi1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4uZGV0YWlscyB7XG4gICAgLy8gaGVpZ2h0OiA0NXB4O1xuICAgIG1hcmdpbjowIGF1dG87XG4gICAgb3ZlcmZsb3c6aGlkZGVuO1xuICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgIC5zaHJpbmstdGFibGUge1xuICAgICAgICAvLyBwb3NpdGlvbjogJGFicztcbiAgICAgICAgLy8gbGVmdDowcHg7XG4gICAgICAgIC8vIHRvcDowcHg7XG4gICAgICAgIG1pbi13aWR0aDozMDAwcHg7XG4gICAgICAgIG1hcmdpbjogMCAwIDAgMTJweDtcbiAgICAgICAgQGluY2x1ZGUgdHJhbnNpdGlvbihhbGwgMC4zcyBlYXNlKTtcbiAgICAgICAgb3ZlcmZsb3c6IGF1dG87XG4gICAgICAgIFxuICAgIH1cbiAgICAuYnV0dG9uc3tcbiAgICAgICAgQGluY2x1ZGUgYm94LXNoYWRvdygwIDJweCAxMHB4IDFweCByZ2JhKCRibGFjaywgMC4yNSkpO1xuICAgICAgICBwb3NpdGlvbjogJGFicztcbiAgICAgICAgcmlnaHQ6IDA7XG4gICAgICAgIHotaW5kZXg6IDI7XG4gICAgICAgIC8vIHRvcDogMDtcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJGxpbWUtZ3JlZW47XG4gICAgICAgIC8vIHdpZHRoOiA2MHB4O1xuICAgICAgICBoZWlnaHQ6IDQ5cHg7XG4gICAgICAgYSB7XG4gICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICAgICAgICAgaGVpZ2h0OiAkZnVsbDtcbiAgICAgICAgICAgaSB7XG4gICAgICAgICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW1lZGl1bS0wMik7XG4gICAgICAgICAgICAgICBjb2xvcjogJHdoaXRlO1xuICAgICAgICAgICAgICAgbWFyZ2luOiAwIDEwcHg7XHRcbiAgICAgICAgICAgICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgICAgICAgICAgdG9wOiAycHg7XG4gICAgICAgICAgIH1cbiAgICAgICAgICAgJjpob3ZlciwgJjpmb2N1cyB7XG4gICAgICAgICAgICAgICBvdXRsaW5lOiBub25lO1xuICAgICAgICAgICAgICAgaSB7XG4gICAgICAgICAgICAgICAgICAgY29sb3I6IGRhcmtlbigkbGltZS1ncmVlbiwgMzAlKTtcbiAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgfVxuICAgICAgIH0gXHRcdFxuICAgIH1cbn1cblxuLmRldGFpbHMge1xuICAgIG92ZXJmbG93OiBhdXRvO1xufVxuXG4ucnVsZSB7XG4gICAgdGQsIHRoIHtcbiAgICAgICAgd2lkdGg6IDIwcHg7XG4gICAgICAgIGJvcmRlcjogMnB4IHNvbGlkICNkZWUyZTY7XG4gICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvICFpbXBvcnRhbnQ7XG4gICAgICAgIG1hcmdpbi1yaWdodDogYXV0byAhaW1wb3J0YW50O1xuXG5cbiAgICAgICAgLm1hdC1mb3JtLWZpZWxkIHtcbiAgICAgICAgICAgIHdpZHRoOiA3NXB4O1xuICAgICAgICB9XG5cbiAgICAgICAgLmVkaXQge1xuICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICB9XG4gICAgICAgIC5kZWxldGUge1xuICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICB9XG4gICAgICAgIC5kb25lIHtcbiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgfVxuXG4gICAgICAgIC52aW9sYXRpb24ge1xuICAgICAgICAgICAgdGQsIHRoIHtcbiAgICAgICAgICAgICAgICB3aWR0aDogMTUwcHg7XG4gICAgICAgICAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG8gIWltcG9ydGFudDtcbiAgICAgICAgICAgICAgICBtYXJnaW4tcmlnaHQ6IGF1dG8gIWltcG9ydGFudDtcbiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICAgICAgICAgICAgXG4gICAgICAgICAgICB9XG4gICAgICAgICAgICB0ZCB7XG4gICAgICAgICAgICAgICAgcGFkZGluZy10b3A6IDA7XG4gICAgICAgICAgICAgICAgcGFkZGluZy1ib3R0b206IDA7XG4gICAgICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICAgICAgICAgIC8vIHBhZGRpbmctbGVmdDogMTVweDtcblxuICAgICAgICAgICAgICAgIC5sYWJlbC1pbmRleCB7XG4gICAgICAgICAgICAgICAgICAgIC8vIHBhZGRpbmctbGVmdDogMzVweDtcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLXRvcDogMjBweDtcbiAgICAgICAgICAgICAgICB9XG5cbiAgICAgICAgICAgICAgICAuYWN0aW9uLWljb24ge1xuICAgICAgICAgICAgICAgICAgICB3aWR0aDogNDBweDtcbiAgICAgICAgICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gICAgICAgICAgICAgICAgICAgIG1hcmdpbi1yaWdodDogYXV0bztcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLXRvcDogMTVweDtcbiAgICAgICAgICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHRoIHtcbiAgICAgICAgICAgICAgICAgcGFkZGluZzogMTBweDtcbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIC5kZXNjIHtcbiAgICAgICAgICAgICAgICB3aWR0aDogNTAwcHggIWltcG9ydGFudDtcbiAgICAgICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgICAgICB9XG5cbiAgICAgICAgICAgIC5kZXNjLWNvbnRlbnQge1xuICAgICAgICAgICAgICAgIHdpZHRoOiAxNzBweCAhaW1wb3J0YW50O1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgcGFkZGluZzogMjBweDtcbiAgfVxuXG5cbiAgLnAtY2F0ZWdvcnkge1xuICAgICAgcGFkZGluZzogMTBweDtcbiAgfVxuXG4gIC5wLTI1IHtcbiAgICAgIHBhZGRpbmctdG9wOiAyNXB4O1xuICB9XG5cbiAgLmVkaXQsIC5kZWxldGUge1xuICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICB9XG5cbiAgLmRyb3AtZG93bntcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZGVkZWRlO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7XG4gICAgYm9yZGVyLXJhZGl1czogM3B4ICFpbXBvcnRhbnQ7XG4gICAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XG4gICAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAgIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gICAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gICAgZm9udC1zaXplOiAxLjRyZW07XG4gICAgY29sb3I6ICMzNzM5NDY7XG4gICAgcGFkZGluZzogMCAxMHB4O1xuICAgIGhlaWdodDogMzhweDtcbiAgfVxuXG4gIC5wMHtcbiAgICAgIHBhZGRpbmc6IDAgICFpbXBvcnRhbnQ7XG4gIH1cblxuICA6Om5nLWRlZXAgLm1hdC1mb3JtLWZpZWxkLWluZml4e1xuICAgICAgYm9yZGVyLXRvcDogMHB4ICFpbXBvcnRhbnQ7XG4gICAgICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcbiAgICAgIHdpZHRoOiAzNDBweCAhaW1wb3J0YW50O1xuICB9XG5cbiAgOjpuZy1kZWVwIC5tYXQtZm9ybS1maWVsZC1hcHBlYXJhbmNlLWxlZ2FjeSAubWF0LWZvcm0tZmllbGQtdW5kZXJsaW5le1xuICAgIC8vICAgaGVpZ2h0OiAxcHggIWltcG9ydGFudDtcbiAgfSIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJGQtY3lhbi0wMzojMDBkMWZhO1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGltZS1ncmVlbi0wMzogIzUyYzU3MDtcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtbWVkaXVtLTA0OjMwO1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iLCIuZGV0YWlscyB7XG4gIG1hcmdpbjogMCBhdXRvO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG4uZGV0YWlscyAuc2hyaW5rLXRhYmxlIHtcbiAgbWluLXdpZHRoOiAzMDAwcHg7XG4gIG1hcmdpbjogMCAwIDAgMTJweDtcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlO1xuICAtbW96LXRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2U7XG4gIHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2U7XG4gIG92ZXJmbG93OiBhdXRvO1xufVxuLmRldGFpbHMgLmJ1dHRvbnMge1xuICBib3gtc2hhZG93OiAwIDJweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMjUpO1xuICAtbW96LWJveC1zaGFkb3c6IDAgMnB4IDEwcHggMXB4IHJnYmEoMCwgMCwgMCwgMC4yNSk7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogMCAycHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjI1KTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogMDtcbiAgei1pbmRleDogMjtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzVjZDY5NDtcbiAgaGVpZ2h0OiA0OXB4O1xufVxuLmRldGFpbHMgLmJ1dHRvbnMgYSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG59XG4uZGV0YWlscyAuYnV0dG9ucyBhIGkge1xuICBmb250LXNpemU6IDIuNHJlbTtcbiAgY29sb3I6ICNmZmZmZmY7XG4gIG1hcmdpbjogMCAxMHB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHRvcDogMnB4O1xufVxuLmRldGFpbHMgLmJ1dHRvbnMgYTpob3ZlciwgLmRldGFpbHMgLmJ1dHRvbnMgYTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG59XG4uZGV0YWlscyAuYnV0dG9ucyBhOmhvdmVyIGksIC5kZXRhaWxzIC5idXR0b25zIGE6Zm9jdXMgaSB7XG4gIGNvbG9yOiAjMWY3YTQ5O1xufVxuXG4uZGV0YWlscyB7XG4gIG92ZXJmbG93OiBhdXRvO1xufVxuXG4ucnVsZSB0ZCwgLnJ1bGUgdGgge1xuICB3aWR0aDogMjBweDtcbiAgYm9yZGVyOiAycHggc29saWQgI2RlZTJlNjtcbiAgbWFyZ2luLWxlZnQ6IGF1dG8gIWltcG9ydGFudDtcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XG59XG4ucnVsZSB0ZCAubWF0LWZvcm0tZmllbGQsIC5ydWxlIHRoIC5tYXQtZm9ybS1maWVsZCB7XG4gIHdpZHRoOiA3NXB4O1xufVxuLnJ1bGUgdGQgLmVkaXQsIC5ydWxlIHRoIC5lZGl0IHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuLnJ1bGUgdGQgLmRlbGV0ZSwgLnJ1bGUgdGggLmRlbGV0ZSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5ydWxlIHRkIC5kb25lLCAucnVsZSB0aCAuZG9uZSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5ydWxlIHRkIC52aW9sYXRpb24gdGQsIC5ydWxlIHRkIC52aW9sYXRpb24gdGgsIC5ydWxlIHRoIC52aW9sYXRpb24gdGQsIC5ydWxlIHRoIC52aW9sYXRpb24gdGgge1xuICB3aWR0aDogMTUwcHg7XG4gIG1hcmdpbi1sZWZ0OiBhdXRvICFpbXBvcnRhbnQ7XG4gIG1hcmdpbi1yaWdodDogYXV0byAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiA4cHg7XG59XG4ucnVsZSB0ZCAudmlvbGF0aW9uIHRkLCAucnVsZSB0aCAudmlvbGF0aW9uIHRkIHtcbiAgcGFkZGluZy10b3A6IDA7XG4gIHBhZGRpbmctYm90dG9tOiAwO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4ucnVsZSB0ZCAudmlvbGF0aW9uIHRkIC5sYWJlbC1pbmRleCwgLnJ1bGUgdGggLnZpb2xhdGlvbiB0ZCAubGFiZWwtaW5kZXgge1xuICBtYXJnaW4tdG9wOiAyMHB4O1xufVxuLnJ1bGUgdGQgLnZpb2xhdGlvbiB0ZCAuYWN0aW9uLWljb24sIC5ydWxlIHRoIC52aW9sYXRpb24gdGQgLmFjdGlvbi1pY29uIHtcbiAgd2lkdGg6IDQwcHg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IGF1dG87XG4gIG1hcmdpbi10b3A6IDE1cHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5ydWxlIHRkIC52aW9sYXRpb24gdGgsIC5ydWxlIHRoIC52aW9sYXRpb24gdGgge1xuICBwYWRkaW5nOiAxMHB4O1xufVxuLnJ1bGUgdGQgLnZpb2xhdGlvbiAuZGVzYywgLnJ1bGUgdGggLnZpb2xhdGlvbiAuZGVzYyB7XG4gIHdpZHRoOiA1MDBweCAhaW1wb3J0YW50O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4ucnVsZSB0ZCAudmlvbGF0aW9uIC5kZXNjLWNvbnRlbnQsIC5ydWxlIHRoIC52aW9sYXRpb24gLmRlc2MtY29udGVudCB7XG4gIHdpZHRoOiAxNzBweCAhaW1wb3J0YW50O1xufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnAtY2F0ZWdvcnkge1xuICBwYWRkaW5nOiAxMHB4O1xufVxuXG4ucC0yNSB7XG4gIHBhZGRpbmctdG9wOiAyNXB4O1xufVxuXG4uZWRpdCwgLmRlbGV0ZSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmRyb3AtZG93biB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNkZWRlZGU7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDNweCAhaW1wb3J0YW50O1xuICBmb250LWZhbWlseTogXCJMYXRvXCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIGZvbnQtc2l6ZTogMS40cmVtO1xuICBjb2xvcjogIzM3Mzk0NjtcbiAgcGFkZGluZzogMCAxMHB4O1xuICBoZWlnaHQ6IDM4cHg7XG59XG5cbi5wMCB7XG4gIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcbn1cblxuOjpuZy1kZWVwIC5tYXQtZm9ybS1maWVsZC1pbmZpeCB7XG4gIGJvcmRlci10b3A6IDBweCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcbiAgd2lkdGg6IDM0MHB4ICFpbXBvcnRhbnQ7XG59IiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cblxuQG1peGluIGJvcmRlci1yYWRpdXMgKCRyYWRpdXMpIHtcblx0LXdlYmtpdC1ib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG5cdC1tb3otYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHRib3JkZXItcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzICgkcmFkaXVzKSB7XG4gIC13ZWJraXQtYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gb3BhY2l0eSAoJHZhbHVlKSB7XG4gIG9wYWNpdHk6ICR2YWx1ZTtcbiAgLW1vei1vcGFjaXR5OiAkdmFsdWU7XG4gIC13ZWJraXQtb3BhY2l0eTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNoYWRvdyAoJHJ1bGVzLi4uKSB7XG4gIGJveC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei1ib3gtc2hhZG93OiAkcnVsZXM7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gdGV4dC1zaGFkb3cgKCRydWxlcykge1xuICB0ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtbW96LXRleHQtc2hhZG93OiAkcnVsZXM7XG4gIC13ZWJraXQtdGV4dC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRyYW5zZm9ybSAoJHJ1bGVzKSB7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0LW1vei10cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xuXHR0cmFuc2Zvcm06ICRydWxlcyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gdHJhbnNpdGlvbiAoJHJ1bGVzLi4uKSB7XG5cdC13ZWJraXQtdHJhbnNpdGlvbjogJHJ1bGVzO1xuXHQtbW96LXRyYW5zaXRpb246ICRydWxlcztcblx0dHJhbnNpdGlvbjogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYW5pbWF0aW9uLWRlbGF5ICgkdmFsdWUpIHtcbiAgLXdlYmtpdC1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgLW1vei1hbmltYXRpb24tZGVsYXk6ICR2YWx1ZTtcbiAgYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG59XG5cbkBtaXhpbiBib3gtc2l6aW5nICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1ib3gtc2l6aW5nOiAkcnVsZXM7XG4gIC1tb3otYm94LXNpemluZzogJHJ1bGVzO1xuICBib3gtc2l6aW5nOiAkcnVsZXM7XG59XG5cbkBtaXhpbiBhcHBlYXJhbmNlICgkcnVsZXMuLi4pIHtcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiAkcnVsZXM7XG4gIC1tb3otYXBwZWFyYW5jZTogJHJ1bGVzO1xufVxuXG5AbWl4aW4gZGVzZWxlY3QgKCkge1xuICAtbW96LXVzZXItc2VsZWN0OiAtbW96LW5vbmU7XG5cdC1raHRtbC11c2VyLXNlbGVjdDogbm9uZTtcblx0LXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcblx0LW8tdXNlci1zZWxlY3Q6IG5vbmU7XG5cdHVzZXItc2VsZWN0OiBub25lO1xufVxuXG5AbWl4aW4gdmlzaWJpbGl0eSAoJHJ1bGVzKSB7XG4gIHZpc2liaWxpdHk6ICRydWxlcztcbn1cblxuQG1peGluIG5vLW1wICgpIHtcbiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcbn1cblxuQG1peGluIGNpcmNsZXMoJHIsICRiZzpudWxsLCAkdGM6bnVsbCkge1xuICB3aWR0aDogJHI7XG4gIGhlaWdodDogJHI7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDpjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOmNlbnRlcjtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGJnO1xuICBjb2xvcjogJHRjO1xuICBAaW5jbHVkZSBib3JkZXItcmFkaXVzKCRyKTtcbn1cblxuQG1peGluIGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMuLi4pIHtcbiAgLy8gRGlyZWN0aW9uIGhhcyBiZWVuIG9taXR0ZWQgYW5kIGhhcHBlbnMgdG8gYmUgYSBjb2xvci1zdG9wXG4gIEBpZiBpcy1kaXJlY3Rpb24oJGRpcmVjdGlvbikgPT0gZmFsc2Uge1xuICAgICRjb2xvci1zdG9wczogJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzO1xuICAgICRkaXJlY3Rpb246IDE4MGRlZztcbiAgfVxuXG4gIGJhY2tncm91bmQ6IG50aChudGgoJGNvbG9yLXN0b3BzLCAxKSwgMSk7XG4gIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGxlZ2FjeS1kaXJlY3Rpb24oJGRpcmVjdGlvbiksICRjb2xvci1zdG9wcyk7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHMpO1xufVxuXG5AbWl4aW4gZmxpcCgkZGlyZWN0aW9uKSB7XG4gIHRyYW5zZm9ybSA6IHJvdGF0ZVkoJGRpcmVjdGlvbik7XG59XG5cbkBtaXhpbiBwbGFjZWhvbGRlciB7XG4gICY6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIge0Bjb250ZW50fVxuICAmOi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAgIHtAY29udGVudH1cbiAgJjo6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6LW1zLWlucHV0LXBsYWNlaG9sZGVyICAgICAge0Bjb250ZW50fSAgXG59XG5cblxuIiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iXX0= */";
+    __webpack_exports__["default"] = ".details {\n  margin: 0 auto;\n  overflow: hidden;\n  position: relative;\n}\n.details .shrink-table {\n  min-width: 3000px;\n  margin: 0 0 0 12px;\n  transition: all 0.3s ease;\n  overflow: auto;\n}\n.details .buttons {\n  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  -moz-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  -webkit-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.25);\n  position: absolute;\n  right: 0;\n  z-index: 2;\n  background-color: #5cd694;\n  height: 49px;\n}\n.details .buttons a {\n  display: inline-block;\n  height: 100% !important;\n}\n.details .buttons a i {\n  font-size: 2.4rem;\n  color: #ffffff;\n  margin: 0 10px;\n  position: relative;\n  top: 2px;\n}\n.details .buttons a:hover, .details .buttons a:focus {\n  outline: none;\n}\n.details .buttons a:hover i, .details .buttons a:focus i {\n  color: #1f7a49;\n}\n.details {\n  overflow: auto;\n}\n.rule td, .rule th {\n  width: 20px;\n  border: 2px solid #dee2e6;\n  margin-left: auto !important;\n  margin-right: auto !important;\n}\n.rule td .mat-form-field, .rule th .mat-form-field {\n  width: 75px;\n}\n.rule td .edit, .rule th .edit {\n  cursor: pointer;\n}\n.rule td .delete, .rule th .delete {\n  cursor: pointer;\n}\n.rule td .done, .rule th .done {\n  cursor: pointer;\n}\n.rule td .violation td, .rule td .violation th, .rule th .violation td, .rule th .violation th {\n  width: 150px;\n  margin-left: auto !important;\n  margin-right: auto !important;\n  padding: 8px;\n}\n.rule td .violation td, .rule th .violation td {\n  padding-top: 0;\n  padding-bottom: 0;\n  text-align: center;\n}\n.rule td .violation td .label-index, .rule th .violation td .label-index {\n  margin-top: 20px;\n}\n.rule td .violation td .action-icon, .rule th .violation td .action-icon {\n  width: 40px;\n  align-items: center;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 15px;\n  cursor: pointer;\n}\n.rule td .violation th, .rule th .violation th {\n  padding: 10px;\n}\n.rule td .violation .desc, .rule th .violation .desc {\n  width: 500px !important;\n  text-align: center;\n}\n.rule td .violation .desc-content, .rule th .violation .desc-content {\n  width: 170px !important;\n}\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n.p-category {\n  padding: 10px;\n}\n.p-25 {\n  padding-top: 25px;\n}\n.edit, .delete {\n  cursor: pointer;\n}\n.drop-down {\n  border: 1px solid #dedede;\n  background-color: #ffffff;\n  border-radius: 3px !important;\n  font-family: \"Lato\", sans-serif;\n  font-weight: 400;\n  letter-spacing: 0.3px;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  font-size: 1.4rem;\n  color: #373946;\n  padding: 0 10px;\n  height: 38px;\n}\n.p0 {\n  padding: 0 !important;\n}\n::ng-deep .mat-form-field-infix {\n  border-top: 0px !important;\n  padding: 0px !important;\n  width: 340px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdmlvbGF0aW9uL2NvbXBvbmVudHMvdmlvbGF0aW9uLXNldHVwL3Zpb2xhdGlvbi1zZXR1cC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvdmFyaWFibGVzLnNjc3MiLCJzcmMvYXBwL2Ftcy92aW9sYXRpb24vY29tcG9uZW50cy92aW9sYXRpb24tc2V0dXAvdmlvbGF0aW9uLXNldHVwLmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9taXhpbnMuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFJQTtFQUVJLGNBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQ0hDO0FDREw7QUZLSTtFQUlJLGlCQUFBO0VBQ0Esa0JBQUE7RUc2QlAseUJINUJPO0VBQ0EsY0FBQTtBRUpSO0FGT0k7RUdJRiw4Q0hITTtFR0lOLG1ESEpNO0VHS04sc0RITE07RUFDQSxrQkNqQkg7RURrQkcsUUFBQTtFQUNBLFVBQUE7RUFFQSx5QkMwQks7RUR4QkwsWUFBQTtBRUxSO0FGTU87RUFDSSxxQkFBQTtFQUNBLHVCQ3NJTDtBQzFJTjtBRktXO0VJK0NULGlCQUFBO0VKN0NhLGNDcUZQO0VEcEZPLGNBQUE7RUFDQSxrQkM5QlY7RUQrQk8sUUFBQTtBRUhaO0FGS1c7RUFDSSxhQUFBO0FFSGY7QUZJZTtFQUNJLGNBQUE7QUVGbkI7QUZTQTtFQUNJLGNBQUE7QUVOSjtBRlVJO0VBQ0ksV0FBQTtFQUNBLHlCQUFBO0VBQ0EsNEJBQUE7RUFDQSw2QkFBQTtBRVBSO0FGVVE7RUFDSSxXQUFBO0FFUlo7QUZXUTtFQUNJLGVBQUE7QUVUWjtBRldRO0VBQ0ksZUFBQTtBRVRaO0FGV1E7RUFDSSxlQUFBO0FFVFo7QUZhWTtFQUNJLFlBQUE7RUFDQSw0QkFBQTtFQUNBLDZCQUFBO0VBQ0EsWUFBQTtBRVhoQjtBRmNZO0VBQ0ksY0FBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUVaaEI7QUZlZ0I7RUFFSSxnQkFBQTtBRWRwQjtBRmlCZ0I7RUFDSSxXQUFBO0VBQ0EsbUJBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0FFZnBCO0FGa0JZO0VBQ0ssYUFBQTtBRWhCakI7QUZtQlk7RUFDSSx1QkFBQTtFQUNBLGtCQUFBO0FFakJoQjtBRm9CWTtFQUNJLHVCQUFBO0FFbEJoQjtBRndCQTtFQUNJLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUVyQko7QUZ5QkU7RUFDSSxhQUFBO0FFdEJOO0FGeUJFO0VBQ0ksaUJBQUE7QUV0Qk47QUZ5QkU7RUFDSSxlQUFBO0FFdEJOO0FGeUJFO0VBQ0UseUJBQUE7RUFDQSx5QkFBQTtFQUNBLDZCQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQ0FBQTtFQUNBLGlCQUFBO0VBQ0EsY0FBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FFdEJKO0FGeUJFO0VBQ0kscUJBQUE7QUV0Qk47QUZ5QkU7RUFDSSwwQkFBQTtFQUNBLHVCQUFBO0VBQ0EsdUJBQUE7QUV0Qk4iLCJmaWxlIjoic3JjL2FwcC9hbXMvdmlvbGF0aW9uL2NvbXBvbmVudHMvdmlvbGF0aW9uLXNldHVwL3Zpb2xhdGlvbi1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4uZGV0YWlscyB7XG4gICAgLy8gaGVpZ2h0OiA0NXB4O1xuICAgIG1hcmdpbjowIGF1dG87XG4gICAgb3ZlcmZsb3c6aGlkZGVuO1xuICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgIC5zaHJpbmstdGFibGUge1xuICAgICAgICAvLyBwb3NpdGlvbjogJGFicztcbiAgICAgICAgLy8gbGVmdDowcHg7XG4gICAgICAgIC8vIHRvcDowcHg7XG4gICAgICAgIG1pbi13aWR0aDozMDAwcHg7XG4gICAgICAgIG1hcmdpbjogMCAwIDAgMTJweDtcbiAgICAgICAgQGluY2x1ZGUgdHJhbnNpdGlvbihhbGwgMC4zcyBlYXNlKTtcbiAgICAgICAgb3ZlcmZsb3c6IGF1dG87XG4gICAgICAgIFxuICAgIH1cbiAgICAuYnV0dG9uc3tcbiAgICAgICAgQGluY2x1ZGUgYm94LXNoYWRvdygwIDJweCAxMHB4IDFweCByZ2JhKCRibGFjaywgMC4yNSkpO1xuICAgICAgICBwb3NpdGlvbjogJGFicztcbiAgICAgICAgcmlnaHQ6IDA7XG4gICAgICAgIHotaW5kZXg6IDI7XG4gICAgICAgIC8vIHRvcDogMDtcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJGxpbWUtZ3JlZW47XG4gICAgICAgIC8vIHdpZHRoOiA2MHB4O1xuICAgICAgICBoZWlnaHQ6IDQ5cHg7XG4gICAgICAgYSB7XG4gICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICAgICAgICAgaGVpZ2h0OiAkZnVsbDtcbiAgICAgICAgICAgaSB7XG4gICAgICAgICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW1lZGl1bS0wMik7XG4gICAgICAgICAgICAgICBjb2xvcjogJHdoaXRlO1xuICAgICAgICAgICAgICAgbWFyZ2luOiAwIDEwcHg7XHRcbiAgICAgICAgICAgICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgICAgICAgICAgdG9wOiAycHg7XG4gICAgICAgICAgIH1cbiAgICAgICAgICAgJjpob3ZlciwgJjpmb2N1cyB7XG4gICAgICAgICAgICAgICBvdXRsaW5lOiBub25lO1xuICAgICAgICAgICAgICAgaSB7XG4gICAgICAgICAgICAgICAgICAgY29sb3I6IGRhcmtlbigkbGltZS1ncmVlbiwgMzAlKTtcbiAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgfVxuICAgICAgIH0gXHRcdFxuICAgIH1cbn1cblxuLmRldGFpbHMge1xuICAgIG92ZXJmbG93OiBhdXRvO1xufVxuXG4ucnVsZSB7XG4gICAgdGQsIHRoIHtcbiAgICAgICAgd2lkdGg6IDIwcHg7XG4gICAgICAgIGJvcmRlcjogMnB4IHNvbGlkICNkZWUyZTY7XG4gICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvICFpbXBvcnRhbnQ7XG4gICAgICAgIG1hcmdpbi1yaWdodDogYXV0byAhaW1wb3J0YW50O1xuXG5cbiAgICAgICAgLm1hdC1mb3JtLWZpZWxkIHtcbiAgICAgICAgICAgIHdpZHRoOiA3NXB4O1xuICAgICAgICB9XG5cbiAgICAgICAgLmVkaXQge1xuICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICB9XG4gICAgICAgIC5kZWxldGUge1xuICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICB9XG4gICAgICAgIC5kb25lIHtcbiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgfVxuXG4gICAgICAgIC52aW9sYXRpb24ge1xuICAgICAgICAgICAgdGQsIHRoIHtcbiAgICAgICAgICAgICAgICB3aWR0aDogMTUwcHg7XG4gICAgICAgICAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG8gIWltcG9ydGFudDtcbiAgICAgICAgICAgICAgICBtYXJnaW4tcmlnaHQ6IGF1dG8gIWltcG9ydGFudDtcbiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICAgICAgICAgICAgXG4gICAgICAgICAgICB9XG4gICAgICAgICAgICB0ZCB7XG4gICAgICAgICAgICAgICAgcGFkZGluZy10b3A6IDA7XG4gICAgICAgICAgICAgICAgcGFkZGluZy1ib3R0b206IDA7XG4gICAgICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICAgICAgICAgIC8vIHBhZGRpbmctbGVmdDogMTVweDtcblxuICAgICAgICAgICAgICAgIC5sYWJlbC1pbmRleCB7XG4gICAgICAgICAgICAgICAgICAgIC8vIHBhZGRpbmctbGVmdDogMzVweDtcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLXRvcDogMjBweDtcbiAgICAgICAgICAgICAgICB9XG5cbiAgICAgICAgICAgICAgICAuYWN0aW9uLWljb24ge1xuICAgICAgICAgICAgICAgICAgICB3aWR0aDogNDBweDtcbiAgICAgICAgICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gICAgICAgICAgICAgICAgICAgIG1hcmdpbi1yaWdodDogYXV0bztcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLXRvcDogMTVweDtcbiAgICAgICAgICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHRoIHtcbiAgICAgICAgICAgICAgICAgcGFkZGluZzogMTBweDtcbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIC5kZXNjIHtcbiAgICAgICAgICAgICAgICB3aWR0aDogNTAwcHggIWltcG9ydGFudDtcbiAgICAgICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgICAgICB9XG5cbiAgICAgICAgICAgIC5kZXNjLWNvbnRlbnQge1xuICAgICAgICAgICAgICAgIHdpZHRoOiAxNzBweCAhaW1wb3J0YW50O1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgcGFkZGluZzogMjBweDtcbiAgfVxuXG5cbiAgLnAtY2F0ZWdvcnkge1xuICAgICAgcGFkZGluZzogMTBweDtcbiAgfVxuXG4gIC5wLTI1IHtcbiAgICAgIHBhZGRpbmctdG9wOiAyNXB4O1xuICB9XG5cbiAgLmVkaXQsIC5kZWxldGUge1xuICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICB9XG5cbiAgLmRyb3AtZG93bntcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZGVkZWRlO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7XG4gICAgYm9yZGVyLXJhZGl1czogM3B4ICFpbXBvcnRhbnQ7XG4gICAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XG4gICAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAgIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gICAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gICAgZm9udC1zaXplOiAxLjRyZW07XG4gICAgY29sb3I6ICMzNzM5NDY7XG4gICAgcGFkZGluZzogMCAxMHB4O1xuICAgIGhlaWdodDogMzhweDtcbiAgfVxuXG4gIC5wMHtcbiAgICAgIHBhZGRpbmc6IDAgICFpbXBvcnRhbnQ7XG4gIH1cblxuICA6Om5nLWRlZXAgLm1hdC1mb3JtLWZpZWxkLWluZml4e1xuICAgICAgYm9yZGVyLXRvcDogMHB4ICFpbXBvcnRhbnQ7XG4gICAgICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcbiAgICAgIHdpZHRoOiAzNDBweCAhaW1wb3J0YW50O1xuICB9XG5cbiAgOjpuZy1kZWVwIC5tYXQtZm9ybS1maWVsZC1hcHBlYXJhbmNlLWxlZ2FjeSAubWF0LWZvcm0tZmllbGQtdW5kZXJsaW5le1xuICAgIC8vICAgaGVpZ2h0OiAxcHggIWltcG9ydGFudDtcbiAgfSIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJGQtY3lhbi0wMzojMDBkMWZhO1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGltZS1ncmVlbi0wMzogIzUyYzU3MDtcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtbWVkaXVtLTA0OjMwO1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtYmFzZS0wMjoxMTtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiLmRldGFpbHMge1xuICBtYXJnaW46IDAgYXV0bztcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuLmRldGFpbHMgLnNocmluay10YWJsZSB7XG4gIG1pbi13aWR0aDogMzAwMHB4O1xuICBtYXJnaW46IDAgMCAwIDEycHg7XG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZTtcbiAgLW1vei10cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlO1xuICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlO1xuICBvdmVyZmxvdzogYXV0bztcbn1cbi5kZXRhaWxzIC5idXR0b25zIHtcbiAgYm94LXNoYWRvdzogMCAycHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjI1KTtcbiAgLW1vei1ib3gtc2hhZG93OiAwIDJweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMjUpO1xuICAtd2Via2l0LWJveC1zaGFkb3c6IDAgMnB4IDEwcHggMXB4IHJnYmEoMCwgMCwgMCwgMC4yNSk7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDA7XG4gIHotaW5kZXg6IDI7XG4gIGJhY2tncm91bmQtY29sb3I6ICM1Y2Q2OTQ7XG4gIGhlaWdodDogNDlweDtcbn1cbi5kZXRhaWxzIC5idXR0b25zIGEge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xufVxuLmRldGFpbHMgLmJ1dHRvbnMgYSBpIHtcbiAgZm9udC1zaXplOiAyLjRyZW07XG4gIGNvbG9yOiAjZmZmZmZmO1xuICBtYXJnaW46IDAgMTBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IDJweDtcbn1cbi5kZXRhaWxzIC5idXR0b25zIGE6aG92ZXIsIC5kZXRhaWxzIC5idXR0b25zIGE6Zm9jdXMge1xuICBvdXRsaW5lOiBub25lO1xufVxuLmRldGFpbHMgLmJ1dHRvbnMgYTpob3ZlciBpLCAuZGV0YWlscyAuYnV0dG9ucyBhOmZvY3VzIGkge1xuICBjb2xvcjogIzFmN2E0OTtcbn1cblxuLmRldGFpbHMge1xuICBvdmVyZmxvdzogYXV0bztcbn1cblxuLnJ1bGUgdGQsIC5ydWxlIHRoIHtcbiAgd2lkdGg6IDIwcHg7XG4gIGJvcmRlcjogMnB4IHNvbGlkICNkZWUyZTY7XG4gIG1hcmdpbi1sZWZ0OiBhdXRvICFpbXBvcnRhbnQ7XG4gIG1hcmdpbi1yaWdodDogYXV0byAhaW1wb3J0YW50O1xufVxuLnJ1bGUgdGQgLm1hdC1mb3JtLWZpZWxkLCAucnVsZSB0aCAubWF0LWZvcm0tZmllbGQge1xuICB3aWR0aDogNzVweDtcbn1cbi5ydWxlIHRkIC5lZGl0LCAucnVsZSB0aCAuZWRpdCB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5ydWxlIHRkIC5kZWxldGUsIC5ydWxlIHRoIC5kZWxldGUge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG4ucnVsZSB0ZCAuZG9uZSwgLnJ1bGUgdGggLmRvbmUge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG4ucnVsZSB0ZCAudmlvbGF0aW9uIHRkLCAucnVsZSB0ZCAudmlvbGF0aW9uIHRoLCAucnVsZSB0aCAudmlvbGF0aW9uIHRkLCAucnVsZSB0aCAudmlvbGF0aW9uIHRoIHtcbiAgd2lkdGg6IDE1MHB4O1xuICBtYXJnaW4tbGVmdDogYXV0byAhaW1wb3J0YW50O1xuICBtYXJnaW4tcmlnaHQ6IGF1dG8gIWltcG9ydGFudDtcbiAgcGFkZGluZzogOHB4O1xufVxuLnJ1bGUgdGQgLnZpb2xhdGlvbiB0ZCwgLnJ1bGUgdGggLnZpb2xhdGlvbiB0ZCB7XG4gIHBhZGRpbmctdG9wOiAwO1xuICBwYWRkaW5nLWJvdHRvbTogMDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLnJ1bGUgdGQgLnZpb2xhdGlvbiB0ZCAubGFiZWwtaW5kZXgsIC5ydWxlIHRoIC52aW9sYXRpb24gdGQgLmxhYmVsLWluZGV4IHtcbiAgbWFyZ2luLXRvcDogMjBweDtcbn1cbi5ydWxlIHRkIC52aW9sYXRpb24gdGQgLmFjdGlvbi1pY29uLCAucnVsZSB0aCAudmlvbGF0aW9uIHRkIC5hY3Rpb24taWNvbiB7XG4gIHdpZHRoOiA0MHB4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICBtYXJnaW4tdG9wOiAxNXB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG4ucnVsZSB0ZCAudmlvbGF0aW9uIHRoLCAucnVsZSB0aCAudmlvbGF0aW9uIHRoIHtcbiAgcGFkZGluZzogMTBweDtcbn1cbi5ydWxlIHRkIC52aW9sYXRpb24gLmRlc2MsIC5ydWxlIHRoIC52aW9sYXRpb24gLmRlc2Mge1xuICB3aWR0aDogNTAwcHggIWltcG9ydGFudDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLnJ1bGUgdGQgLnZpb2xhdGlvbiAuZGVzYy1jb250ZW50LCAucnVsZSB0aCAudmlvbGF0aW9uIC5kZXNjLWNvbnRlbnQge1xuICB3aWR0aDogMTcwcHggIWltcG9ydGFudDtcbn1cblxuLmFjdGlvbi1jb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5wLWNhdGVnb3J5IHtcbiAgcGFkZGluZzogMTBweDtcbn1cblxuLnAtMjUge1xuICBwYWRkaW5nLXRvcDogMjVweDtcbn1cblxuLmVkaXQsIC5kZWxldGUge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5kcm9wLWRvd24ge1xuICBib3JkZXI6IDFweCBzb2xpZCAjZGVkZWRlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xuICBib3JkZXItcmFkaXVzOiAzcHggIWltcG9ydGFudDtcbiAgZm9udC1mYW1pbHk6IFwiTGF0b1wiLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICBmb250LXNpemU6IDEuNHJlbTtcbiAgY29sb3I6ICMzNzM5NDY7XG4gIHBhZGRpbmc6IDAgMTBweDtcbiAgaGVpZ2h0OiAzOHB4O1xufVxuXG4ucDAge1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbjo6bmctZGVlcCAubWF0LWZvcm0tZmllbGQtaW5maXgge1xuICBib3JkZXItdG9wOiAwcHggIWltcG9ydGFudDtcbiAgcGFkZGluZzogMHB4ICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiAzNDBweCAhaW1wb3J0YW50O1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIGRlc2VsZWN0ICgpIHtcbiAgLW1vei11c2VyLXNlbGVjdDogLW1vei1ub25lO1xuXHQta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1vLXVzZXItc2VsZWN0OiBub25lO1xuXHR1c2VyLXNlbGVjdDogbm9uZTtcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO1xuICBhbGlnbi1pdGVtczpjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICRiZztcbiAgY29sb3I6ICR0YztcbiAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cygkcik7XG59XG5cbkBtaXhpbiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzLi4uKSB7XG4gIC8vIERpcmVjdGlvbiBoYXMgYmVlbiBvbWl0dGVkIGFuZCBoYXBwZW5zIHRvIGJlIGEgY29sb3Itc3RvcFxuICBAaWYgaXMtZGlyZWN0aW9uKCRkaXJlY3Rpb24pID09IGZhbHNlIHtcbiAgICAkY29sb3Itc3RvcHM6ICRkaXJlY3Rpb24sICRjb2xvci1zdG9wcztcbiAgICAkZGlyZWN0aW9uOiAxODBkZWc7XG4gIH1cblxuICBiYWNrZ3JvdW5kOiBudGgobnRoKCRjb2xvci1zdG9wcywgMSksIDEpO1xuICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChsZWdhY3ktZGlyZWN0aW9uKCRkaXJlY3Rpb24pLCAkY29sb3Itc3RvcHMpO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzKTtcbn1cblxuQG1peGluIGZsaXAoJGRpcmVjdGlvbikge1xuICB0cmFuc2Zvcm0gOiByb3RhdGVZKCRkaXJlY3Rpb24pO1xufVxuXG5AbWl4aW4gcGxhY2Vob2xkZXIge1xuICAmOjotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHtAY29udGVudH1cbiAgJjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6Oi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAge0Bjb250ZW50fVxuICAmOi1tcy1pbnB1dC1wbGFjZWhvbGRlciAgICAgIHtAY29udGVudH0gIFxufVxuXG5cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */";
     /***/
   },
 
@@ -3881,30 +3904,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getViolationCategory",
         value: function getViolationCategory() {
-          var _this41 = this;
+          var _this42 = this;
 
           var params = {
             LookupTypeId: 78,
             active: 1
           };
           this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-            _this41.allViolationCategory = res.filter(function (x) {
+            _this42.allViolationCategory = res.filter(function (x) {
               return x.isActive === true;
             });
-            _this41.isDataLoaded = true;
-            _this41.totalItems = _this41.allViolationCategory.length;
+            _this42.isDataLoaded = true;
+            _this42.totalItems = _this42.allViolationCategory.length;
 
-            if (_this41.totalItems > _this41.itemLimit) {
-              _this41.ItemEndIndex = _this41.itemLimit;
+            if (_this42.totalItems > _this42.itemLimit) {
+              _this42.ItemEndIndex = _this42.itemLimit;
             } else {
-              _this41.ItemEndIndex = _this41.totalItems;
+              _this42.ItemEndIndex = _this42.totalItems;
             }
           });
         }
       }, {
         key: "submitCreateCategoryTypeForm",
         value: function submitCreateCategoryTypeForm(form) {
-          var _this42 = this;
+          var _this43 = this;
 
           var lookupparams = {
             lookupvalue: {
@@ -3928,11 +3951,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.category.categoryId === 0) {
             this.lookupService.addLookupValue(lookupparams).subscribe(function (res) {
               if (res) {
-                _this42.sharedService.setAlertMessage(res.message);
+                _this43.sharedService.setAlertMessage(res.message);
 
-                _this42.getViolationCategory();
+                _this43.getViolationCategory();
 
-                _this42.category = {
+                _this43.category = {
                   categoryId: 0,
                   categoryname: '',
                   Description: ''
@@ -3942,11 +3965,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.lookupService.updateLookupValue(lookupparams).subscribe(function (res) {
               if (res) {
-                _this42.sharedService.setAlertMessage(res.message);
+                _this43.sharedService.setAlertMessage(res.message);
 
-                _this42.getViolationCategory();
+                _this43.getViolationCategory();
 
-                _this42.category = {
+                _this43.category = {
                   categoryId: 0,
                   categoryname: '',
                   Description: ''
@@ -3958,7 +3981,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteViolationCategory",
         value: function deleteViolationCategory(id) {
-          var _this43 = this;
+          var _this44 = this;
 
           var params = {
             lookupValueId: id,
@@ -3967,9 +3990,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
             if (res) {
-              _this43.sharedService.setAlertMessage(res.message);
+              _this44.sharedService.setAlertMessage(res.message);
 
-              _this43.getViolationCategory();
+              _this44.getViolationCategory();
             } else {}
           });
         }
@@ -3990,7 +4013,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getallMenu",
         value: function getallMenu() {
-          var _this44 = this;
+          var _this45 = this;
 
           var params = {
             active: 1
@@ -4000,29 +4023,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             menuData.forEach(function (element) {
               var data = element.screenName;
 
-              _this44.allMenus.push(data.replace("Admin_Main_", ""));
+              _this45.allMenus.push(data.replace("Admin_Main_", ""));
             });
           });
         }
       }, {
         key: "getViolationPrivilege",
         value: function getViolationPrivilege() {
-          var _this45 = this;
+          var _this46 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.violationService.getViolationPrivilege(params).subscribe(function (res) {
-            _this45.allViolationPrivilege = res.filter(function (x) {
+            _this46.allViolationPrivilege = res.filter(function (x) {
               return x.isActive === true;
             });
-            _this45.isDataLoaded = true;
-            _this45.PtotalItems = _this45.allViolationPrivilege.length;
+            _this46.isDataLoaded = true;
+            _this46.PtotalItems = _this46.allViolationPrivilege.length;
 
-            if (_this45.PtotalItems > _this45.PitemLimit) {
-              _this45.PItemEndIndex = _this45.PitemLimit;
+            if (_this46.PtotalItems > _this46.PitemLimit) {
+              _this46.PItemEndIndex = _this46.PitemLimit;
             } else {
-              _this45.PItemEndIndex = _this45.PtotalItems;
+              _this46.PItemEndIndex = _this46.PtotalItems;
             }
           });
         }
@@ -4040,7 +4063,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCreatesStopPrivledgeForm",
         value: function submitCreatesStopPrivledgeForm(form) {
-          var _this46 = this;
+          var _this47 = this;
 
           var lookupparams = {
             Id: this.privledge.privilegeId === 0 ? 0 : this.privledge.privilegeId,
@@ -4058,11 +4081,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.privledge.privilegeId === 0) {
             this.violationService.addViolationPrivilege(lookupparams).subscribe(function (res) {
               if (res) {
-                _this46.sharedService.setAlertMessage("Violation Privilege Added Successfully");
+                _this47.sharedService.setAlertMessage("Violation Privilege Added Successfully");
 
-                _this46.getViolationPrivilege();
+                _this47.getViolationPrivilege();
 
-                _this46.privledge = {
+                _this47.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -4073,11 +4096,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.violationService.updateViolationPrivilege(lookupparams).subscribe(function (res) {
               if (res) {
-                _this46.sharedService.setAlertMessage("Violation Privilege Updated Successfully");
+                _this47.sharedService.setAlertMessage("Violation Privilege Updated Successfully");
 
-                _this46.getViolationPrivilege();
+                _this47.getViolationPrivilege();
 
-                _this46.privledge = {
+                _this47.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -4090,7 +4113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "openEditViolationCategory",
         value: function openEditViolationCategory(violationCategory) {
-          var _this47 = this;
+          var _this48 = this;
 
           var dialogRef = this.dialog.open(_edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_13__["EditCategoryComponent"], {
             width: '900px',
@@ -4101,14 +4124,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.componentInstance.violationcategory = violationCategory;
           dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-            _this47.getViolationCategory();
+            _this48.getViolationCategory();
           });
           dialogRef.afterClosed().subscribe(function (result) {});
         }
       }, {
         key: "showConfirmViolationCategory",
         value: function showConfirmViolationCategory(id) {
-          var _this48 = this;
+          var _this49 = this;
 
           // this.modalService.showConfirmModal(id);
           var dialogRef = this.dialog.open(_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
@@ -4118,14 +4141,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
             if (dialogResult) {
-              _this48.deleteViolationCategory(id);
+              _this49.deleteViolationCategory(id);
             }
           });
         }
       }, {
         key: "openEditStopPrivilege",
         value: function openEditStopPrivilege(privledge) {
-          var _this49 = this;
+          var _this50 = this;
 
           var dialogRef = this.dialog.open(_edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_10__["EditPrivilegeComponent"], {
             // width: '900px',
@@ -4136,14 +4159,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.componentInstance.privilegevalue = privledge;
           dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-            _this49.getViolationPrivilege();
+            _this50.getViolationPrivilege();
           });
           dialogRef.afterClosed().subscribe(function (result) {});
         }
       }, {
         key: "showConfirmModal",
         value: function showConfirmModal(id) {
-          var _this50 = this;
+          var _this51 = this;
 
           // this.modalService.showConfirmModal(id);
           var dialogRef = this.dialog.open(_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
@@ -4153,14 +4176,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
             if (dialogResult) {
-              _this50.deleteViolationPrivilege(id);
+              _this51.deleteViolationPrivilege(id);
             }
           });
         }
       }, {
         key: "deleteViolationPrivilege",
         value: function deleteViolationPrivilege(id) {
-          var _this51 = this;
+          var _this52 = this;
 
           var deleteparams = {
             ViolationPrivilegeId: id,
@@ -4168,11 +4191,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.violationService.deleteViolationPrivilege(deleteparams).subscribe(function (res) {
             if (res) {
-              _this51.sharedService.setAlertMessage(res.message);
+              _this52.sharedService.setAlertMessage(res.message);
 
-              _this51.getViolationPrivilege();
+              _this52.getViolationPrivilege();
 
-              _this51.privledge = {
+              _this52.privledge = {
                 privilegeId: 0,
                 ViolationName: '',
                 ViolationDescription: '',
@@ -4222,7 +4245,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "doneRow",
         value: function doneRow(group, id) {
-          var _this52 = this;
+          var _this53 = this;
 
           group.get('isEditable').setValue(false);
           var control = group.get('violationTable');
@@ -4261,11 +4284,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (ruleId === 0) {
             this.violationService.addViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this52.sharedService.setAlertMessage(res.message);
+                _this53.sharedService.setAlertMessage(res.message);
 
-                _this52.getViolationPrivilege();
+                _this53.getViolationPrivilege();
 
-                _this52.privledge = {
+                _this53.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -4276,11 +4299,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.violationService.updateViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this52.sharedService.setAlertMessage(res.message);
+                _this53.sharedService.setAlertMessage(res.message);
 
-                _this52.getViolationPrivilege();
+                _this53.getViolationPrivilege();
 
-                _this52.privledge = {
+                _this53.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -4294,7 +4317,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "showConfirmViolationRule",
         value: function showConfirmViolationRule(id, index) {
-          var _this53 = this;
+          var _this54 = this;
 
           // this.modalService.showConfirmModal(id);
           var dialogRef = this.dialog.open(_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
@@ -4304,14 +4327,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
             if (dialogResult) {
-              _this53.deleteViolationRule(id, index);
+              _this54.deleteViolationRule(id, index);
             }
           });
         }
       }, {
         key: "deleteViolationRule",
         value: function deleteViolationRule(id, index) {
-          var _this54 = this;
+          var _this55 = this;
 
           var deleteparams = {
             violationRuleid: id,
@@ -4319,17 +4342,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.violationService.deleteViolationRule(deleteparams).subscribe(function (res) {
             if (res) {
-              var control = _this54.userTable.get('tableRows');
+              var control = _this55.userTable.get('tableRows');
 
               control.removeAt(index);
 
               if (res.message != null) {
-                _this54.sharedService.setAlertMessage(res.message);
+                _this55.sharedService.setAlertMessage(res.message);
               } else {
-                _this54.sharedService.setAlertMessage(res.errorMessage);
+                _this55.sharedService.setAlertMessage(res.errorMessage);
               }
 
-              _this54.getViolationRule();
+              _this55.getViolationRule();
             } else {}
           });
         }
@@ -4437,7 +4460,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getRuleByViolationCategory",
         value: function getRuleByViolationCategory() {
-          var _this55 = this;
+          var _this56 = this;
 
           this.isDataLoaded = false;
           var params = {
@@ -4445,16 +4468,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             ViolationCategoryId: 1
           };
           this.violationService.getViolationRule(params).subscribe(function (res) {
-            _this55.ruleListData = res;
+            _this56.ruleListData = res;
 
-            var control = _this55.userTable.get('tableRows');
+            var control = _this56.userTable.get('tableRows');
 
             control.clear(); // tslint:disable-next-line:no-shadowed-variable
 
-            _this55.ruleListData.forEach(function (element, index) {
-              var formcontrol = _this55.userTable.get('tableRows');
+            _this56.ruleListData.forEach(function (element, index) {
+              var formcontrol = _this56.userTable.get('tableRows');
 
-              formcontrol.push(_this55.fb.group({
+              formcontrol.push(_this56.fb.group({
                 directoryRecordId: [element.directoryRecordId],
                 serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                 email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
@@ -4464,19 +4487,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }));
             });
 
-            _this55.addRow();
+            _this56.addRow();
 
-            _this55.isDataLoaded = true;
+            _this56.isDataLoaded = true;
           }, function (error) {
-            _this55.isDataLoaded = true;
-            _this55.isError = true;
-            _this55.alertMessage = 'Some error occured';
+            _this56.isDataLoaded = true;
+            _this56.isError = true;
+            _this56.alertMessage = 'Some error occured';
           });
         }
       }, {
         key: "getViolationRule",
         value: function getViolationRule() {
-          var _this56 = this;
+          var _this57 = this;
 
           var params = {
             LookupTypeId: 78,
@@ -4484,33 +4507,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           var apartment_Id = parseInt(this.cookieService.get('apartmentId'));
           this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-            _this56.allViolationCategoryList = res.filter(function (x) {
+            _this57.allViolationCategoryList = res.filter(function (x) {
               return x.isActive === true;
             });
 
-            _this56.allViolationCategoryList.forEach(function (element1, index) {
+            _this57.allViolationCategoryList.forEach(function (element1, index) {
               var params1 = {
                 apartmentId: apartment_Id,
                 ViolationCategoryId: element1.ViolationCategoryId
               };
 
-              _this56.violationService.getViolationRule(params1).subscribe(function (rule) {
-                _this56.ruleListData = rule.filter(function (x) {
+              _this57.violationService.getViolationRule(params1).subscribe(function (rule) {
+                _this57.ruleListData = rule.filter(function (x) {
                   return x.isActive === true;
                 });
 
-                var control = _this56.userTable.get('tableRows'); // control.clear();
+                var control = _this57.userTable.get('tableRows'); // control.clear();
                 // tslint:disable-next-line:no-shadowed-variable
 
 
-                _this56.ruleListData.forEach(function (element, index) {
-                  var formcontrol = _this56.userTable.get('tableRows');
+                _this57.ruleListData.forEach(function (element, index) {
+                  var formcontrol = _this57.userTable.get('tableRows');
 
-                  formcontrol.push(_this56.fb.group({
+                  formcontrol.push(_this57.fb.group({
                     ruleId: [element.id],
                     category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                     ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-                    violationTable: _this56.fb.array([]),
+                    violationTable: _this57.fb.array([]),
                     isEditable: [false]
                   }));
                   var violationnoArr = [];
@@ -4533,7 +4556,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     var _fineViolation = element['fineViolationNo' + _index];
                     var _descViolation = element['descViolationNo' + _index];
                     var _violationPrivilege = element['violationPrivilegeId' + _index];
-                    violation.push(_this56.fb.group({
+                    violation.push(_this57.fb.group({
                       fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                       descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
                       stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
@@ -4554,19 +4577,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 //  this.addRow();
 
 
-                _this56.isDataLoaded = true;
+                _this57.isDataLoaded = true;
               }, function (error) {
-                _this56.isDataLoaded = true;
-                _this56.isError = true;
-                _this56.alertMessage = 'Some error occured';
+                _this57.isDataLoaded = true;
+                _this57.isError = true;
+                _this57.alertMessage = 'Some error occured';
               });
 
-              _this56.NWtotalItems = _this56.allViolationCategoryList.length;
+              _this57.NWtotalItems = _this57.allViolationCategoryList.length;
 
-              if (_this56.NWtotalItems > _this56.itemLimit) {
-                _this56.NWItemEndIndex = _this56.itemLimit;
+              if (_this57.NWtotalItems > _this57.itemLimit) {
+                _this57.NWItemEndIndex = _this57.itemLimit;
               } else {
-                _this56.NWItemEndIndex = _this56.NWtotalItems;
+                _this57.NWItemEndIndex = _this57.NWtotalItems;
               }
             });
           });
@@ -4574,7 +4597,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCreatesViolationPrivledgeForm",
         value: function submitCreatesViolationPrivledgeForm(id) {
-          var _this57 = this;
+          var _this58 = this;
 
           var control = this.tableForm().at(id).get('violationTable');
           var lookupparams = {
@@ -4608,11 +4631,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.privledge.privilegeId === 0) {
             this.violationService.addViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this57.sharedService.setAlertMessage(res.message);
+                _this58.sharedService.setAlertMessage(res.message);
 
-                _this57.getViolationPrivilege();
+                _this58.getViolationPrivilege();
 
-                _this57.privledge = {
+                _this58.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -4623,11 +4646,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.violationService.updateViolationRule(lookupparams).subscribe(function (res) {
               if (res) {
-                _this57.sharedService.setAlertMessage(res.message);
+                _this58.sharedService.setAlertMessage(res.message);
 
-                _this57.getViolationPrivilege();
+                _this58.getViolationPrivilege();
 
-                _this57.privledge = {
+                _this58.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',

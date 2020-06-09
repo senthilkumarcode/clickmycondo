@@ -662,7 +662,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   meetingTypeId: parseInt(_this11.meeting.meetingTypeId),
                   meetingCategoryId: null,
                   meetingRecipientsIds: users,
-                  meetingDate: _this11.subMeeting[i].meetingDate,
+                  meetingDate: new Date(_this11.subMeeting[i].meetingDate).toISOString(),
                   fromTime: _this11.subMeeting[i].meetingStartTime,
                   toTime: _this11.subMeeting[i].meetingEndTime,
                   subject: _this11.meeting.meetingSubject,

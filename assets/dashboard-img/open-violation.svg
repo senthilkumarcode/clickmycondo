@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 15.591 33.289">
+  <g id="Open_Violation" data-name="Open Violation" transform="translate(-25.5 12.966)">
+    <g id="Group_2380" data-name="Group 2380" transform="translate(26 0.569)">
+      <path id="Path_303" data-name="Path 303" d="M56.865,17V33.013L49,36.755V20.741Z" transform="translate(-41.774 -17)" fill="#fff"/>
+      <path id="Path_304" data-name="Path 304" d="M41.491,18.8H26.4V34.659H41.491" transform="translate(-26.4 -18.8)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+    <g id="noun_Close_2389681" transform="translate(30.157 -9)">
+      <path id="Path_305" data-name="Path 305" d="M13.36,8.2a.7.7,0,0,0-.984,0l-1.6,1.6-1.6-1.6a.7.7,0,0,0-.991.991l1.6,1.6-1.6,1.6a.7.7,0,1,0,.984.984l1.6-1.6,1.6,1.6a.7.7,0,0,0,.984-.984l-1.6-1.6,1.6-1.6A.7.7,0,0,0,13.36,8.2Z" transform="translate(-7.244 -9.28)" fill="#fff"/>
+      <path id="Path_306" data-name="Path 306" d="M6.483,1a5.483,5.483,0,1,0,5.483,5.483A5.483,5.483,0,0,0,6.483,1Zm0,9.969a4.486,4.486,0,1,1,4.486-4.486,4.486,4.486,0,0,1-4.486,4.486Z" transform="translate(-2.966 -4.966)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

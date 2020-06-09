@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 25.71 34.375">
+  <g id="Electric_Meter" data-name="Electric Meter" transform="translate(85.299 -34.5)">
+    <g id="Group_2385" data-name="Group 2385" transform="translate(-85.299 34.5)">
+      <rect id="Rectangle_137" data-name="Rectangle 137" width="3.841" height="2.818" transform="translate(15.656 4.905)" fill="#ffaa01"/>
+      <path id="Path_310" data-name="Path 310" d="M22.7,13.5V47.875h25.71V13.5Zm19.19,17.934L34.028,44.07a.471.471,0,0,1-.854-.37l2.285-8.571H29.621a.471.471,0,0,1-.428-.668l3.881-8.437a.471.471,0,0,1,.428-.274h3.823a.471.471,0,0,1,.428.668l-1.977,4.3h5.716a.471.471,0,0,1,.4.72Zm1.249-9.74a.471.471,0,0,1-.471.471H28.443a.471.471,0,0,1-.471-.471v-3.76a.471.471,0,0,1,.471-.471H42.669a.471.471,0,0,1,.471.471Z" transform="translate(-22.701 -13.5)" fill="#ffaa01"/>
+      <rect id="Rectangle_138" data-name="Rectangle 138" width="3.718" height="2.818" transform="translate(10.996 4.905)" fill="#ffaa01"/>
+      <rect id="Rectangle_139" data-name="Rectangle 139" width="3.841" height="2.818" transform="translate(6.213 4.905)" fill="#ffaa01"/>
+    </g>
+  </g>
+</svg>

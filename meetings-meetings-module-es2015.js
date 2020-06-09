@@ -441,7 +441,7 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
                         meetingTypeId: parseInt(this.meeting.meetingTypeId),
                         meetingCategoryId: null,
                         meetingRecipientsIds: users,
-                        meetingDate: this.subMeeting[i].meetingDate,
+                        meetingDate: new Date(this.subMeeting[i].meetingDate).toISOString(),
                         fromTime: this.subMeeting[i].meetingStartTime,
                         toTime: this.subMeeting[i].meetingEndTime,
                         subject: this.meeting.meetingSubject,
