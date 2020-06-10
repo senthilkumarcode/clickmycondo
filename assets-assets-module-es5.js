@@ -81,7 +81,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t\n\t<form #addAssetForm = \"ngForm\" name=\"addAssetForm\" (ngSubmit)=\"submitAddAssetForm(addAssetForm)\"  novalidate>\n\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\n\t\t\t<span *ngIf=\"!isEditAsset\">Create Asset</span>\n    \t\t<span *ngIf=\"isEditAsset\">Edit Asset</span>\n\n\t\t</h4>\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset tag No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\" [(ngModel)]=\"asset.assetTagNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Asset Category*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetCategoryId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset Name*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"assetName\" [(ngModel)]=\"asset.assetName\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Manufacturer Details*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Manufacturer Details\" name=\"ManufacturerDetails\" [(ngModel)]=\"asset.manufacturerDetails\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Model No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Model No\" name=\"modelNo\" [(ngModel)]=\"asset.modelNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Condition*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"used\" [(ngModel)]=\"asset.assetConditionId\"  value=\"103\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"used\">Used</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"new\" [(ngModel)]=\"asset.assetConditionId\" value=\"105\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"new\">New</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Asset Location</label>\n\t\t\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\t        name=\"assetLocation\" \n\t\t\t\t\t\t\t\t\t         class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetLocation\" >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of locationList\" [value]=\"item.apartmentBlockId\">{{ item.description }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t                    <!-- <input type=\"text\" class=\"form-control\" placeholder=\"Enter Asset Location\" name=\"assetLocation\" [(ngModel)]=\"asset.assetLocation\"> -->\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation (in percentage)*</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter percentage value\" name=\"depreciation\" [(ngModel)]=\"asset.depreciationPercentage\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Installation Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"installationDate\" [owlDateTimeTrigger]=\"installationDate\" placeholder=\"Installation Date\" [(ngModel)]=\"asset.installationDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #installationDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"installationDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Status*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"asset.isActive\"  [value]=\"true\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"asset.isActive\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Retired No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Retired No\" name=\"depreciation\" [(ngModel)]=\"asset.retiredOn\" required>\n\t\t\t\t\t                    <!-- <input class=\"form-control\" name=\"retiredOnDate\" [owlDateTime]=\"retiredOnDate\" [owlDateTimeTrigger]=\"retiredOnDate\" placeholder=\"Retired No\" [(ngModel)]=\"asset.retiredOn\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #retiredOnDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"retiredOnDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div> -->\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Comments</label>\n\t\t\t\t\t                    <textarea placeholder=\"some text here\" name=\"staffComments\" [(ngModel)]=\"asset.comments\"></textarea>\n\t\t\t\t\t                </div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"  name=\"file\" #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"asset.file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Purchase Details</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Vendor Name*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        id=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.vendorId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorDataList\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Order No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Order No\" name=\"purchaseOrderNo\" [(ngModel)]=\"asset.purchaseOrderNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"purchaseDate\" [owlDateTimeTrigger]=\"purchaseDate\" placeholder=\"Purchase Date\" [(ngModel)]=\"asset.purchaseDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #purchaseDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Cost*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Cost\" name=\"purchaseCost\" [(ngModel)]=\"asset.purchaseCost\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Warranty Months*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Warranty Months\" name=\"warrantyMonths\" [(ngModel)]=\"asset.warrantyMonths\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Serial Number*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Serial Number\" name=\"serialNo\" [(ngModel)]=\"asset.serialNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Is Leased*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"Yes\" [(ngModel)]=\"asset.isLeased\"  [value]=\"true\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"No\" [(ngModel)]=\"asset.isLeased\" [value]=\"false\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" \n\t\t\t\t\tdata-target=\"#assetCollapseThree\" aria-expanded=\"true\" \n\t\t\t\t\taria-controls=\"collapseOne\">Insurance Information</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" \n\t\t\t\t\tdata-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Provider</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance Provider\" name=\"provider\" [(ngModel)]=\"insurance.insuranceProvider\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance No</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance No\" name=\"InsuranceNo\" [(ngModel)]=\"insurance.insuranceNo\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Exp. Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"insuranceExpDate\" [owlDateTimeTrigger]=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Insurance Exp. Date\" [(ngModel)]=\"insurance.insuranceExpDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #insuranceExpDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Notes</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Note\" name=\"insuranceNotes\"  [(ngModel)]=\"insurance.notes\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Status</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Insurance Status\" name=\"status\" [(ngModel)]=\"insurance.insuranceStatus\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addAssetForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t\n\t<form #addAssetForm = \"ngForm\" name=\"addAssetForm\" (ngSubmit)=\"submitAddAssetForm(addAssetForm)\"  novalidate>\n\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\n\t\t\t<span *ngIf=\"!isEditAsset\">Create Asset</span>\n    \t\t<span *ngIf=\"isEditAsset\">Edit Asset</span>\n\n\t\t</h4>\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset tag No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\" [(ngModel)]=\"asset.assetTagNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Asset Category*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetCategoryId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset Name*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"assetName\" [(ngModel)]=\"asset.assetName\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Manufacturer Details*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Manufacturer Details\" name=\"ManufacturerDetails\" [(ngModel)]=\"asset.manufacturerDetails\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Model No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Model No\" name=\"modelNo\" [(ngModel)]=\"asset.modelNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Condition*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"used\" [(ngModel)]=\"asset.assetConditionId\"  value=\"103\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"used\">Used</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"new\" [(ngModel)]=\"asset.assetConditionId\" value=\"105\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"new\">New</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Asset Location</label>\n\t\t\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\t        name=\"assetLocation\" \n\t\t\t\t\t\t\t\t\t         class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetLocation\" >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of locationList\" [value]=\"item.apartmentBlockId\">{{ item.description }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t                    <!-- <input type=\"text\" class=\"form-control\" placeholder=\"Enter Asset Location\" name=\"assetLocation\" [(ngModel)]=\"asset.assetLocation\"> -->\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation (in percentage)*</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter percentage value\" name=\"depreciation\" [(ngModel)]=\"asset.depreciationPercentage\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Installation Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"installationDate\" [owlDateTimeTrigger]=\"installationDate\" placeholder=\"Installation Date\" [(ngModel)]=\"asset.installationDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #installationDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"installationDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Status*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"asset.isActive\"  [value]=\"true\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"asset.isActive\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Retired No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Retired No\" name=\"depreciation\" [(ngModel)]=\"asset.retiredOn\" required>\n\t\t\t\t\t                    <!-- <input class=\"form-control\" name=\"retiredOnDate\" [owlDateTime]=\"retiredOnDate\" [owlDateTimeTrigger]=\"retiredOnDate\" placeholder=\"Retired No\" [(ngModel)]=\"asset.retiredOn\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #retiredOnDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"retiredOnDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div> -->\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Comments</label>\n\t\t\t\t\t                    <textarea placeholder=\"some text here\" name=\"staffComments\" [(ngModel)]=\"asset.comments\"></textarea>\n\t\t\t\t\t                </div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box upload-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Upload File</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileDetailsAvailable\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted()\">\n\t\t\t\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"attachfiles-normal\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"attachfiles-dragSupport\">Drop file here or </span>\n\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Purchase Details</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Vendor Name*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        id=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.vendorId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorDataList\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Order No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Order No\" name=\"purchaseOrderNo\" [(ngModel)]=\"asset.purchaseOrderNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"purchaseDate\" [owlDateTimeTrigger]=\"purchaseDate\" placeholder=\"Purchase Date\" [(ngModel)]=\"asset.purchaseDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #purchaseDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Cost*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Cost\" name=\"purchaseCost\" [(ngModel)]=\"asset.purchaseCost\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Warranty Months*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Warranty Months\" name=\"warrantyMonths\" [(ngModel)]=\"asset.warrantyMonths\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Serial Number*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Serial Number\" name=\"serialNo\" [(ngModel)]=\"asset.serialNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Is Leased*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"Yes\" [(ngModel)]=\"asset.isLeased\"  [value]=\"true\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"No\" [(ngModel)]=\"asset.isLeased\" [value]=\"false\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" \n\t\t\t\t\tdata-target=\"#assetCollapseThree\" aria-expanded=\"true\" \n\t\t\t\t\taria-controls=\"collapseOne\">Insurance Information</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" \n\t\t\t\t\tdata-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Provider</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance Provider\" name=\"provider\" [(ngModel)]=\"insurance.insuranceProvider\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance No</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance No\" name=\"InsuranceNo\" [(ngModel)]=\"insurance.insuranceNo\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Exp. Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"insuranceExpDate\" [owlDateTimeTrigger]=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Insurance Exp. Date\" [(ngModel)]=\"insurance.insuranceExpDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #insuranceExpDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Notes</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Note\" name=\"insuranceNotes\"  [(ngModel)]=\"insurance.notes\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Status</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Insurance Status\" name=\"status\" [(ngModel)]=\"insurance.insuranceStatus\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addAssetForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
     /***/
   },
 
@@ -1341,7 +1341,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9hc3NldHMvY29tcG9uZW50cy9hc3NldHMtY3JlYXRlL2Fzc2V0cy1jcmVhdGUuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".assets-create-wrapper .preview-img {\n  display: flex;\n  width: 100px;\n  height: 100px;\n  overflow: hidden;\n  margin: 0 30px 0 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvYXNzZXRzL2NvbXBvbmVudHMvYXNzZXRzLWNyZWF0ZS9hc3NldHMtY3JlYXRlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvYXNzZXRzL2NvbXBvbmVudHMvYXNzZXRzLWNyZWF0ZS9hc3NldHMtY3JlYXRlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUtJO0VBQ0ksYUFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQ0pSIiwiZmlsZSI6InNyYy9hcHAvYW1zL2Fzc2V0cy9jb21wb25lbnRzL2Fzc2V0cy1jcmVhdGUvYXNzZXRzLWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4uYXNzZXRzLWNyZWF0ZS13cmFwcGVyIHtcbiAgICAucHJldmlldy1pbWcge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICB3aWR0aDogMTAwcHg7XG4gICAgICAgIGhlaWdodDogMTAwcHg7XG4gICAgICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgICAgIG1hcmdpbjogMCAzMHB4IDAgMDtcbiAgICB9XG59IiwiLmFzc2V0cy1jcmVhdGUtd3JhcHBlciAucHJldmlldy1pbWcge1xuICBkaXNwbGF5OiBmbGV4O1xuICB3aWR0aDogMTAwcHg7XG4gIGhlaWdodDogMTAwcHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIG1hcmdpbjogMCAzMHB4IDAgMDtcbn0iXX0= */";
     /***/
   },
 
@@ -1385,52 +1385,80 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/platform-browser */
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/api/controllers/Asset */
     "./src/app/api/controllers/Asset.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/api/controllers/Vendor */
     "./src/app/api/controllers/Vendor.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../../../../shared/services/file-upload.service */
+    "./src/app/shared/services/file-upload.service.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/api/controllers/FileDetails */
+    "./src/app/api/controllers/FileDetails.ts");
+    /* harmony import */
+
+
+    var _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ../../../../shared/services/file-download.service */
+    "./src/app/shared/services/file-download.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! src/app/api/controllers/Apartment */
     "./src/app/api/controllers/Apartment.ts");
 
     var AssetsCreateComponent =
     /*#__PURE__*/
     function () {
-      function AssetsCreateComponent(router, route, assetService, vendorService, lookupService, sharedService, cookieService, apartmentService) {
+      function AssetsCreateComponent(router, sanitizer, route, assetService, vendorService, lookupService, sharedService, fileUploadService, fileDownloadService, fileDetailsService, cookieService, apartmentService) {
         _classCallCheck(this, AssetsCreateComponent);
 
         this.router = router;
+        this.sanitizer = sanitizer;
         this.route = route;
         this.assetService = assetService;
         this.vendorService = vendorService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
+        this.fileUploadService = fileUploadService;
+        this.fileDownloadService = fileDownloadService;
+        this.fileDetailsService = fileDetailsService;
         this.cookieService = cookieService;
         this.apartmentService = apartmentService;
         this.insurance = {};
@@ -1442,34 +1470,92 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.isAssetSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
+        this.error = "";
+        this.isFileDetailsAvailable = false;
+        this.fileUrl = "";
       }
 
       _createClass(AssetsCreateComponent, [{
+        key: "isUploadProgess",
+        value: function isUploadProgess() {
+          return this.uploadResponse.status == "progress" ? true : false;
+        }
+      }, {
+        key: "isUploadCompleted",
+        value: function isUploadCompleted() {
+          return this.uploadResponse.status == "completed" ? true : false;
+        }
+      }, {
         key: "uploadFile",
         value: function uploadFile(event) {
-          this.isFileAdded = true;
+          var _this9 = this;
 
-          for (var i = 0; i <= event.target.files.length - 1; i++) {
-            var selectedFile = event.target.files[i];
-            this.fileList.push(selectedFile);
-            this.listOfFiles.push({
-              'name': selectedFile.name,
-              'size': selectedFile.size
-            });
-          }
+          var file = event[0];
+          var userId = parseInt(this.cookieService.get('userId'));
+          this.fileUploadService.upload(file, userId).subscribe(function (res) {
+            if (res != undefined) {
+              _this9.uploadResponse = res;
+            }
+
+            if (_this9.isUploadCompleted()) {
+              _this9.asset.assetImageId = _this9.uploadResponse.fileId;
+              var newParams = {
+                fileDetailsId: _this9.uploadResponse.fileId,
+                apartmentId: Number(_this9.cookieService.get('apartmentId'))
+              };
+
+              _this9.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                _this9.filePath = res[0].filePath;
+
+                _this9.downloadFile(_this9.filePath);
+              });
+            }
+          });
+        }
+      }, {
+        key: "downloadFile",
+        value: function downloadFile(filePath) {
+          var _this10 = this;
+
+          this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
+            _this10.isFileDetailsAvailable = true;
+            var blob = res.body;
+            var objectURL = URL.createObjectURL(blob);
+
+            var sanitizeUrl = _this10.sanitizer.bypassSecurityTrustUrl(objectURL);
+
+            _this10.fileUrl = sanitizeUrl;
+          });
         }
       }, {
         key: "deleteFile",
-        value: function deleteFile(index) {
-          // Delete the item from fileNames list
-          this.listOfFiles.splice(index, 1); // delete file from FileList
+        value: function deleteFile() {
+          var _this11 = this;
 
-          this.fileList.splice(index, 1);
-          this.selectedFile = null;
-
-          if (this.fileList.length == 0 && this.listOfFiles.length == 0) {
-            this.isFileAdded = false;
-          }
+          var details = {
+            "fileDetailsId": this.uploadResponse.fileId,
+            "fileName": this.filePath,
+            "filePath": this.filePath,
+            "fileSize": 0,
+            "description": this.filePath,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId'))
+          };
+          var params = {
+            fileDetails: details
+          };
+          this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
+            _this11.isFileDetailsAvailable = false;
+            _this11.uploadResponse = {
+              status: '',
+              message: '',
+              fileId: null
+            };
+          });
         }
       }, {
         key: "bytesToSize",
@@ -1479,7 +1565,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "submitAddAssetForm",
         value: function submitAddAssetForm(form) {
-          var _this9 = this;
+          var _this12 = this;
 
           if (!this.isEditAsset) {
             var addAssetDetails = {
@@ -1531,21 +1617,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
             this.assetService.addAsset(addAssetParams).subscribe(function (res) {
               if (res.message) {
-                _this9.isAssetSubmitted = false;
+                _this12.isAssetSubmitted = false;
 
-                _this9.sharedService.setAlertMessage("Asset added successfully");
+                _this12.sharedService.setAlertMessage("Asset added successfully");
 
-                _this9.addInsurance(res.message); //this.router.navigate(['ams/assets/view']);
+                _this12.addInsurance(res.message); //this.router.navigate(['ams/assets/view']);
 
               } else {
-                _this9.isAssetSubmitted = false;
-                _this9.isError = true;
-                _this9.alertMessage = res.errorMessage;
+                _this12.isAssetSubmitted = false;
+                _this12.isError = true;
+                _this12.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this9.isAssetSubmitted = false;
-              _this9.isError = true;
-              _this9.alertMessage = "Some error occured";
+              _this12.isAssetSubmitted = false;
+              _this12.isError = true;
+              _this12.alertMessage = "Some error occured";
             });
           } else {
             var editAssetDetails = {
@@ -1598,29 +1684,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
             this.assetService.updateAsset(editAssetParams).subscribe(function (res) {
               if (res.message) {
-                _this9.isAssetSubmitted = false;
+                _this12.isAssetSubmitted = false;
 
-                _this9.sharedService.setAlertMessage("Asset updated successfully"); // this.router.navigate(['ams/assets/view']);
+                _this12.sharedService.setAlertMessage("Asset updated successfully"); // this.router.navigate(['ams/assets/view']);
 
 
-                _this9.updateInsurance(res.message);
+                _this12.updateInsurance(res.message);
               } else {
-                _this9.isAssetSubmitted = false;
-                _this9.isError = true;
-                _this9.alertMessage = res.errorMessage;
+                _this12.isAssetSubmitted = false;
+                _this12.isError = true;
+                _this12.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this9.isAssetSubmitted = false;
-              _this9.isError = true;
-              _this9.alertMessage = "Some error occured";
+              _this12.isAssetSubmitted = false;
+              _this12.isError = true;
+              _this12.alertMessage = "Some error occured";
             });
           }
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this13 = this;
 
+          this.uploadResponse = {
+            status: '',
+            message: '',
+            fileId: null
+          };
           this.asset = {};
           this.asset.assetCategoryId = "";
           this.asset.assetConditionId = "";
@@ -1634,12 +1725,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               assetId: this.route.params['value'].id
             };
             this.assetService.getAllAssetByAssetId(params).subscribe(function (res) {
-              _this10.asset = res[0];
+              _this13.asset = res[0];
             });
             var reqInsuranceParam = {};
             reqInsuranceParam.AssetId = params.assetId;
             this.assetService.getAllAssetInsurancePlanByAssetId(reqInsuranceParam).subscribe(function (res) {
-              _this10.insurance = res[0] ? res[0] : {};
+              _this13.insurance = res[0] ? res[0] : {};
             });
           }
 
@@ -1647,7 +1738,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             LookupTypeId: 19
           };
           this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
-            _this10.assetCategoryData = res.filter(function (item) {
+            _this13.assetCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -1655,7 +1746,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendprParams).subscribe(function (res) {
-            _this10.vendorDataList = res.filter(function (item) {
+            _this13.vendorDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -1664,13 +1755,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }; //maintenance status 
 
           this.lookupService.getLookupValueByLookupTypeId(assetStatusParams).subscribe(function (res) {
-            _this10.statusTypeData = res;
+            _this13.statusTypeData = res;
           }, function (error) {});
         }
       }, {
         key: "updateInsurance",
         value: function updateInsurance(assetId) {
-          var _this11 = this;
+          var _this14 = this;
 
           var reqObj = {};
           reqObj = {
@@ -1695,16 +1786,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log(res);
             }
           }, function (error) {
-            _this11.isAssetSubmitted = false;
-            _this11.isError = true;
-            _this11.alertMessage = "Some error occured";
+            _this14.isAssetSubmitted = false;
+            _this14.isError = true;
+            _this14.alertMessage = "Some error occured";
           });
           this.router.navigate(['ams/assets/view']);
         }
       }, {
         key: "addInsurance",
         value: function addInsurance(assetId) {
-          var _this12 = this;
+          var _this15 = this;
 
           var reqObj = {};
           reqObj = {
@@ -1729,16 +1820,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log(res);
             }
           }, function (error) {
-            _this12.isAssetSubmitted = false;
-            _this12.isError = true;
-            _this12.alertMessage = "Some error occured";
+            _this15.isAssetSubmitted = false;
+            _this15.isError = true;
+            _this15.alertMessage = "Some error occured";
           });
           this.router.navigate(['ams/assets/view']);
         }
       }, {
         key: "getAllLocation",
         value: function getAllLocation() {
-          var _this13 = this;
+          var _this16 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -1746,7 +1837,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this13.locationList = res ? res : [];
+              _this16.locationList = res ? res : [];
             }
           });
         }
@@ -1759,19 +1850,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return [{
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
+        type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]
+      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
-        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"]
       }, {
-        type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"]
+        type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+        type: _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]
+        type: _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"]
+      }, {
+        type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"]
       }];
     };
 
@@ -1783,7 +1882,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./assets-create.component.scss */
       "./src/app/ams/assets/components/assets-create/assets-create.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]])], AssetsCreateComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"], _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"]])], AssetsCreateComponent);
     /***/
   },
 
@@ -1936,25 +2035,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this17 = this;
 
           this.assetService.getAllAssetMaintenancePlanByAssetId(this.assetId).subscribe(function (res) {
-            _this14.isAssetMaintenanceLoaded = true;
-            _this14.maintenanceDataList = res;
+            _this17.isAssetMaintenanceLoaded = true;
+            _this17.maintenanceDataList = res;
 
-            if (_this14.totalItems > _this14.itemLimit) {
-              _this14.ItemEndIndex = _this14.itemLimit;
+            if (_this17.totalItems > _this17.itemLimit) {
+              _this17.ItemEndIndex = _this17.itemLimit;
             } else {
-              _this14.ItemEndIndex = _this14.totalItems;
+              _this17.ItemEndIndex = _this17.totalItems;
             }
 
-            _this14.totalItems = _this14.maintenanceDataList.length;
+            _this17.totalItems = _this17.maintenanceDataList.length;
           });
           var params = {
             LookupTypeId: 64
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this14.statusTypeData = res;
+            _this17.statusTypeData = res;
           }, function (error) {});
         }
       }]);
@@ -2190,7 +2289,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AssetsSetupComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this15 = this;
+          var _this18 = this;
 
           this.getAllCategory();
           this.getAllMaintenance();
@@ -2200,27 +2299,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var param = {};
               param = {
                 categoryId: id,
-                deletedBy: parseInt(_this15.cookieService.get('userId'))
+                deletedBy: parseInt(_this18.cookieService.get('userId'))
               };
 
-              _this15.lookupService.deleteCategory(param).subscribe(function (res) {
+              _this18.lookupService.deleteCategory(param).subscribe(function (res) {
                 // _.each(this.categoryList, (type) => {
                 // 	if (type.id == id) {
                 // 		type.isActive = false;
                 // 	}
                 // })
-                _this15.getAllCategory();
+                _this18.getAllCategory();
 
-                _this15.getAllMaintenance();
+                _this18.getAllMaintenance();
 
                 setTimeout(function () {
-                  if (_this15.delType == "maintenance") {
-                    _this15.sharedService.setAlertMessage("Maintenance type deleted successfully");
+                  if (_this18.delType == "maintenance") {
+                    _this18.sharedService.setAlertMessage("Maintenance type deleted successfully");
                   } else {
-                    _this15.sharedService.setAlertMessage("Asset Category deleted successfully");
+                    _this18.sharedService.setAlertMessage("Asset Category deleted successfully");
                   }
 
-                  _this15.sharedService.setUnitListDeleteIndex(null);
+                  _this18.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -2231,7 +2330,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addSetUp",
         value: function addSetUp(name, type, value, e) {
-          var _this16 = this;
+          var _this19 = this;
 
           // let data:any={};
           // data.name=type;
@@ -2249,9 +2348,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(result);
 
             if (result) {
-              _this16.getAllCategory();
+              _this19.getAllCategory();
 
-              _this16.getAllMaintenance();
+              _this19.getAllMaintenance();
             }
           });
         }
@@ -2299,7 +2398,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editSubCategory",
         value: function editSubCategory(data) {
-          var _this17 = this;
+          var _this20 = this;
 
           var reqObj = {};
           reqObj.id = data.id;
@@ -2320,20 +2419,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           params.subcategoryLookupTypeId = 68;
           this.lookupService.upsertSubCategory(params).subscribe(function (res) {
             if (res) {
-              _this17.sharedService.setAlertMessage("Sub Category updated successfully");
+              _this20.sharedService.setAlertMessage("Sub Category updated successfully");
 
-              _this17.isAssetLoaded = false;
+              _this20.isAssetLoaded = false;
 
-              _this17.getAllCategory();
+              _this20.getAllCategory();
 
-              _this17.currIndex = -1;
+              _this20.currIndex = -1;
             }
           });
         }
       }, {
         key: "getAllMaintenance",
         value: function getAllMaintenance() {
-          var _this18 = this;
+          var _this21 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2344,9 +2443,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this18.isAssetLoaded = false;
-              _this18.mainType = res ? res : [];
-              _this18.tempMainType = _this18.mainType; // if (this.data && this.data.type === 'addSubType') {
+              _this21.isAssetLoaded = false;
+              _this21.mainType = res ? res : [];
+              _this21.tempMainType = _this21.mainType; // if (this.data && this.data.type === 'addSubType') {
               // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
               // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
               // 	// console.log(this.category);
@@ -2362,7 +2461,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this19 = this;
+          var _this22 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2373,16 +2472,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this19.isAssetLoaded = false;
-              _this19.categoryList = res ? res : [];
-              _this19.tempCategoryList = _this19.categoryList;
+              _this22.isAssetLoaded = false;
+              _this22.categoryList = res ? res : [];
+              _this22.tempCategoryList = _this22.categoryList;
             }
           });
         }
       }, {
         key: "editMaintenance",
         value: function editMaintenance(data) {
-          var _this20 = this;
+          var _this23 = this;
 
           var reqObj = {};
           reqObj.id = data.id;
@@ -2400,13 +2499,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(res, res);
 
             if (res) {
-              _this20.sharedService.setAlertMessage("Maintenance sub types updated successfully");
+              _this23.sharedService.setAlertMessage("Maintenance sub types updated successfully");
 
-              _this20.isAssetLoaded = false;
+              _this23.isAssetLoaded = false;
 
-              _this20.getAllMaintenance();
+              _this23.getAllMaintenance();
 
-              _this20.mainCurrIndex = -1;
+              _this23.mainCurrIndex = -1;
             }
           });
         }
@@ -2758,7 +2857,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function AssetsViewComponent(injector, dialog, router, route, assetService, vendorService, lookupService, sharedService, cookieService) {
-        var _this21 = this;
+        var _this24 = this;
 
         _classCallCheck(this, AssetsViewComponent);
 
@@ -2789,12 +2888,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               LookupTypeId: 19
             };
 
-            _this21.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this21.assetCategoryData = res.filter(function (item) {
+            _this24.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+              _this24.assetCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this21.getAssetCategoryData(_this21.assetCategoryId);
+              _this24.getAssetCategoryData(_this24.assetCategoryId);
             });
           }
         });
@@ -2921,16 +3020,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAssetCategoryData",
         value: function getAssetCategoryData(id) {
-          var _this22 = this;
+          var _this25 = this;
 
           this.isAssetLoaded = false;
           underscore__WEBPACK_IMPORTED_MODULE_11__["each"](this.assetCategoryData, function (item, index) {
             if (id != "All") {
               if (item.lookupValueId == parseInt(id)) {
-                _this22.assetCategoryName = item.lookupValueName;
+                _this25.assetCategoryName = item.lookupValueName;
               }
             } else {
-              _this22.assetCategoryName = "";
+              _this25.assetCategoryName = "";
             }
           });
           var params = {
@@ -2938,24 +3037,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
             if (id != "All") {
-              _this22.assetListData = res.filter(function (item) {
+              _this25.assetListData = res.filter(function (item) {
                 return item.assetCategoryId == parseInt(id) && item.isActive;
               });
             } else {
-              _this22.assetListData = res.filter(function (item) {
+              _this25.assetListData = res.filter(function (item) {
                 return item.isActive;
               });
             }
 
-            _this22.totalItems = _this22.assetListData.length;
+            _this25.totalItems = _this25.assetListData.length;
 
-            if (_this22.totalItems > _this22.itemLimit) {
-              _this22.ItemEndIndex = _this22.itemLimit;
+            if (_this25.totalItems > _this25.itemLimit) {
+              _this25.ItemEndIndex = _this25.itemLimit;
             } else {
-              _this22.ItemEndIndex = _this22.totalItems;
+              _this25.ItemEndIndex = _this25.totalItems;
             }
 
-            _this22.isAssetLoaded = true;
+            _this25.isAssetLoaded = true;
           });
         }
       }, {
@@ -2999,7 +3098,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this23 = this;
+          var _this26 = this;
 
           this.asset = {};
 
@@ -3009,19 +3108,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
-              _this23.isAssetLoaded = false;
-              _this23.assetListData = res.filter(function (item) {
+              _this26.isAssetLoaded = false;
+              _this26.assetListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this23.totalItems = _this23.assetListData.length;
+              _this26.totalItems = _this26.assetListData.length;
 
-              if (_this23.totalItems > _this23.itemLimit) {
-                _this23.ItemEndIndex = _this23.itemLimit;
+              if (_this26.totalItems > _this26.itemLimit) {
+                _this26.ItemEndIndex = _this26.itemLimit;
               } else {
-                _this23.ItemEndIndex = _this23.totalItems;
+                _this26.ItemEndIndex = _this26.totalItems;
               }
 
-              _this23.isAssetLoaded = true;
+              _this26.isAssetLoaded = true;
             });
           } else {
             this.assetCategoryId = "" + this.route.params['value'].id;
@@ -3032,7 +3131,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }; //asset condition
 
           this.lookupService.getLookupValueByLookupTypeId(assetContparams).subscribe(function (res) {
-            _this23.assetConditionData = res.filter(function (item) {
+            _this26.assetConditionData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -3040,7 +3139,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this23.vendorDataList = res.filter(function (item) {
+            _this26.vendorDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -3048,7 +3147,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.assetService.getAllAssetMaintenancePlanByApartmentId(assetParams).subscribe(function (res) {
-            _this23.assetMaintenaceDataList = res.filter(function (item) {
+            _this26.assetMaintenaceDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -3056,31 +3155,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             LookupTypeId: 64
           };
           this.lookupService.getLookupValueByLookupTypeId(statusparams).subscribe(function (res) {
-            _this23.statusTypeData = res;
+            _this26.statusTypeData = res;
           }, function (error) {}); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
               var params = {
                 assetId: id,
-                deleteBy: parseInt(_this23.cookieService.get('userId'))
+                deleteBy: parseInt(_this26.cookieService.get('userId'))
               };
 
-              _this23.assetService.deleteAsset(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this23.assetListData, function (type) {
+              _this26.assetService.deleteAsset(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this26.assetListData, function (type) {
                   if (type.assetId == id) {
                     type.isActive = false;
                   }
                 });
                 setTimeout(function () {
-                  _this23.assetListData = _this23.assetListData.filter(function (type) {
+                  _this26.assetListData = _this26.assetListData.filter(function (type) {
                     return type.assetId !== id;
                   });
-                  _this23.totalItems = _this23.assetListData.length;
+                  _this26.totalItems = _this26.assetListData.length;
 
-                  _this23.sharedService.setAlertMessage("Asset deleted");
+                  _this26.sharedService.setAlertMessage("Asset deleted");
 
-                  _this23.sharedService.setUnitListDeleteIndex(null);
+                  _this26.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -3263,7 +3362,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(LastMaintenanceComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this24 = this;
+          var _this27 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3333,9 +3432,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.route.paramMap.subscribe(function (params) {
             if (params) {
-              _this24.assetId = params.get('id');
+              _this27.assetId = params.get('id');
 
-              _this24.getAssetById();
+              _this27.getAssetById();
             }
           });
           this.getAllCategory();
@@ -3365,7 +3464,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAssetById",
         value: function getAssetById() {
-          var _this25 = this;
+          var _this28 = this;
 
           if (this.assetId) {
             var params = {
@@ -3374,11 +3473,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.assetService.getAllAssetByAssetId(params).subscribe(function (res) {
               // this.assetList = res;
               if (res) {
-                _this25.gridSourceData = {
+                _this28.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this25.assetData = new jqx.dataAdapter(_this25.gridSourceData);
+                _this28.assetData = new jqx.dataAdapter(_this28.gridSourceData);
               }
             });
           }
@@ -3392,7 +3491,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this26 = this;
+          var _this29 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -3403,7 +3502,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this26.categoryList.push({
+                  _this29.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -3415,7 +3514,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this27 = this;
+          var _this30 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -3424,7 +3523,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this27.subCategoryList.push({
+                  _this30.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -3441,7 +3540,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this28 = this;
+          var _this31 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -3450,7 +3549,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this28.assetList.push({
+                  _this31.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -3809,7 +3908,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getMaintenaceHistory",
         value: function getMaintenaceHistory() {
-          var _this29 = this;
+          var _this32 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -3833,11 +3932,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var responeData = [];
               responeData = res;
               console.log(res);
-              _this29.gridSourceData = {
+              _this32.gridSourceData = {
                 localdata: responeData.length > 0 ? responeData : [],
                 datatype: "array"
               };
-              _this29.assetsHistoryData = new jqx.dataAdapter(_this29.gridSourceData);
+              _this32.assetsHistoryData = new jqx.dataAdapter(_this32.gridSourceData);
             }
           });
         }
@@ -3865,7 +3964,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this30 = this;
+          var _this33 = this;
 
           if (this.histroySearch != "") {
             var filterGroup = new jqx.filter();
@@ -3878,7 +3977,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this30.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this33.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3889,7 +3988,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onStatusFilter",
         value: function onStatusFilter() {
-          var _this31 = this;
+          var _this34 = this;
 
           if (this.historyStatus != "") {
             var filterGroup = new jqx.filter();
@@ -3902,7 +4001,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield == 'historyStatus') {
-                _this31.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this34.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3913,7 +4012,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this32 = this;
+          var _this35 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -3924,7 +4023,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this32.categoryList.push({
+                  _this35.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -3936,7 +4035,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this33 = this;
+          var _this36 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -3945,7 +4044,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this33.subCategoryList.push({
+                  _this36.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -3962,7 +4061,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this34 = this;
+          var _this37 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -3971,7 +4070,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this34.assetList.push({
+                  _this37.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -4401,13 +4500,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ManageMaintenanceComponent, [{
         key: "onItemSelect",
         value: function onItemSelect(item) {
-          var _this35 = this;
+          var _this38 = this;
 
           var filterArr = [];
 
           if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
             this.tempMaintenanceList.filter(function (val) {
-              if (_this35.search.categorys && val.assetCategoryName === _this35.search.categorys[0].itemName || _this35.search.subCategory && val.assetSubcategoryName === _this35.search.subCategory[0].itemName || _this35.search.assets && val.assetName === _this35.search.assets[0].itemName) {
+              if (_this38.search.categorys && val.assetCategoryName === _this38.search.categorys[0].itemName || _this38.search.subCategory && val.assetSubcategoryName === _this38.search.subCategory[0].itemName || _this38.search.assets && val.assetName === _this38.search.assets[0].itemName) {
                 filterArr.push(val);
               }
             });
@@ -4446,7 +4545,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this36 = this;
+          var _this39 = this;
 
           this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]); // delete maintenance
 
@@ -4455,16 +4554,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var param = {};
               param = {
                 assetMaintenancePlanId: id,
-                deleteBy: parseInt(_this36.cookieService.get('userId'))
+                deleteBy: parseInt(_this39.cookieService.get('userId'))
               };
 
-              _this36.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
-                _this36.getMaintenaceList();
+              _this39.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
+                _this39.getMaintenaceList();
 
                 setTimeout(function () {
-                  _this36.sharedService.setAlertMessage("Maintenance  deleted successfully");
+                  _this39.sharedService.setAlertMessage("Maintenance  deleted successfully");
 
-                  _this36.sharedService.setUnitListDeleteIndex(null);
+                  _this39.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -4473,7 +4572,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           this.route.paramMap.subscribe(function (params) {
             if (params) {
-              _this36.assetId = params.get('id');
+              _this39.assetId = params.get('id');
             }
           }); // this.search.assetId = 17;
           // this.getAllCategory();
@@ -4517,7 +4616,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this37 = this;
+          var _this40 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -4528,7 +4627,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this37.categoryList.push({
+                  _this40.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4540,7 +4639,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this38 = this;
+          var _this41 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -4549,7 +4648,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this38.subCategoryList.push({
+                  _this41.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4566,7 +4665,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this39 = this;
+          var _this42 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -4575,7 +4674,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this39.assetList.push({
+                  _this42.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -4587,21 +4686,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getMaintenaceList",
         value: function getMaintenaceList() {
-          var _this40 = this;
+          var _this43 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
           params.active = 1;
           this.assetService.getAllAssetMaintenancePlanByApartmentIdStatus(params).subscribe(function (res) {
             if (res) {
-              _this40.maintenanceList = res.length > 0 ? res : [];
-              _this40.tempMaintenanceList = _this40.maintenanceList;
-              _this40.totalItems = _this40.maintenanceList.length;
+              _this43.maintenanceList = res.length > 0 ? res : [];
+              _this43.tempMaintenanceList = _this43.maintenanceList;
+              _this43.totalItems = _this43.maintenanceList.length;
 
-              if (_this40.totalItems > _this40.itemLimit) {
-                _this40.ItemEndIndex = _this40.itemLimit;
+              if (_this43.totalItems > _this43.itemLimit) {
+                _this43.ItemEndIndex = _this43.itemLimit;
               } else {
-                _this40.ItemEndIndex = _this40.totalItems;
+                _this43.ItemEndIndex = _this43.totalItems;
               }
             }
           });
