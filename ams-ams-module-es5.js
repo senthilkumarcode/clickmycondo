@@ -10833,7 +10833,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | my-property-my-property-module */
-          [__webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("my-property-my-property-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("my-property-my-property-module")]).then(__webpack_require__.bind(null,
           /*! ./my-property/my-property.module */
           "./src/app/ams/my-property/my-property.module.ts")).then(function (m) {
             return m.MyPropertyModule;
@@ -10877,7 +10877,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | income-tracker-income-tracker-module */
-          [__webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("income-tracker-income-tracker-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("income-tracker-income-tracker-module")]).then(__webpack_require__.bind(null,
           /*! ./income-tracker/income-tracker.module */
           "./src/app/ams/income-tracker/income-tracker.module.ts")).then(function (m) {
             return m.IncomeTrackerModule;
@@ -10921,7 +10921,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | work-permit-work-permit-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("default~income-tracker-income-tracker-module~my-property-my-property-module~work-permit-work-permit-module"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
           /*! ./work-permit/work-permit.module */
           "./src/app/ams/work-permit/work-permit.module.ts")).then(function (m) {
             return m.WorkPermitModule;
@@ -11075,7 +11075,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | inventory-inventory-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null,
           /*! ./inventory/inventory.module */
           "./src/app/ams/inventory/inventory.module.ts")).then(function (m) {
             return m.InventoryModule;
