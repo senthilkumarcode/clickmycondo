@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["income-tracker-income-tracker-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-actions/income-actions.component.html":
+/*!**********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-actions/income-actions.component.html ***!
+  \**********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-actions-wrapper\">\n\n    <ul class=\"icon-tabs\">\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"javascript:void(0)\" \n            routerLink=\"post-collection/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/coin-stack-icon.svg\" /></span>\n\t\t\t\t<span>Collection</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-invoice-history/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/time-icon.svg\" /></span>\n\t\t\t\t<span>Account History</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-creditnote/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/credit-note-icon.svg\" /></span>\n\t\t\t\t<span>Credit Notes</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"customer-advances/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/income-icon.svg\" /></span>\n\t\t\t\t<span>Customer Advances</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"security-deposit/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/money-bag-icon-02.svg\" /></span>\n\t\t\t\t<span>Security Deposit</span>\n\t\t\t</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"journal/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/journal-icon.svg\" /></span>\n\t\t\t\t<span>Journal Entry</span>\n\t\t\t</a>\n\t\t</li>\n\t</ul>\n    \n    <div class=\"d-block mt-50\">\n        <router-outlet></router-outlet>\n    </div>\n    \n    <!-- <div class=\"special-movable-tabs\">\n        <div class=\"card\">\n            <div class=\"card-body p-0\">\n                <nav class=\"nav nav-pills\" id=\"action-wrapper\">\n                    <ul class=\"tabs mr-auto\" id=\"action-tabs\">\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"post-collection\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Collection</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"view-invoice-history\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Account History</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"view-creditnote\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Credit Notes</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"customer-advances\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Customer Advances</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"security-deposit\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Security Deposit</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"journal\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Journal Entry</a></li>\n                    </ul>\n                    <div class=\"buttons ml-auto\">\n                        <a class=\"nav-item nav-link prev\" (click)=\"moveTabLeft()\"href=\"javascript:void(0)\">\n                            <i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>\n                        </a>\n                        <a class=\"nav-item nav-link next\" (click)=\"moveTabRight()\" href=\"javascript:void(0)\">\n                            <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n                        </a>\n                    </div>\n                </nav>\n            </div>\n        </div>\n\n        <div class=\"d-block mt-5\">\n            <div class=\"pt-2\">\n                <router-outlet></router-outlet>\n            </div>\n        </div>\n\n    </div> -->\n\n</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-credit/income-add-credit.component.html":
 /*!****************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-credit/income-add-credit.component.html ***!
@@ -10,6 +23,19 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n\n\n\t<h5 class=\"mb-3\">\n\t\t<span *ngIf=\"!isEditCredit\">Add Credit Note</span>\n\t\t<span *ngIf=\"isEditCredit\">Edit Credit Note</span>\n\t</h5>\n\n\t<div class=\"card no-shadow mb-3\" *ngIf=\"isAccountDataLoaded\">\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\">\n\t\t\t\t\t<p class=\"d-inline-block ft\">\n\t\t\t\t\t<span>Bill to party: </span>\n\t\t\t\t\t{{accountDataList | isdefined:'billToParty' }}</p>\n\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\">\n\t\t\t\t\t<span>Contact Person: </span>\n\t\t\t\t\t{{accountDataList | isdefined:'primayContact' }}</p>\n\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\">\n\t\t\t\t\t<span>Block: </span>\n\t\t\t\t\t{{accountDataList | isdefined:'apartmentBlockNumber' }}</p>\n\t\t\t\t\t\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\">\n\t\t\t\t\t<span>Unit: </span>\n\t\t\t\t\t{{accountDataList | isdefined:'apartmentBlockUnitNumber' }}</p>\n\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\t</div>\n\t\n\t<div class=\"card clear\">\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isCreditSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\n\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Select Block</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t\t        id=\"blockNo\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockId\" (ngModelChange)=\"showUnitData(apartmentBlockId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{item.apartmentBlockNumber}}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div> \n\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isBlockSelected\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Select Unit</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockUnitId\" (ngModelChange)=\"showInvoiceData(apartmentBlockUnitId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of unitListData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber}}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div> -->\n\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitSelected\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Select Bill No</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"invoiceId\" \n\t\t\t\t\t\t\t        id=\"invoiceId\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"credit.invoiceId\" (ngModelChange)=\"getInvoice(credit.invoiceId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of invoiceData\" [value]=\"item.custInvoiceId\">{{ item.custInvoiceId}}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div> \n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Posted On*</label>\n\t\t\t                    <input class=\"form-control\" name=\"invoiceDueDate\" [owlDateTime]=\"postedOn\" [owlDateTimeTrigger]=\"postedOn\" placeholder=\"Date\" [(ngModel)]=\"credit.insertedOn\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t<owl-date-time #postedOn [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"postedOn\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Amount*</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Comments</label>\n\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Email*</label>\n\t\t\t                    <label class=\"switch\">\n\t\t\t\t\t\t\t\t  \t<input type=\"checkbox\" name=\"isEmailSent\" [(ngModel)]=\"credit.isEmailSent\" >\n\t\t\t\t\t\t\t\t  \t<span class=\"slider round\" (click)=\"setActive()\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>SMS*</label>\n\t\t\t                    <label class=\"switch\">\n\t\t\t\t\t\t\t\t  \t<input type=\"checkbox\" name=\"isSmssent\" [(ngModel)]=\"credit.isSmssent\" >\n\t\t\t\t\t\t\t\t  \t<span class=\"slider round\" (click)=\"setActive()\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addCreditNoteForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.html":
+/*!******************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.html ***!
+  \******************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>income-customer-advances works!</p>\n");
 
 /***/ }),
 
@@ -36,6 +62,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n<ng-container *ngIf=\"isInvoiceSubmitted\">\n\t<form #reverseIncomeInvoiceForm = \"ngForm\" name=\"reverseIncomeInvoiceForm\" (ngSubmit)=\"submitReverseIncomeInvoiceForm(reverseIncomeInvoiceForm)\"  novalidate>\n\n\t\t<div class=\"row\">\n\t\t\t\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t            <label>Comments</label>\n\t\t            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<button class=\"btn blue\" [disabled]=\"reverseIncomeInvoiceForm.invalid\">Submit</button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n</ng-container>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-journal/income-journal.component.html":
+/*!**********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-journal/income-journal.component.html ***!
+  \**********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>income-journal works!</p>\n");
 
 /***/ }),
 
@@ -104,6 +143,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.html":
+/*!****************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.html ***!
+  \****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>income-security-deposit works!</p>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.html":
 /*!****************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.html ***!
@@ -113,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-sub-ledger-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t<div class=\"card clear ov mb-3\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t<div class=\"card-body no-border filter-box\">\n  \t\t\t<h6><i-feather class=\"icon mr-2\" name=\"filter\"></i-feather>Filter By</h6>\n  \t\t\t<div class=\"dropdown\">\n\t\t\t\t<a class=\"dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" id=\"AllBlockDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\" (click)=\"getAllBlockData('all')\" [ngClass]=\"getSelected('all')\">\n\t  \t\t\t\t<span>All Towers</span>\n\t\t        </a>\n\t\t\t</div>\n  \t\t\t<div class=\"dropdown\">\n\t\t\t\t<a class=\"dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" id=\"singleBlockDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\" [ngClass]=\"getSelected('single')\">\n\t  \t\t\t\t<span>{{singleBlock}}</span>\n\t  \t\t\t\t<div class=\"arrow\"><i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i></div>\n\t\t        </a>\n\t\t        <div class=\"dropdown-menu\" aria-labelledby = \"singleBlockDropDown\">\n\t\t         \t<a href=\"javascript:void(0)\" *ngFor=\"let block of blockListData\" (click)=\"getSingleBlock(block)\">{{block.apartmentBlockNumber}}</a>\n\t\t        </div>\n\t\t\t</div>\n  \t\t</div>\n\t</div>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\n\t\t\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Sub Ledgers <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p>\n    \t\t\t\t<span *ngIf=\"filterSelected == 'all'\">All Towers</span>\n    \t\t\t\t<span *ngIf=\"filterSelected != 'all'\">Residents under {{singleBlock}}</span>\n    \t\t\t</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t<div class=\"button-wrapper\" *ngIf=\"isItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">Total Amount Due : <span class=\"ml-1\">{{totalDueAmount}}</span></p>\n    \t\t\t<p class=\"snippet\">Total Excess Payments & Incentives Due : <span class=\"ml-1\">{{totalDueAmount - netDueAmount}}</span></p>\n    \t\t\t<p class=\"snippet\">Net Amount : <span class=\"ml-1\">{{netDueAmount}}</span></p>\n\t\t\t</div>\n\n\t\t</div>\n\n  \t</div>\n\n  \t<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n  \t\t<div class=\"menu-info rel\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Select Invoice Types</h5>\n\t\t\t</div>\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body p-0 lists other\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/single\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Single Line</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/multi\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Multi Line</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" \n\t\t\t\t\t\t\t[ngClass]=\"ledger.isInvoiceAvailable ? '' : 'disabled'\"\n\t\t\t\t\t\t\trouterLink=\"/ams/income/add-credit/{{ledger.apartmentBlockUnitId}}/new\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Credit Note</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<!-- <li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\">Refund Note</a>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n  \t</ng-template>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-sub-ledger-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t<div class=\"card clear ov mb-3\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t<div class=\"card-body no-border filter-box\">\n  \t\t\t<h6><i-feather class=\"icon mr-2\" name=\"filter\"></i-feather>Filter By</h6>\n  \t\t\t<div class=\"dropdown\">\n\t\t\t\t<a class=\"dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" id=\"AllBlockDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\" (click)=\"getAllBlockData('all')\" [ngClass]=\"getSelected('all')\">\n\t  \t\t\t\t<span>All Towers</span>\n\t\t        </a>\n\t\t\t</div>\n  \t\t\t<div class=\"dropdown\">\n\t\t\t\t<a class=\"dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" id=\"singleBlockDropDown\" aria-haspopup=\"true\" aria-expanded=\"false\" [ngClass]=\"getSelected('single')\">\n\t  \t\t\t\t<span>{{singleBlock}}</span>\n\t  \t\t\t\t<div class=\"arrow\"><i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i></div>\n\t\t        </a>\n\t\t        <div class=\"dropdown-menu\" aria-labelledby = \"singleBlockDropDown\">\n\t\t         \t<a href=\"javascript:void(0)\" *ngFor=\"let block of blockListData\" (click)=\"getSingleBlock(block)\">{{block.apartmentBlockNumber}}</a>\n\t\t        </div>\n\t\t\t</div>\n  \t\t</div>\n\t</div>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isSubLedgerDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Sub Ledgers <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p>\n    \t\t\t\t<span *ngIf=\"filterSelected == 'all'\">All Towers</span>\n    \t\t\t\t<span *ngIf=\"filterSelected != 'all'\">Residents under {{singleBlock}}</span>\n    \t\t\t</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t<div class=\"button-wrapper\" *ngIf=\"isItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">Total Amount Due : <span class=\"ml-1\">{{totalDueAmount}}</span></p>\n    \t\t\t<p class=\"snippet\">Total Excess Payments & Incentives Due : <span class=\"ml-1\">{{totalDueAmount - netDueAmount}}</span></p>\n    \t\t\t<p class=\"snippet\">Net Amount : <span class=\"ml-1\">{{netDueAmount}}</span></p>\n\t\t\t</div>\n\n\t\t</div>\n\n  \t</div>\n\n  \t<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n  \t\t<div class=\"menu-info rel\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Select Invoice Types</h5>\n\t\t\t</div>\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body p-0 lists other\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/single\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Single Line</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/multi\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Multi Line</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"tc-d-grey\" \n\t\t\t\t\t\t\t[ngClass]=\"ledger.isInvoiceAvailable ? '' : 'disabled'\"\n\t\t\t\t\t\t\trouterLink=\"/ams/income/add-credit/{{ledger.apartmentBlockUnitId}}/new\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Credit Note</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n  \t</ng-template>\n\n</div>\n");
 
 /***/ }),
 
@@ -309,6 +361,77 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-actions/income-actions.component.scss":
+/*!********************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-actions/income-actions.component.scss ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("@charset \"UTF-8\";\n.income-actions-wrapper .icon-tabs {\n  display: flex;\n  justify-content: center;\n}\n.income-actions-wrapper .icon-tabs li {\n  padding: 0;\n}\n.income-actions-wrapper .icon-tabs li:not(:last-child) {\n  margin-right: 30px;\n}\n.income-actions-wrapper .icon-tabs li a {\n  color: #585858;\n  font-size: 1.6rem;\n  border-radius: 6px !important;\n  padding: 4px 10px;\n  position: relative;\n}\n.income-actions-wrapper .icon-tabs li a span {\n  white-space: nowrap;\n}\n.income-actions-wrapper .icon-tabs li a .icon {\n  text-align: center;\n  display: block;\n  margin: 0 0 6px 0;\n}\n.income-actions-wrapper .icon-tabs li a .icon .svg {\n  width: 25px;\n  height: 25px;\n  fill: #585858;\n}\n.income-actions-wrapper .icon-tabs li a.active {\n  background-color: #3f51b5;\n  color: #ffffff;\n}\n.income-actions-wrapper .icon-tabs li a.active .icon .svg {\n  fill: #ffffff;\n}\n.income-actions-wrapper .icon-tabs li a.active:after {\n  font-family: FontAwesome;\n  content: \"\";\n  position: absolute;\n  bottom: -32px;\n  transform: translateX(-50%) !important;\n  color: #3f51b5;\n  font-size: 5rem;\n  left: 50%;\n}\n@media (max-width: 767px) {\n  .income-actions-wrapper .icon-tabs {\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    flex-direction: row;\n    justify-content: start;\n  }\n  .income-actions-wrapper .icon-tabs li {\n    flex: 0 0 auto;\n    height: 90px;\n  }\n  .income-actions-wrapper .icon-tabs li:not(:last-child) {\n    margin-right: 15px;\n  }\n  .income-actions-wrapper .icon-tabs li a .icon .svg {\n    width: 20px;\n    height: 20px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLWFjdGlvbnMvaW5jb21lLWFjdGlvbnMuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLWFjdGlvbnMvaW5jb21lLWFjdGlvbnMuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9taXhpbnMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxnQkFBZ0I7QUNLWjtFQUNGLGFBQUE7RUFDQSx1QkFBQTtBREhGO0FDSUU7RUFDQyxVQUFBO0FERkg7QUNHSztFQUNDLGtCQUFBO0FERE47QUNHSztFQUNDLGNDbUZLO0VDbkJULGlCQUFBO0VDdkVELDZCQUFBO0VIVUcsaUJBQUE7RUFDSyxrQkNiSjtBRmNMO0FDQUk7RUFDQyxtQkFBQTtBREVMO0FDQVM7RUFDQyxrQkFBQTtFQUNBLGNBQUE7RUFDTCxpQkFBQTtBREVMO0FDRFU7RUFDQyxXQUFBO0VBQ0EsWUFBQTtFQUNBLGFDb0VBO0FGakVYO0FDQVM7RUFDQyx5QkM0QkQ7RUQzQkMsY0NvRkY7QUZsRlI7QUNBVztFQUNDLGFDaUZKO0FGL0VSO0FDQ1U7RUFDQyx3QkN4Q0w7RUR5Q0ssWUFBQTtFQUNBLGtCQ3ZDTjtFRHdDTSxhQUFBO0VHUFYsc0NBQUE7RUhTVSxjQ2VGO0VDaUJQLGVBQUE7RUY5QlMsU0FBQTtBREdYO0FDRVM7RUFoREw7SUFpRFEsaUJBQUE7SUFDQSxnQkFBQTtJQUNBLG1CQUFBO0lBQ0Esc0JBQUE7RURDVjtFQ0FVO0lBQ0ksY0FBQTtJQUNBLFlBQUE7RURFZDtFQ0RjO0lBQ0ksa0JBQUE7RURHbEI7RUNDc0I7SUFDSSxXQUFBO0lBQ0EsWUFBQTtFREMxQjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLWFjdGlvbnMvaW5jb21lLWFjdGlvbnMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAY2hhcnNldCBcIlVURi04XCI7XG4uaW5jb21lLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG4uaW5jb21lLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIGxpIHtcbiAgcGFkZGluZzogMDtcbn1cbi5pbmNvbWUtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGk6bm90KDpsYXN0LWNoaWxkKSB7XG4gIG1hcmdpbi1yaWdodDogMzBweDtcbn1cbi5pbmNvbWUtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGkgYSB7XG4gIGNvbG9yOiAjNTg1ODU4O1xuICBmb250LXNpemU6IDEuNnJlbTtcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA2cHggIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItcmFkaXVzOiA2cHggIWltcG9ydGFudDtcbiAgYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDRweCAxMHB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG4uaW5jb21lLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEgc3BhbiB7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG59XG4uaW5jb21lLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEgLmljb24ge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDAgMCA2cHggMDtcbn1cbi5pbmNvbWUtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGkgYSAuaWNvbiAuc3ZnIHtcbiAgd2lkdGg6IDI1cHg7XG4gIGhlaWdodDogMjVweDtcbiAgZmlsbDogIzU4NTg1ODtcbn1cbi5pbmNvbWUtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGkgYS5hY3RpdmUge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjM2Y1MWI1O1xuICBjb2xvcjogI2ZmZmZmZjtcbn1cbi5pbmNvbWUtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGkgYS5hY3RpdmUgLmljb24gLnN2ZyB7XG4gIGZpbGw6ICNmZmZmZmY7XG59XG4uaW5jb21lLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEuYWN0aXZlOmFmdGVyIHtcbiAgZm9udC1mYW1pbHk6IEZvbnRBd2Vzb21lO1xuICBjb250ZW50OiBcIu+DnVwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGJvdHRvbTogLTMycHg7XG4gIC13ZWJraXQtdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpICFpbXBvcnRhbnQ7XG4gIC1tb3otdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpICFpbXBvcnRhbnQ7XG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKSAhaW1wb3J0YW50O1xuICBjb2xvcjogIzNmNTFiNTtcbiAgZm9udC1zaXplOiA1cmVtO1xuICBsZWZ0OiA1MCU7XG59XG5AbWVkaWEgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgLmluY29tZS1hY3Rpb25zLXdyYXBwZXIgLmljb24tdGFicyB7XG4gICAgZmxleC13cmFwOiBub3dyYXA7XG4gICAgb3ZlcmZsb3cteDogYXV0bztcbiAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICAgIGp1c3RpZnktY29udGVudDogc3RhcnQ7XG4gIH1cbiAgLmluY29tZS1hY3Rpb25zLXdyYXBwZXIgLmljb24tdGFicyBsaSB7XG4gICAgZmxleDogMCAwIGF1dG87XG4gICAgaGVpZ2h0OiA5MHB4O1xuICB9XG4gIC5pbmNvbWUtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGk6bm90KDpsYXN0LWNoaWxkKSB7XG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICB9XG4gIC5pbmNvbWUtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGkgYSAuaWNvbiAuc3ZnIHtcbiAgICB3aWR0aDogMjBweDtcbiAgICBoZWlnaHQ6IDIwcHg7XG4gIH1cbn0iLCJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLmluY29tZS1hY3Rpb25zLXdyYXBwZXIge1xuICAgIC5pY29uLXRhYnMge1xuXHRcdGRpc3BsYXk6IGZsZXg7XG5cdFx0anVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG5cdFx0bGkge1xuXHRcdFx0cGFkZGluZzogMDtcbiAgXHRcdFx0Jjpub3QoOmxhc3QtY2hpbGQpe1xuICBcdFx0XHRcdG1hcmdpbi1yaWdodDogMzBweDtcbiAgXHRcdFx0fVxuICBcdFx0XHRhIHtcbiAgXHRcdFx0XHRjb2xvcjogJGdyZXktNzAwO1xuICAgICBcdCBcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1ub3JtYWwpO1xuICAgICBcdCBcdFx0QGluY2x1ZGUgYm9yZGVyLXJhZGl1cyg2cHgpO1xuXHRcdFx0XHRwYWRkaW5nOiA0cHggMTBweDtcbiAgICAgXHQgXHRcdHBvc2l0aW9uOiAkcmVsO1xuXHRcdFx0XHRzcGFuIHtcblx0XHRcdFx0XHR3aGl0ZS1zcGFjZTogbm93cmFwO1xuXHRcdFx0XHR9XG4gICAgIFx0IFx0XHQuaWNvbiB7XG4gICAgIFx0IFx0XHRcdHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgXHQgXHRcdFx0ZGlzcGxheTogYmxvY2s7XG5cdFx0XHRcdFx0bWFyZ2luOiAwIDAgNnB4IDA7XG4gICAgIFx0IFx0XHRcdC5zdmcge1xuICAgICBcdCBcdFx0XHRcdHdpZHRoOiAyNXB4O1xuICAgICBcdCBcdFx0XHRcdGhlaWdodDogMjVweDtcbiAgICAgXHQgXHRcdFx0XHRmaWxsOiAkZ3JleS03MDA7XG4gICAgIFx0IFx0XHRcdH1cbiAgICAgXHQgXHRcdH1cbiAgICAgXHQgXHRcdCYuYWN0aXZlIHtcbiAgICAgXHQgXHRcdFx0YmFja2dyb3VuZC1jb2xvcjogJG0tYmx1ZTtcbiAgICAgXHQgXHRcdFx0Y29sb3I6ICR3aGl0ZTtcbiAgICAgXHQgXHRcdFx0Lmljb24ge1xuICAgICBcdCBcdFx0XHRcdC5zdmcge1xuICAgICBcdCBcdFx0XHRcdFx0ZmlsbDogJHdoaXRlO1xuICAgICBcdCBcdFx0XHRcdH1cbiAgICAgXHQgXHRcdFx0fVxuICAgICBcdCBcdFx0XHQmOmFmdGVyIHtcbiAgICAgXHQgXHRcdFx0XHRmb250LWZhbWlseTogJGZ0YTtcbiAgICAgXHQgXHRcdFx0XHRjb250ZW50OiBcIlxcZjBkZFwiO1xuICAgICBcdCBcdFx0XHRcdHBvc2l0aW9uOiAkYWJzO1xuICAgICBcdCBcdFx0XHRcdGJvdHRvbTogLTMycHg7XG4gICAgIFx0IFx0XHRcdFx0QGluY2x1ZGUgdHJhbnNmb3JtKHRyYW5zbGF0ZVgoLTUwJSkpO1xuICAgICBcdCBcdFx0XHRcdGNvbG9yOiAkbS1ibHVlO1xuICAgICBcdCBcdFx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtYmlnLTAzKTtcbiAgICAgXHQgXHRcdFx0XHRsZWZ0OiA1MCU7XG4gICAgIFx0IFx0XHRcdH1cbiAgICAgXHQgXHRcdH1cbiAgXHRcdFx0fVxuXHRcdH1cbiAgICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAgICAgICAgICAgZmxleC13cmFwOiBub3dyYXA7XG4gICAgICAgICAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogc3RhcnQ7XG4gICAgICAgICAgICBsaSB7XG4gICAgICAgICAgICAgICAgZmxleDogMCAwIGF1dG87XG4gICAgICAgICAgICAgICAgaGVpZ2h0OiA5MHB4O1xuICAgICAgICAgICAgICAgICY6bm90KDpsYXN0LWNoaWxkKXtcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBhIHtcbiAgICAgICAgICAgICAgICAgICAgLmljb24ge1xuICAgICAgICAgICAgICAgICAgICAgICAgLnN2ZyB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDIwcHg7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OiAyMHB4O1xuICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfVxuICAgICAgICAgfVxuXHR9XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC1iYXNlLTAyOjExO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuQG1peGluIHB1YmxpYy1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIGhlYWQtbGlnaHQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbn1cblxuQG1peGluIGhlYWQtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNzAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIGRlc2VsZWN0ICgpIHtcbiAgLW1vei11c2VyLXNlbGVjdDogLW1vei1ub25lO1xuXHQta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1vLXVzZXItc2VsZWN0OiBub25lO1xuXHR1c2VyLXNlbGVjdDogbm9uZTtcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO1xuICBhbGlnbi1pdGVtczpjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICRiZztcbiAgY29sb3I6ICR0YztcbiAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cygkcik7XG59XG5cbkBtaXhpbiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzLi4uKSB7XG4gIC8vIERpcmVjdGlvbiBoYXMgYmVlbiBvbWl0dGVkIGFuZCBoYXBwZW5zIHRvIGJlIGEgY29sb3Itc3RvcFxuICBAaWYgaXMtZGlyZWN0aW9uKCRkaXJlY3Rpb24pID09IGZhbHNlIHtcbiAgICAkY29sb3Itc3RvcHM6ICRkaXJlY3Rpb24sICRjb2xvci1zdG9wcztcbiAgICAkZGlyZWN0aW9uOiAxODBkZWc7XG4gIH1cblxuICBiYWNrZ3JvdW5kOiBudGgobnRoKCRjb2xvci1zdG9wcywgMSksIDEpO1xuICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChsZWdhY3ktZGlyZWN0aW9uKCRkaXJlY3Rpb24pLCAkY29sb3Itc3RvcHMpO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzKTtcbn1cblxuQG1peGluIGZsaXAoJGRpcmVjdGlvbikge1xuICB0cmFuc2Zvcm0gOiByb3RhdGVZKCRkaXJlY3Rpb24pO1xufVxuXG5AbWl4aW4gcGxhY2Vob2xkZXIge1xuICAmOjotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHtAY29udGVudH1cbiAgJjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6Oi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAge0Bjb250ZW50fVxuICAmOi1tcy1pbnB1dC1wbGFjZWhvbGRlciAgICAgIHtAY29udGVudH0gIFxufVxuXG5cbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-actions/income-actions.component.ts":
+/*!******************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-actions/income-actions.component.ts ***!
+  \******************************************************************************************/
+/*! exports provided: IncomeActionsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeActionsComponent", function() { return IncomeActionsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
+
+
+let IncomeActionsComponent = class IncomeActionsComponent {
+    constructor(router, route, sharedService) {
+        this.router = router;
+        this.route = route;
+        this.sharedService = sharedService;
+        router.events.subscribe((event) => {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
+                let path = this.router.url;
+                let name = path.split('/');
+                if (path.indexOf('actions') != -1) {
+                    let id = name[name.length - 1];
+                    this.sharedService.setActionIncomeTrackerIndex(id);
+                }
+            }
+        });
+    }
+    ngOnInit() {
+        this.sharedService.actionincometrackerindexcast.subscribe(actionIndex => this.actionIndex = actionIndex);
+    }
+};
+IncomeActionsComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
+];
+IncomeActionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-actions',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-actions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-actions/income-actions.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-actions.component.scss */ "./src/app/ams/income-tracker/components/income-actions/income-actions.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])
+], IncomeActionsComponent);
+
+
 
 /***/ }),
 
@@ -605,6 +728,51 @@ IncomeAddCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
 
 /***/ }),
 
+/***/ "./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.scss":
+/*!****************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.scss ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1jdXN0b21lci1hZHZhbmNlcy9pbmNvbWUtY3VzdG9tZXItYWR2YW5jZXMuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.ts":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.ts ***!
+  \**************************************************************************************************************/
+/*! exports provided: IncomeCustomerAdvancesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeCustomerAdvancesComponent", function() { return IncomeCustomerAdvancesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+IncomeCustomerAdvancesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-customer-advances',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-customer-advances.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-customer-advances.component.scss */ "./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], IncomeCustomerAdvancesComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/income-tracker/components/income-history-reverse/income-history-reverse.component.scss":
 /*!************************************************************************************************************!*\
   !*** ./src/app/ams/income-tracker/components/income-history-reverse/income-history-reverse.component.scss ***!
@@ -835,6 +1003,51 @@ IncomeInvoiceReverseComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 
 /***/ }),
 
+/***/ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.scss":
+/*!********************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-journal/income-journal.component.scss ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1qb3VybmFsL2luY29tZS1qb3VybmFsLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.ts":
+/*!******************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-journal/income-journal.component.ts ***!
+  \******************************************************************************************/
+/*! exports provided: IncomeJournalComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeJournalComponent", function() { return IncomeJournalComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let IncomeJournalComponent = class IncomeJournalComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+IncomeJournalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-journal',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-journal.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-journal/income-journal.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-journal.component.scss */ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], IncomeJournalComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/income-tracker/components/income-pay-invoice/income-pay-invoice.component.scss":
 /*!****************************************************************************************************!*\
   !*** ./src/app/ams/income-tracker/components/income-pay-invoice/income-pay-invoice.component.scss ***!
@@ -1015,7 +1228,6 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         };
         this.accountsService.getArBalancewithDueByAptBlkUnitId(params).subscribe((res) => {
             this.invoiceDataList = res;
-            console.log(res);
             this.totalItems = this.invoiceDataList.length;
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;
@@ -1051,6 +1263,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         this.accountsService.getGlAccountsByGroupId(accountParams).subscribe((res) => {
             this.glAccountListData = res;
         });
+        this.sharedService.setActionIncomeTrackerIndex(this.route.params['value'].id);
     }
 };
 IncomePayInvoiceComponent.ctorParameters = () => [
@@ -2203,6 +2416,51 @@ IncomeReceiptsReverseComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
 
 /***/ }),
 
+/***/ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.scss":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.scss ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1zZWN1cml0eS1kZXBvc2l0L2luY29tZS1zZWN1cml0eS1kZXBvc2l0LmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.ts":
+/*!************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.ts ***!
+  \************************************************************************************************************/
+/*! exports provided: IncomeSecurityDepositComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeSecurityDepositComponent", function() { return IncomeSecurityDepositComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+IncomeSecurityDepositComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-security-deposit',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-security-deposit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-security-deposit.component.scss */ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], IncomeSecurityDepositComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.scss":
 /*!**************************************************************************************************!*\
   !*** ./src/app/ams/income-tracker/components/income-sub-ledger/income-sub-ledger.component.scss ***!
@@ -2233,8 +2491,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+
 
 
 
@@ -2245,10 +2505,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
-    constructor(router, dialog, apartmentService, accountsService, cookieService) {
+    constructor(router, dialog, apartmentService, sharedService, accountsService, cookieService) {
         this.router = router;
         this.dialog = dialog;
         this.apartmentService = apartmentService;
+        this.sharedService = sharedService;
         this.accountsService = accountsService;
         this.cookieService = cookieService;
         this.isSubLedgerDataLoaded = false;
@@ -2304,7 +2565,7 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
         this.totalItems = subLedgerDataList.length;
         this.netDueAmount = 0;
         this.totalDueAmount = 0;
-        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](subLedgerDataList, (item, index) => {
+        underscore__WEBPACK_IMPORTED_MODULE_9__["each"](subLedgerDataList, (item, index) => {
             this.netDueAmount = this.netDueAmount + item.due;
             if (item.due >= 0)
                 this.totalDueAmount = this.totalDueAmount + item.due;
@@ -2318,30 +2579,24 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
         let apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
         this.router.navigateByUrl('/ams/income/view-invoice-history/' + apartmentBlockUnitId);
     }
-    onShowInvoices(detail) {
-        let ledger = this.datagrid.getrowdata(detail.rowId);
-        var invoiceParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            apartmentBlockUnitId: ledger.apartmentBlockUnitId
-        };
-        this.accountsService.getCustInvoicesByApartmentBlockUnitId(invoiceParams).subscribe((res) => {
-            if (res.length == 0) {
-                ledger.isInvoiceAvailable = false;
-            }
-            else {
-                ledger.isInvoiceAvailable = true;
-            }
-            this.dialogRef = this.dialog.open(this.viewInvoiceTypeRef, {
-                panelClass: 'material',
-                disableClose: true,
-                data: ledger
-            });
-        });
+    onShowSingleInvoice(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
+        this.router.navigateByUrl('/ams/income/post-multi-invoice/' + apartmentBlockUnitId + '/single');
+    }
+    onShowMultiInvoice(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
+        this.router.navigateByUrl('/ams/income/post-multi-invoice/' + apartmentBlockUnitId + '/multi');
     }
     onViewPostCollection(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         let apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
         this.router.navigateByUrl('/ams/income/post-collection/' + apartmentBlockUnitId);
+    }
+    onActions(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.router.navigateByUrl('/ams/income/actions/post-collection/' + dataRecord.apartmentBlockUnitId);
     }
     onGlSearchFilter() {
         if (this.subLedgerData != "") {
@@ -2424,24 +2679,30 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
                 renderer: columnrenderer
             },
             {
-                text: 'Actions',
+                text: '',
                 cellsalign: 'center',
                 align: 'center',
                 minwidth: 120,
+                sortable: false,
+                menu: false,
                 cellclassname: 'action-cell',
                 cellsrenderer: (row) => {
                     return '<div class="simple-actions">'
                         + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false">'
-                        + '<span class="action-dot"></span>'
-                        + '<span class="action-dot"></span>'
-                        + '<span class="action-dot"></span>'
+                        + '<span class="icon delete mr-2">'
+                        + '<svg height="16" viewBox="-26 0 477 477.96064" width="16" xmlns="http://www.w3.org/2000/svg">'
+                        + '<path fill="" d="m335.769531 235.914062v-127.589843c0-2.78125-1.15625-5.433594-3.191406-7.324219l-105.84375-98.324219c-1.847656-1.71875-4.28125-2.675781-6.804687-2.675781h-175.449219c-24.289063.0273438-43.972657 19.710938-44 44v335.792969c.027343 24.289062 19.710937 43.972656 44 44h155.382812c30.578125 45.125 87.140625 64.835937 139.140625 48.488281s87.109375-64.882812 86.363282-119.386719c-.746094-54.503906-37.167969-102.0625-89.597657-116.980469zm-105.097656-202.285156 70.976563 65.9375h-46.976563c-13.246094-.015625-23.984375-10.753906-24-24zm-186.191406 370.164063c-13.25-.015625-23.984375-10.753907-24-24v-335.792969c.015625-13.25 10.75-23.984375 24-24h166.191406v55.566406c.027344 24.289063 19.710937 43.972656 44 44h61.101563v112.417969c-34.90625-3.925781-69.832032 7.210937-96.023438 30.621094-26.191406 23.410156-41.160156 56.875-41.15625 92-.015625 16.925781 3.46875 33.671875 10.234375 49.1875zm257.503906 54.207031c-57.101563 0-103.394531-46.292969-103.394531-103.394531 0-57.101563 46.292968-103.394531 103.394531-103.394531 57.105469 0 103.394531 46.292968 103.394531 103.394531-.0625 57.078125-46.316406 103.328125-103.394531 103.394531zm0 0"/>'
+                        + '<path fill="" d="m354.488281 342.945312h-40.84375v-40.84375c0-5.523437-4.476562-10-10-10-5.523437 0-10 4.476563-10 10v40.84375h-40.84375c-5.523437 0-10 4.476563-10 10 0 5.523438 4.476563 10 10 10h40.84375v46.375c0 5.523438 4.476563 10 10 10 5.523438 0 10-4.476562 10-10v-46.375h40.84375c5.523438 0 10-4.476562 10-10 0-5.519531-4.476562-10-10-10zm0 0"/>'
+                        + '</svg>'
+                        + '</span>'
                         + '</a>'
                         + '<div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="invoiceDropDown">'
-                        + '<a href="javascript:void(0)" onClick="viewHistoryEvent(' + row + ')">View History</a>'
-                        + '<a href="javascript:void(0)" onClick="showInvoicesEvent(' + row + ')">Post Invoice</a>'
-                        + '<a href="javascript:void(0)" onClick="viewPostCollectionEvent(' + row + ')">Post Collection</a>'
-                        + '<a href="javascript:void(0)">Print</a>'
+                        + '<a href="javascript:void(0)" onClick="showSingleInvoiceEvent(' + row + ')">Post Single Invoice</a>'
+                        + '<a href="javascript:void(0)" onClick="showMultiInvoiceEvent(' + row + ')">Post Multi Invoice</a>'
                         + '</div>'
+                        + '<a href="javascript:void(0)" class="btn action mr-2" onClick="actionEvent(' + row + ')">'
+                        + 'Action'
+                        + '</a>'
                         + '</div>';
                 },
                 renderer: columnrenderer
@@ -2476,8 +2737,9 @@ IncomeSubLedgerComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("viewInvoiceTypeRef", { static: false }),
@@ -2494,17 +2756,29 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
 ], IncomeSubLedgerComponent.prototype, "onViewHistory", null);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onShowInvoices', ['$event.detail']),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onShowSingleInvoice', ['$event.detail']),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], IncomeSubLedgerComponent.prototype, "onShowInvoices", null);
+], IncomeSubLedgerComponent.prototype, "onShowSingleInvoice", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onShowMultiInvoice', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeSubLedgerComponent.prototype, "onShowMultiInvoice", null);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onViewPostCollection', ['$event.detail']),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
 ], IncomeSubLedgerComponent.prototype, "onViewPostCollection", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onActions', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeSubLedgerComponent.prototype, "onActions", null);
 IncomeSubLedgerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-sub-ledger',
@@ -2515,8 +2789,9 @@ IncomeSubLedgerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
 ], IncomeSubLedgerComponent);
 
 function getClassName(value) {
@@ -2532,15 +2807,24 @@ function viewHistoryEvent(row) {
     window.dispatchEvent(event);
 }
 window.viewHistoryEvent = viewHistoryEvent;
-function showInvoicesEvent(row) {
-    var event = new CustomEvent('onShowInvoices', {
+function showSingleInvoiceEvent(row) {
+    var event = new CustomEvent('onShowSingleInvoice', {
         detail: {
             rowId: row
         }
     });
     window.dispatchEvent(event);
 }
-window.showInvoicesEvent = showInvoicesEvent;
+window.showSingleInvoiceEvent = showSingleInvoiceEvent;
+function showMultiInvoiceEvent(row) {
+    var event = new CustomEvent('onShowMultiInvoice', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.showMultiInvoiceEvent = showMultiInvoiceEvent;
 function viewPostCollectionEvent(row) {
     var event = new CustomEvent('onViewPostCollection', {
         detail: {
@@ -2550,6 +2834,15 @@ function viewPostCollectionEvent(row) {
     window.dispatchEvent(event);
 }
 window.viewPostCollectionEvent = viewPostCollectionEvent;
+function actionEvent(row) {
+    var event = new CustomEvent('onActions', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.actionEvent = actionEvent;
 
 
 /***/ }),
@@ -6488,6 +6781,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_tracker_setup_income_tracker_setup_general_income_tracker_setup_general_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.ts");
 /* harmony import */ var _components_income_tracker_setup_income_tracker_setup_auto_invoicing_income_tracker_setup_auto_invoicing_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.ts");
 /* harmony import */ var _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.ts");
+/* harmony import */ var _components_income_actions_income_actions_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/income-actions/income-actions.component */ "./src/app/ams/income-tracker/components/income-actions/income-actions.component.ts");
+/* harmony import */ var _components_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/income-customer-advances/income-customer-advances.component */ "./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.ts");
+/* harmony import */ var _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/income-security-deposit/income-security-deposit.component */ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.ts");
+/* harmony import */ var _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/income-journal/income-journal.component */ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.ts");
+
+
+
+
 
 
 
@@ -6517,6 +6818,17 @@ const routes = [
             { path: 'auto-invoicing', component: _components_income_tracker_setup_income_tracker_setup_auto_invoicing_income_tracker_setup_auto_invoicing_component__WEBPACK_IMPORTED_MODULE_18__["IncomeTrackerSetupAutoInvoicingComponent"] },
             { path: 'penalty-setup', component: _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_19__["IncomeTrackerSetupPenaltySetupComponent"] },
             { path: '**', redirectTo: 'general', pathMatch: 'full' }
+        ]
+    },
+    { path: 'actions', component: _components_income_actions_income_actions_component__WEBPACK_IMPORTED_MODULE_20__["IncomeActionsComponent"],
+        children: [
+            { path: 'post-collection/:id', component: _components_income_pay_invoice_income_pay_invoice_component__WEBPACK_IMPORTED_MODULE_10__["IncomePayInvoiceComponent"], pathMatch: 'full' },
+            { path: 'view-invoice-history/:id', component: _components_income_view_invoice_history_income_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_7__["IncomeViewInvoiceHistoryComponent"] },
+            { path: 'view-creditnote/:id', component: _components_income_view_credit_income_view_credit_component__WEBPACK_IMPORTED_MODULE_5__["IncomeViewCreditComponent"] },
+            { path: 'customer-advances/:id', component: _components_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_21__["IncomeCustomerAdvancesComponent"] },
+            { path: 'security-deposit/:id', component: _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_22__["IncomeSecurityDepositComponent"] },
+            { path: 'journal/:id', component: _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_23__["IncomeJournalComponent"] },
+            { path: '**', redirectTo: 'post-collection/:id', pathMatch: 'full' }
         ]
     },
     { path: 'subledger', component: _components_income_sub_ledger_income_sub_ledger_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSubLedgerComponent"] },
@@ -6633,6 +6945,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_tracker_setup_income_tracker_setup_general_income_tracker_setup_general_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-general/income-tracker-setup-general.component.ts");
 /* harmony import */ var _components_income_tracker_setup_income_tracker_setup_auto_invoicing_income_tracker_setup_auto_invoicing_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-auto-invoicing/income-tracker-setup-auto-invoicing.component.ts");
 /* harmony import */ var _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component */ "./src/app/ams/income-tracker/components/income-tracker-setup/income-tracker-setup-penalty-setup/income-tracker-setup-penalty-setup.component.ts");
+/* harmony import */ var _components_income_actions_income_actions_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/income-actions/income-actions.component */ "./src/app/ams/income-tracker/components/income-actions/income-actions.component.ts");
+/* harmony import */ var _components_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/income-customer-advances/income-customer-advances.component */ "./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.ts");
+/* harmony import */ var _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/income-security-deposit/income-security-deposit.component */ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.ts");
+/* harmony import */ var _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/income-journal/income-journal.component */ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.ts");
+
+
+
+
 
 
 
@@ -6690,7 +7010,11 @@ IncomeTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_income_history_reverse_income_history_reverse_component__WEBPACK_IMPORTED_MODULE_25__["IncomeHistoryReverseComponent"],
             _components_income_tracker_setup_income_tracker_setup_general_income_tracker_setup_general_component__WEBPACK_IMPORTED_MODULE_26__["IncomeTrackerSetupGeneralComponent"],
             _components_income_tracker_setup_income_tracker_setup_auto_invoicing_income_tracker_setup_auto_invoicing_component__WEBPACK_IMPORTED_MODULE_27__["IncomeTrackerSetupAutoInvoicingComponent"],
-            _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_28__["IncomeTrackerSetupPenaltySetupComponent"]
+            _components_income_tracker_setup_income_tracker_setup_penalty_setup_income_tracker_setup_penalty_setup_component__WEBPACK_IMPORTED_MODULE_28__["IncomeTrackerSetupPenaltySetupComponent"],
+            _components_income_actions_income_actions_component__WEBPACK_IMPORTED_MODULE_29__["IncomeActionsComponent"],
+            _components_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_30__["IncomeCustomerAdvancesComponent"],
+            _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_31__["IncomeSecurityDepositComponent"],
+            _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__["IncomeJournalComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
