@@ -91,6 +91,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.html":
+/*!***************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.html ***!
+  \***************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-tracker-reports-customer-reports\">\n\n\t<h4 class=\"main-title-mini\">Electricity Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n  <div *ngIf=\"isReportLoaded\" class=\"card table-card\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Electricity Reading <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" >\n    \t\t\t</li>\n    \t\t\t<!-- <li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> -->\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<ng-container>\n\n  \t\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">From\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('fromDate')\" [ngClass]=\"getFieldOrderBy('fromDate')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">To\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('toDate')\" [ngClass]=\"getFieldOrderBy('toDate')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Pre Reading\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('preReading')\" [ngClass]=\"getFieldOrderBy('preReading')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Curr Reading\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Condo unit\n                  <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n\t\t\t\t\t\t  </th>\n              <th scope=\"col\">Cost Per Unit\n                <span (click)=\"sortUnitData('costPerUnit')\" [ngClass]=\"getFieldOrderBy('costPerUnit')\"></span>\n              </th>\n              <th scope=\"col\">Added By\n                <span (click)=\"sortUnitData('addedBy')\" [ngClass]=\"getFieldOrderBy('addedBy')\"></span>\n              </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let utility of utilityElecteicalListData | simpleSearch: utilitySearch | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"utility.isActive ? '' : 'notactive'\">\n\t\t\t\t\t      <td class=\"name\">{{getUtilityFromPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{getUtilityToPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{utility.prevReading}}</td>\n                <td class=\"grey\">{{utility.currReading}}</td>\n                <td class=\"grey\">{{utility.electricalUnitPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.insertedByUser}}</td>\n\t\t\t\t\t      <td>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination\n\t\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n\n  \t\t\t</ng-container>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.html":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.html ***!
+  \***********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-tracker-reports-customer-reports\">\n\n\t<h4 class=\"main-title-mini\">Insurance Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n  <div *ngIf=\"isReportLoaded\" class=\"card table-card\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Insurance <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" >\n    \t\t\t</li>\n    \t\t\t<!-- <li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> -->\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div  class=\"card-body p-0\">\n\n        <ng-container>\n\n          <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n              <tr>\n                <th scope=\"col\">Insurance Number\n                  <span (click)=\"sortUnitData('insuranceNo')\" [ngClass]=\"getFieldOrderBy('insuranceNo')\"></span>\n                </th>\n                <th scope=\"col\">Condo Unit Count\n                  <span (click)=\"sortUnitData('aptUnitCount')\" [ngClass]=\"getFieldOrderBy('aptUnitCount')\"></span>\n                </th>\n                <th scope=\"col\">Total Cost\n                  <span (click)=\"sortUnitData('totalCost')\" [ngClass]=\"getFieldOrderBy('totalCost')\"></span>\n                </th>\n                <th scope=\"col\">Cost Per Condo\n                  <span (click)=\"sortUnitData('costPerApt')\" [ngClass]=\"getFieldOrderBy('costPerApt')\"></span>\n                </th>\n                <th scope=\"col\">Date Entered\n                  <span (click)=\"sortUnitData('dateEntered')\" [ngClass]=\"getFieldOrderBy('dateEntered')\"></span>\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let utility of utilityInsuranceListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n                <td class=\"grey\">{{utility.insuranceNumber}}</td>\n                <td class=\"grey\">{{utility.apartmentUnitCount}}</td>\n                <td class=\"grey\">{{utility.totalCost}}</td>\n                <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n                <td class=\"grey\">{{utility.dateEntered}}</td>\n              </tr>\n            </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n            <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination\n          [totalItems]=\"totalItems\"\n          [ItemStartIndex]=\"ItemStartIndex\"\n          [ItemEndIndex] = \"ItemEndIndex\"\n          [itemLimit] = \"itemLimit\"\n          (outputParams) = \"getIndexParams($event)\">\n        </app-pagination>\n\n        </ng-container>\n\n  \t\t</div>\n\n\t</div>\n\n\n</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/utility-reports.component.html":
 /*!*****************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/utility-reports.component.html ***!
@@ -100,7 +126,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  utility-reports works!\n</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<h5 class=\"mb-3\"> Utility Reports</h5>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportDataList\">\n\n\t\t\t\t\t<div class=\"card report-card\">\n\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink = \"/ams/utility/reports/{{report.lookupValueId}}\"\n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<div class=\"card-body\">\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/water-report/water-report.component.html":
+/*!***************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/water-report/water-report.component.html ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-tracker-reports-customer-reports\">\n\n\t<h4 class=\"main-title-mini\">Water Reading Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n  <div *ngIf=\"isReportLoaded\" class=\"card table-card\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Water Reading <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n\t\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t    \t<select (change)=\"onFilterByTowerChange()\" name=\"utilityTowerFilter\" id=\"utilityTowerFilter\" class=\"form-control filter-width\" [(ngModel)]=\"selectedTower\" required>\n\t\t\t\t    \t<option value=\"All\" selected>Select Tower</option>\n\t\t\t\t    \t<option *ngFor=\"let tower of propertyTowerData\" [value]=\"tower.apartmentBlockNumber\">{{ tower.apartmentBlockNumber }}</option>\n\t\t\t    \t</select>\n\t\t    \t</li>\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" >\n    \t\t\t</li>\n    \t\t\t<!-- <li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> -->\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\n        <ng-container>\n\n          <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n              <tr>\n                <th scope=\"col\">Tower\n                  <span (click)=\"sortUnitData('block')\" [ngClass]=\"getFieldOrderBy('block')\"></span>\n                </th>\n                <th scope=\"col\">Condo Unit\n                  <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n                </th>\n                <th scope=\"col\">Connection No\n                  <span (click)=\"sortUnitData('connectionNo')\" [ngClass]=\"getFieldOrderBy('connectionNo')\"></span>\n                </th>\n                <th scope=\"col\">Previous Reading\n                  <span (click)=\"sortUnitData('prevReading')\" [ngClass]=\"getFieldOrderBy('prevReading')\"></span>\n                </th>\n                <th scope=\"col\">Current Reading\n                  <span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let utility of filteredUtilityWaterListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n                <td class=\"grey\">{{utility.block}}</td>\n                <td class=\"grey\">{{utility.aptUnit}}</td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].connectionNo}}</span></td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].prevReading}}</span></td>\n                <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].currReading}}</span></td>\n              </tr>\n            </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n            <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination\n          [totalItems]=\"totalItems\"\n          [ItemStartIndex]=\"ItemStartIndex\"\n          [ItemEndIndex] = \"ItemEndIndex\"\n          [itemLimit] = \"itemLimit\"\n          (outputParams) = \"getIndexParams($event)\">\n        </app-pagination>\n\n        </ng-container>\n\n  \t\t</div>\n\n\t</div>\n\n</div>\n");
 
 /***/ }),
 
@@ -1297,6 +1336,299 @@ UtilityHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 
 /***/ }),
 
+/***/ "./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.scss":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.scss ***!
+  \*************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy91dGlsaXR5L2NvbXBvbmVudHMvdXRpbGl0eS1yZXBvcnRzL2VsZWN0cmljaXR5LXJlcG9ydC9lbGVjdHJpY2l0eS1yZXBvcnQuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.ts":
+/*!***********************************************************************************************************!*\
+  !*** ./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.ts ***!
+  \***********************************************************************************************************/
+/*! exports provided: ElectricityReportComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ElectricityReportComponent", function() { return ElectricityReportComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
+
+
+
+
+
+
+let ElectricityReportComponent = class ElectricityReportComponent {
+    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.apartmentService = apartmentService;
+        this.utilityTrackerService = utilityTrackerService;
+        this.cookieService = cookieService;
+        this.isReportLoaded = false;
+        this.utilitySearch = "";
+        this.unitFieldType = "utilityName";
+        this.unitOrder = true;
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.selectedInput = "";
+        this.columnField = {};
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
+    }
+    sortUnitData(type) {
+        this.unitFieldType = type;
+        this.unitOrder = !this.unitOrder;
+    }
+    getFieldOrderBy(type) {
+        if (this.unitFieldType == type) {
+            return this.unitOrder ? 'asc' : 'desc';
+        }
+        else
+            return '';
+    }
+    selectColInput(value) {
+        this.selectedInput = value;
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    isNoItemsAvailable() {
+        return this.totalItems == 0 ? true : false;
+    }
+    getUtilityFromPeriod(period_id) {
+        let electeicalListPeriods = this.utilityElecteicalListPeriods.find(x => x.period_id == period_id);
+        if (electeicalListPeriods) {
+            return electeicalListPeriods.periods[0].periodFrom.slice(0, 10);
+        }
+    }
+    getUtilityToPeriod(period_id) {
+        let electeicalListPeriods = this.utilityElecteicalListPeriods.find(x => x.period_id == period_id);
+        if (electeicalListPeriods) {
+            return electeicalListPeriods.periods[0].periodTo.slice(0, 10);
+        }
+    }
+    getAllElectricalUtiliy() {
+        this.isReportLoaded = false;
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.utilityTrackerService.getElectricityChargesByApartmentId(params).subscribe((res) => {
+            this.utilityElecteicalListData = res.filter(item => {
+                return item.isActive;
+            });
+            this.utilityElecteicalListPeriods = [];
+            for (let electrical_list of this.utilityElecteicalListData) {
+                let period_param = { "apartmentId": parseInt(this.cookieService.get('apartmentId')), "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId };
+                this.utilityTrackerService.getUtilityTrackerElectricityPeriodsById(period_param).subscribe((res) => {
+                    let period_data = { "periods": res, "period_id": electrical_list.utilityTrackerElectricityPeriodId };
+                    this.utilityElecteicalListPeriods.push(period_data);
+                });
+            }
+            this.totalItems = this.utilityElecteicalListData.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+            this.isReportLoaded = true;
+        });
+    }
+    ngOnInit() {
+        this.getAllElectricalUtiliy();
+    }
+};
+ElectricityReportComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+];
+ElectricityReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-electricity-report',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./electricity-report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./electricity-report.component.scss */ "./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+], ElectricityReportComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.scss":
+/*!*********************************************************************************************************!*\
+  !*** ./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.scss ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy91dGlsaXR5L2NvbXBvbmVudHMvdXRpbGl0eS1yZXBvcnRzL2luc3VyYW5jZS1yZXBvcnQvaW5zdXJhbmNlLXJlcG9ydC5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.ts":
+/*!*******************************************************************************************************!*\
+  !*** ./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.ts ***!
+  \*******************************************************************************************************/
+/*! exports provided: InsuranceReportComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InsuranceReportComponent", function() { return InsuranceReportComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
+
+
+
+
+
+
+let InsuranceReportComponent = class InsuranceReportComponent {
+    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.apartmentService = apartmentService;
+        this.utilityTrackerService = utilityTrackerService;
+        this.cookieService = cookieService;
+        this.isReportLoaded = false;
+        this.utilitySearch = "";
+        this.unitFieldType = "utilityName";
+        this.unitOrder = true;
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.selectedInput = "";
+        this.columnField = {};
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
+    }
+    sortUnitData(type) {
+        this.unitFieldType = type;
+        this.unitOrder = !this.unitOrder;
+    }
+    getFieldOrderBy(type) {
+        if (this.unitFieldType == type) {
+            return this.unitOrder ? 'asc' : 'desc';
+        }
+        else
+            return '';
+    }
+    selectColInput(value) {
+        this.selectedInput = value;
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    isNoItemsAvailable() {
+        return this.totalItems == 0 ? true : false;
+    }
+    getUtilityFromPeriod(period_id) {
+        let electeicalListPeriods = this.utilityElecteicalListPeriods.find(x => x.period_id == period_id);
+        if (electeicalListPeriods) {
+            return electeicalListPeriods.periods[0].periodFrom.slice(0, 10);
+        }
+    }
+    getUtilityToPeriod(period_id) {
+        let electeicalListPeriods = this.utilityElecteicalListPeriods.find(x => x.period_id == period_id);
+        if (electeicalListPeriods) {
+            return electeicalListPeriods.periods[0].periodTo.slice(0, 10);
+        }
+    }
+    getAllInsuranceUtiliy() {
+        this.isReportLoaded = false;
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.utilityTrackerService.getUtilityTrackerInsuranceChargesByApartmentId(params).subscribe((res) => {
+            this.utilityInsuranceListData = res.filter(item => {
+                return item.isActive;
+            });
+            this.utilityInsuranceListData.sort(function (a, b) {
+                a = new Date(a.dateEntered);
+                b = new Date(b.dateEntered);
+                return a > b ? -1 : a < b ? 1 : 0;
+            });
+            this.totalItems = this.utilityInsuranceListData.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+            this.isReportLoaded = true;
+        });
+    }
+    ngOnInit() {
+        this.getAllInsuranceUtiliy();
+    }
+};
+InsuranceReportComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+];
+InsuranceReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-insurance-report',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./insurance-report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./insurance-report.component.scss */ "./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+], InsuranceReportComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/utility/components/utility-reports/utility-reports.component.scss":
 /*!***************************************************************************************!*\
   !*** ./src/app/ams/utility/components/utility-reports/utility-reports.component.scss ***!
@@ -1322,21 +1654,191 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UtilityReportsComponent", function() { return UtilityReportsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
 
 
 let UtilityReportsComponent = class UtilityReportsComponent {
-    constructor() { }
+    constructor(cookieService) {
+        this.cookieService = cookieService;
+        this.isDataLoaded = false;
+    }
     ngOnInit() {
+        this.reportDataList = [
+            { lookupValueId: 'electricity', lookupValueName: 'List of electrical reading', description: 'Gives the list of electrical reading in the condo', type: 'customer' },
+            { lookupValueId: 'water', lookupValueName: 'List of water reading', description: 'Gives the list of  water reading in the condo', type: 'customer' },
+            { lookupValueId: 'insurance', lookupValueName: 'List of insurance charges', description: 'Gives the list of insurance charges in the condo', type: 'customer' },
+        ];
+        this.isDataLoaded = true;
     }
 };
+UtilityReportsComponent.ctorParameters = () => [
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] }
+];
 UtilityReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-utility-reports',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./utility-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/utility-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./utility-reports.component.scss */ "./src/app/ams/utility/components/utility-reports/utility-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
 ], UtilityReportsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/utility/components/utility-reports/water-report/water-report.component.scss":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/ams/utility/components/utility-reports/water-report/water-report.component.scss ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".filter-width {\n  width: 150px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdXRpbGl0eS9jb21wb25lbnRzL3V0aWxpdHktcmVwb3J0cy93YXRlci1yZXBvcnQvd2F0ZXItcmVwb3J0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvdXRpbGl0eS9jb21wb25lbnRzL3V0aWxpdHktcmVwb3J0cy93YXRlci1yZXBvcnQvd2F0ZXItcmVwb3J0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvYW1zL3V0aWxpdHkvY29tcG9uZW50cy91dGlsaXR5LXJlcG9ydHMvd2F0ZXItcmVwb3J0L3dhdGVyLXJlcG9ydC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5maWx0ZXItd2lkdGh7XG4gIHdpZHRoOiAxNTBweDtcbn1cbiIsIi5maWx0ZXItd2lkdGgge1xuICB3aWR0aDogMTUwcHg7XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/ams/utility/components/utility-reports/water-report/water-report.component.ts":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/ams/utility/components/utility-reports/water-report/water-report.component.ts ***!
+  \***********************************************************************************************/
+/*! exports provided: WaterReportComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WaterReportComponent", function() { return WaterReportComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
+
+
+
+
+
+
+let WaterReportComponent = class WaterReportComponent {
+    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.apartmentService = apartmentService;
+        this.utilityTrackerService = utilityTrackerService;
+        this.cookieService = cookieService;
+        this.isReportLoaded = false;
+        this.utilitySearch = "";
+        this.unitFieldType = "utilityName";
+        this.unitOrder = true;
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.selectedInput = "";
+        this.columnField = {};
+        this.params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
+    }
+    sortUnitData(type) {
+        this.unitFieldType = type;
+        this.unitOrder = !this.unitOrder;
+    }
+    getFieldOrderBy(type) {
+        if (this.unitFieldType == type) {
+            return this.unitOrder ? 'asc' : 'desc';
+        }
+        else
+            return '';
+    }
+    selectColInput(value) {
+        this.selectedInput = value;
+    }
+    onFilterByTowerChange() {
+        console.log("this.selectedTower", this.selectedTower);
+        if (this.selectedTower == 'All') {
+            this.filteredUtilityWaterListData = this.utilityWaterListData;
+        }
+        else {
+            this.filteredUtilityWaterListData = this.utilityWaterListData.filter(x => x.block == this.selectedTower);
+        }
+        this.totalItems = this.filteredUtilityWaterListData.length;
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    isNoItemsAvailable() {
+        return this.totalItems == 0 ? true : false;
+    }
+    getUtilityFromPeriod(period_id) {
+        let electeicalListPeriods = this.utilityElecteicalListPeriods.find(x => x.period_id == period_id);
+        if (electeicalListPeriods) {
+            return electeicalListPeriods.periods[0].periodFrom.slice(0, 10);
+        }
+    }
+    getUtilityToPeriod(period_id) {
+        let electeicalListPeriods = this.utilityElecteicalListPeriods.find(x => x.period_id == period_id);
+        if (electeicalListPeriods) {
+            return electeicalListPeriods.periods[0].periodTo.slice(0, 10);
+        }
+    }
+    getAllWaterUtiliy() {
+        this.selectedTower = 'All';
+        this.isReportLoaded = false;
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe((res) => {
+            this.utilityWaterListData = res;
+            this.filteredUtilityWaterListData = this.utilityWaterListData;
+            this.totalItems = this.filteredUtilityWaterListData.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+            this.isReportLoaded = true;
+        });
+    }
+    ngOnInit() {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
+            this.propertyTowerData = res;
+        });
+        this.getAllWaterUtiliy();
+    }
+};
+WaterReportComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+];
+WaterReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-water-report',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./water-report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/utility/components/utility-reports/water-report/water-report.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./water-report.component.scss */ "./src/app/ams/utility/components/utility-reports/water-report/water-report.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+], WaterReportComponent);
 
 
 
@@ -1600,11 +2102,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/utility-reports/utility-reports.component */ "./src/app/ams/utility/components/utility-reports/utility-reports.component.ts");
-/* harmony import */ var _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/utility-setup/utility-setup.component */ "./src/app/ams/utility/components/utility-setup/utility-setup.component.ts");
-/* harmony import */ var _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/utility-add-reading/utility-add-reading.component */ "./src/app/ams/utility/components/utility-add-reading/utility-add-reading.component.ts");
-/* harmony import */ var _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/utility-add-reading/electricity-reading/electricity-reading.component */ "./src/app/ams/utility/components/utility-add-reading/electricity-reading/electricity-reading.component.ts");
-/* harmony import */ var _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/utility-add-reading/water-reading/water-reading.component */ "./src/app/ams/utility/components/utility-add-reading/water-reading/water-reading.component.ts");
-/* harmony import */ var _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/utility-history/utility-history.component */ "./src/app/ams/utility/components/utility-history/utility-history.component.ts");
+/* harmony import */ var _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/utility-reports/electricity-report/electricity-report.component */ "./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.ts");
+/* harmony import */ var _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/utility-reports/insurance-report/insurance-report.component */ "./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.ts");
+/* harmony import */ var _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/utility-reports/water-report/water-report.component */ "./src/app/ams/utility/components/utility-reports/water-report/water-report.component.ts");
+/* harmony import */ var _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/utility-setup/utility-setup.component */ "./src/app/ams/utility/components/utility-setup/utility-setup.component.ts");
+/* harmony import */ var _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/utility-add-reading/utility-add-reading.component */ "./src/app/ams/utility/components/utility-add-reading/utility-add-reading.component.ts");
+/* harmony import */ var _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/utility-add-reading/electricity-reading/electricity-reading.component */ "./src/app/ams/utility/components/utility-add-reading/electricity-reading/electricity-reading.component.ts");
+/* harmony import */ var _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/utility-add-reading/water-reading/water-reading.component */ "./src/app/ams/utility/components/utility-add-reading/water-reading/water-reading.component.ts");
+/* harmony import */ var _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/utility-history/utility-history.component */ "./src/app/ams/utility/components/utility-history/utility-history.component.ts");
+
+
+
 
 
 
@@ -1616,12 +2124,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
-    { path: 'settings', component: _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_4__["UtilitySetupComponent"] },
-    { path: 'reading', component: _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_5__["UtilityAddReadingComponent"] },
-    { path: 'reading/electric', component: _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_6__["ElectricityReadingComponent"] },
-    { path: 'reading/water', component: _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_7__["WaterReadingComponent"] },
-    { path: 'history', component: _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_8__["UtilityHistoryComponent"] },
+    { path: 'settings', component: _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_7__["UtilitySetupComponent"] },
+    { path: 'reading', component: _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_8__["UtilityAddReadingComponent"] },
+    { path: 'reading/electric', component: _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_9__["ElectricityReadingComponent"] },
+    { path: 'reading/water', component: _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_10__["WaterReadingComponent"] },
+    { path: 'history', component: _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_11__["UtilityHistoryComponent"] },
     { path: 'reports', component: _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_3__["UtilityReportsComponent"] },
+    { path: 'reports/electricity', component: _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_4__["ElectricityReportComponent"] },
+    { path: 'reports/water', component: _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_6__["WaterReportComponent"] },
+    { path: 'reports/insurance', component: _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_5__["InsuranceReportComponent"] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let UtilityRoutingModule = class UtilityRoutingModule {
@@ -1707,6 +2218,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_utility_add_reading_water_reading_tower_reading_info_tower_reading_info_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/utility-add-reading/water-reading/tower-reading-info/tower-reading-info.component */ "./src/app/ams/utility/components/utility-add-reading/water-reading/tower-reading-info/tower-reading-info.component.ts");
 /* harmony import */ var _components_utility_add_reading_water_reading_tower_reading_info_unit_reading_info_unit_reading_info_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/utility-add-reading/water-reading/tower-reading-info/unit-reading-info/unit-reading-info.component */ "./src/app/ams/utility/components/utility-add-reading/water-reading/tower-reading-info/unit-reading-info/unit-reading-info.component.ts");
 /* harmony import */ var _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/utility-add-reading/add-insurance/add-insurance.component */ "./src/app/ams/utility/components/utility-add-reading/add-insurance/add-insurance.component.ts");
+/* harmony import */ var _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/utility-reports/electricity-report/electricity-report.component */ "./src/app/ams/utility/components/utility-reports/electricity-report/electricity-report.component.ts");
+/* harmony import */ var _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/utility-reports/water-report/water-report.component */ "./src/app/ams/utility/components/utility-reports/water-report/water-report.component.ts");
+/* harmony import */ var _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/utility-reports/insurance-report/insurance-report.component */ "./src/app/ams/utility/components/utility-reports/insurance-report/insurance-report.component.ts");
+
+
+
 
 
 
@@ -1736,7 +2253,10 @@ UtilityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_11__["UtilityHistoryComponent"],
             _components_utility_add_reading_water_reading_tower_reading_info_tower_reading_info_component__WEBPACK_IMPORTED_MODULE_12__["TowerReadingInfoComponent"],
             _components_utility_add_reading_water_reading_tower_reading_info_unit_reading_info_unit_reading_info_component__WEBPACK_IMPORTED_MODULE_13__["UnitReadingInfoComponent"],
-            _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_14__["AddInsuranceComponent"]
+            _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_14__["AddInsuranceComponent"],
+            _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_15__["ElectricityReportComponent"],
+            _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_16__["WaterReportComponent"],
+            _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_17__["InsuranceReportComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

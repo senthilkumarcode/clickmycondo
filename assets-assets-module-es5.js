@@ -61,7 +61,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t<app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n\t<app-alert-message [message]=\"errorMessage\" [isError]=\"isError\"></app-alert-message>\n\t<form #addMaintForm = \"ngForm\" name=\"addAssetForm\"   novalidate>\n\t\t<div class=\"card mb-30\">\t\t\t\t\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance Asset</span>\n\t\t\t        <span *ngIf=\"isEdit\">Edit Maintenance Asset</span>\n        \t\t</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"relative-card float-right\">\n\t\t\t\t\t<div class=\"relative-icon\">\n\t\t\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box mb-3\">\n\t\t\t\t\t\t\t<label>select Asset*</label>\n\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\tname=\"assetCategory\" \n\t\t\t\t\t\t\tid=\"assetCategory\" \n\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t[(ngModel)]=\"assetId\"  required>\n\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<!-- <option value=\"All\">All</option> -->\n\t\t\t\t\t\t\t<option *ngFor=\"let item of assetList\" [value]=\"item.assetId\">{{ item.assetName }}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\t\t<!-- <h4 class=\"main-title-mini float-left mt-3\">\t\t\t -->\n\t\t\t<!-- <span *ngIf=\"!isEdit\">Create Maintenance Asset</span>\n    \t\t<span *ngIf=\"isEdit\">Edit Maintenance Asset</span> -->\n\t\t<!-- </h4> -->\n\t\t<!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\t\t<!-- <div class=\"card mb-30\" *ngIf=\"check\">\n\t\t<div class=\"card-body\">\n\t\t\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"select-box mb-3\">\n\t\t\t\t\t\t<label>All Assets</label>\n\t\t\t\t\t\t<select \n\t\t\t\t\t\t\tname=\"assetCategory\" \n\t\t\t\t\t\t\tid=\"assetCategory\" \n\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t[(ngModel)]=\"assetId\"  required>\n\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option value=\"All\">All</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of assetList\" [value]=\"item.assetId\">{{ item.assetName }}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\t  </div> -->\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Current Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Type</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintenance.maintenanceTypeId\" \n\t\t\t\t\t\t\t\t\t       (change)=\"setMainSubType(maintenance.maintenanceTypeId);maintenance.maintenanceSubtypeId=''\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of mainType\" [value]=\"item.id\" >{{ item.name | titlecase }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Subtype</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainSubType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintenance.maintenanceSubtypeId\"\n\t\t\t\t\t\t\t\t\t        >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of mainSubType\" [value]=\"item.id\">{{ item.name | titlecase }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"maintenance.maitainPlannedDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" [(ngModel)]=\"maintenance.actualMaintDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maint. performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"   (change)=\"maintenance.isMaintainedbyStaff = true;maintenance.maintenanceByCompany=''\" [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"  (change)=\"maintenance.isMaintainedbyStaff = false;maintenance.maintainedbyStaff = ''\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" *ngIf=\"maintenance.isMaintainedbyStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <!-- <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n                                        name=\"staffName\" [(ngModel)]=\"maintenance.maintainedbyStaff\" > -->\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<select name=\"staffName\"  class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"maintenance.maintainedbyStaff\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" *ngIf=\"maintenance.isMaintainedbyStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintenance.maintenanceByCompany\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"Enter Notes\" name=\"notes\" [(ngModel)]=\"maintenance.notes\" ></textarea>\n\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n                                </div>                                \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"maintLaborCost\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintLaborCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"maintPartsCost\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintPartsCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>VAT</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"maintVat\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintVat\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"maintWithTax\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintWithTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Discount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Discount\" \n                                        name=\"totalTax\" OnlyNumber=\"true\" [(ngModel)]=\"totalTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"maintenanceTotalBilledAmt\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintenanceTotalBilledAmt\" >\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"maintenance.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"remainMedate\" [owlDateTime]=\"remainMedate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"remainMedate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"maintenance.remainMedate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #remainMedate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                       \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"  #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" name=\"file\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<!-- (ngSubmit)=\"(addMaintenance(addMaintForm)  && !isEdit) || (updateMaintenance(addMaintForm)  && isEdit) \"  -->\n\t\t\t\t\t\t<button type=\"submit\"  name=\"name\" class=\"btn blue mr-2\" *ngIf=\"!isEdit\" (click)=\"addMaintenance(addMaintForm)\">Submit</button>\n\t\t\t\t\t\t<button type=\"submit\"  name=\"name\" class=\"btn blue mr-2\" *ngIf=\"isEdit\" (click)=\"updateMaintenance(addMaintForm)\">Submit</button>\n                    </li>\n                    <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</form>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t<app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n\t<app-alert-message [message]=\"errorMessage\" [isError]=\"isError\"></app-alert-message>\n\t<form #addMaintForm = \"ngForm\" name=\"addAssetForm\"   novalidate>\n\t\t<div class=\"card mb-30\">\t\t\t\t\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance Asset</span>\n\t\t\t        <span *ngIf=\"isEdit\">Edit Maintenance Asset</span>\n        \t\t</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"relative-card float-right\">\n\t\t\t\t\t<div class=\"relative-icon\">\n\t\t\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box mb-3\">\n\t\t\t\t\t\t\t<label>select Asset*</label>\n\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\tname=\"assetCategory\" \n\t\t\t\t\t\t\tid=\"assetCategory\" \n\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t[(ngModel)]=\"assetId\"  required>\n\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<!-- <option value=\"All\">All</option> -->\n\t\t\t\t\t\t\t<option *ngFor=\"let item of assetList\" [value]=\"item.assetId\">{{ item.assetName }}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\t\t<!-- <h4 class=\"main-title-mini float-left mt-3\">\t\t\t -->\n\t\t\t<!-- <span *ngIf=\"!isEdit\">Create Maintenance Asset</span>\n    \t\t<span *ngIf=\"isEdit\">Edit Maintenance Asset</span> -->\n\t\t<!-- </h4> -->\n\t\t<!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\t\t<!-- <div class=\"card mb-30\" *ngIf=\"check\">\n\t\t<div class=\"card-body\">\n\t\t\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"select-box mb-3\">\n\t\t\t\t\t\t<label>All Assets</label>\n\t\t\t\t\t\t<select \n\t\t\t\t\t\t\tname=\"assetCategory\" \n\t\t\t\t\t\t\tid=\"assetCategory\" \n\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t[(ngModel)]=\"assetId\"  required>\n\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option value=\"All\">All</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of assetList\" [value]=\"item.assetId\">{{ item.assetName }}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\t  </div> -->\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Current Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Type</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintenance.maintenanceTypeId\" \n\t\t\t\t\t\t\t\t\t       (change)=\"setMainSubType(maintenance.maintenanceTypeId);maintenance.maintenanceSubtypeId=''\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of mainType\" [value]=\"item.id\" >{{ item.name | titlecase }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Subtype</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainSubType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintenance.maintenanceSubtypeId\"\n\t\t\t\t\t\t\t\t\t        >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of mainSubType\" [value]=\"item.id\">{{ item.name | titlecase }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"maintenance.plannedMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" [(ngModel)]=\"maintenance.actualMaintDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maint. performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"   (change)=\"maintenance.isMaintainedbyStaff = true;maintenance.maintenanceByCompany=''\" [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"  (change)=\"maintenance.isMaintainedbyStaff = false;maintenance.maintainedbyStaff = ''\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" *ngIf=\"maintenance.isMaintainedbyStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <!-- <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n                                        name=\"staffName\" [(ngModel)]=\"maintenance.maintainedbyStaff\" > -->\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<select name=\"staffName\"  class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"maintenance.maintainedbyStaff\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" *ngIf=\"maintenance.isMaintainedbyStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintenance.maintenanceByCompany\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"Enter Notes\" name=\"notes\" [(ngModel)]=\"maintenance.notes\" ></textarea>\n\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n                                </div>                                \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"maintLaborCost\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintLaborCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"maintPartsCost\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintPartsCost\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>VAT</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"maintVat\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintVat\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"maintWithTax\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintWithTax\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Discount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Discount\" \n                                        name=\"totalTax\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.totalDiscount\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"maintenanceTotalBilledAmt\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintenanceTotalBilledAmt\" >\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"maintenance.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t placeholder=\"Enter Remind me Date\" \n\t\t\t\t\t\t\t\t\t\t\tname=\"maintenanceTotalBilledAmt\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.alertBeforeDays\" >\n\t\t\t\t\t\t\t\t\t\t\n                                       \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"  #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" name=\"file\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<!-- (ngSubmit)=\"(addMaintenance(addMaintForm)  && !isEdit) || (updateMaintenance(addMaintForm)  && isEdit) \"  -->\n\t\t\t\t\t\t<button type=\"submit\"  name=\"name\" class=\"btn blue mr-2\" *ngIf=\"!isEdit\" (click)=\"addMaintenance(addMaintForm)\">Submit</button>\n\t\t\t\t\t\t<button type=\"submit\"  name=\"name\" class=\"btn blue mr-2\" *ngIf=\"isEdit\" (click)=\"updateMaintenance(addMaintForm)\">Submit</button>\n                    </li>\n                    <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\" routerLink=\"/ams/assets/view\">cancel</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</form>\n</div>";
     /***/
   },
 
@@ -81,7 +81,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t\n\t<form #addAssetForm = \"ngForm\" name=\"addAssetForm\" (ngSubmit)=\"submitAddAssetForm(addAssetForm)\"  novalidate>\n\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\n\t\t\t<span *ngIf=\"!isEditAsset\">Create Asset</span>\n    \t\t<span *ngIf=\"isEditAsset\">Edit Asset</span>\n\n\t\t</h4>\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset tag No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\" [(ngModel)]=\"asset.assetTagNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Asset Category*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetCategoryId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of assetCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset Name*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"assetName\" [(ngModel)]=\"asset.assetName\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Manufacturer Details</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Manufacturer Details\" name=\"ManufacturerDetails\" [(ngModel)]=\"asset.manufacturerDetails\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Model No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Model No\" name=\"modelNo\" [(ngModel)]=\"asset.modelNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Condition*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"used\" [(ngModel)]=\"asset.assetConditionId\"  value=\"103\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"used\">Used</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"new\" [(ngModel)]=\"asset.assetConditionId\" value=\"105\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"new\">New</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Asset Location</label>\n\t\t\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\t        name=\"assetLocation\" \n\t\t\t\t\t\t\t\t\t         class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetLocation\" >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of locationList\" [value]=\"item.apartmentBlockId\">{{ item.description }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t                    <!-- <input type=\"text\" class=\"form-control\" placeholder=\"Enter Asset Location\" name=\"assetLocation\" [(ngModel)]=\"asset.assetLocation\"> -->\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation (in percentage)*</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter percentage value\" name=\"depreciation\" [(ngModel)]=\"asset.depreciationPercentage\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Installation Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"installationDate\" [owlDateTimeTrigger]=\"installationDate\" placeholder=\"Installation Date\" [(ngModel)]=\"asset.installationDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #installationDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"installationDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Status*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"asset.isActive\"  [value]=\"true\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"asset.isActive\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Retired No</label>\n\t\t\t\t\t\t\t\t\t\t<!-- <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Retired No\" name=\"depreciation\" [(ngModel)]=\"asset.retiredOn\" required> -->\n\t\t\t\t\t                    <input class=\"form-control\" name=\"retiredOnDate\" [owlDateTime]=\"retiredOnDate\" [owlDateTimeTrigger]=\"retiredOnDate\" placeholder=\"Retired No\" [(ngModel)]=\"asset.retiredOn\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #retiredOnDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"retiredOnDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Comments</label>\n\t\t\t\t\t                    <textarea placeholder=\"some text here\" name=\"staffComments\" [(ngModel)]=\"asset.comments\"></textarea>\n\t\t\t\t\t                </div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box upload-box\">\n\t\t\t\t\t\t\t\t\t\t<label *ngIf=\"isAssetImageNotAvailable()\">Upload File</label>\n\t\t\t\t\t\t\t\t\t\t<label *ngIf=\"!isAssetImageNotAvailable()\">Image/Document</label>\n\n\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"isFileDetailsAvailable\">\n\n\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"isImageUploaded\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"preview-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<figure class=\"preview-img\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" [src] =\"fileUrl\" id=\"assetImage\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"!isImageUploaded\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n\t\t\t\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"attachfiles-normal\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"attachfiles-dragSupport\">Drop file here or </span>\n\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Purchase Details</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Vendor Name</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        id=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.vendorId\" >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorDataList\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Order No</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Order No\" name=\"purchaseOrderNo\" [(ngModel)]=\"asset.purchaseOrderNo\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Date</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"purchaseDate\" [owlDateTimeTrigger]=\"purchaseDate\" placeholder=\"Purchase Date\" [(ngModel)]=\"asset.purchaseDate\" >\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #purchaseDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Cost</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Cost\" name=\"purchaseCost\" [(ngModel)]=\"asset.purchaseCost\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Warranty Months</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Warranty Months\" name=\"warrantyMonths\" [(ngModel)]=\"asset.warrantyMonths\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Serial Number</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Serial Number\" name=\"serialNo\" [(ngModel)]=\"asset.serialNo\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Is Leased</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"Yes\" [(ngModel)]=\"asset.isLeased\"  [value]=\"true\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"No\" [(ngModel)]=\"asset.isLeased\" [value]=\"false\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#depreciationMethod\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Depreciation Method</li>\n\t\t\t\t\t<div id=\"depreciationMethod\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Expected Life (in months)</label>\n\t\t\t\t\t                    <input type=\"text\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Expection Months\" name=\"expectionMonths\" [(ngModel)]=\"asset.maximumAllowed\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Salvage Value</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Salvage Value\" name=\"salvageValue\" [(ngModel)]=\"asset.salvageValue\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Depreciation Method</label>\n\t\t\t\t\t                    <select name=\"depreciationMethod\"  class=\"form-control\" [(ngModel)]=\"asset.depreciationMethodId\" (change)=\"setDepreciatonItem(item)\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of depreciatonData\" [value]=\"item.lookupValueId\" >{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"asset?.depreciationMethodId == 410\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation Units</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Depreciation Units\" name=\"descriptionUnit\" [(ngModel)]=\"assest.consumedUnitDescription\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"asset?.depreciationMethodId == 410 || asset?.depreciationMethodId  == 409 ||  asset?.depreciationMethodId  == 408\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation %</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" OnlyNumber=\"true\" placeholder=\"Enter Depreciation %\" name=\"depreciationPercentage\" [(ngModel)]=\"asset.depreciationPercentage\"  >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" \n\t\t\t\t\tdata-target=\"#assetCollapseThree\" aria-expanded=\"true\" \n\t\t\t\t\taria-controls=\"collapseOne\">Insurance Information</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" \n\t\t\t\t\tdata-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Provider</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance Provider\" name=\"provider\" [(ngModel)]=\"insurance.insuranceProvider\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance No</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance No\" name=\"InsuranceNo\" [(ngModel)]=\"insurance.insuranceNo\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Exp. Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"insuranceExpDate\" [owlDateTimeTrigger]=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Insurance Exp. Date\" [(ngModel)]=\"insurance.insuranceExpDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #insuranceExpDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Notes</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Note\" name=\"insuranceNotes\"  [(ngModel)]=\"insurance.notes\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Status</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Insurance Status\" name=\"status\" [(ngModel)]=\"insurance.insuranceStatus\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" \n\t\t\t\t\tdata-target=\"#nextMaintanance\" aria-expanded=\"true\" \n\t\t\t\t\taria-controls=\"collapseOne\">Next Maintanance</li>\n\t\t\t\t\t<div id=\"nextMaintanance\" class=\"collapse\" aria-labelledby=\"headingOne\" \n\t\t\t\t\tdata-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Frequency in days</label>\n\t\t\t\t\t\t\t\t    \t<input type=\"text\" class=\"form-control\" OnlyNumber=\"true\" (change)=\"setNextPlanDate()\" placeholder=\"Enter Maintenance Frequency in days\" name=\"frequencyDays\" [(ngModel)]=\"asset.frequencyDays\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Next Planned Maintanance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"nextPlanDate\" \n\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"nextPlanDate\" [owlDateTimeTrigger]=\"nextPlanDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Next Plan Date\" [(ngModel)]=\"asset.nextPlanDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlanDate [pickerType]=\"'calendar'\" disabled></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Alert/Remind Before</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\"  OnlyNumber=\"true\" placeholder=\"Enter Alert/Remind Before\" name=\"alertRemindBefore\"  [(ngModel)]=\"asset.alertBeforeDays\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addAssetForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper\">\n\t\n\t<form #addAssetForm = \"ngForm\" name=\"addAssetForm\" (ngSubmit)=\"submitAddAssetForm(addAssetForm)\"  novalidate>\n\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\n\t\t\t\n\t\t\t<span *ngIf=\"!isEditAsset\">Create Asset</span>\n    \t\t<span *ngIf=\"isEditAsset\">Edit Asset</span>\n\n\t\t</h4>\n\n\t\t<div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/view\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Assets</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">General</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset tag No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\" [(ngModel)]=\"asset.assetTagNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Asset Category*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetCategoryId\" required  (change)=\"setSubCategory(asset.assetCategoryId);asset.assetSubcategoryId=''\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of categoryList\" [value]=\"item.id\">{{ item.name }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Asset Sub Category*</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"assetSubCategory\" \n\t\t\t\t\t\t\t\t\t        id=\"assetSubCategory\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetSubcategoryId\" required>\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of categorySubType\" [value]=\"item.id\">{{ item.name }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Asset Name*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"assetName\" [(ngModel)]=\"asset.assetName\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Manufacturer Details</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Manufacturer Details\" name=\"ManufacturerDetails\" [(ngModel)]=\"asset.manufacturerDetails\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Model No*</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Model No\" name=\"modelNo\" [(ngModel)]=\"asset.modelNo\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Condition*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"used\" [(ngModel)]=\"asset.assetConditionId\"  [value]=\"103\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"used\">Used</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetConditionId\" id=\"new\" [(ngModel)]=\"asset.assetConditionId\" [value]=\"105\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"new\">New</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Asset Location</label>\n\t\t\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\t        name=\"assetLocation\" \n\t\t\t\t\t\t\t\t\t         class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.assetLocation\" >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of locationList\" [value]=\"item.apartmentBlockId\">{{ item.description }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t                    <!-- <input type=\"text\" class=\"form-control\" placeholder=\"Enter Asset Location\" name=\"assetLocation\" [(ngModel)]=\"asset.assetLocation\"> -->\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation (in percentage)*</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter percentage value\" name=\"depreciation\" [(ngModel)]=\"asset.depreciationPercentage\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Installation Date*</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"installationDate\" [owlDateTime]=\"installationDate\" [owlDateTimeTrigger]=\"installationDate\" placeholder=\"Installation Date\" [(ngModel)]=\"asset.installationDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #installationDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"installationDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Status*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"asset.isActive\"  [value]=\"true\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"asset.isActive\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Retired No</label>\n\t\t\t\t\t\t\t\t\t\t<!-- <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Retired No\" name=\"depreciation\" [(ngModel)]=\"asset.retiredOn\" required> -->\n\t\t\t\t\t                    <input class=\"form-control\" name=\"retiredOnDate\" [owlDateTime]=\"retiredOnDate\" [owlDateTimeTrigger]=\"retiredOnDate\" placeholder=\"Retired No\" [(ngModel)]=\"asset.retiredOn\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #retiredOnDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"retiredOnDate\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Comments</label>\n\t\t\t\t\t                    <textarea placeholder=\"some text here\" name=\"staffComments\" [(ngModel)]=\"asset.comments\"></textarea>\n\t\t\t\t\t                </div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"input-box upload-box\">\n\t\t\t\t\t\t\t\t\t\t<label *ngIf=\"isAssetImageNotAvailable()\">Upload File</label>\n\t\t\t\t\t\t\t\t\t\t<label *ngIf=\"!isAssetImageNotAvailable()\">Image/Document</label>\n\n\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"isFileDetailsAvailable\">\n\n\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"isImageUploaded\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"preview-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<figure class=\"preview-img\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" [src] =\"fileUrl\" id=\"assetImage\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"!isImageUploaded\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n\t\t\t\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"attachfiles-normal\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"attachfiles-dragSupport\">Drop file here or </span>\n\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Purchase Details</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Vendor Name</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        id=\"vendorId\" \n\t\t\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t\t\t        [(ngModel)]=\"asset.vendorId\" >\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of vendorDataList\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Order No</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Order No\" name=\"purchaseOrderNo\" [(ngModel)]=\"asset.purchaseOrderNo\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Date</label>\n\t\t\t\t\t                    <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"purchaseDate\" [owlDateTimeTrigger]=\"purchaseDate\" placeholder=\"Purchase Date\" [(ngModel)]=\"asset.purchaseDate\" >\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #purchaseDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Purchase Cost</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Purchase Cost\" name=\"purchaseCost\" [(ngModel)]=\"asset.purchaseCost\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Warranty Months</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Warranty Months\" name=\"warrantyMonths\" [(ngModel)]=\"asset.warrantyMonths\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isEditAsset\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Serial Number</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" disabled placeholder=\"Enter Serial Number\" name=\"serialNo\" [(ngModel)]=\"asset.serialNo\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Is Leased</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"Yes\" [(ngModel)]=\"asset.isLeased\"  [value]=\"true\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isLeased\" id=\"No\" [(ngModel)]=\"asset.isLeased\" [value]=\"false\" type=\"radio\">\n\t\t\t\t                            <label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t                         </div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#depreciationMethod\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Depreciation Method</li>\n\t\t\t\t\t<div id=\"depreciationMethod\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Expected Life (in months)</label>\n\t\t\t\t\t                    <input type=\"text\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Expection Months\" name=\"expectionMonths\" [(ngModel)]=\"asset.maximumAllowed\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Salvage Value</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Salvage Value\" name=\"salvageValue\" [(ngModel)]=\"asset.salvageValue\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Depreciation Method</label>\n\t\t\t\t\t                    <select name=\"depreciationMethod\"  class=\"form-control\" [(ngModel)]=\"asset.depreciationMethodId\" (change)=\"setDepreciatonItem(item)\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of depreciatonData\" [value]=\"item.lookupValueId\" >{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"asset?.depreciationMethodId == 410\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation Units</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Depreciation Units\" name=\"descriptionUnit\" [(ngModel)]=\"asset.consumedUnitDescription\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"asset?.depreciationMethodId == 410 || asset?.depreciationMethodId  == 409 ||  asset?.depreciationMethodId  == 408\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Depreciation %</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" OnlyNumber=\"true\" placeholder=\"Enter Depreciation %\" name=\"depreciationPercentage\" [(ngModel)]=\"asset.depreciationPercentage\"  >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" \n\t\t\t\t\tdata-target=\"#assetCollapseThree\" aria-expanded=\"true\" \n\t\t\t\t\taria-controls=\"collapseOne\">Insurance Information</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" \n\t\t\t\t\tdata-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Provider</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance Provider\" name=\"provider\" [(ngModel)]=\"insurance.insuranceProvider\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance No</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Insurance No\" name=\"InsuranceNo\" [(ngModel)]=\"insurance.insuranceNo\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Exp. Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"insuranceExpDate\" [owlDateTimeTrigger]=\"insuranceExpDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Insurance Exp. Date\" [(ngModel)]=\"insurance.insuranceExpDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #insuranceExpDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Notes</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Note\" name=\"insuranceNotes\"  [(ngModel)]=\"insurance.notes\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Insurance Status</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Insurance Status\" name=\"status\" [(ngModel)]=\"insurance.insuranceStatus\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" \n\t\t\t\t\tdata-target=\"#nextMaintanance\" aria-expanded=\"true\" \n\t\t\t\t\taria-controls=\"collapseOne\">Next Maintenance</li>\n\t\t\t\t\t<div id=\"nextMaintanance\" class=\"collapse\" aria-labelledby=\"headingOne\" \n\t\t\t\t\tdata-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Frequency in days</label>\n\t\t\t\t\t\t\t\t    \t<input type=\"text\" class=\"form-control\" OnlyNumber=\"true\" (change)=\"setNextPlanDate()\" placeholder=\"Enter Maintenance Frequency in days\" name=\"frequencyDays\" [(ngModel)]=\"asset.frequencyDays\">\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Next Planned Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"nextPlanDate\" \n\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"nextPlanDate\" [owlDateTimeTrigger]=\"nextPlanDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Next Plan Date\" [(ngModel)]=\"asset.nextPlanDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlanDate [pickerType]=\"'calendar'\" disabled></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Alert/Remind Before</label>\n\t\t\t\t\t                    <input type=\"text\" class=\"form-control\"  OnlyNumber=\"true\" placeholder=\"Enter Alert/Remind Before\" name=\"alertRemindBefore\"  [(ngModel)]=\"asset.alertBeforeDays\" >\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addAssetForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
     /***/
   },
 
@@ -141,7 +141,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <div class=\"assets-setup-wrapper\">\n\n\t<app-loader *ngIf=\"!isAssetCategoryLoaded\"></app-loader>\n\n\t<div class=\"category-list list-boxes\" *ngIf=\"isAssetCategoryLoaded\">\n\t\t<h4 class=\"main-title-mini\">Asset Categories</h4>\n\t\t<ng-container *ngFor=\"let item of assetCategoryData; let i = index\">\n\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-body nohover\">\n\t\t\t\t\t\t<div class=\"icons\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/assets/view/{{item.lookupValueId}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"updateAssetCategory(item, i)\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"d-none\"><i-feather class=\"icon del\" name=\"x\" (click)=\"deleteAssetCategory(item)\"></i-feather></a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<h6>{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t<p>{{item.assetCount}} Assets</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t</ng-container>\n\t\t<li class=\"list-inline-item\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body new text-center\">\n\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"rounded-btn green\" (click)=\"addNewAssetCategory()\">\n\t\t\t\t\t\t<div class=\"icon\">+</div>\n\t\t\t\t\t</a>\n\t\t\t\t\t<h6 class=\"tc-green\">Add New Category</h6>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t</div>\n\n\t<div class=\"card mt-30\" *ngIf=\"isAssetCategoryNew || isAssetCategoryUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isAssetCategoryNew\">Add Asset Category</h6>\n    \t\t\t<h6 *ngIf=\"!isAssetCategoryNew\">Update Asset Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"alertTicketMessage\" [isError]=\"isCategoryError\" [isSuccess]=\"isCategorySuccess\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isAssetCategorySubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isAssetCategorySubmitted\">\n\t\t\t\t\n\t\t\t\t<form #addAssetCategoryForm = \"ngForm\" name=\"addAssetCategoryForm\" (ngSubmit)=\"submitAssetCategoryForm(addAssetCategoryForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Category Type*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"assetCategory\" [(ngModel)]=\"assetCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addAssetCategoryForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\t</div>\n\n</div> -->\n\n\n\n\n\n\n<div class=\"setup-outer\" >\n\n<div class=\"document-setup-wrapper\">\n\t<ul class=\"icon-tabs btn-group\">\n\t  <li class=\"nav-item\">\n\t\t<a class=\"nav-link\" href=\"javascript:void(0)\" role=\"tab\" (click)=\"showTab('assetSetup')\"\n\t\t  [ngClass]=\"selectedTab == 'assetSetup' ? 'active' : ''\">\n\t\t  Asset Setup\n\t\t</a>\n\t  </li>\n\t  <li class=\"nav-item\">\n\t\t<a class=\"nav-link \" href=\"javascript:void(0)\" role=\"tab\" (click)=\"showTab('assetDepreciationMethod')\"\n\t\t  [ngClass]=\"selectedTab == 'assetDepreciationMethod' ? 'active' : ''\">\n\t\t  Asset Depreciation method\n\t\t</a>\n\t  </li>\n\t  <li class=\"nav-item\">\n\t\t<a class=\"nav-link \" href=\"javascript:void(0)\" role=\"tab\" (click)=\"showTab('maintenanceSetup')\"\n\t\t  [ngClass]=\"selectedTab == 'maintenanceSetup' ? 'active' : ''\">\n\t\t  Maintenance Setup\n\t\t</a>\n\t  </li>\n\t</ul>\n\t<div class=\"tab-content\">\n\t  <div class=\"tab-pane\" id=\"dues\" [ngClass]=\"selectedTab == 'assetSetup' ? 'active' : ''\">\n\t\t<div class=\"\">\n\t\t\t<div class=\"d-flex wd-100\">\n\t\t\t\t<div class=\"d-flex wd-50\">\n\t\t\t\t\t<h4 class=\"main-title-mini pt-4\">Asset Category </h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"d-flex wd-50 justify-content-end  align-items-center\">\n\t\t\t\t\t<!-- <li (click)=\"download()\" class=\"list-inline-item pt-26 mr-3\">\n\t\t\t\t\t\t<a  class=\"btn trans-white mt_5\">\n\t\t\t\t\t\t  <i-feather  name=\"printer\" class=\"icon print\" >\n\t\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"feather feather-printer\">\n\t\t\t\t\t\t  <polyline points=\"6 9 6 2 18 2 18 9\"></polyline>\n\t\t\t\t\t\t  <path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path>\n\t\t\t\t\t\t  <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"></rect>\n\t\t\t\t\t\t  </svg>\n\t\t\t\t\t   </i-feather>\n\t\t\t\t\t   <span >Export</span>\n\t\t\t\t\t  </a>\n\t\t\t\t\t  </li> -->\n\t\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t\t<i class=\"fa fa-search setup-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control pl-5\" placeholder=\"Search...\" [(ngModel)]=\"searchCategory\" (input)=\"filterCategoryItem(searchCategory)\">\n\t\t\t\t\t</li>\n\t\t\t\t\t<li  class=\"list-inline-item ml-3 mt-2\" (click)=\"addSetUp('asset','add',null)\">\n\t\t\t\t\t\t<a  class=\"btn lime-green mt_5\">\n\t\t\t\t\t\t\t<i-feather name=\"plus\" class=\"icon plus\">\n\t\t\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"\n\t\t\t\t\t\t\t\t\tclass=\"feather feather-plus\">\n\t\t\t\t\t\t\t\t\t<line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line>\n\t\t\t\t\t\t\t\t\t<line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line>\n\t\t\t\t\t\t\t\t</svg></i-feather><span >Add Asset Category </span>\n\t\t\t\t\t\t</a></li>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- <mat-accordion class=\"pt-5\" class=\"setup-accordion\" *ngIf=\"categoryList.length == 0\">\n\t\t\t\tAsset Category not found\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t</mat-accordion> -->\n\t\t\t<app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n\t\t\t<mat-accordion class=\"pt-5\" class=\"setup-accordion\">\n\t\t\t\t<mat-expansion-panel *ngFor=\" let cat of categoryList;let catIndex = index\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t<div class=\"d-flex wd-100\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50\"> {{cat.name}}</div>\n\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50 justify-content-end  align-items-center\">\n\t\t\t\t\t\t\t\t\t<!-- <i class=\"fa fa-plus\" [ngStyle]=\"cat?.subCategory.length > 0 ? {'pointer-events':'none','opacity':'0.4'}:''\" aria-hidden=\"true\" (click)=\"addSetUp('asset','addSubType',cat)\"></i> -->\n\t\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o pl-2\" aria-hidden=\"true\" (click)=\"addSetUp('asset','edit',cat)\"></i>\n\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trash pl-2\" (click)=\"deleteCategory(cat.id,'assets')\"\n\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<div class=\"subCategory\" *ngIf=\"cat?.subCategory.length == 0\">Sub Category not found</div>\n\t\t\t\t\t<div class=\" subCategory \" *ngFor=\"let sub  of cat?.subCategory;let catIndex = index\">\n\t\t\t\t\t <!-- <li>{{sub.name}}</li> -->\n\t\t\t\t\t <div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t <div class=\"sub-dot mr-2\" [ngStyle]=\"currIndex == catIndex ?{'display':'none'}:''\"></div>\n\t\t\t\t\t\t <div class=\"wd-50\" > <span [ngStyle]=\"currIndex == catIndex ?{'display':'none'}:''\">{{sub.name}}</span>\n\t\t\t\t\t\t  <input type=\"text\" *ngIf=\"catIndex == currIndex\"  class=\"cus-input\" placeholder=\"Enter sub category\" \n\t\t\t\t\t\t\tname=\"subCategory\" [(ngModel)]=\"sub.name\" ></div>\n\t\t\t\t\t\t <div class=\"wd-50 d-flex justify-content-end\">\n\t\t\t\t\t\t\t <i class=\"fa fa-pencil-square-o pl-2\" [ngStyle]=\"currIndex == catIndex ?{'display':'none'}:''\" aria-hidden=\"true\" (click)=\"currIndex = catIndex \"></i>\n\t\t\t\t\t\t\t <i class=\"fa fa-floppy-o pl-2 pr-3\"  *ngIf=\"catIndex == currIndex\" aria-hidden=\"true\" [ngStyle]=\"!sub.name? {'pointer-events':'none','opacity':'0.4'}:''\" (click)=\"editSubCategory(cat)\"></i>\n\t\t\t\t\t\t\t <i class=\"fa fa-times  pl-2\"  *ngIf=\"catIndex == currIndex\" aria-hidden=\"true\" (click)=\"getAllCategory();currIndex = -1\"></i>\n\t\t\t\t\t\t </div>\n\t\t\t\t\t </div>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t</div>\n\t  </div>\n\t  <div class=\"tab-pane\" id=\"advance\" [ngClass]=\"selectedTab == 'assetDepreciationMethod' ? 'active' : ''\">\n\t\t<div class=\"row m-0\">\n\t\t\t<div class=\"category-list list-boxes mb-30 wd-100\">\n\t\t\t\t<h4 class=\"main-title-mini pt-4\">Depreciaton methods</h4>\n\t\t\t\t<li class=\"list-inline-item wd-100\">\n\t\t\t\t\t<div class=\"card\">\n\t\t\t\t\t\t<div class=\"card-body no-hover\">\n\t\t\t\t\t\t\t<div class=\"setup-slide\" *ngFor=\"let list of depreciatonData\">\n\t\t\t\t\t\t\t\t<mat-slide-toggle [(ngModel)]=\"list.isCheck\"   (change)=\"updateDepreciatonList(list)\">{{list.lookupValueName}}</mat-slide-toggle>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t<mat-slide-toggle>Double Decline</mat-slide-toggle>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<mat-slide-toggle>Units usage </mat-slide-toggle>\n\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t</div>\n\t\t</div>\n\t  </div>\n\t  <div class=\"tab-pane\" id=\"assetDepreciationMethod\" [ngClass]=\"selectedTab == 'maintenanceSetup' ? 'active' : ''\">\n\t\t<div class=\"\">\t\t\t\n\t\t\t<div class=\"d-flex wd-100\">\n\t\t\t\t<div class=\"d-flex wd-50\">\n\t\t\t\t\t<h4 class=\"main-title-mini pt-4\">Maintenance Types</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"d-flex wd-50 justify-content-end  align-items-center\">\n\t\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t\t<i class=\"fa fa-search setup-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control pl-5\" placeholder=\"Search...\" [(ngModel)]=\"search\" (input)=\"filterMaitenanceItem(search)\">\n\t\t\t\t\t</li>\n\t\t\t\t\t<li  class=\"list-inline-item ml-3 mt-2\" (click)=\"addSetUp('maintenance','add',null)\">\n\t\t\t\t\t\t<a  class=\"btn lime-green mt_5\">\n\t\t\t\t\t\t\t<i-feather name=\"plus\" class=\"icon plus\">\n\t\t\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"\n\t\t\t\t\t\t\t\t\tclass=\"feather feather-plus\">\n\t\t\t\t\t\t\t\t\t<line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line>\n\t\t\t\t\t\t\t\t\t<line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line>\n\t\t\t\t\t\t\t\t</svg></i-feather><span>Add Maintenance Types</span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</li>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<mat-accordion class=\"pt-5\" class=\"setup-accordion\">\n\t\t\t\t<mat-expansion-panel *ngFor=\" let main of mainType;let mainIndex = index\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t<div class=\"d-flex wd-100\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50\"> {{main.name}}</div>\n\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50 justify-content-end  align-items-center\">\n\t\t\t\t\t\t\t\t\t<!-- <i class=\"fa fa-plus\" aria-hidden=\"true\" [ngStyle]=\"main?.subCategory.length > 0 ? {'pointer-events':'none','opacity':'0.4'}:''\"  (click)=\"addSetUp('maintenance','addSubType',main)\"></i> -->\n\t\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o pl-2\" aria-hidden=\"true\" (click)=\"addSetUp('maintenance','edit',main)\"></i>\n\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trash pl-2\" (click)=\"deleteCategory(main.id,'maintenance')\"\n\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<div class=\"subCategory\" *ngIf=\"main?.subCategory.length == 0\">Maintenance Sub Types not found</div>\n\t\t\t\t\t<div class=\"subCategory\" *ngFor=\"let sub  of main?.subCategory;let catIndex = index\">\n\t\t\t\t\t\t<!-- <li>\t{{sub.name}} </li> -->\n\t\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t\t<div class=\"sub-dot mr-2\" [ngStyle]=\"mainCurrIndex == catIndex ?{'display':'none'}:''\"></div>\n\t\t\t\t\t\t\t<div class=\"wd-50\" > <span [ngStyle]=\"mainCurrIndex == catIndex ?{'display':'none'}:''\">{{sub.name}}</span>\n\t\t\t\t\t\t\t <input type=\"text\" *ngIf=\"catIndex == mainCurrIndex\"  class=\"cus-input\" placeholder=\"Enter sub category\" \n\t\t\t\t\t\t\t   name=\"subCategory\" [(ngModel)]=\"sub.name\" ></div>\n\t\t\t\t\t\t\t<div class=\"wd-50 d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o pl-2\" title=\"edit\" [ngStyle]=\"mainCurrIndex == catIndex ?{'display':'none'}:''\" aria-hidden=\"true\" (click)=\"mainCurrIndex = catIndex \"></i>\n\t\t\t\t\t\t\t\t<i class=\"fa fa-floppy-o pl-2 pr-3\"   title=\"save\" *ngIf=\"catIndex == mainCurrIndex\" aria-hidden=\"true\" [ngStyle]=\"!sub.name? {'pointer-events':'none','opacity':'0.4'}:''\" (click)=\"editMaintenance(main)\"></i>\n\t\t\t\t\t\t\t\t<i class=\"fa fa-times  pl-2\"  title=\"cancel\" *ngIf=\"catIndex == mainCurrIndex\" aria-hidden=\"true\" (click)=\"getAllMaintenance();mainCurrIndex = -1\"></i>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t</div>\n\t  </div>\n\t</div>\n  </div>\n</div>\n\n";
+    __webpack_exports__["default"] = "<!-- <div class=\"assets-setup-wrapper\">\n\n\t<app-loader *ngIf=\"!isAssetCategoryLoaded\"></app-loader>\n\n\t<div class=\"category-list list-boxes\" *ngIf=\"isAssetCategoryLoaded\">\n\t\t<h4 class=\"main-title-mini\">Asset Categories</h4>\n\t\t<ng-container *ngFor=\"let item of assetCategoryData; let i = index\">\n\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-body nohover\">\n\t\t\t\t\t\t<div class=\"icons\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/assets/view/{{item.lookupValueId}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"updateAssetCategory(item, i)\"></i-feather></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"d-none\"><i-feather class=\"icon del\" name=\"x\" (click)=\"deleteAssetCategory(item)\"></i-feather></a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<h6>{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t<p>{{item.assetCount}} Assets</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t</ng-container>\n\t\t<li class=\"list-inline-item\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body new text-center\">\n\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"rounded-btn green\" (click)=\"addNewAssetCategory()\">\n\t\t\t\t\t\t<div class=\"icon\">+</div>\n\t\t\t\t\t</a>\n\t\t\t\t\t<h6 class=\"tc-green\">Add New Category</h6>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t</div>\n\n\t<div class=\"card mt-30\" *ngIf=\"isAssetCategoryNew || isAssetCategoryUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isAssetCategoryNew\">Add Asset Category</h6>\n    \t\t\t<h6 *ngIf=\"!isAssetCategoryNew\">Update Asset Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"alertTicketMessage\" [isError]=\"isCategoryError\" [isSuccess]=\"isCategorySuccess\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isAssetCategorySubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isAssetCategorySubmitted\">\n\t\t\t\t\n\t\t\t\t<form #addAssetCategoryForm = \"ngForm\" name=\"addAssetCategoryForm\" (ngSubmit)=\"submitAssetCategoryForm(addAssetCategoryForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Category Type*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"assetCategory\" [(ngModel)]=\"assetCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addAssetCategoryForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\t</div>\n\n</div> -->\n\n\n\n\n\n\n<div class=\"setup-outer\" >\n\n<div class=\"document-setup-wrapper\">\n\t<ul class=\"icon-tabs btn-group\">\n\t  <li class=\"nav-item\">\n\t\t<a class=\"nav-link\" href=\"javascript:void(0)\" role=\"tab\" (click)=\"showTab('assetSetup')\"\n\t\t  [ngClass]=\"selectedTab == 'assetSetup' ? 'active' : ''\">\n\t\t  Asset Setup\n\t\t</a>\n\t  </li>\n\t  <li class=\"nav-item\">\n\t\t<a class=\"nav-link \" href=\"javascript:void(0)\" role=\"tab\" (click)=\"showTab('assetDepreciationMethod')\"\n\t\t  [ngClass]=\"selectedTab == 'assetDepreciationMethod' ? 'active' : ''\">\n\t\t  Asset Depreciation method\n\t\t</a>\n\t  </li>\n\t  <li class=\"nav-item\">\n\t\t<a class=\"nav-link \" href=\"javascript:void(0)\" role=\"tab\" (click)=\"showTab('maintenanceSetup')\"\n\t\t  [ngClass]=\"selectedTab == 'maintenanceSetup' ? 'active' : ''\">\n\t\t  Maintenance Setup\n\t\t</a>\n\t  </li>\n\t</ul>\n\t<div class=\"tab-content\">\n\t  <div class=\"tab-pane\" id=\"dues\" [ngClass]=\"selectedTab == 'assetSetup' ? 'active' : ''\">\n\t\t<div class=\"\">\n\t\t\t<div class=\"d-flex wd-100\">\n\t\t\t\t<div class=\"d-flex wd-50\">\n\t\t\t\t\t<h4 class=\"main-title-mini pt-4\">Asset Category </h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"d-flex wd-50 justify-content-end  align-items-center\">\n\t\t\t\t\t<!-- <li (click)=\"download()\" class=\"list-inline-item pt-26 mr-3\">\n\t\t\t\t\t\t<a  class=\"btn trans-white mt_5\">\n\t\t\t\t\t\t  <i-feather  name=\"printer\" class=\"icon print\" >\n\t\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"feather feather-printer\">\n\t\t\t\t\t\t  <polyline points=\"6 9 6 2 18 2 18 9\"></polyline>\n\t\t\t\t\t\t  <path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path>\n\t\t\t\t\t\t  <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"></rect>\n\t\t\t\t\t\t  </svg>\n\t\t\t\t\t   </i-feather>\n\t\t\t\t\t   <span >Export</span>\n\t\t\t\t\t  </a>\n\t\t\t\t\t  </li> -->\n\t\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t\t<i class=\"fa fa-search setup-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control pl-5\" placeholder=\"Search...\" [(ngModel)]=\"searchCategory\" (input)=\"filterCategoryItem(searchCategory)\">\n\t\t\t\t\t</li>\n\t\t\t\t\t<li  class=\"list-inline-item ml-3 mt-2\" (click)=\"addSetUp('asset','add',null)\">\n\t\t\t\t\t\t<a  class=\"btn lime-green mt_5\">\n\t\t\t\t\t\t\t<i-feather name=\"plus\" class=\"icon plus\">\n\t\t\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"\n\t\t\t\t\t\t\t\t\tclass=\"feather feather-plus\">\n\t\t\t\t\t\t\t\t\t<line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line>\n\t\t\t\t\t\t\t\t\t<line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line>\n\t\t\t\t\t\t\t\t</svg></i-feather><span >Add Asset Category </span>\n\t\t\t\t\t\t</a></li>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- <mat-accordion class=\"pt-5\" class=\"setup-accordion\" *ngIf=\"categoryList.length == 0\">\n\t\t\t\tAsset Category not found\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t</mat-accordion> -->\n\t\t\t<app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n\t\t\t<mat-accordion class=\"pt-5\" class=\"setup-accordion\">\n\t\t\t\t<mat-expansion-panel *ngFor=\" let cat of categoryList;let catIndex = index\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t<div class=\"d-flex wd-100\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50\"> {{cat.name}}</div>\n\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50 justify-content-end  align-items-center\">\n\t\t\t\t\t\t\t\t\t<!-- <i class=\"fa fa-plus\" [ngStyle]=\"cat?.subCategory.length > 0 ? {'pointer-events':'none','opacity':'0.4'}:''\" aria-hidden=\"true\" (click)=\"addSetUp('asset','addSubType',cat)\"></i> -->\n\t\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o pl-2\" aria-hidden=\"true\" (click)=\"addSetUp('asset','edit',cat)\"></i>\n\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trash pl-2\" (click)=\"deleteCategory(cat.id,'assets')\"\n\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<div class=\"subCategory not-found-label\" *ngIf=\"cat?.subCategory.length == 0\">Sub Category not found</div>\n\t\t\t\t\t<div class=\" subCategory \" *ngFor=\"let sub  of cat?.subCategory;let catIndex = index\">\n\t\t\t\t\t <!-- <li>{{sub.name}}</li> -->\n\t\t\t\t\t <div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t <div class=\"sub-dot mr-2\" [ngStyle]=\"currIndex == catIndex ?{'display':'none'}:''\"></div>\n\t\t\t\t\t\t <div class=\"wd-50\" > <span [ngStyle]=\"currIndex == catIndex ?{'display':'none'}:''\">{{sub.name}}</span>\n\t\t\t\t\t\t  <input type=\"text\" *ngIf=\"catIndex == currIndex\"  class=\"cus-input\" placeholder=\"Enter sub category\" \n\t\t\t\t\t\t\tname=\"subCategory\" [(ngModel)]=\"sub.name\" ></div>\n\t\t\t\t\t\t <div class=\"wd-50 d-flex justify-content-end\">\n\t\t\t\t\t\t\t <i class=\"fa fa-pencil-square-o pl-2\" [ngStyle]=\"currIndex == catIndex ?{'display':'none'}:''\" aria-hidden=\"true\" (click)=\"currIndex = catIndex \"></i>\n\t\t\t\t\t\t\t <i class=\"fa fa-floppy-o pl-2 pr-3\"  *ngIf=\"catIndex == currIndex\" aria-hidden=\"true\" [ngStyle]=\"!sub.name? {'pointer-events':'none','opacity':'0.4'}:''\" (click)=\"editSubCategory(cat)\"></i>\n\t\t\t\t\t\t\t <i class=\"fa fa-times  pl-2\"  *ngIf=\"catIndex == currIndex\" aria-hidden=\"true\" (click)=\"getAllCategory();currIndex = -1\"></i>\n\t\t\t\t\t\t </div>\n\t\t\t\t\t </div>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t</div>\n\t  </div>\n\t  <div class=\"tab-pane\" id=\"advance\" [ngClass]=\"selectedTab == 'assetDepreciationMethod' ? 'active' : ''\">\n\t\t<div class=\"row m-0\">\n\t\t\t<div class=\"category-list list-boxes mb-30 wd-100\">\n\t\t\t\t<h4 class=\"main-title-mini pt-4\">Depreciaton methods</h4>\n\t\t\t\t<li class=\"list-inline-item wd-100\">\n\t\t\t\t\t<div class=\"card\">\n\t\t\t\t\t\t<div class=\"card-body no-hover\">\n\t\t\t\t\t\t\t<div class=\"setup-slide\" *ngFor=\"let list of depreciatonData\">\n\t\t\t\t\t\t\t\t<mat-slide-toggle [(ngModel)]=\"list.isCheck\"   (change)=\"updateDepreciatonList(list)\">{{list.lookupValueName}}</mat-slide-toggle>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t<mat-slide-toggle>Double Decline</mat-slide-toggle>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<mat-slide-toggle>Units usage </mat-slide-toggle>\n\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t</div>\n\t\t</div>\n\t  </div>\n\t  <div class=\"tab-pane\" id=\"assetDepreciationMethod\" [ngClass]=\"selectedTab == 'maintenanceSetup' ? 'active' : ''\">\n\t\t<div class=\"\">\t\t\t\n\t\t\t<div class=\"d-flex wd-100\">\n\t\t\t\t<div class=\"d-flex wd-50\">\n\t\t\t\t\t<h4 class=\"main-title-mini pt-4\">Maintenance Types</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"d-flex wd-50 justify-content-end  align-items-center\">\n\t\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t\t<i class=\"fa fa-search setup-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control pl-5\" placeholder=\"Search...\" [(ngModel)]=\"search\" (input)=\"filterMaitenanceItem(search)\">\n\t\t\t\t\t</li>\n\t\t\t\t\t<li  class=\"list-inline-item ml-3 mt-2\" (click)=\"addSetUp('maintenance','add',null)\">\n\t\t\t\t\t\t<a  class=\"btn lime-green mt_5\">\n\t\t\t\t\t\t\t<i-feather name=\"plus\" class=\"icon plus\">\n\t\t\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"\n\t\t\t\t\t\t\t\t\tclass=\"feather feather-plus\">\n\t\t\t\t\t\t\t\t\t<line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line>\n\t\t\t\t\t\t\t\t\t<line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line>\n\t\t\t\t\t\t\t\t</svg></i-feather><span>Add Maintenance Types</span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</li>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<mat-accordion class=\"pt-5\" class=\"setup-accordion\">\n\t\t\t\t<mat-expansion-panel *ngFor=\" let main of mainType;let mainIndex = index\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t<div class=\"d-flex wd-100\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50\"> {{main.name}}</div>\n\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50 justify-content-end  align-items-center\">\n\t\t\t\t\t\t\t\t\t<!-- <i class=\"fa fa-plus\" aria-hidden=\"true\" [ngStyle]=\"main?.subCategory.length > 0 ? {'pointer-events':'none','opacity':'0.4'}:''\"  (click)=\"addSetUp('maintenance','addSubType',main)\"></i> -->\n\t\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o pl-2\" aria-hidden=\"true\" (click)=\"addSetUp('maintenance','edit',main)\"></i>\n\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trash pl-2\" (click)=\"deleteCategory(main.id,'maintenance')\"\n\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<div class=\"subCategory not-found-label\" *ngIf=\"main?.subCategory.length == 0\">Maintenance sub types not found</div>\n\t\t\t\t\t<div class=\"subCategory\" *ngFor=\"let sub  of main?.subCategory;let catIndex = index\">\n\t\t\t\t\t\t<!-- <li>\t{{sub.name}} </li> -->\n\t\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t\t<div class=\"sub-dot mr-2\" [ngStyle]=\"mainCurrIndex == catIndex ?{'display':'none'}:''\"></div>\n\t\t\t\t\t\t\t<div class=\"wd-50\" > <span [ngStyle]=\"mainCurrIndex == catIndex ?{'display':'none'}:''\">{{sub.name}}</span>\n\t\t\t\t\t\t\t <input type=\"text\" *ngIf=\"catIndex == mainCurrIndex\"  class=\"cus-input\" placeholder=\"Enter sub category\" \n\t\t\t\t\t\t\t   name=\"subCategory\" [(ngModel)]=\"sub.name\" ></div>\n\t\t\t\t\t\t\t<div class=\"wd-50 d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o pl-2\" title=\"edit\" [ngStyle]=\"mainCurrIndex == catIndex ?{'display':'none'}:''\" aria-hidden=\"true\" (click)=\"mainCurrIndex = catIndex \"></i>\n\t\t\t\t\t\t\t\t<i class=\"fa fa-floppy-o pl-2 pr-3\"   title=\"save\" *ngIf=\"catIndex == mainCurrIndex\" aria-hidden=\"true\" [ngStyle]=\"!sub.name? {'pointer-events':'none','opacity':'0.4'}:''\" (click)=\"editMaintenance(main)\"></i>\n\t\t\t\t\t\t\t\t<i class=\"fa fa-times  pl-2\"  title=\"cancel\" *ngIf=\"catIndex == mainCurrIndex\" aria-hidden=\"true\" (click)=\"getAllMaintenance();mainCurrIndex = -1\"></i>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t</div>\n\t  </div>\n\t</div>\n  </div>\n</div>\n\n";
     /***/
   },
 
@@ -201,7 +201,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n\n\n\n<div class=\"parking-aa-unit-to-unit-allocation-wrapper inventory-outer\">\n    <div class=\"card table-card clear mt-3\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left pt-4\">\n    \t\t\t<h5>View Last Maintenance <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\">\n    \t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<!-- <i class=\"fa fa-filter fs-4 filter\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filter\"></i>   -->\n                </li>\n                <li class=\"list-inline-item\">\n                    <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </li>\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"histroySearch\"\n\t\t\t\t\t(ngModelChange)=\"onSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<!-- <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown> -->\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Maintenance</span>\n\t\t\t\t\t</a>\n\n    \t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n  \t\t</div>\n\t\t  <div  id=\"filter\"  class=\"collapse mb-3 filter-card\">\n            <mat-card class=\"example-card\" >\n                <div class=\"row wd-100\">\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Assets</h6> \n                        <angular2-multiselect [data]=\"assetList\" \n                        [(ngModel)]=\"search.assets\" \n                        [settings]=\"assetSettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                    </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Category</h6>\n                        <angular2-multiselect [data]=\"categoryList\" \n                        [(ngModel)]=\"search.categorys\" \n                        [settings]=\"categorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Sub Category</h6>\n                        <angular2-multiselect [data]=\"subCategoryList\" \n                        [(ngModel)]=\"selectedItems\" \n                        [settings]=\"subCategorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>                \n            </div>\n            \n        \n\n            </mat-card>\n      </div> \n\n        <div class=\"card-body p-0\">\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" \n\t\t\t    [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" \n\t\t\t\t[source]=\"assetData\" \n\t\t\t\t[columns]=\"columnData\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n";
+    __webpack_exports__["default"] = "\n\n\n\n<div class=\"parking-aa-unit-to-unit-allocation-wrapper inventory-outer\">\n    <ul class=\"legends ml-3 list-inline\" >\n\t\t<li class=\"list-inline-item cursor\"\n\t\t*ngFor=\"let list of [{name:'All',class:'medium'},{name:'Ontime',class:'low'},{name:'Delayed',class:'normal-status'}];let i =index\" \n\t\t[ngStyle]=\"i ==  currIndex? {'color':'blue'}:''\" (click)=\"currIndex = i;historyStatus=list.name != 'All'?list.name:'';onStatusFilter();\">\n\t\t<span class=\"dots {{list.class}}\" *ngIf=\"list.name != 'All'\" ></span>\n\t\t<span>{{list.name}}</span>\n\t</li>\n</ul>\n    <div class=\"card table-card clear mt-3\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left pt-4\">\n    \t\t\t<h5>View Last Maintenance <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\">\n    \t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<!-- <i class=\"fa fa-filter fs-4 filter\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filter\"></i>   -->\n                </li>\n                <li class=\"list-inline-item\">\n                    <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </li>\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"histroySearch\"\n\t\t\t\t\t(ngModelChange)=\"onSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<!-- <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown> -->\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/assets/create-maintenance\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Maintenance</span>\n\t\t\t\t\t</a>\n\n    \t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n  \t\t</div>\n\t\t  <div  id=\"filter\"  class=\"collapse mb-3 filter-card\">\n            <mat-card class=\"example-card\" >\n                <div class=\"row wd-100\">\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Assets</h6> \n                        <angular2-multiselect [data]=\"assetList\" \n                        [(ngModel)]=\"search.assets\" \n                        [settings]=\"assetSettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                    </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Category</h6>\n                        <angular2-multiselect [data]=\"categoryList\" \n                        [(ngModel)]=\"search.categorys\" \n                        [settings]=\"categorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Sub Category</h6>\n                        <angular2-multiselect [data]=\"subCategoryList\" \n                        [(ngModel)]=\"selectedItems\" \n                        [settings]=\"subCategorySettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect>\n                    </div>                \n            </div>\n            \n        \n\n            </mat-card>\n      </div> \n\n        <div class=\"card-body p-0\">\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" \n\t\t\t    [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" \n\t\t\t\t[source]=\"assetData\" \n\t\t\t\t[columns]=\"columnData\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n";
     /***/
   },
 
@@ -241,7 +241,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n\n   <div class=\"assets-create-wrapper outer-maintain\">\n       <div class=\"d-flex wd-100\">\n           <div class=\"d-flex wd-50\">\n               <h4 class=\"main-title-mini pt-4\">Manage Maintenance </h4>\n           </div>\n           <div class=\"d-flex wd-50 flex-end pt-3\">              \n               <!-- <li class=\"list-inline-item search d-none d-md-inline-block wd-33\">\n                <h6 class=\"pb-1\">Assets</h6> \n                <select name=\"assetId\" class=\"form-control\" [(ngModel)]=\"search.assetId\">\n                       <option value=\"\" disabled selected hidden>Select</option>\n                       <option *ngFor=\"let item of assetList\"\n                         [value]=\"item.assetId\">\n                         {{ item.assetName }}</option>\n                   </select>\n               </li>\n               <li class=\"list-inline-item search d-none d-md-inline-block wd-30\">\n                <h6 class=\"pb-1\">Category</h6>\n                <select name=\"category\" class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of  categoryList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                </select>\n            </li>\n            <li class=\"list-inline-item search d-none d-md-inline-block wd-30\">\n                <h6 class=\"pb-1\">Sub Category</h6>\n                <select name=\"subCategory\" class=\"form-control ellipse\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of subCategoryList\" \n                    [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                </select>\n            </li>                -->\n            <li class=\" d-flex search mb-2 pr-3\">\n                <i class=\"fa fa-search setup-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control pl-5\" placeholder=\"Search...\"\n                    [(ngModel)]=\"searchCategory\" (input)=\"filterCategoryItem(searchCategory)\">\n            </li>\n            <li (click)=\"download()\" class=\"list-inline-item pt-26 mr-3\">\n                <a  class=\"btn trans-white mt_5\">\n                  <i-feather  name=\"printer\" class=\"icon print\" >\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"feather feather-printer\">\n                  <polyline points=\"6 9 6 2 18 2 18 9\"></polyline>\n                  <path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path>\n                  <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"></rect>\n                  </svg>\n               </i-feather>\n               <span >Export</span>\n              </a>\n              </li>\n            <i class=\"fa fa-filter fs-4 filter\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filter\"></i>  \n        </div>\n       </div>\n       <div  id=\"filter\" class=\"collapse mb-3 filter-list \">\n            <mat-card class=\"example-card\" >\n                <div class=\"row wd-100\">\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Assets</h6> \n                        <angular2-multiselect [data]=\"assetList\" \n                        [(ngModel)]=\"search.assets\" \n                        [settings]=\"assetSettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                    </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Category</h6>\n                        <angular2-multiselect [data]=\"categoryList\" \n                        [(ngModel)]=\"search.categorys\" \n                        [settings]=\"categorySettings\" \n                        (onSelect)=\"onItemSelectCategory($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAllCategory($event)\">\n                        </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Sub Category</h6>\n                        <angular2-multiselect [data]=\"subCategoryList\" \n                        [(ngModel)]=\"search.subCategory\" \n                        [settings]=\"subCategorySettings\" \n                        (onSelect)=\"onItemSelectSubcategory($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAllSubcategory($event)\">\n                        </angular2-multiselect>\n                    </div>                \n            </div>\n        </mat-card>\n      </div>   \n    <mat-accordion class=\"pt-5 manage-assets\">\n        \n           <mat-expansion-panel *ngFor=\" let main of maintenanceList  | slice:ItemStartIndex:ItemEndIndex;let mainIndex = index\">\n               <mat-expansion-panel-header class=\"mr-0\">\n                   <mat-panel-title>\n                       <div class=\"row wd-100\">\n                            <div class=\"col-sm-4 ellipse\" >\n                                <label title=\"{{main.assetName}}\">{{main?.assetTagNo}}\n                                <span *ngIf=\"main?.assetTagNo\">-</span>{{main?.assetName?main.assetName:'--'}}</label>\n                            </div>\n                           <div class=\"col-sm-4 ellipse\">\n                               <label title=\"{{main.assetCategoryName}}\">{{main?.assetCategoryName?main.assetCategoryName:'--'}}</label>\n                           </div>\n                           <div class=\"col-sm-4 ellipse\">\n                            <div><i class=\"fa fa-pencil-square-o edit-asset\" routerLink=\"/ams/assets/create-maintenance/{{main.assetMaintenancePlanId}}\" aria-hidden=\"true\"></i></div>\n                            <div><i class=\"fa fa-trash delete-asset\" (click)=\"deleteManitenance(main.assetMaintenancePlanId)\"  aria-hidden=\"true\"></i></div>\n                               <label title=\"{{main.assetSubcategoryName}}\">{{main?.assetSubcategoryName?main?.assetSubcategoryName:'--'}}</label>\n                           </div>                           \n                       </div>\n                   </mat-panel-title>\n               </mat-expansion-panel-header>\n               <div class=\"row wd-100\">\n                   <div class=\"col-sm-4\">\n                       <label>Actual Maintenance Date</label>\n                       <div class=\"display-name\" *ngIf=\"!main.actualMaintDate\">--</div>\n                       <div class=\"display-name\" title=\"{{main.actualMaintDate}}\" *ngIf=\"main.actualMaintDate\">{{main.actualMaintDate | date: 'dd/MM/yyyy'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\" *ngIf=\"main.maintenanceByCompany\">\n                       <label>Performed by Company </label>\n                       <div class=\"display-name\" >{{main.maintenanceByCompany}}</div>\n                   </div>\n                   <div class=\"col-sm-4\" *ngIf=\"main.maintainedbyStaff\">\n                    <label>Performed by Company </label>\n                    <div class=\"display-name\" >{{main.maintainedbyStaff}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Notes</label>\n                       <div class=\"display-name\" title=\"{{main?.notes}}\">{{main?.notes?main?.notes:'--'}}</div>\n\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Maintenance Labor Cost</label>\n                       <div class=\"display-name\" title=\"{{main?.maintLaborCost}}\"> {{main?.maintLaborCost?main?.maintLaborCost:'--'}} </div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Maintenance Parts Cost</label>\n                       <div class=\"display-name\" title=\"{{main?.maintPartsCost}}\">{{main?.maintPartsCost?main?.maintPartsCost:'--'}}</div>\n\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>VAT</label>\n                       <div class=\"display-name\" title=\"{{main?.maintVat}}\">{{main?.maintVat?main?.maintVat:'--'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>With Holding Tax</label>\n                       <div class=\"display-name\" title=\"{{main?.maintWithTax}}\">{{main?.maintWithTax?main?.maintWithTax:'--'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Total Discount</label>\n                       <div class=\"display-name\" title=\"{{main?.totalDiscount}}\">{{main?.totalDiscount?main?.totalDiscount:'--'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">                             \n                    <label title=\"{{main.maintenanceTotalBilledAmt}}\">{{main?.maintenanceTotalBilledAmt?main.maintenanceTotalBilledAmt:'--'}}</label>\n                </div>\n                   <div class=\"col-sm-4\"> \n                       <label>Planned Maintenance Date</label>\n                       <div class=\"display-name\" *ngIf=\"!main.plannedMaintenanceDate\">--</div>\n                       <div class=\"display-name\" *ngIf=\"main.plannedMaintenanceDate\" title=\"{{main?.plannedMaintenanceDate}}\">{{main?.plannedMaintenanceDate | date: 'dd/MM/yyyy'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Next Planned Maintenance date</label>\n                       <div class=\"display-name\" *ngIf=\"!main.nextPlannedMaintenance\">--</div>\n                       <div class=\"display-name\" *ngIf=\"main.nextPlannedMaintenance\">{{main.nextPlannedMaintenance | date: 'dd/MM/yyyy'}}</div>\n                    \n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Remind me before next planned Date</label>\n                       <div class=\"display-name\">{{main?.alertBeforeDays?main?.alertBeforeDays:'--'}}</div>\n                   </div>\n               </div>\n           </mat-expansion-panel>\n           <app-pagination  class=\"custom-outer-pagination\" *ngIf=\"totalItems\"\n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n       </mat-accordion>\n   </div>";
+    __webpack_exports__["default"] = "\n\n   <div class=\"assets-create-wrapper outer-maintain\">\n       <div class=\"d-flex wd-100\">\n           <div class=\"d-flex wd-50\">\n               <h4 class=\"main-title-mini pt-4\">Manage Maintenance </h4>\n           </div>\n           <div class=\"d-flex wd-50 flex-end pt-3\">              \n               <!-- <li class=\"list-inline-item search d-none d-md-inline-block wd-33\">\n                <h6 class=\"pb-1\">Assets</h6> \n                <select name=\"assetId\" class=\"form-control\" [(ngModel)]=\"search.assetId\">\n                       <option value=\"\" disabled selected hidden>Select</option>\n                       <option *ngFor=\"let item of assetList\"\n                         [value]=\"item.assetId\">\n                         {{ item.assetName }}</option>\n                   </select>\n               </li>\n               <li class=\"list-inline-item search d-none d-md-inline-block wd-30\">\n                <h6 class=\"pb-1\">Category</h6>\n                <select name=\"category\" class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of  categoryList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                </select>\n            </li>\n            <li class=\"list-inline-item search d-none d-md-inline-block wd-30\">\n                <h6 class=\"pb-1\">Sub Category</h6>\n                <select name=\"subCategory\" class=\"form-control ellipse\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of subCategoryList\" \n                    [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                </select>\n            </li>                -->\n            <li class=\" d-flex search mb-2 pr-3\">\n                <i class=\"fa fa-search setup-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control pl-5\" placeholder=\"Search...\"\n                    [(ngModel)]=\"searchCategory\" (input)=\"filterCategoryItem(searchCategory)\">\n            </li>\n            <li (click)=\"download()\" class=\"list-inline-item pt-26 mr-3\">\n                <a  class=\"btn trans-white mt_5\">\n                  <i-feather  name=\"printer\" class=\"icon print\" >\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"feather feather-printer\">\n                  <polyline points=\"6 9 6 2 18 2 18 9\"></polyline>\n                  <path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path>\n                  <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"></rect>\n                  </svg>\n               </i-feather>\n               <span >Export</span>\n              </a>\n              </li>\n            <i class=\"fa fa-filter fs-4 filter\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filter\"></i>  \n        </div>\n       </div>\n       <div  id=\"filter\" class=\"collapse mb-3 filter-list \">\n            <mat-card class=\"example-card\" >\n                <div class=\"row wd-100\">\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Assets</h6> \n                        <angular2-multiselect [data]=\"assetList\" \n                        [(ngModel)]=\"search.assets\" \n                        [settings]=\"assetSettings\" \n                        (onSelect)=\"onItemSelect($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAll($event)\">\n                    </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Category</h6>\n                        <angular2-multiselect [data]=\"categoryList\" \n                        [(ngModel)]=\"search.categorys\" \n                        [settings]=\"categorySettings\" \n                        (onSelect)=\"onItemSelectCategory($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAllCategory($event)\">\n                        </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Sub Category</h6>\n                        <angular2-multiselect [data]=\"subCategoryList\" \n                        [(ngModel)]=\"search.subCategory\" \n                        [settings]=\"subCategorySettings\" \n                        (onSelect)=\"onItemSelectSubcategory($event)\"\n                        (onDeSelect)=\"OnItemDeSelect($event)\" \n                        (onSelectAll)=\"onSelectAll($event)\" \n                        (onDeSelectAll)=\"onDeSelectAllSubcategory($event)\">\n                        </angular2-multiselect>\n                    </div>                \n            </div>\n        </mat-card>\n      </div>   \n    <mat-accordion class=\"pt-5 manage-assets\">\n        \n           <mat-expansion-panel  *ngFor=\" let main of maintenanceList  | slice:ItemStartIndex:ItemEndIndex;let mainIndex = index\">\n               <mat-expansion-panel-header class=\"mr-0\">\n                   <mat-panel-title>\n                       <div class=\"row wd-100\">\n                            <div class=\"col-sm-4 ellipse\" >\n                                <label title=\"{{main.assetName}}\">{{main?.assetTagNo}}\n                                <span *ngIf=\"main?.assetTagNo\">-</span>{{main?.assetName?main.assetName:'--'}}</label>\n                            </div>\n                           <div class=\"col-sm-4 ellipse\">\n                               <label title=\"{{main.assetCategoryName}}\">{{main?.assetCategoryName?main.assetCategoryName:'--'}}</label>\n                           </div>\n                           <div class=\"col-sm-4 ellipse\">\n                            <div><i class=\"fa fa-pencil-square-o edit-asset\" routerLink=\"/ams/assets/create-maintenance/{{main.assetMaintenancePlanId}}\" aria-hidden=\"true\"></i></div>\n                            <div><i class=\"fa fa-trash delete-asset\" (click)=\"deleteManitenance(main.assetMaintenancePlanId)\"  aria-hidden=\"true\"></i></div>\n                               <label title=\"{{main.assetSubcategoryName}}\">{{main?.assetSubcategoryName?main?.assetSubcategoryName:'--'}}</label>\n                           </div>                           \n                       </div>\n                   </mat-panel-title>\n               </mat-expansion-panel-header>\n               <div class=\"row wd-100\">\n                   <div class=\"col-sm-4\">\n                       <label>Actual Maintenance Date</label>\n                       <div class=\"display-name\" *ngIf=\"!main.actualMaintDate\">--</div>\n                       <div class=\"display-name\" title=\"{{main.actualMaintDate}}\" *ngIf=\"main.actualMaintDate\">{{main.actualMaintDate | date: 'dd/MM/yyyy'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\" *ngIf=\"main.maintenanceByCompany\">\n                       <label>Performed by Company </label>\n                       <div class=\"display-name\" >{{main.maintenanceByCompany}}</div>\n                   </div>\n                   <div class=\"col-sm-4\" *ngIf=\"main.maintainedbyStaff\">\n                    <label>Performed by Company </label>\n                    <div class=\"display-name\" >{{main.maintainedbyStaff}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Notes</label>\n                       <div class=\"display-name\" title=\"{{main?.notes}}\">{{main?.notes?main?.notes:'--'}}</div>\n\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Maintenance Labor Cost</label>\n                       <div class=\"display-name\" title=\"{{main?.maintLaborCost}}\"> {{main?.maintLaborCost?main?.maintLaborCost:'--'}} </div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Maintenance Parts Cost</label>\n                       <div class=\"display-name\" title=\"{{main?.maintPartsCost}}\">{{main?.maintPartsCost?main?.maintPartsCost:'--'}}</div>\n\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>VAT</label>\n                       <div class=\"display-name\" title=\"{{main?.maintVat}}\">{{main?.maintVat?main?.maintVat:'--'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>With Holding Tax</label>\n                       <div class=\"display-name\" title=\"{{main?.maintWithTax}}\">{{main?.maintWithTax?main?.maintWithTax:'--'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Total Discount</label>\n                       <div class=\"display-name\" title=\"{{main?.totalDiscount}}\">{{main?.totalDiscount?main?.totalDiscount:'--'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">                             \n                    <label title=\"{{main.maintenanceTotalBilledAmt}}\">{{main?.maintenanceTotalBilledAmt?main.maintenanceTotalBilledAmt:'--'}}</label>\n                </div>\n                   <div class=\"col-sm-4\"> \n                       <label>Planned Maintenance Date</label>\n                       <div class=\"display-name\" *ngIf=\"!main.plannedMaintenanceDate\">--</div>\n                       <div class=\"display-name\" *ngIf=\"main.plannedMaintenanceDate\" title=\"{{main?.plannedMaintenanceDate}}\">{{main?.plannedMaintenanceDate | date: 'dd/MM/yyyy'}}</div>\n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Next Planned Maintenance date</label>\n                       <div class=\"display-name\" *ngIf=\"!main.nextPlannedMaintenance\">--</div>\n                       <div class=\"display-name\" *ngIf=\"main.nextPlannedMaintenance\">{{main.nextPlannedMaintenance | date: 'dd/MM/yyyy'}}</div>\n                    \n                   </div>\n                   <div class=\"col-sm-4\">\n                       <label>Remind me before next planned Date</label>\n                       <div class=\"display-name\">{{main?.alertBeforeDays?main?.alertBeforeDays:'--'}}</div>\n                   </div>\n               </div>\n           </mat-expansion-panel>\n           <app-pagination  class=\"custom-outer-pagination\" *ngIf=\"totalItems\"\n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n       </mat-accordion>\n   </div>";
     /***/
   },
 
@@ -638,7 +638,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_15__["AddMaintenanceComponent"], _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_16__["ManageMaintenanceComponent"], _components_maintenance_history_maintenance_history_component__WEBPACK_IMPORTED_MODULE_17__["MaintenanceHistoryComponent"], _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_18__["LastMaintenanceComponent"]],
       entryComponents: [_components_assets_maintenance_history_assets_maintenance_history_component__WEBPACK_IMPORTED_MODULE_14__["AssetsMaintenanceHistoryComponent"]],
       imports: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialogModule"], _assets_routing_module__WEBPACK_IMPORTED_MODULE_3__["AssetsRoutingModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_19__["MatSlideToggleModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_20__["AngularMultiSelectModule"]],
-      bootstrap: [_assets_component__WEBPACK_IMPORTED_MODULE_7__["AssetsComponent"]]
+      bootstrap: [_assets_component__WEBPACK_IMPORTED_MODULE_7__["AssetsComponent"]],
+      providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]]
     })], AssetsModule);
     /***/
   },
@@ -1503,6 +1504,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.fileUrl = "";
         this.isImageUploaded = false;
         this.depreciatonData = [];
+        this.categoryList = [];
       }
 
       _createClass(AssetsCreateComponent, [{
@@ -1645,7 +1647,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "inventoryNumber": null,
               // "salvageValue": null,
               "assetTypeId": null,
-              "assetSubcategoryId": null,
+              "assetSubcategoryId": this.asset.assetSubcategoryId,
               "assetOwnerId": null,
               "isLeased": this.asset.isLeased,
               "totalAssetPrice": null,
@@ -1718,7 +1720,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "inventoryNumber": null,
               // "salvageValue": null,
               "assetTypeId": null,
-              "assetSubcategoryId": null,
+              "assetSubcategoryId": this.asset.assetSubcategoryId,
               "assetOwnerId": null,
               "isLeased": this.asset.isLeased,
               "totalAssetPrice": null,
@@ -1772,13 +1774,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.asset.vendorId = "";
           this.asset.assetLocation = "";
           this.asset.depreciationMethodId = "";
+          this.asset.assetSubcategoryId = "";
           this.asset.assetImageId = null;
           this.getAllLocation();
           this.getDepreciatonList();
+          this.getAllCategory();
 
           if (this.route.params['value'].id != undefined) {
             this.isEditAsset = true;
             var params = {
+              apartmentId: Number(this.cookieService.get('apartmentId')),
               assetId: this.route.params['value'].id
             };
             this.assetService.getAllAssetByAssetId(params).subscribe(function (res) {
@@ -1789,16 +1794,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               };
 
               _this14.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                _this14.filePath = res[0].filePath;
+                _this14.filePath = res && res.length > 0 ? res[0].filePath : '';
 
                 _this14.downloadFile(_this14.filePath);
               });
             });
             var reqInsuranceParam = {};
+            this.currentAssetId = params.assetId;
             reqInsuranceParam.AssetId = params.assetId;
             this.assetService.getAllAssetInsurancePlanByAssetId(reqInsuranceParam).subscribe(function (res) {
-              _this14.insurance = res[0] ? res[0] : {};
-              _this14.isAddInsurance = true;
+              if (res && res.length > 0) {
+                _this14.insurance = res[0];
+              } else {
+                _this14.isAddInsurance = true;
+                _this14.insurance = {};
+                debugger;
+              }
             });
           }
 
@@ -1835,7 +1846,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           reqObj = {
             "assetInsurancePlanId": this.insurance.assetInsurancePlanId,
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-            "assetId": this.asset.assetId,
+            "assetId": this.currentAssetId,
             "insuranceProvider": this.insurance.insuranceProvider,
             "insuranceNo": this.insurance.insuranceNo,
             "insuranceExpDate": this.insurance.insuranceExpDate,
@@ -1869,7 +1880,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           reqObj = {
             "assetInsurancePlanId": 0,
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-            "assetId": assetId,
+            "assetId": this.currentAssetId,
             "insuranceProvider": this.insurance.insuranceProvider,
             "insuranceNo": this.insurance.insuranceNo,
             "insuranceExpDate": this.insurance.insuranceExpDate,
@@ -1936,6 +1947,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var result = new Date(this.asset.installationDate._d);
             result.setDate(result.getDate() + Number(this.asset.frequencyDays));
             this.asset.nextPlanDate = result;
+          }
+        }
+      }, {
+        key: "getAllCategory",
+        value: function getAllCategory() {
+          var _this19 = this;
+
+          var queryParamBase = {};
+          queryParamBase = {
+            apartmentId: this.cookieService.get('apartmentId'),
+            lookupTypeId: 19,
+            subCategoryLookupTypeId: 68
+          };
+          this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
+            if (res) {
+              _this19.categoryList = res ? res : [];
+
+              if (_this19.isEditAsset && _this19.asset.assetCategoryId) {
+                _this19.setSubCategory(_this19.asset.assetCategoryId);
+              } else {
+                _this19.asset.assetCategoryId = _this19.categoryList && _this19.categoryList.length > 0 ? _this19.categoryList[0].id : '';
+
+                _this19.setSubCategory(_this19.asset.assetCategoryId);
+              }
+            }
+          });
+        }
+      }, {
+        key: "setSubCategory",
+        value: function setSubCategory(id) {
+          var _this20 = this;
+
+          if (this.categoryList && this.categoryList.length > 0) {
+            this.categoryList.filter(function (val) {
+              if (val.id == id) {
+                _this20.categorySubType = val.subCategory;
+              }
+            });
           }
         }
       }]);
@@ -2132,25 +2181,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this19 = this;
+          var _this21 = this;
 
           this.assetService.getAllAssetMaintenancePlanByAssetId(this.assetId).subscribe(function (res) {
-            _this19.isAssetMaintenanceLoaded = true;
-            _this19.maintenanceDataList = res;
+            _this21.isAssetMaintenanceLoaded = true;
+            _this21.maintenanceDataList = res;
 
-            if (_this19.totalItems > _this19.itemLimit) {
-              _this19.ItemEndIndex = _this19.itemLimit;
+            if (_this21.totalItems > _this21.itemLimit) {
+              _this21.ItemEndIndex = _this21.itemLimit;
             } else {
-              _this19.ItemEndIndex = _this19.totalItems;
+              _this21.ItemEndIndex = _this21.totalItems;
             }
 
-            _this19.totalItems = _this19.maintenanceDataList.length;
+            _this21.totalItems = _this21.maintenanceDataList.length;
           });
           var params = {
             LookupTypeId: 64
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this19.statusTypeData = res;
+            _this21.statusTypeData = res;
           }, function (error) {});
         }
       }]);
@@ -2343,7 +2392,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getReportData",
         value: function getReportData() {
-          var _this20 = this;
+          var _this22 = this;
 
           var details = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -2351,8 +2400,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             MenuName: 'UnitUser'
           };
           this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-            _this20.reportDataList = res;
-            _this20.isDataLoaded = true;
+            _this22.reportDataList = res;
+            _this22.isDataLoaded = true;
           });
         }
       }, {
@@ -2372,24 +2421,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this21 = this;
+          var _this23 = this;
 
           this.pageName = this.route.params['value'].name;
           var unitBlockParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-            _this21.unitBlocksData = res;
+            _this23.unitBlocksData = res;
           });
           var params = {
             LookupTypeId: 87
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
             var data = res.filter(function (item) {
-              return item.lookupValueId == _this21.route.params['value'].id;
+              return item.lookupValueId == _this23.route.params['value'].id;
             });
-            _this21.pageName = res[0].lookupValueName;
-            _this21.pageDesp = res[0].description;
+            _this23.pageName = res[0].lookupValueName;
+            _this23.pageDesp = res[0].description;
           }); // this.getBlockDetails();
 
           this.getReportData();
@@ -2443,17 +2492,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getCurrentInventory",
         value: function getCurrentInventory() {
-          var _this22 = this;
+          var _this24 = this;
 
           var params = {};
           params.ApartmentId = parseInt(this.cookieService.get('apartmentId'));
           this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe(function (res) {
             if (res) {
-              _this22.gridSourceData = {
+              _this24.gridSourceData = {
                 localdata: res.length > 0 ? res : [],
                 datatype: "array"
               };
-              _this22.inventoryHistoryData = new jqx.dataAdapter(_this22.gridSourceData);
+              _this24.inventoryHistoryData = new jqx.dataAdapter(_this24.gridSourceData);
             }
           });
         }
@@ -2617,7 +2666,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AssetsSetupComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this23 = this;
+          var _this25 = this;
 
           this.getAllCategory();
           this.getAllMaintenance();
@@ -2628,27 +2677,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var param = {};
               param = {
                 categoryId: id,
-                deletedBy: parseInt(_this23.cookieService.get('userId'))
+                deletedBy: parseInt(_this25.cookieService.get('userId'))
               };
 
-              _this23.lookupService.deleteCategory(param).subscribe(function (res) {
+              _this25.lookupService.deleteCategory(param).subscribe(function (res) {
                 // _.each(this.categoryList, (type) => {
                 // 	if (type.id == id) {
                 // 		type.isActive = false;
                 // 	}
                 // })
-                _this23.getAllCategory();
+                _this25.getAllCategory();
 
-                _this23.getAllMaintenance();
+                _this25.getAllMaintenance();
 
                 setTimeout(function () {
-                  if (_this23.delType == "maintenance") {
-                    _this23.sharedService.setAlertMessage("Maintenance type deleted successfully");
+                  if (_this25.delType == "maintenance") {
+                    _this25.sharedService.setAlertMessage("Maintenance type deleted successfully");
                   } else {
-                    _this23.sharedService.setAlertMessage("Asset Category deleted successfully");
+                    _this25.sharedService.setAlertMessage("Asset Category deleted successfully");
                   }
 
-                  _this23.sharedService.setUnitListDeleteIndex(null);
+                  _this25.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -2659,7 +2708,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addSetUp",
         value: function addSetUp(name, type, value, e) {
-          var _this24 = this;
+          var _this26 = this;
 
           // let data:any={};
           // data.name=type;
@@ -2677,9 +2726,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(result);
 
             if (result) {
-              _this24.getAllCategory();
+              _this26.getAllCategory();
 
-              _this24.getAllMaintenance();
+              _this26.getAllMaintenance();
             }
           });
         }
@@ -2727,7 +2776,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editSubCategory",
         value: function editSubCategory(data) {
-          var _this25 = this;
+          var _this27 = this;
 
           var reqObj = {};
           reqObj.id = data.id;
@@ -2748,20 +2797,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           params.subcategoryLookupTypeId = 68;
           this.lookupService.upsertSubCategory(params).subscribe(function (res) {
             if (res) {
-              _this25.sharedService.setAlertMessage("Sub Category updated successfully");
+              _this27.sharedService.setAlertMessage("Sub Category updated successfully");
 
-              _this25.isAssetLoaded = false;
+              _this27.isAssetLoaded = false;
 
-              _this25.getAllCategory();
+              _this27.getAllCategory();
 
-              _this25.currIndex = -1;
+              _this27.currIndex = -1;
             }
           });
         }
       }, {
         key: "getAllMaintenance",
         value: function getAllMaintenance() {
-          var _this26 = this;
+          var _this28 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2772,9 +2821,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this26.isAssetLoaded = false;
-              _this26.mainType = res ? res : [];
-              _this26.tempMainType = _this26.mainType; // if (this.data && this.data.type === 'addSubType') {
+              _this28.isAssetLoaded = false;
+              _this28.mainType = res ? res : [];
+              _this28.tempMainType = _this28.mainType; // if (this.data && this.data.type === 'addSubType') {
               // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
               // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
               // 	// console.log(this.category);
@@ -2790,7 +2839,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this27 = this;
+          var _this29 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2801,16 +2850,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isAssetLoaded = true;
           this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this27.isAssetLoaded = false;
-              _this27.categoryList = res ? res : [];
-              _this27.tempCategoryList = _this27.categoryList;
+              _this29.isAssetLoaded = false;
+              _this29.categoryList = res ? res : [];
+              _this29.tempCategoryList = _this29.categoryList;
             }
           });
         }
       }, {
         key: "editMaintenance",
         value: function editMaintenance(data) {
-          var _this28 = this;
+          var _this30 = this;
 
           var reqObj = {};
           reqObj.id = data.id;
@@ -2828,20 +2877,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(res, res);
 
             if (res) {
-              _this28.sharedService.setAlertMessage("Maintenance sub types updated successfully");
+              _this30.sharedService.setAlertMessage("Maintenance sub types updated successfully");
 
-              _this28.isAssetLoaded = false;
+              _this30.isAssetLoaded = false;
 
-              _this28.getAllMaintenance();
+              _this30.getAllMaintenance();
 
-              _this28.mainCurrIndex = -1;
+              _this30.mainCurrIndex = -1;
             }
           });
         }
       }, {
         key: "getDepreciatonList",
         value: function getDepreciatonList() {
-          var _this29 = this;
+          var _this31 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -2850,10 +2899,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this29.depreciatonData = res ? res : [];
+              _this31.depreciatonData = res ? res : [];
 
-              if (_this29.depreciatonData && _this29.depreciatonData.length) {
-                _this29.depreciatonData.filter(function (val) {
+              if (_this31.depreciatonData && _this31.depreciatonData.length) {
+                _this31.depreciatonData.filter(function (val) {
                   val.isCheck = val.isDisabled == true ? false : true;
                 });
               }
@@ -2863,7 +2912,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "updateDepreciatonList",
         value: function updateDepreciatonList(data) {
-          var _this30 = this;
+          var _this32 = this;
 
           console.log(data);
           var reqObj = {};
@@ -2885,15 +2934,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           param.lookupvalue = reqObj;
           this.lookupService.updateLookupValue(param).subscribe(function (res) {
             if (res) {
-              _this30.sharedService.setAlertMessage("Depreciaton method  updated successfully");
+              _this32.sharedService.setAlertMessage("Depreciaton method  updated successfully");
 
-              _this30.isAssetLoaded = false;
+              _this32.isAssetLoaded = false;
 
-              _this30.getDepreciatonList();
+              _this32.getDepreciatonList();
             } else if (res.body.errorMessage) {
               // this.isError = true;
               // this.errorMessage = 'Not Added it already exist'
-              _this30.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+              _this32.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
             }
           });
         }
@@ -3234,7 +3283,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AssetsViewComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this31 = this;
+          var _this33 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3297,10 +3346,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (id != null) {
               var params = {
                 assetId: id,
-                deleteBy: parseInt(_this31.cookieService.get('userId'))
+                deleteBy: parseInt(_this33.cookieService.get('userId'))
               };
 
-              _this31.assetService.deleteAsset(params).subscribe(function (res) {
+              _this33.assetService.deleteAsset(params).subscribe(function (res) {
                 // _.each(this.assetListData, (type)=>{
                 //   if(type.assetId == id){
                 //     type.isActive = false;
@@ -3309,11 +3358,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 setTimeout(function () {
                   // this.assetListData = this.assetListData.filter((type) => type.assetId !== id);
                   // this.totalItems = this.assetListData.length;
-                  _this31.sharedService.setAlertMessage("Asset deleted");
+                  _this33.sharedService.setAlertMessage("Asset deleted");
 
-                  _this31.sharedService.setUnitListDeleteIndex(null);
+                  _this33.sharedService.setUnitListDeleteIndex(null);
 
-                  _this31.getAllAssets();
+                  _this33.getAllAssets();
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -3325,17 +3374,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllAssets",
         value: function getAllAssets() {
-          var _this32 = this;
+          var _this34 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
           this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
             if (res) {
-              _this32.gridSourceData = {
+              _this34.gridSourceData = {
                 localdata: res.length > 0 ? res : [],
                 datatype: "array"
               };
-              _this32.assetData = new jqx.dataAdapter(_this32.gridSourceData);
+              _this34.assetData = new jqx.dataAdapter(_this34.gridSourceData);
             }
           });
         }
@@ -3347,7 +3396,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this33 = this;
+          var _this35 = this;
 
           if (this.histroySearch != "") {
             var filterGroup = new jqx.filter();
@@ -3360,7 +3409,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.datagrid.showfiltercolumnbackground(false);
             this.header.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this33.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this35.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3891,44 +3940,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/api/controllers/Asset */
     "./src/app/api/controllers/Asset.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
     "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
 
     var LastMaintenanceComponent =
     /*#__PURE__*/
     function () {
-      function LastMaintenanceComponent(assetService, cookieService, lookupService, route) {
+      function LastMaintenanceComponent(assetService, cookieService, lookupService, route, datePipe) {
         _classCallCheck(this, LastMaintenanceComponent);
 
         this.assetService = assetService;
         this.cookieService = cookieService;
         this.lookupService = lookupService;
         this.route = route;
+        this.datePipe = datePipe;
         this.categoryList = [];
         this.assetList = [];
         this.subCategoryList = [];
@@ -3963,7 +4019,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(LastMaintenanceComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this34 = this;
+          var _this36 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -4037,9 +4093,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.route.paramMap.subscribe(function (params) {
             if (params) {
-              _this34.assetId = params.get('id');
+              _this36.assetId = params.get('id');
 
-              _this34.getMaintainAsset();
+              _this36.getMaintainAsset();
             }
           });
           this.getAllCategory();
@@ -4070,7 +4126,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getMaintainAsset",
         value: function getMaintainAsset() {
-          var _this35 = this;
+          var _this37 = this;
 
           // if(this.assetId){
           // let params = {
@@ -4097,17 +4153,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             var responeData = [];
             responeData = res;
-            _this35.gridSourceData = {
+
+            if (responeData && responeData.length > 0) {
+              responeData.filter(function (val) {
+                val.actualMaintDate = val.actualMaintDate ? _this37.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
+                val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this37.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
+                val.nextPlannedMaintenance = val.nextPlannedMaintenance ? _this37.datePipe.transform(val.nextPlannedMaintenance, 'MM-dd-yyyy') : '';
+                val.lastMaintenanceDate = val.lastMaintenanceDate ? _this37.datePipe.transform(val.lastMaintenanceDate, 'MM-dd-yyyy') : '';
+              });
+            }
+
+            _this37.gridSourceData = {
               localdata: responeData.length > 0 ? responeData : [],
               datatype: "array"
             };
-            _this35.assetData = new jqx.dataAdapter(_this35.gridSourceData);
+            _this37.assetData = new jqx.dataAdapter(_this37.gridSourceData);
           });
         }
       }, {
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this36 = this;
+          var _this38 = this;
 
           if (this.histroySearch != "") {
             var filterGroup = new jqx.filter();
@@ -4120,7 +4186,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this36.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this38.datagrid.addfilter(item.datafield, filterGroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "onStatusFilter",
+        value: function onStatusFilter() {
+          var _this39 = this;
+
+          if (this.historyStatus != "") {
+            var filterGroup = new jqx.filter();
+            var filterOperator = 1;
+            var filterValue = this.historyStatus;
+            var filterCondition = 'contains';
+            var filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
+            filterGroup.operator = 'or';
+            filterGroup.addfilter(filterOperator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield == 'historyStatus') {
+                _this39.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -4137,7 +4227,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this37 = this;
+          var _this40 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -4148,7 +4238,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this37.categoryList.push({
+                  _this40.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4160,7 +4250,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this38 = this;
+          var _this41 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -4169,7 +4259,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this38.subCategoryList.push({
+                  _this41.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4191,7 +4281,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this39 = this;
+          var _this42 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -4200,7 +4290,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this39.assetList.push({
+                  _this42.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -4216,19 +4306,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     LastMaintenanceComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
+        type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+      }, {
+        type: _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]
       }];
     };
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__["jqxGridComponent"])], LastMaintenanceComponent.prototype, "datagrid", void 0);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__["jqxGridComponent"])], LastMaintenanceComponent.prototype, "datagrid", void 0);
     LastMaintenanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-last-maintenance',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -4237,7 +4329,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./last-maintenance.component.scss */
       "./src/app/ams/assets/components/last-maintenance/last-maintenance.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])], LastMaintenanceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]])], LastMaintenanceComponent);
 
     function getClassName(value) {
       // var name = value.split('-');
@@ -4413,7 +4505,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
-    "./src/app/api/controllers/Lookup.ts"); // import { Component, OnInit, Injector, ViewChild, TemplateRef } from '@angular/core';
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js"); // import { Component, OnInit, Injector, ViewChild, TemplateRef } from '@angular/core';
     // import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
     // // import { MatDialog } from '@angular/material/dialog';
     // // import { MatDialogRef } from "@angular/material/dialog";
@@ -4431,12 +4529,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var MaintenanceHistoryComponent =
     /*#__PURE__*/
     function () {
-      function MaintenanceHistoryComponent(assetService, cookieService, lookupService) {
+      function MaintenanceHistoryComponent(assetService, cookieService, lookupService, datePipe) {
         _classCallCheck(this, MaintenanceHistoryComponent);
 
         this.assetService = assetService;
         this.cookieService = cookieService;
         this.lookupService = lookupService;
+        this.datePipe = datePipe;
         this.categoryList = [];
         this.assetList = [];
         this.subCategoryList = [];
@@ -4492,8 +4591,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }, {
             text: 'Ontime/Delayed',
             datafield: 'historyStatus',
-            cellsrenderer: cellsrenderer,
             minwidth: 120,
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell"><span class="dots rt-1 ' + getClassName(value) + '"></span>' + value + '</div>';
+            },
             renderer: columnrenderer
           }, {
             text: 'Asset Tag',
@@ -4537,59 +4638,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             cellsrenderer: cellsrenderer,
             minwidth: 100,
             renderer: columnrenderer
-          }]; //  var ticketListData = res.filter(data => {
-          //   return data.isActive
-          // })
-
+          }];
           this.getMaintenaceHistory();
           this.getAllCategory();
           this.getSubCategory();
           this.getAsset();
-        } // onItemSelect(item: any) {
-        //   console.log('call',item);
-        //    this.assetName = item.itemName;
-        //    this.onFilterSearchAsset();
-        //   // console.log(this.selectedItems);
-        //   }
-        //   onItemSelectCategory(item: any) {
-        //     console.log('call',item);
-        //      this.categoryName = item.itemName;
-        //      this.onFilterSearchAsset();
-        //     // console.log(this.selectedItems);
-        //     }
-        //     onItemSelectSubCategory(item: any) {
-        //       console.log('call',item);
-        //        this.categoryName = item.itemName;
-        //        this.onFilterSearchAsset();
-        //       // console.log(this.selectedItems);
-        //       }
-        // OnItemDeSelect(item: any) {
-        // console.log(item);
-        // // console.log(this.selectedItems);
-        // }
-        // onSelectAll(items: any) {
-        // console.log(items);
-        // }
-        // onDeSelectAll(items: any) {
-        // console.log(items);
-        // this.assetName ='';
-        // this.onFilterSearchAsset();
-        // }
-        // onDeSelectAllCategory(items: any) {
-        //   console.log(items);
-        //   this.categoryName ='';
-        //   this.onFilterSearchAsset();
-        //   }
-        //   onDeSelectAllSubCategory(items: any) {
-        //     console.log(items);
-        //     this.subCategoryName ='';
-        //     this.onFilterSearchAsset();
-        //     }
-
+        }
       }, {
         key: "searchAsset",
         value: function searchAsset() {
-          var _this40 = this;
+          var _this43 = this;
 
           var filterArr = [];
           var filterCategoryArr = [];
@@ -4598,7 +4656,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.assetName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this40.assetName == val.assetName) {
+                if (_this43.assetName == val.assetName) {
                   filterArr.push(val);
                 }
               });
@@ -4611,7 +4669,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.assetName && this.categoryName) {
             // if(filterArr && filterArr.length>0){
             filterArr.filter(function (val) {
-              if (_this40.categoryName == val.assetCategoryName) {
+              if (_this43.categoryName == val.assetCategoryName) {
                 filterCategoryArr.push(val);
               }
             }); // }
@@ -4621,7 +4679,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else if (!this.assetName && this.categoryName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this40.categoryName == val.assetCategoryName) {
+                if (_this43.categoryName == val.assetCategoryName) {
                   filterCategoryArr.push(val);
                 }
               }); // this.maintenanceList = filterCategoryArr;
@@ -4632,7 +4690,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (this.categoryName && this.subCategoryName) {
             filterCategoryArr.filter(function (val) {
-              if (_this40.subCategoryName == val.assetSubcategoryName) {
+              if (_this43.subCategoryName == val.assetSubcategoryName) {
                 filterSubCategoryArr.push(val);
               }
             }); // }
@@ -4642,7 +4700,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else if (!this.categoryName && this.subCategoryName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this40.subCategoryName == val.assetSubcategoryName) {
+                if (_this43.subCategoryName == val.assetSubcategoryName) {
                   filterSubCategoryArr.push(val);
                 }
               }); // this.maintenanceList = filterSubCategoryArr;
@@ -4711,7 +4769,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getMaintenaceHistory",
         value: function getMaintenaceHistory() {
-          var _this41 = this;
+          var _this44 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -4734,14 +4792,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               var responeData = [];
               responeData = res;
-              _this41.maintenanceList = res;
-              _this41.tempMaintenanceList = res;
+
+              if (responeData && responeData.length > 0) {
+                responeData.filter(function (val) {
+                  val.actualMaintDate = val.actualMaintDate ? _this44.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
+                  val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this44.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
+                });
+              }
+
+              _this44.maintenanceList = res;
+              _this44.tempMaintenanceList = res;
               console.log(res);
-              _this41.gridSourceData = {
+              _this44.gridSourceData = {
                 localdata: responeData.length > 0 ? responeData : [],
                 datatype: "array"
               };
-              _this41.assetsHistoryData = new jqx.dataAdapter(_this41.gridSourceData);
+              _this44.assetsHistoryData = new jqx.dataAdapter(_this44.gridSourceData);
             }
           });
         }
@@ -4774,42 +4840,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           //   this.assetsHistoryData = new jqx.dataAdapter(this.gridSourceData);
           // }
           // console.log(JSON.parse(this.assetsHistoryData).localdata);
-        } // onFilterSearchAsset(){
-        //   if(this.assetName != ""){
-        //     let filterGroup = new jqx.filter();
-        //     let filterOperator = 1;
-        //     let filterValue =  this.assetName;
-        //     let filterCondition = 'contains';
-        //     let assetfilterData = filterGroup.createfilter('stringfilter', this.assetName, filterCondition);
-        //     let catagoryfilterData = filterGroup.createfilter('stringfilter', this.categoryName, filterCondition);
-        //     let subCatagoryfilterData = filterGroup.createfilter('stringfilter', this.subCategoryName, filterCondition);
-        //     filterGroup.operator = 'or';
-        //     filterGroup.addfilter(filterOperator, assetfilterData);
-        //     filterGroup.addfilter(filterOperator, catagoryfilterData);
-        //     filterGroup.addfilter(filterOperator, subCatagoryfilterData);
-        //     this.datagrid.showfiltercolumnbackground(false);
-        //     this.columnData.forEach(item => {
-        //       if(item.datafield == 'assetName') {
-        //         this.datagrid.addfilter(item.datafield, filterGroup, true);
-        //       } 
-        //       if(item.datafield == 'assetCategoryName') {
-        //         this.datagrid.addfilter(item.datafield, filterGroup, true);
-        //       }
-        //       if(item.datafield == 'assetSubcategoryName') {
-        //         this.datagrid.addfilter(item.datafield, filterGroup, true);
-        //       }
-        //     })
-        //     this.datagrid.applyfilters();
-        //   }
-        //   if(!this.assetName  && !this.categoryName && !this.subCategoryName) {
-        //     this.datagrid.clearfilters();
-        //   }
-        // }
-
+        }
       }, {
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this42 = this;
+          var _this45 = this;
 
           if (this.histroySearch != "") {
             var filterGroup = new jqx.filter();
@@ -4822,7 +4857,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this42.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this45.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -4833,7 +4868,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onStatusFilter",
         value: function onStatusFilter() {
-          var _this43 = this;
+          var _this46 = this;
 
           if (this.historyStatus != "") {
             var filterGroup = new jqx.filter();
@@ -4846,7 +4881,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield == 'historyStatus') {
-                _this43.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this46.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -4857,7 +4892,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this44 = this;
+          var _this47 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -4868,7 +4903,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this44.categoryList.push({
+                  _this47.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4880,7 +4915,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this45 = this;
+          var _this48 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -4889,7 +4924,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this45.subCategoryList.push({
+                  _this48.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -4906,7 +4941,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this46 = this;
+          var _this49 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -4915,7 +4950,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this46.assetList.push({
+                  _this49.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -4941,6 +4976,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
       }, {
         type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+      }, {
+        type: _angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"]
       }];
     };
 
@@ -4955,7 +4992,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./maintenance-history.component.scss */
       "./src/app/ams/assets/components/maintenance-history/maintenance-history.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]])], MaintenanceHistoryComponent); // assetCategoryData:any;
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"]])], MaintenanceHistoryComponent);
+
+    function getClassName(value) {
+      // var name = value.split('-');
+      // return name[0].toLowerCase();
+      return value == "Delayed" ? 'normal-status' : value == "Ontime" ? 'low' : '';
+    }
+
+    window.getClassName = getClassName; // assetCategoryData:any;
     // assetCategoryId:string = "";
     // vendorDataList:any;
     // assetConditionData:any;
@@ -5357,7 +5402,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ManageMaintenanceComponent, [{
         key: "searchAsset",
         value: function searchAsset() {
-          var _this47 = this;
+          var _this50 = this;
 
           var filterArr = [];
           var filterCategoryArr = [];
@@ -5366,7 +5411,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.assetName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this47.assetName == val.assetName) {
+                if (_this50.assetName == val.assetName) {
                   filterArr.push(val);
                 }
               });
@@ -5378,7 +5423,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.assetName && this.categoryName) {
             // if(filterArr && filterArr.length>0){
             filterArr.filter(function (val) {
-              if (_this47.categoryName == val.assetCategoryName) {
+              if (_this50.categoryName == val.assetCategoryName) {
                 filterCategoryArr.push(val);
               }
             }); // }
@@ -5387,7 +5432,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else if (!this.assetName && this.categoryName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this47.categoryName == val.assetCategoryName) {
+                if (_this50.categoryName == val.assetCategoryName) {
                   filterCategoryArr.push(val);
                 }
               });
@@ -5397,7 +5442,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (this.categoryName && this.subCategoryName) {
             filterCategoryArr.filter(function (val) {
-              if (_this47.subCategoryName == val.assetSubcategoryName) {
+              if (_this50.subCategoryName == val.assetSubcategoryName) {
                 filterSubCategoryArr.push(val);
               }
             }); // }
@@ -5406,7 +5451,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else if (!this.categoryName && this.subCategoryName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this47.subCategoryName == val.assetSubcategoryName) {
+                if (_this50.subCategoryName == val.assetSubcategoryName) {
                   filterSubCategoryArr.push(val);
                 }
               });
@@ -5417,6 +5462,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (!this.assetName && !this.categoryName && !this.subCategoryName) {
             console.log('last');
             this.maintenanceList = this.tempMaintenanceList;
+          }
+
+          this.ItemStartIndex = 0;
+          this.totalItems = this.maintenanceList.length;
+
+          if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+          } else {
+            this.ItemEndIndex = this.totalItems;
           }
         }
       }, {
@@ -5482,7 +5536,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this48 = this;
+          var _this51 = this;
 
           this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]); // delete maintenance
 
@@ -5491,16 +5545,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var param = {};
               param = {
                 assetMaintenancePlanId: id,
-                deleteBy: parseInt(_this48.cookieService.get('userId'))
+                deleteBy: parseInt(_this51.cookieService.get('userId'))
               };
 
-              _this48.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
-                _this48.getMaintenaceList();
+              _this51.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
+                //  this.getMaintenaceList();
+                var pos = _this51.maintenanceList.map(function (e) {
+                  return e.assetMaintenancePlanId;
+                }).indexOf(id);
+
+                _this51.maintenanceList.splice(pos, 1);
+
+                _this51.totalItems = _this51.maintenanceList.length;
+                _this51.ItemEndIndex = _this51.totalItems; //  if(this.totalItems>this.itemLimit){
+                //    this.ItemEndIndex = this.itemLimit;
+                //  }
+                //  else {
+                //    this.ItemEndIndex = this.totalItems;
+                //  }
 
                 setTimeout(function () {
-                  _this48.sharedService.setAlertMessage("Maintenance  deleted successfully");
+                  _this51.sharedService.setAlertMessage("Maintenance  deleted successfully");
 
-                  _this48.sharedService.setUnitListDeleteIndex(null);
+                  _this51.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -5509,17 +5576,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           this.route.paramMap.subscribe(function (params) {
             if (params) {
-              _this48.assetId = params.get('id');
+              _this51.assetId = params.get('id');
               var reqOBj = {
-                assetId: _this48.assetId
+                assetId: _this51.assetId
               };
 
-              _this48.assetService.getAllAssetByAssetId(reqOBj).subscribe(function (res) {
+              _this51.assetService.getAllAssetByAssetId(reqOBj).subscribe(function (res) {
                 // this.asset = res[0];
                 console.log('called');
 
                 if (res && res[0]) {
-                  _this48.maintenanceList = res;
+                  _this51.maintenanceList = res;
                 }
               });
             }
@@ -5568,7 +5635,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this49 = this;
+          var _this52 = this;
 
           var params = {};
           params.LookupTypeId = 19;
@@ -5579,7 +5646,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.categoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this49.categoryList.push({
+                  _this52.categoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -5606,7 +5673,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSubCategory",
         value: function getSubCategory() {
-          var _this50 = this;
+          var _this53 = this;
 
           var params = {};
           params.LookupTypeId = 68;
@@ -5615,7 +5682,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.subCategoryList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this50.subCategoryList.push({
+                  _this53.subCategoryList.push({
                     'id': val.lookupValueId,
                     'itemName': val.lookupValueName
                   });
@@ -5632,7 +5699,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getAsset",
         value: function getAsset() {
-          var _this51 = this;
+          var _this54 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -5641,7 +5708,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // this.assetList = res;
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this51.assetList.push({
+                  _this54.assetList.push({
                     'id': val.assetId,
                     'itemName': val.assetName
                   });
@@ -5653,21 +5720,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getMaintenaceList",
         value: function getMaintenaceList() {
-          var _this52 = this;
+          var _this55 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
           params.active = 1;
           this.assetService.getAllAssetMaintenancePlanByApartmentIdStatus(params).subscribe(function (res) {
             if (res) {
-              _this52.maintenanceList = res.length > 0 ? res : [];
-              _this52.tempMaintenanceList = _this52.maintenanceList;
-              _this52.totalItems = _this52.maintenanceList.length;
+              _this55.maintenanceList = res.length > 0 ? res : [];
+              _this55.tempMaintenanceList = _this55.maintenanceList;
+              _this55.totalItems = _this55.maintenanceList.length;
 
-              if (_this52.totalItems > _this52.itemLimit) {
-                _this52.ItemEndIndex = _this52.itemLimit;
+              if (_this55.totalItems > _this55.itemLimit) {
+                _this55.ItemEndIndex = _this55.itemLimit;
               } else {
-                _this52.ItemEndIndex = _this52.totalItems;
+                _this55.ItemEndIndex = _this55.totalItems;
               }
             }
           });
