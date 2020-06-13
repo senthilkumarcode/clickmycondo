@@ -13476,7 +13476,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"admin-dashboard-wrapper\">\n\t<div class=\"row mt-4\">\n\t\t<div class=\"col-sm-2 dashboard-col-pad\" *ngFor= \"let first of firstRowData\">\n\t\t\t<div>\n\t\t\t\t<app-admin-dash-first-row [label]=\"first\"></app-admin-dash-first-row>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-4\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let second of secondRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"second\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>  \n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Amount Receivable vs Amount Received</h6>\n\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"text-mute mt-2\">Current Month</p>\n\t\t\t\t\t<app-dash-pie-chart></app-dash-pie-chart>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\">\n\t\t\t\t\t<p>Campaign sent 2 days ago</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Income vs Expenses</h6>\n\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<app-dash-income-chart></app-dash-income-chart>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\">\n\t\t\t\t\t<p>Data Information Certified</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let fourth of fourthRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"fourth\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card meeting-schedule\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card announcement\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let sixth of sixthRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"sixth\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t</div>\n\t</div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"admin-dashboard-wrapper\">\n\n\t<app-admin-dash-first-row></app-admin-dash-first-row>\n\n\t<div class=\"row mt-4\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let second of secondRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"second\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>  \n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Amount Receivable vs Amount Received</h6>\n\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"text-mute mt-2\">Current Month</p>\n\t\t\t\t\t<app-dash-pie-chart></app-dash-pie-chart>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\">\n\t\t\t\t\t<p>Campaign sent 2 days ago</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Income vs Expenses</h6>\n\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<app-dash-income-chart></app-dash-income-chart>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\">\n\t\t\t\t\t<p>Data Information Certified</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let fourth of fourthRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"fourth\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card meeting-schedule\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card announcement\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let sixth of sixthRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"sixth\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t</div>\n\t</div>\n</div>";
     /***/
   },
 
@@ -13496,7 +13496,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n\n<div class=\"custom-dashboard mt-4\">\n\t<div class=\"row\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<ngx-gridster [options]=\"gridsterOptions\" [draggableOptions]=\"gridsterDraggableOptions\" (reflow)=\"onReflow($event)\"\n\t\t\t(optionsChange)=\"optionsChange($event)\" #gridster1 class=\"dashboard\">\n\t\t\t\t<ngx-gridster-item *ngFor=\"let widget of widgets; let indx = index\" #itemComp\n\t\t\t\t\t[options]=\"itemOptions\"\n\t\t\t\t\t[dragAndDrop]=\"widget.dragAndDrop\" [resizable]=\"widget.resizable\"\n\t\t\t\t\t[(x)]=\"widget.x\" [(y)]=\"widget.y\"\n\t\t\t\t\t[(xSm)]=\"widget.xSm\" [(ySm)]=\"widget.ySm\"\n\t\t\t\t\t[(xMd)]=\"widget.xMd\" [(yMd)]=\"widget.yMd\"\n\t\t\t\t\t[(xLg)]=\"widget.xLg\" [(yLg)]=\"widget.yLg\"\n\t\t\t\t\t[(xXl)]=\"widget.xXl\" [(yXl)]=\"widget.yXl\"\n\t\t\t\t\t[(w)]=\"widget.w\" [(h)]=\"widget.h\"\n\t\t\t\t\t[(wSm)]=\"widget.wSm\" [(hSm)]=\"widget.hSm\"\n\t\t\t\t\t[(wMd)]=\"widget.wMd\" [(hMd)]=\"widget.hMd\"\n\t\t\t\t\t[(wLg)]=\"widget.wLg\" [(hLg)]=\"widget.hLg\"\n\t\t\t\t\t[(wXl)]=\"widget.wXl\" [(hXl)]=\"widget.hXl\"\n\t\t\t\t\t(change)=\"itemChange($event)\">\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'one'\">\n\t\t\t\t\t\t<div class=\"content-body bg-white\">\n\t\t\t\t\t\t\t<i class=\"icon-md fa fa-ellipsis-h dark-blue link d-block text-right mt-2\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"icon-lg fa fa-database dark-blue text-left d-block ml-2 fon-inc\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<h6 class=\"dark-blue text-right\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<p>{{widget.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'two'\">\n\t\t\t\t\t\t<div class=\"content-body bg-cyan\">\n\t\t\t\t\t\t\t<i class=\"text-white icon-md fa fa-eye link d-block ml-2 mt-1\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"text-white icon-lg fa fa-database text-left d-block ml-2 mt-1 fon-inc\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<p class=\"text-white text-right mr-1 font-weight-bold\">{{widget.name}}</p>\n\t\t\t\t\t\t\t<h6 class=\"text-white text-right mt-1 mr-1\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer d-flex flex-column justify-content-center bg-dark-blue\">\n\t\t\t\t\t\t\t<p class=\"text-white\">Lastday</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag chart\" *ngIf=\"widget.type == 'three'\">\n\t\t\t\t\t\t<div class=\"content-body\">\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'pie'\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Amount Receivable vs Amount Received</h6>\n\t\t\t\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<app-dash-pie-chart></app-dash-pie-chart>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'income'\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Income vs Expenses</h6>\n\t\t\t\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<app-dash-income-chart></app-dash-income-chart>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'pie'\">\n\t\t\t\t\t\t\t\t<p>Campaign sent 2 days ago</p>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'income'\">\n\t\t\t\t\t\t\t\t<p>Data Information Certified</p>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'four'\">\n\t\t\t\t\t\t<div class=\"content-body\">\n\t\t\t\t\t\t\t<i class=\"icon-md fa fa-eye cyan-color link d-block\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"icon-lg fa fa-credit-card cyan-color mt-2 d-block wid-icon-four\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<h6 class=\"font-weight-bold dark-blue text-right\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<p>{{widget.name}}</p>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'five'\">\n\t\t\t\t\t\t<div class=\"meeting-schedule custom-dash-wid-sroll height-five ml-2\" *ngIf=\"widget.name == 'Meeting'\">\n\t\t\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"announcement custom-dash-wid-sroll height-five ml-2\" *ngIf=\"widget.name == 'Announcement'\">\n\t\t\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ngx-gridster-item>\n\t\t\t</ngx-gridster>\n\t\t</div>\n\t</div>\n\t<div class=\"static-com\">\n\t\t<div class=\"row mt-5 ml-0\">\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height ml-0\">\n\t\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row mt-5 ml-0 mb-3\">\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n";
+    __webpack_exports__["default"] = "\n\n<div class=\"custom-dashboard mt-4\">\n\t<div class=\"row mb-3\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<button class=\"btn lime-green float-right\" (click)=\"addWidget()\">\n\t\t\t\t<i class=\"fa fa-plus\" aria-hidden=\"true\"> Add Widget</i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<ngx-gridster [options]=\"gridsterOptions\" [draggableOptions]=\"gridsterDraggableOptions\" (reflow)=\"onReflow($event)\"\n\t\t\t(optionsChange)=\"optionsChange($event)\" #gridster1 class=\"dashboard\">\n\t\t\t\t<ngx-gridster-item *ngFor=\"let widget of widgets; let indx = index\" #itemComp\n\t\t\t\t\t[options]=\"itemOptions\"\n\t\t\t\t\t[dragAndDrop]=\"widget.dragAndDrop\" [resizable]=\"widget.resizable\"\n\t\t\t\t\t[(x)]=\"widget.x\" [(y)]=\"widget.y\"\n\t\t\t\t\t[(xSm)]=\"widget.xSm\" [(ySm)]=\"widget.ySm\"\n\t\t\t\t\t[(xMd)]=\"widget.xMd\" [(yMd)]=\"widget.yMd\"\n\t\t\t\t\t[(xLg)]=\"widget.xLg\" [(yLg)]=\"widget.yLg\"\n\t\t\t\t\t[(xXl)]=\"widget.xXl\" [(yXl)]=\"widget.yXl\"\n\t\t\t\t\t[(w)]=\"widget.w\" [(h)]=\"widget.h\"\n\t\t\t\t\t[(wSm)]=\"widget.wSm\" [(hSm)]=\"widget.hSm\"\n\t\t\t\t\t[(wMd)]=\"widget.wMd\" [(hMd)]=\"widget.hMd\"\n\t\t\t\t\t[(wLg)]=\"widget.wLg\" [(hLg)]=\"widget.hLg\"\n\t\t\t\t\t[(wXl)]=\"widget.wXl\" [(hXl)]=\"widget.hXl\"\n\t\t\t\t\t(change)=\"itemChange($event)\">\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'one'\">\n\t\t\t\t\t\t<div class=\"content-body bg-white\">\n\t\t\t\t\t\t\t<i class=\"icon-md fa fa-ellipsis-h dark-blue link d-block text-right mt-2\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"icon-lg fa fa-database dark-blue text-left d-block ml-2 fon-inc\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<h6 class=\"dark-blue text-right\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<p>{{widget.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'two'\">\n\t\t\t\t\t\t<div class=\"content-body bg-cyan\">\n\t\t\t\t\t\t\t<i class=\"text-white icon-md fa fa-eye link d-block ml-2 mt-1\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"text-white icon-lg fa fa-database text-left d-block ml-2 mt-1 fon-inc\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<p class=\"text-white text-right mr-1 font-weight-bold\">{{widget.name}}</p>\n\t\t\t\t\t\t\t<h6 class=\"text-white text-right mt-1 mr-1\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer d-flex flex-column justify-content-center bg-dark-blue\">\n\t\t\t\t\t\t\t<p class=\"text-white\">Lastday</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag chart\" *ngIf=\"widget.type == 'three'\">\n\t\t\t\t\t\t<div class=\"content-body\">\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'pie'\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Amount Receivable vs Amount Received</h6>\n\t\t\t\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<app-dash-pie-chart></app-dash-pie-chart>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'income'\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Income vs Expenses</h6>\n\t\t\t\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<app-dash-income-chart></app-dash-income-chart>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'pie'\">\n\t\t\t\t\t\t\t\t<p>Campaign sent 2 days ago</p>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'income'\">\n\t\t\t\t\t\t\t\t<p>Data Information Certified</p>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'four'\">\n\t\t\t\t\t\t<div class=\"content-body\">\n\t\t\t\t\t\t\t<i class=\"icon-md fa fa-eye cyan-color link d-block\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"icon-lg fa fa-credit-card cyan-color mt-2 d-block wid-icon-four\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<h6 class=\"font-weight-bold dark-blue text-right\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<p>{{widget.name}}</p>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'five'\">\n\t\t\t\t\t\t<div class=\"meeting-schedule custom-dash-wid-sroll height-five ml-2\" *ngIf=\"widget.name == 'Meeting'\">\n\t\t\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"announcement custom-dash-wid-sroll height-five ml-2\" *ngIf=\"widget.name == 'Announcement'\">\n\t\t\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ngx-gridster-item>\n\t\t\t</ngx-gridster>\n\t\t</div>\n\t</div>\n\t<div class=\"static-com\">\n\t\t<div class=\"row mt-5 ml-0\">\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height ml-0\">\n\t\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row mt-5 ml-0 mb-3\">\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n";
     /***/
   },
 
@@ -13556,7 +13556,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"unit-layout flip\" #menu *ngIf=\"!label.middle\">\n    <div class=\"front\">\n        <div class=\"card dashboard-card\">\n            <div class=\"card-body align-left-right\">\n                    <i class=\"icon-lg fa fa-database dark-blue text-left\" aria-hidden=\"true\"></i>\n                <div class=\"text-right\">\n                    <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                    <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                    <h6 class=\"mt-2\">{{label.frontValue}}</h6> \n                </div>\n            </div>\n            <div class=\"card-footer align-left-right\">\n                <p>{{label.front}}</p>\n                <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" (click)=\"calenderPopUp(label.type,label.front,'front')\"></i>\n            </div>\n        </div>\n    </div>\n    <div class=\"back\">\n        <div class=\"card dashboard-card\">\n            <div class=\"card-body align-left-right\">\n                    <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                <div class=\"text-right\">\n                    <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                    <i class=\"icon-md fa fa-caret-left dark-blue link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                    <h6 class=\"mt-2\">{{label.backValue}}</h6> \n                </div>\n            </div>\n            <div class=\"card-footer align-left-right\">\n                <p>{{label.back}}</p>\n                <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" (click)=\"calenderPopUp(label.type,label.back,'back')\"></i>\n            </div>\n        </div>\n    </div>\n</div>\n    \n<div class= \"owner-layout\" *ngIf=\"label.middle\">\n    <div class=\"card dashboard-card\" *ngIf= \"colType == 'owner'\">\n        <div class=\"card-body align-left-right\">\n                <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n            <div class=\"text-right\">\n                <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\"  aria-hidden=\"true\"></i>\n                <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='tenants'\" aria-hidden=\"true\"></i>\n                <h6 class=\"mt-2\">{{label.frontValue}}</h6> \n            </div>\n        </div>\n        <div class=\"card-footer align-left-right\">\n            <p>{{label.front}}</p>\n            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\"></i>\n        </div>\n    </div>\n    <div class=\"card dashboard-card\" *ngIf= \"colType == 'tenants'\">\n        <div class=\"card-body align-left-right\">\n                <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n            <div class=\"text-right\">\n                <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='admin'\" aria-hidden=\"true\"></i>\n                <h6 class=\"mt-2\">{{label.middleValue}}</h6> \n            </div>\n        </div>\n        <div class=\"card-footer align-left-right\">\n            <p>{{label.middle}}</p>\n            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\"></i>\n        </div>\n    </div>\n    <div class=\"card dashboard-card\" *ngIf= \"colType == 'admin'\">\n        <div class=\"card-body align-left-right\">\n                <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n            <div class=\"text-right\">\n                <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='owner'\" aria-hidden=\"true\"></i>\n                <h6 class=\"mt-2\">{{label.backValue}}</h6> \n            </div>\n        </div>\n        <div class=\"card-footer align-left-right\">\n            <p>{{label.back}}</p>\n            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\"></i>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row mt-4\">\n    <div class=\"col-sm-2 dashboard-col-pad\" *ngFor= \"let data of widgets\">\n       <div class=\"admin-wid-one flip\" #menu *ngIf=\"!data.middle\">\n            <div class=\"front\">\n                <div class=\"card dashboard-card\">\n                    <div class=\"card-body d-flex justify-content-between\">\n                            <i class=\"icon-lg fa fa-database dark-blue text-left\" aria-hidden=\"true\"></i>\n                        <div class=\"text-right\">\n                            <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                            <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                            <h6 class=\"mt-2\">{{data.frontValue}}</h6> \n                        </div>\n                    </div>\n                    <div class=\"card-footer d-flex justify-content-between\">\n                        <p>{{data.front}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appFront\"></i>\n                            <mat-menu #appFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"back\">\n                <div class=\"card dashboard-card\">\n                    <div class=\"card-body d-flex justify-content-between\">\n                            <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                        <div class=\"text-right\">\n                            <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                            <i class=\"icon-md fa fa-caret-left dark-blue link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                            <h6 class=\"mt-2\">{{data.backValue}}</h6> \n                        </div>\n                    </div>\n                    <div class=\"card-footer d-flex justify-content-between\">\n                        <p>{{data.back}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.backFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appBack\"></i>\n                            <mat-menu #appBack=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"admin-wid-one\" *ngIf=\"data.middle\">\n            <div class=\"card dashboard-card\" *ngIf= \"colType == 'owner'\">\n                <div class=\"card-body d-flex justify-content-between\">\n                        <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                    <div class=\"text-right\">\n                        <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\"  aria-hidden=\"true\"></i>\n                        <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='tenants'\" aria-hidden=\"true\"></i>\n                        <h6 class=\"mt-2\">{{data.frontValue}}</h6> \n                    </div>\n                </div>\n                <div class=\"card-footer d-flex justify-content-between\">\n                    <p>{{data.front}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widront\"></i>\n                        <mat-menu #widFront=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card dashboard-card\" *ngIf= \"colType == 'tenants'\">\n                <div class=\"card-body d-flex justify-content-between\">\n                        <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                    <div class=\"text-right\">\n                        <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                        <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='admin'\" aria-hidden=\"true\"></i>\n                        <h6 class=\"mt-2\">{{data.middleValue}}</h6> \n                    </div>\n                </div>\n                <div class=\"card-footer d-flex justify-content-between\">\n                    <p>{{data.middle}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widMiddle\"></i>\n                        <mat-menu #widMiddle=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.middle,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.middle,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.middle,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card dashboard-card\" *ngIf= \"colType == 'admin'\">\n                <div class=\"card-body d-flex justify-content-between\">\n                        <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                    <div class=\"text-right\">\n                        <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                        <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='owner'\" aria-hidden=\"true\"></i>\n                        <h6 class=\"mt-2\">{{data.backValue}}</h6> \n                    </div>\n                </div>\n                <div class=\"card-footer d-flex justify-content-between\">\n                    <p>{{data.back}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widBack\"></i>\n                        <mat-menu #widBack=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -13993,45 +13993,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.cookieService = cookieService;
         this.dashboardService = dashboardService;
         this.dialog = dialog;
-        this.firstRowData = [{
-          front: 'Total Units',
-          back: 'Total Towers',
-          frontValue: '',
-          backValue: '',
-          type: ''
-        }, {
-          front: 'Total Owners',
-          frontValue: '',
-          middle: 'Total Tenants',
-          middleValue: '',
-          back: 'Total Admins',
-          backValue: '',
-          type: ''
-        }, {
-          front: 'Pending Admins',
-          back: 'Pending Users',
-          frontValue: '',
-          backValue: '',
-          type: 'pending'
-        }, {
-          front: 'Total',
-          back: 'Total',
-          frontValue: '',
-          backValue: '',
-          type: ''
-        }, {
-          front: 'Un Approve Move In',
-          back: 'Un Approve Move Out',
-          frontValue: '',
-          backValue: '',
-          type: 'unapprove'
-        }, {
-          front: 'Up Coming Move In',
-          back: 'Up Coming Move Out',
-          frontValue: '',
-          backValue: '',
-          type: 'upcoming'
-        }];
         this.secondRowData = [{
           front: 'Open Community',
           back: 'Open Personal',
@@ -14146,65 +14107,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.userRole == "Staff" ? true : false;
         }
       }, {
-        key: "firstRow",
-        value: function firstRow() {
-          var _this66 = this;
-
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-          };
-          var entity = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            fromDate: new Date().toISOString(),
-            toDate: new Date().toISOString()
-          };
-          var data = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            date: new Date().toISOString()
-          }; //First Row First Col
-
-          this.dashboardService.getDashTotalunitsbyApartmentId(params).subscribe(function (res) {
-            _this66.firstRowData[0].frontValue = res.totalUnits;
-          });
-          this.dashboardService.getDashTotalTowersbyApartmentId(params).subscribe(function (res) {
-            _this66.firstRowData[0].backValue = res.totalTowers;
-          }); //First Row Second Col
-
-          this.dashboardService.getDashTotalownersbyApartmentId(params).subscribe(function (res) {
-            _this66.firstRowData[1].frontValue = 50;
-          });
-          this.dashboardService.getDashTotalTenantsbyApartmentId(params).subscribe(function (res) {
-            _this66.firstRowData[1].middleValue = res.totalTenants;
-          });
-          this.dashboardService.getDashTotalAdminsbyApartmentId(params).subscribe(function (res) {
-            _this66.firstRowData[1].backValue = res.totalAdmins;
-          }); //First Row Third Col
-
-          this.dashboardService.getDashUnapprovedUsersPendingAdminbyApartmentId(entity).subscribe(function (res) {
-            _this66.firstRowData[2].frontValue = res.unapprovedUsersPendingAdmin;
-          });
-          this.dashboardService.getDashUnapprovedUsersPendingusersbyApartmentId(entity).subscribe(function (res) {
-            _this66.firstRowData[2].backValue = res.unapprovedPendingusers;
-          }); //First Row Fifth Col
-
-          this.dashboardService.getDashunapprovedmoveinbyApartmentId(data).subscribe(function (res) {
-            _this66.firstRowData[4].frontValue = res.unapprovedMoveIn;
-          });
-          this.dashboardService.getDashunapprovedmoveoutbyApartmentId(data).subscribe(function (res) {
-            _this66.firstRowData[4].backValue = res.unapprovedMoveOut;
-          }); //First Row sixth Col
-
-          this.dashboardService.getDashupcomingmoveinApartmentId(entity).subscribe(function (res) {
-            _this66.firstRowData[5].frontValue = res.upcomingWeeklyApprovedMoveInCounts;
-          });
-          this.dashboardService.getDashupcomingmoveoutApprovedbyApartmentId(entity).subscribe(function (res) {
-            _this66.firstRowData[5].backValue = res.upcomingMoveOut;
-          });
-        }
-      }, {
         key: "secondRow",
         value: function secondRow() {
-          var _this67 = this;
+          var _this66 = this;
 
           var entity = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -14220,59 +14125,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.dashboardService.getDashOpencommticketsbyApartmentId(entity).subscribe(function (res) {
-            _this67.secondRowData[0].frontValue = res.openCommunitytickets;
+            _this66.secondRowData[0].frontValue = res.openCommunitytickets;
           });
           this.dashboardService.getDashOpenpersonalticketsbyApartmentId(entity).subscribe(function (res) {
-            _this67.secondRowData[0].backValue = res.openPersonalticket;
+            _this66.secondRowData[0].backValue = res.openPersonalticket;
           });
           this.dashboardService.getDashHighpriorityopenCommunityTicketsbyApartmentId(entity).subscribe(function (res) {
-            _this67.secondRowData[1].frontValue = res.highPriorityOpenCommunityTicket;
+            _this66.secondRowData[1].frontValue = res.highPriorityOpenCommunityTicket;
           });
           this.dashboardService.getDashHighpriorityopenpersonalTicketsbyApartmentId(entity).subscribe(function (res) {
-            _this67.secondRowData[1].backValue = res.highPriorityOpenPersonalTicket;
+            _this66.secondRowData[1].backValue = res.highPriorityOpenPersonalTicket;
           });
           this.dashboardService.getDashUnassignedCommunityTicketsbyApartmentId(params).subscribe(function (res) {
-            _this67.secondRowData[2].frontValue = res.unassignedCommunityTickets;
+            _this66.secondRowData[2].frontValue = res.unassignedCommunityTickets;
           });
           this.dashboardService.getDashUnassignedpersonalTicketsbyApartmentId(params).subscribe(function (res) {
-            _this67.secondRowData[2].backValue = res.unassignedPersonalTickets;
+            _this66.secondRowData[2].backValue = res.unassignedPersonalTickets;
           });
           this.dashboardService.getDashOpenCommunityAgedTicketsbyApartmentIDbyDays(data).subscribe(function (res) {
-            _this67.secondRowData[3].frontValue = res.openCommunityAgedTickets;
+            _this66.secondRowData[3].frontValue = res.openCommunityAgedTickets;
           });
           this.dashboardService.getDashOpenPersonalAgedTicketsbyApartmentIDbyDays(data).subscribe(function (res) {
-            _this67.secondRowData[3].backValue = res.openPersonalAgedTickets;
+            _this66.secondRowData[3].backValue = res.openPersonalAgedTickets;
           });
         }
       }, {
         key: "fourthRow",
         value: function fourthRow() {
-          var _this68 = this;
+          var _this67 = this;
 
           var params = {
             fromDate: new Date().toISOString(),
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.dashboardService.getDashinProgressPanicAlertsbyApartmentId(params).subscribe(function (res) {
-            _this68.fourthRowData[0].frontValue = res.inProgressPanicAlerts;
+            _this67.fourthRowData[0].frontValue = res.inProgressPanicAlerts;
           });
           this.dashboardService.getDashOpenPanicAlertsbyApartmentId(params).subscribe(function (res) {
-            _this68.fourthRowData[0].backValue = res.openPanicAlerts;
+            _this67.fourthRowData[0].backValue = res.openPanicAlerts;
           });
           var entity = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.dashboardService.getDashpaymentdefaultersasoftodayybyApartmentId(entity).subscribe(function (res) {
-            _this68.fourthRowData[1].frontValue = res.returnDefautlers;
+            _this67.fourthRowData[1].frontValue = res.returnDefautlers;
           });
           this.dashboardService.getDashcreditnoteappliedbyApartmentId(entity).subscribe(function (res) {
-            _this68.fourthRowData[3].frontValue = res.creditNotesCount;
+            _this67.fourthRowData[3].frontValue = res.creditNotesCount;
           });
         }
       }, {
         key: "sixthRow",
         value: function sixthRow() {
-          var _this69 = this;
+          var _this68 = this;
 
           var params = {
             startDate: new Date().toISOString(),
@@ -14283,32 +14188,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.dashboardService.getDashVisitorsCheckedinbyApartmentId(params).subscribe(function (res) {
-            _this69.sixthRowData[0].frontValue = res.visitorsCheckIn;
+            _this68.sixthRowData[0].frontValue = res.visitorsCheckIn;
           });
           this.dashboardService.getDashVisitorsCheckedouttodaybyApartmentId(entity).subscribe(function (res) {
-            _this69.sixthRowData[0].backValue = res.visitorsCheckedouttoday;
+            _this68.sixthRowData[0].backValue = res.visitorsCheckedouttoday;
           });
           this.dashboardService.getDashVisitorsNotcheckedtodaybyApartmentId(entity).subscribe(function (res) {
-            _this69.sixthRowData[1].frontValue = res.visitorsNotcheckedtoday;
+            _this68.sixthRowData[1].frontValue = res.visitorsNotcheckedtoday;
           });
           this.dashboardService.getDashuptotalparkingslotsbyApartmentId(entity).subscribe(function (res) {
-            _this69.sixthRowData[2].frontValue = res.totalParkingSlots;
+            _this68.sixthRowData[2].frontValue = res.totalParkingSlots;
           });
           this.dashboardService.getDashuptotalparkingslotsunassignedbyApartmentId(entity).subscribe(function (res) {
-            _this69.sixthRowData[2].backValue = res.unassignedParkingSlots;
+            _this68.sixthRowData[2].backValue = res.unassignedParkingSlots;
           });
           this.dashboardService.getDashufacilitybookingapprovedtodaybyApartmentId(entity).subscribe(function (res) {
-            _this69.sixthRowData[3].frontValue = res.approvedfaclitiesTodayCount;
+            _this68.sixthRowData[3].frontValue = res.approvedfaclitiesTodayCount;
           });
           this.dashboardService.getDashufacilitybookingunapprovedbyApartmentId(entity).subscribe(function (res) {
-            _this69.sixthRowData[3].backValue = res.unapprovedfaclities;
+            _this68.sixthRowData[3].backValue = res.unapprovedfaclities;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
           this.userRole = this.cookieService.get('userRole');
-          this.firstRow();
           this.secondRow();
           this.fourthRow();
           this.sixthRow();
@@ -14398,16 +14302,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var angular2gridster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var angular2gridster__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! angular2gridster */
     "./node_modules/angular2gridster/__ivy_ngcc__/fesm2015/angular2gridster.js");
 
     var CustomDashboardComponent =
     /*#__PURE__*/
     function () {
-      function CustomDashboardComponent() {
+      function CustomDashboardComponent(sharedService) {
         _classCallCheck(this, CustomDashboardComponent);
 
+        this.sharedService = sharedService;
         this.itemOptions = {
           maxWidth: 3,
           maxHeight: 3
@@ -14844,13 +14755,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       _createClass(CustomDashboardComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          this.widgetsCopy = this.widgets.map(function (widget) {
-            return Object.assign({}, widget);
-          });
-        }
-      }, {
         key: "onReflow",
         value: function onReflow(event) {
           console.log('onReflow', event);
@@ -14910,6 +14814,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log('widget remove', index);
         }
       }, {
+        key: "addWidget",
+        value: function addWidget() {
+          this.sharedService.setSidebarSlider('add-widget');
+        }
+      }, {
         key: "itemChange",
         value: function itemChange($event) {
           var responsive = $event.breakpoint;
@@ -14928,20 +14837,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           if (height == 1) {
-            console.log($event.item.itemComponent.$element.firstElementChild.firstElementChild.classList.remove('widget-two'));
+            $event.item.itemComponent.$element.firstElementChild.firstElementChild.classList.remove('widget-two');
           } else if (height == 2) {
             $event.item.itemComponent.$element.firstElementChild.firstElementChild.classList.add('widget-two');
-            console.log($event.item.itemComponent.$element.firstElementChild.firstElementChild);
           }
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.widgetsCopy = this.widgets.map(function (widget) {
+            return Object.assign({}, widget);
+          });
         }
       }]);
 
       return CustomDashboardComponent;
     }();
 
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(angular2gridster__WEBPACK_IMPORTED_MODULE_2__["GridsterComponent"], {
+    CustomDashboardComponent.ctorParameters = function () {
+      return [{
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(angular2gridster__WEBPACK_IMPORTED_MODULE_3__["GridsterComponent"], {
       "static": true
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", angular2gridster__WEBPACK_IMPORTED_MODULE_2__["GridsterComponent"])], CustomDashboardComponent.prototype, "gridster", void 0);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", angular2gridster__WEBPACK_IMPORTED_MODULE_3__["GridsterComponent"])], CustomDashboardComponent.prototype, "gridster", void 0);
     CustomDashboardComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-custom-dashboard',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -14951,7 +14872,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./custom-dashboard.component.scss */
       "./src/app/ams/dashboard/components/dashboard/custom-dashboard/custom-dashboard.component.scss"))["default"]]
-    })], CustomDashboardComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]])], CustomDashboardComponent);
     /***/
   },
 
@@ -15129,7 +15050,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".dark-blue {\n  color: #236aaf;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtZmlyc3Qtcm93L2FkbWluLWRhc2gtZmlyc3Qtcm93LmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyIsInNyYy9hcHAvYW1zL2Rhc2hib2FyZC9jb21wb25lbnRzL3NoYXJlZC9hZG1pbi1kYXNoLWZpcnN0LXJvdy9hZG1pbi1kYXNoLWZpcnN0LXJvdy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLQTtFQUNDLGNDR2M7QUNQZiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9kYXNoYm9hcmQvY29tcG9uZW50cy9zaGFyZWQvYWRtaW4tZGFzaC1maXJzdC1yb3cvYWRtaW4tZGFzaC1maXJzdC1yb3cuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuXHRcbi5kYXJrLWJsdWUge1xuXHRjb2xvciA6ICRkYXJrLWJsdWUtMDI7XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC1iYXNlLTAyOjExO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iLCIuZGFyay1ibHVlIHtcbiAgY29sb3I6ICMyMzZhYWY7XG59Il19 */";
+    __webpack_exports__["default"] = ".dark-blue {\n  color: #236aaf;\n}\n\n.admin-wid-one .card-body {\n  height: 60px;\n}\n\n.dashboard-col-pad {\n  padding-left: 5px !important;\n  padding-right: 5px !important;\n}\n\n::ng-deep .mat-menu-item {\n  height: 25px !important;\n  line-height: 25px !important;\n  padding-left: 16px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtZmlyc3Qtcm93L2FkbWluLWRhc2gtZmlyc3Qtcm93LmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyIsInNyYy9hcHAvYW1zL2Rhc2hib2FyZC9jb21wb25lbnRzL3NoYXJlZC9hZG1pbi1kYXNoLWZpcnN0LXJvdy9hZG1pbi1kYXNoLWZpcnN0LXJvdy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLQTtFQUNDLGNDR2M7QUNQZjs7QUZRQztFQUNDLFlBQUE7QUVMRjs7QUZTQTtFQUNDLDRCQUFBO0VBQ0EsNkJBQUE7QUVORDs7QUZVQTtFQUNDLHVCQUFBO0VBQ0EsNEJBQUE7RUFDQSw2QkFBQTtBRVBEIiwiZmlsZSI6InNyYy9hcHAvYW1zL2Rhc2hib2FyZC9jb21wb25lbnRzL3NoYXJlZC9hZG1pbi1kYXNoLWZpcnN0LXJvdy9hZG1pbi1kYXNoLWZpcnN0LXJvdy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG5cdFxuLmRhcmstYmx1ZSB7XG5cdGNvbG9yIDogJGRhcmstYmx1ZS0wMjtcbn1cblxuLmFkbWluLXdpZC1vbmUge1xuXHQuY2FyZC1ib2R5IHtcblx0XHRoZWlnaHQ6IDYwcHg7XG5cdH1cbn1cblxuLmRhc2hib2FyZC1jb2wtcGFkIHtcblx0cGFkZGluZy1sZWZ0OiA1cHggIWltcG9ydGFudDtcblx0cGFkZGluZy1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5cblxuOjpuZy1kZWVwIC5tYXQtbWVudS1pdGVtIHtcblx0aGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XG5cdGxpbmUtaGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XG5cdHBhZGRpbmctbGVmdDogMTZweCAhaW1wb3J0YW50O1xufSIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJGQtY3lhbi0wMzojMDBkMWZhO1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGltZS1ncmVlbi0wMzogIzUyYzU3MDtcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtbWVkaXVtLTA0OjMwO1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtYmFzZS0wMjoxMTtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiLmRhcmstYmx1ZSB7XG4gIGNvbG9yOiAjMjM2YWFmO1xufVxuXG4uYWRtaW4td2lkLW9uZSAuY2FyZC1ib2R5IHtcbiAgaGVpZ2h0OiA2MHB4O1xufVxuXG4uZGFzaGJvYXJkLWNvbC1wYWQge1xuICBwYWRkaW5nLWxlZnQ6IDVweCAhaW1wb3J0YW50O1xuICBwYWRkaW5nLXJpZ2h0OiA1cHggIWltcG9ydGFudDtcbn1cblxuOjpuZy1kZWVwIC5tYXQtbWVudS1pdGVtIHtcbiAgaGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XG4gIGxpbmUtaGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmctbGVmdDogMTZweCAhaW1wb3J0YW50O1xufSJdfQ== */";
     /***/
   },
 
@@ -15188,6 +15109,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
     var AdminDashFirstRowComponent =
     /*#__PURE__*/
@@ -15198,6 +15131,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.dialog = dialog;
         this.dashboardService = dashboardService;
         this.cookieService = cookieService;
+        this.widgets = [{
+          front: 'Total Units',
+          back: 'Total Towers',
+          frontValue: '_',
+          backValue: '',
+          frontFooter: false,
+          backFooter: false,
+          type: ''
+        }, {
+          front: 'Total Owners',
+          middle: 'Total Tenants',
+          back: 'Total Admins',
+          frontValue: '',
+          middleValue: '',
+          backValue: '',
+          frontFooter: false,
+          middleFooter: false,
+          backFooter: false,
+          type: ''
+        }, {
+          front: 'Pending Admins',
+          back: 'Pending Users',
+          frontValue: '',
+          backValue: '',
+          frontFooter: true,
+          backFooter: true,
+          type: 'pending'
+        }, {
+          front: 'Total',
+          back: 'Total',
+          frontValue: '',
+          backValue: '',
+          frontFooter: true,
+          backFooter: true,
+          type: ''
+        }, {
+          front: 'Un Approve Move In',
+          back: 'Un Approve Move Out',
+          frontValue: '',
+          backValue: '',
+          frontFooter: true,
+          backFooter: true,
+          type: 'unapprove'
+        }, {
+          front: 'Up Coming Move In',
+          back: 'Up Coming Move Out',
+          frontValue: '',
+          backValue: '',
+          frontFooter: true,
+          backFooter: true,
+          type: 'upcoming'
+        }];
         this.colType = 'owner';
       }
 
@@ -15216,48 +15201,192 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
-        key: "calenderPopUp",
-        value: function calenderPopUp(dateType, type, mode) {
+        key: "pendingAdmins",
+        value: function pendingAdmins(result) {
+          var _this69 = this;
+
+          var entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashUnapprovedUsersPendingAdminbyApartmentId(entity).subscribe(function (res) {
+            _this69.widgets[2].frontValue = res.unapprovedUsersPendingAdmin;
+          });
+        }
+      }, {
+        key: "pendingUsers",
+        value: function pendingUsers(result) {
           var _this70 = this;
+
+          var entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashUnapprovedUsersPendingusersbyApartmentId(entity).subscribe(function (res) {
+            _this70.widgets[2].backValue = res.unapprovedPendingusers;
+          });
+        }
+      }, {
+        key: "unApproveMoveIn",
+        value: function unApproveMoveIn(result) {
+          var _this71 = this;
+
+          var entity = {
+            date: result.date,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashunapprovedmoveinbyApartmentId(entity).subscribe(function (res) {
+            _this71.widgets[4].frontValue = res.unapprovedMoveIn;
+          });
+        }
+      }, {
+        key: "unApproveMoveOut",
+        value: function unApproveMoveOut(result) {
+          var _this72 = this;
+
+          var entity = {
+            date: result.date,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashunapprovedmoveoutbyApartmentId(entity).subscribe(function (res) {
+            _this72.widgets[4].backValue = res.unapprovedMoveOut;
+          });
+        }
+      }, {
+        key: "upcomingMoveIn",
+        value: function upcomingMoveIn(result) {
+          var _this73 = this;
+
+          var entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashupcomingmoveinApartmentId(entity).subscribe(function (res) {
+            _this73.widgets[5].frontValue = res.upcomingWeeklyApprovedMoveInCounts;
+          });
+        }
+      }, {
+        key: "upcomingMoveOut",
+        value: function upcomingMoveOut(result) {
+          var _this74 = this;
+
+          var entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashupcomingmoveoutApprovedbyApartmentId(entity).subscribe(function (res) {
+            _this74.widgets[5].backValue = res.upcomingMoveOut;
+          });
+        }
+      }, {
+        key: "yesterday",
+        value: function yesterday(type) {
+          var entity = {};
+
+          if (type == 'unapprove') {
+            entity.date = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
+          } else {
+            entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
+            entity.toDate = new Date().toISOString();
+          }
+
+          return entity;
+        }
+      }, {
+        key: "today",
+        value: function today(type) {
+          var entity = {};
+
+          if (type == 'unapprove') {
+            entity.date = new Date().toISOString();
+          } else {
+            entity.fromDate = new Date().toISOString();
+            entity.toDate = new Date().toISOString();
+          }
+
+          return entity;
+        }
+      }, {
+        key: "filter",
+        value: function filter(filterMode, name, type) {
+          var result = filterMode == 'yesterday' ? this.yesterday(type) : this.today(type);
+
+          if (name == 'Pending Admins') {
+            this.pendingAdmins(result);
+          } else if (name == 'Pending Users') {
+            this.pendingUsers(result);
+          } else if (name == 'Un Approve Move In') {
+            this.unApproveMoveIn(result);
+          } else if (name == 'Un Approve Move Out') {
+            this.unApproveMoveOut(result);
+          } else if (name == 'Up Coming Move In') {
+            this.upcomingMoveIn(result);
+          } else if (name == 'Up Coming Move Out') {
+            this.upcomingMoveOut(result);
+          }
+        }
+      }, {
+        key: "calenderPopUp",
+        value: function calenderPopUp(name, type) {
+          var _this75 = this;
 
           var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_2__["DateModelComponent"], {
             width: '400px',
             height: '175px',
-            data: dateType
+            data: type
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              if (type == 'Pending Admins' && mode == 'front') {
-                _this70.dashboardService.getDashUnapprovedUsersPendingAdminbyApartmentId(result).subscribe(function (res) {
-                  _this70.label.frontValue = res.unapprovedUsersPendingAdmin;
-                });
-              } else if (type == 'Pending Users' && mode == 'back') {
-                _this70.dashboardService.getDashUnapprovedUsersPendingusersbyApartmentId(result).subscribe(function (res) {
-                  _this70.label.backValue = res.unapprovedPendingusers;
-                });
-              } else if (type == 'Un Approve Move In' && mode == 'front') {
-                _this70.dashboardService.getDashunapprovedmoveinbyApartmentId(result).subscribe(function (res) {
-                  _this70.label.frontValue = res.unapprovedMoveIn;
-                });
-              } else if (type == 'Un Approve Move Out' && mode == 'back') {
-                _this70.dashboardService.getDashunapprovedmoveoutbyApartmentId(result).subscribe(function (res) {
-                  _this70.label.backValue = res.unapprovedMoveOut;
-                });
-              } else if (type == 'Up Coming Move In' && mode == 'front') {
-                _this70.dashboardService.getDashupcomingmoveinApartmentId(result).subscribe(function (res) {
-                  _this70.label.frontValue = res.upcomingWeeklyApprovedMoveInCounts;
-                });
-              } else if (type == 'Up Coming Move Out' && mode == 'back') {
-                _this70.dashboardService.getDashupcomingmoveoutApprovedbyApartmentId(result).subscribe(function (res) {
-                  _this70.label.backValue = res.upcomingMoveOut;
-                });
+              if (name == 'Pending Admins') {
+                _this75.pendingAdmins(result);
+              } else if (name == 'Pending Users') {
+                _this75.pendingUsers(result);
+              } else if (name == 'Un Approve Move In') {
+                _this75.unApproveMoveIn(result);
+              } else if (name == 'Un Approve Move Out') {
+                _this75.unApproveMoveOut(result);
+              } else if (name == 'Up Coming Move In') {
+                _this75.upcomingMoveIn(result);
+              } else if (name == 'Up Coming Move Out') {
+                _this75.upcomingMoveOut(result);
               }
             }
           });
         }
       }, {
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this76 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashTotalunitsbyApartmentId(params).subscribe(function (res) {
+            _this76.widgets[0].frontValue = res.totalUnits;
+          });
+          this.dashboardService.getDashTotalTowersbyApartmentId(params).subscribe(function (res) {
+            _this76.widgets[0].backValue = res.totalTowers;
+          });
+          this.dashboardService.getDashTotalownersbyApartmentId(params).subscribe(function (res) {
+            _this76.widgets[1].frontValue = 50;
+          });
+          this.dashboardService.getDashTotalTenantsbyApartmentId(params).subscribe(function (res) {
+            _this76.widgets[1].middleValue = res.totalTenants;
+          });
+          this.dashboardService.getDashTotalAdminsbyApartmentId(params).subscribe(function (res) {
+            _this76.widgets[1].backValue = res.totalAdmins;
+          });
+          this.pendingAdmins(this.today('pending'));
+          this.pendingUsers(this.today('pending'));
+          this.unApproveMoveIn(this.today('unapprove'));
+          this.unApproveMoveOut(this.today('unapprove'));
+          this.upcomingMoveIn(this.today('upcoming'));
+          this.upcomingMoveOut(this.today('upcoming'));
+        }
       }]);
 
       return AdminDashFirstRowComponent;
@@ -15273,7 +15402,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }];
     };
 
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AdminDashFirstRowComponent.prototype, "label", void 0);
     AdminDashFirstRowComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-admin-dash-first-row',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -15390,7 +15518,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "calenderPopUp",
         value: function calenderPopUp(dateType, type, mode) {
-          var _this71 = this;
+          var _this77 = this;
 
           var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_2__["DateModelComponent"], {
             width: '400px',
@@ -15400,20 +15528,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
               if (type == 'Open Community' && mode == 'front') {
-                _this71.dashboardService.getDashOpencommticketsbyApartmentId(result).subscribe(function (res) {
-                  _this71.label.frontValue = res.openCommunitytickets;
+                _this77.dashboardService.getDashOpencommticketsbyApartmentId(result).subscribe(function (res) {
+                  _this77.label.frontValue = res.openCommunitytickets;
                 });
               } else if (type == 'Open Personal' && mode == 'back') {
-                _this71.dashboardService.getDashOpenpersonalticketsbyApartmentId(result).subscribe(function (res) {
-                  _this71.label.backValue = res.openPersonalticket;
+                _this77.dashboardService.getDashOpenpersonalticketsbyApartmentId(result).subscribe(function (res) {
+                  _this77.label.backValue = res.openPersonalticket;
                 });
               } else if (type == 'High Priority Community' && mode == 'front') {
-                _this71.dashboardService.getDashHighpriorityopenCommunityTicketsbyApartmentId(result).subscribe(function (res) {
-                  _this71.label.frontValue = res.highPriorityOpenCommunityTicket;
+                _this77.dashboardService.getDashHighpriorityopenCommunityTicketsbyApartmentId(result).subscribe(function (res) {
+                  _this77.label.frontValue = res.highPriorityOpenCommunityTicket;
                 });
               } else if (type == 'High Priority Personal' && mode == 'back') {
-                _this71.dashboardService.getDashHighpriorityopenpersonalTicketsbyApartmentId(result).subscribe(function (res) {
-                  _this71.label.backValue = res.highPriorityOpenPersonalTicket;
+                _this77.dashboardService.getDashHighpriorityopenpersonalTicketsbyApartmentId(result).subscribe(function (res) {
+                  _this77.label.backValue = res.highPriorityOpenPersonalTicket;
                 });
               } else if (type == 'Unassigned Community' && mode == 'front') {
                 var params = {
@@ -15421,8 +15549,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   apartmentId: result.apartmentId
                 };
 
-                _this71.dashboardService.getDashUnassignedCommunityTicketsbyApartmentId(params).subscribe(function (res) {
-                  _this71.label.frontValue = res.unassignedCommunityTickets;
+                _this77.dashboardService.getDashUnassignedCommunityTicketsbyApartmentId(params).subscribe(function (res) {
+                  _this77.label.frontValue = res.unassignedCommunityTickets;
                 });
               } else if (type == 'Unassigned Personal' && mode == 'back') {
                 var _params = {
@@ -15430,16 +15558,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   apartmentId: result.apartmentId
                 };
 
-                _this71.dashboardService.getDashUnassignedpersonalTicketsbyApartmentId(_params).subscribe(function (res) {
-                  _this71.label.backValue = res.unassignedPersonalTickets;
+                _this77.dashboardService.getDashUnassignedpersonalTicketsbyApartmentId(_params).subscribe(function (res) {
+                  _this77.label.backValue = res.unassignedPersonalTickets;
                 });
               } else if (type == 'Open Community Aged' && mode == 'front') {
-                _this71.dashboardService.getDashOpenCommunityAgedTicketsbyApartmentIDbyDays(result).subscribe(function (res) {
-                  _this71.label.frontValue = res.openCommunityAgedTickets;
+                _this77.dashboardService.getDashOpenCommunityAgedTicketsbyApartmentIDbyDays(result).subscribe(function (res) {
+                  _this77.label.frontValue = res.openCommunityAgedTickets;
                 });
               } else if (type == 'Open Personal Aged' && mode == 'back') {
-                _this71.dashboardService.getDashOpenPersonalAgedTicketsbyApartmentIDbyDays(result).subscribe(function (res) {
-                  _this71.label.backValue = res.openPersonalAgedTickets;
+                _this77.dashboardService.getDashOpenPersonalAgedTicketsbyApartmentIDbyDays(result).subscribe(function (res) {
+                  _this77.label.backValue = res.openPersonalAgedTickets;
                 });
               } else if (type == 'InProgress Panic Alerts' && mode == 'front') {
                 var _params2 = {
@@ -15447,8 +15575,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   apartmentId: result.apartmentId
                 };
 
-                _this71.dashboardService.getDashinProgressPanicAlertsbyApartmentId(_params2).subscribe(function (res) {
-                  _this71.label.frontValue = res.inProgressPanicAlerts;
+                _this77.dashboardService.getDashinProgressPanicAlertsbyApartmentId(_params2).subscribe(function (res) {
+                  _this77.label.frontValue = res.inProgressPanicAlerts;
                 });
               } else if (type == 'Open Panic Alerts' && mode == 'back') {
                 var _params3 = {
@@ -15456,8 +15584,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   apartmentId: result.apartmentId
                 };
 
-                _this71.dashboardService.getDashOpenPanicAlertsbyApartmentId(_params3).subscribe(function (res) {
-                  _this71.label.backValue = res.openPanicAlerts;
+                _this77.dashboardService.getDashOpenPanicAlertsbyApartmentId(_params3).subscribe(function (res) {
+                  _this77.label.backValue = res.openPanicAlerts;
                 });
               } else if (type == 'Visitors IN' && mode == 'front') {
                 var _params4 = {
@@ -15466,8 +15594,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   apartmentId: result.apartmentId
                 };
 
-                _this71.dashboardService.getDashVisitorsCheckedinbyApartmentId(_params4).subscribe(function (res) {
-                  _this71.label.frontValue = res.visitorsCheckIn;
+                _this77.dashboardService.getDashVisitorsCheckedinbyApartmentId(_params4).subscribe(function (res) {
+                  _this77.label.frontValue = res.visitorsCheckIn;
                 });
               }
             }
@@ -15722,7 +15850,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DashBroadCastComponent, [{
         key: "calenderPopUp",
         value: function calenderPopUp(dateType) {
-          var _this72 = this;
+          var _this78 = this;
 
           var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_5__["DateModelComponent"], {
             width: '400px',
@@ -15731,21 +15859,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this72.announcementList(result, 'filter');
+              _this78.announcementList(result, 'filter');
             }
           });
         }
       }, {
         key: "announcementList",
         value: function announcementList(entity, type) {
-          var _this73 = this;
+          var _this79 = this;
 
           this.dashboardService.getDashlistBroadcastsentbyApartmentId(entity).subscribe(function (res) {
             if (type == 'filter' && res.length > 0) {
-              _this73.broadCastList = res.reverse();
+              _this79.broadCastList = res.reverse();
             } else {
-              _this73.broadCastList = res.reverse();
-              _this73.broadCastList = _this73.broadCastList.slice(0, 10);
+              _this79.broadCastList = res.reverse();
+              _this79.broadCastList = _this79.broadCastList.slice(0, 10);
             }
           });
         }
@@ -15900,7 +16028,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DashComListComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this74 = this;
+          var _this80 = this;
 
           var entity = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -15909,19 +16037,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.label == 'Emergency Alerts') {
             this.alertService.getAllApartmentBlockUnitAlertByApartmentIdStatus(entity).subscribe(function (res) {
-              _this74.emergencyAlert = res;
+              _this80.emergencyAlert = res;
             });
           } else if (this.label == 'Recent Violations') {
             this.violationService.getAllViolationsByStatus(entity).subscribe(function (res) {
-              _this74.violation = res;
+              _this80.violation = res;
             });
           } else if (this.label == 'Work Permit') {
             this.workpermitService.getWorkPermitsByApartmentIdStatus(entity).subscribe(function (res) {
-              _this74.workPermit = res;
+              _this80.workPermit = res;
             });
           } else if (this.label == 'Facility Bookings') {
             this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(entity).subscribe(function (res) {
-              _this74.facility = res;
+              _this80.facility = res;
             });
           }
         }
@@ -16256,7 +16384,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DashMeetingComponent, [{
         key: "calenderPopUp",
         value: function calenderPopUp(dateType) {
-          var _this75 = this;
+          var _this81 = this;
 
           var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_4__["DateModelComponent"], {
             width: '400px',
@@ -16265,17 +16393,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this75.scheduledMeeting(result);
+              _this81.scheduledMeeting(result);
             }
           });
         }
       }, {
         key: "scheduledMeeting",
         value: function scheduledMeeting(entity) {
-          var _this76 = this;
+          var _this82 = this;
 
           this.dashboardService.getDashlistupcomingmeetingbyApartmentId(entity).subscribe(function (res) {
-            _this76.meetingList = res;
+            _this82.meetingList = res;
           });
         }
       }, {
@@ -16371,7 +16499,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function DashPieChartComponent() {
-        var _this77 = this;
+        var _this83 = this;
 
         _classCallCheck(this, DashPieChartComponent);
 
@@ -16404,7 +16532,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           async: false,
           autoBind: true,
           loadError: function loadError(xhr, status, error) {
-            alert('Error loading "' + _this77.source.url + '" : ' + error);
+            alert('Error loading "' + _this83.source.url + '" : ' + error);
           }
         });
         this.legendPosition = {
@@ -16679,7 +16807,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this78 = this;
+          var _this84 = this;
 
           setTimeout(function () {
             var data = {
@@ -16691,7 +16819,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 hoverBackgroundColor: ["#52cc8e", "#ffeb3b"]
               }]
             };
-            _this78.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this78.chartRef.nativeElement, {
+            _this84.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this84.chartRef.nativeElement, {
               type: 'bar',
               data: data,
               options: {
@@ -16888,34 +17016,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(HelpdeskChartComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this79 = this;
+          var _this85 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
             if (res.length == undefined || res.length == 0) {
-              _this79.totalOpenPersonalTickets = 0;
-              _this79.totalUrgentPersonalTickets = 0;
-              _this79.totalUrgentPersonalTickets = 0;
-              _this79.totalUrgentCommunityTickets = 0;
+              _this85.totalOpenPersonalTickets = 0;
+              _this85.totalUrgentPersonalTickets = 0;
+              _this85.totalUrgentPersonalTickets = 0;
+              _this85.totalUrgentCommunityTickets = 0;
             } else {
               var openPersonalTickets = res.filter(function (item) {
                 return item.ticketStatusId == 32 && item.ticketTypeId == 27; // new and personal tickets
               });
-              _this79.totalOpenPersonalTickets = openPersonalTickets.length;
+              _this85.totalOpenPersonalTickets = openPersonalTickets.length;
               var openCommunityTickets = res.filter(function (item) {
                 return item.ticketStatusId == 32 && item.ticketTypeId == 26; // new and common tickets
               });
-              _this79.totalOpenCommunityTickets = openCommunityTickets.length;
+              _this85.totalOpenCommunityTickets = openCommunityTickets.length;
               var urgentPersonalTickets = res.filter(function (item) {
                 return item.ticketPriorityId == 47 && item.ticketTypeId == 27; // priorty high and personal tickets
               });
-              _this79.totalUrgentPersonalTickets = urgentPersonalTickets.length;
+              _this85.totalUrgentPersonalTickets = urgentPersonalTickets.length;
               var urgentCommunityTickets = res.filter(function (item) {
                 return item.ticketPriorityId == 47 && item.ticketTypeId == 26; // priorty high and common tickets
               });
-              _this79.totalUrgentCommunityTickets = urgentCommunityTickets.length;
+              _this85.totalUrgentCommunityTickets = urgentCommunityTickets.length;
             }
           });
         }
@@ -17029,7 +17157,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this80 = this;
+          var _this86 = this;
 
           setTimeout(function () {
             var data = {
@@ -17040,7 +17168,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 hoverBackgroundColor: ["#ff3638", "#3f51b5"]
               }]
             };
-            _this80.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this80.chartRef.nativeElement, {
+            _this86.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this86.chartRef.nativeElement, {
               type: 'doughnut',
               data: data,
               options: {
@@ -17384,13 +17512,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UnitChartComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this81 = this;
+          var _this87 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-            _this81.totalUnits = res.length;
+            _this87.totalUnits = res.length;
           }, function (error) {
             console.log(error);
           });
@@ -17398,7 +17526,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this82 = this;
+          var _this88 = this;
 
           setTimeout(function () {
             var data = {
@@ -17409,7 +17537,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
               }]
             };
-            _this82.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this82.chartRef.nativeElement, {
+            _this88.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this88.chartRef.nativeElement, {
               type: 'doughnut',
               data: data,
               options: {
@@ -17421,14 +17549,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 rotation: 120,
                 animation: {
                   onComplete: function onComplete(e) {
-                    var width = _this82.chart.width,
-                        height = _this82.chart.height,
-                        ctx = _this82.chart.ctx;
+                    var width = _this88.chart.width,
+                        height = _this88.chart.height,
+                        ctx = _this88.chart.ctx;
                     ctx.restore();
                     ctx.font = "2em Maven Pro";
                     ctx.textBaseline = "middle";
                     ctx.fillStyle = "#4c4c4c";
-                    var numText = _this82.totalUnits,
+                    var numText = _this88.totalUnits,
                         textX = Math.round((width - ctx.measureText(numText).width) / 2),
                         textY = height / 2 - 10;
                     ctx.fillText(numText, textX, textY);
@@ -17558,13 +17686,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UsersChartComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this83 = this;
+          var _this89 = this;
 
           this.userService.getAllUsers().subscribe(function (res) {
-            _this83.totalUsers = res.length;
+            _this89.totalUsers = res.length;
 
-            _this83.userService.getAllUnApprovedUsers().subscribe(function (res) {
-              _this83.totalUnapprovedUsers = res.length;
+            _this89.userService.getAllUnApprovedUsers().subscribe(function (res) {
+              _this89.totalUnapprovedUsers = res.length;
             }, function (error) {
               console.log(error);
             });
@@ -17576,7 +17704,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-            _this83.totalUnits = res.length;
+            _this89.totalUnits = res.length;
           }, function (error) {
             console.log(error);
           });
@@ -17870,18 +17998,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this84 = this;
+          var _this90 = this;
 
           var params = {
             userid: parseInt(this.cookieService.get('userId'))
           };
           this.userService.getUserById(params).subscribe(function (res) {
-            _this84.userName = res[0].firstName;
+            _this90.userName = res[0].firstName;
           }, function (error) {
             console.log(error);
           });
           this.sharedService.apartmentselectedcast.subscribe(function (isSelected) {
-            _this84.isApartmentSelected = isSelected;
+            _this90.isApartmentSelected = isSelected;
           });
         }
       }]);

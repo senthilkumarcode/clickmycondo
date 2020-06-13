@@ -6827,7 +6827,7 @@ MatSidenavModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineI
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header (toggleNotification)=\"notifications.toggle()\"></app-header>\n<mat-sidenav-container>\n\t<mat-sidenav #notifications position=\"end\" class=\"chat-panel\" mode=\"over\" opened=\"false\">\n\t\t<app-notification class=\"inner-wrapper\"></app-notification>\n\t</mat-sidenav>\n\t<section class=\"inner-wrapper\">\n\t\t<app-sidebar></app-sidebar>\n\t\t<div class=\"main-container\" [ngClass]=\"showMiniSideBar()\">\n\t\t\t<!-- <app-breadcrumb class=\"d-none d-sm-block\" [title]=\"outletData.activatedRouteData.title\" [icon]=\"outletData.activatedRouteData.icon\"></app-breadcrumb>\n\t\t\t<app-mobile-breadcrumb class=\"d-block d-sm-none\"></app-mobile-breadcrumb> -->\n\t\t\t<div class=\"content\">\n\t\t\t\t<app-alert-air></app-alert-air>\n\t\t\t\t<app-custom-alert-messages></app-custom-alert-messages>\n\t\t\t\t<router-outlet></router-outlet>\n\t\t\t</div>\n\t\t\t<app-footer class=\"d-none d-sm-block\"></app-footer>\n\t\t\t<app-ams-bottom-menu class=\"d-block d-sm-none\"></app-ams-bottom-menu>\n\t\t</div>\n\t</section>\n</mat-sidenav-container>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n<mat-sidenav-container>\n\t<mat-sidenav #notifications position=\"end\" class=\"chat-panel\" mode=\"over\" opened=\"false\">\n\t\t<app-notification class=\"inner-wrapper\" *ngIf=\"sliderType == 'notification'\"></app-notification>\n\t\t<app-add-widget-custom-dash class=\"inner-wrapper\" *ngIf=\"sliderType == 'add-widget'\"></app-add-widget-custom-dash>\n\t</mat-sidenav>\n\t<section class=\"inner-wrapper\">\n\t\t<app-sidebar></app-sidebar>\n\t\t<div class=\"main-container\" [ngClass]=\"showMiniSideBar()\">\n\t\t\t<!-- <app-breadcrumb class=\"d-none d-sm-block\" [title]=\"outletData.activatedRouteData.title\" [icon]=\"outletData.activatedRouteData.icon\"></app-breadcrumb>\n\t\t\t<app-mobile-breadcrumb class=\"d-block d-sm-none\"></app-mobile-breadcrumb> -->\n\t\t\t<div class=\"content\">\n\t\t\t\t<app-alert-air></app-alert-air>\n\t\t\t\t<app-custom-alert-messages></app-custom-alert-messages>\n\t\t\t\t<router-outlet></router-outlet>\n\t\t\t</div>\n\t\t\t<app-footer class=\"d-none d-sm-block\"></app-footer>\n\t\t\t<app-ams-bottom-menu class=\"d-block d-sm-none\"></app-ams-bottom-menu>\n\t\t</div>\n\t</section>\n</mat-sidenav-container>\n");
 
 /***/ }),
 
@@ -6909,6 +6909,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.html":
+/*!****************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.html ***!
+  \****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-widget-wrapper\">\n    <h6 class=\"text-center mt-3 mb-3\">Add Widgets</h6>\n    <div class=\"row\" *ngFor=\"let data of array1\">\n        <div class=\"col-sm-12\">\n            <mat-accordion >\n                <mat-expansion-panel>\n                    <mat-expansion-panel-header>\n                        <mat-panel-title>\n                            <input type=\"checkbox\" class=\"form-check-input link\" id=\"\" name=\"\" [(ngModel)]=\"data.check\" (click)=\"method1()\">\n                            <label class=\"form-check-label ml-2\" for=\"\">{{data.name}}</label>\n                        </mat-panel-title>\n                    </mat-expansion-panel-header>\n                    <p>{{data.desc}}</p>\n                </mat-expansion-panel>\n            </mat-accordion>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
 /***/ "./src/app/ams/ams-routing.module.ts":
 /*!*******************************************!*\
   !*** ./src/app/ams/ams-routing.module.ts ***!
@@ -6935,15 +6948,15 @@ const routes = [
             { path: 'dashboard', loadChildren: () => __webpack_require__.e(/*! import() | dashboard-dashboard-module */ "default~dashboard-dashboard-module~user-dashboard-user-dashboard-module").then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/ams/dashboard/dashboard.module.ts")).then(m => m.DashboardModule) },
             { path: 'my-property', loadChildren: () => Promise.all(/*! import() | my-property-my-property-module */[__webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("my-property-my-property-module")]).then(__webpack_require__.bind(null, /*! ./my-property/my-property.module */ "./src/app/ams/my-property/my-property.module.ts")).then(m => m.MyPropertyModule) },
             { path: 'unit&users', loadChildren: () => Promise.all(/*! import() | unit-users-unit-users-module */[__webpack_require__.e("default~my-profile-my-profile-module~unit-users-unit-users-module"), __webpack_require__.e("unit-users-unit-users-module")]).then(__webpack_require__.bind(null, /*! ./unit-users/unit-users.module */ "./src/app/ams/unit-users/unit-users.module.ts")).then(m => m.UnitUsersModule) },
-            { path: 'inbox', loadChildren: () => Promise.all(/*! import() | ams-inbox-ams-inbox-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("ams-inbox-ams-inbox-module")]).then(__webpack_require__.bind(null, /*! ./ams-inbox/ams-inbox.module */ "./src/app/ams/ams-inbox/ams-inbox.module.ts")).then(m => m.AmsInboxModule) },
+            { path: 'inbox', loadChildren: () => Promise.all(/*! import() | ams-inbox-ams-inbox-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("ams-inbox-ams-inbox-module")]).then(__webpack_require__.bind(null, /*! ./ams-inbox/ams-inbox.module */ "./src/app/ams/ams-inbox/ams-inbox.module.ts")).then(m => m.AmsInboxModule) },
             { path: 'helpdesk', loadChildren: () => __webpack_require__.e(/*! import() | helpdesk-helpdesk-module */ "helpdesk-helpdesk-module").then(__webpack_require__.bind(null, /*! ./helpdesk/helpdesk.module */ "./src/app/ams/helpdesk/helpdesk.module.ts")).then(m => m.HelpdeskModule) },
             { path: 'income', loadChildren: () => Promise.all(/*! import() | income-tracker-income-tracker-module */[__webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("income-tracker-income-tracker-module")]).then(__webpack_require__.bind(null, /*! ./income-tracker/income-tracker.module */ "./src/app/ams/income-tracker/income-tracker.module.ts")).then(m => m.IncomeTrackerModule) },
             { path: 'expense', loadChildren: () => __webpack_require__.e(/*! import() | expense-tracker-expense-tracker-module */ "expense-tracker-expense-tracker-module").then(__webpack_require__.bind(null, /*! ./expense-tracker/expense-tracker.module */ "./src/app/ams/expense-tracker/expense-tracker.module.ts")).then(m => m.ExpenseTrackerModule) },
             { path: 'general-ledger', loadChildren: () => __webpack_require__.e(/*! import() | general-ledger-general-ledger-module */ "general-ledger-general-ledger-module").then(__webpack_require__.bind(null, /*! ./general-ledger/general-ledger.module */ "./src/app/ams/general-ledger/general-ledger.module.ts")).then(m => m.GeneralLedgerModule) },
             { path: 'bank', loadChildren: () => __webpack_require__.e(/*! import() | bank-cash-bank-cash-module */ "bank-cash-bank-cash-module").then(__webpack_require__.bind(null, /*! ./bank-cash/bank-cash.module */ "./src/app/ams/bank-cash/bank-cash.module.ts")).then(m => m.BankCashModule) },
-            { path: 'work-permit', loadChildren: () => Promise.all(/*! import() | work-permit-work-permit-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null, /*! ./work-permit/work-permit.module */ "./src/app/ams/work-permit/work-permit.module.ts")).then(m => m.WorkPermitModule) },
+            { path: 'work-permit', loadChildren: () => Promise.all(/*! import() | work-permit-work-permit-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null, /*! ./work-permit/work-permit.module */ "./src/app/ams/work-permit/work-permit.module.ts")).then(m => m.WorkPermitModule) },
             { path: 'utility', loadChildren: () => __webpack_require__.e(/*! import() | utility-utility-module */ "utility-utility-module").then(__webpack_require__.bind(null, /*! ./utility/utility.module */ "./src/app/ams/utility/utility.module.ts")).then(m => m.UtilityModule) },
-            { path: 'broadcast', loadChildren: () => Promise.all(/*! import() | broadcast-broadcast-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null, /*! ./broadcast/broadcast.module */ "./src/app/ams/broadcast/broadcast.module.ts")).then(m => m.BroadcastModule) },
+            { path: 'broadcast', loadChildren: () => Promise.all(/*! import() | broadcast-broadcast-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null, /*! ./broadcast/broadcast.module */ "./src/app/ams/broadcast/broadcast.module.ts")).then(m => m.BroadcastModule) },
             { path: 'security', loadChildren: () => __webpack_require__.e(/*! import() | security-security-module */ "security-security-module").then(__webpack_require__.bind(null, /*! ./security/security.module */ "./src/app/ams/security/security.module.ts")).then(m => m.SecurityModule) },
             { path: 'visitor', loadChildren: () => __webpack_require__.e(/*! import() | visitor-visitor-module */ "visitor-visitor-module").then(__webpack_require__.bind(null, /*! ./visitor/visitor.module */ "./src/app/ams/visitor/visitor.module.ts")).then(m => m.VisitorModule) },
             { path: 'staff', loadChildren: () => __webpack_require__.e(/*! import() | staff-manager-staff-manager-module */ "staff-manager-staff-manager-module").then(__webpack_require__.bind(null, /*! ./staff-manager/staff-manager.module */ "./src/app/ams/staff-manager/staff-manager.module.ts")).then(m => m.StaffManagerModule) },
@@ -6953,14 +6966,14 @@ const routes = [
             { path: 'parcel-delivery', loadChildren: () => __webpack_require__.e(/*! import() | parcel-delivery-parcel-delivery-module */ "parcel-delivery-parcel-delivery-module").then(__webpack_require__.bind(null, /*! ./parcel-delivery/parcel-delivery.module */ "./src/app/ams/parcel-delivery/parcel-delivery.module.ts")).then(m => m.ParcelDeliveryModule) },
             { path: 'parking-management', loadChildren: () => __webpack_require__.e(/*! import() | parking-management-parking-management-module */ "parking-management-parking-management-module").then(__webpack_require__.bind(null, /*! ./parking-management/parking-management.module */ "./src/app/ams/parking-management/parking-management.module.ts")).then(m => m.ParkingManagementModule) },
             { path: 'facility', loadChildren: () => __webpack_require__.e(/*! import() | facility-facility-module */ "facility-facility-module").then(__webpack_require__.bind(null, /*! ./facility/facility.module */ "./src/app/ams/facility/facility.module.ts")).then(m => m.FacilityModule) },
-            { path: 'meetings', loadChildren: () => Promise.all(/*! import() | meetings-meetings-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null, /*! ./meetings/meetings.module */ "./src/app/ams/meetings/meetings.module.ts")).then(m => m.MeetingsModule) },
-            { path: 'assets', loadChildren: () => Promise.all(/*! import() | assets-assets-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("assets-assets-module")]).then(__webpack_require__.bind(null, /*! ./assets/assets.module */ "./src/app/ams/assets/assets.module.ts")).then(m => m.AssetsModule) },
-            { path: 'inventory', loadChildren: () => Promise.all(/*! import() | inventory-inventory-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~8284a2ff"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null, /*! ./inventory/inventory.module */ "./src/app/ams/inventory/inventory.module.ts")).then(m => m.InventoryModule) },
+            { path: 'meetings', loadChildren: () => Promise.all(/*! import() | meetings-meetings-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null, /*! ./meetings/meetings.module */ "./src/app/ams/meetings/meetings.module.ts")).then(m => m.MeetingsModule) },
+            { path: 'assets', loadChildren: () => Promise.all(/*! import() | assets-assets-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("assets-assets-module")]).then(__webpack_require__.bind(null, /*! ./assets/assets.module */ "./src/app/ams/assets/assets.module.ts")).then(m => m.AssetsModule) },
+            { path: 'inventory', loadChildren: () => Promise.all(/*! import() | inventory-inventory-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null, /*! ./inventory/inventory.module */ "./src/app/ams/inventory/inventory.module.ts")).then(m => m.InventoryModule) },
             { path: 'notice', loadChildren: () => __webpack_require__.e(/*! import() | notice-notice-module */ "notice-notice-module").then(__webpack_require__.bind(null, /*! ./notice/notice.module */ "./src/app/ams/notice/notice.module.ts")).then(m => m.NoticeModule) },
             { path: 'vendor', loadChildren: () => __webpack_require__.e(/*! import() | vendor-vendor-module */ "vendor-vendor-module").then(__webpack_require__.bind(null, /*! ./vendor/vendor.module */ "./src/app/ams/vendor/vendor.module.ts")).then(m => m.VendorModule) },
             { path: 'documents', loadChildren: () => __webpack_require__.e(/*! import() | documents-documents-module */ "documents-documents-module").then(__webpack_require__.bind(null, /*! ./documents/documents.module */ "./src/app/ams/documents/documents.module.ts")).then(m => m.DocumentsModule) },
             { path: 'directory', loadChildren: () => __webpack_require__.e(/*! import() | directory-directory-module */ "directory-directory-module").then(__webpack_require__.bind(null, /*! ./directory/directory.module */ "./src/app/ams/directory/directory.module.ts")).then(m => m.DirectoryModule) },
-            { path: 'operational-maintanance', loadChildren: () => __webpack_require__.e(/*! import() | operational-maintanance-operational-maintanance-module */ "operational-maintanance-operational-maintanance-module").then(__webpack_require__.bind(null, /*! ./operational-maintanance/operational-maintanance.module */ "./src/app/ams/operational-maintanance/operational-maintanance.module.ts")).then(m => m.OperationalMaintananceModule) },
+            { path: 'operational-maintanance', loadChildren: () => Promise.all(/*! import() | operational-maintanance-operational-maintanance-module */[__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("operational-maintanance-operational-maintanance-module")]).then(__webpack_require__.bind(null, /*! ./operational-maintanance/operational-maintanance.module */ "./src/app/ams/operational-maintanance/operational-maintanance.module.ts")).then(m => m.OperationalMaintananceModule) },
             { path: 'violation', loadChildren: () => __webpack_require__.e(/*! import() | violation-violation-module */ "violation-violation-module").then(__webpack_require__.bind(null, /*! ./violation/violation.module */ "./src/app/ams/violation/violation.module.ts")).then(m => m.ViolationModule) },
             { path: 'roles-permissions', loadChildren: () => __webpack_require__.e(/*! import() | roles-and-permissions-roles-and-permissions-module */ "roles-and-permissions-roles-and-permissions-module").then(__webpack_require__.bind(null, /*! ./roles-and-permissions/roles-and-permissions.module */ "./src/app/ams/roles-and-permissions/roles-and-permissions.module.ts")).then(m => m.RolesAndPermissionsModule) },
             { path: 'todo', loadChildren: () => __webpack_require__.e(/*! import() | todo-todo-module */ "todo-todo-module").then(__webpack_require__.bind(null, /*! ./todo/todo.module */ "./src/app/ams/todo/todo.module.ts")).then(m => m.TodoModule) },
@@ -7035,6 +7048,12 @@ let AmsComponent = class AmsComponent {
             this.modalService.showApartmentModal();
         }
         this.sharedService.sidebarminicast.subscribe(isSidebarMini => this.isSidebarMini = isSidebarMini);
+        this.sharedService.sidebarslidercast.subscribe(data => {
+            this.sliderType = data;
+            if (this.sliderType) {
+                this.notifications.toggle();
+            }
+        });
     }
 };
 AmsComponent.ctorParameters = () => [
@@ -7042,6 +7061,10 @@ AmsComponent.ctorParameters = () => [
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('notifications'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AmsComponent.prototype, "notifications", void 0);
 AmsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-ams',
@@ -7092,6 +7115,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_notification_notification_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/notification/notification.component */ "./src/app/ams/components/notification/notification.component.ts");
 /* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tabs.js");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var _dashboard_components_shared_add_widget_custom_dash_add_widget_custom_dash_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component */ "./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.ts");
+
 
 
 
@@ -7130,7 +7155,8 @@ AmsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_settings_payment_setup_payment_setup_component__WEBPACK_IMPORTED_MODULE_20__["PaymentSetupComponent"],
             _components_settings_admin_admin_component__WEBPACK_IMPORTED_MODULE_21__["AdminComponent"],
             _components_ams_bottom_menu_ams_bottom_menu_component__WEBPACK_IMPORTED_MODULE_18__["AmsBottomMenuComponent"],
-            _components_notification_notification_component__WEBPACK_IMPORTED_MODULE_22__["NotificationComponent"]
+            _components_notification_notification_component__WEBPACK_IMPORTED_MODULE_22__["NotificationComponent"],
+            _dashboard_components_shared_add_widget_custom_dash_add_widget_custom_dash_component__WEBPACK_IMPORTED_MODULE_25__["AddWidgetCustomDashComponent"],
         ],
         entryComponents: [
             _components_apartment_dialog_apartment_dialog_component__WEBPACK_IMPORTED_MODULE_17__["ApartmentDialogComponent"]
@@ -7638,6 +7664,62 @@ SidebarComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_6__["ConstantsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
 ], SidebarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.scss":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.scss ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9kYXNoYm9hcmQvY29tcG9uZW50cy9zaGFyZWQvYWRkLXdpZGdldC1jdXN0b20tZGFzaC9hZGQtd2lkZ2V0LWN1c3RvbS1kYXNoLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.ts":
+/*!************************************************************************************************************!*\
+  !*** ./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.ts ***!
+  \************************************************************************************************************/
+/*! exports provided: AddWidgetCustomDashComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddWidgetCustomDashComponent", function() { return AddWidgetCustomDashComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let AddWidgetCustomDashComponent = class AddWidgetCustomDashComponent {
+    constructor() {
+        this.array1 = [
+            { name: 'Total Owners', desc: 'xxx,yyyy,zzzz', check: true, id: 1 },
+            { name: 'Total Blocks', desc: 'xxx,yyyy,zzzz', check: true, id: 2 },
+            { name: 'Open Violation', desc: 'xxx,yyyy,zzzz', check: true, id: 3 },
+            { name: 'Facility Booking', desc: 'xxx,yyyy,zzzz', check: false, id: 4 },
+            { name: 'Total Parking', desc: 'xxx,yyyy,zzzz', check: true, id: 5 },
+        ];
+    }
+    ngOnInit() {
+    }
+    method1() {
+        console.log(this.array1);
+    }
+};
+AddWidgetCustomDashComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-add-widget-custom-dash',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-widget-custom-dash.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-widget-custom-dash.component.scss */ "./src/app/ams/dashboard/components/shared/add-widget-custom-dash/add-widget-custom-dash.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], AddWidgetCustomDashComponent);
 
 
 

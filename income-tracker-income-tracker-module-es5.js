@@ -21,7 +21,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"income-actions-wrapper\">\n\n    <ul class=\"icon-tabs\">\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"javascript:void(0)\" \n            routerLink=\"post-collection/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/coin-stack-icon.svg\" /></span>\n\t\t\t\t<span>Collection</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-invoice-history/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/time-icon.svg\" /></span>\n\t\t\t\t<span>Account History</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-creditnote/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/credit-note-icon.svg\" /></span>\n\t\t\t\t<span>Credit Notes</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"customer-advances/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/income-icon.svg\" /></span>\n\t\t\t\t<span>Customer Advances</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"security-deposit/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/money-bag-icon-02.svg\" /></span>\n\t\t\t\t<span>Security Deposit</span>\n\t\t\t</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"journal/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/journal-icon.svg\" /></span>\n\t\t\t\t<span>Journal Entry</span>\n\t\t\t</a>\n\t\t</li>\n\t</ul>\n    \n    <div class=\"d-block mt-50\">\n        <router-outlet></router-outlet>\n    </div>\n    \n    <!-- <div class=\"special-movable-tabs\">\n        <div class=\"card\">\n            <div class=\"card-body p-0\">\n                <nav class=\"nav nav-pills\" id=\"action-wrapper\">\n                    <ul class=\"tabs mr-auto\" id=\"action-tabs\">\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"post-collection\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Collection</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"view-invoice-history\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Account History</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"view-creditnote\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Credit Notes</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"customer-advances\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Customer Advances</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"security-deposit\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Security Deposit</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"journal\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Journal Entry</a></li>\n                    </ul>\n                    <div class=\"buttons ml-auto\">\n                        <a class=\"nav-item nav-link prev\" (click)=\"moveTabLeft()\"href=\"javascript:void(0)\">\n                            <i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>\n                        </a>\n                        <a class=\"nav-item nav-link next\" (click)=\"moveTabRight()\" href=\"javascript:void(0)\">\n                            <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n                        </a>\n                    </div>\n                </nav>\n            </div>\n        </div>\n\n        <div class=\"d-block mt-5\">\n            <div class=\"pt-2\">\n                <router-outlet></router-outlet>\n            </div>\n        </div>\n\n    </div> -->\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"income-actions-wrapper\">\n\n    <ul class=\"icon-tabs\">\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"javascript:void(0)\" \n            routerLink=\"post-collection/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/coin-stack-icon.svg\" /></span>\n\t\t\t\t<span>Collection</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-invoice-history/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/time-icon.svg\" /></span>\n\t\t\t\t<span>Account History</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-creditnote/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/credit-note-icon.svg\" /></span>\n\t\t\t\t<span>Credit Notes</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"customer-advances/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/income-icon.svg\" /></span>\n\t\t\t\t<span>Customer Advances</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"security-deposit/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/money-bag-icon-02.svg\" /></span>\n\t\t\t\t<span>Security Deposit</span>\n\t\t\t</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"journal/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/journal-icon.svg\" /></span>\n\t\t\t\t<span>Journal Entry</span>\n\t\t\t</a>\n\t\t</li>\n\t</ul>\n    \n    <div class=\"d-block mt-50\">\n        <router-outlet></router-outlet>\n    </div>\n\n</div>\n";
     /***/
   },
 
@@ -3725,8 +3725,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             renderer: columnrenderer
           }, {
             text: '',
-            cellsalign: 'center',
-            align: 'center',
             minwidth: 120,
             sortable: false,
             menu: false,
@@ -7447,7 +7445,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             PostEndDate: postEndDate
           };
           this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this60.invoiceDataList = res; //filter items
+            _this60.invoiceDataList = res;
+
+            _this60.invoiceDataList.forEach(function (item) {
+              return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
+            }); //filter items
+
 
             if (event.isReversed != null) {
               _this60.invoiceDataList = _this60.invoiceDataList.filter(function (item) {
@@ -7572,8 +7575,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
             _this62.invoiceDataList = res;
+
+            _this62.invoiceDataList.forEach(function (item) {
+              return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
+            });
+
             _this62.invoice = _this62.invoiceDataList[0];
-            _this62.invoicePopOverSlector = '#' + _this62.invoice.billNo; //sorting by date ( new to old )
+            _this62.invoicePopOverSlector = '#' + _this62.invoice.billNo;
+            console.log(_this62.invoiceDataList); //sorting by date ( new to old )
 
             _this62.invoiceDataList.sort(function (a, b) {
               return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
@@ -7611,7 +7620,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this62.userDataList = res;
               _this62.isInvoiceDataLoaded = true;
             }, function (error) {});
-          }, function () {});
+          });
         }
       }, {
         key: "onGlSearchFilter",
@@ -7668,6 +7677,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             datatype: "boolean"
           };
           this.submitFlag = new jqx.dataAdapter(this.popperDataSource);
+          this.tableBinding();
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -7681,7 +7691,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Posted Date',
             datafield: 'postedDate',
             width: 120,
-            //      pinned: true,
             cellsrenderer: function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(_this65.constantsService.dateFormat) + '</div>';
             },
@@ -7720,19 +7729,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 150,
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
-          }, //   {
-          //     text: 'Status',
-          //     datafield: 'postedBy',
-          //     minwidth: 150,
-          //     cellsrenderer: cellsrenderer,
-          //     renderer: columnrenderer
-          // },
-          {
-            text: 'Actions',
-            cellsalign: 'center',
-            align: 'center',
-            minwidth: 120,
+          }, {
+            text: 'Status',
             datafield: 'isReversed',
+            minwidth: 150,
+            cellclassname: 'text-center',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + '<span class="squares medium ml-1 ' + getStatusClassName(value) + '"><span class=' + getStatusValueReversed(value) + '>R<span></span><span class=' + getStatusValueCredit(column) + '>C<span></span></div>';
+            },
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            datafield: 'isReverseIdAvailable',
+            minwidth: 120,
             cellsrenderer: function cellsrenderer(row, coloumn, value) {
               var isreverse = value;
               var reverse = {
@@ -7744,14 +7753,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 'obj2': 'd-block'
               };
               var valueData = isreverse === false ? reverse : rdata;
-              var elemId = _this65.invoiceDataList.loadedData[row].billNo; // return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent('+ row +')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="'+ elemId +'" onClick="editReverseEvent('+ row +')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>'
-
-              return '<div class="simple-actions">' + '<div class="' + valueData.obj1 + '">' + '<div href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">' + '<i class="fa fa-repeat icon delete" aria-hidden="true"></i>' + '</div>' + '</div>' + '<div>' + '<span class="' + valueData.obj2 + '">R</span>' + '</div>' + '<a href="javascript:void(0)" class="mr-2" onClick="editAccHistroyEvent(' + row + ')">' + '<i class="fa fa-pencil icon edit" aria-hidden="true"></i>' + '</a>' + '</div>';
+              var elemId = _this65.invoiceDataList.loadedData[row].billNo;
+              return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2 ' + getReverseStatus(value) + '" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">' + '<i class="fa fa-undo icon delete ' + getReverseStatus(value) + '" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" class="mr-2" onClick="editAccHistroyEvent(' + row + ')">' + '<i class="fa fa-pencil icon edit" aria-hidden="true"></i>' + '</a>' + '</div>';
             },
             renderer: columnrenderer
           }];
           this.reverse = {};
-          this.tableBinding();
         }
       }]);
 
@@ -7794,25 +7801,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       "./src/app/ams/income-tracker/components/income-view-invoice-history/income-view-invoice-history.component.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], IncomeViewInvoiceHistoryComponent);
 
-    function editReverseEvent(row) {
+    var getStatusClassName = function getStatusClassName(value) {
+      return value ? 'red' : '';
+    };
+
+    var getStatusValueReversed = function getStatusValueReversed(value) {
+      return value ? 'd-inline-block' : 'd-none';
+    };
+
+    var getStatusValueCredit = function getStatusValueCredit(column) {
+      return column;
+    };
+
+    var getReverseStatus = function getReverseStatus(value) {
+      return value ? 'disabled' : '';
+    };
+
+    var editReverseEvent = function editReverseEvent(row) {
       var event = new CustomEvent('onEditReverse', {
         detail: {
           rowId: row
         }
       });
       window.dispatchEvent(event);
-    }
+    };
 
     window.editReverseEvent = editReverseEvent;
 
-    function editAccHistroyEvent(row) {
+    var editAccHistroyEvent = function editAccHistroyEvent(row) {
       var event = new CustomEvent('onAccHistroyEdit', {
         detail: {
           rowId: row
         }
       });
       window.dispatchEvent(event);
-    }
+    };
 
     window.editAccHistroyEvent = editAccHistroyEvent;
     /***/

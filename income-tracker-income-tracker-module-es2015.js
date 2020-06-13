@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-actions-wrapper\">\n\n    <ul class=\"icon-tabs\">\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"javascript:void(0)\" \n            routerLink=\"post-collection/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/coin-stack-icon.svg\" /></span>\n\t\t\t\t<span>Collection</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-invoice-history/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/time-icon.svg\" /></span>\n\t\t\t\t<span>Account History</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-creditnote/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/credit-note-icon.svg\" /></span>\n\t\t\t\t<span>Credit Notes</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"customer-advances/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/income-icon.svg\" /></span>\n\t\t\t\t<span>Customer Advances</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"security-deposit/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/money-bag-icon-02.svg\" /></span>\n\t\t\t\t<span>Security Deposit</span>\n\t\t\t</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"journal/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/journal-icon.svg\" /></span>\n\t\t\t\t<span>Journal Entry</span>\n\t\t\t</a>\n\t\t</li>\n\t</ul>\n    \n    <div class=\"d-block mt-50\">\n        <router-outlet></router-outlet>\n    </div>\n    \n    <!-- <div class=\"special-movable-tabs\">\n        <div class=\"card\">\n            <div class=\"card-body p-0\">\n                <nav class=\"nav nav-pills\" id=\"action-wrapper\">\n                    <ul class=\"tabs mr-auto\" id=\"action-tabs\">\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"post-collection\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Collection</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"view-invoice-history\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Account History</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"view-creditnote\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Credit Notes</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"customer-advances\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Customer Advances</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"security-deposit\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Security Deposit</a></li>\n                        <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n                        routerLink=\"journal\" \n                        routerLinkActive=\"active\"\n                        [routerLinkActiveOptions] = \"{exact:true}\">Journal Entry</a></li>\n                    </ul>\n                    <div class=\"buttons ml-auto\">\n                        <a class=\"nav-item nav-link prev\" (click)=\"moveTabLeft()\"href=\"javascript:void(0)\">\n                            <i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>\n                        </a>\n                        <a class=\"nav-item nav-link next\" (click)=\"moveTabRight()\" href=\"javascript:void(0)\">\n                            <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n                        </a>\n                    </div>\n                </nav>\n            </div>\n        </div>\n\n        <div class=\"d-block mt-5\">\n            <div class=\"pt-2\">\n                <router-outlet></router-outlet>\n            </div>\n        </div>\n\n    </div> -->\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-actions-wrapper\">\n\n    <ul class=\"icon-tabs\">\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"javascript:void(0)\" \n            routerLink=\"post-collection/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/coin-stack-icon.svg\" /></span>\n\t\t\t\t<span>Collection</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-invoice-history/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/time-icon.svg\" /></span>\n\t\t\t\t<span>Account History</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-creditnote/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/credit-note-icon.svg\" /></span>\n\t\t\t\t<span>Credit Notes</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"customer-advances/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/income-icon.svg\" /></span>\n\t\t\t\t<span>Customer Advances</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"security-deposit/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/money-bag-icon-02.svg\" /></span>\n\t\t\t\t<span>Security Deposit</span>\n\t\t\t</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"journal/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/journal-icon.svg\" /></span>\n\t\t\t\t<span>Journal Entry</span>\n\t\t\t</a>\n\t\t</li>\n\t</ul>\n    \n    <div class=\"d-block mt-50\">\n        <router-outlet></router-outlet>\n    </div>\n\n</div>\n");
 
 /***/ }),
 
@@ -2680,8 +2680,6 @@ let IncomeSubLedgerComponent = class IncomeSubLedgerComponent {
             },
             {
                 text: '',
-                cellsalign: 'center',
-                align: 'center',
                 minwidth: 120,
                 sortable: false,
                 menu: false,
@@ -5478,6 +5476,9 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
         };
         this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe((res) => {
             this.invoiceDataList = res;
+            this.invoiceDataList.forEach(item => {
+                return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
+            });
             //filter items
             if (event.isReversed != null) {
                 this.invoiceDataList = this.invoiceDataList.filter(item => { return item.isReversed == event.isReversed; });
@@ -5573,8 +5574,12 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
         };
         this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe((res) => {
             this.invoiceDataList = res;
+            this.invoiceDataList.forEach(item => {
+                return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
+            });
             this.invoice = this.invoiceDataList[0];
             this.invoicePopOverSlector = '#' + this.invoice.billNo;
+            console.log(this.invoiceDataList);
             //sorting by date ( new to old )
             this.invoiceDataList.sort((a, b) => {
                 return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
@@ -5608,7 +5613,6 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
                 this.isInvoiceDataLoaded = true;
             }, error => {
             });
-        }, () => {
         });
     }
     onGlSearchFilter() {
@@ -5652,6 +5656,7 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
             datatype: "boolean"
         };
         this.submitFlag = new jqx.dataAdapter(this.popperDataSource);
+        this.tableBinding();
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -5662,7 +5667,6 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
                 text: 'Posted Date',
                 datafield: 'postedDate',
                 width: 120,
-                //      pinned: true,
                 cellsrenderer: (row, column, value) => {
                     return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(this.constantsService.dateFormat) + '</div>';
                 },
@@ -5708,35 +5712,31 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
-            //   {
-            //     text: 'Status',
-            //     datafield: 'postedBy',
-            //     minwidth: 150,
-            //     cellsrenderer: cellsrenderer,
-            //     renderer: columnrenderer
-            // },
+            {
+                text: 'Status',
+                datafield: 'isReversed',
+                minwidth: 150,
+                cellclassname: 'text-center',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">'
+                        + '<span class="squares medium ml-1 ' + getStatusClassName(value) + '"><span class=' + getStatusValueReversed(value) + '>R<span></span><span class=' + getStatusValueCredit(column) + '>C<span></span></div>';
+                },
+                renderer: columnrenderer
+            },
             {
                 text: 'Actions',
-                cellsalign: 'center',
-                align: 'center',
+                datafield: 'isReverseIdAvailable',
                 minwidth: 120,
-                datafield: 'isReversed',
                 cellsrenderer: (row, coloumn, value) => {
                     let isreverse = value;
                     let reverse = { 'obj1': 'd-block', 'obj2': 'd-none' };
                     let rdata = { 'obj1': 'd-none', 'obj2': 'd-block' };
                     let valueData = isreverse === false ? reverse : rdata;
                     let elemId = this.invoiceDataList.loadedData[row].billNo;
-                    // return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent('+ row +')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="'+ elemId +'" onClick="editReverseEvent('+ row +')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>'
                     return '<div class="simple-actions">'
-                        + '<div class="' + valueData.obj1 + '">'
-                        + '<div href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">'
-                        + '<i class="fa fa-repeat icon delete" aria-hidden="true"></i>'
-                        + '</div>'
-                        + '</div>'
-                        + '<div>'
-                        + '<span class="' + valueData.obj2 + '">R</span>'
-                        + '</div>'
+                        + '<a href="javascript:void(0)" class="mr-2 ' + getReverseStatus(value) + '" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">'
+                        + '<i class="fa fa-undo icon delete ' + getReverseStatus(value) + '" aria-hidden="true"></i>'
+                        + '</a>'
                         + '<a href="javascript:void(0)" class="mr-2" onClick="editAccHistroyEvent(' + row + ')">'
                         + '<i class="fa fa-pencil icon edit" aria-hidden="true"></i>'
                         + '</a>'
@@ -5745,7 +5745,6 @@ let IncomeViewInvoiceHistoryComponent = class IncomeViewInvoiceHistoryComponent 
                 renderer: columnrenderer
             }];
         this.reverse = {};
-        this.tableBinding();
     }
 };
 IncomeViewInvoiceHistoryComponent.ctorParameters = () => [
@@ -5792,23 +5791,35 @@ IncomeViewInvoiceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], IncomeViewInvoiceHistoryComponent);
 
-function editReverseEvent(row) {
-    var event = new CustomEvent('onEditReverse', {
+let getStatusClassName = value => {
+    return value ? 'red' : '';
+};
+let getStatusValueReversed = value => {
+    return value ? 'd-inline-block' : 'd-none';
+};
+let getStatusValueCredit = column => {
+    return column;
+};
+let getReverseStatus = value => {
+    return value ? 'disabled' : '';
+};
+let editReverseEvent = row => {
+    let event = new CustomEvent('onEditReverse', {
         detail: {
             rowId: row
         }
     });
     window.dispatchEvent(event);
-}
+};
 window.editReverseEvent = editReverseEvent;
-function editAccHistroyEvent(row) {
-    var event = new CustomEvent('onAccHistroyEdit', {
+let editAccHistroyEvent = row => {
+    let event = new CustomEvent('onAccHistroyEdit', {
         detail: {
             rowId: row
         }
     });
     window.dispatchEvent(event);
-}
+};
 window.editAccHistroyEvent = editAccHistroyEvent;
 
 

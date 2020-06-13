@@ -9580,7 +9580,7 @@ GridsterModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInj
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"admin-dashboard-wrapper\">\n\t<div class=\"row mt-4\">\n\t\t<div class=\"col-sm-2 dashboard-col-pad\" *ngFor= \"let first of firstRowData\">\n\t\t\t<div>\n\t\t\t\t<app-admin-dash-first-row [label]=\"first\"></app-admin-dash-first-row>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-4\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let second of secondRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"second\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>  \n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Amount Receivable vs Amount Received</h6>\n\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"text-mute mt-2\">Current Month</p>\n\t\t\t\t\t<app-dash-pie-chart></app-dash-pie-chart>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\">\n\t\t\t\t\t<p>Campaign sent 2 days ago</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Income vs Expenses</h6>\n\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<app-dash-income-chart></app-dash-income-chart>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\">\n\t\t\t\t\t<p>Data Information Certified</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let fourth of fourthRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"fourth\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card meeting-schedule\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card announcement\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let sixth of sixthRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"sixth\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t</div>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"admin-dashboard-wrapper\">\n\n\t<app-admin-dash-first-row></app-admin-dash-first-row>\n\n\t<div class=\"row mt-4\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let second of secondRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"second\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>  \n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Amount Receivable vs Amount Received</h6>\n\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"text-mute mt-2\">Current Month</p>\n\t\t\t\t\t<app-dash-pie-chart></app-dash-pie-chart>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\">\n\t\t\t\t\t<p>Campaign sent 2 days ago</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Income vs Expenses</h6>\n\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<app-dash-income-chart></app-dash-income-chart>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-footer\">\n\t\t\t\t\t<p>Data Information Certified</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let fourth of fourthRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"fourth\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card meeting-schedule\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<div class=\"card dashboard-card announcement\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-3 dashboard-col-pad\" *ngFor= \"let sixth of sixthRowData\">\n\t\t\t<app-admin-dash-second-row [label]=\"sixth\"></app-admin-dash-second-row>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row mt-5\">\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t</div>\n\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t</div>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -9593,7 +9593,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class=\"custom-dashboard mt-4\">\n\t<div class=\"row\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<ngx-gridster [options]=\"gridsterOptions\" [draggableOptions]=\"gridsterDraggableOptions\" (reflow)=\"onReflow($event)\"\n\t\t\t(optionsChange)=\"optionsChange($event)\" #gridster1 class=\"dashboard\">\n\t\t\t\t<ngx-gridster-item *ngFor=\"let widget of widgets; let indx = index\" #itemComp\n\t\t\t\t\t[options]=\"itemOptions\"\n\t\t\t\t\t[dragAndDrop]=\"widget.dragAndDrop\" [resizable]=\"widget.resizable\"\n\t\t\t\t\t[(x)]=\"widget.x\" [(y)]=\"widget.y\"\n\t\t\t\t\t[(xSm)]=\"widget.xSm\" [(ySm)]=\"widget.ySm\"\n\t\t\t\t\t[(xMd)]=\"widget.xMd\" [(yMd)]=\"widget.yMd\"\n\t\t\t\t\t[(xLg)]=\"widget.xLg\" [(yLg)]=\"widget.yLg\"\n\t\t\t\t\t[(xXl)]=\"widget.xXl\" [(yXl)]=\"widget.yXl\"\n\t\t\t\t\t[(w)]=\"widget.w\" [(h)]=\"widget.h\"\n\t\t\t\t\t[(wSm)]=\"widget.wSm\" [(hSm)]=\"widget.hSm\"\n\t\t\t\t\t[(wMd)]=\"widget.wMd\" [(hMd)]=\"widget.hMd\"\n\t\t\t\t\t[(wLg)]=\"widget.wLg\" [(hLg)]=\"widget.hLg\"\n\t\t\t\t\t[(wXl)]=\"widget.wXl\" [(hXl)]=\"widget.hXl\"\n\t\t\t\t\t(change)=\"itemChange($event)\">\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'one'\">\n\t\t\t\t\t\t<div class=\"content-body bg-white\">\n\t\t\t\t\t\t\t<i class=\"icon-md fa fa-ellipsis-h dark-blue link d-block text-right mt-2\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"icon-lg fa fa-database dark-blue text-left d-block ml-2 fon-inc\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<h6 class=\"dark-blue text-right\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<p>{{widget.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'two'\">\n\t\t\t\t\t\t<div class=\"content-body bg-cyan\">\n\t\t\t\t\t\t\t<i class=\"text-white icon-md fa fa-eye link d-block ml-2 mt-1\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"text-white icon-lg fa fa-database text-left d-block ml-2 mt-1 fon-inc\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<p class=\"text-white text-right mr-1 font-weight-bold\">{{widget.name}}</p>\n\t\t\t\t\t\t\t<h6 class=\"text-white text-right mt-1 mr-1\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer d-flex flex-column justify-content-center bg-dark-blue\">\n\t\t\t\t\t\t\t<p class=\"text-white\">Lastday</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag chart\" *ngIf=\"widget.type == 'three'\">\n\t\t\t\t\t\t<div class=\"content-body\">\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'pie'\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Amount Receivable vs Amount Received</h6>\n\t\t\t\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<app-dash-pie-chart></app-dash-pie-chart>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'income'\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Income vs Expenses</h6>\n\t\t\t\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<app-dash-income-chart></app-dash-income-chart>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'pie'\">\n\t\t\t\t\t\t\t\t<p>Campaign sent 2 days ago</p>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'income'\">\n\t\t\t\t\t\t\t\t<p>Data Information Certified</p>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'four'\">\n\t\t\t\t\t\t<div class=\"content-body\">\n\t\t\t\t\t\t\t<i class=\"icon-md fa fa-eye cyan-color link d-block\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"icon-lg fa fa-credit-card cyan-color mt-2 d-block wid-icon-four\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<h6 class=\"font-weight-bold dark-blue text-right\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<p>{{widget.name}}</p>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'five'\">\n\t\t\t\t\t\t<div class=\"meeting-schedule custom-dash-wid-sroll height-five ml-2\" *ngIf=\"widget.name == 'Meeting'\">\n\t\t\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"announcement custom-dash-wid-sroll height-five ml-2\" *ngIf=\"widget.name == 'Announcement'\">\n\t\t\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ngx-gridster-item>\n\t\t\t</ngx-gridster>\n\t\t</div>\n\t</div>\n\t<div class=\"static-com\">\n\t\t<div class=\"row mt-5 ml-0\">\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height ml-0\">\n\t\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row mt-5 ml-0 mb-3\">\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class=\"custom-dashboard mt-4\">\n\t<div class=\"row mb-3\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<button class=\"btn lime-green float-right\" (click)=\"addWidget()\">\n\t\t\t\t<i class=\"fa fa-plus\" aria-hidden=\"true\"> Add Widget</i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<ngx-gridster [options]=\"gridsterOptions\" [draggableOptions]=\"gridsterDraggableOptions\" (reflow)=\"onReflow($event)\"\n\t\t\t(optionsChange)=\"optionsChange($event)\" #gridster1 class=\"dashboard\">\n\t\t\t\t<ngx-gridster-item *ngFor=\"let widget of widgets; let indx = index\" #itemComp\n\t\t\t\t\t[options]=\"itemOptions\"\n\t\t\t\t\t[dragAndDrop]=\"widget.dragAndDrop\" [resizable]=\"widget.resizable\"\n\t\t\t\t\t[(x)]=\"widget.x\" [(y)]=\"widget.y\"\n\t\t\t\t\t[(xSm)]=\"widget.xSm\" [(ySm)]=\"widget.ySm\"\n\t\t\t\t\t[(xMd)]=\"widget.xMd\" [(yMd)]=\"widget.yMd\"\n\t\t\t\t\t[(xLg)]=\"widget.xLg\" [(yLg)]=\"widget.yLg\"\n\t\t\t\t\t[(xXl)]=\"widget.xXl\" [(yXl)]=\"widget.yXl\"\n\t\t\t\t\t[(w)]=\"widget.w\" [(h)]=\"widget.h\"\n\t\t\t\t\t[(wSm)]=\"widget.wSm\" [(hSm)]=\"widget.hSm\"\n\t\t\t\t\t[(wMd)]=\"widget.wMd\" [(hMd)]=\"widget.hMd\"\n\t\t\t\t\t[(wLg)]=\"widget.wLg\" [(hLg)]=\"widget.hLg\"\n\t\t\t\t\t[(wXl)]=\"widget.wXl\" [(hXl)]=\"widget.hXl\"\n\t\t\t\t\t(change)=\"itemChange($event)\">\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'one'\">\n\t\t\t\t\t\t<div class=\"content-body bg-white\">\n\t\t\t\t\t\t\t<i class=\"icon-md fa fa-ellipsis-h dark-blue link d-block text-right mt-2\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"icon-lg fa fa-database dark-blue text-left d-block ml-2 fon-inc\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<h6 class=\"dark-blue text-right\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<p>{{widget.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'two'\">\n\t\t\t\t\t\t<div class=\"content-body bg-cyan\">\n\t\t\t\t\t\t\t<i class=\"text-white icon-md fa fa-eye link d-block ml-2 mt-1\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"text-white icon-lg fa fa-database text-left d-block ml-2 mt-1 fon-inc\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<p class=\"text-white text-right mr-1 font-weight-bold\">{{widget.name}}</p>\n\t\t\t\t\t\t\t<h6 class=\"text-white text-right mt-1 mr-1\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer d-flex flex-column justify-content-center bg-dark-blue\">\n\t\t\t\t\t\t\t<p class=\"text-white\">Lastday</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag chart\" *ngIf=\"widget.type == 'three'\">\n\t\t\t\t\t\t<div class=\"content-body\">\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'pie'\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Amount Receivable vs Amount Received</h6>\n\t\t\t\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<app-dash-pie-chart></app-dash-pie-chart>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'income'\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"font-weight-bold\">Income vs Expenses</h6>\n\t\t\t\t\t\t\t\t\t<i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<app-dash-income-chart></app-dash-income-chart>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'pie'\">\n\t\t\t\t\t\t\t\t<p>Campaign sent 2 days ago</p>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"widget.name == 'income'\">\n\t\t\t\t\t\t\t\t<p>Data Information Certified</p>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'four'\">\n\t\t\t\t\t\t<div class=\"content-body\">\n\t\t\t\t\t\t\t<i class=\"icon-md fa fa-eye cyan-color link d-block\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<i class=\"icon-lg fa fa-credit-card cyan-color mt-2 d-block wid-icon-four\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t<h6 class=\"font-weight-bold dark-blue text-right\">45</h6>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"content-footer wid-footer d-flex flex-column justify-content-center\">\n\t\t\t\t\t\t\t<p>{{widget.name}}</p>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"custom-widget drag\" *ngIf=\"widget.type == 'five'\">\n\t\t\t\t\t\t<div class=\"meeting-schedule custom-dash-wid-sroll height-five ml-2\" *ngIf=\"widget.name == 'Meeting'\">\n\t\t\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"announcement custom-dash-wid-sroll height-five ml-2\" *ngIf=\"widget.name == 'Announcement'\">\n\t\t\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ngx-gridster-item>\n\t\t\t</ngx-gridster>\n\t\t</div>\n\t</div>\n\t<div class=\"static-com\">\n\t\t<div class=\"row mt-5 ml-0\">\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height ml-0\">\n\t\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row mt-5 ml-0 mb-3\">\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6 dashboard-col-pad wid-height\">\n\t\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n");
 
 /***/ }),
 
@@ -9632,7 +9632,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"unit-layout flip\" #menu *ngIf=\"!label.middle\">\n    <div class=\"front\">\n        <div class=\"card dashboard-card\">\n            <div class=\"card-body align-left-right\">\n                    <i class=\"icon-lg fa fa-database dark-blue text-left\" aria-hidden=\"true\"></i>\n                <div class=\"text-right\">\n                    <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                    <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                    <h6 class=\"mt-2\">{{label.frontValue}}</h6> \n                </div>\n            </div>\n            <div class=\"card-footer align-left-right\">\n                <p>{{label.front}}</p>\n                <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" (click)=\"calenderPopUp(label.type,label.front,'front')\"></i>\n            </div>\n        </div>\n    </div>\n    <div class=\"back\">\n        <div class=\"card dashboard-card\">\n            <div class=\"card-body align-left-right\">\n                    <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                <div class=\"text-right\">\n                    <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                    <i class=\"icon-md fa fa-caret-left dark-blue link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                    <h6 class=\"mt-2\">{{label.backValue}}</h6> \n                </div>\n            </div>\n            <div class=\"card-footer align-left-right\">\n                <p>{{label.back}}</p>\n                <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" (click)=\"calenderPopUp(label.type,label.back,'back')\"></i>\n            </div>\n        </div>\n    </div>\n</div>\n    \n<div class= \"owner-layout\" *ngIf=\"label.middle\">\n    <div class=\"card dashboard-card\" *ngIf= \"colType == 'owner'\">\n        <div class=\"card-body align-left-right\">\n                <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n            <div class=\"text-right\">\n                <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\"  aria-hidden=\"true\"></i>\n                <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='tenants'\" aria-hidden=\"true\"></i>\n                <h6 class=\"mt-2\">{{label.frontValue}}</h6> \n            </div>\n        </div>\n        <div class=\"card-footer align-left-right\">\n            <p>{{label.front}}</p>\n            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\"></i>\n        </div>\n    </div>\n    <div class=\"card dashboard-card\" *ngIf= \"colType == 'tenants'\">\n        <div class=\"card-body align-left-right\">\n                <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n            <div class=\"text-right\">\n                <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='admin'\" aria-hidden=\"true\"></i>\n                <h6 class=\"mt-2\">{{label.middleValue}}</h6> \n            </div>\n        </div>\n        <div class=\"card-footer align-left-right\">\n            <p>{{label.middle}}</p>\n            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\"></i>\n        </div>\n    </div>\n    <div class=\"card dashboard-card\" *ngIf= \"colType == 'admin'\">\n        <div class=\"card-body align-left-right\">\n                <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n            <div class=\"text-right\">\n                <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='owner'\" aria-hidden=\"true\"></i>\n                <h6 class=\"mt-2\">{{label.backValue}}</h6> \n            </div>\n        </div>\n        <div class=\"card-footer align-left-right\">\n            <p>{{label.back}}</p>\n            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\"></i>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row mt-4\">\n    <div class=\"col-sm-2 dashboard-col-pad\" *ngFor= \"let data of widgets\">\n       <div class=\"admin-wid-one flip\" #menu *ngIf=\"!data.middle\">\n            <div class=\"front\">\n                <div class=\"card dashboard-card\">\n                    <div class=\"card-body d-flex justify-content-between\">\n                            <i class=\"icon-lg fa fa-database dark-blue text-left\" aria-hidden=\"true\"></i>\n                        <div class=\"text-right\">\n                            <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                            <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                            <h6 class=\"mt-2\">{{data.frontValue}}</h6> \n                        </div>\n                    </div>\n                    <div class=\"card-footer d-flex justify-content-between\">\n                        <p>{{data.front}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appFront\"></i>\n                            <mat-menu #appFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"back\">\n                <div class=\"card dashboard-card\">\n                    <div class=\"card-body d-flex justify-content-between\">\n                            <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                        <div class=\"text-right\">\n                            <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                            <i class=\"icon-md fa fa-caret-left dark-blue link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                            <h6 class=\"mt-2\">{{data.backValue}}</h6> \n                        </div>\n                    </div>\n                    <div class=\"card-footer d-flex justify-content-between\">\n                        <p>{{data.back}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.backFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appBack\"></i>\n                            <mat-menu #appBack=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"admin-wid-one\" *ngIf=\"data.middle\">\n            <div class=\"card dashboard-card\" *ngIf= \"colType == 'owner'\">\n                <div class=\"card-body d-flex justify-content-between\">\n                        <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                    <div class=\"text-right\">\n                        <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\"  aria-hidden=\"true\"></i>\n                        <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='tenants'\" aria-hidden=\"true\"></i>\n                        <h6 class=\"mt-2\">{{data.frontValue}}</h6> \n                    </div>\n                </div>\n                <div class=\"card-footer d-flex justify-content-between\">\n                    <p>{{data.front}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widront\"></i>\n                        <mat-menu #widFront=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card dashboard-card\" *ngIf= \"colType == 'tenants'\">\n                <div class=\"card-body d-flex justify-content-between\">\n                        <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                    <div class=\"text-right\">\n                        <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                        <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='admin'\" aria-hidden=\"true\"></i>\n                        <h6 class=\"mt-2\">{{data.middleValue}}</h6> \n                    </div>\n                </div>\n                <div class=\"card-footer d-flex justify-content-between\">\n                    <p>{{data.middle}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widMiddle\"></i>\n                        <mat-menu #widMiddle=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.middle,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.middle,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.middle,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card dashboard-card\" *ngIf= \"colType == 'admin'\">\n                <div class=\"card-body d-flex justify-content-between\">\n                        <i class=\"icon-lg fa fa-database dark-blue\" aria-hidden=\"true\"></i>\n                    <div class=\"text-right\">\n                        <i class=\"icon-md fa fa-ellipsis-h dark-blue link mr-3\" aria-hidden=\"true\"></i>\n                        <i class=\"icon-md fa fa-caret-right dark-blue link\" (click)=\"colType='owner'\" aria-hidden=\"true\"></i>\n                        <h6 class=\"mt-2\">{{data.backValue}}</h6> \n                    </div>\n                </div>\n                <div class=\"card-footer d-flex justify-content-between\">\n                    <p>{{data.back}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widBack\"></i>\n                        <mat-menu #widBack=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -9901,46 +9901,6 @@ let AdminDashboardComponent = class AdminDashboardComponent {
         this.cookieService = cookieService;
         this.dashboardService = dashboardService;
         this.dialog = dialog;
-        this.firstRowData = [{
-                front: 'Total Units',
-                back: 'Total Towers',
-                frontValue: '',
-                backValue: '',
-                type: ''
-            }, {
-                front: 'Total Owners',
-                frontValue: '',
-                middle: 'Total Tenants',
-                middleValue: '',
-                back: 'Total Admins',
-                backValue: '',
-                type: ''
-            }, {
-                front: 'Pending Admins',
-                back: 'Pending Users',
-                frontValue: '',
-                backValue: '',
-                type: 'pending'
-            }, {
-                front: 'Total',
-                back: 'Total',
-                frontValue: '',
-                backValue: '',
-                type: ''
-            }, {
-                front: 'Un Approve Move In',
-                back: 'Un Approve Move Out',
-                frontValue: '',
-                backValue: '',
-                type: 'unapprove'
-            }, {
-                front: 'Up Coming Move In',
-                back: 'Up Coming Move Out',
-                frontValue: '',
-                backValue: '',
-                type: 'upcoming'
-            }
-        ];
         this.secondRowData = [{
                 front: 'Open Community',
                 back: 'Open Personal',
@@ -10052,58 +10012,6 @@ let AdminDashboardComponent = class AdminDashboardComponent {
     isStaff() {
         return this.userRole == "Staff" ? true : false;
     }
-    firstRow() {
-        let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-        };
-        let entity = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            fromDate: new Date().toISOString(),
-            toDate: new Date().toISOString()
-        };
-        let data = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            date: new Date().toISOString(),
-        };
-        //First Row First Col
-        this.dashboardService.getDashTotalunitsbyApartmentId(params).subscribe((res) => {
-            this.firstRowData[0].frontValue = res.totalUnits;
-        });
-        this.dashboardService.getDashTotalTowersbyApartmentId(params).subscribe((res) => {
-            this.firstRowData[0].backValue = res.totalTowers;
-        });
-        //First Row Second Col
-        this.dashboardService.getDashTotalownersbyApartmentId(params).subscribe((res) => {
-            this.firstRowData[1].frontValue = 50;
-        });
-        this.dashboardService.getDashTotalTenantsbyApartmentId(params).subscribe((res) => {
-            this.firstRowData[1].middleValue = res.totalTenants;
-        });
-        this.dashboardService.getDashTotalAdminsbyApartmentId(params).subscribe((res) => {
-            this.firstRowData[1].backValue = res.totalAdmins;
-        });
-        //First Row Third Col
-        this.dashboardService.getDashUnapprovedUsersPendingAdminbyApartmentId(entity).subscribe((res) => {
-            this.firstRowData[2].frontValue = res.unapprovedUsersPendingAdmin;
-        });
-        this.dashboardService.getDashUnapprovedUsersPendingusersbyApartmentId(entity).subscribe((res) => {
-            this.firstRowData[2].backValue = res.unapprovedPendingusers;
-        });
-        //First Row Fifth Col
-        this.dashboardService.getDashunapprovedmoveinbyApartmentId(data).subscribe((res) => {
-            this.firstRowData[4].frontValue = res.unapprovedMoveIn;
-        });
-        this.dashboardService.getDashunapprovedmoveoutbyApartmentId(data).subscribe((res) => {
-            this.firstRowData[4].backValue = res.unapprovedMoveOut;
-        });
-        //First Row sixth Col
-        this.dashboardService.getDashupcomingmoveinApartmentId(entity).subscribe((res) => {
-            this.firstRowData[5].frontValue = res.upcomingWeeklyApprovedMoveInCounts;
-        });
-        this.dashboardService.getDashupcomingmoveoutApprovedbyApartmentId(entity).subscribe((res) => {
-            this.firstRowData[5].backValue = res.upcomingMoveOut;
-        });
-    }
     secondRow() {
         let entity = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -10197,7 +10105,6 @@ let AdminDashboardComponent = class AdminDashboardComponent {
     }
     ngOnInit() {
         this.userRole = this.cookieService.get('userRole');
-        this.firstRow();
         this.secondRow();
         this.fourthRow();
         this.sixthRow();
@@ -10252,12 +10159,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomDashboardComponent", function() { return CustomDashboardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var angular2gridster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular2gridster */ "./node_modules/angular2gridster/__ivy_ngcc__/fesm2015/angular2gridster.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var angular2gridster__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2gridster */ "./node_modules/angular2gridster/__ivy_ngcc__/fesm2015/angular2gridster.js");
+
 
 
 
 let CustomDashboardComponent = class CustomDashboardComponent {
-    constructor() {
+    constructor(sharedService) {
+        this.sharedService = sharedService;
         this.itemOptions = {
             maxWidth: 3,
             maxHeight: 3
@@ -10588,9 +10498,6 @@ let CustomDashboardComponent = class CustomDashboardComponent {
             },
         ];
     }
-    ngOnInit() {
-        this.widgetsCopy = this.widgets.map(widget => (Object.assign({}, widget)));
-    }
     onReflow(event) {
         console.log('onReflow', event);
     }
@@ -10644,6 +10551,9 @@ let CustomDashboardComponent = class CustomDashboardComponent {
         this.widgets.splice(index, 1);
         console.log('widget remove', index);
     }
+    addWidget() {
+        this.sharedService.setSidebarSlider('add-widget');
+    }
     itemChange($event) {
         let responsive = $event.breakpoint;
         let height;
@@ -10663,17 +10573,22 @@ let CustomDashboardComponent = class CustomDashboardComponent {
             height = $event.item.itemComponent.h;
         }
         if (height == 1) {
-            console.log($event.item.itemComponent.$element.firstElementChild.firstElementChild.classList.remove('widget-two'));
+            $event.item.itemComponent.$element.firstElementChild.firstElementChild.classList.remove('widget-two');
         }
         else if (height == 2) {
             $event.item.itemComponent.$element.firstElementChild.firstElementChild.classList.add('widget-two');
-            console.log($event.item.itemComponent.$element.firstElementChild.firstElementChild);
         }
     }
+    ngOnInit() {
+        this.widgetsCopy = this.widgets.map(widget => (Object.assign({}, widget)));
+    }
 };
+CustomDashboardComponent.ctorParameters = () => [
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] }
+];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(angular2gridster__WEBPACK_IMPORTED_MODULE_2__["GridsterComponent"], { static: true }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", angular2gridster__WEBPACK_IMPORTED_MODULE_2__["GridsterComponent"])
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(angular2gridster__WEBPACK_IMPORTED_MODULE_3__["GridsterComponent"], { static: true }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", angular2gridster__WEBPACK_IMPORTED_MODULE_3__["GridsterComponent"])
 ], CustomDashboardComponent.prototype, "gridster", void 0);
 CustomDashboardComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -10681,7 +10596,8 @@ CustomDashboardComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./custom-dashboard.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/dashboard/components/dashboard/custom-dashboard/custom-dashboard.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./custom-dashboard.component.scss */ "./src/app/ams/dashboard/components/dashboard/custom-dashboard/custom-dashboard.component.scss")).default]
-    })
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]])
 ], CustomDashboardComponent);
 
 
@@ -10787,7 +10703,7 @@ StaffDashboardComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".dark-blue {\n  color: #236aaf;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtZmlyc3Qtcm93L2FkbWluLWRhc2gtZmlyc3Qtcm93LmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyIsInNyYy9hcHAvYW1zL2Rhc2hib2FyZC9jb21wb25lbnRzL3NoYXJlZC9hZG1pbi1kYXNoLWZpcnN0LXJvdy9hZG1pbi1kYXNoLWZpcnN0LXJvdy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLQTtFQUNDLGNDR2M7QUNQZiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9kYXNoYm9hcmQvY29tcG9uZW50cy9zaGFyZWQvYWRtaW4tZGFzaC1maXJzdC1yb3cvYWRtaW4tZGFzaC1maXJzdC1yb3cuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuXHRcbi5kYXJrLWJsdWUge1xuXHRjb2xvciA6ICRkYXJrLWJsdWUtMDI7XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC1iYXNlLTAyOjExO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iLCIuZGFyay1ibHVlIHtcbiAgY29sb3I6ICMyMzZhYWY7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".dark-blue {\n  color: #236aaf;\n}\n\n.admin-wid-one .card-body {\n  height: 60px;\n}\n\n.dashboard-col-pad {\n  padding-left: 5px !important;\n  padding-right: 5px !important;\n}\n\n::ng-deep .mat-menu-item {\n  height: 25px !important;\n  line-height: 25px !important;\n  padding-left: 16px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtZmlyc3Qtcm93L2FkbWluLWRhc2gtZmlyc3Qtcm93LmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyIsInNyYy9hcHAvYW1zL2Rhc2hib2FyZC9jb21wb25lbnRzL3NoYXJlZC9hZG1pbi1kYXNoLWZpcnN0LXJvdy9hZG1pbi1kYXNoLWZpcnN0LXJvdy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLQTtFQUNDLGNDR2M7QUNQZjs7QUZRQztFQUNDLFlBQUE7QUVMRjs7QUZTQTtFQUNDLDRCQUFBO0VBQ0EsNkJBQUE7QUVORDs7QUZVQTtFQUNDLHVCQUFBO0VBQ0EsNEJBQUE7RUFDQSw2QkFBQTtBRVBEIiwiZmlsZSI6InNyYy9hcHAvYW1zL2Rhc2hib2FyZC9jb21wb25lbnRzL3NoYXJlZC9hZG1pbi1kYXNoLWZpcnN0LXJvdy9hZG1pbi1kYXNoLWZpcnN0LXJvdy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG5cdFxuLmRhcmstYmx1ZSB7XG5cdGNvbG9yIDogJGRhcmstYmx1ZS0wMjtcbn1cblxuLmFkbWluLXdpZC1vbmUge1xuXHQuY2FyZC1ib2R5IHtcblx0XHRoZWlnaHQ6IDYwcHg7XG5cdH1cbn1cblxuLmRhc2hib2FyZC1jb2wtcGFkIHtcblx0cGFkZGluZy1sZWZ0OiA1cHggIWltcG9ydGFudDtcblx0cGFkZGluZy1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5cblxuOjpuZy1kZWVwIC5tYXQtbWVudS1pdGVtIHtcblx0aGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XG5cdGxpbmUtaGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XG5cdHBhZGRpbmctbGVmdDogMTZweCAhaW1wb3J0YW50O1xufSIsIlxuJGZ0YTogRm9udEF3ZXNvbWU7XG5cbiRmZDpmaXhlZDtcbiRhYnM6YWJzb2x1dGU7XG4kcmVsOnJlbGF0aXZlO1xuJHN0OnN0YXRpYztcblxuJGRhcmstYmx1ZTogIzA4M2Q3MTtcbiRkYXJrLWJsdWUtMDI6ICMyMzZhYWY7XG4kZGFyay1ibHVlLTAzOiAjMTM0YjgyO1xuJGxpZ2h0LWJsdWU6ICM4MzkxYTE7XG4kbGlnaHQtYmx1ZS0wMjogI2VlZjBmMztcbiRncmV5LWJsdWU6ICNmM2Y4ZmY7XG4kcy1ibHVlOiAjMDNhOWY0O1xuJGxpZ2h0LXJlZDogI2ZmNTQ3YjtcbiRtLWxpZ2h0LXJlZDogI2ZmNzY4ODtcbiRicmlnaHQtcmVkOiAjZTIzODVlO1xuJHMtcmVkOiAjZWE3OTYyO1xuJHMtcmVkLTAyOiAjZmYzNjM4O1xuJHMtcmVkLTAzOiAjZjQ0MzM2O1xuJG0tcmVkOiAjZDc1NzNkO1xuJGRtLXJlZDogIzhlNGQ0MDtcbiRsLXBhbGUtcmVkOiAjZmZmM2Y1O1xuJGgtcGFsZS1yZWQ6ICNmZmZiZmI7XG4kZ3JleS1yZWQgOiAjZjFkZGRkO1xuJHMtY3lhbjogIzAwYmNkNDtcbiRkLWN5YW46ICMwMjI5MjU7XG4kZC1jeWFuLTAyOiAjMDlhNTk2O1xuJGQtY3lhbi0wMzojMDBkMWZhO1xuJHZkLWN5YW46ICMwMDZkNmQ7XG4kcGFsZS1jeWFuOiAjZDhmZmZiO1xuJHMtZ3JleTogI2NjY2NjYztcbiRsLWdyZXk6ICNkOGUwZTY7XG5cbiRsaC1yZWQ6I2UyM2YwNmM0O1xuJGxoLXllbGxvdzojZGNiZTA4O1xuJHMtb3JhbmdlOiAjZmY5ODAwO1xuJGQtb3JhbmdlOiAjN2Q2NTIwO1xuJGQtb3JhbmdlLTAyOiAjNTI0NzI4O1xuJHMteWVsbG93OiAjZmZlYjNiO1xuJG0teWVsbG93OiAjZmZjMTA3O1xuJHMtdmlvbGV0OiAjNjczYWI3O1xuXG4kZ3JleS0zMDA6ICNmMGYzZjM7XG4kZ3JleS0yMDA6ICNmNmY4Zjg7XG4kZ3JleS01MDA6ICNlNmU2ZTY7XG4kaC1jeWFuOiAjMDNjY2E2O1xuJGRzLWN5YW46ICM4MWIyOWE7XG4kaGQtYmx1ZTogIzA0Mjg1NDtcblxuJGxpbWUtZ3JlZW46ICM1Y2Q2OTQ7IC8vIzViY2M3M1xuJGxpbWUtZ3JlZW4tMDI6ICM1Y2Q2N2M7XG4kbGltZS1ncmVlbi0wMzogIzUyYzU3MDtcbiRsaWdodC1ncmVlbjogI2VkZjVlMDtcbiRtLWdyZWVuOiAjNTRiOTQxO1xuJGQtZ3JlZW46ICMzODk1ODM7XG4kZC1ncmVlbi0wMjogI2RhZTBjZDtcbiRkcy1ncmVlbjogI2U0ZTdkZjtcbiRkcy1ncmVlbi0wMjogI2Y0ZjdlZjtcblxuJG0tYmx1ZTogIzNmNTFiNTtcbiRzLWJsdWU6ICM1MjllZmY7XG4kZHMtYmx1ZTogIzYwN2Q4YjtcbiRtZHMtYmx1ZTogIzYwN2Q4YjtcbiRsLWJsdWU6ICNlYWVmZmQ7XG4kbGctYmx1ZTogI2UwZTNlYztcbiRsZy1ibHVlLTAyOiAjZjRmNGY3O1xuJGxnLWJsdWUtMDM6I2RhZTJlNjtcbiRsZy1ibHVlLTA0OiAjNzI3ZjhlO1xuJGxnLWJsdWUtMDU6ICNlN2VjZWM7XG4kbGctYmx1ZS0wNjogI2U5ZWNlZjtcbiRsZy1ibHVlLTA3OiAjZTFmNWZlO1xuXG4vL2VtZWdlbmN5IGNvbG9yczpcbiRlLW1lZC0wMTogIzAwYmNkNDtcbiRlLW1lZC0wMjogIzIxOTZmMztcblxuJGUtdGgtMDE6ICNmN2QwNjE7XG4kZS10aC0wMjogI2VmNjBhNTtcblxuJGUtZmUtMDE6ICNGRjk4MDA7XG4kZS1mZS0wMjogI0U5MUU2MztcblxuJGUtc2hyLTAxOiAjNjRhMWZkO1xuJGUtc2hyLTAyOiAjOTEwMGZmO1xuXG4kZS1wYy0wMTogIzYxYTFlMTtcbiRlLXBjLTAyOiAjMDZiZjU4O1xuXG4kZS1vdC0wMTogIzYxYTFlMTtcbiRlLW90LTAyOiAjMzdlNzg1O1xuXG4kZ3JleS05MDA6ICMxOTFjMWU7XG4kZ3JleS04NTA6ICM2ODY5NmI7XG4kZ3JleS04MDA6ICMzNzM5NDY7IC8vIzQyNDg1NjtcbiRncmV5LTc1MDogIzc5Nzk3OTtcbiRncmV5LTcwMDogIzU4NTg1ODtcbiRncmV5LTYwMDogI2RlZGVkZTtcbiRncmV5LTY1MDogIzVmNWY1ZjtcbiRncmV5LTU1MDogI2IxYjFiMTtcbiRncmV5LTQ4MDogI2M1YzZjNztcbiRncmV5LTQ2MDogI2RlZTJlNjtcbiRncmV5LTQ3MDogI2U1ZTVlNTtcbiRncmV5LTQ1MDogI2VhZWFlYTsgLy8jZGVlMGU0O1xuJGdyZXktNDQwOiAjQzlEMERGO1xuJGdyZXktNDMwOiAjZTRlNGU0O1xuJGdyZXktNDEwOiAjZWNmMGY1O1xuJGdyZXktNDAwOiAjZWFlYWVhO1xuJGdyZXktMzUwOiAjOGU4ZThlO1xuJGdyZXktMjUwOiAjZjVmNWY1O1xuJGdyZXktMjIwOiAjZmFmYWZhO1xuJGdyZXktMjEwOiAjZjNmNWY3O1xuJGdyZXktMTUwOiAjZjlmOWY5O1xuJGdyZXktMTIwOiAjZjdmN2Y3O1xuJGdyZXktMTMwOiAjZjZmNmY3O1xuJGdyZXktMTAwOiAjZmRmZGZkO1xuXG4kd2hpdGU6ICNmZmZmZmY7XG4kYmxhY2s6ICMwMDAwMDA7XG4kdHJhbnM6IHRyYW5zcGFyZW50O1xuXG5cbi8vcHVibGljIHBhZ2VzIGNvbG9yc1xuJGRzLXY6IzM0MjYzYztcbiRsLWdyZXktMDE6I2YyZjJmMjtcbiRsLWdyZXktMDI6I2RkZGRkZDtcbiRncmV5LXY6ICM2ZTY3NzM7XG4kZC1ncmV5LTAxOiM4YThhOGE7XG4kc3QtYmx1ZTojMDU4MmM4O1xuJHN0LWJsdWUtMDE6ICMxY2EwZDU7XG4kc3QtYmx1ZS0wMjogIzAxOTdkNDtcbiRwbS1ibHVlOiMyMjk2ZWY7XG4kZ3JleS1wOiNmNmVlZjM7XG4kcC1yZWQ6ICNmZjRmNWE7XG4kcC1ncmV5LTAxOiAjMmYyZjJmO1xuJHAtZ3JleS0wMjogIzRkNGE0YTtcbiRwLWdyZXktMDM6ICM2MzYxNjE7XG5cblxuLy9mb250LXNpemVzXG4kZnQtYmFzZToxMDtcbiRmb250LWJpZy0wMzo1MDtcbiRmb250LWJpZzozODtcbiRmb250LWJpZy0wMjozNjtcbiRmb250LWgyOjM0O1xuJGZvbnQtbWVkaXVtLTAyOjI0O1xuJGZvbnQtbWVkaXVtLTAzOjI2O1xuJGZvbnQtbWVkaXVtLTA0OjMwO1xuJGZvbnQtaDM6Mjg7XG4kZm9udC1oMy0wMjozMjtcbiRmb250LWg0OiAyMjtcbiRmb250LW1lZGl1bToyMDtcbiRmb250LWJhc2U6MTg7XG4kZm9udC1ub3JtYWwtMDI6MTU7XG4kZm9udC1ub3JtYWw6MTY7XG4kZm9udC1zbWFsbDoxNDtcbiRmb250LXNtYWxsZXI6MTM7XG4kZm9udC10aW55OjEyO1xuJGZvbnQtYmFzZS0wMjoxMTtcbiRmb250LXRpbmllcjoxMDtcbiRmb250LW1pY3JvOjk7XG5cbi8vIG90aGVyc1xuJGZ1bGw6MTAwJSAhaW1wb3J0YW50O1xuXG5cbi8vIGltYWdlc1xuJGltYWdlczogXCIvYXNzZXRzL2ltYWdlc1wiO1xuXG4kaGVhZGVyLWhlaWdodDogNzBweDtcblxuIiwiLmRhcmstYmx1ZSB7XG4gIGNvbG9yOiAjMjM2YWFmO1xufVxuXG4uYWRtaW4td2lkLW9uZSAuY2FyZC1ib2R5IHtcbiAgaGVpZ2h0OiA2MHB4O1xufVxuXG4uZGFzaGJvYXJkLWNvbC1wYWQge1xuICBwYWRkaW5nLWxlZnQ6IDVweCAhaW1wb3J0YW50O1xuICBwYWRkaW5nLXJpZ2h0OiA1cHggIWltcG9ydGFudDtcbn1cblxuOjpuZy1kZWVwIC5tYXQtbWVudS1pdGVtIHtcbiAgaGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XG4gIGxpbmUtaGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmctbGVmdDogMTZweCAhaW1wb3J0YW50O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -10807,6 +10723,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/DashBoard */ "./src/app/api/controllers/DashBoard.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -10818,6 +10737,59 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
         this.dialog = dialog;
         this.dashboardService = dashboardService;
         this.cookieService = cookieService;
+        this.widgets = [{
+                front: 'Total Units',
+                back: 'Total Towers',
+                frontValue: '_',
+                backValue: '',
+                frontFooter: false,
+                backFooter: false,
+                type: ''
+            }, {
+                front: 'Total Owners',
+                middle: 'Total Tenants',
+                back: 'Total Admins',
+                frontValue: '',
+                middleValue: '',
+                backValue: '',
+                frontFooter: false,
+                middleFooter: false,
+                backFooter: false,
+                type: '',
+            }, {
+                front: 'Pending Admins',
+                back: 'Pending Users',
+                frontValue: '',
+                backValue: '',
+                frontFooter: true,
+                backFooter: true,
+                type: 'pending'
+            }, {
+                front: 'Total',
+                back: 'Total',
+                frontValue: '',
+                backValue: '',
+                frontFooter: true,
+                backFooter: true,
+                type: ''
+            }, {
+                front: 'Un Approve Move In',
+                back: 'Un Approve Move Out',
+                frontValue: '',
+                backValue: '',
+                frontFooter: true,
+                backFooter: true,
+                type: 'unapprove'
+            }, {
+                front: 'Up Coming Move In',
+                back: 'Up Coming Move Out',
+                frontValue: '',
+                backValue: '',
+                frontFooter: true,
+                backFooter: true,
+                type: 'upcoming'
+            }
+        ];
         this.colType = 'owner';
     }
     flip(data) {
@@ -10832,48 +10804,161 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
             back.classList.add('flip-ft');
         }
     }
-    calenderPopUp(dateType, type, mode) {
+    pendingAdmins(result) {
+        let entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+        };
+        this.dashboardService.getDashUnapprovedUsersPendingAdminbyApartmentId(entity).subscribe((res) => {
+            this.widgets[2].frontValue = res.unapprovedUsersPendingAdmin;
+        });
+    }
+    pendingUsers(result) {
+        let entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+        };
+        this.dashboardService.getDashUnapprovedUsersPendingusersbyApartmentId(entity).subscribe((res) => {
+            this.widgets[2].backValue = res.unapprovedPendingusers;
+        });
+    }
+    unApproveMoveIn(result) {
+        let entity = {
+            date: result.date,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+        };
+        this.dashboardService.getDashunapprovedmoveinbyApartmentId(entity).subscribe((res) => {
+            this.widgets[4].frontValue = res.unapprovedMoveIn;
+        });
+    }
+    unApproveMoveOut(result) {
+        let entity = {
+            date: result.date,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+        };
+        this.dashboardService.getDashunapprovedmoveoutbyApartmentId(entity).subscribe((res) => {
+            this.widgets[4].backValue = res.unapprovedMoveOut;
+        });
+    }
+    upcomingMoveIn(result) {
+        let entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+        };
+        this.dashboardService.getDashupcomingmoveinApartmentId(entity).subscribe((res) => {
+            this.widgets[5].frontValue = res.upcomingWeeklyApprovedMoveInCounts;
+        });
+    }
+    upcomingMoveOut(result) {
+        let entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+        };
+        this.dashboardService.getDashupcomingmoveoutApprovedbyApartmentId(entity).subscribe((res) => {
+            this.widgets[5].backValue = res.upcomingMoveOut;
+        });
+    }
+    yesterday(type) {
+        let entity = {};
+        if (type == 'unapprove') {
+            entity.date = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
+        }
+        else {
+            entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
+            entity.toDate = new Date().toISOString();
+        }
+        return entity;
+    }
+    today(type) {
+        let entity = {};
+        if (type == 'unapprove') {
+            entity.date = new Date().toISOString();
+        }
+        else {
+            entity.fromDate = new Date().toISOString();
+            entity.toDate = new Date().toISOString();
+        }
+        return entity;
+    }
+    filter(filterMode, name, type) {
+        let result = filterMode == 'yesterday' ? this.yesterday(type) : this.today(type);
+        if (name == 'Pending Admins') {
+            this.pendingAdmins(result);
+        }
+        else if (name == 'Pending Users') {
+            this.pendingUsers(result);
+        }
+        else if (name == 'Un Approve Move In') {
+            this.unApproveMoveIn(result);
+        }
+        else if (name == 'Un Approve Move Out') {
+            this.unApproveMoveOut(result);
+        }
+        else if (name == 'Up Coming Move In') {
+            this.upcomingMoveIn(result);
+        }
+        else if (name == 'Up Coming Move Out') {
+            this.upcomingMoveOut(result);
+        }
+    }
+    calenderPopUp(name, type) {
         const dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_2__["DateModelComponent"], {
             width: '400px',
             height: '175px',
-            data: dateType
+            data: type
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                if (type == 'Pending Admins' && mode == 'front') {
-                    this.dashboardService.getDashUnapprovedUsersPendingAdminbyApartmentId(result).subscribe((res) => {
-                        this.label.frontValue = res.unapprovedUsersPendingAdmin;
-                    });
+                if (name == 'Pending Admins') {
+                    this.pendingAdmins(result);
                 }
-                else if (type == 'Pending Users' && mode == 'back') {
-                    this.dashboardService.getDashUnapprovedUsersPendingusersbyApartmentId(result).subscribe((res) => {
-                        this.label.backValue = res.unapprovedPendingusers;
-                    });
+                else if (name == 'Pending Users') {
+                    this.pendingUsers(result);
                 }
-                else if (type == 'Un Approve Move In' && mode == 'front') {
-                    this.dashboardService.getDashunapprovedmoveinbyApartmentId(result).subscribe((res) => {
-                        this.label.frontValue = res.unapprovedMoveIn;
-                    });
+                else if (name == 'Un Approve Move In') {
+                    this.unApproveMoveIn(result);
                 }
-                else if (type == 'Un Approve Move Out' && mode == 'back') {
-                    this.dashboardService.getDashunapprovedmoveoutbyApartmentId(result).subscribe((res) => {
-                        this.label.backValue = res.unapprovedMoveOut;
-                    });
+                else if (name == 'Un Approve Move Out') {
+                    this.unApproveMoveOut(result);
                 }
-                else if (type == 'Up Coming Move In' && mode == 'front') {
-                    this.dashboardService.getDashupcomingmoveinApartmentId(result).subscribe((res) => {
-                        this.label.frontValue = res.upcomingWeeklyApprovedMoveInCounts;
-                    });
+                else if (name == 'Up Coming Move In') {
+                    this.upcomingMoveIn(result);
                 }
-                else if (type == 'Up Coming Move Out' && mode == 'back') {
-                    this.dashboardService.getDashupcomingmoveoutApprovedbyApartmentId(result).subscribe((res) => {
-                        this.label.backValue = res.upcomingMoveOut;
-                    });
+                else if (name == 'Up Coming Move Out') {
+                    this.upcomingMoveOut(result);
                 }
             }
         });
     }
     ngOnInit() {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.dashboardService.getDashTotalunitsbyApartmentId(params).subscribe((res) => {
+            this.widgets[0].frontValue = res.totalUnits;
+        });
+        this.dashboardService.getDashTotalTowersbyApartmentId(params).subscribe((res) => {
+            this.widgets[0].backValue = res.totalTowers;
+        });
+        this.dashboardService.getDashTotalownersbyApartmentId(params).subscribe((res) => {
+            this.widgets[1].frontValue = 50;
+        });
+        this.dashboardService.getDashTotalTenantsbyApartmentId(params).subscribe((res) => {
+            this.widgets[1].middleValue = res.totalTenants;
+        });
+        this.dashboardService.getDashTotalAdminsbyApartmentId(params).subscribe((res) => {
+            this.widgets[1].backValue = res.totalAdmins;
+        });
+        this.pendingAdmins(this.today('pending'));
+        this.pendingUsers(this.today('pending'));
+        this.unApproveMoveIn(this.today('unapprove'));
+        this.unApproveMoveOut(this.today('unapprove'));
+        this.upcomingMoveIn(this.today('upcoming'));
+        this.upcomingMoveOut(this.today('upcoming'));
     }
 };
 AdminDashFirstRowComponent.ctorParameters = () => [
@@ -10881,10 +10966,6 @@ AdminDashFirstRowComponent.ctorParameters = () => [
     { type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], AdminDashFirstRowComponent.prototype, "label", void 0);
 AdminDashFirstRowComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-admin-dash-first-row',

@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"assets-create-wrapper\">\n\t<form name=\"opmaintain\" #opmaintain=\"ngForm\" novalidate>\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\t\t\t\n\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance</span>\n\t\t</h4>\n\t\t<!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t\tCurrent Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintain.categoryId\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of categoriesData\" [value]=\"item.genMaintenanceCategoryId\">{{ item.genMaintenanceCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Sub Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintain.subCategoryId\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of subCategoriesData\" [value]=\"item.genMaintenanceSubCategoryId\">{{ item.genMaintenanceSubCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint. Record No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Maint Record No\" \n\t\t\t\t\t\t\t\t\t\tname=\"recordNo\" [(ngModel)]=\"maintain.recordNo\" >\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Title</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Title\" \n                                        name=\"staffName\" [(ngModel)]=\"maintain.maintTitle\" >\n\t\t\t\t            \t\t</div>\n                                </div>\t\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"maintain.plannedMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" \n\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"maintain.actualMaintDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"lastMaintenance\" placeholder=\"Last Maintenance Date\" [(ngModel)]=\"maintain.lastMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #lastMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                             \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maint. performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintain.isAssociationStaff\"   (change)=\"maintain.isAssociationStaff = true;maintain.maintenanceByCompany =''\" [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"maintain.isAssociationStaff\"  (change)=\"maintain.isAssociationStaff = false;maintain.performedbyAssociationStaffId =''\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" *ngIf=\"maintain?.isAssociationStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <!-- <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n\t\t\t\t\t\t\t\t\t\tname=\"staffName\" [(ngModel)]=\"maintain.maintenanceByPerson\" > -->\n\t\t\t\t\t\t\t\t\t\t<select name=\"performedbyAssociationStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"maintain.performedbyAssociationStaffId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" *ngIf=\"maintain?.isAssociationStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintain.maintenanceByCompany\" >\n\t\t\t                \t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t <quill-editor\n\t\t\t\t\t\t\t\t\t class=\"quill-editor\"\n\t\t\t\t\t\t\t\t\t name=\"ckeditor\"\n\t\t\t\t\t\t\t\t\t [placeholder]=\"editorPlacehorder\"\n\t\t\t\t\t\t\t\t\t [(ngModel)]=\"maintain.notes\"\n\t\t\t\t\t\t\t\t\t (onContentChanged)=\"onContentChanged($event)\">\n\t\t\t\t\t\t\t\t  </quill-editor>\n\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"maintLaborCost\" [(ngModel)]=\"maintain.maintLaborCost\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"maintPartsCost\" [(ngModel)]=\"maintain.maintPartsCost\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>VAT</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"vat\" [(ngModel)]=\"maintain.maintVat\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"withHoldingTax\" [(ngModel)]=\"maintain.maintWithTax\" OnlyNumber=\"true\">\n\t\t\t                \t\t</div>\n                                </div>\n                              \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"totalBilledAmount\" [(ngModel)]=\"maintain.totalBilledAmount\" OnlyNumber=\"true\">\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"maintain.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"TotalBilledAmount\" [(ngModel)]=\"maintain.maintenanceTotalBilledAmt\" > -->\n\t\t\t\t\t\t\t\t\t\t <input class=\"form-control\" name=\"nextPlannedDate\" [owlDateTime]=\"nextPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"nextPlannedDate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"maintain.alertBeforeDays\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                       \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"   name=\"files\" #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>                             \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"addMaintanance()\" [disabled]=\"opmaintain.invalid\">Submit</button>\n                    </li>\n                    <!-- <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li> -->\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"assets-create-wrapper\">\n\t<form name=\"opmaintain\" #opmaintain=\"ngForm\" novalidate>\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\t\t\t\n\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance</span>\n\t\t\t<span *ngIf=\"isEdit\">Edit Maintenance</span>\t\t\t\n\t\t</h4>\n\t\t<!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t\tCurrent Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintain.categoryId\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of categoriesData\" [value]=\"item.genMaintenanceCategoryId\">{{ item.genMaintenanceCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Sub Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"mainType\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintain.subCategoryId\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of subCategoriesData\" [value]=\"item.genMaintenanceSubCategoryId\">{{ item.genMaintenanceSubCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint. Record No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Maint Record No\" \n\t\t\t\t\t\t\t\t\t\tname=\"recordNo\" [(ngModel)]=\"maintain.recordNo\" >\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Title</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Title\" \n                                        name=\"staffName\" [(ngModel)]=\"maintain.maintTitle\" >\n\t\t\t\t            \t\t</div>\n                                </div>\t\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"maintain.plannedMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [max]=\"currentDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" \n\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"maintain.actualMaintDate\" >\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"lastMaintenance\" placeholder=\"Last Maintenance Date\" [(ngModel)]=\"maintain.lastMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #lastMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                             \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maint. performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintain.isAssociationStaff\"   (change)=\"maintain.isAssociationStaff = true;maintain.maintenanceByCompany =''\" [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"maintain.isAssociationStaff\"  (change)=\"maintain.isAssociationStaff = false;maintain.performedbyAssociationStaffId =''\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" *ngIf=\"maintain?.isAssociationStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <!-- <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n\t\t\t\t\t\t\t\t\t\tname=\"staffName\" [(ngModel)]=\"maintain.maintenanceByPerson\" > -->\n\t\t\t\t\t\t\t\t\t\t<select name=\"performedbyAssociationStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"maintain.performedbyAssociationStaffId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n                                    </select>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" *ngIf=\"maintain?.isAssociationStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintain.maintenanceByCompany\" >\n\t\t\t                \t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t <quill-editor\n\t\t\t\t\t\t\t\t\t class=\"quill-editor\"\n\t\t\t\t\t\t\t\t\t name=\"ckeditor\"\n\t\t\t\t\t\t\t\t\t [placeholder]=\"editorPlacehorder\"\n\t\t\t\t\t\t\t\t\t [(ngModel)]=\"maintain.notes\"\n\t\t\t\t\t\t\t\t\t (onContentChanged)=\"onContentChanged($event)\">\n\t\t\t\t\t\t\t\t  </quill-editor>\n\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"maintLaborCost\" [(ngModel)]=\"maintain.maintLaborCost\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"maintPartsCost\" [(ngModel)]=\"maintain.maintPartsCost\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>VAT</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"vat\" [(ngModel)]=\"maintain.maintVat\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"withHoldingTax\" [(ngModel)]=\"maintain.maintWithTax\" OnlyNumber=\"true\">\n\t\t\t                \t\t</div>\n                                </div>\n                              \n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"totalBilledAmount\" [(ngModel)]=\"maintain.totalBilledAmount\" OnlyNumber=\"true\">\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"maintain.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"TotalBilledAmount\" [(ngModel)]=\"maintain.maintenanceTotalBilledAmt\" > -->\n\t\t\t\t\t\t\t\t\t\t <input class=\"form-control\" name=\"nextPlannedDate\" [owlDateTime]=\"nextPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"nextPlannedDate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"maintain.alertBeforeDays\" >\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                       \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"   name=\"files\" #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>                             \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" *ngIf=\"!isEdit\" (click)=\"addMaintanance()\" [disabled]=\"opmaintain.invalid\">Submit</button>\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" *ngIf=\"isEdit\" (click)=\"updateMaintanance()\" [disabled]=\"opmaintain.invalid\">Submit</button>\n                    </li>\n                    <!-- <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li> -->\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-aa-unit-to-unit-allocation-wrapper inventory-outer\">\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Operational Maintanance History</h5>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item\">\n                    <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </li>\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"histroySearch\" name=\"historySearch\" (ngModelChange)=\"onSearchFilter()\">\n                </li>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"maintainHistoryData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-aa-unit-to-unit-allocation-wrapper inventory-outer\">\n    <ul class=\"legends ml-3 list-inline\" >\n\t\t<li class=\"list-inline-item cursor\"\n\t\t*ngFor=\"let list of [{name:'All',class:'medium'},{name:'Ontime',class:'low'},{name:'Delayed',class:'normal-status'}];let i =index\" \n\t\t[ngStyle]=\"i ==  currIndex? {'color':'blue'}:''\" (click)=\"currIndex = i;historyStatus=list.name != 'All'?list.name:'';onStatusFilter();\">\n\t\t<span class=\"dots {{list.class}}\" *ngIf=\"list.name != 'All'\" ></span>\n\t\t<span>{{list.name}}</span>\n\t</li>\n</ul>\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left pt-4\">\n                <h5>Operational Maintanance History</h5>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item mr-0\">\n                    <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    <i class=\"fa fa-filter fs-4 filter\" aria-hidden=\"true\" data-toggle=\"collapse\"\n                    data-target=\"#filters\"></i>\n                </li>\n               \n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"histroySearch\" name=\"historySearch\" (ngModelChange)=\"onSearchFilter()\">\n                </li>\n            </ul>\n        </div>\n        <div id=\"filters\" class=\"collapse mb-3 filter-card\">\n            <mat-card class=\"example-card\">\n                <div class=\"row wd-100\">\n                    <!-- <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Assets</h6> -->\n                        <!-- <angular2-multiselect [data]=\"assetList\" [(ngModel)]=\"search.assets\" [settings]=\"assetSettings\"\n                            (onSelect)=\"onItemSelect($event)\" (onDeSelect)=\"OnItemDeSelect($event)\"\n                            (onSelectAll)=\"onSelectAll($event)\" (onDeSelectAll)=\"onDeSelectAll($event)\">\n                        </angular2-multiselect> -->\n                    <!-- </div> -->\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Category</h6>\n                        <angular2-multiselect [data]=\"categoriesData\" [(ngModel)]=\"search.categorys\"\n                            [settings]=\"categorySettings\" (onSelect)=\"onItemSelectCategory($event)\"\n                            (onDeSelect)=\"OnItemDeSelectCategory($event)\" (onSelectAll)=\"onSelectAllCategory($event)\"\n                            (onDeSelectAll)=\"onDeSelectAllCategory($event)\">\n                        </angular2-multiselect>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <h6 class=\"pb-1\">Sub Category</h6>\n                        <angular2-multiselect [data]=\"subCategoriesData\" [(ngModel)]=\"selectedItems\"\n                            [settings]=\"subCategorySettings\" (onSelect)=\"onItemSelectSubcategories($event)\"\n                            (onDeSelect)=\"OnItemDeSelect($event)\" (onSelectAll)=\"onSelectAll($event)\"\n                            (onDeSelectAll)=\"onDeSelectAllSubcategories($event)\">\n                        </angular2-multiselect>\n                    </div>\n                </div>\n            </mat-card>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"maintainHistoryData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"assets-create-wrapper outer-maintain\">\n \n    <div class=\"row pb-3\">\n        <div class=\"col-sm-6 d-flex align-items-center\">\n          <h5>Operational Maintenance<span class=\"badge lime-green\">{{totalItems}}</span></h5>\n        </div>\n        <div class=\"col-sm-6 d-flex align-items-center justify-content-end\">\n          <!-- <li (click)=\"download()\" class=\"list-inline-item pt-2 pr-2\">\n            <a  class=\"btn trans-white mt_5\">\n              <i-feather  name=\"printer\" class=\"icon print\" >\n                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"feather feather-printer\">\n              <polyline points=\"6 9 6 2 18 2 18 9\"></polyline>\n              <path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path>\n              <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"></rect>\n              </svg>\n           </i-feather>\n           <span >Export</span>\n          </a>\n          </li> -->\n          <li class=\" d-flex search \">\n            <i class=\"fa fa-search setup-search search-left\" aria-hidden=\"true\"></i>\n            <input type=\"text\" class=\"form-control pl-5 \" placeholder=\"Search...\" [(ngModel)]=\"itemName\" name=\"itemName\" (keyup)=\"filterList(itemName)\">\n          </li>\n        </div>\n      </div>\n    <!-- <div  id=\"filter\" class=\"collapse mb-3\">\n         <mat-card class=\"example-card\" >\n             <div class=\"row wd-100\">\n                 <div class=\"col-sm-4\">\n                     <h6 class=\"pb-1\">Assets</h6> \n                     <angular2-multiselect [data]=\"assetList\" \n                     [(ngModel)]=\"search.assets\" \n                     [settings]=\"assetSettings\" \n                     (onSelect)=\"onItemSelect($event)\"\n                     (onDeSelect)=\"OnItemDeSelect($event)\" \n                     (onSelectAll)=\"onSelectAll($event)\" \n                     (onDeSelectAll)=\"onDeSelectAll($event)\">\n                 </angular2-multiselect>\n                 </div>\n                 <div class=\"col-sm-4\">\n                     <h6 class=\"pb-1\">Category</h6>\n                     <angular2-multiselect [data]=\"categoryList\" \n                     [(ngModel)]=\"search.categorys\" \n                     [settings]=\"categorySettings\" \n                     (onSelect)=\"onItemSelect($event)\"\n                     (onDeSelect)=\"OnItemDeSelect($event)\" \n                     (onSelectAll)=\"onSelectAll($event)\" \n                     (onDeSelectAll)=\"onDeSelectAll($event)\">\n                     </angular2-multiselect>\n                 </div>\n                 <div class=\"col-sm-4\">\n                     <h6 class=\"pb-1\">Sub Category</h6>\n                     <angular2-multiselect [data]=\"subCategoryList\" \n                     [(ngModel)]=\"selectedItems\" \n                     [settings]=\"subCategorySettings\" \n                     (onSelect)=\"onItemSelect($event)\"\n                     (onDeSelect)=\"OnItemDeSelect($event)\" \n                     (onSelectAll)=\"onSelectAll($event)\" \n                     (onDeSelectAll)=\"onDeSelectAll($event)\">\n                     </angular2-multiselect>\n                 </div>                \n         </div>\n         \n     \n\n         </mat-card>\n   </div>    -->\n <mat-accordion class=\"pt-5 manage-assets\">\n        <mat-expansion-panel *ngFor=\" let main of maintList | slice:ItemStartIndex:ItemEndIndex;let catIndex = index\">\n            <mat-expansion-panel-header class=\"mr-0\">\n                <mat-panel-title>\n                    <div class=\"row wd-100\">\n                        <div class=\"col-sm-4\">\n                            <label class=\"ellipse\">{{main.maintTitle}}</label>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <label class=\"ellipse\">{{main.categoryName}}</label>\n                        </div>\n                        <div class=\"col-sm-4\">\n                          <div><i class=\"fa fa-pencil-square-o edit-asset\" aria-hidden=\"true\"></i></div>\n                          <div><i class=\"fa fa-trash delete-asset\" (click)=\"deleteManitenance(main)\"  aria-hidden=\"true\"></i></div>\n                          <label class=\"ellipse\">{{main.subCategoryName}}</label>\n                        </div>\n                    </div>\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n\n            <div class=\"row wd-100\">\n\n                <div class=\"col-sm-4\">\n                    <label>Planned Maintenance date</label>\n                    <div class=\"display-name\">{{main.plannedMaintenanceDate| date :'MM-dd-yyyy'}}</div>\n\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Actual Maintenance Date </label>\n                    <div class=\"display-name\">{{main.actualMaintDate| date :'MM-dd-yyyy'}}</div>\n\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Performed by Company</label>\n                    <div class=\"display-name\">{{main.maintenanceByCompany}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Performed by</label>\n                    <div class=\"display-name\">{{main.performedbyAssociationStaffName}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Notes</label>\n                    <div class=\"display-name\">{{main.notes}}</div>\n                </div>\n                <!-- <div class=\"col-sm-4\">\n                    <label>Status</label>\n                    <div class=\"display-name\">Tech net</div>\n                </div> -->\n                <div class=\"col-sm-4\">\n                    <label>Next Planned Maintenance Date</label>\n                    <div class=\"display-name\">{{main.nextPlannedMaintenance | date :'MM-dd-yyyy'}}</div>\n                </div>\n                <!-- <div class=\"col-sm-4\">\n                    <label>Remind me before Date</label>\n                    <div class=\"display-name\">--</div>\n                </div> -->\n                <div class=\"col-sm-4\">\n                    <label>Maintenance Labor Cost</label>\n                    <div class=\"display-name\">{{main.maintLaborCost}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Maintenance Parts Cost</label>\n                    <div class=\"display-name\">{{main.maintPartsCost}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>VAT</label>\n                    <div class=\"display-name\">{{main.maintVat}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>With Holding Tax</label>\n                    <div class=\"display-name\">{{main.maintWithTax}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Total Amount</label>\n                    <div class=\"display-name\">{{main.maintenanceTotalBilledAmt}}</div>\n                </div> \n                <div class=\"col-sm-4\">\n                    <label>Comments</label>\n                    <div class=\"display-name\">{{main.comments?main.comments:'--'}}</div>\n                </div>\n                \n                <div class=\"col-sm-8\">\n                    <label>Status</label> \n                    <div class=\"display-name\" *ngIf=\"main.maintenanceStatusId\">{{main.maintenanceStatusName?(main.maintenanceStatusName | titlecase):'--'}}</div>                  \n                    <div class=\"display-name\" *ngIf=\"!main.maintenanceStatusId\">\n                        <div class=\"input-box radio-box\">                           \n                            <div class=\"form-group wd-20\"  [ngStyle]=\"list.lookupValueName == 'OPEN'?{'display':'none'}:''\" *ngFor=\"let list of statusData;let status = index \">\n                                <input name=\"commentStatus\" id=\"{{list.lookupValueId}}\"  [value]=\"true\"  type=\"radio\" (click)=\"addComments(list,main)\">\n                                <label class=\"radio-inline ml-2 mb-0\" for=\"{{list.lookupValueId}}\"  >\n                                    {{list.lookupValueName | titlecase}}\n                                    <!-- {{list.lookupValueId +''+ main.maintenanceStatusId}} -->\n                                    <!-- {{main.maintenanceStatusId }}                                       \n                                    {{list.lookupValueId}} -->                               \n\n                                </label>\n                             </div>\n                        </div>\n                    </div>\n                </div>              \n            </div>\n        </mat-expansion-panel>\n    </mat-accordion>\n    <app-pagination   class=\"custom-outer-pagination\" *ngIf=\"totalItems\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n    (outputParams)=\"getIndexParams($event)\">\n</app-pagination>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"assets-create-wrapper outer-maintain\">\n \n    <div class=\"row pb-3\">\n        <div class=\"col-sm-6 d-flex align-items-center\">\n          <h5>Operational Maintenance<span class=\"badge lime-green\">{{totalItems}}</span></h5>\n        </div>\n        <div class=\"col-sm-6 d-flex align-items-center justify-content-end\">\n          <!-- <li (click)=\"download()\" class=\"list-inline-item pt-2 pr-2\">\n            <a  class=\"btn trans-white mt_5\">\n              <i-feather  name=\"printer\" class=\"icon print\" >\n                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"feather feather-printer\">\n              <polyline points=\"6 9 6 2 18 2 18 9\"></polyline>\n              <path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path>\n              <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"></rect>\n              </svg>\n           </i-feather>\n           <span >Export</span>\n          </a>\n          </li> -->\n          <li class=\" d-flex search \">\n            <i class=\"fa fa-search setup-search search-left\" aria-hidden=\"true\"></i>\n            <input type=\"text\" class=\"form-control pl-5 \" placeholder=\"Search...\" [(ngModel)]=\"itemName\" name=\"itemName\" (keyup)=\"filterList(itemName)\">\n          </li>\n        </div>\n      </div>\n    <!-- <div  id=\"filter\" class=\"collapse mb-3\">\n         <mat-card class=\"example-card\" >\n             <div class=\"row wd-100\">\n                 <div class=\"col-sm-4\">\n                     <h6 class=\"pb-1\">Assets</h6> \n                     <angular2-multiselect [data]=\"assetList\" \n                     [(ngModel)]=\"search.assets\" \n                     [settings]=\"assetSettings\" \n                     (onSelect)=\"onItemSelect($event)\"\n                     (onDeSelect)=\"OnItemDeSelect($event)\" \n                     (onSelectAll)=\"onSelectAll($event)\" \n                     (onDeSelectAll)=\"onDeSelectAll($event)\">\n                 </angular2-multiselect>\n                 </div>\n                 <div class=\"col-sm-4\">\n                     <h6 class=\"pb-1\">Category</h6>\n                     <angular2-multiselect [data]=\"categoryList\" \n                     [(ngModel)]=\"search.categorys\" \n                     [settings]=\"categorySettings\" \n                     (onSelect)=\"onItemSelect($event)\"\n                     (onDeSelect)=\"OnItemDeSelect($event)\" \n                     (onSelectAll)=\"onSelectAll($event)\" \n                     (onDeSelectAll)=\"onDeSelectAll($event)\">\n                     </angular2-multiselect>\n                 </div>\n                 <div class=\"col-sm-4\">\n                     <h6 class=\"pb-1\">Sub Category</h6>\n                     <angular2-multiselect [data]=\"subCategoryList\" \n                     [(ngModel)]=\"selectedItems\" \n                     [settings]=\"subCategorySettings\" \n                     (onSelect)=\"onItemSelect($event)\"\n                     (onDeSelect)=\"OnItemDeSelect($event)\" \n                     (onSelectAll)=\"onSelectAll($event)\" \n                     (onDeSelectAll)=\"onDeSelectAll($event)\">\n                     </angular2-multiselect>\n                 </div>                \n         </div>\n         \n     \n\n         </mat-card>\n   </div>    -->\n <mat-accordion class=\"pt-5 manage-assets\">\n        <mat-expansion-panel *ngFor=\" let main of maintList | slice:ItemStartIndex:ItemEndIndex;let catIndex = index\">\n            <mat-expansion-panel-header class=\"mr-0\">\n                <mat-panel-title>\n                    <div class=\"row wd-100\">\n                        <div class=\"col-sm-4\">\n                            <label class=\"ellipse\">{{main.maintTitle}}</label>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <label class=\"ellipse\">{{main.categoryName}}</label>\n                        </div>\n                        <div class=\"col-sm-4\">\n                          <div><i class=\"fa fa-pencil-square-o edit-asset\" routerLink=\"/ams/operational-maintanance/maintain-operational-maintanance/{{main.id}}\"  aria-hidden=\"true\"></i></div>\n                          <div><i class=\"fa fa-trash delete-asset\" (click)=\"deleteManitenance(main)\"  aria-hidden=\"true\"></i></div>\n                          <label class=\"ellipse\">{{main.subCategoryName}}</label>\n                        </div>\n                    </div>\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n\n            <div class=\"row wd-100\">\n\n                <div class=\"col-sm-4\">\n                    <label>Planned Maintenance date</label>\n                    <div class=\"display-name\">{{main.plannedMaintenanceDate| date :'MM-dd-yyyy'}}</div>\n\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Actual Maintenance Date </label>\n                    <div class=\"display-name\">{{main.actualMaintDate| date :'MM-dd-yyyy'}}</div>\n\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Performed by Company</label>\n                    <div class=\"display-name\">{{main.maintenanceByCompany}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Performed by</label>\n                    <div class=\"display-name\">{{main.performedbyAssociationStaffName}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Notes</label>\n                    <div class=\"display-name\">{{main.notes}}</div>\n                </div>\n                <!-- <div class=\"col-sm-4\">\n                    <label>Status</label>\n                    <div class=\"display-name\">Tech net</div>\n                </div> -->\n                <div class=\"col-sm-4\">\n                    <label>Next Planned Maintenance Date</label>\n                    <div class=\"display-name\">{{main.nextPlannedMaintenance | date :'MM-dd-yyyy'}}</div>\n                </div>\n                <!-- <div class=\"col-sm-4\">\n                    <label>Remind me before Date</label>\n                    <div class=\"display-name\">--</div>\n                </div> -->\n                <div class=\"col-sm-4\">\n                    <label>Maintenance Labor Cost</label>\n                    <div class=\"display-name\">{{main.maintLaborCost}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Maintenance Parts Cost</label>\n                    <div class=\"display-name\">{{main.maintPartsCost}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>VAT</label>\n                    <div class=\"display-name\">{{main.maintVat}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>With Holding Tax</label>\n                    <div class=\"display-name\">{{main.maintWithTax}}</div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <label>Total Amount</label>\n                    <div class=\"display-name\">{{main.maintenanceTotalBilledAmt}}</div>\n                </div> \n                <div class=\"col-sm-4\">\n                    <label>Comments</label>\n                    <div class=\"display-name\">{{main.comments?main.comments:'--'}}</div>\n                </div>\n                \n                <div class=\"col-sm-8\">\n                    <label>Status</label> \n                    <div class=\"display-name\" *ngIf=\"main.maintenanceStatusId\">{{main.maintenanceStatusName?(main.maintenanceStatusName | titlecase):'--'}}</div>                  \n                    <div class=\"display-name\" *ngIf=\"!main.maintenanceStatusId\">\n                        <div class=\"input-box radio-box\">                           \n                            <div class=\"form-group wd-20\"  [ngStyle]=\"list.lookupValueName == 'OPEN'?{'display':'none'}:''\" *ngFor=\"let list of statusData;let status = index \">\n                                <input name=\"commentStatus\" id=\"{{list.lookupValueId}}\"  [value]=\"true\"  type=\"radio\" (click)=\"addComments(list,main)\">\n                                <label class=\"radio-inline ml-2 mb-0\" for=\"{{list.lookupValueId}}\"  >\n                                    {{list.lookupValueName | titlecase}}\n                                    <!-- {{list.lookupValueId +''+ main.maintenanceStatusId}} -->\n                                    <!-- {{main.maintenanceStatusId }}                                       \n                                    {{list.lookupValueId}} -->                               \n\n                                </label>\n                             </div>\n                        </div>\n                    </div>\n                </div>              \n            </div>\n        </mat-expansion-panel>\n    </mat-accordion>\n    <app-pagination   class=\"custom-outer-pagination\" *ngIf=\"totalItems\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n    (outputParams)=\"getIndexParams($event)\">\n</app-pagination>\n</div>\n");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"confirm-modal-wrapper\">\n\t<div class=\"close-icon\" mat-dialog-close>\n\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t</div>\n\t<div class=\"title\">\n\t\t<h5>Confirmation Status</h5>\n\t</div>\n\t<div class=\"desp\" *ngIf=\"!comments\">\n\t\t<p>Are you sure want to <span class=\"status\">{{data.value | titlecase}}</span> ?</p>\n    </div>\n    <div class=\"desp\" *ngIf=\"comments\">\n        <div class=\"col-sm-12 pl-0 pr-0\">\n            <div class=\"input-box\">\n                <label> Rejection Reason</label>\n                <textarea placeholder=\"Enter Reason\" name=\"comments\" [(ngModel)]=\"rejectReason\"></textarea>\n                </div>\n        </div> \n    </div>\n    <div class=\"d-flex justify-content-end mb-4\" *ngIf=\"comments\">      \n    <a href=\"javascript:void(0)\" class=\"btn blue mr-4\"   [disabled]=\"!rejectReason\" (click)=\"saveReason()\" >Submit</a>\n    </div>\n\t<div class=\"btn-wrapper\" *ngIf=\"!comments\">\n        <a href=\"javascript:void(0)\" class=\"btn blue mr-3\"   *ngIf=\"!comments\" (click)=\"comments = true\" >Yes</a>\n   \n\t\t<a href=\"javascript:void(0)\" class=\"btn trans-white\" mat-dialog-close *ngIf=\"!comments\" >No</a>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"confirm-modal-wrapper\">\n\t<div class=\"close-icon\" mat-dialog-close>\n\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t</div>\n\t<div class=\"title\">\n\t\t<h5>Confirmation Status</h5>\n\t</div>\n\t<div class=\"desp\" *ngIf=\"!comments\">\n\t\t<p>Are you sure want to <span class=\"status\">{{data.value | titlecase}}</span> ?</p>\n    </div>\n    <div class=\"desp\" *ngIf=\"comments\">\n        <div class=\"col-sm-12 pl-0 pr-0\">\n            <div class=\"input-box\">\n                <label>{{data.value | titlecase}} Reason</label>\n                <!-- <label>{{data.value.split('/')?(data.value.split('/')[1] | titlecase):(data.value | titlecase)}} Reason</label> -->\n                <textarea placeholder=\"Enter Reason\" name=\"comments\" [(ngModel)]=\"rejectReason\"></textarea>\n                </div>\n        </div> \n    </div>\n    <div class=\"d-flex justify-content-end mb-4\" *ngIf=\"comments\">      \n    <a href=\"javascript:void(0)\" class=\"btn blue mr-4\"   [disabled]=\"!rejectReason\" (click)=\"saveReason()\" >Submit</a>\n    </div>\n\t<div class=\"btn-wrapper\" *ngIf=\"!comments\">\n        <a href=\"javascript:void(0)\" class=\"btn blue mr-3\"   *ngIf=\"!comments\" (click)=\"comments = true\" >Yes</a>\n   \n\t\t<a href=\"javascript:void(0)\" class=\"btn trans-white\" mat-dialog-close *ngIf=\"!comments\" >No</a>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -296,12 +296,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintananceComponent {
-    constructor(genMaintService, cookieService, staffService, sharedService, router) {
+    constructor(genMaintService, cookieService, staffService, sharedService, router, route) {
         this.genMaintService = genMaintService;
         this.cookieService = cookieService;
         this.staffService = staffService;
         this.sharedService = sharedService;
         this.router = router;
+        this.route = route;
         this.isMaintainedbyStaff = true;
         this.asset = {};
         this.message = {};
@@ -309,6 +310,7 @@ let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintanan
         this.categoriesData = [];
         this.maintain = {};
         this.staffList = [];
+        this.currentDate = new Date();
     }
     ngOnInit() {
         this.getAllCategory();
@@ -318,6 +320,21 @@ let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintanan
         this.maintain.subCategoryId = '';
         this.maintain.isAssociationStaff = true;
         this.maintain.performedbyAssociationStaffId = '';
+        this.route.paramMap.subscribe(params => {
+            if (params) {
+                this.opMaintenancePlanId = params.get('id');
+            }
+        });
+        if (this.opMaintenancePlanId) {
+            let params = {};
+            this.isEdit = true;
+            params.id = this.opMaintenancePlanId;
+            console.log(params);
+            this.genMaintService.getGenMaintenancePlanById(params).subscribe((res) => {
+                console.log(res);
+                this.maintain = res[0] ? res[0] : {};
+            });
+        }
     }
     uploadFile(event) {
         this.isFileAdded = true;
@@ -408,7 +425,7 @@ let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintanan
             "subCategoryId": Number(this.maintain.subCategoryId),
             "recordNo": Number(this.maintain.recordNo),
             "isAssociationStaff": this.maintain.isAssociationStaff,
-            "performedbyAssociationStaffId": Number(this.maintain.performedbyAssociationStaffId)
+            "performedbyAssociationStaffId": this.maintain.performedbyAssociationStaffId ? Number(this.maintain.performedbyAssociationStaffId) : null
         };
         let params = {};
         params.genMaintenancePlan = reqObj;
@@ -421,13 +438,71 @@ let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintanan
             }
         });
     }
+    updateMaintanance() {
+        let reqObj = {};
+        reqObj = {
+            "id": this.maintain.id,
+            "apartmentId": this.cookieService.get('apartmentId'),
+            "genMaintenanceId": null,
+            "notes": this.maintain.notes,
+            "maintenanceStatusId": null,
+            "firstMaintDate": this.maintain.lastMaintenanceDate,
+            "actualMaintDate": this.maintain.actualMaintDate,
+            "lastMaintenanceDate": this.maintain.lastMaintenanceDate,
+            "nextPlannedMaintenance": this.maintain.nextPlannedMaintenance,
+            "maintenanceTypeId": null,
+            "maintenanceByCompany": this.maintain.maintenanceByCompany,
+            "maintenanceByPerson": null,
+            "maintenanceContactNo": null,
+            "maintLaborCost": Number(this.maintain.maintLaborCost),
+            "maintPartsCost": Number(this.maintain.maintPartsCost),
+            "maintVat": Number(this.maintain.maintVat),
+            "maintWithTax": Number(this.maintain.maintWithTax),
+            "maintenanceTotalBilledAmt": Number(this.maintain.totalBilledAmount),
+            "comments": this.maintain.comments,
+            "description": null,
+            "imageId": null,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date(),
+            "updatedBy": parseInt(this.cookieService.get('userId')),
+            "updatedOn": new Date(),
+            "performedAtLocationId": null,
+            "maintenanceLocation": null,
+            "serialNo": null,
+            // "customFields": "cf1",
+            "customFields": null,
+            // "maintCategory": "Mc1",
+            "maintCategory": null,
+            "maintTitle": this.maintain.maintTitle,
+            "plannedMaintenanceDate": this.maintain.plannedMaintenanceDate,
+            "totalBilledAmount": Number(this.maintain.totalBilledAmount),
+            "alertBeforeDays": null,
+            "categoryId": Number(this.maintain.categoryId),
+            "subCategoryId": Number(this.maintain.subCategoryId),
+            "recordNo": Number(this.maintain.recordNo),
+            "isAssociationStaff": this.maintain.isAssociationStaff,
+            "performedbyAssociationStaffId": this.maintain.performedbyAssociationStaffId ? Number(this.maintain.performedbyAssociationStaffId) : null
+        };
+        let params = {};
+        params.model = reqObj;
+        this.genMaintService.updateGenMaintenance(params).subscribe((res) => {
+            console.log(res, res);
+            if (res) {
+                // this.sharedService.setAlertMessage("Operational Maintanance updated successfully");
+                // this.isAssetLoaded = false;
+                // this.router.navigate(['ams/operational-maintanance/operational-maintanance-list']);
+            }
+        });
+    }
 };
 MaintainOperationalMaintananceComponent.ctorParameters = () => [
     { type: src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_2__["GenMaintService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }
 ];
 MaintainOperationalMaintananceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -439,7 +514,8 @@ MaintainOperationalMaintananceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])
 ], MaintainOperationalMaintananceComponent);
 
 
@@ -455,7 +531,7 @@ MaintainOperationalMaintananceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9vcGVyYXRpb25hbC1tYWludGFuYW5jZS9vcGVyYXRpb25hbC1tYWludGFuYW5jZS1oaXN0b3J5L29wZXJhdGlvbmFsLW1haW50YW5hbmNlLWhpc3RvcnkuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".filter-icon {\n  font-size: 2.5rem;\n}\n\n.filter {\n  position: relative !important;\n  font-size: 21px !important;\n  top: 0px !important;\n  padding-right: 11px;\n  opacity: 0.6;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Uvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2UtaGlzdG9yeS9vcGVyYXRpb25hbC1tYWludGFuYW5jZS1oaXN0b3J5LmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwic3JjL2FwcC9hbXMvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Uvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2UtaGlzdG9yeS9vcGVyYXRpb25hbC1tYWludGFuYW5jZS1oaXN0b3J5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VDNkVFLGlCQUFBO0FDNUVGOztBRkVBO0VBQ0ksNkJBQUE7RUFDQSwwQkFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0FFQ0oiLCJmaWxlIjoic3JjL2FwcC9hbXMvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Uvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2UtaGlzdG9yeS9vcGVyYXRpb25hbC1tYWludGFuYW5jZS1oaXN0b3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vLi4vLi4vLi4vc2Nzcy9mb250cy5zY3NzJztcbi5maWx0ZXItaWNvbiB7XG4gICAgQGluY2x1ZGUgZnQtY2FsYygyNSk7XG59XG4uZmlsdGVye1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZSAhaW1wb3J0YW50O1xuICAgIGZvbnQtc2l6ZTogMjFweCAhaW1wb3J0YW50O1xuICAgIHRvcDogMHB4ICFpbXBvcnRhbnQ7XG4gICAgcGFkZGluZy1yaWdodDogMTFweDtcbiAgICBvcGFjaXR5OiAwLjY7XG59IiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iLCIuZmlsdGVyLWljb24ge1xuICBmb250LXNpemU6IDIuNXJlbTtcbn1cblxuLmZpbHRlciB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZSAhaW1wb3J0YW50O1xuICBmb250LXNpemU6IDIxcHggIWltcG9ydGFudDtcbiAgdG9wOiAwcHggIWltcG9ydGFudDtcbiAgcGFkZGluZy1yaWdodDogMTFweDtcbiAgb3BhY2l0eTogMC42O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -483,6 +559,26 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
     constructor(genMaintService, cookieService) {
         this.genMaintService = genMaintService;
         this.cookieService = cookieService;
+        this.tempMaintenanceList = [];
+        this.search = {};
+        this.categorySettings = {
+            singleSelection: true,
+            text: "Search Category",
+            selectAllText: 'Select All',
+            unSelectAllText: 'UnSelect All',
+            enableSearchFilter: true,
+            badgeShowLimit: 3,
+        };
+        this.subCategorySettings = {
+            singleSelection: true,
+            text: "Search Sub Category",
+            selectAllText: 'Select All',
+            unSelectAllText: 'UnSelect All',
+            enableSearchFilter: true,
+            badgeShowLimit: 3,
+        };
+        this.subCategoriesData = [];
+        this.categoriesData = [];
     }
     ngOnInit() {
         var cellsrenderer = (row, column, value) => {
@@ -562,6 +658,8 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
             }
         ];
         this.getMaintenaceHistory();
+        this.getAllSubCategory();
+        this.getAllCategory();
     }
     getMaintenaceHistory() {
         let params = {};
@@ -584,6 +682,7 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
                 }
                 let responeData = [];
                 responeData = res;
+                this.tempMaintenanceList = res;
                 console.log(res);
                 this.gridSourceData = {
                     localdata: responeData.length > 0 ? responeData : [],
@@ -617,6 +716,152 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
             this.datagrid.clearfilters();
         }
     }
+    searchMaintain() {
+        let filterArr = [];
+        let filterCategoryArr = [];
+        let filterSubCategoryArr = [];
+        if (this.assetName) {
+            if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
+                this.tempMaintenanceList.filter(val => {
+                    if (this.assetName == val.assetName) {
+                        filterArr.push(val);
+                    }
+                });
+            }
+            this.finalSearchGrid(filterArr);
+        }
+        if (this.assetName && this.categoryName) {
+            filterArr.filter(val => {
+                if (this.categoryName == val.categoryName) {
+                    filterCategoryArr.push(val);
+                }
+            });
+            this.finalSearchGrid(filterCategoryArr);
+        }
+        else if (!this.assetName && this.categoryName) {
+            if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
+                this.tempMaintenanceList.filter(val => {
+                    if (this.categoryName == val.categoryName) {
+                        filterCategoryArr.push(val);
+                    }
+                });
+                this.finalSearchGrid(filterCategoryArr);
+            }
+        }
+        if (this.categoryName && this.subCategoryName) {
+            filterCategoryArr.filter(val => {
+                if (this.subCategoryName == val.subCategoryName) {
+                    filterSubCategoryArr.push(val);
+                }
+            });
+            this.finalSearchGrid(filterSubCategoryArr);
+        }
+        else if (!this.categoryName && this.subCategoryName) {
+            if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
+                this.tempMaintenanceList.filter(val => {
+                    if (this.subCategoryName == val.subCategoryName) {
+                        filterSubCategoryArr.push(val);
+                    }
+                });
+                this.finalSearchGrid(filterSubCategoryArr);
+            }
+        }
+        if (!this.assetName && !this.categoryName && !this.subCategoryName) {
+            console.log('last');
+            this.finalSearchGrid(this.tempMaintenanceList);
+        }
+    }
+    finalSearchGrid(responeData) {
+        this.gridSourceData = {
+            localdata: responeData.length > 0 ? responeData : [],
+            datatype: "array"
+        };
+        this.maintainHistoryData = new jqx.dataAdapter(this.gridSourceData);
+    }
+    onItemSelect(item) {
+        console.log(item);
+        this.assetName = item.itemName;
+        this.searchMaintain();
+    }
+    onItemSelectCategory(item) {
+        this.categoryName = item.itemName;
+        this.searchMaintain();
+    }
+    onItemSelectSubcategories(item) {
+        console.log(item);
+        this.subCategoryName = item.itemName;
+        this.searchMaintain();
+    }
+    OnItemDeSelect(item) {
+        this.searchMaintain();
+    }
+    onSelectAll(items) {
+        console.log(items);
+    }
+    onDeSelectAll(items) {
+        console.log(items);
+        this.assetName = '';
+        this.searchMaintain();
+    }
+    onDeSelectAllCategory(items) {
+        console.log();
+        this.categoryName = '';
+        this.searchMaintain();
+    }
+    onDeSelectAllSubcategories(items) {
+        console.log(items);
+        this.subCategoryName = '';
+        this.searchMaintain();
+    }
+    onStatusFilter() {
+        if (this.historyStatus != "") {
+            let filterGroup = new jqx.filter();
+            let filterOperator = 1;
+            let filterValue = this.historyStatus;
+            let filterCondition = 'contains';
+            let filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
+            filterGroup.operator = 'or';
+            filterGroup.addfilter(filterOperator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.unitAllocationHeader.forEach(item => {
+                if (item.datafield == 'historyStatus') {
+                    this.datagrid.addfilter(item.datafield, filterGroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    getAllCategory() {
+        this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
+            if (res) {
+                if (res && res.length > 0) {
+                    res.filter(val => {
+                        this.categoriesData.push({
+                            'id': val.genMaintenanceCategoryId,
+                            'itemName': val.genMaintenanceCategoryName
+                        });
+                    });
+                }
+            }
+        });
+    }
+    getAllSubCategory() {
+        this.genMaintService.getAllGenMaintenanceSubCategory().subscribe((res) => {
+            if (res) {
+                if (res && res.length > 0) {
+                    res.filter(val => {
+                        this.subCategoriesData.push({
+                            'id': val.genMaintenanceSubCategoryId,
+                            'itemName': val.genMaintenanceSubCategoryName
+                        });
+                    });
+                }
+            }
+        });
+    }
 };
 OperationalMaintananceHistoryComponent.ctorParameters = () => [
     { type: src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_4__["GenMaintService"] },
@@ -637,8 +882,6 @@ OperationalMaintananceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0
 ], OperationalMaintananceHistoryComponent);
 
 function getClassName(value) {
-    // var name = value.split('-');
-    // return name[0].toLowerCase();
     return value == "Delayed" ? 'normal-status' : value == "Ontime" ? 'low' : '';
 }
 window.getClassName = getClassName;
@@ -938,6 +1181,7 @@ const routes = [
     { path: 'setup', component: _operational_maintanance_setup_operational_maintanance_setup_component__WEBPACK_IMPORTED_MODULE_3__["OperationalMaintananceSetupComponent"] },
     // { path: 'initial-maintanance', component: InitialMaintananceComponent},
     { path: 'maintain-operational-maintanance', component: _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_4__["MaintainOperationalMaintananceComponent"] },
+    { path: 'maintain-operational-maintanance/:id', component: _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_4__["MaintainOperationalMaintananceComponent"] },
     { path: 'operational-maintanance-list', component: _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_5__["OperationalMaintananceListComponent"] },
     { path: 'operational-maintanance-history', component: _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_6__["OperationalMaintananceHistoryComponent"] },
     { path: '**', redirectTo: 'setup', pathMatch: 'full' }
@@ -1068,6 +1312,9 @@ let OperationalMaintananceSetupComponent = class OperationalMaintananceSetupComp
     // Tab
     showTab(type) {
         this.selectedTab = type;
+        if (type == 'subCategory') {
+            this.getAllCategory();
+        }
     }
     // Tab
     isActive(type) {
@@ -1268,6 +1515,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _operational_maintanance_routing__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./operational-maintanance-routing */ "./src/app/ams/operational-maintanance/operational-maintanance-routing.ts");
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _operational_status_reason_operational_status_reason_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./operational-status-reason/operational-status-reason.component */ "./src/app/ams/operational-maintanance/operational-status-reason/operational-status-reason.component.ts");
+/* harmony import */ var angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! angular2-multiselect-dropdown */ "./node_modules/angular2-multiselect-dropdown/__ivy_ngcc__/fesm2015/angular2-multiselect-dropdown.js");
+
 
 
 
@@ -1288,6 +1537,7 @@ OperationalMaintananceModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__["SharedModule"],
             _operational_maintanance_routing__WEBPACK_IMPORTED_MODULE_8__["OperationalMaintananceRouting"],
+            angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_11__["AngularMultiSelectModule"]
         ],
         entryComponents: [
             _operational_status_reason_operational_status_reason_component__WEBPACK_IMPORTED_MODULE_10__["OperationalStatusReasonComponent"]
