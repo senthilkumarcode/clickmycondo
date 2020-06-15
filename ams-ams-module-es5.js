@@ -10873,9 +10873,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'inbox',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | ams-inbox-ams-inbox-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("ams-inbox-ams-inbox-module")]).then(__webpack_require__.bind(null,
+          "ams-inbox-ams-inbox-module").then(__webpack_require__.bind(null,
           /*! ./ams-inbox/ams-inbox.module */
           "./src/app/ams/ams-inbox/ams-inbox.module.ts")).then(function (m) {
             return m.AmsInboxModule;
@@ -10941,7 +10941,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | work-permit-work-permit-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
           /*! ./work-permit/work-permit.module */
           "./src/app/ams/work-permit/work-permit.module.ts")).then(function (m) {
             return m.WorkPermitModule;
@@ -10961,9 +10961,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'broadcast',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | broadcast-broadcast-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null,
+          "broadcast-broadcast-module").then(__webpack_require__.bind(null,
           /*! ./broadcast/broadcast.module */
           "./src/app/ams/broadcast/broadcast.module.ts")).then(function (m) {
             return m.BroadcastModule;
@@ -11071,9 +11071,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'meetings',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | meetings-meetings-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null,
+          "meetings-meetings-module").then(__webpack_require__.bind(null,
           /*! ./meetings/meetings.module */
           "./src/app/ams/meetings/meetings.module.ts")).then(function (m) {
             return m.MeetingsModule;
@@ -11082,9 +11082,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'assets',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | assets-assets-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("assets-assets-module")]).then(__webpack_require__.bind(null,
+          "assets-assets-module").then(__webpack_require__.bind(null,
           /*! ./assets/assets.module */
           "./src/app/ams/assets/assets.module.ts")).then(function (m) {
             return m.AssetsModule;
@@ -11095,7 +11095,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | inventory-inventory-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("inventory-inventory-module")]).then(__webpack_require__.bind(null,
           /*! ./inventory/inventory.module */
           "./src/app/ams/inventory/inventory.module.ts")).then(function (m) {
             return m.InventoryModule;
@@ -11148,9 +11148,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'operational-maintanance',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | operational-maintanance-operational-maintanance-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("operational-maintanance-operational-maintanance-module")]).then(__webpack_require__.bind(null,
+          "operational-maintanance-operational-maintanance-module").then(__webpack_require__.bind(null,
           /*! ./operational-maintanance/operational-maintanance.module */
           "./src/app/ams/operational-maintanance/operational-maintanance.module.ts")).then(function (m) {
             return m.OperationalMaintananceModule;

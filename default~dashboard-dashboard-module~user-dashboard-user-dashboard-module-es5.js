@@ -13576,7 +13576,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"second-row-layout flip\" #menu *ngIf=\"!label.side\">\n    <div class=\"front\">\n        <div class=\"card dashboard-card\">\n            <div class=\"card-body align-left-right\" [ngClass]=\"label.row == 'blue' ? 'bg-card-body' : ''\">\n                <div class=\"text-left\">\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-md fa fa-eye link mb-3\" aria-hidden=\"true\"></i>\n                    <br>\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-lg fa fa-credit-card\" aria-hidden=\"true\"></i>\n                </div>\n                <div class=\"text-right\">\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-md fa fa-caret-right link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                    <p *ngIf=\"label.row == 'blue'\" [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\">{{label.front}}</p> \n                    <h6 [ngClass]=\"label.row == 'blue' ? 'text-white mt-2' : 'dark-blue font-weight-bold mt-4'\">{{label.frontValue}}</h6> \n                </div>\n            </div>\n            <div class=\"card-footer align-left-right\" [ngClass]=\"label.row == 'blue' ? 'bg-card-footer' : ''\">\n                <div *ngIf=\"label.row == 'blue'\">\n                    <p class=\"text-white\"> \n                        <i class=\"fa fa-calendar mr-3 text-white\" aria-hidden=\"true\"></i>Last day\n                    </p>\n                </div>\n                <div *ngIf=\"label.row != 'blue'\">\n                    <p> {{label.front}}</p>\n                </div>\n                <i *ngIf=\"label.frontFooter\" [ngClass]=\"label.row == 'blue' ? 'text-white' : 'dark-blue'\" class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" (click)=\"calenderPopUp(label.type,label.front,'front')\"></i>\n            </div>\n        </div>\n    </div>\n    <div class=\"back\">\n        <div class=\"card dashboard-card\">\n            <div class=\"card-body align-left-right\" [ngClass]=\"label.row == 'blue' ? 'bg-card-body' : ''\">\n                <div class=\"text-left\">\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-md fa fa-eye link mb-3\" aria-hidden=\"true\"></i>\n                    <br>\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-lg fa fa-credit-card\" aria-hidden=\"true\"></i>\n                </div>\n                <div class=\"text-right\">\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-md fa fa-caret-right link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                    <p *ngIf=\"label.row == 'blue'\" [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\">{{label.back}}</p> \n                    <h6 [ngClass]=\"label.row == 'blue' ? 'text-white mt-2' : 'dark-blue font-weight-bold mt-4'\">{{label.backValue}}</h6> \n                </div>\n            </div>\n            <div class=\"card-footer align-left-right\" [ngClass]=\"label.row == 'blue' ? 'bg-card-footer' : ''\">\n                <div *ngIf=\"label.row == 'blue'\">\n                    <p class=\"text-white\"> \n                        <i class=\"fa fa-calendar mr-3 text-white\" aria-hidden=\"true\"></i>Last day\n                    </p>\n                </div>\n                <div *ngIf=\"label.row != 'blue'\">\n                    <p> {{label.back}}</p>\n                </div>\n                <i *ngIf=\"label.backFooter\" [ngClass]=\"label.row == 'blue' ? 'text-white' : 'dark-blue'\" class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" (click)=\"calenderPopUp(label.type,label.front,'front')\"></i>\n            </div>\n        </div>\n    </div>\n</div>\n    \n<div class=\"second-single-page\" *ngIf=\"label.side\">\n    <div class=\"card dashboard-card\">\n        <div class=\"card-body align-left-right\">\n            <div class=\"text-left\">\n                <i class=\"icon-md fa fa-eye cyan-color link\" aria-hidden=\"true\"></i>\n                <br>\n                <i class=\"icon-lg fa fa-credit-card cyan-color mt-2\" aria-hidden=\"true\"></i>\n            </div>\n            <div class=\"text-right\">\n                <h5 class=\"font-weight-bold dark-blue mt-5 pt-2\">{{label.frontValue}}</h5> \n            </div>\n        </div>\n        <div class=\"card-footer align-left-right\">\n            <p>{{label.front}}</p>\n            <!-- <i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i> -->\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"second-row-layout flip\" #menu *ngIf=\"!label.side\">\n    <div class=\"front\">\n        <div class=\"card dashboard-card\">\n            <div class=\"card-body align-left-right height-wid\" [ngClass]=\"label.row == 'blue' ? 'bg-card-body' : ''\">\n                <div class=\"text-left\">\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-md fa fa-eye link mb-3\" aria-hidden=\"true\"></i>\n                    <br>\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-lg fa fa-credit-card\" aria-hidden=\"true\"></i>\n                </div>\n                <div class=\"text-right\">\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-md fa fa-caret-right link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                    <p *ngIf=\"label.row == 'blue'\" [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\">{{label.front}}</p> \n                    <h6 [ngClass]=\"label.row == 'blue' ? 'text-white mt-2' : 'dark-blue font-weight-bold mt-4'\">{{label.frontValue}}</h6> \n                </div>\n            </div>\n            <div class=\"card-footer align-left-right\" [ngClass]=\"label.row == 'blue' ? 'bg-card-footer' : ''\">\n                <div *ngIf=\"label.row == 'blue'\">\n                    <p class=\"text-white\"> \n                        <i class=\"fa fa-calendar mr-3 text-white\" aria-hidden=\"true\"></i>Last day\n                    </p>\n                </div>\n                <div *ngIf=\"label.row != 'blue'\">\n                    <p> {{label.front}}</p>\n                </div>\n                <div class=\"dashboard-dropdown\" *ngIf=\"label.frontFooter\">\n                    <i [matMenuTriggerFor]=\"appwidgetFront\" [ngClass]=\"label.row == 'blue' ? 'text-white' : 'dark-blue'\" class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\"></i>\n                    <mat-menu #appwidgetFront=\"matMenu\">\n                        <p mat-menu-item (click)=\"filter('today',label.front,label.type)\">Today</p>\n                        <p mat-menu-item (click)=\"filter('yesterday',label.front,label.type)\">Yesterday</p>\n                        <p mat-menu-item (click)=\"calenderPopUp(label.front,label.type)\">Custom</p>\n                    </mat-menu>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"back\">\n        <div class=\"card dashboard-card\">\n            <div class=\"card-body align-left-right height-wid\" [ngClass]=\"label.row == 'blue' ? 'bg-card-body' : ''\">\n                <div class=\"text-left\">\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-md fa fa-eye link mb-3\" aria-hidden=\"true\"></i>\n                    <br>\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-lg fa fa-credit-card\" aria-hidden=\"true\"></i>\n                </div>\n                <div class=\"text-right\">\n                    <i [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\" class=\"icon-md fa fa-caret-right link\" (click)=\"flip(menu)\" aria-hidden=\"true\"></i>\n                    <p *ngIf=\"label.row == 'blue'\" [ngClass]=\"label.row == 'blue' ? 'text-white' : 'cyan-color'\">{{label.back}}</p> \n                    <h6 [ngClass]=\"label.row == 'blue' ? 'text-white mt-2' : 'dark-blue font-weight-bold mt-4'\">{{label.backValue}}</h6> \n                </div>\n            </div>\n            <div class=\"card-footer align-left-right\" [ngClass]=\"label.row == 'blue' ? 'bg-card-footer' : ''\">\n                <div *ngIf=\"label.row == 'blue'\">\n                    <p class=\"text-white\"> \n                        <i class=\"fa fa-calendar mr-3 text-white\" aria-hidden=\"true\"></i>Last day\n                    </p>\n                </div>\n                <div *ngIf=\"label.row != 'blue'\">\n                    <p> {{label.back}}</p>\n                </div>\n                <div class=\"dashboard-dropdown\" *ngIf=\"label.backFooter\">\n                     <i [matMenuTriggerFor]=\"appwidgetBack\" [ngClass]=\"label.row == 'blue' ? 'text-white' : 'dark-blue'\" class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\"></i>\n                    <mat-menu #appwidgetBack=\"matMenu\">\n                        <p mat-menu-item (click)=\"filter('today',label.back,label.type)\">Today</p>\n                        <p mat-menu-item (click)=\"filter('yesterday',label.back,label.type)\">Yesterday</p>\n                        <p mat-menu-item (click)=\"calenderPopUp(label.back,label.type)\">Custom</p>\n                    </mat-menu>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n    \n<div class=\"second-single-page\" *ngIf=\"label.side\">\n    <div class=\"card dashboard-card\">\n        <div class=\"card-body align-left-right height-wid\">\n            <div class=\"text-left\">\n                <i class=\"icon-md fa fa-eye cyan-color link\" aria-hidden=\"true\"></i>\n                <br>\n                <i class=\"icon-lg fa fa-credit-card cyan-color mt-2\" aria-hidden=\"true\"></i>\n            </div>\n            <div class=\"text-right\">\n                <h5 class=\"font-weight-bold dark-blue mt-5 pt-2\">{{label.frontValue}}</h5> \n            </div>\n        </div>\n        <div class=\"card-footer align-left-right\">\n            <p>{{label.front}}</p>\n            <!-- <i class=\"icon-md fa fa-caret-down link dark-blue\" aria-hidden=\"true\"></i> -->\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -14035,10 +14035,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           back: 'Open Panic Alerts',
           frontValue: '',
           backValue: '',
-          type: 'panicAlerts',
-          row: 'white',
           frontFooter: true,
-          backFooter: true
+          backFooter: true,
+          type: 'panicAlerts',
+          row: 'white'
         }, {
           front: 'Total Customer',
           frontValue: '',
@@ -14056,14 +14056,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           side: 'one'
         }];
         this.sixthRowData = [{
-          front: 'Visitors IN',
+          front: 'Visitors In',
           back: 'Visitors Out',
           frontValue: '',
           backValue: '',
-          type: 'visitors',
-          row: 'white',
           frontFooter: true,
-          backFooter: false
+          backFooter: false,
+          type: 'visitors',
+          row: 'white'
         }, {
           front: 'Visitors Not Checked',
           frontValue: '',
@@ -14074,19 +14074,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           back: 'Unassigned Parking',
           frontValue: '',
           backValue: '',
-          type: '',
-          row: 'white',
           frontFooter: false,
-          backFooter: false
+          backFooter: false,
+          type: '',
+          row: 'white'
         }, {
           front: 'Facility Booking Approved',
           back: 'Facility Booking UnApproved',
           frontValue: '',
           backValue: '',
-          type: '',
-          row: 'white',
           frontFooter: false,
-          backFooter: false
+          backFooter: false,
+          type: '',
+          row: 'white'
         }];
         this.userRole = "";
       }
@@ -15430,7 +15430,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".second-row-layout .bg-card-body {\n  background-color: #00d1fa;\n}\n.second-row-layout .bg-card-body p {\n  font-size: 1.4rem;\n}\n.second-row-layout .bg-card-footer {\n  background-color: #236aaf;\n}\n.cyan-color {\n  color: #00d1fa;\n}\n.dark-blue {\n  color: #236aaf;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtc2Vjb25kLXJvdy9hZG1pbi1kYXNoLXNlY29uZC1yb3cuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwic3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtc2Vjb25kLXJvdy9hZG1pbi1kYXNoLXNlY29uZC1yb3cuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL2ZvbnRzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUUM7RUFDQyx5QkNvQlM7QUMzQlg7QUZRRTtFR29FQSxpQkFBQTtBRHpFRjtBRlNDO0VBQ0MseUJDTmE7QUNEZjtBRldBO0VBQ0MsY0NTVTtBQ2pCWDtBRldBO0VBQ0MsY0NmYztBQ09mIiwiZmlsZSI6InNyYy9hcHAvYW1zL2Rhc2hib2FyZC9jb21wb25lbnRzL3NoYXJlZC9hZG1pbi1kYXNoLXNlY29uZC1yb3cvYWRtaW4tZGFzaC1zZWNvbmQtcm93LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cblxuXHRcblx0XG4uc2Vjb25kLXJvdy1sYXlvdXQge1xuXHQuYmctY2FyZC1ib2R5IHtcblx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkZC1jeWFuLTAzO1xuXHRcdHAge1xuXHRcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1zbWFsbCk7XG5cdFx0fVxuXHR9XG5cdC5iZy1jYXJkLWZvb3RlciB7XG5cdFx0YmFja2dyb3VuZC1jb2xvcjogJGRhcmstYmx1ZS0wMjtcblx0fVxufVxuXG4uY3lhbi1jb2xvciB7XG5cdGNvbG9yIDogJGQtY3lhbi0wMztcbn1cblxuLmRhcmstYmx1ZSB7XG5cdGNvbG9yIDogJGRhcmstYmx1ZS0wMjtcbn0iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiRkLWN5YW4tMDM6IzAwZDFmYTtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LW1lZGl1bS0wNDozMDtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LWJhc2UtMDI6MTE7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiIsIi5zZWNvbmQtcm93LWxheW91dCAuYmctY2FyZC1ib2R5IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwZDFmYTtcbn1cbi5zZWNvbmQtcm93LWxheW91dCAuYmctY2FyZC1ib2R5IHAge1xuICBmb250LXNpemU6IDEuNHJlbTtcbn1cbi5zZWNvbmQtcm93LWxheW91dCAuYmctY2FyZC1mb290ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjM2YWFmO1xufVxuXG4uY3lhbi1jb2xvciB7XG4gIGNvbG9yOiAjMDBkMWZhO1xufVxuXG4uZGFyay1ibHVlIHtcbiAgY29sb3I6ICMyMzZhYWY7XG59IiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4OyAgIFxuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGZ0LWNhbGMoJHBpeGVscykge1xuICBmb250LXNpemU6ICggJHBpeGVscyAvICRmdC1iYXNlICkgKyByZW07XG59XG4iXX0= */";
+    __webpack_exports__["default"] = ".second-row-layout .bg-card-body {\n  background-color: #00d1fa;\n}\n.second-row-layout .bg-card-body p {\n  font-size: 1.4rem;\n}\n.second-row-layout .bg-card-footer {\n  background-color: #236aaf;\n}\n.cyan-color {\n  color: #00d1fa;\n}\n.dark-blue {\n  color: #236aaf;\n}\n.height-wid {\n  height: 81px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtc2Vjb25kLXJvdy9hZG1pbi1kYXNoLXNlY29uZC1yb3cuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwic3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtc2Vjb25kLXJvdy9hZG1pbi1kYXNoLXNlY29uZC1yb3cuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL2ZvbnRzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUUM7RUFDQyx5QkNvQlM7QUMzQlg7QUZRRTtFR29FQSxpQkFBQTtBRHpFRjtBRlNDO0VBQ0MseUJDTmE7QUNEZjtBRldBO0VBQ0MsY0NTVTtBQ2pCWDtBRldBO0VBQ0MsY0NmYztBQ09mO0FGV0E7RUFDQyxZQUFBO0FFUkQiLCJmaWxlIjoic3JjL2FwcC9hbXMvZGFzaGJvYXJkL2NvbXBvbmVudHMvc2hhcmVkL2FkbWluLWRhc2gtc2Vjb25kLXJvdy9hZG1pbi1kYXNoLXNlY29uZC1yb3cuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuXG5cdFxuXHRcbi5zZWNvbmQtcm93LWxheW91dCB7XG5cdC5iZy1jYXJkLWJvZHkge1xuXHRcdGJhY2tncm91bmQtY29sb3I6ICRkLWN5YW4tMDM7XG5cdFx0cCB7XG5cdFx0XHRAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcblx0XHR9XG5cdH1cblx0LmJnLWNhcmQtZm9vdGVyIHtcblx0XHRiYWNrZ3JvdW5kLWNvbG9yOiAkZGFyay1ibHVlLTAyO1xuXHR9XG59XG5cbi5jeWFuLWNvbG9yIHtcblx0Y29sb3IgOiAkZC1jeWFuLTAzO1xufVxuXG4uZGFyay1ibHVlIHtcblx0Y29sb3IgOiAkZGFyay1ibHVlLTAyO1xufVxuXG4uaGVpZ2h0LXdpZCB7XG5cdGhlaWdodDogODFweDtcbn0iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiRkLWN5YW4tMDM6IzAwZDFmYTtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LW1lZGl1bS0wNDozMDtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LWJhc2UtMDI6MTE7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiIsIi5zZWNvbmQtcm93LWxheW91dCAuYmctY2FyZC1ib2R5IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwZDFmYTtcbn1cbi5zZWNvbmQtcm93LWxheW91dCAuYmctY2FyZC1ib2R5IHAge1xuICBmb250LXNpemU6IDEuNHJlbTtcbn1cbi5zZWNvbmQtcm93LWxheW91dCAuYmctY2FyZC1mb290ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjM2YWFmO1xufVxuXG4uY3lhbi1jb2xvciB7XG4gIGNvbG9yOiAjMDBkMWZhO1xufVxuXG4uZGFyay1ibHVlIHtcbiAgY29sb3I6ICMyMzZhYWY7XG59XG5cbi5oZWlnaHQtd2lkIHtcbiAgaGVpZ2h0OiA4MXB4O1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIl19 */";
     /***/
   },
 
@@ -15489,6 +15489,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
     var AdminDashSecondRowComponent =
     /*#__PURE__*/
@@ -15517,89 +15529,248 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "calenderPopUp",
-        value: function calenderPopUp(dateType, type, mode) {
+        value: function calenderPopUp(name, type) {
           var _this77 = this;
 
           var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_2__["DateModelComponent"], {
             width: '400px',
             height: '175px',
-            data: dateType
+            data: type
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              if (type == 'Open Community' && mode == 'front') {
-                _this77.dashboardService.getDashOpencommticketsbyApartmentId(result).subscribe(function (res) {
-                  _this77.label.frontValue = res.openCommunitytickets;
-                });
-              } else if (type == 'Open Personal' && mode == 'back') {
-                _this77.dashboardService.getDashOpenpersonalticketsbyApartmentId(result).subscribe(function (res) {
-                  _this77.label.backValue = res.openPersonalticket;
-                });
-              } else if (type == 'High Priority Community' && mode == 'front') {
-                _this77.dashboardService.getDashHighpriorityopenCommunityTicketsbyApartmentId(result).subscribe(function (res) {
-                  _this77.label.frontValue = res.highPriorityOpenCommunityTicket;
-                });
-              } else if (type == 'High Priority Personal' && mode == 'back') {
-                _this77.dashboardService.getDashHighpriorityopenpersonalTicketsbyApartmentId(result).subscribe(function (res) {
-                  _this77.label.backValue = res.highPriorityOpenPersonalTicket;
-                });
-              } else if (type == 'Unassigned Community' && mode == 'front') {
-                var params = {
-                  fromDate: result.date,
-                  apartmentId: result.apartmentId
-                };
-
-                _this77.dashboardService.getDashUnassignedCommunityTicketsbyApartmentId(params).subscribe(function (res) {
-                  _this77.label.frontValue = res.unassignedCommunityTickets;
-                });
-              } else if (type == 'Unassigned Personal' && mode == 'back') {
-                var _params = {
-                  fromDate: result.date,
-                  apartmentId: result.apartmentId
-                };
-
-                _this77.dashboardService.getDashUnassignedpersonalTicketsbyApartmentId(_params).subscribe(function (res) {
-                  _this77.label.backValue = res.unassignedPersonalTickets;
-                });
-              } else if (type == 'Open Community Aged' && mode == 'front') {
-                _this77.dashboardService.getDashOpenCommunityAgedTicketsbyApartmentIDbyDays(result).subscribe(function (res) {
-                  _this77.label.frontValue = res.openCommunityAgedTickets;
-                });
-              } else if (type == 'Open Personal Aged' && mode == 'back') {
-                _this77.dashboardService.getDashOpenPersonalAgedTicketsbyApartmentIDbyDays(result).subscribe(function (res) {
-                  _this77.label.backValue = res.openPersonalAgedTickets;
-                });
-              } else if (type == 'InProgress Panic Alerts' && mode == 'front') {
-                var _params2 = {
-                  fromDate: result.date,
-                  apartmentId: result.apartmentId
-                };
-
-                _this77.dashboardService.getDashinProgressPanicAlertsbyApartmentId(_params2).subscribe(function (res) {
-                  _this77.label.frontValue = res.inProgressPanicAlerts;
-                });
-              } else if (type == 'Open Panic Alerts' && mode == 'back') {
-                var _params3 = {
-                  fromDate: result.date,
-                  apartmentId: result.apartmentId
-                };
-
-                _this77.dashboardService.getDashOpenPanicAlertsbyApartmentId(_params3).subscribe(function (res) {
-                  _this77.label.backValue = res.openPanicAlerts;
-                });
-              } else if (type == 'Visitors IN' && mode == 'front') {
-                var _params4 = {
-                  startDate: result.fromDate,
-                  EndDate: result.toDate,
-                  apartmentId: result.apartmentId
-                };
-
-                _this77.dashboardService.getDashVisitorsCheckedinbyApartmentId(_params4).subscribe(function (res) {
-                  _this77.label.frontValue = res.visitorsCheckIn;
-                });
+              if (name == 'Open Community') {
+                _this77.openCommunity(result);
+              } else if (name == 'Open Personal') {
+                _this77.openPersonal(result);
+              } else if (name == 'High Priority Community') {
+                _this77.highPriorityCommunity(result);
+              } else if (name == 'High Priority Personal') {
+                _this77.highPriorityPersonal(result);
+              } else if (name == 'Unassigned Community') {
+                _this77.unAssignedCommunity(result);
+              } else if (name == 'Unassigned Personal') {
+                _this77.unassignedPersonal(result);
+              } else if (name == 'Open Community Aged') {
+                _this77.openCommunityAged(result);
+              } else if (name == 'Open Personal Aged') {
+                _this77.openPersonalAged(result);
+              } else if (name == 'InProgress Panic Alerts') {
+                _this77.inProgressPanicAlerts(result);
+              } else if (name == 'Open Panic Alerts') {
+                _this77.openPanicAlerts(result);
+              } else if (name == 'Visitors In') {
+                _this77.visitorsIn(result);
               }
             }
           });
+        }
+      }, {
+        key: "openCommunity",
+        value: function openCommunity(result) {
+          var _this78 = this;
+
+          var entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashOpencommticketsbyApartmentId(entity).subscribe(function (res) {
+            _this78.label.frontValue = res.openCommunitytickets;
+          });
+        }
+      }, {
+        key: "openPersonal",
+        value: function openPersonal(result) {
+          var _this79 = this;
+
+          var entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashOpenpersonalticketsbyApartmentId(entity).subscribe(function (res) {
+            _this79.label.backValue = res.openPersonalticket;
+          });
+        }
+      }, {
+        key: "highPriorityCommunity",
+        value: function highPriorityCommunity(result) {
+          var _this80 = this;
+
+          var entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashHighpriorityopenCommunityTicketsbyApartmentId(entity).subscribe(function (res) {
+            _this80.label.frontValue = res.highPriorityOpenCommunityTicket;
+          });
+        }
+      }, {
+        key: "highPriorityPersonal",
+        value: function highPriorityPersonal(result) {
+          var _this81 = this;
+
+          var entity = {
+            fromDate: result.fromDate,
+            toDate: result.toDate,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashHighpriorityopenpersonalTicketsbyApartmentId(entity).subscribe(function (res) {
+            _this81.label.backValue = res.highPriorityOpenPersonalTicket;
+          });
+        }
+      }, {
+        key: "unAssignedCommunity",
+        value: function unAssignedCommunity(result) {
+          var _this82 = this;
+
+          var params = {
+            fromDate: result.date,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashUnassignedCommunityTicketsbyApartmentId(params).subscribe(function (res) {
+            _this82.label.frontValue = res.unassignedCommunityTickets;
+          });
+        }
+      }, {
+        key: "unassignedPersonal",
+        value: function unassignedPersonal(result) {
+          var _this83 = this;
+
+          var params = {
+            fromDate: result.date,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashUnassignedCommunityTicketsbyApartmentId(params).subscribe(function (res) {
+            _this83.label.frontValue = res.unassignedCommunityTickets;
+          });
+        }
+      }, {
+        key: "openCommunityAged",
+        value: function openCommunityAged(result) {
+          var _this84 = this;
+
+          var params = {
+            date: result.date,
+            noOfDays: result.noOfDays,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashOpenCommunityAgedTicketsbyApartmentIDbyDays(params).subscribe(function (res) {
+            _this84.label.frontValue = res.openCommunityAgedTickets;
+          });
+        }
+      }, {
+        key: "openPersonalAged",
+        value: function openPersonalAged(result) {
+          var _this85 = this;
+
+          var params = {
+            date: result.date,
+            noOfDays: result.noOfDays,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashOpenPersonalAgedTicketsbyApartmentIDbyDays(params).subscribe(function (res) {
+            _this85.label.backValue = res.openPersonalAgedTickets;
+          });
+        }
+      }, {
+        key: "inProgressPanicAlerts",
+        value: function inProgressPanicAlerts(result) {
+          var _this86 = this;
+
+          var params = {
+            fromDate: result.date,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashinProgressPanicAlertsbyApartmentId(params).subscribe(function (res) {
+            _this86.label.frontValue = res.inProgressPanicAlerts;
+          });
+        }
+      }, {
+        key: "openPanicAlerts",
+        value: function openPanicAlerts(result) {
+          var _this87 = this;
+
+          var params = {
+            fromDate: result.date,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.dashboardService.getDashOpenPanicAlertsbyApartmentId(params).subscribe(function (res) {
+            _this87.label.backValue = res.openPanicAlerts;
+          });
+        }
+      }, {
+        key: "visitorsIn",
+        value: function visitorsIn(result) {
+          var _this88 = this;
+
+          var params = {
+            startDate: result.fromDate,
+            EndDate: result.toDate,
+            apartmentId: result.apartmentId
+          };
+          this.dashboardService.getDashVisitorsCheckedinbyApartmentId(params).subscribe(function (res) {
+            _this88.label.frontValue = res.visitorsCheckIn;
+          });
+        }
+      }, {
+        key: "yesterday",
+        value: function yesterday(type) {
+          var entity = {};
+
+          if (type == 'unassigned' || type == 'openaged' || type == 'panicAlerts') {
+            entity.date = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
+          } else {
+            entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
+            entity.toDate = new Date().toISOString();
+          }
+
+          return entity;
+        }
+      }, {
+        key: "today",
+        value: function today(type) {
+          var entity = {};
+
+          if (type == 'unassigned' || type == 'openaged' || type == 'panicAlerts') {
+            entity.date = new Date().toISOString();
+          } else {
+            entity.fromDate = new Date().toISOString();
+            entity.toDate = new Date().toISOString();
+          }
+
+          return entity;
+        }
+      }, {
+        key: "filter",
+        value: function filter(filterMode, name, type) {
+          var result = filterMode == 'yesterday' ? this.yesterday(type) : this.today(type);
+
+          if (name == 'Open Community') {
+            this.openCommunity(result);
+          } else if (name == 'Open Personal') {
+            this.openPersonal(result);
+          } else if (name == 'High Priority Community') {
+            this.highPriorityCommunity(result);
+          } else if (name == 'High Priority Personal') {
+            this.highPriorityPersonal(result);
+          } else if (name == 'Unassigned Community') {
+            this.unAssignedCommunity(result);
+          } else if (name == 'Unassigned Personal') {
+            this.unassignedPersonal(result);
+          } else if (name == 'Open Community Aged') {
+            this.openCommunityAged(result);
+          } else if (name == 'Open Personal Aged') {
+            this.openPersonalAged(result);
+          } else if (name == 'InProgress Panic Alerts') {
+            this.inProgressPanicAlerts(result);
+          } else if (name == 'Open Panic Alerts') {
+            this.openPanicAlerts(result);
+          } else if (name == 'Visitors In') {
+            this.visitorsIn(result);
+          }
         }
       }, {
         key: "ngOnInit",
@@ -15850,7 +16021,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DashBroadCastComponent, [{
         key: "calenderPopUp",
         value: function calenderPopUp(dateType) {
-          var _this78 = this;
+          var _this89 = this;
 
           var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_5__["DateModelComponent"], {
             width: '400px',
@@ -15859,21 +16030,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this78.announcementList(result, 'filter');
+              _this89.announcementList(result, 'filter');
             }
           });
         }
       }, {
         key: "announcementList",
         value: function announcementList(entity, type) {
-          var _this79 = this;
+          var _this90 = this;
 
           this.dashboardService.getDashlistBroadcastsentbyApartmentId(entity).subscribe(function (res) {
             if (type == 'filter' && res.length > 0) {
-              _this79.broadCastList = res.reverse();
+              _this90.broadCastList = res.reverse();
             } else {
-              _this79.broadCastList = res.reverse();
-              _this79.broadCastList = _this79.broadCastList.slice(0, 10);
+              _this90.broadCastList = res.reverse();
+              _this90.broadCastList = _this90.broadCastList.slice(0, 10);
             }
           });
         }
@@ -16028,7 +16199,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DashComListComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this80 = this;
+          var _this91 = this;
 
           var entity = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -16037,19 +16208,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.label == 'Emergency Alerts') {
             this.alertService.getAllApartmentBlockUnitAlertByApartmentIdStatus(entity).subscribe(function (res) {
-              _this80.emergencyAlert = res;
+              _this91.emergencyAlert = res;
             });
           } else if (this.label == 'Recent Violations') {
             this.violationService.getAllViolationsByStatus(entity).subscribe(function (res) {
-              _this80.violation = res;
+              _this91.violation = res;
             });
           } else if (this.label == 'Work Permit') {
             this.workpermitService.getWorkPermitsByApartmentIdStatus(entity).subscribe(function (res) {
-              _this80.workPermit = res;
+              _this91.workPermit = res;
             });
           } else if (this.label == 'Facility Bookings') {
             this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(entity).subscribe(function (res) {
-              _this80.facility = res;
+              _this91.facility = res;
             });
           }
         }
@@ -16384,7 +16555,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DashMeetingComponent, [{
         key: "calenderPopUp",
         value: function calenderPopUp(dateType) {
-          var _this81 = this;
+          var _this92 = this;
 
           var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_4__["DateModelComponent"], {
             width: '400px',
@@ -16393,17 +16564,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this81.scheduledMeeting(result);
+              _this92.scheduledMeeting(result);
             }
           });
         }
       }, {
         key: "scheduledMeeting",
         value: function scheduledMeeting(entity) {
-          var _this82 = this;
+          var _this93 = this;
 
           this.dashboardService.getDashlistupcomingmeetingbyApartmentId(entity).subscribe(function (res) {
-            _this82.meetingList = res;
+            _this93.meetingList = res;
           });
         }
       }, {
@@ -16499,7 +16670,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function DashPieChartComponent() {
-        var _this83 = this;
+        var _this94 = this;
 
         _classCallCheck(this, DashPieChartComponent);
 
@@ -16532,7 +16703,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           async: false,
           autoBind: true,
           loadError: function loadError(xhr, status, error) {
-            alert('Error loading "' + _this83.source.url + '" : ' + error);
+            alert('Error loading "' + _this94.source.url + '" : ' + error);
           }
         });
         this.legendPosition = {
@@ -16807,7 +16978,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this84 = this;
+          var _this95 = this;
 
           setTimeout(function () {
             var data = {
@@ -16819,7 +16990,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 hoverBackgroundColor: ["#52cc8e", "#ffeb3b"]
               }]
             };
-            _this84.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this84.chartRef.nativeElement, {
+            _this95.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this95.chartRef.nativeElement, {
               type: 'bar',
               data: data,
               options: {
@@ -17016,34 +17187,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(HelpdeskChartComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this85 = this;
+          var _this96 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
             if (res.length == undefined || res.length == 0) {
-              _this85.totalOpenPersonalTickets = 0;
-              _this85.totalUrgentPersonalTickets = 0;
-              _this85.totalUrgentPersonalTickets = 0;
-              _this85.totalUrgentCommunityTickets = 0;
+              _this96.totalOpenPersonalTickets = 0;
+              _this96.totalUrgentPersonalTickets = 0;
+              _this96.totalUrgentPersonalTickets = 0;
+              _this96.totalUrgentCommunityTickets = 0;
             } else {
               var openPersonalTickets = res.filter(function (item) {
                 return item.ticketStatusId == 32 && item.ticketTypeId == 27; // new and personal tickets
               });
-              _this85.totalOpenPersonalTickets = openPersonalTickets.length;
+              _this96.totalOpenPersonalTickets = openPersonalTickets.length;
               var openCommunityTickets = res.filter(function (item) {
                 return item.ticketStatusId == 32 && item.ticketTypeId == 26; // new and common tickets
               });
-              _this85.totalOpenCommunityTickets = openCommunityTickets.length;
+              _this96.totalOpenCommunityTickets = openCommunityTickets.length;
               var urgentPersonalTickets = res.filter(function (item) {
                 return item.ticketPriorityId == 47 && item.ticketTypeId == 27; // priorty high and personal tickets
               });
-              _this85.totalUrgentPersonalTickets = urgentPersonalTickets.length;
+              _this96.totalUrgentPersonalTickets = urgentPersonalTickets.length;
               var urgentCommunityTickets = res.filter(function (item) {
                 return item.ticketPriorityId == 47 && item.ticketTypeId == 26; // priorty high and common tickets
               });
-              _this85.totalUrgentCommunityTickets = urgentCommunityTickets.length;
+              _this96.totalUrgentCommunityTickets = urgentCommunityTickets.length;
             }
           });
         }
@@ -17157,7 +17328,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this86 = this;
+          var _this97 = this;
 
           setTimeout(function () {
             var data = {
@@ -17168,7 +17339,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 hoverBackgroundColor: ["#ff3638", "#3f51b5"]
               }]
             };
-            _this86.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this86.chartRef.nativeElement, {
+            _this97.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this97.chartRef.nativeElement, {
               type: 'doughnut',
               data: data,
               options: {
@@ -17512,13 +17683,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UnitChartComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this87 = this;
+          var _this98 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-            _this87.totalUnits = res.length;
+            _this98.totalUnits = res.length;
           }, function (error) {
             console.log(error);
           });
@@ -17526,7 +17697,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this88 = this;
+          var _this99 = this;
 
           setTimeout(function () {
             var data = {
@@ -17537,7 +17708,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
               }]
             };
-            _this88.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this88.chartRef.nativeElement, {
+            _this99.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](_this99.chartRef.nativeElement, {
               type: 'doughnut',
               data: data,
               options: {
@@ -17549,14 +17720,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 rotation: 120,
                 animation: {
                   onComplete: function onComplete(e) {
-                    var width = _this88.chart.width,
-                        height = _this88.chart.height,
-                        ctx = _this88.chart.ctx;
+                    var width = _this99.chart.width,
+                        height = _this99.chart.height,
+                        ctx = _this99.chart.ctx;
                     ctx.restore();
                     ctx.font = "2em Maven Pro";
                     ctx.textBaseline = "middle";
                     ctx.fillStyle = "#4c4c4c";
-                    var numText = _this88.totalUnits,
+                    var numText = _this99.totalUnits,
                         textX = Math.round((width - ctx.measureText(numText).width) / 2),
                         textY = height / 2 - 10;
                     ctx.fillText(numText, textX, textY);
@@ -17686,13 +17857,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UsersChartComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this89 = this;
+          var _this100 = this;
 
           this.userService.getAllUsers().subscribe(function (res) {
-            _this89.totalUsers = res.length;
+            _this100.totalUsers = res.length;
 
-            _this89.userService.getAllUnApprovedUsers().subscribe(function (res) {
-              _this89.totalUnapprovedUsers = res.length;
+            _this100.userService.getAllUnApprovedUsers().subscribe(function (res) {
+              _this100.totalUnapprovedUsers = res.length;
             }, function (error) {
               console.log(error);
             });
@@ -17704,7 +17875,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-            _this89.totalUnits = res.length;
+            _this100.totalUnits = res.length;
           }, function (error) {
             console.log(error);
           });
@@ -17998,18 +18169,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this90 = this;
+          var _this101 = this;
 
           var params = {
             userid: parseInt(this.cookieService.get('userId'))
           };
           this.userService.getUserById(params).subscribe(function (res) {
-            _this90.userName = res[0].firstName;
+            _this101.userName = res[0].firstName;
           }, function (error) {
             console.log(error);
           });
           this.sharedService.apartmentselectedcast.subscribe(function (isSelected) {
-            _this90.isApartmentSelected = isSelected;
+            _this101.isApartmentSelected = isSelected;
           });
         }
       }]);

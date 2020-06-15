@@ -533,9 +533,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         path: 'announcements',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | announcements-announcements-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("announcements-announcements-module")]).then(__webpack_require__.bind(null,
+          "announcements-announcements-module").then(__webpack_require__.bind(null,
           /*! ./announcements/announcements.module */
           "./src/app/user/announcements/announcements.module.ts")).then(function (m) {
             return m.AnnouncementsModule;
@@ -621,9 +621,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         path: 'meetings',
         loadChildren: function loadChildren() {
-          return Promise.all(
+          return __webpack_require__.e(
           /*! import() | ams-meetings-meetings-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("meetings-meetings-module")]).then(__webpack_require__.bind(null,
+          "meetings-meetings-module").then(__webpack_require__.bind(null,
           /*! ../ams/meetings/meetings.module */
           "./src/app/ams/meetings/meetings.module.ts")).then(function (m) {
             return m.MeetingsModule;
@@ -634,7 +634,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | ams-work-permit-work-permit-module */
-          [__webpack_require__.e("default~ams-inbox-ams-inbox-module~announcements-announcements-module~assets-assets-module~broadcast~de6ccbe7"), __webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~income-tracker-income-tracker-module~inventory-inventory-module~my-property-my-property-modu~07ce848a"), __webpack_require__.e("work-permit-work-permit-module")]).then(__webpack_require__.bind(null,
           /*! ../ams/work-permit/work-permit.module */
           "./src/app/ams/work-permit/work-permit.module.ts")).then(function (m) {
             return m.WorkPermitModule;

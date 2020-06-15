@@ -1315,7 +1315,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var data = event.args.appointment.originalData;
             data.type = 'edit';
             var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
-              width: 'aito',
+              width: 'auto',
               height: '700px',
               data: data
             });
@@ -1338,7 +1338,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               type: 'create'
             };
             var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
-              width: 'aito',
+              width: 'auto',
               height: '700px',
               data: data
             });
@@ -2108,12 +2108,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ./components/meeting-edit-display/meeting-edit-display.component */
     "./src/app/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
-    /* harmony import */
-
-
-    var angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
-    /*! angular2-multiselect-dropdown */
-    "./node_modules/angular2-multiselect-dropdown/__ivy_ngcc__/fesm2015/angular2-multiselect-dropdown.js");
 
     var MeetingsModule = function MeetingsModule() {
       _classCallCheck(this, MeetingsModule);
@@ -2121,7 +2115,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     MeetingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_meetings_component__WEBPACK_IMPORTED_MODULE_5__["MeetingsComponent"], _components_meetings_reports_meetings_reports_component__WEBPACK_IMPORTED_MODULE_6__["MeetingsReportsComponent"], _components_meetings_setup_meetings_setup_component__WEBPACK_IMPORTED_MODULE_7__["MeetingsSetupComponent"], _components_meetings_view_meetings_view_component__WEBPACK_IMPORTED_MODULE_8__["MeetingsViewComponent"], _components_meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_9__["MeetingsCreateComponent"], _components_meetings_list_meetings_list_component__WEBPACK_IMPORTED_MODULE_10__["MeetingsListComponent"], _components_meetings_scheduled_list_meetings_scheduled_list_component__WEBPACK_IMPORTED_MODULE_11__["MeetingsScheduledListComponent"], _components_meeting_add_minutes_meeting_add_minutes_component__WEBPACK_IMPORTED_MODULE_14__["MeetingAddMinutesComponent"], _components_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_15__["MeetingEditDisplayComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_12__["NgSelectModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"], _meetings_routing_module__WEBPACK_IMPORTED_MODULE_3__["MeetingsRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_16__["AngularMultiSelectModule"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_12__["NgSelectModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"], _meetings_routing_module__WEBPACK_IMPORTED_MODULE_3__["MeetingsRoutingModule"]],
       bootstrap: [_meetings_component__WEBPACK_IMPORTED_MODULE_5__["MeetingsComponent"]]
     })], MeetingsModule);
     /***/

@@ -1,18 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["visitor-visitor-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.html":
-/*!*****************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.html ***!
-  \*****************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t<span >Visitor Check-In</span>\n\t\t\t\t</h5>\n\t </div>\n\t\t</div>\n\t\t<div class=\"card-body pb-0\" [ngClass]=\"isError ? 'h-39' : 'h-0 pt-0'\">\n\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\t\t</div>\n\t\t<div class=\"card-body\">\n            \n            <app-loader *ngIf=\"isVisitorSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"!isVisitorSubmitted\">\n\n\t\t\t\t<form #addVisitorForm = \"ngForm\" name=\"addVisitorForm\" (ngSubmit)=\"submitAddVisitorForm(addVisitorForm)\"  novalidate>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>First Name<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorFirstName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Last Name<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorLastName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Visitor Count<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"number\" (blur)=\"IsvalidatePhoneNo($event.target.value)\" class=\"form-control\" placeholder=\"Enter Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Date/Time of visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\n\t\t\t                    <input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" placeholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" (ngModelChange)=\"expectedDurationChange()\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Out-time<span class=\"required\">*</span></label>\n\t\t\t                    <input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [min]=\"minoutDate\" [owlDateTimeTrigger]=\"visitorOutTime\" placeholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Duration of visit<span class=\"required\">*</span></label>\n\t\t\t                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Duration\" name=\"visitorDuration\" [(ngModel)]=\"visitor.expectedDuration\" [disabled]=\"true\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t        name=\"visitBy\" \n\t\t\t\t\t\t\t        id=\"visitBy\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"visitTypeId\" (ngModelChange)=\"changeVisitorType(visitTypeId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of visitByData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t        name=\"visitByCategory\" \n\t\t\t\t\t\t\t        id=\"visitByCategory\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"visitCategoryId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of visitCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Tenant block-No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"visitorblock-No\" \n\t\t\t\t\t\t\t\tid=\"visitorblock-No\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockNumber\" required>\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockNumber\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Tenant Unit-No<span class=\"required\">*</span></label>\n\t\t\t                   \t<select \n\t\t\t\t\t\t\t\tname=\"visitorUnit-No\" \n\t\t\t\t\t\t\t\tid=\"visitorUnit-No\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockUnitNumber\" required>\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitNumber\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"iscommunityVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Staff Id<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"text\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Staff-id\" name=\"staffId\" [(ngModel)]=\"visitor.staffId\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Reason for visit<span class=\"required\">*</span></label>\n\t\t\t                    <textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVisitorForm.invalid\">Check In</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\t\t\t\n\t\t</div>\n\t</div>\n\t\n</div>");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/visitor-checkin/visitor-checkin.component.html":
 /*!*****************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/visitor-checkin/visitor-checkin.component.html ***!
@@ -127,267 +114,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
-
-/***/ }),
-
-/***/ "./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.scss":
-/*!***************************************************************************************!*\
-  !*** ./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.scss ***!
-  \***************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy92aXNpdG9yL2NvbXBvbmVudHMvY2hlY2tpbi12aXNpdG9yL2NoZWNraW4tdmlzaXRvci5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.ts":
-/*!*************************************************************************************!*\
-  !*** ./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.ts ***!
-  \*************************************************************************************/
-/*! exports provided: CheckinVisitorComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckinVisitorComponent", function() { return CheckinVisitorComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-
-
-
-
-
-
-
-
-
-
-
-let CheckinVisitorComponent = class CheckinVisitorComponent {
-    constructor(router, route, userService, apartmentService, visitorService, lookupService, sharedService, cookieService, SharedToaster) {
-        this.router = router;
-        this.route = route;
-        this.userService = userService;
-        this.apartmentService = apartmentService;
-        this.visitorService = visitorService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
-        this.SharedToaster = SharedToaster;
-        this.isEditVisitor = false;
-        this.isVisitorSubmitted = false;
-        this.isVisitorAdded = false;
-        this.isError = false;
-        this.errorMessage = "";
-        this.visitTypeId = "";
-        this.isExpectedVisitor = false;
-        this.isUnitVisitor = false;
-        this.iscommunityVisitor = false;
-        this.isValidphoneNumber = false;
-        this.minDate = moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format('YYYY-MM-DD');
-    }
-    IsvalidatePhoneNo(val) {
-        var retVal = true;
-        var rex = new RegExp(/^[+]?\d+$/);
-        var isValid = rex.test(val);
-        console.log(val.length);
-        if (val.length > 13) {
-            retVal = false;
-            var errorDetails = {
-                msg: "phone no length should be within 13 characters",
-                type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
-        }
-        if (!isValid) {
-            retVal = false;
-            var errorDetails = {
-                msg: "Kindly enter proper phoneno",
-                type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
-        }
-        return retVal;
-    }
-    submitAddVisitorForm(form) {
-        if (!this.IsvalidatePhoneNo(this.visitor.expectedVisitorPhone))
-            return true;
-        this.isVisitorSubmitted = true;
-        this.isError = false;
-        let visitorDetails = {
-            "apartmentUnitId": this.apartmentUnitId,
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-            "visitorName": this.visitor.expectedVisitorFirstName + ' ' + this.visitor.expectedVisitorLastName,
-            "visitorCount": this.visitor.expectedVisitorCount,
-            "visitorPhone": this.visitor.expectedVisitorPhone.toString(),
-            "visitorVehicleTypeId": 1,
-            "visitorVehicleNumber": "string",
-            "visitingPlaceId": 1,
-            "passNumber": this.visitor.passNumber,
-            "isCheckedIn": true,
-            "visitorInTime": this.visitor.expectedVisitorInTime,
-            "isCheckedOut": false,
-            "visitorOutTime": this.visitor.expectedVisitorOutTime,
-            "expectedDuration": this.visitor.expectedDurationInHours,
-            "meetingPersonId": 1,
-            "meetingPersonName": "string",
-            "visitTypeId": parseInt(this.visitTypeId),
-            "visitorCategoryId": parseInt(this.visitCategoryId),
-            "visitorsOrg": "string",
-            "entryGateId": null,
-            "exitGateId": null,
-            "purpose": this.visitor.purpose,
-            "enteredBy": parseInt(this.cookieService.get('userId')),
-            "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
-            "insertedOn": "2019-11-18T17:08:51.188Z",
-            "updatedBy": parseInt(this.cookieService.get('userId')),
-            "updatedOn": "2019-11-18T17:08:51.188Z",
-            "expectedVisitorId": null,
-            "expectedVisitorInTime": null,
-            "expectedVisitorOutTime": null,
-            "expectedVisitorDuration": null
-        };
-        let params = {
-            visitor: visitorDetails
-        };
-        this.visitorService.addVisitor(params).subscribe((res) => {
-            if (res.message) {
-                this.sharedService.setAlertMessage("Visitor Checked In successfully");
-                this.visitor = {};
-                this.isVisitorSubmitted = false;
-            }
-            else {
-                this.isVisitorSubmitted = false;
-                this.isError = true;
-                this.errorMessage = res.errorMessage;
-            }
-        }, error => {
-            this.isVisitorSubmitted = false;
-            this.isError = true;
-            this.errorMessage = error;
-        });
-    }
-    ngOnInit() {
-        this.minoutDate = new Date();
-        this.visitor = {};
-        let visitParams = {
-            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
-            LookupTypeId: 15
-        };
-        //visit type
-        this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
-            this.visitByData = res;
-        }, error => {
-        });
-        let visitCategoryParams = {
-            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
-            LookupTypeId: 100
-        };
-        //visit type
-        this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe((res) => {
-            this.visitCategoryData = res.filter(item => {
-                return item.isActive;
-            });
-        }, error => {
-        });
-        let cateogoryParams = {
-            userId: parseInt(this.cookieService.get('userId'))
-        };
-        this.apartmentService.getApartmentBlockUnitByUserId(cateogoryParams).subscribe((res) => {
-            this.apartmentUnitId = res[0].apartmentBlockUnitId;
-        }, error => {
-        });
-        this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-        this.apartmentService.getAllApartmentBlockUnits().subscribe((res) => {
-            this.blockUnitData = res;
-        });
-    }
-    changeVisitorType(id) {
-        console.log(id);
-        let result = this.visitByData.filter(filterId => id == filterId.lookupValueId);
-        console.log(result);
-        this.isUnitVisitor = (result[0].lookupValueName == 'Unit Visitor') ? true : false;
-        this.iscommunityVisitor = (result[0].lookupValueName == "Community Visitor") ? true : false;
-    }
-    expectedDurationChange() {
-        if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD')) {
-            this.visitor.expectedVisitorInTime = undefined;
-            this.SharedToaster.openSnackBar("Please Select valid Date", '');
-            return;
-        }
-        if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime).format('YYYY-MM-DD')) {
-            this.visitor.expectedVisitorOutTime = undefined;
-            this.SharedToaster.openSnackBar("Please Select Out-time greater than In-time", '');
-            return;
-        }
-        console.log(this.visitor.expectedVisitorOutTime);
-        if (this.visitor.expectedVisitorOutTime) {
-            if (moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD') > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime).format('YYYY-MM-DD')) {
-                this.visitor.expectedVisitorOutTime = undefined;
-                this.SharedToaster.openSnackBar("Please Select Out-time greater than In-time", '');
-                return;
-            }
-        }
-        let inDate = moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime);
-        let outDate = moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime);
-        let diffDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
-        this.visitor.expectedDuration = diffDuration.days() + " days " + this.isSingleDigit(diffDuration.hours()) + ":" + this.isSingleDigit(diffDuration.minutes()) + " hours";
-        let sendDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
-        let hours = sendDuration.asHours();
-        this.visitor.expectedDurationInHours = Math.round(hours);
-    }
-    isSingleDigit(digit) {
-        if (digit <= 0) {
-            return '00';
-        }
-        else {
-            return (digit.toString().length > 1) ? digit : '0' + digit;
-        }
-    }
-};
-CheckinVisitorComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
-    { type: _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"] }
-];
-CheckinVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-checkin-visitor',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./checkin-visitor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./checkin-visitor.component.scss */ "./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
-        src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
-        _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])
-], CheckinVisitorComponent);
-
-
 
 /***/ }),
 
@@ -2667,9 +2393,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports.component */ "./src/app/ams/visitor/components/visitor-reports/visitor-reports.component.ts");
 /* harmony import */ var _components_visitor_create_visitor_create_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/visitor-create/visitor-create.component */ "./src/app/ams/visitor/components/visitor-create/visitor-create.component.ts");
 /* harmony import */ var _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/visitor-history/visitor-history.component */ "./src/app/ams/visitor/components/visitor-history/visitor-history.component.ts");
-/* harmony import */ var _components_checkin_visitor_checkin_visitor_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/checkin-visitor/checkin-visitor.component */ "./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.ts");
-/* harmony import */ var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */ "./src/app/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
-
+/* harmony import */ var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */ "./src/app/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
 
 
 
@@ -2697,8 +2421,7 @@ VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_10__["VisitorReportsComponent"],
             _components_visitor_create_visitor_create_component__WEBPACK_IMPORTED_MODULE_11__["VisitorCreateComponent"],
             _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_12__["VisitorHistoryComponent"],
-            _components_checkin_visitor_checkin_visitor_component__WEBPACK_IMPORTED_MODULE_13__["CheckinVisitorComponent"],
-            _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_14__["VisitorReportsDataComponent"]
+            _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_13__["VisitorReportsDataComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -2708,46 +2431,6 @@ VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         bootstrap: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"]]
     })
 ], VisitorModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/shared/services/shared-toaster.service.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/shared/services/shared-toaster.service.ts ***!
-  \***********************************************************/
-/*! exports provided: SharedToasterService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedToasterService", function() { return SharedToasterService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
-
-
-
-let SharedToasterService = class SharedToasterService {
-    constructor(snackBar) {
-        this.snackBar = snackBar;
-    }
-    openSnackBar(message, action) {
-        this.snackBar.open(message, action, {
-            duration: 2000,
-        });
-    }
-};
-SharedToasterService.ctorParameters = () => [
-    { type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"] }
-];
-SharedToasterService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
-], SharedToasterService);
 
 
 

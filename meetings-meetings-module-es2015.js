@@ -890,7 +890,7 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
             let data = event.args.appointment.originalData;
             data.type = 'edit';
             const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
-                width: 'aito',
+                width: 'auto',
                 height: '700px',
                 data: data
             });
@@ -906,7 +906,7 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
         if (this.cookieService.get('userRole') == 'Admin') {
             let data = { type: 'create' };
             const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
-                width: 'aito',
+                width: 'auto',
                 height: '700px',
                 data: data
             });
@@ -1368,8 +1368,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _components_meeting_add_minutes_meeting_add_minutes_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/meeting-add-minutes/meeting-add-minutes.component */ "./src/app/ams/meetings/components/meeting-add-minutes/meeting-add-minutes.component.ts");
 /* harmony import */ var _components_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/meeting-edit-display/meeting-edit-display.component */ "./src/app/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
-/* harmony import */ var angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! angular2-multiselect-dropdown */ "./node_modules/angular2-multiselect-dropdown/__ivy_ngcc__/fesm2015/angular2-multiselect-dropdown.js");
-
 
 
 
@@ -1405,8 +1403,7 @@ MeetingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
             _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_12__["NgSelectModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"],
-            _meetings_routing_module__WEBPACK_IMPORTED_MODULE_3__["MeetingsRoutingModule"],
-            angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_16__["AngularMultiSelectModule"]
+            _meetings_routing_module__WEBPACK_IMPORTED_MODULE_3__["MeetingsRoutingModule"]
         ],
         bootstrap: [_meetings_component__WEBPACK_IMPORTED_MODULE_5__["MeetingsComponent"]]
     })

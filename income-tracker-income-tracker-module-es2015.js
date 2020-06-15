@@ -22,7 +22,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isCreditSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<label>Select Bill No</label>\n\t\t\t\t\t\t<select \n\t\t\t\t\t\t\tname=\"collectionId\" \n\t\t\t\t\t\t\tid=\"collectionId\" \n\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t[(ngModel)]=\"credit.collectionId\" (ngModelChange)=\"getCollection(credit.collectionId)\" required>\n\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of billData\" [value]=\"item.collectionId\">{{ item.collectionId}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addCreditNoteForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isCreditSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\tfieldText = \"Select Bill No\"\n\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\tfieldItemName=\"collectionId\"\n\t\t\t\t\t\t\t[fieldModel] = \"credit.collectionId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"billData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addCreditNoteForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.html":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.html ***!
+  \************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm(addCustomerAdvanceForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isAdvanceSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isAdvanceSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\tfieldText = \"Select Bill No\"\n\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\tfieldItemName=\"collectionId\"\n\t\t\t\t\t\t\t[fieldModel] = \"advance.collectionId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"billData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addCustomerAdvanceForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
 
 /***/ }),
 
@@ -35,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>income-customer-advances works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-customer-advances-wrapper\">\n\n    <app-loader *ngIf=\"!isAdvancesLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAdvancesLoaded\">\n\n        <div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Customer Advances <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t placeholder=\"Search...\" [(ngModel)]=\"customerAdvancesData\" \n\t\t\t\t\t\t (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t\t<a class=\"btn lime-green mt_5\" id=\"addCustomerAdvancesElement\" (click)=\"addCustomerAdvances()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Customer Advances Note</span>\n\t\t\t\t\t\t</a>\n\t\n\t\t\t\t\t</li>\n\t    \t\t</ul>\n            </div>\n\n            <div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"customerAdvancesDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver\n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"true\" \n\t\t\t[selector]=\"popOverSelector\"\n\t\t\t[position]=\"popOverPosition\"\n\t\t\t>\n\t\t\t\t<app-income-add-customer-advance\n\t\t\t\t[advance]=\"advance\" \n\t\t\t\t[isEdit]=\"isEditAdvance\" \n\t\t\t\t(outputParams)=\"getCustomerAdvancesParams($event)\">\n                </app-income-add-customer-advance>\n                \n\t\t\t</jqxPopover>\n\n\t\t\t</div>\n\n        </div>\n\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -295,7 +308,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-credit-note-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isCreditNoteLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isCreditNoteLoaded\">\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Credit Notes <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" \n\t\t\t\t\t\t (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t\t<a class=\"btn lime-green mt_5\" id=\"addCreditNoteElement\" (click)=\"addCreditNote()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Credit Note</span>\n\t\t\t\t\t\t</a>\n\t\n\t\t\t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"creditNoteDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver\n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"true\" \n\t\t\t[selector]=\"popOverSelector\"\n\t\t\t[position]=\"popOverPosition\"\n\t\t\t>\n\t\t\t\t<app-income-add-credit [credit]=\"credit\" [isEdit]=\"isEditCredit\">\n\n\t\t\t\t</app-income-add-credit>\n\t\t\t</jqxPopover>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-credit-note-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isCreditNoteLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isCreditNoteLoaded\">\n\n\t\t<div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Credit Notes <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" \n\t\t\t\t\t\t (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t\t<a class=\"btn lime-green mt_5\" id=\"addCreditNoteElement\" (click)=\"addCreditNote()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Credit Note</span>\n\t\t\t\t\t\t</a>\n\t\n\t\t\t\t\t</li>\n\t    \t\t</ul>\n\t  \t\t</div>\n\n\t  \t\t<div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"creditNoteDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver\n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"true\" \n\t\t\t[selector]=\"popOverSelector\"\n\t\t\t[position]=\"popOverPosition\"\n\t\t\t>\n\t\t\t\t<app-income-add-credit \n\t\t\t\t[credit]=\"credit\" \n\t\t\t\t[isEdit]=\"isEditCredit\" \n\t\t\t\t(outputParams)=\"getCreditParams($event)\">\n\n\t\t\t\t</app-income-add-credit>\n\t\t\t</jqxPopover>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n");
 
 /***/ }),
 
@@ -444,7 +457,7 @@ IncomeActionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1hZGQtY3JlZGl0L2luY29tZS1hZGQtY3JlZGl0LmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".income-add-credit-wrapper ::ng-deep .select-group .search-control {\n  right: 5px !important;\n}\n.income-add-credit-wrapper ::ng-deep .select-group .search-control .icon {\n  width: 18px;\n  height: 18px;\n}\n::ng-deep .jqx-popover {\n  margin-right: 20px;\n}\n::ng-deep .jqx-popover .jqx-popover-arrow {\n  margin-left: 20px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtYWRkLWNyZWRpdC9pbmNvbWUtYWRkLWNyZWRpdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLWFkZC1jcmVkaXQvaW5jb21lLWFkZC1jcmVkaXQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBTVE7RUFDSSxxQkFBQTtBQ0xaO0FETVk7RUFDSSxXQUFBO0VBQ0EsWUFBQTtBQ0poQjtBRFdJO0VBQ0ksa0JBQUE7QUNSUjtBRFNRO0VBQ0ksNEJBQUE7QUNQWiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1hZGQtY3JlZGl0L2luY29tZS1hZGQtY3JlZGl0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cbi5pbmNvbWUtYWRkLWNyZWRpdC13cmFwcGVyIHtcbiAgICA6Om5nLWRlZXAge1xuICAgICAgICAuc2VsZWN0LWdyb3VwIC5zZWFyY2gtY29udHJvbCB7XG4gICAgICAgICAgICByaWdodDogNXB4ICFpbXBvcnRhbnQ7XG4gICAgICAgICAgICAuaWNvbiB7XG4gICAgICAgICAgICAgICAgd2lkdGg6IDE4cHg7XG4gICAgICAgICAgICAgICAgaGVpZ2h0OiAxOHB4O1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxufVxuXG46Om5nLWRlZXAge1xuICAgIC5qcXgtcG9wb3ZlciB7XG4gICAgICAgIG1hcmdpbi1yaWdodDogMjBweDtcbiAgICAgICAgLmpxeC1wb3BvdmVyLWFycm93IHtcbiAgICAgICAgICAgIG1hcmdpbi1sZWZ0OiAyMHB4ICFpbXBvcnRhbnQ7XG4gICAgICAgIH1cbiAgICB9XG59XG4iLCIuaW5jb21lLWFkZC1jcmVkaXQtd3JhcHBlciA6Om5nLWRlZXAgLnNlbGVjdC1ncm91cCAuc2VhcmNoLWNvbnRyb2wge1xuICByaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG4uaW5jb21lLWFkZC1jcmVkaXQtd3JhcHBlciA6Om5nLWRlZXAgLnNlbGVjdC1ncm91cCAuc2VhcmNoLWNvbnRyb2wgLmljb24ge1xuICB3aWR0aDogMThweDtcbiAgaGVpZ2h0OiAxOHB4O1xufVxuXG46Om5nLWRlZXAgLmpxeC1wb3BvdmVyIHtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuOjpuZy1kZWVwIC5qcXgtcG9wb3ZlciAuanF4LXBvcG92ZXItYXJyb3cge1xuICBtYXJnaW4tbGVmdDogMjBweCAhaW1wb3J0YW50O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -471,7 +484,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddCreditComponent = class IncomeAddCreditComponent {
-    constructor(route, accountsService, sharedService, cookieService) {
+    constructor(router, route, accountsService, sharedService, cookieService) {
+        this.router = router;
         this.route = route;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
@@ -479,6 +493,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         this.isCreditSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
+        this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     getCollection(id) {
         var data = this.billData.filter(item => {
@@ -491,14 +506,18 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             this.credit.invoiceId = data[0].invoiceId;
         }
     }
+    onSelectChange(event) {
+        if (event != null)
+            this.credit.collectionId = event.collectionId;
+    }
     submitAddCreditNoteForm(form) {
         if (!this.isEdit) {
             let details = {
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-                "blockUnitUserId": 1,
-                "custCreditNoteId": 0,
-                "glaccountId": 1,
+                "blockUnitUserId": null,
+                "custCreditNoteId": null,
+                "glaccountId": null,
                 "invoiceId": this.credit.invoiceId,
                 "collectionId": parseInt(this.credit.collectionId),
                 "transactionType": 0,
@@ -517,6 +536,9 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                 if (res.creditNoteId) {
                     this.isCreditSubmitted = true;
                     this.sharedService.setAlertMessage("Credit Note added successfully");
+                    this.outputParams.emit(true);
+                    /*this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+                    this.router.navigateByUrl('/ams/income/actions/view-creditnote/' + this.route.params['value'].id));*/
                 }
                 else {
                     this.isCreditSubmitted = true;
@@ -550,21 +572,30 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             let params = {
                 custCreditNote: details
             };
-            this.accountsService.addCustCreditNotes(params).subscribe((res) => {
-                if (res.creditNoteId) {
-                    this.isCreditSubmitted = true;
-                    this.sharedService.setAlertMessage("Credit Note added successfully");
+            /* this.accountsService.addCustCreditNotes(params).subscribe((res:any) => {
+    
+    
+                if(res.creditNoteId){
+    
+                  this.isCreditSubmitted = true;
+                  this.sharedService.setAlertMessage("Credit Note updated successfully");
+    
                 }
                 else {
-                    this.isCreditSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
+    
+                  this.isCreditSubmitted = true;
+                  this.isError = true;
+                  this.alertMessage = res.errorMessage;
+    
                 }
-            }, error => {
-                this.isCreditSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
-            });
+    
+    
+            },
+            error => {
+              this.isCreditSubmitted = true;
+              this.isError = true;
+              this.alertMessage = "Some error occured";
+            }); */
         }
     }
     ngOnInit() {
@@ -583,6 +614,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
     }
 };
 IncomeAddCreditComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
@@ -596,17 +628,232 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)
 ], IncomeAddCreditComponent.prototype, "isEdit", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeAddCreditComponent.prototype, "outputParams", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('addCreditNoteForm'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeAddCreditComponent.prototype, "addCreditNoteForm", void 0);
 IncomeAddCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-add-credit',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-add-credit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-credit/income-add-credit.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-add-credit.component.scss */ "./src/app/ams/income-tracker/components/income-add-credit/income-add-credit.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], IncomeAddCreditComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.scss":
+/*!**********************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.scss ***!
+  \**********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".income-add-customer-advance-wrapper ::ng-deep .select-group .search-control {\n  right: 5px !important;\n}\n.income-add-customer-advance-wrapper ::ng-deep .select-group .search-control .icon {\n  width: 18px;\n  height: 18px;\n}\n::ng-deep .jqx-popover {\n  margin-right: 20px;\n}\n::ng-deep .jqx-popover .jqx-popover-arrow {\n  margin-left: 20px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtYWRkLWN1c3RvbWVyLWFkdmFuY2UvaW5jb21lLWFkZC1jdXN0b21lci1hZHZhbmNlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtYWRkLWN1c3RvbWVyLWFkdmFuY2UvaW5jb21lLWFkZC1jdXN0b21lci1hZHZhbmNlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1RO0VBQ0kscUJBQUE7QUNMWjtBRE1ZO0VBQ0ksV0FBQTtFQUNBLFlBQUE7QUNKaEI7QURXSTtFQUNJLGtCQUFBO0FDUlI7QURTUTtFQUNJLDRCQUFBO0FDUFoiLCJmaWxlIjoic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtYWRkLWN1c3RvbWVyLWFkdmFuY2UvaW5jb21lLWFkZC1jdXN0b21lci1hZHZhbmNlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cbi5pbmNvbWUtYWRkLWN1c3RvbWVyLWFkdmFuY2Utd3JhcHBlciB7XG4gICAgOjpuZy1kZWVwIHtcbiAgICAgICAgLnNlbGVjdC1ncm91cCAuc2VhcmNoLWNvbnRyb2wge1xuICAgICAgICAgICAgcmlnaHQ6IDVweCAhaW1wb3J0YW50O1xuICAgICAgICAgICAgLmljb24ge1xuICAgICAgICAgICAgICAgIHdpZHRoOiAxOHB4O1xuICAgICAgICAgICAgICAgIGhlaWdodDogMThweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn1cblxuOjpuZy1kZWVwIHtcbiAgICAuanF4LXBvcG92ZXIge1xuICAgICAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG4gICAgICAgIC5qcXgtcG9wb3Zlci1hcnJvdyB7XG4gICAgICAgICAgICBtYXJnaW4tbGVmdDogMjBweCAhaW1wb3J0YW50O1xuICAgICAgICB9XG4gICAgfVxufVxuIiwiLmluY29tZS1hZGQtY3VzdG9tZXItYWR2YW5jZS13cmFwcGVyIDo6bmctZGVlcCAuc2VsZWN0LWdyb3VwIC5zZWFyY2gtY29udHJvbCB7XG4gIHJpZ2h0OiA1cHggIWltcG9ydGFudDtcbn1cbi5pbmNvbWUtYWRkLWN1c3RvbWVyLWFkdmFuY2Utd3JhcHBlciA6Om5nLWRlZXAgLnNlbGVjdC1ncm91cCAuc2VhcmNoLWNvbnRyb2wgLmljb24ge1xuICB3aWR0aDogMThweDtcbiAgaGVpZ2h0OiAxOHB4O1xufVxuXG46Om5nLWRlZXAgLmpxeC1wb3BvdmVyIHtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuOjpuZy1kZWVwIC5qcXgtcG9wb3ZlciAuanF4LXBvcG92ZXItYXJyb3cge1xuICBtYXJnaW4tbGVmdDogMjBweCAhaW1wb3J0YW50O1xufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.ts":
+/*!********************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.ts ***!
+  \********************************************************************************************************************/
+/*! exports provided: IncomeAddCustomerAdvanceComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeAddCustomerAdvanceComponent", function() { return IncomeAddCustomerAdvanceComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+
+
+
+
+
+let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent {
+    constructor(router, route, accountsService, sharedService, cookieService) {
+        this.router = router;
+        this.route = route;
+        this.accountsService = accountsService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isAdvanceSubmitted = false;
+        this.isError = false;
+        this.alertMessage = "";
+        this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    getCollection(id) {
+        var data = this.billData.filter(item => {
+            return item.collectionId == id;
+        });
+        if (data == undefined || data.length == 0) {
+            return '';
+        }
+        else {
+            this.advance.invoiceId = data[0].invoiceId;
+        }
+    }
+    onSelectChange(event) {
+        if (event != null)
+            this.advance.collectionId = event.collectionId;
+    }
+    submitAddCustomerAdvanceForm(form) {
+        if (!this.isEdit) {
+            let details = {
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "blockUnitUserId": parseInt(this.route.params['value'].id),
+                "glaccountId": 1,
+                "invoiceId": 1,
+                "collectionId": parseInt(this.advance.collectionId),
+                "transactionType": 1,
+                "amount": parseInt(this.advance.amount),
+                "comment": this.advance.comment,
+                "comment2": this.advance.comment,
+                "active": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            };
+            let params = {
+                custAdvance: details
+            };
+            this.accountsService.addAdvance(params).subscribe((res) => {
+                if (res.error == 'Sucess') {
+                    this.isAdvanceSubmitted = true;
+                    this.sharedService.setAlertMessage("Customer Advance added successfully");
+                    this.outputParams.emit(true);
+                    /*this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+                    this.router.navigateByUrl('/ams/income/actions/view-creditnote/' + this.route.params['value'].id));*/
+                }
+                else {
+                    this.isAdvanceSubmitted = true;
+                    this.isError = true;
+                    this.alertMessage = res.errorMessage;
+                }
+            }, error => {
+                this.isAdvanceSubmitted = true;
+                this.isError = true;
+                this.alertMessage = "Some error occured";
+            });
+        }
+        else {
+            let details = {
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "blockUnitUserId": this.advance.blockUnitUserId,
+                "advanceId": this.advance.custCreditNoteId,
+                "glaccountId": this.advance.glaccountId,
+                "invoiceId": this.advance.invoiceId,
+                "collectionId": parseInt(this.advance.collectionId),
+                "transactionType": this.advance.transactionType,
+                "amount": parseInt(this.advance.amount),
+                "comment": this.advance.comment,
+                "comment2": this.advance.comment,
+                "active": this.advance.active,
+                "insertedBy": this.advance.insertedBy,
+                "insertedOn": this.advance.insertedOn,
+                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedOn": new Date().toISOString()
+            };
+            let params = {
+                custAdvance: details
+            };
+            /*this.accountsService.addAdvance(params).subscribe((res:any) => {
+    
+    
+                if(res.creditNoteId){
+    
+                  this.isAdvanceSubmitted = true;
+                  this.sharedService.setAlertMessage("Customer Advance updated successfully");
+    
+                }
+                else {
+    
+                  this.isAdvanceSubmitted = true;
+                  this.isError = true;
+                  this.alertMessage = res.errorMessage;
+    
+                }
+    
+    
+            },
+            error => {
+              this.isAdvanceSubmitted = true;
+              this.isError = true;
+              this.alertMessage = "Some error occured";
+              });*/
+        }
+    }
+    ngOnInit() {
+        this.advance.collectionId = "";
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentBlockUnitId: this.route.params['value'].id
+        };
+        this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
+            this.billData = res;
+            this.isAdvanceSubmitted = true;
+        });
+    }
+    ngOnChanges(changes) {
+        this.advance.collectionId = "";
+    }
+};
+IncomeAddCustomerAdvanceComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeAddCustomerAdvanceComponent.prototype, "advance", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)
+], IncomeAddCustomerAdvanceComponent.prototype, "isEdit", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeAddCustomerAdvanceComponent.prototype, "outputParams", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('addCustomerAdvanceForm'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeAddCustomerAdvanceComponent.prototype, "addCustomerAdvanceForm", void 0);
+IncomeAddCustomerAdvanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-add-customer-advance',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-add-customer-advance.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-add-customer-advance.component.scss */ "./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+], IncomeAddCustomerAdvanceComponent);
 
 
 
@@ -637,22 +884,211 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeCustomerAdvancesComponent", function() { return IncomeCustomerAdvancesComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover.ts");
+
+
+
+
+
+
+
 
 
 let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
-    constructor() { }
+    constructor(route, dialog, apartmentService, accountsService, cookieService) {
+        this.route = route;
+        this.dialog = dialog;
+        this.apartmentService = apartmentService;
+        this.accountsService = accountsService;
+        this.cookieService = cookieService;
+        this.isAdvancesLoaded = false;
+        this.customerAdvancesData = "";
+        this.advance = {};
+        this.isEditAdvance = false;
+    }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'CustomerAdvancesData');
+    }
+    onGlSearchFilter() {
+        if (this.customerAdvancesData != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.customerAdvancesData;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    getCustomerAdvancesParams(event) {
+        this.reversePopOver.close();
+        this.getCustomerAdvancesData();
+    }
+    addCustomerAdvances() {
+        this.isEditAdvance = false;
+        this.popOverSelector = '#addCustomerAdvancesElement';
+        this.popOverPosition = 'bottom';
+        setTimeout(() => {
+            this.reversePopOver.createComponent();
+            this.reversePopOver.open();
+        }, 300);
+    }
+    onCustomerAdvances(detail) {
+        this.isEditAdvance = true;
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let transactionId = dataRecord.transactionId;
+        this.advance = dataRecord;
+        this.popOverSelector = '#' + transactionId;
+        this.popOverPosition = 'left';
+        setTimeout(() => {
+            this.reversePopOver.createComponent();
+            this.reversePopOver.open();
+        }, 300);
+    }
+    getCustomerAdvancesData() {
+        this.isAdvancesLoaded = false;
+        let blockUnitParams = {
+            apartmentBlockUnitId: this.apartmentBlockUnitId
+        };
+        this.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(blockUnitParams).subscribe((res) => {
+            this.apartmentBlockUnitUserId = res[0].apartmentBlockUnitUserId;
+            let params = {
+                blockUnitUserId: this.apartmentBlockUnitUserId,
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            this.accountsService.getAdvanceByApartmentBlockUnitUserId(params).subscribe((res) => {
+                var customerAdvancesDataList = res;
+                this.gridSourceData = {
+                    localdata: customerAdvancesDataList,
+                    datatype: "array"
+                };
+                this.customerAdvancesDataList = new jqx.dataAdapter(this.gridSourceData);
+                this.totalItems = customerAdvancesDataList.length;
+                this.isAdvancesLoaded = true;
+            }, error => {
+                console.log(error);
+            });
+        });
+    }
     ngOnInit() {
+        this.apartmentBlockUnitId = this.route.params['value'].id;
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.columnData = [{
+                text: 'Transaction Id',
+                datafield: 'transactionId',
+                width: 220,
+                pinned: true,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Advance Added',
+                datafield: 'creditAmount',
+                cellsrenderer: cellsrenderer,
+                minwidth: 180,
+                renderer: columnrenderer
+            }, {
+                text: 'Comments',
+                datafield: 'comments',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Amount paid for bill',
+                datafield: 'billId_CreatedAgainst',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Paid for Bill No',
+                datafield: 'billId_AdjustedInvoice',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Advance Balance',
+                datafield: 'balance',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                width: 120,
+                cellsrenderer: (row) => {
+                    let elemId = this.customerAdvancesDataList.loadedData[row].transactionId;
+                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editCustomerAdvancesEvent(' + row + ')" ><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
+                },
+                renderer: columnrenderer
+            }];
+        this.getCustomerAdvancesData();
     }
 };
+IncomeCustomerAdvancesComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__["jqxGridComponent"])
+], IncomeCustomerAdvancesComponent.prototype, "datagrid", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('reversePopOver', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_8__["jqxPopoverComponent"])
+], IncomeCustomerAdvancesComponent.prototype, "reversePopOver", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCustomerAdvances', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeCustomerAdvancesComponent.prototype, "onCustomerAdvances", null);
 IncomeCustomerAdvancesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-customer-advances',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-customer-advances.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-customer-advances.component.scss */ "./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomeCustomerAdvancesComponent);
 
+let editCustomerAdvancesEvent = row => {
+    let event = new CustomEvent('onCustomerAdvances', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+};
+window.editCustomerAdvancesEvent = editCustomerAdvancesEvent;
 
 
 /***/ }),
@@ -4551,6 +4987,9 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
             this.datagrid.clearfilters();
         }
     }
+    getCreditParams(event) {
+        this.getCreditNotesData();
+    }
     addCreditNote() {
         this.isEditCredit = false;
         this.popOverSelector = '#addCreditNoteElement';
@@ -4571,6 +5010,24 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
             this.reversePopOver.createComponent();
             this.reversePopOver.open();
         }, 300);
+    }
+    getCreditNotesData() {
+        this.isCreditNoteLoaded = false;
+        let params = {
+            blockUnitId: this.apartmentBlockUnitId
+        };
+        this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe((res) => {
+            var creditNoteDataList = res;
+            this.gridSourceData = {
+                localdata: creditNoteDataList,
+                datatype: "array"
+            };
+            this.creditNoteDataList = new jqx.dataAdapter(this.gridSourceData);
+            this.totalItems = creditNoteDataList.length;
+            this.isCreditNoteLoaded = true;
+        }, error => {
+            console.log(error);
+        });
     }
     ngOnInit() {
         this.apartmentBlockUnitId = this.route.params['value'].id;
@@ -4634,23 +5091,8 @@ let IncomeViewCreditComponent = class IncomeViewCreditComponent {
                     return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editCreditNoteEvent(' + row + ')" ><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
                 },
                 renderer: columnrenderer
-            }
-        ];
-        let params = {
-            blockUnitId: this.apartmentBlockUnitId
-        };
-        this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe((res) => {
-            var creditNoteDataList = res;
-            this.gridSourceData = {
-                localdata: creditNoteDataList,
-                datatype: "array"
-            };
-            this.creditNoteDataList = new jqx.dataAdapter(this.gridSourceData);
-            this.totalItems = this.creditNoteDataList.length;
-            this.isCreditNoteLoaded = true;
-        }, error => {
-            console.log(error);
-        });
+            }];
+        this.getCreditNotesData();
     }
 };
 IncomeViewCreditComponent.ctorParameters = () => [
@@ -6477,6 +6919,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/income-customer-advances/income-customer-advances.component */ "./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.ts");
 /* harmony import */ var _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/income-security-deposit/income-security-deposit.component */ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.ts");
 /* harmony import */ var _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/income-journal/income-journal.component */ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.ts");
+/* harmony import */ var _components_income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/income-add-customer-advance/income-add-customer-advance.component */ "./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.ts");
+
 
 
 
@@ -6542,7 +6986,8 @@ IncomeTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_income_actions_income_actions_component__WEBPACK_IMPORTED_MODULE_29__["IncomeActionsComponent"],
             _components_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_30__["IncomeCustomerAdvancesComponent"],
             _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_31__["IncomeSecurityDepositComponent"],
-            _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__["IncomeJournalComponent"]
+            _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__["IncomeJournalComponent"],
+            _components_income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_33__["IncomeAddCustomerAdvanceComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

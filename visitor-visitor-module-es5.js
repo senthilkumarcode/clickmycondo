@@ -6,26 +6,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["visitor-visitor-module"], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.html":
-  /*!*****************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.html ***!
-    \*****************************************************************************************************************************/
-
-  /*! exports provided: default */
-
-  /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppAmsVisitorComponentsCheckinVisitorCheckinVisitorComponentHtml(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony default export */
-
-
-    __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t<span >Visitor Check-In</span>\n\t\t\t\t</h5>\n\t </div>\n\t\t</div>\n\t\t<div class=\"card-body pb-0\" [ngClass]=\"isError ? 'h-39' : 'h-0 pt-0'\">\n\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\t\t</div>\n\t\t<div class=\"card-body\">\n            \n            <app-loader *ngIf=\"isVisitorSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"!isVisitorSubmitted\">\n\n\t\t\t\t<form #addVisitorForm = \"ngForm\" name=\"addVisitorForm\" (ngSubmit)=\"submitAddVisitorForm(addVisitorForm)\"  novalidate>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>First Name<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorFirstName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Last Name<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorLastName\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Visitor Count<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"number\" (blur)=\"IsvalidatePhoneNo($event.target.value)\" class=\"form-control\" placeholder=\"Enter Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Date/Time of visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\n\t\t\t                    <input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" placeholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" (ngModelChange)=\"expectedDurationChange()\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Out-time<span class=\"required\">*</span></label>\n\t\t\t                    <input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [min]=\"minoutDate\" [owlDateTimeTrigger]=\"visitorOutTime\" placeholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Expected Duration of visit<span class=\"required\">*</span></label>\n\t\t\t                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Duration\" name=\"visitorDuration\" [(ngModel)]=\"visitor.expectedDuration\" [disabled]=\"true\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t        name=\"visitBy\" \n\t\t\t\t\t\t\t        id=\"visitBy\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"visitTypeId\" (ngModelChange)=\"changeVisitorType(visitTypeId)\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of visitByData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t        name=\"visitByCategory\" \n\t\t\t\t\t\t\t        id=\"visitByCategory\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"visitCategoryId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of visitCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Tenant block-No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"visitorblock-No\" \n\t\t\t\t\t\t\t\tid=\"visitorblock-No\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockNumber\" required>\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockNumber\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isUnitVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Tenant Unit-No<span class=\"required\">*</span></label>\n\t\t\t                   \t<select \n\t\t\t\t\t\t\t\tname=\"visitorUnit-No\" \n\t\t\t\t\t\t\t\tid=\"visitorUnit-No\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.apartmentBlockUnitNumber\" required>\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitNumber\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"iscommunityVisitor\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Staff Id<span class=\"required\">*</span></label>\n\t\t\t                    <input type=\"text\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Staff-id\" name=\"staffId\" [(ngModel)]=\"visitor.staffId\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Reason for visit<span class=\"required\">*</span></label>\n\t\t\t                    <textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVisitorForm.invalid\">Check In</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\t\t\t\n\t\t</div>\n\t</div>\n\t\n</div>";
-    /***/
-  },
-
-  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/visitor-checkin/visitor-checkin.component.html":
   /*!*****************************************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/visitor-checkin/visitor-checkin.component.html ***!
@@ -206,364 +186,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.scss":
-  /*!***************************************************************************************!*\
-    !*** ./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.scss ***!
-    \***************************************************************************************/
-
-  /*! exports provided: default */
-
-  /***/
-  function srcAppAmsVisitorComponentsCheckinVisitorCheckinVisitorComponentScss(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony default export */
-
-
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy92aXNpdG9yL2NvbXBvbmVudHMvY2hlY2tpbi12aXNpdG9yL2NoZWNraW4tdmlzaXRvci5jb21wb25lbnQuc2NzcyJ9 */";
-    /***/
-  },
-
-  /***/
-  "./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.ts":
-  /*!*************************************************************************************!*\
-    !*** ./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.ts ***!
-    \*************************************************************************************/
-
-  /*! exports provided: CheckinVisitorComponent */
-
-  /***/
-  function srcAppAmsVisitorComponentsCheckinVisitorCheckinVisitorComponentTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "CheckinVisitorComponent", function () {
-      return CheckinVisitorComponent;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-    /* harmony import */
-
-
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/User */
-    "./src/app/api/controllers/User.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../shared/services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/api/controllers/Lookup */
-    "./src/app/api/controllers/Lookup.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
-    "./src/app/api/controllers/Apartment.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/api/controllers/Visitor */
-    "./src/app/api/controllers/Visitor.ts");
-    /* harmony import */
-
-
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ngx-cookie-service */
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-    /* harmony import */
-
-
-    var _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! ../../../../shared/services/shared-toaster.service */
-    "./src/app/shared/services/shared-toaster.service.ts");
-    /* harmony import */
-
-
-    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! moment */
-    "./node_modules/moment/moment.js");
-    /* harmony import */
-
-
-    var moment__WEBPACK_IMPORTED_MODULE_10___default =
-    /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-
-    var CheckinVisitorComponent =
-    /*#__PURE__*/
-    function () {
-      function CheckinVisitorComponent(router, route, userService, apartmentService, visitorService, lookupService, sharedService, cookieService, SharedToaster) {
-        _classCallCheck(this, CheckinVisitorComponent);
-
-        this.router = router;
-        this.route = route;
-        this.userService = userService;
-        this.apartmentService = apartmentService;
-        this.visitorService = visitorService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
-        this.SharedToaster = SharedToaster;
-        this.isEditVisitor = false;
-        this.isVisitorSubmitted = false;
-        this.isVisitorAdded = false;
-        this.isError = false;
-        this.errorMessage = "";
-        this.visitTypeId = "";
-        this.isExpectedVisitor = false;
-        this.isUnitVisitor = false;
-        this.iscommunityVisitor = false;
-        this.isValidphoneNumber = false;
-        this.minDate = moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format('YYYY-MM-DD');
-      }
-
-      _createClass(CheckinVisitorComponent, [{
-        key: "IsvalidatePhoneNo",
-        value: function IsvalidatePhoneNo(val) {
-          var retVal = true;
-          var rex = new RegExp(/^[+]?\d+$/);
-          var isValid = rex.test(val);
-          console.log(val.length);
-
-          if (val.length > 13) {
-            retVal = false;
-            var errorDetails = {
-              msg: "phone no length should be within 13 characters",
-              type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
-          }
-
-          if (!isValid) {
-            retVal = false;
-            var errorDetails = {
-              msg: "Kindly enter proper phoneno",
-              type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
-          }
-
-          return retVal;
-        }
-      }, {
-        key: "submitAddVisitorForm",
-        value: function submitAddVisitorForm(form) {
-          var _this = this;
-
-          if (!this.IsvalidatePhoneNo(this.visitor.expectedVisitorPhone)) return true;
-          this.isVisitorSubmitted = true;
-          this.isError = false;
-          var visitorDetails = {
-            "apartmentUnitId": this.apartmentUnitId,
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-            "visitorName": this.visitor.expectedVisitorFirstName + ' ' + this.visitor.expectedVisitorLastName,
-            "visitorCount": this.visitor.expectedVisitorCount,
-            "visitorPhone": this.visitor.expectedVisitorPhone.toString(),
-            "visitorVehicleTypeId": 1,
-            "visitorVehicleNumber": "string",
-            "visitingPlaceId": 1,
-            "passNumber": this.visitor.passNumber,
-            "isCheckedIn": true,
-            "visitorInTime": this.visitor.expectedVisitorInTime,
-            "isCheckedOut": false,
-            "visitorOutTime": this.visitor.expectedVisitorOutTime,
-            "expectedDuration": this.visitor.expectedDurationInHours,
-            "meetingPersonId": 1,
-            "meetingPersonName": "string",
-            "visitTypeId": parseInt(this.visitTypeId),
-            "visitorCategoryId": parseInt(this.visitCategoryId),
-            "visitorsOrg": "string",
-            "entryGateId": null,
-            "exitGateId": null,
-            "purpose": this.visitor.purpose,
-            "enteredBy": parseInt(this.cookieService.get('userId')),
-            "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
-            "insertedOn": "2019-11-18T17:08:51.188Z",
-            "updatedBy": parseInt(this.cookieService.get('userId')),
-            "updatedOn": "2019-11-18T17:08:51.188Z",
-            "expectedVisitorId": null,
-            "expectedVisitorInTime": null,
-            "expectedVisitorOutTime": null,
-            "expectedVisitorDuration": null
-          };
-          var params = {
-            visitor: visitorDetails
-          };
-          this.visitorService.addVisitor(params).subscribe(function (res) {
-            if (res.message) {
-              _this.sharedService.setAlertMessage("Visitor Checked In successfully");
-
-              _this.visitor = {};
-              _this.isVisitorSubmitted = false;
-            } else {
-              _this.isVisitorSubmitted = false;
-              _this.isError = true;
-              _this.errorMessage = res.errorMessage;
-            }
-          }, function (error) {
-            _this.isVisitorSubmitted = false;
-            _this.isError = true;
-            _this.errorMessage = error;
-          });
-        }
-      }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          var _this2 = this;
-
-          this.minoutDate = new Date();
-          this.visitor = {};
-          var visitParams = {
-            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
-            LookupTypeId: 15
-          }; //visit type
-
-          this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this2.visitByData = res;
-          }, function (error) {});
-          var visitCategoryParams = {
-            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
-            LookupTypeId: 100
-          }; //visit type
-
-          this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-            _this2.visitCategoryData = res.filter(function (item) {
-              return item.isActive;
-            });
-          }, function (error) {});
-          var cateogoryParams = {
-            userId: parseInt(this.cookieService.get('userId'))
-          };
-          this.apartmentService.getApartmentBlockUnitByUserId(cateogoryParams).subscribe(function (res) {
-            _this2.apartmentUnitId = res[0].apartmentBlockUnitId;
-          }, function (error) {});
-          this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-          this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-            _this2.blockUnitData = res;
-          });
-        }
-      }, {
-        key: "changeVisitorType",
-        value: function changeVisitorType(id) {
-          console.log(id);
-          var result = this.visitByData.filter(function (filterId) {
-            return id == filterId.lookupValueId;
-          });
-          console.log(result);
-          this.isUnitVisitor = result[0].lookupValueName == 'Unit Visitor' ? true : false;
-          this.iscommunityVisitor = result[0].lookupValueName == "Community Visitor" ? true : false;
-        }
-      }, {
-        key: "expectedDurationChange",
-        value: function expectedDurationChange() {
-          if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD')) {
-            this.visitor.expectedVisitorInTime = undefined;
-            this.SharedToaster.openSnackBar("Please Select valid Date", '');
-            return;
-          }
-
-          if (this.minDate > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime).format('YYYY-MM-DD')) {
-            this.visitor.expectedVisitorOutTime = undefined;
-            this.SharedToaster.openSnackBar("Please Select Out-time greater than In-time", '');
-            return;
-          }
-
-          console.log(this.visitor.expectedVisitorOutTime);
-
-          if (this.visitor.expectedVisitorOutTime) {
-            if (moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime).format('YYYY-MM-DD') > moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime).format('YYYY-MM-DD')) {
-              this.visitor.expectedVisitorOutTime = undefined;
-              this.SharedToaster.openSnackBar("Please Select Out-time greater than In-time", '');
-              return;
-            }
-          }
-
-          var inDate = moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorInTime);
-          var outDate = moment__WEBPACK_IMPORTED_MODULE_10__(this.visitor.expectedVisitorOutTime);
-          var diffDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
-          this.visitor.expectedDuration = diffDuration.days() + " days " + this.isSingleDigit(diffDuration.hours()) + ":" + this.isSingleDigit(diffDuration.minutes()) + " hours";
-          var sendDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
-          var hours = sendDuration.asHours();
-          this.visitor.expectedDurationInHours = Math.round(hours);
-        }
-      }, {
-        key: "isSingleDigit",
-        value: function isSingleDigit(digit) {
-          if (digit <= 0) {
-            return '00';
-          } else {
-            return digit.toString().length > 1 ? digit : '0' + digit;
-          }
-        }
-      }]);
-
-      return CheckinVisitorComponent;
-    }();
-
-    CheckinVisitorComponent.ctorParameters = function () {
-      return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-      }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
-      }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
-      }, {
-        type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"]
-      }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
-      }, {
-        type: _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]
-      }];
-    };
-
-    CheckinVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-checkin-visitor',
-      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-      /*! raw-loader!./checkin-visitor.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.html"))["default"],
-      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-      /*! ./checkin-visitor.component.scss */
-      "./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], _shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])], CheckinVisitorComponent);
-    /***/
-  },
-
-  /***/
   "./src/app/ams/visitor/components/visitor-checkin/visitor-checkin.component.scss":
   /*!***************************************************************************************!*\
     !*** ./src/app/ams/visitor/components/visitor-checkin/visitor-checkin.component.scss ***!
@@ -739,7 +361,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddVisitorForm",
         value: function submitAddVisitorForm(form) {
-          var _this3 = this;
+          var _this = this;
 
           if (!this.IsvalidatePhoneNo(this.visitor.expectedVisitorPhone)) return true;
           this.isVisitorSubmitted = true;
@@ -786,19 +408,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.visitorService.addVisitor(params).subscribe(function (res) {
               if (res.message) {
-                _this3.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor Checked In successfully");
+                _this.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor Checked In successfully");
                 // this.router.navigate(['/ams/visitor/expected-visitor'])
               } else {
-                _this3.isVisitorSubmitted = false;
-                _this3.isVisitorAdded = false;
-                _this3.isError = true;
-                _this3.errorMessage = res.errorMessage;
+                _this.isVisitorSubmitted = false;
+                _this.isVisitorAdded = false;
+                _this.isError = true;
+                _this.errorMessage = res.errorMessage;
               }
             }, function (error) {
-              _this3.isVisitorSubmitted = false;
-              _this3.isVisitorAdded = false;
-              _this3.isError = true;
-              _this3.errorMessage = error;
+              _this.isVisitorSubmitted = false;
+              _this.isVisitorAdded = false;
+              _this.isError = true;
+              _this.errorMessage = error;
             });
           } else {
             var _visitorDetails = {
@@ -808,25 +430,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.visitorService.checkOutVisitor(_visitorDetails).subscribe(function (res) {
               if (res.message) {
-                _this3.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor checked out successfully");
+                _this.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor checked out successfully");
               } else {
-                _this3.isVisitorSubmitted = false;
-                _this3.isError = true;
-                _this3.isVisitorAdded = false;
-                _this3.errorMessage = res.errorMessage;
+                _this.isVisitorSubmitted = false;
+                _this.isError = true;
+                _this.isVisitorAdded = false;
+                _this.errorMessage = res.errorMessage;
               }
             }, function (error) {
-              _this3.isVisitorSubmitted = false;
-              _this3.isError = true;
-              _this3.errorMessage = error;
-              _this3.isVisitorAdded = false;
+              _this.isVisitorSubmitted = false;
+              _this.isError = true;
+              _this.errorMessage = error;
+              _this.isVisitorAdded = false;
             });
           }
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this2 = this;
 
           this.visitor = {};
 
@@ -836,21 +458,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (this.visitorStatus == 'checkout') {
               this.visitorService.getVisitorById(this.route.params['value'].id).subscribe(function (res) {
                 var visitorIdParam = {
-                  visitorId: _this4.route.params['value'].id
+                  visitorId: _this2.route.params['value'].id
                 };
 
-                _this4.visitorService.getVisitorById(visitorIdParam).subscribe(function (res) {
-                  _this4.visitor = res[0];
-                  _this4.visitTypeId = _this4.visitor.visitTypeId;
-                  _this4.visitCategoryId = _this4.visitor.visitorCategoryId;
-                  _this4.visitor.purpose = '';
-                  _this4.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-                  var inDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this4.visitor.visitorInTime);
-                  var outDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this4.visitor.visitorOutTime);
+                _this2.visitorService.getVisitorById(visitorIdParam).subscribe(function (res) {
+                  _this2.visitor = res[0];
+                  _this2.visitTypeId = _this2.visitor.visitTypeId;
+                  _this2.visitCategoryId = _this2.visitor.visitorCategoryId;
+                  _this2.visitor.purpose = '';
+                  _this2.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
+                  var inDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this2.visitor.visitorInTime);
+                  var outDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this2.visitor.visitorOutTime);
                   var diffDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
-                  _this4.expectedDuration = diffDuration.days() + " days " + _this4.isSingleDigit(diffDuration.hours()) + ":" + _this4.isSingleDigit(diffDuration.minutes()) + " hours";
-                  _this4.isVisitorSubmitted = false;
-                  _this4.minOutDate = new Date();
+                  _this2.expectedDuration = diffDuration.days() + " days " + _this2.isSingleDigit(diffDuration.hours()) + ":" + _this2.isSingleDigit(diffDuration.minutes()) + " hours";
+                  _this2.isVisitorSubmitted = false;
+                  _this2.minOutDate = new Date();
                 }, function (error) {});
               });
             } else if (this.visitorStatus == 'checkin') {
@@ -858,16 +480,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 expectedVisitorId: this.route.params['value'].id
               };
               this.visitorService.getExpectedVisitorById(expectedVisitorIdParam).subscribe(function (res) {
-                _this4.visitor = res[0];
-                console.log('this.visitor', _this4.visitor);
-                _this4.visitor.purpose = '';
-                _this4.visitTypeId = _this4.visitor.visitTypeId;
-                _this4.visitCategoryId = _this4.visitor.visitorCategoryId;
-                _this4.actualInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-                _this4.isVisitorSubmitted = false;
-                _this4.minExOutTime = new Date(_this4.actualInTime);
-                _this4.expectedDuration = _this4.getDuration(_this4.actualInTime, _this4.visitor.expectedVisitorOutTime);
-                _this4.visitor.expectedDurationInHours = _this4.getDurationInHours(_this4.actualInTime, _this4.visitor.expectedVisitorOutTime);
+                _this2.visitor = res[0];
+                console.log('this.visitor', _this2.visitor);
+                _this2.visitor.purpose = '';
+                _this2.visitTypeId = _this2.visitor.visitTypeId;
+                _this2.visitCategoryId = _this2.visitor.visitorCategoryId;
+                _this2.actualInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
+                _this2.isVisitorSubmitted = false;
+                _this2.minExOutTime = new Date(_this2.actualInTime);
+                _this2.expectedDuration = _this2.getDuration(_this2.actualInTime, _this2.visitor.expectedVisitorOutTime);
+                _this2.visitor.expectedDurationInHours = _this2.getDurationInHours(_this2.actualInTime, _this2.visitor.expectedVisitorOutTime);
               }, function (error) {});
             }
           }
@@ -878,7 +500,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this4.visitByData = res;
+            _this2.visitByData = res;
           }, function (error) {});
           var categoryParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -886,7 +508,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-            _this4.visitCategoryData = res.filter(function (item) {
+            _this2.visitCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -894,12 +516,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             userId: parseInt(this.cookieService.get('userId'))
           };
           this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe(function (res) {
-            _this4.apartmentUnitId = res[0].apartmentBlockUnitId;
+            _this2.apartmentUnitId = res[0].apartmentBlockUnitId;
           }, function (error) {});
           this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
           this.visitor.visitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
           this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-            _this4.blockUnitData = res;
+            _this2.blockUnitData = res;
           });
         }
       }, {
@@ -1193,7 +815,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this5 = this;
+          var _this3 = this;
 
           if (this.visitorData != "") {
             var filtergroup = new jqx.filter();
@@ -1206,7 +828,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this5.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this3.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -1218,7 +840,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "print",
         value: function print() {
-          var _this6 = this;
+          var _this4 = this;
 
           var confirmationMessage = "Are you sure, you want to Print?";
           var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -1228,9 +850,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             data: dialogData
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this6.result = dialogResult;
+            _this4.result = dialogResult;
 
-            if (_this6.result) {//code
+            if (_this4.result) {//code
             }
           });
         }
@@ -1258,7 +880,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this7 = this;
+          var _this5 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1291,7 +913,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'In-time',
             datafield: 'visitorInTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this7.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this5.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -1300,7 +922,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             datafield: 'visitorOutTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
               console.log('value', value);
-              return '<div class="jqx-custom-inner-cell">' + _this7.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this5.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -1344,14 +966,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //get visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this7.visitTypeData = res;
+            _this5.visitTypeData = res;
           }, function (error) {});
           var apartmentParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe(function (res) {
             //filter active true items
-            _this7.visitorListData = res.filter(function (item) {
+            _this5.visitorListData = res.filter(function (item) {
               if (item.block_Unit && item.block_Unit != null) {
                 var block = item.block_Unit.split(' ');
                 item.blockNo = block[0];
@@ -1373,20 +995,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             //   });
             // });
 
-            _this7.gridSourceData = {
-              localdata: _this7.visitorListData,
+            _this5.gridSourceData = {
+              localdata: _this5.visitorListData,
               datatype: "array"
             };
-            _this7.listData = new jqx.dataAdapter(_this7.gridSourceData);
-            _this7.totalItems = _this7.visitorListData.length;
+            _this5.listData = new jqx.dataAdapter(_this5.gridSourceData);
+            _this5.totalItems = _this5.visitorListData.length;
 
-            if (_this7.totalItems > _this7.itemLimit) {
-              _this7.ItemEndIndex = _this7.itemLimit;
+            if (_this5.totalItems > _this5.itemLimit) {
+              _this5.ItemEndIndex = _this5.itemLimit;
             } else {
-              _this7.ItemEndIndex = _this7.totalItems;
+              _this5.ItemEndIndex = _this5.totalItems;
             }
 
-            _this7.isVisitorDataLoaded = true;
+            _this5.isVisitorDataLoaded = true;
           });
         }
       }]);
@@ -1608,7 +1230,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddVisitorForm",
         value: function submitAddVisitorForm(form) {
-          var _this8 = this;
+          var _this6 = this;
 
           if (!this.IsvalidatePhoneNo(this.visitor.expectedVisitorPhone)) return true;
           this.isVisitorSubmitted = true;
@@ -1643,26 +1265,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
             if (res.message) {
-              _this8.isVisitorSubmitted = true;
+              _this6.isVisitorSubmitted = true;
 
-              _this8.sharedService.setAlertMessage("Visitor added successfully");
+              _this6.sharedService.setAlertMessage("Visitor added successfully");
 
-              _this8.router.navigate(['/ams/visitor/expected-visitor']);
+              _this6.router.navigate(['/ams/visitor/expected-visitor']);
             } else {
-              _this8.isVisitorSubmitted = false;
-              _this8.isError = true;
-              _this8.errorMessage = res.errorMessage;
+              _this6.isVisitorSubmitted = false;
+              _this6.isError = true;
+              _this6.errorMessage = res.errorMessage;
             }
           }, function (error) {
-            _this8.isVisitorSubmitted = false;
-            _this8.isError = true;
-            _this8.errorMessage = error;
+            _this6.isVisitorSubmitted = false;
+            _this6.isError = true;
+            _this6.errorMessage = error;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this7 = this;
 
           this.visitor = {};
           var params = {
@@ -1671,7 +1293,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this9.visitByData = res;
+            _this7.visitByData = res;
           }, function (error) {});
           var visitParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -1679,7 +1301,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this9.visitCategoryData = res.filter(function (item) {
+            _this7.visitCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -1687,7 +1309,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             userId: parseInt(this.cookieService.get('userId'))
           };
           this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe(function (res) {
-            _this9.apartmentUnitId = res[0].apartmentBlockUnitId;
+            _this7.apartmentUnitId = res[0].apartmentBlockUnitId;
           }, function (error) {});
           this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_9__(new Date());
           this.min = new Date(this.visitor.expectedVisitorInTime);
@@ -1696,7 +1318,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockUnitByApartmentId(blockParams).subscribe(function (res) {
-            _this9.blockUnitData = res;
+            _this7.blockUnitData = res;
             console.log('this.blockUnitData', res);
           });
         }
@@ -2001,7 +1623,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this8 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2034,7 +1656,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Expected Date/Time of Visit',
             datafield: 'expectedVisitorInTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this10.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this8.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -2042,7 +1664,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Expected Time-out',
             datafield: 'expectedVisitorOutTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this10.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this8.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -2079,33 +1701,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe(function (res) {
             if (res.errorMessage) {
-              _this10.isVisitorDataLoaded = true;
-              _this10.visitorListData = [];
+              _this8.isVisitorDataLoaded = true;
+              _this8.visitorListData = [];
             } else {
-              _this10.visitorListData = res;
-              console.log("visitorListData", _this10.visitorListData[0].visitTypeId); //filter active true items
+              _this8.visitorListData = res;
+              console.log("visitorListData", _this8.visitorListData[0].visitTypeId); //filter active true items
 
-              _this10.visitorListData = res.filter(function (data) {
+              _this8.visitorListData = res.filter(function (data) {
                 return data.isActive;
               });
-              _this10.gridSourceData = {
-                localdata: _this10.visitorListData,
+              _this8.gridSourceData = {
+                localdata: _this8.visitorListData,
                 datatype: "array"
               };
-              _this10.listData = new jqx.dataAdapter(_this10.gridSourceData);
-              _this10.totalItems = _this10.visitorListData.length;
-              _this10.isVisitorDataLoaded = true;
+              _this8.listData = new jqx.dataAdapter(_this8.gridSourceData);
+              _this8.totalItems = _this8.visitorListData.length;
+              _this8.isVisitorDataLoaded = true;
             }
 
             var visitParams = {
-              ApartmentId: parseInt(_this10.cookieService.get('apartmentId')),
+              ApartmentId: parseInt(_this8.cookieService.get('apartmentId')),
               LookupTypeId: 15
             }; //get visit type
 
-            _this10.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this10.visitTypeData = res;
+            _this8.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
+              _this8.visitTypeData = res;
 
-              _this10.checkVisitTypeData();
+              _this8.checkVisitTypeData();
             }, function (error) {});
           }, function (error) {});
         }
@@ -2117,11 +1739,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "checkVisitTypeData",
         value: function checkVisitTypeData() {
-          var _this11 = this;
+          var _this9 = this;
 
           this.visitTypeData.forEach(function (element) {
-            if (element.lookupValueId == _this11.visitorListData[0].visitTypeId) {
-              _this11.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
+            if (element.lookupValueId == _this9.visitorListData[0].visitTypeId) {
+              _this9.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
             }
           });
         }
@@ -2135,7 +1757,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this12 = this;
+          var _this10 = this;
 
           if (this.visitorData != "") {
             var filtergroup = new jqx.filter();
@@ -2148,7 +1770,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this12.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this10.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2160,7 +1782,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "print",
         value: function print() {
-          var _this13 = this;
+          var _this11 = this;
 
           var confirmationMessage = "Are you sure, you want to Print?";
           var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -2170,9 +1792,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             data: dialogData
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this13.result = dialogResult;
+            _this11.result = dialogResult;
 
-            if (_this13.result) {//code
+            if (_this11.result) {//code
             }
           });
         }
@@ -2397,7 +2019,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this14 = this;
+          var _this12 = this;
 
           if (this.visitorData != "") {
             var filtergroup = new jqx.filter();
@@ -2410,7 +2032,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this12.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2436,7 +2058,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this15 = this;
+          var _this13 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2469,7 +2091,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'In-time',
             datafield: 'visitorInTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this15.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this13.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -2477,7 +2099,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Out-time',
             datafield: 'visitorOutTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this15.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this13.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -2485,7 +2107,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Expected In-time',
             datafield: 'expectedVisitorInTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this15.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this13.getDateTime(value) + '</div>';
             },
             minwidth: 80,
             renderer: columnrenderer
@@ -2493,7 +2115,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Expected Out-time',
             datafield: 'expectedVisitorOutTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this15.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this13.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -2516,14 +2138,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //get visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitTypeParams).subscribe(function (res) {
-            _this15.visitTypeData = res;
+            _this13.visitTypeData = res;
           }, function (error) {});
           var visitListParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.visitorService.getVisitorsByApartmentId(visitListParams).subscribe(function (res) {
             //filter active true items
-            _this15.visitorListData = res.filter(function (item) {
+            _this13.visitorListData = res.filter(function (item) {
               if (item.block_Unit && item.block_Unit != null) {
                 var block = item.block_Unit.split(' ');
                 item.blockNo = block[0];
@@ -2542,22 +2164,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             //   });
             // });
 
-            _this15.gridSourceData = {
-              localdata: _this15.visitorListData,
+            _this13.gridSourceData = {
+              localdata: _this13.visitorListData,
               datatype: "array"
             };
-            _this15.listData = new jqx.dataAdapter(_this15.gridSourceData);
-            _this15.totalItems = _this15.visitorListData.length;
-            _this15.isVisitorDataLoaded = true;
-            _this15.totalItems = _this15.visitorListData.length;
+            _this13.listData = new jqx.dataAdapter(_this13.gridSourceData);
+            _this13.totalItems = _this13.visitorListData.length;
+            _this13.isVisitorDataLoaded = true;
+            _this13.totalItems = _this13.visitorListData.length;
 
-            if (_this15.totalItems > _this15.itemLimit) {
-              _this15.ItemEndIndex = _this15.itemLimit;
+            if (_this13.totalItems > _this13.itemLimit) {
+              _this13.ItemEndIndex = _this13.itemLimit;
             } else {
-              _this15.ItemEndIndex = _this15.totalItems;
+              _this13.ItemEndIndex = _this13.totalItems;
             }
 
-            _this15.isVisitorDataLoaded = true;
+            _this13.isVisitorDataLoaded = true;
           });
         }
       }]);
@@ -2748,7 +2370,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDetails",
         value: function getDetails(params) {
-          var _this16 = this;
+          var _this14 = this;
 
           var serviceName;
           var id = parseInt(this.route.params['value'].id);
@@ -2763,15 +2385,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           serviceName.subscribe(function (res) {
             if (res.errorMessage) {
-              _this16.reportsDataList = [];
+              _this14.reportsDataList = [];
             } else {
-              _this16.reportsDataList = res;
-              _this16.gridSourceData = {
-                localdata: _this16.reportsDataList,
+              _this14.reportsDataList = res;
+              _this14.gridSourceData = {
+                localdata: _this14.reportsDataList,
                 datatype: "array"
               };
-              _this16.listData = new jqx.dataAdapter(_this16.gridSourceData);
-              _this16.isReportSubmitted = true;
+              _this14.listData = new jqx.dataAdapter(_this14.gridSourceData);
+              _this14.isReportSubmitted = true;
             }
           }, function (error) {});
         }
@@ -2787,7 +2409,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this17 = this;
+          var _this15 = this;
 
           if (this.reportData != "") {
             var filtergroup = new jqx.filter();
@@ -2800,7 +2422,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this17.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this15.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2816,14 +2438,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this18 = this;
+          var _this16 = this;
 
           this.pageName = this.route.params['value'].name;
           var unitBlockParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-            _this18.unitBlocksData = res;
+            _this16.unitBlocksData = res;
           });
           var visitParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -2831,7 +2453,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //visit type
 
           this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-            _this18.visitByData = res;
+            _this16.visitByData = res;
           }, function (error) {});
           this.isDataLoaded = true;
 
@@ -2866,7 +2488,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Date/Time of Visit',
             datafield: 'checkInDateTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this18.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this16.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -2874,7 +2496,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             text: 'Time-out',
             datafield: 'checkOutDateTime',
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + _this18.getDateTime(value) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + _this16.getDateTime(value) + '</div>';
             },
             minwidth: 170,
             renderer: columnrenderer
@@ -3019,7 +2641,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(VisitorReportsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this19 = this;
+          var _this17 = this;
 
           var details = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -3028,7 +2650,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
             //this.reportDataList = res;
-            _this19.reportDataList = [{
+            _this17.reportDataList = [{
               lookupValueName: 'List of Checked In Visitors',
               description: 'Provides the list of visitors checked-in for the specified duration',
               lookupValueId: 365
@@ -3041,7 +2663,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               description: 'Gives the list of visitors who are expected to check-in during the mentioned duration',
               lookupValueId: 367
             }];
-            _this19.isDataLoaded = true;
+            _this17.isDataLoaded = true;
           });
         }
       }]);
@@ -3245,26 +2867,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteCategoryType",
         value: function deleteCategoryType(item) {
-          var _this20 = this;
+          var _this18 = this;
 
           this.modalService.showConfirmModal(item); // delete item
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
             if (item != null) {
-              _this20.isDataLoaded = false;
+              _this18.isDataLoaded = false;
               var params = {
                 lookupValueId: item.lookupValueId,
-                updateUserId: parseInt(_this20.cookieService.get('userId'))
+                updateUserId: parseInt(_this18.cookieService.get('userId'))
               };
 
-              _this20.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                _this20.categoryDataList = _this20.categoryDataList.filter(function (type) {
+              _this18.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this18.categoryDataList = _this18.categoryDataList.filter(function (type) {
                   return type.lookupValueId !== item.lookupValueId;
                 });
 
-                _this20.sharedService.setUnitListDeleteIndex(null);
+                _this18.sharedService.setUnitListDeleteIndex(null);
 
-                _this20.isDataLoaded = true;
+                _this18.isDataLoaded = true;
               });
 
               var errorDetails = {
@@ -3272,7 +2894,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 type: "Success"
               };
 
-              _this20.sharedService.setCustomAlertMessage(errorDetails);
+              _this18.sharedService.setCustomAlertMessage(errorDetails);
             }
           });
         }
@@ -3294,7 +2916,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCategoryTypeForm",
         value: function submitCategoryTypeForm(form) {
-          var _this21 = this;
+          var _this19 = this;
 
           var confirmationMessage = "Are you sure you want to save this settings?";
           var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -3304,19 +2926,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             data: dialogData
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
-            _this21.result = dialogResult;
+            _this19.result = dialogResult;
 
-            if (_this21.result) {
+            if (_this19.result) {
               //code
-              _this21.isCategoryTypeSubmitted = false;
+              _this19.isCategoryTypeSubmitted = false;
 
-              if (_this21.isCategoryTypeNew) {
+              if (_this19.isCategoryTypeNew) {
                 var details = {
                   "lookupTypeId": 100,
-                  "lookupValueName": _this21.categoryType,
+                  "lookupValueName": _this19.categoryType,
                   "description": 'Visitor Category',
                   "isActive": true,
-                  "insertedBy": parseInt(_this21.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this19.cookieService.get('userId')),
                   "insertedOn": new Date().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
@@ -3325,119 +2947,119 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   lookupvalue: details
                 };
 
-                _this21.lookupService.addLookupValue(params).subscribe(function (res) {
+                _this19.lookupService.addLookupValue(params).subscribe(function (res) {
                   if (res.message) {
-                    _this21.sharedService.setAlertMessage("Visitor Category added successfully");
+                    _this19.sharedService.setAlertMessage("Visitor Category added successfully");
 
-                    _this21.isCategoryTypeNew = false;
-                    _this21.isCategoryTypeSubmitted = true;
-                    _this21.isDataLoaded = false;
+                    _this19.isCategoryTypeNew = false;
+                    _this19.isCategoryTypeSubmitted = true;
+                    _this19.isDataLoaded = false;
                     var categoryParams = {
-                      ApartmentId: parseInt(_this21.cookieService.get('apartmentId')),
+                      ApartmentId: parseInt(_this19.cookieService.get('apartmentId')),
                       LookupTypeId: 100
                     };
 
-                    _this21.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                      _this21.isDataLoaded = true;
-                      _this21.categoryDataList = res.filter(function (item) {
+                    _this19.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this19.isDataLoaded = true;
+                      _this19.categoryDataList = res.filter(function (item) {
                         return item.isActive;
                       });
-                      _this21.totalItems = _this21.categoryDataList.length;
+                      _this19.totalItems = _this19.categoryDataList.length;
 
-                      if (_this21.totalItems > _this21.itemLimit) {
-                        _this21.ItemEndIndex = _this21.itemLimit;
+                      if (_this19.totalItems > _this19.itemLimit) {
+                        _this19.ItemEndIndex = _this19.itemLimit;
                       } else {
-                        _this21.ItemEndIndex = _this21.totalItems;
+                        _this19.ItemEndIndex = _this19.totalItems;
                       }
 
-                      _this21.isDataLoaded = true;
+                      _this19.isDataLoaded = true;
                     });
                   } else {
-                    _this21.isDataLoaded = true;
-                    _this21.isCategoryTypeSubmitted = true;
-                    _this21.isError = true;
-                    _this21.alertMessage = res.errorMessage;
+                    _this19.isDataLoaded = true;
+                    _this19.isCategoryTypeSubmitted = true;
+                    _this19.isError = true;
+                    _this19.alertMessage = res.errorMessage;
                     var errorDetails = {
-                      msg: _this21.alertMessage,
+                      msg: _this19.alertMessage,
                       type: "Error"
                     };
 
-                    _this21.sharedService.setCustomAlertMessage(errorDetails);
+                    _this19.sharedService.setCustomAlertMessage(errorDetails);
                   }
                 });
               } else {
                 var _details = {
-                  "lookupValueId": _this21.categoryUpdateId,
+                  "lookupValueId": _this19.categoryUpdateId,
                   "lookupTypeId": 100,
-                  "lookupValueName": _this21.categoryType,
-                  "description": _this21.categoryType,
+                  "lookupValueName": _this19.categoryType,
+                  "description": _this19.categoryType,
                   "isActive": true,
                   "insertedBy": 0,
                   "insertedOn": "2019-11-20T16:51:24.105Z",
-                  "updatedBy": parseInt(_this21.cookieService.get('userId')),
+                  "updatedBy": parseInt(_this19.cookieService.get('userId')),
                   "updatedOn": "2019-11-20T16:51:24.105Z"
                 };
                 var _params = {
                   lookupvalue: _details
                 };
 
-                _this21.lookupService.updateLookupValue(_params).subscribe(function (res) {
+                _this19.lookupService.updateLookupValue(_params).subscribe(function (res) {
                   if (res.message) {
                     var categoryParams = {
-                      ApartmentId: parseInt(_this21.cookieService.get('apartmentId')),
+                      ApartmentId: parseInt(_this19.cookieService.get('apartmentId')),
                       LookupTypeId: 100
                     };
 
-                    _this21.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                      _this21.isCategoryTypeUpdate = false;
-                      _this21.isCategoryTypeSubmitted = true;
+                    _this19.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this19.isCategoryTypeUpdate = false;
+                      _this19.isCategoryTypeSubmitted = true;
 
-                      _this21.sharedService.setAlertMessage("Visitor Category updated successfully");
+                      _this19.sharedService.setAlertMessage("Visitor Category updated successfully");
 
-                      _this21.categoryDataList = res.filter(function (item) {
+                      _this19.categoryDataList = res.filter(function (item) {
                         return item.isActive;
                       });
                     });
                   } else {
-                    _this21.isCategoryTypeSubmitted = true;
-                    _this21.isError = true;
-                    _this21.alertMessage = res.errorMessage;
+                    _this19.isCategoryTypeSubmitted = true;
+                    _this19.isError = true;
+                    _this19.alertMessage = res.errorMessage;
                     var errorDetails = {
-                      msg: _this21.alertMessage,
+                      msg: _this19.alertMessage,
                       type: "Error"
                     };
 
-                    _this21.sharedService.setCustomAlertMessage(errorDetails);
+                    _this19.sharedService.setCustomAlertMessage(errorDetails);
                   }
                 });
               }
             } else {
-              _this21.isCategoryTypeSubmitted = true;
+              _this19.isCategoryTypeSubmitted = true;
             }
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this22 = this;
+          var _this20 = this;
 
           var categoryListParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 100
           };
           this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe(function (res) {
-            _this22.categoryDataList = res.filter(function (item) {
+            _this20.categoryDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this22.totalItems = _this22.categoryDataList.length;
+            _this20.totalItems = _this20.categoryDataList.length;
 
-            if (_this22.totalItems > _this22.itemLimit) {
-              _this22.ItemEndIndex = _this22.itemLimit;
+            if (_this20.totalItems > _this20.itemLimit) {
+              _this20.ItemEndIndex = _this20.itemLimit;
             } else {
-              _this22.ItemEndIndex = _this22.totalItems;
+              _this20.ItemEndIndex = _this20.totalItems;
             }
 
-            _this22.isDataLoaded = true;
+            _this20.isDataLoaded = true;
           });
         }
       }]);
@@ -3793,13 +3415,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _components_checkin_visitor_checkin_visitor_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
-    /*! ./components/checkin-visitor/checkin-visitor.component */
-    "./src/app/ams/visitor/components/checkin-visitor/checkin-visitor.component.ts");
-    /* harmony import */
-
-
-    var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */
     "./src/app/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
 
@@ -3808,81 +3424,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     };
 
     VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"], _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_6__["VisitorSetupComponent"], _components_visitor_checkin_visitor_checkin_component__WEBPACK_IMPORTED_MODULE_7__["VisitorCheckinComponent"], _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_8__["VisitorCheckoutComponent"], _components_visitor_expected_visitor_visitor_expected_visitor_component__WEBPACK_IMPORTED_MODULE_9__["VisitorExpectedVisitorComponent"], _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_10__["VisitorReportsComponent"], _components_visitor_create_visitor_create_component__WEBPACK_IMPORTED_MODULE_11__["VisitorCreateComponent"], _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_12__["VisitorHistoryComponent"], _components_checkin_visitor_checkin_visitor_component__WEBPACK_IMPORTED_MODULE_13__["CheckinVisitorComponent"], _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_14__["VisitorReportsDataComponent"]],
+      declarations: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"], _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_6__["VisitorSetupComponent"], _components_visitor_checkin_visitor_checkin_component__WEBPACK_IMPORTED_MODULE_7__["VisitorCheckinComponent"], _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_8__["VisitorCheckoutComponent"], _components_visitor_expected_visitor_visitor_expected_visitor_component__WEBPACK_IMPORTED_MODULE_9__["VisitorExpectedVisitorComponent"], _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_10__["VisitorReportsComponent"], _components_visitor_create_visitor_create_component__WEBPACK_IMPORTED_MODULE_11__["VisitorCreateComponent"], _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_12__["VisitorHistoryComponent"], _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_13__["VisitorReportsDataComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _visitor_routing_module__WEBPACK_IMPORTED_MODULE_3__["VisitorRoutingModule"]],
       bootstrap: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"]]
     })], VisitorModule);
-    /***/
-  },
-
-  /***/
-  "./src/app/shared/services/shared-toaster.service.ts":
-  /*!***********************************************************!*\
-    !*** ./src/app/shared/services/shared-toaster.service.ts ***!
-    \***********************************************************/
-
-  /*! exports provided: SharedToasterService */
-
-  /***/
-  function srcAppSharedServicesSharedToasterServiceTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "SharedToasterService", function () {
-      return SharedToasterService;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material/snack-bar */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
-
-    var SharedToasterService =
-    /*#__PURE__*/
-    function () {
-      function SharedToasterService(snackBar) {
-        _classCallCheck(this, SharedToasterService);
-
-        this.snackBar = snackBar;
-      }
-
-      _createClass(SharedToasterService, [{
-        key: "openSnackBar",
-        value: function openSnackBar(message, action) {
-          this.snackBar.open(message, action, {
-            duration: 2000
-          });
-        }
-      }]);
-
-      return SharedToasterService;
-    }();
-
-    SharedToasterService.ctorParameters = function () {
-      return [{
-        type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]
-      }];
-    };
-
-    SharedToasterService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])], SharedToasterService);
     /***/
   }
 }]);

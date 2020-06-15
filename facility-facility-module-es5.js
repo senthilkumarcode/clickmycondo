@@ -66,6 +66,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-create/facility-create.component.html":
+  /*!******************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-create/facility-create.component.html ***!
+    \******************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsFacilityComponentsFacilityCreateFacilityCreateComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5 *ngIf=\"facilityType.type == 'create'\">Add Facility</h5>\n                <h5 *ngIf=\"facilityType.type == 'edit' || facilityType.type == 'slot'\">Edit Facility</h5>\n                <h5 *ngIf=\"facilityType.type == 'view'\">View Facility</h5>\n            </div>\n            <div class=\"col-sm-4\"> \n                <a class=\"btn lime-green float-right\" href=\"javascript:void(0)\" routerLink=\"facility/list\" [routerLinkActiveOptions] = \"{exact:true}\">\n                    <i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <app-alert-message [message]=\"alertMessage\" [isError]=\"isCategoryError\" ></app-alert-message>\n        <form #facilitySettingsForm = \"ngForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Facility Name*</label>\n                        <input  type=\"text\" class=\"form-control\" placeholder=\"Facility Name\" name=\"staffCategory\" [(ngModel)]=\"facility.facilityName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\">\n                    <div class=\"input-box radio-box\">\n                        <label>Is Booking Allow</label>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityBookingAllowId\" id=\"EnaBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\" [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"EnaBookAllow\">Yes</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityBookingAllowId\" id=\"DisBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\" [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"DisBookAllow\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box radio-box\">\n                        <label>Enable Time Slot* </label>\n                        <div class=\"form-group\">\n                            <input  name=\"enableTimeSlotBook\" id=\"enableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\" [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"enableSlotTime\">Yes</label>\n                            </div>\n                        <div class=\"form-group\">\n                            <input  name=\"enableTimeSlotBook\" id=\"disableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\" [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"disableSlotTime\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box radio-box\">\n                        <label>Rate Type*</label>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityRateBaseId\" id=\"hourType\"  [(ngModel)]=\"facility.rateBaseId\"  [value]=\"138\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"hourType\">Hour</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityRateBaseId\" id=\"dayType\" [(ngModel)]=\"facility.rateBaseId\" [value]=\"139\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"dayType\">Day</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\">\n                    <div class=\"input-box radio-box\">\n                        <label>Service Type*</label>\n                        <div class=\"form-group\">\n                            <input name=\"faclityTypeId\" id=\"paidType\" [(ngModel)]=\"facility.facilityTypeId\" [value]=\"184\" type=\"radio\"required>\n                            <label class=\"radio-inline\" for=\"paidType\">Paid</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input name=\"faclityTypeId\" id=\"freeType\" [(ngModel)]=\"facility.facilityTypeId\" [value]=\"185\" type=\"radio\"required>\n                            <label class=\"radio-inline\" for=\"freeType\">Free</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Facility Location*</label>\n                        <select name=\"location\" class=\"form-control\" [(ngModel)]=\"facility.apartmentBlockId\" required>\n                            <option value=\"0\"  selected >Select Location</option>\n                            <option *ngFor=\"let item of towerslist\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                    <div class=\"input-box\">\n                        <label>Booking Amount ({{pesoValue}})</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Booking Amount\" name=\"amount\" [(ngModel)]=\"facility.amount\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.facilityTypeId == 184\">\n                    <div class=\"input-box\">\n                        <label>Security Deposit ({{pesoValue}})*</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Security Amount\" name=\"deposit\" [(ngModel)]=\"facility.cautionDeposit\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box\">\n                        <label>Advance Booking In Days*</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"autoCancelDays\" [(ngModel)]=\"facility.advanceBookingindays\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                    <div class=\"input-box\" >\n                        <label>Payment Due In Days*</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Payment Due Days\" name=\"autoCancelDays\" [(ngModel)]=\"facility.autoCancelDays\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box\">\n                        <label>Min Hours Booking*</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Min Hrs Booking\" name=\"minHoursBooking\" [(ngModel)]=\"facility.minHoursBooking\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\"> \n                    <div class=\"input-box\">\n                        <label>Facility Opens At*</label>\n                        <input  class=\"form-control\" name=\"minTimeLimit\" [owlDateTime]=\"minTimeLimit\" [owlDateTimeTrigger]=\"minTimeLimit\" placeholder=\"Time\" [(ngModel)]=\"facility.minTimeLimit\" required>\n                        <owl-date-time  [pickerType]=\"'timer'\" #minTimeLimit></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"minTimeLimit\">\n                            <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box\">\n                        <label>Facility Closes At*</label>\n                        <input  class=\"form-control\" name=\"maxTimeLimit\" [owlDateTime]=\"maxTimeLimit\" [owlDateTimeTrigger]=\"maxTimeLimit\" placeholder=\"Time\" [(ngModel)]=\"facility.maxTimeLimit\" required>\n                        <owl-date-time  [pickerType]=\"'timer'\" #maxTimeLimit></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"maxTimeLimit\">\n                            <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\" >\n                        <label>Total No Of Occupancy</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Occupancy\" name=\"autoCancelDays\" [(ngModel)]=\"facility.totalallowedperson\" >\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box radio-box\">\n                        <label>Approval Required* </label>\n                        <div class=\"form-group\">\n                            <input  name=\"approvalType\" id=\"Yes\" [(ngModel)]=\"facility.isApproved\"  [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"approvalType\" id=\"No\" [(ngModel)]=\"facility.isApproved\" [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"No\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-10\">\n                    <div class=\"input-box\">\n                        <label>Accessed By*</label>\n                        <ng-select [items]=\"towerslist\" \n                            [ngModelOptions]=\"{standalone: true}\"\n                            bindLabel=\"apartmentBlockNumber\"\n                            bindValue=\"apartmentBlockId\"\n                            [multiple]=\"true\"\n                            placeholder=\"Select Tower/Block List\"\n                            (change)=\"accessed($event)\"\n                            [(ngModel)]=\"selectedTowersIds\">\n                        </ng-select>\n                    </div>\n                </div>\n                <div class=\"col-sm-12 mt-3 mb-5\" *ngIf=\"facility.isSlotBooking\">\n                    <ul class=\"list-group tabs clear\" id=\"accordion2\">\n                        <li class=\"list-group-item\" #accordion2 data-toggle=\"collapse\" data-target=\"#slot\"\n                            aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                            <span class=\"font-med\">Slot</span>\n                        </li>\n                        <div id=\"slot\" [ngClass]=\"facilityType.type == 'slot' ? 'show': ''\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion2\">\n                            <a class=\"btn lime-green float-right mt-2 mb-2\" (click)=\"addSlot()\">\n                                <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                            </a>\n                            <div class=\"mt-2 ml-2 mr-2\" *ngFor=\"let slot of facility.apartmentFacilitySlot;let i= index\">\n                                <ul class=\"list-group tabs clear col-sm-12\" id=\"accordions{{i}}\">\n                                    <li class=\"list-group-item\" #accordions{{i}} data-toggle=\"collapse\" attr.data-target=\"#test{{i}}\"\n                                        aria-expanded=\"false\" aria-controls=\"collapseOne{{i}}\">\n                                        <span class=\"font-med\">Slot {{i+1}} <span *ngIf=\"slot.slotBeginTime.length > 0\">- {{slot.slotBeginTime | date: 'h:mm a'}} - {{slot.slotEndTime | date: 'h:mm a'}}</span></span>\n                                        <i class=\"fa fa-trash text-danger float-right mr-5 mt-2\" (click)=deleteSlot(i,slot) aria-hidden=\"true\"></i>\n                                    </li>\n                                    <div id=\"test{{i}}\" [ngClass]=\"facilityType.type == 'slot' && facility.apartmentFacilitySlot.length-1 == i  ? 'show': ''\" class=\"collapse\" aria-labelledby=\"headingOne{{i}}\" data-parent=\"#accordions{{i}}\">\n                                        <div class=\"row mt-3 ml-2 mr-2\">\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>Begin Time*</label>\n                                                    <input class=\"form-control\" name=\"slotBeginTime{{i}}\" [owlDateTime]=\"slotBeginTime\" [owlDateTimeTrigger]=\"slotBeginTime\" placeholder=\"Time\" [(ngModel)]=\"slot.slotBeginTime\">\n                                                    <owl-date-time [pickerType]=\"'timer'\" #slotBeginTime></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotBeginTime\">\n                                                        <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>End Time*</label>\n                                                    <input class=\"form-control\" name=\"slotEndTime{{i}}\" [min]=\"minEndTime\" [owlDateTime]=\"slotEndTime\" [owlDateTimeTrigger]=\"slotEndTime\" placeholder=\"Time\" [(ngModel)]=\"slot.slotEndTime\">\n                                                    <owl-date-time [pickerType]=\"'timer'\" #slotEndTime></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotEndTime\">\n                                                        <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>Cost ({{pesoValue}})*</label>\n                                                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"cost{{i}}\" [(ngModel)]=\"slot.cost\">\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                    <label>Comments</label>\n                                                    <textarea placeholder=\"some text here\" name=\"comments{{i}}\" [(ngModel)]=\"slot.comment\"></textarea>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </ul>\n                            </div>\n                        </div>\n                    </ul>\n                </div>\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <quill-editor \n                            class=\"quill-editor\"\n                            name=\"description\"\n                            [(ngModel)]=\"facility.description\"\n                            [placeholder]=\"editorPlacehorder\">\n                        </quill-editor>\n                    </div>\n                </div>\n                <div class=\"col-sm-12 text-right\">\n                    <button class=\"btn blue mr-2\" [disabled]=\"facilitySettingsForm.invalid\" (click)=\"createFacility()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>\n\n    ";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-entry/facility-entry.component.html":
   /*!****************************************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-entry/facility-entry.component.html ***!
@@ -82,6 +102,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5 *ngIf=\"isFacilityCategoryNew\">Add Facility</h5>\n                <h5 *ngIf=\"isFacilityCategoryUpdate && !isFacilityViewAlone\">Edit Facility</h5>\n                <h5 *ngIf=\"isFacilityCategoryUpdate && isFacilityViewAlone\">View Facility</h5>\n            </div>\n        <div class=\"col-sm-4\"> \n\t\t\t<button class=\"btn lime-green\" (click)=\"Goback()\" style=\"float: right;\" >\n\t\t\t\t<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n\t\t\t</button>\n         </div>\n        </div>\n    </div>\n    \n    <div class=\"card-body\">\n        <div  class=\"card mt-20\" *ngIf=\"isFacilityCategoryNew || isFacilityCategoryUpdate\">\n            <div class=\"card-header\">\n               \n                <!-- <div class=\"float-right\" (click)=\"removeCategoryBox()\">\n                    <i-feather class=\"icon del\" name=\"x\"></i-feather>\n                </div> -->\n            </div>\n        \n            <div class=\"card-body p-0\" id=\"accordion\">\n                \n                    \n                    <ul class=\"list-group tabs clear\">\n        \n                        <li class=\"list-group-item\" [ngClass]=\"isSlotNew ? 'collapsed' : ''\" data-toggle=\"collapse\" data-target=\"#facilityCollapse\" aria-expanded=\"true\" aria-controls=\"facilityCollapseOne\">Facility Info</li>\n                        <div id=\"facilityCollapse\" class=\"collapse\" [ngClass]=\"isSlotNew ? '' : 'show'\" aria-labelledby=\"facilityCollapseOne\" data-parent=\"#accordion\">\n                            \n                            <div class=\"details\">\n                                \n                                <app-alert-message [message]=\"alertMessage\" [isError]=\"isCategoryError\" ></app-alert-message>\n        \n                                <form #facilitySettingsForm = \"ngForm\" name=\"visitorSettingsForm\" (ngSubmit)=\"submitFacilitySettingsForm(facilitySettingsForm)\"  novalidate>\n                        \n                                <div class=\"row\">\n                                    \n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Facility Name*</label>\n                                            <input  type=\"text\" class=\"form-control\" placeholder=\"Facility Name\" name=\"staffCategory\" [(ngModel)]=\"facility.facilityName\" required>\n                                        </div>\n                                    </div>\n                                   \n                                    <div class=\"col-sm-2\">\n                                        <div class=\"input-box radio-box\">\n                                            <label>Approval Required* </label>\n                                            <div class=\"form-group\">\n                                                <input  name=\"approvalType\" id=\"Yes\" [(ngModel)]=\"facility.isApproved\"  [value]=\"true\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n                                             </div>\n                                            <div class=\"form-group\">\n                                                <input  name=\"approvalType\" id=\"No\" [(ngModel)]=\"facility.isApproved\" [value]=\"false\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"No\">No</label>\n                                             </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-2\">\n                                        <div class=\"input-box radio-box\">\n                                            <label>Disable Time Slot* </label>\n                                            <div class=\"form-group\">\n                                                <input  name=\"enableTimeSlotBook\" id=\"enableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\"  [value]=\"true\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"enableSlotTime\">Yes</label>\n                                             </div>\n                                            <div class=\"form-group\">\n                                                <input  name=\"enableTimeSlotBook\" id=\"disableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\" [value]=\"false\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"disableSlotTime\">No</label>\n                                             </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-2\">\n                                        <div class=\"input-box radio-box\">\n                                            <label>Rate Type*</label>\n                                            <div class=\"form-group\">\n                                                <input  name=\"faclityRateBaseId\" id=\"hourType\"  [(ngModel)]=\"facility.rateBaseId\"  value=\"138\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"hourType\">Hour</label>\n                                             </div>\n                                            <div class=\"form-group\">\n                                                <input  name=\"faclityRateBaseId\" id=\"dayType\" [(ngModel)]=\"facility.rateBaseId\" value=\"139\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"dayType\">Day</label>\n                                             </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-2\">\n                                        <div class=\"input-box radio-box\">\n                                            <label>Service Type*</label>\n                                            <div class=\"form-group\">\n                                                <input name=\"faclityTypeId\" id=\"paidType\" [(ngModel)]=\"facility.facilityTypeId\"  value=\"184\" type=\"radio\"required>\n                                                <label class=\"radio-inline\" for=\"paidType\">Paid</label>\n                                             </div>\n                                            <div class=\"form-group\">\n                                                <input name=\"faclityTypeId\" id=\"freeType\" [(ngModel)]=\"facility.facilityTypeId\" value=\"185\" type=\"radio\"required>\n                                                <label class=\"radio-inline\" for=\"freeType\">Free</label>\n                                             </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"select-box\">\n                                            <label>Facility Location*</label>\n                                            <select \n                                                name=\"name\" \n                                                id=\"id\" \n                                                class=\"form-control\"\n                                                [(ngModel)]=\"facility.apartmentBlockId\" required>\n                                                <option value=\"0\"  selected >Select Location</option>\n                                                <option *ngFor=\"let item of lstTowers\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                   \n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Booking Amount ({{PesoValue}})</label>\n                                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Booking Amount\" name=\"amount\" [(ngModel)]=\"facility.amount\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Security Deposit ({{PesoValue}})*</label>\n                                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Security Amount\" name=\"deposit\" [(ngModel)]=\"facility.cautionDeposit\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Advance Booking In Days*</label>\n                                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"autoCancelDays\" [(ngModel)]=\"facility.advanceBookingindays\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\" >\n                                            <label>Payment Due In Days*</label>\n                                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Payment Due Days\" name=\"autoCancelDays\" [(ngModel)]=\"facility.autoCancelDays\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Min Hours Booking*</label>\n                                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Min Hrs Booking\" name=\"minHoursBooking\" [(ngModel)]=\"facility.minHoursBooking\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Facility Opens At*</label>\n                                            <input  class=\"form-control\" name=\"minTimeLimit\" [owlDateTime]=\"minTimeLimit\" [owlDateTimeTrigger]=\"minTimeLimit\" placeholder=\"Time\" [(ngModel)]=\"facility.minTimeLimit\" required>\n                                            <owl-date-time  [pickerType]=\"'timer'\" #minTimeLimit></owl-date-time>\n                                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"minTimeLimit\">\n                                                  <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                                              </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Facility Closes At*</label>\n                                            <input  class=\"form-control\" name=\"maxTimeLimit\" [owlDateTime]=\"maxTimeLimit\" [owlDateTimeTrigger]=\"maxTimeLimit\" placeholder=\"Time\" [(ngModel)]=\"facility.maxTimeLimit\" required>\n                                            <owl-date-time  [pickerType]=\"'timer'\" #maxTimeLimit></owl-date-time>\n                                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"maxTimeLimit\">\n                                                  <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                                              </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\" >\n                                            <label>Total No Of Occupancy</label>\n                                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Occupancy\" name=\"autoCancelDays\" [(ngModel)]=\"facility.totalallowedperson\" >\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-2\">\n                                        <div class=\"input-box radio-box\">\n                                            <label>Is Booking Allow</label>\n                                            <div class=\"form-group\">\n                                                <input  name=\"faclityBookingAllowId\" id=\"EnaBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\"  value=\"true\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"EnaBookAllow\">Yes</label>\n                                             </div>\n                                            <div class=\"form-group\">\n                                                <input  name=\"faclityBookingAllowId\" id=\"DisBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\" value=\"false\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"DisBookAllow\">No</label>\n                                             </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-10\">\n                                        <div class=\"input-box\">\n                                            <label>Accessed By*</label>\n                                            <ng-select [items]=\"lstTowers\" \n                                            [ngModelOptions]=\"{standalone: true}\"\n                                            bindLabel=\"apartmentBlockNumber\"\n                                            bindValue=\"apartmentBlockNumber\"\n                                            [multiple]=\"true\"\n                                            placeholder=\"Select Tower/Block List\"\n                                            (change)=\"onChange($event)\"\n                                            [(ngModel)]=\"selectedTowersIds\">\n                                 </ng-select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-12\">\n                                    \n                                        <div class=\"input-box\">\n                                            <label>Description</label>\n                                            <quill-editor \n                                                class=\"quill-editor\"\n                                                name=\"description\"\n                                                [(ngModel)]=\"facility.description\"\n                                                [placeholder]=\"editorPlacehorder\"\n                                                (onContentChanged)=\"onContentChanged($event)\">\n                                            </quill-editor>\n                                        </div>\n        \n                                    </div>\n                                    \n                                    <div class=\"col-sm-12 text-right\" *ngIf=\"!isFacilityViewAlone\">\n                                    \n                                        <button class=\"btn blue mr-2\"  [disabled]=\"facilitySettingsForm.invalid\">Submit</button>\n        \n                                    </div>\n        \n                                </div>\n        \n            \n                            </form>\n        \n                            </div>\n        \n                        </div>\n                        \n                        <ng-container *ngIf=\"!isFacilityCategoryNew\">\n        \n                            <ng-container  *ngFor=\"let slot of getSlots(facility.apartmentFacilitySlot); let i = index\">\n                                \n                            <li class=\"list-group-item collapsed\" data-toggle=\"collapse\" attr.data-target=\"#slotCollapse{{i}}\" aria-expanded=\"true\" attr.aria-controls=\"Collapse{{i}}\">\n                               \n                                    <span class=\"float-left\">Slot{{i+1}}</span><br>\n                                    <span class=\"float-left \" >{{getSlotTime(slot.slotBeginTime)}} - {{getSlotTime(slot.slotEndTime)}}</span>    \n                            \n                            </li>\n                                <div id=\"slotCollapse{{i}}\" class=\"collapse\" attr.aria-labelledby=\"Collapse{{i}}\" data-parent=\"#accordion\">\n                                    \n                                    <div class=\"details\" >\n                                        \n                                        <app-add-facility-slot [slot]=\"slot\" [facilityId]=\"facility.apartmentFacilityId\" [type]=\"isFacilityViewAlone?'view':'edit'\" (facilityParams)=\"getFacilityParams($event)\"></app-add-facility-slot>\n        \n                                    </div>\n        \n                                </div>\n        \n                            </ng-container>\n        \n                        </ng-container>\n        \n                        <ng-container *ngIf=\"facilitySlotLength == 0\">\n                            \n                            <li class=\"list-group-item collapsed\" [ngClass]=\"facilitySlotLength == 0 ? 'no-drop' : ''\" data-toggle=\"collapse\" data-target=\"#facilityNewCollapse\" aria-expanded=\"true\" aria-controls=\"facilityCollapseNewOne\">No Slots Available</li>\n                            <div id=\"facilityNewCollapse\" class=\"collapse\" attr.aria-labelledby=\"facilityCollapseNewOne\" data-parent=\"#accordion\">\n                                \n        \n        \n                            </div>\n        \n                        </ng-container>\n        \n                        <ng-container *ngIf=\"isSlotNew\">\n                            \n                            <li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#facilitySlotNew\" aria-expanded=\"true\" aria-controls=\"facilityNewSlot\">New Slot</li>\n                            <div id=\"facilitySlotNew\" class=\"collapse show\" aria-labelledby=\"facilityNewSlot\" data-parent=\"#accordion\">\n                                \n                                <div class=\"details\" >\n                                    \n                                    <app-add-facility-slot [slot]=\"facility\" [facilityId]=\"facility.apartmentFacilityId\" type=\"new\" (facilityParams)=\"getFacilityParams($event)\"></app-add-facility-slot>\n        \n                                </div>\n        \n                            </div>\n        \n                        </ng-container>\n        \n                    </ul>\n        \n        \n            </div>\n        \n        </div>\n    </div>\n</div>\n\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-list/facility-list.component.html":
+  /*!**************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-list/facility-list.component.html ***!
+    \**************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsFacilityComponentsFacilityListFacilityListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"card\" >\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-9\">\n            <h5>Facilities</h5>\n            </div>\n            <div class=\"col-sm-2 ml-5\">\n            <a class=\"btn lime-green float-right ml-4\" (click)=\"addNewFacilityCategory()\" >\n                <i class=\"fa fa-plus\" aria-hidden=\"true\"> Add New Facility</i>\n            </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"ml-4 facility-settings-wrapper\">\n            <app-loader *ngIf=\"!isFacilityCategoryLoaded\"></app-loader>\n            <div class=\"category-list list-boxes big\" *ngIf=\"isFacilityCategoryLoaded\">\n                <li class=\"list-inline-item\"  *ngFor=\"let item of facilityCategoryData; let i = index\">\n                    <div class=\"card\">\n                        <div class=\"card-body nohover\">\n                            <div class=\"icons\">\n                                <a href=\"javascript:void(0)\"><i-feather class=\"icon view\" name=\"eye\" (click)=\"viewFacility(item)\"></i-feather></a>\n                                <a href=\"javascript:void(0)\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"updateFacility(item)\"></i-feather></a>\n                            </div>\n                            <h6>{{item.facilityName}}</h6>\n                            <p *ngIf=\"item.amount>0\">{{item.amount}} {{pesoValue}}/- per {{getRateBase(item.rateBaseId)}}</p>\n                            <p *ngIf=\"item.amount==0\">Free</p>\n                            <div class=\"bottom\">\n                                <p>{{getSlots(item.apartmentFacilitySlot).length}} Slot(s)</p>\n                                <div class=\"ml-auto\">\n                                    <button class=\"btn sf trans-white hover-green\" [disabled]=\"!item.isSlotBooking\" (click)=\"addSlotFacility(item)\">\n                                        <i-feather class=\"icon sm plus\" name=\"plus\"></i-feather>\n                                        <span>Add Slot</span>\n                                    </button>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </li>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -1101,6 +1141,329 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/ams/facility/components/facility-create/facility-create.component.scss":
+  /*!****************************************************************************************!*\
+    !*** ./src/app/ams/facility/components/facility-create/facility-create.component.scss ***!
+    \****************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsFacilityComponentsFacilityCreateFacilityCreateComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "::ng-deep ng-select span {\n  font-size: 1.4rem;\n}\n\n::ng-deep .ng-placeholder {\n  font-size: 1.4rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1jcmVhdGUvZmFjaWxpdHktY3JlYXRlLmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwic3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1jcmVhdGUvZmFjaWxpdHktY3JlYXRlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1JO0VDd0VGLGlCQUFBO0FDNUVGOztBRlNBO0VDbUVFLGlCQUFBO0FDeEVGIiwiZmlsZSI6InNyYy9hcHAvYW1zL2ZhY2lsaXR5L2NvbXBvbmVudHMvZmFjaWxpdHktY3JlYXRlL2ZhY2lsaXR5LWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG5cbjo6bmctZGVlcCBuZy1zZWxlY3Qge1xuICAgIHNwYW4ge1xuICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcbiAgICB9XG59XG5cbjo6bmctZGVlcCAubmctcGxhY2Vob2xkZXIge1xuICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIiwiOjpuZy1kZWVwIG5nLXNlbGVjdCBzcGFuIHtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG5cbjo6bmctZGVlcCAubmctcGxhY2Vob2xkZXIge1xuICBmb250LXNpemU6IDEuNHJlbTtcbn0iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/facility/components/facility-create/facility-create.component.ts":
+  /*!**************************************************************************************!*\
+    !*** ./src/app/ams/facility/components/facility-create/facility-create.component.ts ***!
+    \**************************************************************************************/
+
+  /*! exports provided: FacilityCreateComponent */
+
+  /***/
+  function srcAppAmsFacilityComponentsFacilityCreateFacilityCreateComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FacilityCreateComponent", function () {
+      return FacilityCreateComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_2___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _service_facility_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../service/facility-service.service */
+    "./src/app/ams/facility/service/facility-service.service.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/api/controllers/Facility */
+    "./src/app/api/controllers/Facility.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+    var FacilityCreateComponent =
+    /*#__PURE__*/
+    function () {
+      function FacilityCreateComponent(facilityservice, facilityapiservice, cd, cookieService, apartmentService, lookupService, routerActivate, router, sharedService, fb) {
+        _classCallCheck(this, FacilityCreateComponent);
+
+        this.facilityservice = facilityservice;
+        this.facilityapiservice = facilityapiservice;
+        this.cd = cd;
+        this.cookieService = cookieService;
+        this.apartmentService = apartmentService;
+        this.lookupService = lookupService;
+        this.routerActivate = routerActivate;
+        this.router = router;
+        this.sharedService = sharedService;
+        this.fb = fb;
+        this.facility = {
+          apartmentFacilitySlot: []
+        };
+        this.allowedBlock = [];
+        this.alertMessage = "";
+        this.isCategoryError = false;
+      }
+
+      _createClass(FacilityCreateComponent, [{
+        key: "loadFacilityLocation",
+        value: function loadFacilityLocation() {
+          var _this5 = this;
+
+          var towerParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe(function (res) {
+            _this5.towerslist = res;
+          });
+        }
+      }, {
+        key: "accessed",
+        value: function accessed(event) {
+          var _this6 = this;
+
+          var accessBlock = [];
+          event.forEach(function (element) {
+            accessBlock.push({
+              id: 0,
+              apartmentId: element.apartmentId,
+              apartmentBlockId: element.apartmentBlockId,
+              apartmentFacilityId: _this6.facilityType.type == 'create' ? 0 : _this6.facility.apartmentFacilityId,
+              isActive: true,
+              insertedBy: parseInt(_this6.cookieService.get('userId')),
+              insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
+              updatedBy: null,
+              updatedOn: null
+            });
+          });
+          this.allowedBlock = accessBlock;
+        }
+      }, {
+        key: "createFacility",
+        value: function createFacility() {
+          var _this7 = this;
+
+          this.facility.apartmentFacilityId = this.facilityType.type == 'create' ? 0 : this.facility.apartmentFacilityId;
+          this.facility.apartmentId = parseInt(this.cookieService.get('apartmentId'));
+          this.facility.totalallowedperson = this.facility.totalallowedperson;
+          this.facility.description = this.facility.description;
+          this.facility.minTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.minTimeLimit).format('HH:mm:ss');
+          this.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.maxTimeLimit).format('HH:mm:ss');
+          this.facility.ApartmentFacilityAllowedBlock = this.allowedBlock;
+          this.facility.apartmentFacilitySlot.forEach(function (data) {
+            data.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotBeginTime).format('HH:mm:ss');
+            data.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotEndTime).format('HH:mm:ss');
+          });
+          var entity = {
+            "approvalRequired": true,
+            "fileAttachmentId": null,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_2__().format(),
+            "updatedBy": null,
+            "updatedOn": null
+          };
+          var apartmentFacilityParams = {
+            apartmentFacility: Object.assign(Object.assign({}, this.facility), entity)
+          };
+          var apiName = this.facilityType.type == 'create' ? 'addApartmentFacility' : 'updateApartmentFacility';
+          this.facilityapiservice[apiName](apartmentFacilityParams).subscribe(function (res) {
+            if (res.message) {
+              var message = _this7.facilityType.type == 'create' ? 'Facility added successfully' : 'Facility Updated successfully';
+
+              _this7.sharedService.setAlertMessage(message);
+            } else {
+              _this7.isCategoryError = true;
+              _this7.alertMessage = res.errorMessage;
+            }
+          }, function (error) {
+            _this7.isCategoryError = true;
+            _this7.alertMessage = "Server Error";
+          });
+        }
+      }, {
+        key: "addSlot",
+        value: function addSlot() {
+          var entity = {
+            slotBeginTime: '',
+            slotEndTime: '',
+            cost: '',
+            comment: '',
+            apartmentFacilitySlotId: 0,
+            apartmentFacilityId: this.facilityType.type == 'create' ? 0 : this.facility.apartmentFacilityId,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            isActive: true,
+            insertedBy: parseInt(this.cookieService.get('userId')),
+            insertedOn: new Date().toISOString(),
+            updatedBy: 0,
+            updatedOn: null
+          };
+          this.facility.apartmentFacilitySlot.push(entity);
+        }
+      }, {
+        key: "deleteSlot",
+        value: function deleteSlot(index, data) {
+          this.facility.apartmentFacilitySlot.splice(index, 1);
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this8 = this;
+
+          this.loadFacilityLocation();
+          var params = {
+            LookupTypeId: 101,
+            ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            _this8.pesoValue = res[0].lookupValueName;
+          });
+          this.routerActivate.queryParams.subscribe(function (params) {
+            _this8.facilityType = params;
+
+            if (params.type) {
+              if (params.id) {
+                var entity = {
+                  apartmentFacilityId: parseInt(params.id)
+                };
+
+                _this8.facilityapiservice.getApartmentFacilityByFacilityId(entity).subscribe(function (res) {
+                  _this8.facility = res[0];
+                  _this8.facility.minTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this8.facility.minTimeLimit, 'HH:mm:ss').format();
+                  _this8.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this8.facility.maxTimeLimit, 'HH:mm:ss').format();
+                  _this8.facility.apartmentBlockId = _this8.facility.apartmentBlockID;
+                  delete _this8.facility.apartmentBlockID;
+
+                  _this8.facility.apartmentFacilitySlot.forEach(function (ele) {
+                    ele.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(ele.slotBeginTime, 'HH:mm:ss').format();
+                    ele.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(ele.slotEndTime, 'HH:mm:ss').format();
+                  });
+
+                  _this8.selectedTowersIds = _this8.facility.apartmentFacilityAllowedBlock;
+
+                  if (params.type == 'slot') {
+                    _this8.addSlot();
+                  }
+                });
+              }
+            } else {
+              _this8.router.navigate(['ams/facility/list']);
+            }
+          });
+        }
+      }]);
+
+      return FacilityCreateComponent;
+    }();
+
+    FacilityCreateComponent.ctorParameters = function () {
+      return [{
+        type: _service_facility_service_service__WEBPACK_IMPORTED_MODULE_6__["FacilityServiceService"]
+      }, {
+        type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_8__["FacilityService"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+      }, {
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]
+      }];
+    };
+
+    FacilityCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-facility-create',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./facility-create.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-create/facility-create.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./facility-create.component.scss */
+      "./src/app/ams/facility/components/facility-create/facility-create.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_service_facility_service_service__WEBPACK_IMPORTED_MODULE_6__["FacilityServiceService"], src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_8__["FacilityService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]])], FacilityCreateComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/ams/facility/components/facility-entry/facility-entry.component.scss":
   /*!**************************************************************************************!*\
     !*** ./src/app/ams/facility/components/facility-entry/facility-entry.component.scss ***!
@@ -1248,21 +1611,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(FacilityEntryComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this9 = this;
 
           this.LoadFacilityLocation();
           this.setPesoValue();
           this.cd.markForCheck();
           this.facilityservice.Mode.subscribe(function (res) {
             if (!Object(util__WEBPACK_IMPORTED_MODULE_2__["isNullOrUndefined"])(res.data)) {
-              _this5.isFacilityCategoryNew = res.data.isFacilityCategoryNew;
-              _this5.isSlotNew = res.data.isSlotNew;
-              _this5.facility = res.data.facility;
-              _this5.isFacilityCategoryUpdate = res.data.isFacilityCategoryUpdate;
-              _this5.isFacilityViewAlone = res.data.isFacilityViewAlone;
+              _this9.isFacilityCategoryNew = res.data.isFacilityCategoryNew;
+              _this9.isSlotNew = res.data.isSlotNew;
+              _this9.facility = res.data.facility;
+              _this9.isFacilityCategoryUpdate = res.data.isFacilityCategoryUpdate;
+              _this9.isFacilityViewAlone = res.data.isFacilityViewAlone;
 
-              if (_this5.isFacilityCategoryUpdate) {
-                _this5.updatefacilityData(_this5.facility);
+              if (_this9.isFacilityCategoryUpdate) {
+                _this9.updatefacilityData(_this9.facility);
               }
             }
           });
@@ -1281,7 +1644,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "LoadFacilityLocation",
         value: function LoadFacilityLocation() {
-          var _this6 = this;
+          var _this10 = this;
 
           this.lstTowers = [];
           var towerParams = {
@@ -1290,9 +1653,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe(function (res) {
             console.log('Tower Details');
             console.log(res);
-            _this6.lstTowers = res;
+            _this10.lstTowers = res;
 
-            _this6.cd.markForCheck();
+            _this10.cd.markForCheck();
           });
         }
       }, {
@@ -1310,7 +1673,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updatefacilityData",
         value: function updatefacilityData(item) {
-          var _this7 = this;
+          var _this11 = this;
 
           this.facility = item;
           this.facility.rateBaseId = item.rateBaseId.toString();
@@ -1325,9 +1688,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.apartmentService.getApartmentBlockByApartmentId(apartmentParams).subscribe(function (res) {
             console.log('Tower Details');
             console.log(res);
-            _this7.tempArry = res;
+            _this11.tempArry = res;
 
-            _this7.cd.markForCheck();
+            _this11.cd.markForCheck();
           });
           var sampleAry = [{
             apartmentId: 2,
@@ -1337,8 +1700,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentBlockId: 10
           }];
           sampleAry.forEach(function (element) {
-            _this7.tempArry.forEach(function (ele) {
-              if (ele.apartmentBlockId === element.apartmentBlockId) _this7.selectedTowersIds.push(ele.apartmentBlockNumber);
+            _this11.tempArry.forEach(function (ele) {
+              if (ele.apartmentBlockId === element.apartmentBlockId) _this11.selectedTowersIds.push(ele.apartmentBlockNumber);
             });
           });
           console.log('Update');
@@ -1368,7 +1731,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitFacilitySettingsForm",
         value: function submitFacilitySettingsForm(form) {
-          var _this8 = this;
+          var _this12 = this;
 
           this.isFacilityCategoryLoaded = false;
 
@@ -1406,18 +1769,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.facilityapiservice.addApartmentFacility(apartmentFacilityParams).subscribe(function (res) {
               if (res.message) {
-                _this8.isFacilityCategoryLoaded = true;
+                _this12.isFacilityCategoryLoaded = true;
 
-                _this8.sharedService.setAlertMessage("Facility added successfully");
+                _this12.sharedService.setAlertMessage("Facility added successfully");
               } else {
-                _this8.isFacilityCategoryLoaded = true;
-                _this8.isCategoryError = true;
-                _this8.alertMessage = res.errorMessage;
+                _this12.isFacilityCategoryLoaded = true;
+                _this12.isCategoryError = true;
+                _this12.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this8.isFacilityCategoryLoaded = true;
-              _this8.isCategoryError = true;
-              _this8.alertMessage = "Some error occured";
+              _this12.isFacilityCategoryLoaded = true;
+              _this12.isCategoryError = true;
+              _this12.alertMessage = "Some error occured";
             });
           } else {
             var _details2 = {
@@ -1453,48 +1816,48 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.facilityapiservice.updateApartmentFacility(_apartmentFacilityParams).subscribe(function (res) {
               if (res.message) {
-                _this8.isFacilityCategoryLoaded = true;
-                _this8.isFacilityCategoryLoaded = false;
+                _this12.isFacilityCategoryLoaded = true;
+                _this12.isFacilityCategoryLoaded = false;
                 var params = {
-                  apartmentId: parseInt(_this8.cookieService.get('apartmentId'))
+                  apartmentId: parseInt(_this12.cookieService.get('apartmentId'))
                 };
 
-                _this8.facilityapiservice.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
-                  _this8.facilityCategoryData = res.filter(function (item) {
+                _this12.facilityapiservice.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
+                  _this12.facilityCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
-                  _this8.isFacilityCategoryLoaded = true;
+                  _this12.isFacilityCategoryLoaded = true;
 
-                  _this8.sharedService.setAlertMessage("Facility updated successfully");
+                  _this12.sharedService.setAlertMessage("Facility updated successfully");
 
                   console.log(res);
                 }, function (error) {});
               } else {
-                _this8.isFacilityCategoryLoaded = true;
-                _this8.isCategoryError = true;
-                _this8.alertMessage = res.errorMessage;
+                _this12.isFacilityCategoryLoaded = true;
+                _this12.isCategoryError = true;
+                _this12.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this8.isFacilityCategoryLoaded = true;
-              _this8.isCategoryError = true;
-              _this8.alertMessage = "Some error occured";
+              _this12.isFacilityCategoryLoaded = true;
+              _this12.isCategoryError = true;
+              _this12.alertMessage = "Some error occured";
             });
           }
         }
       }, {
         key: "getFacilityParams",
         value: function getFacilityParams(event) {
-          var _this9 = this;
+          var _this13 = this;
 
           this.isFacilityCategoryLoaded = false;
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.facilityapiservice.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
-            _this9.facilityCategoryData = res.filter(function (item) {
+            _this13.facilityCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            _this9.isFacilityCategoryLoaded = true;
+            _this13.isFacilityCategoryLoaded = true;
           }, function (error) {});
         }
       }, {
@@ -1539,6 +1902,222 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./facility-entry.component.scss */
       "./src/app/ams/facility/components/facility-entry/facility-entry.component.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_service_facility_service_service__WEBPACK_IMPORTED_MODULE_7__["FacilityServiceService"], src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_9__["FacilityService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])], FacilityEntryComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/facility/components/facility-list/facility-list.component.scss":
+  /*!************************************************************************************!*\
+    !*** ./src/app/ams/facility/components/facility-list/facility-list.component.scss ***!
+    \************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsFacilityComponentsFacilityListFacilityListComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".facility-settings-wrapper button {\n  border: 2px solid #5cd67c;\n}\n.facility-settings-wrapper .btn.disabled, .facility-settings-wrapper .btn:disabled {\n  border: 2px solid #797979 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1saXN0L2ZhY2lsaXR5LWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9mYWNpbGl0eS9jb21wb25lbnRzL2ZhY2lsaXR5LWxpc3QvZmFjaWxpdHktbGlzdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLSTtFQUNJLHlCQUFBO0FDSlI7QURNSTtFQUNJLG9DQUFBO0FDSlIiLCJmaWxlIjoic3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1saXN0L2ZhY2lsaXR5LWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLmZhY2lsaXR5LXNldHRpbmdzLXdyYXBwZXIge1xuICAgIGJ1dHRvbiB7XG4gICAgICAgIGJvcmRlcjogMnB4IHNvbGlkICRsaW1lLWdyZWVuLTAyO1xuICAgIH1cbiAgICAuYnRuLmRpc2FibGVkLCAuYnRuOmRpc2FibGVkIHtcbiAgICAgICAgYm9yZGVyIDogMnB4IHNvbGlkICRncmV5LTc1MCAhaW1wb3J0YW50O1xuICAgIH1cbn0iLCIuZmFjaWxpdHktc2V0dGluZ3Mtd3JhcHBlciBidXR0b24ge1xuICBib3JkZXI6IDJweCBzb2xpZCAjNWNkNjdjO1xufVxuLmZhY2lsaXR5LXNldHRpbmdzLXdyYXBwZXIgLmJ0bi5kaXNhYmxlZCwgLmZhY2lsaXR5LXNldHRpbmdzLXdyYXBwZXIgLmJ0bjpkaXNhYmxlZCB7XG4gIGJvcmRlcjogMnB4IHNvbGlkICM3OTc5NzkgIWltcG9ydGFudDtcbn0iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/facility/components/facility-list/facility-list.component.ts":
+  /*!**********************************************************************************!*\
+    !*** ./src/app/ams/facility/components/facility-list/facility-list.component.ts ***!
+    \**********************************************************************************/
+
+  /*! exports provided: FacilityListComponent */
+
+  /***/
+  function srcAppAmsFacilityComponentsFacilityListFacilityListComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FacilityListComponent", function () {
+      return FacilityListComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/api/controllers/Facility */
+    "./src/app/api/controllers/Facility.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var _service_facility_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../service/facility-service.service */
+    "./src/app/ams/facility/service/facility-service.service.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+    var FacilityListComponent =
+    /*#__PURE__*/
+    function () {
+      function FacilityListComponent(facilityService, facilitylocalservice, lookupService, sharedService, cookieService, router) {
+        _classCallCheck(this, FacilityListComponent);
+
+        this.facilityService = facilityService;
+        this.facilitylocalservice = facilitylocalservice;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.router = router;
+        this.isFacilityCategoryLoaded = false;
+      }
+
+      _createClass(FacilityListComponent, [{
+        key: "addNewFacilityCategory",
+        value: function addNewFacilityCategory() {
+          this.router.navigate(['/ams/facility/setup'], {
+            queryParams: {
+              type: 'create'
+            }
+          });
+        }
+      }, {
+        key: "viewFacility",
+        value: function viewFacility(data) {
+          this.router.navigate(['/ams/facility/setup'], {
+            queryParams: {
+              type: 'view',
+              id: data.apartmentFacilityId
+            }
+          });
+        }
+      }, {
+        key: "updateFacility",
+        value: function updateFacility(data) {
+          this.router.navigate(['/ams/facility/setup'], {
+            queryParams: {
+              type: 'edit',
+              id: data.apartmentFacilityId
+            }
+          });
+        }
+      }, {
+        key: "addSlotFacility",
+        value: function addSlotFacility(data) {
+          this.router.navigate(['/ams/facility/setup'], {
+            queryParams: {
+              type: 'slot',
+              id: data.apartmentFacilityId
+            }
+          });
+        }
+      }, {
+        key: "getRateBase",
+        value: function getRateBase(id) {
+          if (id == 138) {
+            return 'Hour';
+          } else {
+            return 'Day';
+          }
+        }
+      }, {
+        key: "getSlots",
+        value: function getSlots(items) {
+          var slots = items.filter(function (item) {
+            return item.isActive;
+          });
+          return slots;
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this14 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
+            _this14.facilityCategoryData = res.filter(function (item) {
+              return item.isActive;
+            });
+            _this14.isFacilityCategoryLoaded = true;
+          }, function (error) {
+            console.log(error);
+          });
+          var entity = {
+            LookupTypeId: 101,
+            ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.lookupService.getLookupValueByLookupTypeId(entity).subscribe(function (res) {
+            _this14.pesoValue = res[0].lookupValueName;
+          });
+        }
+      }]);
+
+      return FacilityListComponent;
+    }();
+
+    FacilityListComponent.ctorParameters = function () {
+      return [{
+        type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_2__["FacilityService"]
+      }, {
+        type: _service_facility_service_service__WEBPACK_IMPORTED_MODULE_4__["FacilityServiceService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+      }, {
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]
+      }];
+    };
+
+    FacilityListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-facility-list',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./facility-list.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-list/facility-list.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./facility-list.component.scss */
+      "./src/app/ams/facility/components/facility-list/facility-list.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_2__["FacilityService"], _service_facility_service_service__WEBPACK_IMPORTED_MODULE_4__["FacilityServiceService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]])], FacilityListComponent);
     /***/
   },
 
@@ -1635,13 +2214,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this10 = this;
+          var _this15 = this;
 
           this.facilityservice.Mode.pipe(Object(src_app_decorator__WEBPACK_IMPORTED_MODULE_2__["untilDestroyed"])(this)).subscribe(function (data) {
             if (!Object(util__WEBPACK_IMPORTED_MODULE_3__["isNullOrUndefined"])(data)) {
-              _this10.Mode = data.mode;
+              _this15.Mode = data.mode;
 
-              _this10.cd.markForCheck();
+              _this15.cd.markForCheck();
             }
           });
         }
@@ -1972,7 +2551,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this11 = this;
+          var _this16 = this;
 
           this.removeCategoryBox();
           this.facility = {};
@@ -1983,10 +2562,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
-            _this11.facilityCategoryData = res.filter(function (item) {
+            _this16.facilityCategoryData = res.filter(function (item) {
               return item.isActive;
             });
-            _this11.isFacilityCategoryLoaded = true;
+            _this16.isFacilityCategoryLoaded = true;
           }, function (error) {});
         }
       }]);
@@ -2082,23 +2661,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _components_facility_main_facility_main_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ./components/facility-main/facility-main.component */
-    "./src/app/ams/facility/components/facility-main/facility-main.component.ts");
+    var _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./components/facility-calender/facility-calender.component */
+    "./src/app/ams/facility/components/facility-calender/facility-calender.component.ts");
     /* harmony import */
 
 
-    var _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ./components/facility-calender/facility-calender.component */
-    "./src/app/ams/facility/components/facility-calender/facility-calender.component.ts");
+    var _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./components/facility-list/facility-list.component */
+    "./src/app/ams/facility/components/facility-list/facility-list.component.ts");
+    /* harmony import */
+
+
+    var _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./components/facility-create/facility-create.component */
+    "./src/app/ams/facility/components/facility-create/facility-create.component.ts");
 
     var routes = [{
       path: '',
-      redirectTo: 'settings',
+      redirectTo: 'list',
       pathMatch: 'full'
     }, {
-      path: 'settings',
-      component: _components_facility_main_facility_main_component__WEBPACK_IMPORTED_MODULE_6__["FacilityMainComponent"]
+      path: 'list',
+      component: _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_7__["FacilityListComponent"]
+    }, {
+      path: 'setup',
+      component: _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_8__["FacilityCreateComponent"]
     }, {
       path: 'create-booking',
       component: _shared_components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_4__["FacilityCreateBookingComponent"]
@@ -2107,7 +2695,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       component: _shared_components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_4__["FacilityCreateBookingComponent"]
     }, {
       path: 'calendar',
-      component: _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_7__["FacilityCalenderComponent"]
+      component: _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_6__["FacilityCalenderComponent"]
     }, {
       path: 'all-bookings',
       component: _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingActionsComponent"]
@@ -2116,7 +2704,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       component: _components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_3__["FacilityReportsComponent"]
     }, {
       path: '**',
-      redirectTo: 'settings',
+      redirectTo: 'list',
       pathMatch: 'full'
     }];
 
@@ -2337,13 +2925,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! ./components/facility-calender/facility-calender.component */
     "./src/app/ams/facility/components/facility-calender/facility-calender.component.ts");
+    /* harmony import */
+
+
+    var _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! ./components/facility-list/facility-list.component */
+    "./src/app/ams/facility/components/facility-list/facility-list.component.ts");
+    /* harmony import */
+
+
+    var _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! ./components/facility-create/facility-create.component */
+    "./src/app/ams/facility/components/facility-create/facility-create.component.ts");
 
     var FacilityModule = function FacilityModule() {
       _classCallCheck(this, FacilityModule);
     };
 
     FacilityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_7__["FacilityReportsComponent"], _components_facility_setup_facility_setup_component__WEBPACK_IMPORTED_MODULE_8__["FacilitySetupComponent"], _facility_component__WEBPACK_IMPORTED_MODULE_5__["FacilityComponent"], _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_9__["FacilityBookingActionsComponent"], _components_add_facility_slot_add_facility_slot_component__WEBPACK_IMPORTED_MODULE_6__["AddFacilitySlotComponent"], _components_facility_main_facility_main_component__WEBPACK_IMPORTED_MODULE_10__["FacilityMainComponent"], _components_facility_entry_facility_entry_component__WEBPACK_IMPORTED_MODULE_11__["FacilityEntryComponent"], _components_facility_reject_action_facility_reject_action_component__WEBPACK_IMPORTED_MODULE_14__["FacilityRejectActionComponent"], _components_facility_reject_confirmation_modal_facility_reject_confirmation_modal_component__WEBPACK_IMPORTED_MODULE_15__["FacilityRejectConfirmationModalComponent"], _components_facility_approve_confirmation_modal_facility_approve_confirmation_modal_component__WEBPACK_IMPORTED_MODULE_16__["FacilityApproveConfirmationModalComponent"], _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_17__["FacilityCalenderComponent"]],
+      declarations: [_components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_7__["FacilityReportsComponent"], _components_facility_setup_facility_setup_component__WEBPACK_IMPORTED_MODULE_8__["FacilitySetupComponent"], _facility_component__WEBPACK_IMPORTED_MODULE_5__["FacilityComponent"], _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_9__["FacilityBookingActionsComponent"], _components_add_facility_slot_add_facility_slot_component__WEBPACK_IMPORTED_MODULE_6__["AddFacilitySlotComponent"], _components_facility_main_facility_main_component__WEBPACK_IMPORTED_MODULE_10__["FacilityMainComponent"], _components_facility_entry_facility_entry_component__WEBPACK_IMPORTED_MODULE_11__["FacilityEntryComponent"], _components_facility_reject_action_facility_reject_action_component__WEBPACK_IMPORTED_MODULE_14__["FacilityRejectActionComponent"], _components_facility_reject_confirmation_modal_facility_reject_confirmation_modal_component__WEBPACK_IMPORTED_MODULE_15__["FacilityRejectConfirmationModalComponent"], _components_facility_approve_confirmation_modal_facility_approve_confirmation_modal_component__WEBPACK_IMPORTED_MODULE_16__["FacilityApproveConfirmationModalComponent"], _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_17__["FacilityCalenderComponent"], _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_18__["FacilityListComponent"], _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_19__["FacilityCreateComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_12__["NgSelectModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _facility_routing_module__WEBPACK_IMPORTED_MODULE_3__["FacilityRoutingModule"]],
       bootstrap: [_facility_component__WEBPACK_IMPORTED_MODULE_5__["FacilityComponent"]]
     })], FacilityModule);
