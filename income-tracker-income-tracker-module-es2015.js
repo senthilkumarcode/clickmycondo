@@ -39,6 +39,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.html":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.html ***!
+  \************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm(addSecuityDepositForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isDepositSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isDepositSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\tfieldText = \"Select Bill No\"\n\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\tfieldItemName=\"collectionId\"\n\t\t\t\t\t\t\t[fieldModel] = \"deposit.collectionId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"billData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addSecuityDepositForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.html":
 /*!******************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.html ***!
@@ -165,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>income-security-deposit works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-security-deposit-wrapper\">\n\n    <app-loader *ngIf=\"!isDepositLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDepositLoaded\">\n\n        <div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Security Deposit <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t placeholder=\"Search...\" [(ngModel)]=\"securityDepositData\" \n\t\t\t\t\t\t (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t\t<a class=\"btn lime-green mt_5\" id=\"addSecurityDepositElement\" (click)=\"addSecurityDeposit()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Security Deposit</span>\n\t\t\t\t\t\t</a>\n\t\n\t\t\t\t\t</li>\n\t    \t\t</ul>\n            </div>\n\n            <div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"securityDepositDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver\n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"true\" \n\t\t\t[selector]=\"popOverSelector\"\n\t\t\t[position]=\"popOverPosition\"\n\t\t\t>\n\t\t\t\t<app-income-add-security-deposit\n\t\t\t\t[deposit]=\"deposit\" \n\t\t\t\t[isEdit]=\"isEditDeposit\" \n\t\t\t\t(outputParams)=\"getSecurityDepositParams($event)\">\n                </app-income-add-security-deposit>\n                \n\t\t\t</jqxPopover>\n\n\t\t\t</div>\n\n        </div>\n\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -854,6 +867,213 @@ IncomeAddCustomerAdvanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], IncomeAddCustomerAdvanceComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.scss":
+/*!**********************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.scss ***!
+  \**********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".income-add-security-deposit-wrapper ::ng-deep .select-group .search-control {\n  right: 5px !important;\n}\n.income-add-security-deposit-wrapper ::ng-deep .select-group .search-control .icon {\n  width: 18px;\n  height: 18px;\n}\n::ng-deep .jqx-popover {\n  margin-right: 20px;\n}\n::ng-deep .jqx-popover .jqx-popover-arrow {\n  margin-left: 20px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtYWRkLXNlY3VyaXR5LWRlcG9zaXQvaW5jb21lLWFkZC1zZWN1cml0eS1kZXBvc2l0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtYWRkLXNlY3VyaXR5LWRlcG9zaXQvaW5jb21lLWFkZC1zZWN1cml0eS1kZXBvc2l0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1RO0VBQ0kscUJBQUE7QUNMWjtBRE1ZO0VBQ0ksV0FBQTtFQUNBLFlBQUE7QUNKaEI7QURXSTtFQUNJLGtCQUFBO0FDUlI7QURTUTtFQUNJLDRCQUFBO0FDUFoiLCJmaWxlIjoic3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtYWRkLXNlY3VyaXR5LWRlcG9zaXQvaW5jb21lLWFkZC1zZWN1cml0eS1kZXBvc2l0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvbWl4aW5zXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL2ZvbnRzXCI7XG5cbi5pbmNvbWUtYWRkLXNlY3VyaXR5LWRlcG9zaXQtd3JhcHBlciB7XG4gICAgOjpuZy1kZWVwIHtcbiAgICAgICAgLnNlbGVjdC1ncm91cCAuc2VhcmNoLWNvbnRyb2wge1xuICAgICAgICAgICAgcmlnaHQ6IDVweCAhaW1wb3J0YW50O1xuICAgICAgICAgICAgLmljb24ge1xuICAgICAgICAgICAgICAgIHdpZHRoOiAxOHB4O1xuICAgICAgICAgICAgICAgIGhlaWdodDogMThweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn1cblxuOjpuZy1kZWVwIHtcbiAgICAuanF4LXBvcG92ZXIge1xuICAgICAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG4gICAgICAgIC5qcXgtcG9wb3Zlci1hcnJvdyB7XG4gICAgICAgICAgICBtYXJnaW4tbGVmdDogMjBweCAhaW1wb3J0YW50O1xuICAgICAgICB9XG4gICAgfVxufVxuIiwiLmluY29tZS1hZGQtc2VjdXJpdHktZGVwb3NpdC13cmFwcGVyIDo6bmctZGVlcCAuc2VsZWN0LWdyb3VwIC5zZWFyY2gtY29udHJvbCB7XG4gIHJpZ2h0OiA1cHggIWltcG9ydGFudDtcbn1cbi5pbmNvbWUtYWRkLXNlY3VyaXR5LWRlcG9zaXQtd3JhcHBlciA6Om5nLWRlZXAgLnNlbGVjdC1ncm91cCAuc2VhcmNoLWNvbnRyb2wgLmljb24ge1xuICB3aWR0aDogMThweDtcbiAgaGVpZ2h0OiAxOHB4O1xufVxuXG46Om5nLWRlZXAgLmpxeC1wb3BvdmVyIHtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuOjpuZy1kZWVwIC5qcXgtcG9wb3ZlciAuanF4LXBvcG92ZXItYXJyb3cge1xuICBtYXJnaW4tbGVmdDogMjBweCAhaW1wb3J0YW50O1xufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.ts":
+/*!********************************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.ts ***!
+  \********************************************************************************************************************/
+/*! exports provided: IncomeAddSecurityDepositComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeAddSecurityDepositComponent", function() { return IncomeAddSecurityDepositComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+
+
+
+
+
+let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent {
+    constructor(router, route, accountsService, sharedService, cookieService) {
+        this.router = router;
+        this.route = route;
+        this.accountsService = accountsService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.isDepositSubmitted = false;
+        this.isError = false;
+        this.alertMessage = "";
+        this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    getCollection(id) {
+        var data = this.billData.filter(item => {
+            return item.collectionId == id;
+        });
+        if (data == undefined || data.length == 0) {
+            return '';
+        }
+        else {
+            this.deposit.invoiceId = data[0].invoiceId;
+        }
+    }
+    onSelectChange(event) {
+        if (event != null)
+            this.deposit.collectionId = event.collectionId;
+    }
+    submitAddSecuityDepositForm(form) {
+        if (!this.isEdit) {
+            let details = {
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "blockUnitUserId": parseInt(this.route.params['value'].id),
+                "securityDepositId": 0,
+                "glaccountId": 1,
+                "invoiceId": 1,
+                "collectionId": parseInt(this.deposit.collectionId),
+                "transactionType": 1,
+                "amount": parseInt(this.deposit.amount),
+                "comment": this.deposit.comment,
+                "comment2": this.deposit.comment,
+                "active": true,
+                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            };
+            let params = {
+                custSecurity: details
+            };
+            this.accountsService.addSecurityDeposit(params).subscribe((res) => {
+                if (res.error == 'Sucess') {
+                    this.isDepositSubmitted = true;
+                    this.sharedService.setAlertMessage("Customer Advance added successfully");
+                    this.outputParams.emit(true);
+                    /*this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+                    this.router.navigateByUrl('/ams/income/actions/view-creditnote/' + this.route.params['value'].id));*/
+                }
+                else {
+                    this.isDepositSubmitted = true;
+                    this.isError = true;
+                    this.alertMessage = res.errorMessage;
+                }
+            }, error => {
+                this.isDepositSubmitted = true;
+                this.isError = true;
+                this.alertMessage = "Some error occured";
+            });
+        }
+        else {
+            let details = {
+                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "blockUnitUserId": this.deposit.blockUnitUserId,
+                "securityDepositId": this.deposit.custCreditNoteId,
+                "glaccountId": this.deposit.glaccountId,
+                "invoiceId": this.deposit.invoiceId,
+                "collectionId": parseInt(this.deposit.collectionId),
+                "transactionType": this.deposit.transactionType,
+                "amount": parseInt(this.deposit.amount),
+                "comment": this.deposit.comment,
+                "comment2": this.deposit.comment,
+                "active": this.deposit.active,
+                "insertedBy": this.deposit.insertedBy,
+                "insertedOn": this.deposit.insertedOn,
+                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedOn": new Date().toISOString()
+            };
+            let params = {
+                custSecurity: details
+            };
+            /*this.accountsService.addAdvance(params).subscribe((res:any) => {
+    
+    
+                if(res.creditNoteId){
+    
+                  this.isAdvanceSubmitted = true;
+                  this.sharedService.setAlertMessage("Customer Advance updated successfully");
+    
+                }
+                else {
+    
+                  this.isAdvanceSubmitted = true;
+                  this.isError = true;
+                  this.alertMessage = res.errorMessage;
+    
+                }
+    
+    
+            },
+            error => {
+              this.isAdvanceSubmitted = true;
+              this.isError = true;
+              this.alertMessage = "Some error occured";
+              });*/
+        }
+    }
+    ngOnInit() {
+        this.deposit.collectionId = "";
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentBlockUnitId: this.route.params['value'].id
+        };
+        this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
+            this.billData = res;
+            this.isDepositSubmitted = true;
+        });
+    }
+    ngOnChanges(changes) {
+        this.deposit.collectionId = "";
+    }
+};
+IncomeAddSecurityDepositComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeAddSecurityDepositComponent.prototype, "deposit", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)
+], IncomeAddSecurityDepositComponent.prototype, "isEdit", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeAddSecurityDepositComponent.prototype, "outputParams", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('addSecuityDepositForm'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], IncomeAddSecurityDepositComponent.prototype, "addSecuityDepositForm", void 0);
+IncomeAddSecurityDepositComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-add-security-deposit',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-add-security-deposit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-add-security-deposit.component.scss */ "./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+], IncomeAddSecurityDepositComponent);
 
 
 
@@ -2890,22 +3110,200 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeSecurityDepositComponent", function() { return IncomeSecurityDepositComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxpopover.ts");
+
+
+
+
+
+
 
 
 let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
-    constructor() { }
+    constructor(route, dialog, accountsService, cookieService) {
+        this.route = route;
+        this.dialog = dialog;
+        this.accountsService = accountsService;
+        this.cookieService = cookieService;
+        this.isDepositLoaded = false;
+        this.securityDepositData = "";
+        this.deposit = {};
+        this.isEditDeposit = false;
+    }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'SecurityDepositData');
+    }
+    onGlSearchFilter() {
+        if (this.securityDepositData != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.securityDepositData;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    getSecurityDepositParams(event) {
+        this.reversePopOver.close();
+        this.getSecurityDepositData();
+    }
+    addSecurityDeposit() {
+        this.isEditDeposit = false;
+        this.popOverSelector = '#addSecurityDepositElement';
+        this.popOverPosition = 'bottom';
+        setTimeout(() => {
+            this.reversePopOver.createComponent();
+            this.reversePopOver.open();
+        }, 300);
+    }
+    onSecurityDeposit(detail) {
+        this.isEditDeposit = true;
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let transactionId = dataRecord.transactionId;
+        this.deposit = dataRecord;
+        this.popOverSelector = '#' + transactionId;
+        this.popOverPosition = 'left';
+        setTimeout(() => {
+            this.reversePopOver.createComponent();
+            this.reversePopOver.open();
+        }, 300);
+    }
+    getSecurityDepositData() {
+        this.isDepositLoaded = false;
+        let params = {
+            blockUnitId: this.apartmentBlockUnitId,
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.accountsService.getSecurityDepositByApartmentBlockUnitId(params).subscribe((res) => {
+            var securityDepositDataList = res;
+            this.gridSourceData = {
+                localdata: securityDepositDataList,
+                datatype: "array"
+            };
+            this.securityDepositDataList = new jqx.dataAdapter(this.gridSourceData);
+            this.totalItems = securityDepositDataList.length;
+            this.isDepositLoaded = true;
+        }, error => {
+            console.log(error);
+        });
+    }
     ngOnInit() {
+        this.apartmentBlockUnitId = this.route.params['value'].id;
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.columnData = [{
+                text: 'Transaction Id',
+                datafield: 'transactionId',
+                width: 220,
+                pinned: true,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Security Deposit Paid',
+                datafield: 'creditAmount',
+                cellsrenderer: cellsrenderer,
+                minwidth: 180,
+                renderer: columnrenderer
+            }, {
+                text: 'Deposit Reason',
+                datafield: 'comments',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Amount Dedcuted/Used',
+                datafield: 'debitAmount',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Reason for Deduction',
+                datafield: 'comments2',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Secuirty Deposit Balance',
+                datafield: 'balance',
+                minwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                width: 120,
+                cellsrenderer: (row) => {
+                    let elemId = this.securityDepositDataList.loadedData[row].transactionId;
+                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editSecurityDepositEvent(' + row + ')" ><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
+                },
+                renderer: columnrenderer
+            }];
+        this.getSecurityDepositData();
     }
 };
+IncomeSecurityDepositComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__["jqxGridComponent"])
+], IncomeSecurityDepositComponent.prototype, "datagrid", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('reversePopOver', { static: false }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_7__["jqxPopoverComponent"])
+], IncomeSecurityDepositComponent.prototype, "reversePopOver", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCustomerAdvances', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], IncomeSecurityDepositComponent.prototype, "onSecurityDeposit", null);
 IncomeSecurityDepositComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-security-deposit',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-security-deposit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-security-deposit.component.scss */ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], IncomeSecurityDepositComponent);
 
+let editSecurityDepositEvent = row => {
+    let event = new CustomEvent('onSecurityDeposit', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+};
+window.editSecurityDepositEvent = editSecurityDepositEvent;
 
 
 /***/ }),
@@ -7049,6 +7447,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/income-security-deposit/income-security-deposit.component */ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.ts");
 /* harmony import */ var _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/income-journal/income-journal.component */ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.ts");
 /* harmony import */ var _components_income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/income-add-customer-advance/income-add-customer-advance.component */ "./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.ts");
+/* harmony import */ var _components_income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/income-add-security-deposit/income-add-security-deposit.component */ "./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.ts");
+
 
 
 
@@ -7116,7 +7516,8 @@ IncomeTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_30__["IncomeCustomerAdvancesComponent"],
             _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_31__["IncomeSecurityDepositComponent"],
             _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__["IncomeJournalComponent"],
-            _components_income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_33__["IncomeAddCustomerAdvanceComponent"]
+            _components_income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_33__["IncomeAddCustomerAdvanceComponent"],
+            _components_income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_34__["IncomeAddSecurityDepositComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
