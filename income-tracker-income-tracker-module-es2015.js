@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm(addSecuityDepositForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isDepositSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isDepositSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\tfieldText = \"Select Bill No\"\n\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\tfieldItemName=\"collectionId\"\n\t\t\t\t\t\t\t[fieldModel] = \"deposit.collectionId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"billData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addSecuityDepositForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm(addSecuityDepositForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isDepositSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isDepositSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\tfieldText = \"Select Gl Account\"\n\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\tfieldItemName=\"glaccountName\"\n\t\t\t\t\t\t\t[fieldModel] = \"deposit.glaccountName\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"glAccountsDataList\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addSecuityDepositForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-customer-advances-wrapper\">\n\n    <app-loader *ngIf=\"!isAdvancesLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAdvancesLoaded\">\n\n        <div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Customer Advances <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t placeholder=\"Search...\" [(ngModel)]=\"customerAdvancesData\" \n\t\t\t\t\t\t (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t\t<a class=\"btn lime-green mt_5\" id=\"addCustomerAdvancesElement\" (click)=\"addCustomerAdvances()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Customer Advances Note</span>\n\t\t\t\t\t\t</a>\n\t\n\t\t\t\t\t</li>\n\t    \t\t</ul>\n            </div>\n\n            <div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"customerAdvancesDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver\n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"true\" \n\t\t\t[selector]=\"popOverSelector\"\n\t\t\t[position]=\"popOverPosition\"\n\t\t\t>\n\t\t\t\t<app-income-add-customer-advance\n\t\t\t\t[advance]=\"advance\" \n\t\t\t\t[isEdit]=\"isEditAdvance\" \n\t\t\t\t(outputParams)=\"getCustomerAdvancesParams($event)\">\n                </app-income-add-customer-advance>\n                \n\t\t\t</jqxPopover>\n\n\t\t\t</div>\n\n        </div>\n\n    </ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-customer-advances-wrapper\">\n\n    <app-loader *ngIf=\"!isAdvancesLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAdvancesLoaded\">\n\n        <div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Customer Advances <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t placeholder=\"Search...\" [(ngModel)]=\"customerAdvancesData\" \n\t\t\t\t\t\t (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t\t<a class=\"btn lime-green mt_5\" id=\"addCustomerAdvancesElement\" (click)=\"addCustomerAdvances()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Customer Advances</span>\n\t\t\t\t\t\t</a>\n\t\n\t\t\t\t\t</li>\n\t    \t\t</ul>\n            </div>\n\n            <div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"customerAdvancesDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\n\t\t\t<jqxPopover \n\t\t\t\t#reversePopOver\n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[showCloseButton]=\"true\" \n\t\t\t\t[selector]=\"popOverSelector\"\n\t\t\t\t[position]=\"popOverPosition\">\n\t\t\t\t\n\t\t\t\t<app-income-add-customer-advance\n\t\t\t\t[advance]=\"advance\" \n\t\t\t\t[isEdit]=\"isEditAdvance\" \n\t\t\t\t(outputParams)=\"getCustomerAdvancesParams($event)\">\n                </app-income-add-customer-advance>\n                \n\t\t\t</jqxPopover>\n\n\t\t\t</div>\n\n        </div>\n\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-journal-wrapper\">\n\n    <h4 class=\"main-title-mini\">Journal Entries</h4>\n\n\t<div class=\"card clear\">\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Block No</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t        id=\"blockNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.apartmentBlockId\" (ngModelChange)=\"getUnits(report.apartmentBlockId)\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Unit No</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.apartmentBlockUnitId\" [disabled]=\"!isBlockSelected\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div> -->\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Document Date From</label>\n\t\t                    <input class=\"form-control\" name=\"documentDateFrom\" [owlDateTime]=\"documentDateFrom\" [owlDateTimeTrigger]=\"documentDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.documentDateFrom\">\n\t\t\t\t\t\t\t<owl-date-time #documentDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"documentDateFrom\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Document Date To</label>\n\t\t                    <input class=\"form-control\" name=\"documentDateTo\" [owlDateTime]=\"documentDateTo\" [owlDateTimeTrigger]=\"documentDateTo\" placeholder=\"Date\" [(ngModel)]=\"report.documentDateTo\">\n\t\t\t\t\t\t\t<owl-date-time #documentDateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"documentDateTo\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Posting Date From*</label>\n\t\t                    <input class=\"form-control\" name=\"PostingDateFrom\" [owlDateTime]=\"PostingDateFrom\" [owlDateTimeTrigger]=\"PostingDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateFrom\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Posting Date To*</label>\n\t\t                    <input class=\"form-control\" name=\"PostingdateTo\" [owlDateTime]=\"PostingdateTo\" [owlDateTimeTrigger]=\"PostingdateTo\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateTo\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingdateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingdateTo\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Gl Account</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"glAccountNo\" \n\t\t\t\t\t\t        id=\"glAccountNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.GLaccountID\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountsDataList\" [value]=\"item.glaccountId\">{{ item.glaccountName }} {{item.glaccountId}}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Gl Document Type*</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"glDocumentType\" \n\t\t\t\t\t\t        id=\"glDocumentType\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.GLDocumentTypeID\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of glDocumentTypeDataList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div> -->\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"incomeReportsForm.invalid\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</div>\n\n    </div>\n    \n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear mt-30\" *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"list-inline float-left\">\n    \t\t\t<h5>Reports <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p *ngIf=\"!isReportSubmitted\">Transactions From <span class=\"tc-blue m-bold\">{{getDate(report.documentDateFrom)}}</span> To <span class=\"tc-blue m-bold\">{{getDate(report.documentDateTo)}}</span> </p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" >\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\t\n\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('custInvoiceId')\">Customer Invoice Id<span [ngClass]=\"getFieldOrderBy('custInvoiceId')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('apartmentBlock')\">Block No<span [ngClass]=\"getFieldOrderBy('apartmentBlock')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('apartmentBlockUnitNumber')\">Unit No<span [ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('creditAmount')\">Credit Amount<span [ngClass]=\"getFieldOrderBy('creditAmount')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('debitAmount')\">Debit Amount<span [ngClass]=\"getFieldOrderBy('debitAmount')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('glaccountname')\">Gl Account Name<span [ngClass]=\"getFieldOrderBy('glaccountname')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('documentDate')\">Document Date<span [ngClass]=\"getFieldOrderBy('documentDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('enteredByName')\">Entered By<span [ngClass]=\"getFieldOrderBy('enteredByName')\"></span></th>\n\t\t\t\t       <th scope=\"col\" (click)=\"sortUnitData('entryDateTime')\">Entry Date & Time<span [ngClass]=\"getFieldOrderBy('entryDateTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posting Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('clearingDate')\">Clearing Date<span [ngClass]=\"getFieldOrderBy('clearingDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('clearingDocumentNumber')\">Clearing Document No <span [ngClass]=\"getFieldOrderBy('clearingDocumentNumber')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let report of reportsDataList | simpleSearch: reportsData | sort : unitFieldType: unitOrder| slice:ItemStartIndex:ItemEndIndex  ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{report.custInvoiceId}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.apartmentBlock}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.apartmentBlockUnitNumber}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.creditAmount}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.debitAmount}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.glaccountname}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.documentDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.enteredByName}}</td>\n\t\t\t\t      <td class=\"grey\">{{getTimeFormat(report.entryDateTime)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.postingDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.clearingDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.clearingDocumentNumber}}</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-journal-wrapper\">\n\n    <h4 class=\"main-title-mini\">Journal Entries</h4>\n\n\t<div class=\"card clear\">\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Posting Date From*</label>\n\t\t                    <input class=\"form-control\" name=\"PostingDateFrom\" [owlDateTime]=\"PostingDateFrom\" [owlDateTimeTrigger]=\"PostingDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateFrom\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Posting Date To*</label>\n\t\t                    <input class=\"form-control\" name=\"PostingdateTo\" [owlDateTime]=\"PostingdateTo\" [owlDateTimeTrigger]=\"PostingdateTo\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateTo\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingdateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingdateTo\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"incomeReportsForm.invalid\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</div>\n\n    </div>\n    \n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear mt-30\" *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"list-inline float-left\">\n    \t\t\t<h5>Reports <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p *ngIf=\"!isReportSubmitted\">Transactions From <span class=\"tc-blue m-bold\">{{getDate(report.documentDateFrom)}}</span> To <span class=\"tc-blue m-bold\">{{getDate(report.documentDateTo)}}</span> </p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" >\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\t\n\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('custInvoiceId')\">Customer Invoice Id<span [ngClass]=\"getFieldOrderBy('custInvoiceId')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('apartmentBlock')\">Block No<span [ngClass]=\"getFieldOrderBy('apartmentBlock')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('apartmentBlockUnitNumber')\">Unit No<span [ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('creditAmount')\">Credit Amount<span [ngClass]=\"getFieldOrderBy('creditAmount')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('debitAmount')\">Debit Amount<span [ngClass]=\"getFieldOrderBy('debitAmount')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('glaccountname')\">Gl Account Name<span [ngClass]=\"getFieldOrderBy('glaccountname')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('documentDate')\">Document Date<span [ngClass]=\"getFieldOrderBy('documentDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('enteredByName')\">Entered By<span [ngClass]=\"getFieldOrderBy('enteredByName')\"></span></th>\n\t\t\t\t       <th scope=\"col\" (click)=\"sortUnitData('entryDateTime')\">Entry Date & Time<span [ngClass]=\"getFieldOrderBy('entryDateTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posting Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('clearingDate')\">Clearing Date<span [ngClass]=\"getFieldOrderBy('clearingDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('clearingDocumentNumber')\">Clearing Document No <span [ngClass]=\"getFieldOrderBy('clearingDocumentNumber')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let report of reportsDataList | simpleSearch: reportsData | sort : unitFieldType: unitOrder| slice:ItemStartIndex:ItemEndIndex  ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{report.custInvoiceId}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.apartmentBlock}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.apartmentBlockUnitNumber}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.creditAmount}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.debitAmount}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.glaccountname}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.documentDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.enteredByName}}</td>\n\t\t\t\t      <td class=\"grey\">{{getTimeFormat(report.entryDateTime)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.postingDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.clearingDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.clearingDocumentNumber}}</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>\n");
 
 /***/ }),
 
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-security-deposit-wrapper\">\n\n    <app-loader *ngIf=\"!isDepositLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDepositLoaded\">\n\n        <div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Security Deposit <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t placeholder=\"Search...\" [(ngModel)]=\"securityDepositData\" \n\t\t\t\t\t\t (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t\t<a class=\"btn lime-green mt_5\" id=\"addSecurityDepositElement\" (click)=\"addSecurityDeposit()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Security Deposit</span>\n\t\t\t\t\t\t</a>\n\t\n\t\t\t\t\t</li>\n\t    \t\t</ul>\n            </div>\n\n            <div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"securityDepositDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver\n\t\t\t[theme]=\"'material'\" \n\t\t\t[showCloseButton]=\"true\" \n\t\t\t[selector]=\"popOverSelector\"\n\t\t\t[position]=\"popOverPosition\"\n\t\t\t>\n\t\t\t\t<app-income-add-security-deposit\n\t\t\t\t[deposit]=\"deposit\" \n\t\t\t\t[isEdit]=\"isEditDeposit\" \n\t\t\t\t(outputParams)=\"getSecurityDepositParams($event)\">\n                </app-income-add-security-deposit>\n                \n\t\t\t</jqxPopover>\n\n\t\t\t</div>\n\n        </div>\n\n    </ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-security-deposit-wrapper\">\n\n    <app-loader *ngIf=\"!isDepositLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDepositLoaded\">\n\n        <div class=\"card clear table-card\">\n\t\t\t\n\t\t\t<div class=\"card-header\">\n\t    \t\t<div class=\"float-left\">\n\t    \t\t\t<h5>Security Deposit <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t    \t\t</div>\n\t    \t\t<ul class=\"list-inline\">\n\t    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t placeholder=\"Search...\" [(ngModel)]=\"securityDepositData\" \n\t\t\t\t\t\t (ngModelChange)=\"onGlSearchFilter()\">\n\t    \t\t\t</li>\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t\t<a class=\"btn lime-green mt_5\" id=\"addSecurityDepositElement\" (click)=\"addSecurityDeposit()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Security Deposit</span>\n\t\t\t\t\t\t</a>\n\t\n\t\t\t\t\t</li>\n\t    \t\t</ul>\n            </div>\n\n            <div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"securityDepositDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\n\t\t\t<jqxPopover \n\t\t\t#reversePopOver\n\t\t\t[theme]=\"'material'\"\n\t\t\t[width]=\"popoverWidth\"\n\t\t\t[offset]=\"popoverOffset\" \n\t\t\t[showCloseButton]=\"true\" \n\t\t\t[selector]=\"popOverSelector\"\n\t\t\t[position]=\"popOverPosition\"\n\t\t\t>\n\t\t\t\t<app-income-add-security-deposit\n\t\t\t\t[deposit]=\"deposit\" \n\t\t\t\t[isEdit]=\"isEditDeposit\" \n\t\t\t\t(outputParams)=\"getSecurityDepositParams($event)\">\n                </app-income-add-security-deposit>\n                \n\t\t\t</jqxPopover>\n\n\t\t\t</div>\n\n        </div>\n\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -915,36 +915,26 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isDepositSubmitted = false;
+        this.glAccountIndicator = "Cust_Invoice";
         this.isError = false;
         this.alertMessage = "";
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
-    getCollection(id) {
-        var data = this.billData.filter(item => {
-            return item.collectionId == id;
-        });
-        if (data == undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            this.deposit.invoiceId = data[0].invoiceId;
-        }
-    }
     onSelectChange(event) {
         if (event != null)
-            this.deposit.collectionId = event.collectionId;
+            this.deposit.glaccountId = event.glaccountId;
     }
     submitAddSecuityDepositForm(form) {
         if (!this.isEdit) {
             let details = {
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-                "blockUnitUserId": parseInt(this.route.params['value'].id),
+                "blockUnitUserId": null,
                 "securityDepositId": 0,
-                "glaccountId": 1,
-                "invoiceId": 1,
-                "collectionId": parseInt(this.deposit.collectionId),
-                "transactionType": 1,
+                "glaccountId": parseInt(this.deposit.glaccountId),
+                "invoiceId": null,
+                "collectionId": null,
+                "transactionType": 0,
                 "amount": parseInt(this.deposit.amount),
                 "comment": this.deposit.comment,
                 "comment2": this.deposit.comment,
@@ -958,12 +948,10 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 custSecurity: details
             };
             this.accountsService.addSecurityDeposit(params).subscribe((res) => {
-                if (res.error == 'Sucess') {
+                if (res.creditNoteId) {
                     this.isDepositSubmitted = true;
-                    this.sharedService.setAlertMessage("Customer Advance added successfully");
+                    this.sharedService.setAlertMessage("Security Deposit added successfully");
                     this.outputParams.emit(true);
-                    /*this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-                    this.router.navigateByUrl('/ams/income/actions/view-creditnote/' + this.route.params['value'].id));*/
                 }
                 else {
                     this.isDepositSubmitted = true;
@@ -1025,18 +1013,20 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
         }
     }
     ngOnInit() {
-        this.deposit.collectionId = "";
+        this.deposit.glaccountId = "";
         let params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             apartmentBlockUnitId: this.route.params['value'].id
         };
-        this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
-            this.billData = res;
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
+            this.glAccountsDataList = res.filter(item => {
+                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
+            });
             this.isDepositSubmitted = true;
         });
     }
     ngOnChanges(changes) {
-        this.deposit.collectionId = "";
+        this.deposit.glaccountId = "";
     }
 };
 IncomeAddSecurityDepositComponent.ctorParameters = () => [
@@ -1568,12 +1558,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeJournalComponent", function() { return IncomeJournalComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -1582,7 +1574,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeJournalComponent = class IncomeJournalComponent {
-    constructor(apartmentService, accountsService, lookupService, cookieService) {
+    constructor(route, apartmentService, accountsService, lookupService, cookieService) {
+        this.route = route;
         this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
@@ -1632,25 +1625,25 @@ let IncomeJournalComponent = class IncomeJournalComponent {
         return this.totalItems == 0 ? true : false;
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("YYYY-MM-DD");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("YYYY-MM-DD");
     }
     getTimeFormat(dateTime) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(dateTime).format("YYYY-MM-DD HH:mm");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(dateTime).format("YYYY-MM-DD HH:mm");
     }
     submitIncomeReportsForm(form) {
         this.isReportSubmitted = true;
         this.isDataLoaded = false;
         let details = {
-            BlockID: parseInt(this.report.apartmentBlockId),
-            ApartmentBlockUnitId: parseInt(this.report.apartmentBlockUnitId),
-            DocumentdateFrom: this.getDateFormat(this.report.documentDateFrom),
-            DocumentdateTo: this.getDateFormat(this.report.documentDateTo),
+            BlockID: null,
+            ApartmentBlockUnitId: parseInt(this.apartmentBlockUnitId),
+            DocumentdateFrom: null,
+            DocumentdateTo: null,
             PostingdateFrom: this.getDateFormat(this.report.PostingdateFrom),
             PostingdateTo: this.getDateFormat(this.report.PostingdateTo),
-            GLaccountID: parseInt(this.report.GLaccountID),
+            GLaccountID: null,
             GLDocumentTypeID: 31,
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
@@ -1670,8 +1663,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
     }
     ngOnInit() {
         this.report = {};
-        this.report.apartmentBlockId = "";
-        this.report.apartmentBlockUnitId = "";
+        this.apartmentBlockUnitId = parseInt(this.route.params['value'].id);
         this.report.GLaccountID = "";
         this.report.GLDocumentTypeID = "";
         let blockParams = {
@@ -1696,10 +1688,11 @@ let IncomeJournalComponent = class IncomeJournalComponent {
     }
 };
 IncomeJournalComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 IncomeJournalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1707,10 +1700,11 @@ IncomeJournalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-journal.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-journal/income-journal.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-journal.component.scss */ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomeJournalComponent);
 
 
@@ -3167,6 +3161,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
         this.isEditDeposit = false;
         this.popOverSelector = '#addSecurityDepositElement';
         this.popOverPosition = 'bottom';
+        this.popoverWidth = '600';
         setTimeout(() => {
             this.reversePopOver.createComponent();
             this.reversePopOver.open();
@@ -3179,6 +3174,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
         this.deposit = dataRecord;
         this.popOverSelector = '#' + transactionId;
         this.popOverPosition = 'left';
+        this.popoverWidth = '200';
         setTimeout(() => {
             this.reversePopOver.createComponent();
             this.reversePopOver.open();
@@ -3204,7 +3200,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
         });
     }
     ngOnInit() {
-        this.apartmentBlockUnitId = this.route.params['value'].id;
+        this.apartmentBlockUnitId = parseInt(this.route.params['value'].id);
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -3256,6 +3252,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
                 width: 120,
                 cellsrenderer: (row) => {
                     let elemId = this.securityDepositDataList.loadedData[row].transactionId;
+                    console.log(elemId);
                     return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editSecurityDepositEvent(' + row + ')" ><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
                 },
                 renderer: columnrenderer
@@ -3278,7 +3275,7 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxpopover__WEBPACK_IMPORTED_MODULE_7__["jqxPopoverComponent"])
 ], IncomeSecurityDepositComponent.prototype, "reversePopOver", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCustomerAdvances', ['$event.detail']),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onSecurityDeposit', ['$event.detail']),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
