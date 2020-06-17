@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isAccountDataLoaded\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-4\" *ngIf=\"isEditInvoice\"><span>Invoice ID: </span>{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.custInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #custInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"custInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-card-wrapper\">\n\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t\t<div class=\"w-250 heads\">Account*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t\t<div class=\"w-200 heads\">Comments*</div>\n\t\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\"\n\t\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Discount</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\" [ngClass]=\"isDeselectColumn()\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" \n\t\t\t\t\t\t\t\t\t[readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\"\n\t\t\t\t\t\t\t\t\t[tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountFinalChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\t\t\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\t\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isAccountDataLoaded && !isGeneralInvoice\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-4\" *ngIf=\"isEditInvoice\"><span>Invoice ID: </span>{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf =\"isGeneralInvoice\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Block No*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Block\"\n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockId\" (ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"isGeneralInvoice\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Unit No*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockUnitId\" [disabled] = \"!isBlockSelected\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of unitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.custInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #custInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"custInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-card-wrapper\">\n\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t\t<div class=\"w-250 heads\">Account*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t\t<div class=\"w-200 heads\">Comments*</div>\n\t\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\"\n\t\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Discount</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\" [ngClass]=\"isDeselectColumn()\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" \n\t\t\t\t\t\t\t\t\t[readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\"\n\t\t\t\t\t\t\t\t\t[tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountFinalChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\t\t\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -2557,12 +2557,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+
 
 
 
@@ -2573,9 +2575,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
-    constructor(router, route, accountsService, lookupService, sharedService, cookieService) {
+    constructor(router, route, apartmentService, accountsService, lookupService, sharedService, cookieService) {
         this.router = router;
         this.route = route;
+        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -2587,6 +2590,10 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
         this.isFormInValid = true;
         this.isAccountDataLoaded = false;
         this.isSingleInvoice = false;
+        this.isGeneralInvoice = false;
+        this.isBlockSelected = false;
+        this.apartmentBlockId = "";
+        this.apartmentBlockUnitId = "";
     }
     addInvoice() {
         let details = {
@@ -2619,13 +2626,13 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
             "discountDirectAmt": parseFloat(this.invoiceGLAccountsData.discountDirectAmt)
         };
         this.invoiceGLAccountsArray.push(details);
-        this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.invoiceGLAccountsArray, item => {
+        this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.invoiceGLAccountsArray, item => {
             return !item.form;
         });
     }
     getFieldParams(event) {
         this.invoiceGLAccountsArray = event;
-        this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.invoiceGLAccountsArray, item => {
+        this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.invoiceGLAccountsArray, item => {
             return !item.form;
         });
         let subAmount = this.invoiceGLAccountsArray.map(item => item.lineItemTotal).reduce((a, b) => a + b);
@@ -2642,7 +2649,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 this.custInvoiceTaxArray.push(event);
         }
         else {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, item => {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.vatTypeDataList, item => {
                 if (item.lookupValueId == event.invoiceTaxId) {
                     item.custVatTypeAmount = 0;
                 }
@@ -2689,7 +2696,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
     }
     calculateDiscountPercent(value) {
         var totalVatAmount = 0;
-        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceGLAccountsArray, item => {
+        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceGLAccountsArray, item => {
             totalVatAmount = totalVatAmount + item.vatamount;
         });
         if (value != null) {
@@ -2723,7 +2730,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
         if (!this.isEditInvoice) {
             let details = {
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
                 "custInvoiceDate": this.invoice.custInvoiceDate,
                 "dueDate": this.invoice.dueDate,
@@ -2781,7 +2788,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
             let details = {
                 "custInvoiceId": this.invoice.custInvoiceId,
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
                 "custInvoiceDate": this.invoice.custInvoiceDate,
                 "dueDate": this.invoice.dueDate,
@@ -2839,7 +2846,19 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
     isDeselectColumn() {
         return this.isEditInvoice ? 'deselect' : '';
     }
+    getUnits() {
+        let params = {
+            apartmentBlockId: parseInt(this.apartmentBlockId)
+        };
+        this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
+            this.isBlockSelected = true;
+            this.unitData = res;
+        }, error => {
+            console.log(error);
+        });
+    }
     ngOnInit() {
+        this.apartmentBlockUnitId = this.route.params['value'].id;
         this.invoice = {};
         this.invoice.isTax = false;
         this.invoice.isDiscount = false;
@@ -2939,7 +2958,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
             LookupTypeId: 74
         };
         this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe((res) => {
-            this.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_8__().add(parseInt(res[0].lookupValueName), 'days');
+            this.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_9__().add(parseInt(res[0].lookupValueName), 'days');
         });
         let vatListParams = {
             LookupTypeId: 77
@@ -2947,7 +2966,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
         //VAT types
         this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
             this.vatTypeDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, item => {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.vatTypeDataList, item => {
                 item.custVatTypeAmount = 0;
             });
         });
@@ -2986,15 +3005,29 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 });
                 this.custInvoiceTaxArray = this.invoice.custinvoiceTax;
                 //getting vat amount list
-                underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, item => {
+                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.vatTypeDataList, item => {
                     var totalVatAmount = 0;
-                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.custInvoiceTaxArray, data => {
+                    underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.custInvoiceTaxArray, data => {
                         if (data.invoiceTaxId == item.lookupValueId) {
                             item.custVatTypeAmount = data.invoiceTotalAmount;
                         }
                     });
                 });
                 this.isInvoiceSubmitted = true;
+            });
+        }
+        //for general invoice
+        if (this.route.params['value'].type == undefined && this.route.params['value'].invoiceid == undefined) {
+            this.isSingleInvoice = false;
+            this.isEditInvoice = false;
+            this.isGeneralInvoice = true;
+            this.apartmentBlockUnitId = "";
+            let params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            //get apartment blocks
+            this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
+                this.blocksData = res;
             });
         }
         let accountListParams = {
@@ -3011,10 +3044,11 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
 IncomePostMultiInvoiceComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
 IncomePostMultiInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3024,10 +3058,11 @@ IncomePostMultiInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], IncomePostMultiInvoiceComponent);
 
 
@@ -7372,6 +7407,7 @@ const routes = [
     { path: 'subledger', component: _components_income_sub_ledger_income_sub_ledger_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSubLedgerComponent"] },
     { path: 'view-invoice-history/:id', component: _components_income_view_invoice_history_income_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_7__["IncomeViewInvoiceHistoryComponent"] },
     { path: 'all-invoices', component: _components_income_view_invoice_income_view_invoice_component__WEBPACK_IMPORTED_MODULE_6__["IncomeViewInvoiceComponent"] },
+    { path: 'post-invoice', component: _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_9__["IncomePostMultiInvoiceComponent"] },
     { path: 'post-multi-invoice/:id/:type', component: _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_9__["IncomePostMultiInvoiceComponent"] },
     { path: 'edit-invoice/:id/:invoiceid', component: _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_9__["IncomePostMultiInvoiceComponent"] },
     { path: 'pay-invoice/:id', component: _components_income_pay_invoice_income_pay_invoice_component__WEBPACK_IMPORTED_MODULE_10__["IncomePayInvoiceComponent"] },

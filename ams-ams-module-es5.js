@@ -10870,18 +10870,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return m.UnitUsersModule;
           });
         }
-      }, {
-        path: 'inbox',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() | ams-inbox-ams-inbox-module */
-          "ams-inbox-ams-inbox-module").then(__webpack_require__.bind(null,
-          /*! ./ams-inbox/ams-inbox.module */
-          "./src/app/ams/ams-inbox/ams-inbox.module.ts")).then(function (m) {
-            return m.AmsInboxModule;
-          });
-        }
-      }, {
+      }, // { path: 'inbox', loadChildren: () => import('./ams-inbox/ams-inbox.module').then(m => m.AmsInboxModule) },
+      {
         path: 'helpdesk',
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
@@ -11187,6 +11177,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           /*! ./todo/todo.module */
           "./src/app/ams/todo/todo.module.ts")).then(function (m) {
             return m.TodoModule;
+          });
+        }
+      }, {
+        path: 'inbox',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | inbox-inbox-module */
+          "inbox-inbox-module").then(__webpack_require__.bind(null,
+          /*! ./inbox/inbox.module */
+          "./src/app/ams/inbox/inbox.module.ts")).then(function (m) {
+            return m.InboxModule;
           });
         }
       }, {

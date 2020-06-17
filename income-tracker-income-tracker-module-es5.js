@@ -241,7 +241,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isAccountDataLoaded\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-4\" *ngIf=\"isEditInvoice\"><span>Invoice ID: </span>{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.custInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #custInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"custInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-card-wrapper\">\n\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t\t<div class=\"w-250 heads\">Account*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t\t<div class=\"w-200 heads\">Comments*</div>\n\t\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\"\n\t\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Discount</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\" [ngClass]=\"isDeselectColumn()\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" \n\t\t\t\t\t\t\t\t\t[readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\"\n\t\t\t\t\t\t\t\t\t[tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountFinalChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\t\t\n\t</ng-container>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\t\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isAccountDataLoaded && !isGeneralInvoice\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-4\" *ngIf=\"isEditInvoice\"><span>Invoice ID: </span>{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf =\"isGeneralInvoice\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Block No*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Block\"\n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockId\" (ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"isGeneralInvoice\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Unit No*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockUnitId\" [disabled] = \"!isBlockSelected\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of unitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.custInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #custInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"custInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-card-wrapper\">\n\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t\t<div class=\"w-250 heads\">Account*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t\t<div class=\"w-200 heads\">Comments*</div>\n\t\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\"\n\t\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Discount</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\" [ngClass]=\"isDeselectColumn()\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" \n\t\t\t\t\t\t\t\t\t[readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\"\n\t\t\t\t\t\t\t\t\t[tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountFinalChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\t\t\n\t</ng-container>\n\n</div>";
     /***/
   },
 
@@ -3490,48 +3490,55 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! underscore */
     "./node_modules/underscore/modules/index-all.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_8___default =
+    var moment__WEBPACK_IMPORTED_MODULE_9___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
     var IncomePostMultiInvoiceComponent =
     /*#__PURE__*/
     function () {
-      function IncomePostMultiInvoiceComponent(router, route, accountsService, lookupService, sharedService, cookieService) {
+      function IncomePostMultiInvoiceComponent(router, route, apartmentService, accountsService, lookupService, sharedService, cookieService) {
         _classCallCheck(this, IncomePostMultiInvoiceComponent);
 
         this.router = router;
         this.route = route;
+        this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -3543,6 +3550,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isFormInValid = true;
         this.isAccountDataLoaded = false;
         this.isSingleInvoice = false;
+        this.isGeneralInvoice = false;
+        this.isBlockSelected = false;
+        this.apartmentBlockId = "";
+        this.apartmentBlockUnitId = "";
       }
 
       _createClass(IncomePostMultiInvoiceComponent, [{
@@ -3578,7 +3589,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "discountDirectAmt": parseFloat(this.invoiceGLAccountsData.discountDirectAmt)
           };
           this.invoiceGLAccountsArray.push(details);
-          this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.invoiceGLAccountsArray, function (item) {
+          this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.invoiceGLAccountsArray, function (item) {
             return !item.form;
           });
         }
@@ -3586,7 +3597,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getFieldParams",
         value: function getFieldParams(event) {
           this.invoiceGLAccountsArray = event;
-          this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](this.invoiceGLAccountsArray, function (item) {
+          this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.invoiceGLAccountsArray, function (item) {
             return !item.form;
           });
           var subAmount = this.invoiceGLAccountsArray.map(function (item) {
@@ -3617,7 +3628,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (event.isAdded) {
             if (!this.custInvoiceTaxArray.includes(event)) this.custInvoiceTaxArray.push(event);
           } else {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.vatTypeDataList, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.vatTypeDataList, function (item) {
               if (item.lookupValueId == event.invoiceTaxId) {
                 item.custVatTypeAmount = 0;
               }
@@ -3670,7 +3681,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "calculateDiscountPercent",
         value: function calculateDiscountPercent(value) {
           var totalVatAmount = 0;
-          underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceGLAccountsArray, function (item) {
+          underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceGLAccountsArray, function (item) {
             totalVatAmount = totalVatAmount + item.vatamount;
           });
 
@@ -3712,7 +3723,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (!this.isEditInvoice) {
             var details = {
               "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-              "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+              "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
               "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
               "custInvoiceDate": this.invoice.custInvoiceDate,
               "dueDate": this.invoice.dueDate,
@@ -3770,7 +3781,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var _details4 = {
               "custInvoiceId": this.invoice.custInvoiceId,
               "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-              "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+              "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
               "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
               "custInvoiceDate": this.invoice.custInvoiceDate,
               "dueDate": this.invoice.dueDate,
@@ -3832,10 +3843,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.isEditInvoice ? 'deselect' : '';
         }
       }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
+        key: "getUnits",
+        value: function getUnits() {
           var _this31 = this;
 
+          var params = {
+            apartmentBlockId: parseInt(this.apartmentBlockId)
+          };
+          this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
+            _this31.isBlockSelected = true;
+            _this31.unitData = res;
+          }, function (error) {
+            console.log(error);
+          });
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this32 = this;
+
+          this.apartmentBlockUnitId = this.route.params['value'].id;
           this.invoice = {};
           this.invoice.isTax = false;
           this.invoice.isDiscount = false;
@@ -3932,15 +3959,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 74
           };
           this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe(function (res) {
-            _this31.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_8__().add(parseInt(res[0].lookupValueName), 'days');
+            _this32.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_9__().add(parseInt(res[0].lookupValueName), 'days');
           });
           var vatListParams = {
             LookupTypeId: 77
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this31.vatTypeDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this31.vatTypeDataList, function (item) {
+            _this32.vatTypeDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this32.vatTypeDataList, function (item) {
               item.custVatTypeAmount = 0;
             });
           });
@@ -3949,7 +3976,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //discount types
 
           this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe(function (res) {
-            _this31.discountFinalTypeDataList = res;
+            _this32.discountFinalTypeDataList = res;
           }); //for post single invoice
 
           if (this.route.params['value'].type == 'single' && this.route.params['value'].invoiceid == undefined) {
@@ -3974,24 +4001,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               invoiceId: this.route.params['value'].invoiceid
             };
             this.accountsService.getCustInvoiceById(params).subscribe(function (res) {
-              _this31.invoice = res[0];
-              _this31.invoiceGLAccountsArray = _this31.invoice.invoiceGLAccounts;
+              _this32.invoice = res[0];
+              _this32.invoiceGLAccountsArray = _this32.invoice.invoiceGLAccounts;
 
-              _this31.invoiceGLAccountsArray.forEach(function (item) {
+              _this32.invoiceGLAccountsArray.forEach(function (item) {
                 item.form = true;
               });
 
-              _this31.custInvoiceTaxArray = _this31.invoice.custinvoiceTax; //getting vat amount list
+              _this32.custInvoiceTaxArray = _this32.invoice.custinvoiceTax; //getting vat amount list
 
-              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this31.vatTypeDataList, function (item) {
+              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this32.vatTypeDataList, function (item) {
                 var totalVatAmount = 0;
-                underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this31.custInvoiceTaxArray, function (data) {
+                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this32.custInvoiceTaxArray, function (data) {
                   if (data.invoiceTaxId == item.lookupValueId) {
                     item.custVatTypeAmount = data.invoiceTotalAmount;
                   }
                 });
               });
-              _this31.isInvoiceSubmitted = true;
+              _this32.isInvoiceSubmitted = true;
+            });
+          } //for general invoice
+
+
+          if (this.route.params['value'].type == undefined && this.route.params['value'].invoiceid == undefined) {
+            this.isSingleInvoice = false;
+            this.isEditInvoice = false;
+            this.isGeneralInvoice = true;
+            this.apartmentBlockUnitId = "";
+            var _params5 = {
+              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            }; //get apartment blocks
+
+            this.apartmentService.getApartmentBlockByApartmentId(_params5).subscribe(function (res) {
+              _this32.blocksData = res;
             });
           }
 
@@ -3999,10 +4041,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
-            _this31.accountDataList = res.filter(function (item) {
-              return item.apartmentBlockUnitId == _this31.route.params['value'].id;
+            _this32.accountDataList = res.filter(function (item) {
+              return item.apartmentBlockUnitId == _this32.route.params['value'].id;
             });
-            _this31.isAccountDataLoaded = true;
+            _this32.isAccountDataLoaded = true;
           });
         }
       }]);
@@ -4016,13 +4058,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
       }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+      }, {
         type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
       }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
       }];
     };
 
@@ -4034,7 +4078,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./income-post-multi-invoice.component.scss */
       "./src/app/ams/income-tracker/components/income-post-multi-invoice/income-post-multi-invoice.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], IncomePostMultiInvoiceComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], IncomePostMultiInvoiceComponent);
     /***/
   },
 
@@ -4126,7 +4170,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(IncomeReceiptsReverseComponent, [{
         key: "submitReverseIncomeReceiptsForm",
         value: function submitReverseIncomeReceiptsForm(form) {
-          var _this32 = this;
+          var _this33 = this;
 
           this.isReceiptSubmitted = false;
           var details = {
@@ -4149,22 +4193,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.addCustCollectionReversal(params).subscribe(function (res) {
             if (res.message) {
-              _this32.isReceiptSubmitted = true;
+              _this33.isReceiptSubmitted = true;
 
-              _this32.sharedService.setAlertMessage("Invoice reversed successfully");
+              _this33.sharedService.setAlertMessage("Invoice reversed successfully");
             } else {
-              _this32.isReceiptSubmitted = true;
-              _this32.isError = true;
-              _this32.alertMessage = res.errorMessage;
+              _this33.isReceiptSubmitted = true;
+              _this33.isError = true;
+              _this33.alertMessage = res.errorMessage;
             }
           }, function (error) {
             //this.isReceiptSubmitted = true;
-            _this32.isError = true;
-            _this32.alertMessage = "Some error occured";
+            _this33.isError = true;
+            _this33.alertMessage = "Some error occured";
           }, function () {
-            _this32.isReceiptSubmitted = true;
+            _this33.isReceiptSubmitted = true;
 
-            _this32.childEvent.emit(true);
+            _this33.childEvent.emit(true);
           });
         }
       }, {
@@ -4311,7 +4355,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this33 = this;
+          var _this34 = this;
 
           if (this.securityDepositData != "") {
             var filtergroup = new jqx.filter();
@@ -4324,7 +4368,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this33.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this34.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -4341,22 +4385,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addSecurityDeposit",
         value: function addSecurityDeposit() {
-          var _this34 = this;
+          var _this35 = this;
 
           this.isEditDeposit = false;
           this.popOverSelector = '#addSecurityDepositElement';
           this.popOverPosition = 'bottom';
           this.popoverWidth = '600';
           setTimeout(function () {
-            _this34.reversePopOver.createComponent();
+            _this35.reversePopOver.createComponent();
 
-            _this34.reversePopOver.open();
+            _this35.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "onSecurityDeposit",
         value: function onSecurityDeposit(detail) {
-          var _this35 = this;
+          var _this36 = this;
 
           this.isEditDeposit = true;
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -4366,15 +4410,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.popOverPosition = 'left';
           this.popoverWidth = '200';
           setTimeout(function () {
-            _this35.reversePopOver.createComponent();
+            _this36.reversePopOver.createComponent();
 
-            _this35.reversePopOver.open();
+            _this36.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "getSecurityDepositData",
         value: function getSecurityDepositData() {
-          var _this36 = this;
+          var _this37 = this;
 
           this.isDepositLoaded = false;
           var params = {
@@ -4383,13 +4427,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getSecurityDepositByApartmentBlockUnitId(params).subscribe(function (res) {
             var securityDepositDataList = res;
-            _this36.gridSourceData = {
+            _this37.gridSourceData = {
               localdata: securityDepositDataList,
               datatype: "array"
             };
-            _this36.securityDepositDataList = new jqx.dataAdapter(_this36.gridSourceData);
-            _this36.totalItems = securityDepositDataList.length;
-            _this36.isDepositLoaded = true;
+            _this37.securityDepositDataList = new jqx.dataAdapter(_this37.gridSourceData);
+            _this37.totalItems = securityDepositDataList.length;
+            _this37.isDepositLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -4397,7 +4441,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this37 = this;
+          var _this38 = this;
 
           this.apartmentBlockUnitId = parseInt(this.route.params['value'].id);
 
@@ -4452,7 +4496,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             align: 'center',
             width: 120,
             cellsrenderer: function cellsrenderer(row) {
-              var elemId = _this37.securityDepositDataList.loadedData[row].transactionId;
+              var elemId = _this38.securityDepositDataList.loadedData[row].transactionId;
               console.log(elemId);
               return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editSecurityDepositEvent(' + row + ')" ><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
             },
@@ -4646,7 +4690,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllBlockData",
         value: function getAllBlockData() {
-          var _this38 = this;
+          var _this39 = this;
 
           this.filterSelected = 'all';
           this.singleBlock = "Select Block";
@@ -4656,25 +4700,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
             var subLedgerDataList = res;
             console.log(res);
-            _this38.gridSourceData.localdata = subLedgerDataList;
-
-            _this38.datagrid.updatebounddata('cells');
-
-            _this38.calculateTotalAmount(subLedgerDataList);
-          });
-        }
-      }, {
-        key: "getSingleBlock",
-        value: function getSingleBlock(block) {
-          var _this39 = this;
-
-          this.filterSelected = 'single';
-          this.singleBlock = block.apartmentBlockNumber;
-          this.selectedBlockId = block.apartmentBlockId;
-          this.accountsService.getIncomeTrackerSubLedgersByApartmentId(this.params).subscribe(function (res) {
-            var subLedgerDataList = res.filter(function (item) {
-              return item.apartmentBlockNumber == _this39.singleBlock;
-            });
             _this39.gridSourceData.localdata = subLedgerDataList;
 
             _this39.datagrid.updatebounddata('cells');
@@ -4683,16 +4708,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
+        key: "getSingleBlock",
+        value: function getSingleBlock(block) {
+          var _this40 = this;
+
+          this.filterSelected = 'single';
+          this.singleBlock = block.apartmentBlockNumber;
+          this.selectedBlockId = block.apartmentBlockId;
+          this.accountsService.getIncomeTrackerSubLedgersByApartmentId(this.params).subscribe(function (res) {
+            var subLedgerDataList = res.filter(function (item) {
+              return item.apartmentBlockNumber == _this40.singleBlock;
+            });
+            _this40.gridSourceData.localdata = subLedgerDataList;
+
+            _this40.datagrid.updatebounddata('cells');
+
+            _this40.calculateTotalAmount(subLedgerDataList);
+          });
+        }
+      }, {
         key: "calculateTotalAmount",
         value: function calculateTotalAmount(subLedgerDataList) {
-          var _this40 = this;
+          var _this41 = this;
 
           this.totalItems = subLedgerDataList.length;
           this.netDueAmount = 0;
           this.totalDueAmount = 0;
           underscore__WEBPACK_IMPORTED_MODULE_8__["each"](subLedgerDataList, function (item, index) {
-            _this40.netDueAmount = _this40.netDueAmount + item.due;
-            if (item.due >= 0) _this40.totalDueAmount = _this40.totalDueAmount + item.due;
+            _this41.netDueAmount = _this41.netDueAmount + item.due;
+            if (item.due >= 0) _this41.totalDueAmount = _this41.totalDueAmount + item.due;
           });
         }
       }, {
@@ -4730,7 +4774,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this41 = this;
+          var _this42 = this;
 
           if (this.subLedgerData != "") {
             var filtergroup = new jqx.filter();
@@ -4743,7 +4787,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this41.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this42.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -4822,31 +4866,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this42 = this;
+          var _this43 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this42.blockListData = res;
+            _this43.blockListData = res;
             var params = {
-              apartmentId: parseInt(_this42.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this43.cookieService.get('apartmentId'))
             };
 
-            _this42.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
-              _this42.isSubLedgerDataLoaded = true;
-              _this42.filterSelected = 'all';
-              _this42.singleBlock = "Select Block";
+            _this43.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
+              _this43.isSubLedgerDataLoaded = true;
+              _this43.filterSelected = 'all';
+              _this43.singleBlock = "Select Block";
               var subLedgerDataList = res;
-              _this42.gridSourceData = {
+              _this43.gridSourceData = {
                 localdata: subLedgerDataList,
                 datatype: "array"
               };
-              _this42.subLedgerDataList = new jqx.dataAdapter(_this42.gridSourceData);
+              _this43.subLedgerDataList = new jqx.dataAdapter(_this43.gridSourceData);
 
-              _this42.renderColumns();
+              _this43.renderColumns();
 
-              _this42.calculateTotalAmount(subLedgerDataList);
+              _this43.calculateTotalAmount(subLedgerDataList);
             });
           });
         }
@@ -5105,19 +5149,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "drawChart",
         value: function drawChart() {
-          var _this43 = this;
+          var _this44 = this;
 
           setTimeout(function () {
-            _this43.isChartLoaded = true;
+            _this44.isChartLoaded = true;
             var data = {
               labels: ["0-30 Days", "31-60 Days", "61-90 Days", "Over 90 Days"],
               datasets: [{
-                data: [parseInt(_this43.totalAmountItem1Percent), parseInt(_this43.totalAmountItem3Percent), parseInt(_this43.totalAmountItem4Percent), parseInt(_this43.totalAmountItem5Percent)],
+                data: [parseInt(_this44.totalAmountItem1Percent), parseInt(_this44.totalAmountItem3Percent), parseInt(_this44.totalAmountItem4Percent), parseInt(_this44.totalAmountItem5Percent)],
                 backgroundColor: ["#5bcc73", "#00bcd4", "#ff3638", "#3f51b5"],
                 hoverBackgroundColor: ["#5bcc73", "#00bcd4", "#ff3638", "#3f51b5"]
               }]
             };
-            _this43.chart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"](_this43.chartRef.nativeElement, {
+            _this44.chart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"](_this44.chartRef.nativeElement, {
               type: 'doughnut',
               data: data,
               options: {
@@ -5137,7 +5181,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAgeingData",
         value: function getAgeingData() {
-          var _this44 = this;
+          var _this45 = this;
 
           this.totalAmountItem1 = 0;
           this.totalAmountItem3 = 0;
@@ -5169,42 +5213,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isDataLoaded = false;
           this.isChartLoaded = false;
           this.accountsService.getArAgingCollectionDueSummary(ageingParams).subscribe(function (res) {
-            _this44.isDataLoaded = true;
-            _this44.ageingDataDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this44.ageingDataDataList, function (item) {
+            _this45.isDataLoaded = true;
+            _this45.ageingDataDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this45.ageingDataDataList, function (item) {
               item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
-            _this44.totalItems = _this44.ageingDataDataList.length;
+            _this45.totalItems = _this45.ageingDataDataList.length;
 
-            if (_this44.totalItems > _this44.itemLimit) {
-              _this44.ItemEndIndex = _this44.itemLimit;
+            if (_this45.totalItems > _this45.itemLimit) {
+              _this45.ItemEndIndex = _this45.itemLimit;
             } else {
-              _this44.ItemEndIndex = _this44.totalItems;
+              _this45.ItemEndIndex = _this45.totalItems;
             }
 
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this44.ageingDataDataList, function (item, index) {
-              _this44.totalInvoices = _this44.totalInvoices + item.bucketCount1 + item.bucketCount2 + item.bucketCount3 + item.bucketCount4 + item.bucketCount5;
-              _this44.totalAmountItem1 = _this44.totalAmountItem1 + item.bucketAmt1 + item.bucketAmt2;
-              _this44.totalAmountItem3 = _this44.totalAmountItem3 + item.bucketAmt3;
-              _this44.totalAmountItem4 = _this44.totalAmountItem4 + item.bucketAmt4;
-              _this44.totalAmountItem5 = _this44.totalAmountItem5 + item.bucketAmt5;
-              _this44.totalAmount = _this44.totalAmountItem1 + _this44.totalAmountItem3 + _this44.totalAmountItem4 + _this44.totalAmountItem5;
-              _this44.totalAmountItem1Percent = _this44.totalAmountItem1 / _this44.totalAmount * 100;
-              _this44.totalAmountItem3Percent = _this44.totalAmountItem3 / _this44.totalAmount * 100;
-              _this44.totalAmountItem4Percent = _this44.totalAmountItem4 / _this44.totalAmount * 100;
-              _this44.totalAmountItem5Percent = _this44.totalAmountItem5 / _this44.totalAmount * 100;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this45.ageingDataDataList, function (item, index) {
+              _this45.totalInvoices = _this45.totalInvoices + item.bucketCount1 + item.bucketCount2 + item.bucketCount3 + item.bucketCount4 + item.bucketCount5;
+              _this45.totalAmountItem1 = _this45.totalAmountItem1 + item.bucketAmt1 + item.bucketAmt2;
+              _this45.totalAmountItem3 = _this45.totalAmountItem3 + item.bucketAmt3;
+              _this45.totalAmountItem4 = _this45.totalAmountItem4 + item.bucketAmt4;
+              _this45.totalAmountItem5 = _this45.totalAmountItem5 + item.bucketAmt5;
+              _this45.totalAmount = _this45.totalAmountItem1 + _this45.totalAmountItem3 + _this45.totalAmountItem4 + _this45.totalAmountItem5;
+              _this45.totalAmountItem1Percent = _this45.totalAmountItem1 / _this45.totalAmount * 100;
+              _this45.totalAmountItem3Percent = _this45.totalAmountItem3 / _this45.totalAmount * 100;
+              _this45.totalAmountItem4Percent = _this45.totalAmountItem4 / _this45.totalAmount * 100;
+              _this45.totalAmountItem5Percent = _this45.totalAmountItem5 / _this45.totalAmount * 100;
 
-              if (index == _this44.ageingDataDataList.length - 1) {
-                _this44.drawChart();
+              if (index == _this45.ageingDataDataList.length - 1) {
+                _this45.drawChart();
               }
 
               var unitParams = {
-                ApartmentID: parseInt(_this44.cookieService.get('apartmentId')),
-                asOfDate: _this44.asOfDate,
+                ApartmentID: parseInt(_this45.cookieService.get('apartmentId')),
+                asOfDate: _this45.asOfDate,
                 unitId: item.unitID
               };
 
-              _this44.accountsService.getArAgingCollectionDueByUnitId(unitParams).subscribe(function (res) {
+              _this45.accountsService.getArAgingCollectionDueByUnitId(unitParams).subscribe(function (res) {
                 item.invoiceDetails = res;
               }, function (error) {});
             });
@@ -5561,14 +5605,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUnits",
         value: function getUnits(id) {
-          var _this45 = this;
+          var _this46 = this;
 
           var params = {
             apartmentBlockId: parseInt(id)
           };
           this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-            _this45.blockUnitData = res;
-            _this45.isBlockSelected = true;
+            _this46.blockUnitData = res;
+            _this46.isBlockSelected = true;
           });
         }
       }, {
@@ -5604,7 +5648,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitIncomeReportsCustomerForm",
         value: function submitIncomeReportsCustomerForm(form) {
-          var _this46 = this;
+          var _this47 = this;
 
           this.isReportSubmitted = true;
           this.isDataLoaded = false;
@@ -5620,23 +5664,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getCustGltransactionsMultiFilter(details).subscribe(function (res) {
-            _this46.reportsDataList = res;
-            _this46.totalItems = _this46.reportsDataList.length;
+            _this47.reportsDataList = res;
+            _this47.totalItems = _this47.reportsDataList.length;
 
-            if (_this46.totalItems > _this46.itemLimit) {
-              _this46.ItemEndIndex = _this46.itemLimit;
+            if (_this47.totalItems > _this47.itemLimit) {
+              _this47.ItemEndIndex = _this47.itemLimit;
             } else {
-              _this46.ItemEndIndex = _this46.totalItems;
+              _this47.ItemEndIndex = _this47.totalItems;
             }
 
-            _this46.isDataLoaded = true;
-            _this46.isReportSubmitted = false;
+            _this47.isDataLoaded = true;
+            _this47.isReportSubmitted = false;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this47 = this;
+          var _this48 = this;
 
           this.report = {};
           this.report.apartmentBlockId = "";
@@ -5647,11 +5691,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this47.blockData = res;
+            _this48.blockData = res;
           });
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this47.glAccountsDataList = res.filter(function (item) {
-              return item.isActive && parseInt(_this47.cookieService.get('apartmentId')) && item.indicator == _this47.glAccountIndicator;
+            _this48.glAccountsDataList = res.filter(function (item) {
+              return item.isActive && parseInt(_this48.cookieService.get('apartmentId')) && item.indicator == _this48.glAccountIndicator;
             });
           });
           var glDocParams = {
@@ -5659,7 +5703,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //Gl Document 
 
           this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
-            _this47.glDocumentTypeDataList = res;
+            _this48.glDocumentTypeDataList = res;
           }, function (error) {});
         }
       }]);
@@ -5869,7 +5913,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitIncomeReportsVendorForm",
         value: function submitIncomeReportsVendorForm(form) {
-          var _this48 = this;
+          var _this49 = this;
 
           this.isReportSubmitted = true;
           this.isDataLoaded = false;
@@ -5885,23 +5929,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe(function (res) {
-            _this48.reportsDataList = res;
-            _this48.totalItems = _this48.reportsDataList.length;
+            _this49.reportsDataList = res;
+            _this49.totalItems = _this49.reportsDataList.length;
 
-            if (_this48.totalItems > _this48.itemLimit) {
-              _this48.ItemEndIndex = _this48.itemLimit;
+            if (_this49.totalItems > _this49.itemLimit) {
+              _this49.ItemEndIndex = _this49.itemLimit;
             } else {
-              _this48.ItemEndIndex = _this48.totalItems;
+              _this49.ItemEndIndex = _this49.totalItems;
             }
 
-            _this48.isDataLoaded = true;
-            _this48.isReportSubmitted = false;
+            _this49.isDataLoaded = true;
+            _this49.isReportSubmitted = false;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this49 = this;
+          var _this50 = this;
 
           this.report = {};
           this.report.apartmentBlockId = "";
@@ -5912,17 +5956,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this49.blockData = res;
+            _this50.blockData = res;
           });
           var vendorParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this49.vendorData = res;
+            _this50.vendorData = res;
           });
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this49.glAccountsDataList = res.filter(function (item) {
-              return item.isActive && parseInt(_this49.cookieService.get('apartmentId')) && item.indicator == _this49.glAccountIndicator;
+            _this50.glAccountsDataList = res.filter(function (item) {
+              return item.isActive && parseInt(_this50.cookieService.get('apartmentId')) && item.indicator == _this50.glAccountIndicator;
             });
           });
           var glDocParams = {
@@ -5930,7 +5974,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //Gl Document 
 
           this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
-            _this49.glDocumentTypeDataList = res;
+            _this50.glDocumentTypeDataList = res;
           }, function (error) {});
         }
       }]);
@@ -6199,7 +6243,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addAutoinvoiceConfig",
         value: function addAutoinvoiceConfig(data) {
-          var _this50 = this;
+          var _this51 = this;
 
           var reqObj = {};
           reqObj = {
@@ -6223,18 +6267,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.autoinvoiceConfig = reqObj;
           this.accountsService.addAutoinvoiceConfig(params).subscribe(function (res) {
             if (res) {
-              _this50.sharedService.setAlertMessage("Auto invoice config added successfully");
+              _this51.sharedService.setAlertMessage("Auto invoice config added successfully");
 
-              _this50.row = {};
+              _this51.row = {};
 
-              _this50.getAutoinvoiceConfigByApartmentId();
+              _this51.getAutoinvoiceConfigByApartmentId();
             }
           });
         }
       }, {
         key: "updateAutoinvoiceConfig",
         value: function updateAutoinvoiceConfig(data) {
-          var _this51 = this;
+          var _this52 = this;
 
           var reqObj = {};
           reqObj = {
@@ -6258,20 +6302,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.autoinvoiceConfig = reqObj;
           this.accountsService.updateAutoinvoiceConfig(params).subscribe(function (res) {
             if (res) {
-              _this51.sharedService.setAlertMessage("Auto invoice config Updated successfully");
+              _this52.sharedService.setAlertMessage("Auto invoice config Updated successfully");
 
-              _this51.isEditRow = false;
-              _this51.updateAutoInvoiceIndex = -1;
-              _this51.row = {};
+              _this52.isEditRow = false;
+              _this52.updateAutoInvoiceIndex = -1;
+              _this52.row = {};
 
-              _this51.getAutoinvoiceConfigByApartmentId();
+              _this52.getAutoinvoiceConfigByApartmentId();
             }
           });
         }
       }, {
         key: "getAutoinvoiceConfigByApartmentId",
         value: function getAutoinvoiceConfigByApartmentId() {
-          var _this52 = this;
+          var _this53 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -6279,14 +6323,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getAutoinvoiceConfigByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this52.autoInvoicingData = res && res.length > 0 ? res : [];
-              console.log("auto invoice ", _this52.autoInvoicingData);
-              _this52.totalItems = _this52.autoInvoicingData.length;
+              _this53.autoInvoicingData = res && res.length > 0 ? res : [];
+              console.log("auto invoice ", _this53.autoInvoicingData);
+              _this53.totalItems = _this53.autoInvoicingData.length;
 
-              if (_this52.totalItems > _this52.itemLimit) {
-                _this52.ItemEndIndex = _this52.itemLimit;
+              if (_this53.totalItems > _this53.itemLimit) {
+                _this53.ItemEndIndex = _this53.itemLimit;
               } else {
-                _this52.ItemEndIndex = _this52.totalItems;
+                _this53.ItemEndIndex = _this53.totalItems;
               }
             }
           });
@@ -6294,7 +6338,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getGlAccountsIdbyGlAccountTypeId",
         value: function getGlAccountsIdbyGlAccountTypeId() {
-          var _this53 = this;
+          var _this54 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -6303,21 +6347,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getGlAccountsIdbyGlAccountTypeId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this53.glAccountList = res ? res : [];
-              console.log(_this53.glAccountList);
+              _this54.glAccountList = res ? res : [];
+              console.log(_this54.glAccountList);
             }
           });
         }
       }, {
         key: "getApartmentBlockByApartmentId",
         value: function getApartmentBlockByApartmentId() {
-          var _this54 = this;
+          var _this55 = this;
 
           var blockListParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockListParams).subscribe(function (res) {
-            _this54.blockDataList = res ? res : [];
+            _this55.blockDataList = res ? res : [];
           });
         }
       }, {
@@ -6330,7 +6374,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this55 = this;
+          var _this56 = this;
 
           this.isAutoInvoicingDataLoaded = true;
           this.getApartmentBlockByApartmentId(); //VAT
@@ -6340,7 +6384,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 77
           };
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this55.vatPecentageDataList = res.filter(function (item) {
+            _this56.vatPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           }); //TAx
@@ -6350,41 +6394,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 183
           };
           this.lookupService.getLookupValueByLookupTypeId(taxListParams).subscribe(function (res) {
-            _this55.taxPecentageDataList = res.filter(function (item) {
+            _this56.taxPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
           this.getGlAccountsIdbyGlAccountTypeId();
           setTimeout(function () {
-            _this55.getAutoinvoiceConfigByApartmentId();
+            _this56.getAutoinvoiceConfigByApartmentId();
           }, 1000); //DeleteRow
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             console.log("id", id);
 
             if (id != null) {
-              if (_this55.deleteType) {
+              if (_this56.deleteType) {
                 var deleteparam = {};
                 deleteparam = {
-                  apartmentId: _this55.cookieService.get('apartmentId'),
+                  apartmentId: _this56.cookieService.get('apartmentId'),
                   Id: id,
-                  deleteBy: parseInt(_this55.cookieService.get('userId'))
+                  deleteBy: parseInt(_this56.cookieService.get('userId'))
                 };
 
-                _this55.accountsService.deleteAutoinvoiceConfig(deleteparam).subscribe(function (res) {
+                _this56.accountsService.deleteAutoinvoiceConfig(deleteparam).subscribe(function (res) {
                   if (res.message) {
-                    _this55.getAutoinvoiceConfigByApartmentId();
+                    _this56.getAutoinvoiceConfigByApartmentId();
 
                     setTimeout(function () {
-                      _this55.sharedService.setAlertMessage("Auto invoicing deleted successfully");
+                      _this56.sharedService.setAlertMessage("Auto invoicing deleted successfully");
 
-                      _this55.sharedService.setUnitListDeleteIndex(null);
+                      _this56.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   } else {
-                    _this55.sharedService.setAlertMessage(res.errorMessage);
+                    _this56.sharedService.setAlertMessage(res.errorMessage);
                   }
 
-                  _this55.deleteType = true;
+                  _this56.deleteType = true;
                 }, function (error) {
                   console.log(error);
                 });
@@ -6566,7 +6610,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addCustAccount",
         value: function addCustAccount(data) {
-          var _this56 = this;
+          var _this57 = this;
 
           console.log("add cust ", data);
           var reqObj = {};
@@ -6585,10 +6629,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.custAccount = reqObj;
           this.accountsService.addCustAccount(params).subscribe(function (res) {
             if (res.message) {
-              _this56.sharedService.setAlertMessage("Custom account added successfully"); // this.row ={};
+              _this57.sharedService.setAlertMessage("Custom account added successfully"); // this.row ={};
 
             } else {
-              _this56.sharedService.setAlertMessage(res.errorMessage);
+              _this57.sharedService.setAlertMessage(res.errorMessage);
             }
           });
           this.isEditReconciliation = !this.isEditReconciliation;
@@ -6596,7 +6640,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCustomerLookupValueByLookupTypeId",
         value: function getCustomerLookupValueByLookupTypeId() {
-          var _this57 = this;
+          var _this58 = this;
 
           //customerpayment
           var custPayParams = {
@@ -6604,16 +6648,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 74
           };
           this.lookupService.getLookupValueByLookupTypeId(custPayParams).subscribe(function (res) {
-            _this57.custIncomelist = res.filter(function (item) {
+            _this58.custIncomelist = res.filter(function (item) {
               return item.isActive;
             });
-            _this57.custIncomelist = _this57.custIncomelist && _this57.custIncomelist.length > 0 ? _this57.custIncomelist : []; // this.customerIncomeValue.lookupValueId = this.custIncomelist[0].lookupValueId;
+            _this58.custIncomelist = _this58.custIncomelist && _this58.custIncomelist.length > 0 ? _this58.custIncomelist : []; // this.customerIncomeValue.lookupValueId = this.custIncomelist[0].lookupValueId;
           });
         }
       }, {
         key: "getVatgetLookupValueByLookupTypeId",
         value: function getVatgetLookupValueByLookupTypeId() {
-          var _this58 = this;
+          var _this59 = this;
 
           //VAT
           var vatListParams = {
@@ -6621,7 +6665,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 77
           };
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this58.vatPecentageDataList = res.filter(function (item) {
+            _this59.vatPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -6629,7 +6673,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getTaxgetLookupValueByLookupTypeId",
         value: function getTaxgetLookupValueByLookupTypeId() {
-          var _this59 = this;
+          var _this60 = this;
 
           //TAx
           var taxListParams = {
@@ -6637,7 +6681,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 183
           };
           this.lookupService.getLookupValueByLookupTypeId(taxListParams).subscribe(function (res) {
-            _this59.taxPecentageDataList = res.filter(function (item) {
+            _this60.taxPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -6646,7 +6690,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addLookupValue",
         value: function addLookupValue(listName) {
-          var _this60 = this;
+          var _this61 = this;
 
           if (listName == 'customerIncomeValue') {
             this.assignValue.lookupTypeId = 74;
@@ -6685,31 +6729,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var params = {};
             params.lookupvalue = reqObj;
             this.lookupService.updateLookupValue(params).subscribe(function (res) {
-              _this60.edit = false;
+              _this61.edit = false;
 
               if (res.message) {
-                _this60.sharedService.setAlertMessage("LookupValue updated successfully");
+                _this61.sharedService.setAlertMessage("LookupValue updated successfully");
 
-                _this60.assignValue = {};
+                _this61.assignValue = {};
 
                 if (listName == 'customerIncomeValue') {
-                  _this60.getCustomerLookupValueByLookupTypeId();
+                  _this61.getCustomerLookupValueByLookupTypeId();
 
-                  _this60.customerIncomeValue = {};
+                  _this61.customerIncomeValue = {};
                 } else if (listName == 'vatValue') {
-                  _this60.getVatgetLookupValueByLookupTypeId();
+                  _this61.getVatgetLookupValueByLookupTypeId();
 
-                  _this60.vatValue = {};
+                  _this61.vatValue = {};
                 } else if (listName == 'taxValue') {
-                  _this60.getTaxgetLookupValueByLookupTypeId();
+                  _this61.getTaxgetLookupValueByLookupTypeId();
 
-                  _this60.taxValue = {};
+                  _this61.taxValue = {};
                 }
               } else {
                 if (res.errorMessage == "updateLookupValue Not Added as it already exist.") {
-                  _this60.sharedService.setAlertMessage("LookupValue not added as it already exist");
+                  _this61.sharedService.setAlertMessage("LookupValue not added as it already exist");
                 } else {
-                  _this60.sharedService.setAlertMessage(res.errorMessage);
+                  _this61.sharedService.setAlertMessage(res.errorMessage);
                 }
               }
             });
@@ -6733,33 +6777,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "subModule": "string",
               "isDisabled": true
             };
-            var _params5 = {};
-            _params5.lookupvalue = _reqObj;
-            console.log("added value ", _params5);
-            this.lookupService.addLookupValue(_params5).subscribe(function (res) {
+            var _params6 = {};
+            _params6.lookupvalue = _reqObj;
+            console.log("added value ", _params6);
+            this.lookupService.addLookupValue(_params6).subscribe(function (res) {
               if (res.message) {
-                _this60.sharedService.setAlertMessage("LookupType added successfully");
+                _this61.sharedService.setAlertMessage("LookupType added successfully");
 
-                _this60.assignValue = {};
+                _this61.assignValue = {};
 
                 if (listName == 'customerIncomeValue') {
-                  _this60.getCustomerLookupValueByLookupTypeId();
+                  _this61.getCustomerLookupValueByLookupTypeId();
 
-                  _this60.customerIncomeValue = {};
+                  _this61.customerIncomeValue = {};
                 } else if (listName == 'vatValue') {
-                  _this60.getVatgetLookupValueByLookupTypeId();
+                  _this61.getVatgetLookupValueByLookupTypeId();
 
-                  _this60.vatValue = {};
+                  _this61.vatValue = {};
                 } else if (listName == 'taxValue') {
-                  _this60.getTaxgetLookupValueByLookupTypeId();
+                  _this61.getTaxgetLookupValueByLookupTypeId();
 
-                  _this60.taxValue = {};
+                  _this61.taxValue = {};
                 }
               } else {
                 if (res.errorMessage == "addLookupValue Not Added as it already exist.") {
-                  _this60.sharedService.setAlertMessage("LookupValue not added as it already exist");
+                  _this61.sharedService.setAlertMessage("LookupValue not added as it already exist");
                 } else {
-                  _this60.sharedService.setAlertMessage(res.errorMessage);
+                  _this61.sharedService.setAlertMessage(res.errorMessage);
                 }
               }
             });
@@ -6792,7 +6836,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteLookupvalue",
         value: function deleteLookupvalue(index, listName, data) {
-          var _this61 = this;
+          var _this62 = this;
 
           var params = {
             lookupValueId: data.lookupValueId,
@@ -6800,24 +6844,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
             if (res.message) {
-              _this61.sharedService.setAlertMessage('Lookup value deleted successfully');
+              _this62.sharedService.setAlertMessage('Lookup value deleted successfully');
 
               if (listName == 'customerIncomeValue') {
-                _this61.getCustomerLookupValueByLookupTypeId();
+                _this62.getCustomerLookupValueByLookupTypeId();
               } else if (listName == 'vatValue') {
-                _this61.getVatgetLookupValueByLookupTypeId();
+                _this62.getVatgetLookupValueByLookupTypeId();
               } else if (listName == 'taxValue') {
-                _this61.getTaxgetLookupValueByLookupTypeId();
+                _this62.getTaxgetLookupValueByLookupTypeId();
               }
             } else {
-              _this61.sharedService.setAlertMessage(res.errorMessage);
+              _this62.sharedService.setAlertMessage(res.errorMessage);
             }
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this62 = this;
+          var _this63 = this;
 
           this.getCustomerLookupValueByLookupTypeId();
           this.getVatgetLookupValueByLookupTypeId();
@@ -6828,11 +6872,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 101
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this62.currencyTypeDataList = res.filter(function (item) {
+            _this63.currencyTypeDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this62.currencylookupValueName = _this62.currencyTypeDataList[0].lookupValueName;
-            console.log("current type", _this62.currencyTypeDataList);
+            _this63.currencylookupValueName = _this63.currencyTypeDataList[0].lookupValueName;
+            console.log("current type", _this63.currencyTypeDataList);
           }); //GLAccountTypeId
 
           var glAccountTypeIdparams = {
@@ -6840,11 +6884,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             GLAccountTypeId: 165
           };
           this.accountsService.getGlAccountsIdbyGlAccountTypeId(glAccountTypeIdparams).subscribe(function (res) {
-            _this62.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this62.cookieService.get('apartmentId')) && item.indicator == _this62.glAccountIndicator;
+            _this63.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this63.cookieService.get('apartmentId')) && item.indicator == _this63.glAccountIndicator;
             });
-            console.log("GL ACC ", _this62.glAccountListData);
-            _this62.custAccData.glaccountId = _this62.glAccountListData[0].glaccountId;
+            console.log("GL ACC ", _this63.glAccountListData);
+            _this63.custAccData.glaccountId = _this63.glAccountListData[0].glaccountId;
           });
         }
       }, {
@@ -7041,7 +7085,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addPenaltyConfig",
         value: function addPenaltyConfig(data) {
-          var _this63 = this;
+          var _this64 = this;
 
           var reqObj = {};
           reqObj = {
@@ -7065,21 +7109,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log("added data ", params);
           this.accountsService.addPenaltyConfig(params).subscribe(function (res) {
             if (res.message) {
-              _this63.sharedService.setAlertMessage("Penalty Setup Config added successfully");
+              _this64.sharedService.setAlertMessage("Penalty Setup Config added successfully");
 
-              _this63.isAssetLoaded = false;
-              _this63.row = {};
+              _this64.isAssetLoaded = false;
+              _this64.row = {};
 
-              _this63.getAllPenaltyConfigByApartmentId();
+              _this64.getAllPenaltyConfigByApartmentId();
             } else {
-              _this63.sharedService.setAlertMessage(res.errorMessage);
+              _this64.sharedService.setAlertMessage(res.errorMessage);
             }
           });
         }
       }, {
         key: "updatePenaltyConfig",
         value: function updatePenaltyConfig(data) {
-          var _this64 = this;
+          var _this65 = this;
 
           var reqObj = {};
           reqObj = {
@@ -7102,13 +7146,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.penaltyConfig = reqObj;
           this.accountsService.updatePenaltyConfig(params).subscribe(function (res) {
             if (res) {
-              _this64.sharedService.setAlertMessage("Penalty setup config Updated successfully"); // this.isAssetLoaded = false;
+              _this65.sharedService.setAlertMessage("Penalty setup config Updated successfully"); // this.isAssetLoaded = false;
 
 
-              _this64.isEditRow = false;
-              _this64.updatePenaltyRowIndex = -1;
+              _this65.isEditRow = false;
+              _this65.updatePenaltyRowIndex = -1;
 
-              _this64.getAllPenaltyConfigByApartmentId();
+              _this65.getAllPenaltyConfigByApartmentId();
             }
           });
         }
@@ -7131,7 +7175,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllPenaltyConfigByApartmentId",
         value: function getAllPenaltyConfigByApartmentId() {
-          var _this65 = this;
+          var _this66 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -7142,15 +7186,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res) {
               console.log("resp of penalty", res); // this.penaltyData = [];
 
-              _this65.penaltyData = res && res.length > 0 ? res : [];
-              _this65.isAssetLoaded = false; // this.tempWarehouseData = this.warehouseData;
+              _this66.penaltyData = res && res.length > 0 ? res : [];
+              _this66.isAssetLoaded = false; // this.tempWarehouseData = this.warehouseData;
 
-              _this65.totalItems = _this65.penaltyData.length;
+              _this66.totalItems = _this66.penaltyData.length;
 
-              if (_this65.totalItems > _this65.itemLimit) {
-                _this65.ItemEndIndex = _this65.itemLimit;
+              if (_this66.totalItems > _this66.itemLimit) {
+                _this66.ItemEndIndex = _this66.itemLimit;
               } else {
-                _this65.ItemEndIndex = _this65.totalItems;
+                _this66.ItemEndIndex = _this66.totalItems;
               }
             }
           });
@@ -7158,7 +7202,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPenaltyConfigByPenaltyId",
         value: function getPenaltyConfigByPenaltyId() {
-          var _this66 = this;
+          var _this67 = this;
 
           var queryParamBase = {};
           console.log("data[0]", this.penaltyData);
@@ -7168,16 +7212,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isAssetLoaded = true;
           this.accountsService.getPenaltyConfigByPenaltyId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this66.isAssetLoaded = false;
-              _this66.penaltyType = res ? res : [];
-              console.log("penalty type ==> ", _this66.penaltyType);
+              _this67.isAssetLoaded = false;
+              _this67.penaltyType = res ? res : [];
+              console.log("penalty type ==> ", _this67.penaltyType);
             }
           });
         }
       }, {
         key: "getGlAccountsIdbyGlAccountTypeId",
         value: function getGlAccountsIdbyGlAccountTypeId() {
-          var _this67 = this;
+          var _this68 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -7188,27 +7232,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.accountsService.getGlAccountsIdbyGlAccountTypeId(queryParamBase).subscribe(function (res) {
             if (res) {
               // this.isAssetLoaded = false;
-              _this67.glAccountList = res ? res : [];
-              console.log(_this67.glAccountList);
+              _this68.glAccountList = res ? res : [];
+              console.log(_this68.glAccountList);
             }
           });
         }
       }, {
         key: "getApartmentBlockByApartmentId",
         value: function getApartmentBlockByApartmentId() {
-          var _this68 = this;
+          var _this69 = this;
 
           var blockListParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockListParams).subscribe(function (res) {
-            _this68.blockDataList = res ? res : [];
+            _this69.blockDataList = res ? res : [];
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this69 = this;
+          var _this70 = this;
 
           this.isPenaltySetupDataLoaded = true; // this.addPenaltyRow();
 
@@ -7218,28 +7262,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.getApartmentBlockByApartmentId();
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
-              if (_this69.deleteType) {
+              if (_this70.deleteType) {
                 var param = {};
                 param = {
-                  apartmentId: _this69.cookieService.get('apartmentId'),
+                  apartmentId: _this70.cookieService.get('apartmentId'),
                   PenaltyId: id,
-                  deleteBy: parseInt(_this69.cookieService.get('userId'))
+                  deleteBy: parseInt(_this70.cookieService.get('userId'))
                 };
 
-                _this69.accountsService.deletePenaltyConfig(param).subscribe(function (res) {
+                _this70.accountsService.deletePenaltyConfig(param).subscribe(function (res) {
                   if (res.message) {
-                    _this69.getAllPenaltyConfigByApartmentId();
+                    _this70.getAllPenaltyConfigByApartmentId();
 
                     setTimeout(function () {
-                      _this69.sharedService.setAlertMessage("Penalty deleted successfully");
+                      _this70.sharedService.setAlertMessage("Penalty deleted successfully");
 
-                      _this69.sharedService.setUnitListDeleteIndex(null);
+                      _this70.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   } else {
-                    _this69.sharedService.setAlertMessage(res.errorMessage);
+                    _this70.sharedService.setAlertMessage(res.errorMessage);
                   }
 
-                  _this69.deleteType = false;
+                  _this70.deleteType = false;
                 }, function (error) {
                   console.log(error);
                 });
@@ -7477,7 +7521,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this70 = this;
+          var _this71 = this;
 
           if (this.creditNoteData != "") {
             var filtergroup = new jqx.filter();
@@ -7490,7 +7534,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this70.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this71.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -7506,21 +7550,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addCreditNote",
         value: function addCreditNote() {
-          var _this71 = this;
+          var _this72 = this;
 
           this.isEditCredit = false;
           this.popOverSelector = '#addCreditNoteElement';
           this.popOverPosition = 'bottom';
           setTimeout(function () {
-            _this71.reversePopOver.createComponent();
+            _this72.reversePopOver.createComponent();
 
-            _this71.reversePopOver.open();
+            _this72.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "onEditCreditNote",
         value: function onEditCreditNote(detail) {
-          var _this72 = this;
+          var _this73 = this;
 
           this.isEditCredit = true;
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -7529,15 +7573,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.popOverSelector = '#' + transactionId;
           this.popOverPosition = 'left';
           setTimeout(function () {
-            _this72.reversePopOver.createComponent();
+            _this73.reversePopOver.createComponent();
 
-            _this72.reversePopOver.open();
+            _this73.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "getCreditNotesData",
         value: function getCreditNotesData() {
-          var _this73 = this;
+          var _this74 = this;
 
           this.isCreditNoteLoaded = false;
           var params = {
@@ -7545,13 +7589,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe(function (res) {
             var creditNoteDataList = res;
-            _this73.gridSourceData = {
+            _this74.gridSourceData = {
               localdata: creditNoteDataList,
               datatype: "array"
             };
-            _this73.creditNoteDataList = new jqx.dataAdapter(_this73.gridSourceData);
-            _this73.totalItems = creditNoteDataList.length;
-            _this73.isCreditNoteLoaded = true;
+            _this74.creditNoteDataList = new jqx.dataAdapter(_this74.gridSourceData);
+            _this74.totalItems = creditNoteDataList.length;
+            _this74.isCreditNoteLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -7559,7 +7603,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this74 = this;
+          var _this75 = this;
 
           this.apartmentBlockUnitId = this.route.params['value'].id;
 
@@ -7620,7 +7664,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             align: 'center',
             width: 120,
             cellsrenderer: function cellsrenderer(row) {
-              var elemId = _this74.creditNoteDataList.loadedData[row].transactionId;
+              var elemId = _this75.creditNoteDataList.loadedData[row].transactionId;
               return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editCreditNoteEvent(' + row + ')" ><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
             },
             renderer: columnrenderer
@@ -7766,7 +7810,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(IncomeViewDefaultersComponent, [{
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this75 = this;
+          var _this76 = this;
 
           if (this.defaultData != "") {
             var filtergroup = new jqx.filter();
@@ -7779,7 +7823,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this75.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this76.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -7902,26 +7946,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this76 = this;
+          var _this77 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerDefaulterByApartmentId(params).subscribe(function (res) {
-            _this76.gridDefaultDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this76.gridDefaultDataList, function (item) {
+            _this77.gridDefaultDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this77.gridDefaultDataList, function (item) {
               item.checked = false;
             });
-            _this76.gridSourceData = {
-              localdata: _this76.gridDefaultDataList,
+            _this77.gridSourceData = {
+              localdata: _this77.gridDefaultDataList,
               datatype: "array"
             };
-            _this76.defaultDataList = new jqx.dataAdapter(_this76.gridSourceData);
+            _this77.defaultDataList = new jqx.dataAdapter(_this77.gridSourceData);
 
-            _this76.renderColumns();
+            _this77.renderColumns();
 
-            _this76.totalItems = _this76.defaultDataList.length;
-            _this76.isDefaultersDataLoaded = true;
+            _this77.totalItems = _this77.defaultDataList.length;
+            _this77.isDefaultersDataLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -8187,7 +8231,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getFieldParams",
         value: function getFieldParams(event) {
-          var _this77 = this;
+          var _this78 = this;
 
           this.isInvoiceDataTableLoaded = false;
           var postStartDate = moment__WEBPACK_IMPORTED_MODULE_8__(event.PostStartDate).format('MM-DD-YYYY');
@@ -8198,111 +8242,111 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             PostEndDate: postEndDate
           };
           this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this77.invoiceDataList = res;
+            _this78.invoiceDataList = res;
 
-            _this77.invoiceDataList.forEach(function (item) {
+            _this78.invoiceDataList.forEach(function (item) {
               return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
             }); //filter items
 
 
             if (event.isReversed != null) {
-              _this77.invoiceDataList = _this77.invoiceDataList.filter(function (item) {
+              _this78.invoiceDataList = _this78.invoiceDataList.filter(function (item) {
                 return item.isReversed == event.isReversed;
               });
             }
 
             if (event.isCreditNote != null) {
-              _this77.invoiceDataList = _this77.invoiceDataList.filter(function (item) {
+              _this78.invoiceDataList = _this78.invoiceDataList.filter(function (item) {
                 return item.isCreditNote == event.isCreditNote;
               });
             }
 
             if (event.postedDate != null) {
-              _this77.invoiceDataList = _this77.invoiceDataList.filter(function (item) {
+              _this78.invoiceDataList = _this78.invoiceDataList.filter(function (item) {
                 return moment__WEBPACK_IMPORTED_MODULE_8__(item.postedDate).format("MM-DD-YYYY") == moment__WEBPACK_IMPORTED_MODULE_8__(event.postedDate).format("MM-DD-YYYY");
               });
             }
 
             if (event.billNo != null) {
-              _this77.invoiceDataList = _this77.invoiceDataList.filter(function (item) {
+              _this78.invoiceDataList = _this78.invoiceDataList.filter(function (item) {
                 return item.billNo == event.billNo;
               });
             }
 
             if (event.receiptNo != null) {
-              _this77.invoiceDataList = _this77.invoiceDataList.filter(function (item) {
+              _this78.invoiceDataList = _this78.invoiceDataList.filter(function (item) {
                 return item.receiptNo == event.receiptNo;
               });
             }
-
-            _this77.invoiceDataList.sort(function (a, b) {
-              return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
-            });
-
-            _this77.totalItems = _this77.invoiceDataList.length;
-            _this77.isInvoiceDataTableLoaded = true;
-          }, function (error) {});
-        }
-      }, {
-        key: "tableBinding",
-        value: function tableBinding() {
-          var _this78 = this;
-
-          this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            var glAccountListData = res.filter(function (item) {
-              return item.apartmentId == parseInt(_this78.cookieService.get('apartmentId'));
-            });
-            _this78.glAccountListData = glAccountListData;
-          });
-          var params = {
-            ApartmentBlockUnitID: this.route.params['value'].id
-          };
-          this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this78.invoiceDataList = res;
-
-            _this78.invoiceDataList.forEach(function (item) {
-              return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
-            });
-
-            _this78.invoice = _this78.invoiceDataList[0];
-            _this78.invoicePopOverSlector = '#' + _this78.invoice.billNo;
-            console.log(_this78.invoiceDataList); //sorting by date ( new to old )
 
             _this78.invoiceDataList.sort(function (a, b) {
               return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
             });
 
             _this78.totalItems = _this78.invoiceDataList.length;
-            _this78.gridSourceData = {
-              localdata: _this78.invoiceDataList,
+            _this78.isInvoiceDataTableLoaded = true;
+          }, function (error) {});
+        }
+      }, {
+        key: "tableBinding",
+        value: function tableBinding() {
+          var _this79 = this;
+
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
+            var glAccountListData = res.filter(function (item) {
+              return item.apartmentId == parseInt(_this79.cookieService.get('apartmentId'));
+            });
+            _this79.glAccountListData = glAccountListData;
+          });
+          var params = {
+            ApartmentBlockUnitID: this.route.params['value'].id
+          };
+          this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
+            _this79.invoiceDataList = res;
+
+            _this79.invoiceDataList.forEach(function (item) {
+              return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
+            });
+
+            _this79.invoice = _this79.invoiceDataList[0];
+            _this79.invoicePopOverSlector = '#' + _this79.invoice.billNo;
+            console.log(_this79.invoiceDataList); //sorting by date ( new to old )
+
+            _this79.invoiceDataList.sort(function (a, b) {
+              return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
+            });
+
+            _this79.totalItems = _this79.invoiceDataList.length;
+            _this79.gridSourceData = {
+              localdata: _this79.invoiceDataList,
               datatype: "array"
             };
-            _this78.invoiceDataList = new jqx.dataAdapter(_this78.gridSourceData);
+            _this79.invoiceDataList = new jqx.dataAdapter(_this79.gridSourceData);
             var accountListParams = {
-              apartmentId: parseInt(_this78.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this79.cookieService.get('apartmentId'))
             };
 
-            _this78.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
-              _this78.accountDataList = res.filter(function (item) {
-                return item.apartmentBlockUnitId == _this78.route.params['value'].id;
+            _this79.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
+              _this79.accountDataList = res.filter(function (item) {
+                return item.apartmentBlockUnitId == _this79.route.params['value'].id;
               });
-              _this78.isAccountDataLoaded = true;
+              _this79.isAccountDataLoaded = true;
             });
 
             var userListParams = {
-              apartmentId: parseInt(_this78.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this79.cookieService.get('apartmentId'))
             };
 
-            _this78.userService.getAllUsersByApartmentId(userListParams).subscribe(function (res) {
-              _this78.userDataList = res;
-              _this78.isInvoiceDataLoaded = true;
+            _this79.userService.getAllUsersByApartmentId(userListParams).subscribe(function (res) {
+              _this79.userDataList = res;
+              _this79.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this79 = this;
+          var _this80 = this;
 
           if (this.invoiceData != "") {
             var filtergroup = new jqx.filter();
@@ -8315,7 +8359,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this79.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this80.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -8333,21 +8377,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditReverse",
         value: function onEditReverse(detail) {
-          var _this80 = this;
+          var _this81 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           this.invoice = dataRecord;
           this.invoicePopOverSlector = '#invoiceHistory' + detail.rowId;
           setTimeout(function () {
-            _this80.reversePopOver.createComponent();
+            _this81.reversePopOver.createComponent();
 
-            _this80.reversePopOver.open();
+            _this81.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this81 = this;
+          var _this82 = this;
 
           this.tableBinding();
 
@@ -8364,7 +8408,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             datafield: 'postedDate',
             width: 120,
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(_this81.constantsService.dateFormat) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(_this82.constantsService.dateFormat) + '</div>';
             },
             renderer: columnrenderer
           }, {
@@ -8729,7 +8773,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this82 = this;
+          var _this83 = this;
 
           if (this.invoiceData != "") {
             var filtergroup = new jqx.filter();
@@ -8742,7 +8786,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this82.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this83.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -8753,7 +8797,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDownloadInvoice",
         value: function onDownloadInvoice(detail) {
-          var _this83 = this;
+          var _this84 = this;
 
           var invoice = this.datagrid.getrowdata(detail.rowId);
           this.isInvoicePrintLoaded = false;
@@ -8766,8 +8810,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             invoiceId: invoice.custInvoiceId
           };
           this.accountsService.getCustInvoiceById(params).subscribe(function (res) {
-            _this83.custTaxDetails = res[0].custinvoiceTax;
-            _this83.isInvoicePrintLoaded = true;
+            _this84.custTaxDetails = res[0].custinvoiceTax;
+            _this84.isInvoicePrintLoaded = true;
           });
         }
       }, {
@@ -8781,15 +8825,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditReverse",
         value: function onEditReverse(detail) {
-          var _this84 = this;
+          var _this85 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           this.invoice = dataRecord;
           this.reversePopOverSelector = '#' + this.invoice.custInvoiceId;
           setTimeout(function () {
-            _this84.reversePopOver.createComponent();
+            _this85.reversePopOver.createComponent();
 
-            _this84.reversePopOver.open();
+            _this85.reversePopOver.open();
           }, 100);
         }
       }, {
@@ -8817,7 +8861,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateInvoiceItem",
         value: function updateInvoiceItem(invoice, type) {
-          var _this85 = this;
+          var _this86 = this;
 
           if (type == 'email') {
             if (invoice.isEmailSent) invoice.isEmailSent = false;else invoice.isEmailSent = true;
@@ -8872,12 +8916,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.updateCustInvoice(params).subscribe(function (res) {
             if (res.message) {
-              _this85.sharedService.setAlertMessage("Invoice updated successfully");
+              _this86.sharedService.setAlertMessage("Invoice updated successfully");
             } else {
-              _this85.isInvoiceDataLoaded = true;
+              _this86.isInvoiceDataLoaded = true;
             }
           }, function (error) {
-            _this85.isInvoiceDataLoaded = true;
+            _this86.isInvoiceDataLoaded = true;
           });
         }
       }, {
@@ -8889,7 +8933,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this86 = this;
+          var _this87 = this;
 
           this.popperDataSource = {
             localdata: true,
@@ -8901,13 +8945,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             active: 1
           };
           this.apartmentService.getApartmentByApartmentId(apartmentParams).subscribe(function (res) {
-            _this86.apartmentDetails = res[0];
+            _this87.apartmentDetails = res[0];
           });
           var termsParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getAllTermsConditionsByApartmentId(termsParams).subscribe(function (res) {
-            _this86.apartmentTerms = res.filter(function (item) {
+            _this87.apartmentTerms = res.filter(function (item) {
               return item.termsNo == '2'; //invoice terms
             });
           });
@@ -8916,15 +8960,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this86.vatTypeDataList = res;
+            _this87.vatTypeDataList = res;
           });
           var accountParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
           };
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this86.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this86.cookieService.get('apartmentId')) && item.indicator == _this86.glAccountIndicator;
+            _this87.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this87.cookieService.get('apartmentId')) && item.indicator == _this87.glAccountIndicator;
             });
           }); //BIND THE TABLE
 
@@ -8933,7 +8977,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "tableBindingdata",
         value: function tableBindingdata() {
-          var _this87 = this;
+          var _this88 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
@@ -8943,19 +8987,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             underscore__WEBPACK_IMPORTED_MODULE_14__["each"](invoiceDataList, function (item) {
               item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
-            _this87.invoice = invoiceDataList[0];
-            _this87.reversePopOverSelector = '#' + _this87.invoice.custInvoiceId;
-            _this87.gridSourceData = {
+            _this88.invoice = invoiceDataList[0];
+            _this88.reversePopOverSelector = '#' + _this88.invoice.custInvoiceId;
+            _this88.gridSourceData = {
               localdata: invoiceDataList,
               datatype: "array"
             };
-            _this87.invoiceDataList = new jqx.dataAdapter(_this87.gridSourceData);
+            _this88.invoiceDataList = new jqx.dataAdapter(_this88.gridSourceData);
             /*this.getSourceDataAdapter = (datafield: string): any => {
               let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
               return dataAdapter;
             }*/
 
-            _this87.totalItems = _this87.invoiceDataList.length;
+            _this88.totalItems = _this88.invoiceDataList.length;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -8965,7 +9009,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return '<div style="padding: 14px">' + value + '</div>';
             };
 
-            _this87.columnData = [{
+            _this88.columnData = [{
               text: 'Invoice Id',
               datafield: 'custInvoiceId',
               width: 120,
@@ -8979,7 +9023,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datafield: 'postedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this87.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this88.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -9021,7 +9065,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datafield: 'dueDate',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this87.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this88.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -9048,12 +9092,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               renderer: columnrenderer
             }];
             var params = {
-              apartmentId: parseInt(_this87.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this88.cookieService.get('apartmentId'))
             };
 
-            _this87.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
-              _this87.userDataList = res;
-              _this87.isInvoiceDataLoaded = true;
+            _this88.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
+              _this88.userDataList = res;
+              _this88.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
@@ -9384,7 +9428,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this88 = this;
+          var _this89 = this;
 
           if (this.receiptsData != "") {
             var filtergroup = new jqx.filter();
@@ -9397,7 +9441,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this88.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this89.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -9408,15 +9452,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditReverse",
         value: function onEditReverse(detail) {
-          var _this89 = this;
+          var _this90 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           this.receipts = dataRecord;
           this.reversePopOverSelectorReceipt = '#' + this.receipts.receiptNumber;
           setTimeout(function () {
-            _this89.reversePopOver.createComponent();
+            _this90.reversePopOver.createComponent();
 
-            _this89.reversePopOver.open();
+            _this90.reversePopOver.open();
           }, 100);
         }
       }, {
@@ -9428,7 +9472,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "downloadReceiptEvent",
         value: function downloadReceiptEvent() {
-          var _this90 = this;
+          var _this91 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -9437,8 +9481,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isReceiptPrintLoaded = false;
           this.accountsService.getCollectionByCollectionId(params).subscribe(function (res) {
             // this.custTaxDetails = res[0].custinvoiceTax
-            _this90.isReceiptPrintLoaded = true;
-            _this90.receiptInfoDetails = res;
+            _this91.isReceiptPrintLoaded = true;
+            _this91.receiptInfoDetails = res;
             console.log("receipt list ", res);
           });
           this.dialog.open(this.viewReceiptsDetailsRef, {
@@ -9454,30 +9498,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "tablebinding",
         value: function tablebinding() {
-          var _this91 = this;
+          var _this92 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerReceiptsByApartmentId(params).subscribe(function (res) {
-            _this91.receiptsDataList = res;
-            _this91.receipts = _this91.receiptsDataList[0];
-            _this91.reversePopOverSelectorReceipt = '#' + _this91.receipts.receiptNumber;
-            _this91.gridSourceData = {
-              localdata: _this91.receiptsDataList,
+            _this92.receiptsDataList = res;
+            _this92.receipts = _this92.receiptsDataList[0];
+            _this92.reversePopOverSelectorReceipt = '#' + _this92.receipts.receiptNumber;
+            _this92.gridSourceData = {
+              localdata: _this92.receiptsDataList,
               datatype: "array"
             };
-            _this91.receiptsDataList = new jqx.dataAdapter(_this91.gridSourceData);
-            _this91.totalItems = _this91.receiptsDataList.length;
-            console.log('aaa', _this91.receiptsDataList);
+            _this92.receiptsDataList = new jqx.dataAdapter(_this92.gridSourceData);
+            _this92.totalItems = _this92.receiptsDataList.length;
+            console.log('aaa', _this92.receiptsDataList);
 
-            if (_this91.totalItems > _this91.itemLimit) {
-              _this91.ItemEndIndex = _this91.itemLimit;
+            if (_this92.totalItems > _this92.itemLimit) {
+              _this92.ItemEndIndex = _this92.itemLimit;
             } else {
-              _this91.ItemEndIndex = _this91.totalItems;
+              _this92.ItemEndIndex = _this92.totalItems;
             }
 
-            _this91.isReceiptsLoaded = true;
+            _this92.isReceiptsLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -9485,7 +9529,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this92 = this;
+          var _this93 = this;
 
           this.popperDataSource = {
             localdata: true,
@@ -9521,7 +9565,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             datafield: 'paymentDate',
             minwidth: 120,
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format(_this92.constantsService.dateFormat) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format(_this93.constantsService.dateFormat) + '</div>';
             },
             renderer: columnrenderer
           }, {
@@ -9559,7 +9603,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 120,
             datafield: 'isReversed',
             cellsrenderer: function cellsrenderer(row, coloumn, value) {
-              var elemId = _this92.receiptsDataList.loadedData[row].receiptNumber; // return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent('+ row +')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="'+ elemId +'" onClick="editReverseEvent('+ row +')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>'
+              var elemId = _this93.receiptsDataList.loadedData[row].receiptNumber; // return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent('+ row +')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="'+ elemId +'" onClick="editReverseEvent('+ row +')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>'
 
               return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2 ' + getReverseStatus(value) + '" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">' + '<i class="fa fa-repeat icon delete" aria-hidden="true"></i>' + '</a>' + '<span class="squares medium ml-1 ' + getStatusClassName(value) + '">R</span>' + '</div>';
             },
@@ -9866,6 +9910,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'all-invoices',
       component: _components_income_view_invoice_income_view_invoice_component__WEBPACK_IMPORTED_MODULE_6__["IncomeViewInvoiceComponent"]
+    }, {
+      path: 'post-invoice',
+      component: _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_9__["IncomePostMultiInvoiceComponent"]
     }, {
       path: 'post-multi-invoice/:id/:type',
       component: _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_9__["IncomePostMultiInvoiceComponent"]

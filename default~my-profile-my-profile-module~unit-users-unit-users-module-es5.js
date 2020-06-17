@@ -33,7 +33,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\t\n\t<!-- <div class=\"customize-email\" *ngIf=\"isUserDataLoaded\">\n\t\t<p>You can send customized form to users for approving and onboarding the users in clickmycondo application</p>\n\t\t <a class=\"btn lime-green\">\n\t\t\t<span>Customize Approval Email</span>\n\t\t</a> \n\t</div>  -->\n\n\t<div class=\"card ov card-table\" *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Unapproved Users <span class=\"badge blue\">{{totalUserItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit, View and approve documents</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t[(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/unit&users/add-users\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add User</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body ov p-0\">\n\t\t\t\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"unitListData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t\t<!-- <table  class=\"table table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" class=\"select\">\n\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t    id=\"selectAllUnapprovedUser\" \n\t\t\t\t\t\t\t    name=\"selectAllUnapprovedUser\" \n\t\t\t\t\t\t\t    [(ngModel)]=\"selectAllUnapprovedUser\"\n                            \t(ngModelChange)=\"getAllUnapprovedUser()\" >\n\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"selectAllUnapprovedUser\"></label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t      \t</div>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName \n\t\t\t\t      \t<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span>\n\t\t\t            <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['name']\" (ngModelChange)=\"selectColInput('name')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tPhone <span (click)=\"sortUnitData('phone')\" [ngClass]=\"getFieldOrderBy('phone')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phone']\" (ngModelChange)=\"selectColInput('phone')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tEmail <span  (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tBlock No <span  (click)=\"sortUnitData('apartmentBlockNumber')\" [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Block No\" [(ngModel)]=\"columnField['apartmentBlockNumber']\" (ngModelChange)=\"selectColInput('apartmentBlockNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Unit No <span  (click)=\"sortUnitData('apartmentBlockUnitNumber')\" [ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Unit No\" [(ngModel)]=\"columnField['apartmentBlockUnitNumber']\" (ngModelChange)=\"selectColInput('apartmentBlockUnitNumber')\">\n\t\t\t\t\t  </th>\n\t\t\t\t\t  <th scope=\"col\">Requested On \n\t\t\t\t\t\t<span (click)=\"sortUnitData('insertedOn')\" [ngClass]=\"getFieldOrderBy('insertedOn')\"></span>\n\t\t\t\t\t\t<app-simple-date-box \n\t\t\t\t\t\t  [dateModel]=\"insertedOn\"\n\t\t\t\t\t\t  (inputChange) = \"onDateChange($event, 'insertedOn')\"\n\t\t\t\t\t\t  ></app-simple-date-box>\n\t\t\t\t\t</th>\n\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let unit of unitListData | orderBy : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex | columnSearch: columnField:selectedInput | simpleSearch: unitData ; let i = index\" \n\t\t\t\t    [ngClass]=\"[ unit.checked ? 'selected' : '', unit.active ? '' : 'notactive' ]\">\n\t\t\t\t      <td class=\"select w-50\">\n\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t    id=\"{{unit.id}}\" \n\t                            name=\"{{unit.id}}\"\n\t                            [(ngModel)]=\"unit.checked\"\n\t                            (ngModelChange)=\"getSelectedUnapprovedUser(unit)\"\n\t\t\t\t\t\t\t    >\n\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"{{unit.id}}\"></label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t      \t</div>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t      \t{{unit.name}}</a>\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h6>Status/Notes</h6>\n\t\t\t\t\t\t    \t\t\t<p>{{getNotes(unit.apartmentBlockUnit)}}</p>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h6>Owner/Tenant</h6>\n\t\t\t\t\t\t    \t\t\t<p>{{getUserRole(unit.userRole, i)}}</p>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t  \t  </td>\n\t\t\t\t      <td class=\"grey\">{{unit.phone}}</td>\n\t\t\t\t      <td class=\"grey\">{{unit.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBlockNo(unit, unit.apartmentBlockUnit[0].apartmentBlockNumber)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBlockUnitNo(unit, unit.apartmentBlockUnit[0].apartmentBlockUnitNumber)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{getBookedDate(i, unit.insertedOn)}}</td> \n\t\t\t\t\t <td><i class=\"fa fa-file\" aria-hidden=\"true\" [ngStyle]=\"{'color': getColor(unit.isdocsubmitted)}\" style=\"border: 1;\"></i></td> \n\t\t\t\t\t  <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"viewUserInfo(unit.id)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editUserInfo(unit)\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"  (click)=\"showConfirmModal(unit.id)\"><i-feather class=\"icon del\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table> -->\n\t\t\t<div class=\"button-wrapper\">\n\t\t\t\t<a class=\"btn lime-green sf\"\n    \t\t\t\t(click)=\"approveUsers()\"\n\t\t\t\t\t[ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n\t\t\t\t\t<span>Approve Selected Users</span>\n    \t\t\t</a>\n    \t\t\t<a class=\"btn trans-white sf \"\n    \t\t\t\trouterLink=\"addunit\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"\n\t\t\t\t\t[ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n\t\t\t\t\t<span>Re-send verification link</span>\n    \t\t\t</a>\n    \t\t\t<p>Once approved the user will be informed automatically</p>\n\t\t\t</div>\n\t\t\t<!-- <app-pagination \n\t\t\t\t[totalItems]=\"totalUserItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemUserStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemUserEndIndex\"\n\t\t\t\t[itemLimit] = \"itemUserLimit\"\n\t\t\t\t(outputParams) = \"getUserIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n\t\t</div>\n\t</div>\n\n\t<!-- user Profile -->\n\t<div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t<app-my-profile type=\"admin\" [isProfile]=\"isProfile\" [userId]=\"viewUserId\" (outputParams)=\"getParams($event)\"></app-my-profile>\n\t</div>\n\n\t<div class=\"card mt-30\">\n\t\t<!-- <div class=\"card-header pointer\" (click)=\"showLogs()\" [ngClass]=\"isLogs ? '' : 'no-border'\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5 class=\"p-0\">Logs</h5>\n    \t\t</div>\n    \t\t<div class=\"float-right switch\" [ngClass]=\"isLogs ? 'up' : 'down'\">\n    \t\t\t<a href=\"javascript:void(0)\"></a>\n    \t\t</div>\n  \t\t</div> -->\n  \t\t<div class=\"card-body p-0\" *ngIf=\"isLogs\">\n  \t\t\t\n  \t\t\t<app-loader *ngIf=\"!isLogsDataLoaded\"></app-loader>\n\n  \t\t\t<ng-container *ngIf=\"isLogsDataLoaded\">\n\n\t  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockno')\">Date <span [ngClass]=\"getFieldOrderBy('blockno')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('unitno')\">By <span [ngClass]=\"getFieldOrderBy('unitno')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('sqrt')\">Comment <span [ngClass]=\"getFieldOrderBy('sqrt')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('intercom')\">Before <span [ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('intercom')\">After <span [ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let log of logsData | slice:ItemLogStartIndex:ItemLogEndIndex\">\n\t\t\t\t\t      <td class=\"name\"><a href=\"javascript:void(0)\">{{log.date}}</a></td>\n\t\t\t\t\t      <td class=\"grey\">{{log.by}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{log.comment}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{log.before}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{log.after}}</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalLogItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemLogStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemLogEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLogLimit\"\n\t\t\t\t\t(outputParams) = \"getLogIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t\t\t</ng-container>\n\n  \t\t</div>\n\t</div>\n\n\n\t<!-- <div class=\"card mt-30\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Mass Upload</h5>\n    \t\t\t<p>To create Residents accounts in mass, Download this<a href=\"javascript:void(0)\" class=\"tc-blue ml-2 t-decor\">Excel Template</a>\n    \t\t\t</p>\n    \t\t</div>\n    \t\t\n  \t\t</div>\n  \t\t<div class=\"card-body\">\n  \t\t\t<a class=\"btn sf lime-green\">\n\t\t\t\t<span>Upload Document</span>\n\t\t\t</a>\n\t\t\t<p class=\"info\">If you have any trouble in uploading document, Please raise a\n\t\t\t<a href=\"javascript:void(0)\" class=\"tc-red ml-2 t-decor\">support ticket</a></p>\n  \t\t</div>\n  \t</div> -->\n\n\n  \t<ng-template #viewUnapprovedUserRef let-user>\n    \t<div class=\"user-info info-modal-box rel\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{user.firstName}} {{user.lastName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{user.roleName}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t<p>{{user.userId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Block No</h6>\n\t\t\t\t\t\t\t<p>{{user.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t<p>{{user.address1}} {{user.address2}} {{user.zipCode}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t</div>\n\t</ng-template>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\t\n\t<!-- <div class=\"customize-email\" *ngIf=\"isUserDataLoaded\">\n\t\t<p>You can send customized form to users for approving and onboarding the users in clickmycondo application</p>\n\t\t <a class=\"btn lime-green\">\n\t\t\t<span>Customize Approval Email</span>\n\t\t</a> \n\t</div>  -->\n\n\t<div class=\"card ov card-table\" *ngIf=\"isUserDataLoaded && !isProfile\">\n\t\t<div class=\"card-header d-flex justify-content-between align-items-center\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Unapproved Users <span class=\"badge blue\">{{totalUserItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit, View and approve documents</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t[(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/unit&users/add-users\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add User</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\t(click)=\"approveUsers()\"\n\t\t\t\t\t[ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n\t\t\t\t\t<span>Approve Selected Users</span>\n    \t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body ov p-0\">\n\t\t\t\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"unitListData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t\t<!-- <table  class=\"table table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" class=\"select\">\n\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t    id=\"selectAllUnapprovedUser\" \n\t\t\t\t\t\t\t    name=\"selectAllUnapprovedUser\" \n\t\t\t\t\t\t\t    [(ngModel)]=\"selectAllUnapprovedUser\"\n                            \t(ngModelChange)=\"getAllUnapprovedUser()\" >\n\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"selectAllUnapprovedUser\"></label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t      \t</div>\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName \n\t\t\t\t      \t<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span>\n\t\t\t            <input type=\"text\" class=\"form-control\" placeholder=\"Name\" [(ngModel)]=\"columnField['name']\" (ngModelChange)=\"selectColInput('name')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tPhone <span (click)=\"sortUnitData('phone')\" [ngClass]=\"getFieldOrderBy('phone')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Phone\" [(ngModel)]=\"columnField['phone']\" (ngModelChange)=\"selectColInput('phone')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tEmail <span  (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t <input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tBlock No <span  (click)=\"sortUnitData('apartmentBlockNumber')\" [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Block No\" [(ngModel)]=\"columnField['apartmentBlockNumber']\" (ngModelChange)=\"selectColInput('apartmentBlockNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Unit No <span  (click)=\"sortUnitData('apartmentBlockUnitNumber')\" [ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Unit No\" [(ngModel)]=\"columnField['apartmentBlockUnitNumber']\" (ngModelChange)=\"selectColInput('apartmentBlockUnitNumber')\">\n\t\t\t\t\t  </th>\n\t\t\t\t\t  <th scope=\"col\">Requested On \n\t\t\t\t\t\t<span (click)=\"sortUnitData('insertedOn')\" [ngClass]=\"getFieldOrderBy('insertedOn')\"></span>\n\t\t\t\t\t\t<app-simple-date-box \n\t\t\t\t\t\t  [dateModel]=\"insertedOn\"\n\t\t\t\t\t\t  (inputChange) = \"onDateChange($event, 'insertedOn')\"\n\t\t\t\t\t\t  ></app-simple-date-box>\n\t\t\t\t\t</th>\n\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let unit of unitListData | orderBy : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex | columnSearch: columnField:selectedInput | simpleSearch: unitData ; let i = index\" \n\t\t\t\t    [ngClass]=\"[ unit.checked ? 'selected' : '', unit.active ? '' : 'notactive' ]\">\n\t\t\t\t      <td class=\"select w-50\">\n\t\t\t\t      \t<div class=\"form-group\">\n\t\t\t\t      \t\t<div class=\"form-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" \n\t\t\t\t\t\t\t    id=\"{{unit.id}}\" \n\t                            name=\"{{unit.id}}\"\n\t                            [(ngModel)]=\"unit.checked\"\n\t                            (ngModelChange)=\"getSelectedUnapprovedUser(unit)\"\n\t\t\t\t\t\t\t    >\n\t\t\t\t\t\t\t    <label class=\"form-check-label\" for=\"{{unit.id}}\"></label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t      \t</div>\n\t\t\t\t      </td>\n\t\t\t\t      <td class=\"name\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" placement=\"right\" [ngbPopover]=\"popContent\" triggers=\"mouseenter:mouseleave\">\n\t\t\t\t      \t{{unit.name}}</a>\n\t\t\t\t      \t<ng-template #popContent>\n\t\t\t\t\t\t    <div class=\"pop-desp\">\n\t\t\t\t\t\t    \t<ul>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h6>Status/Notes</h6>\n\t\t\t\t\t\t    \t\t\t<p>{{getNotes(unit.apartmentBlockUnit)}}</p>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t\t<li>\n\t\t\t\t\t\t    \t\t\t<h6>Owner/Tenant</h6>\n\t\t\t\t\t\t    \t\t\t<p>{{getUserRole(unit.userRole, i)}}</p>\n\t\t\t\t\t\t    \t\t</li>\n\t\t\t\t\t\t    \t</ul>\n\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t</ng-template>\n\t\t\t\t  \t  </td>\n\t\t\t\t      <td class=\"grey\">{{unit.phone}}</td>\n\t\t\t\t      <td class=\"grey\">{{unit.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBlockNo(unit, unit.apartmentBlockUnit[0].apartmentBlockNumber)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBlockUnitNo(unit, unit.apartmentBlockUnit[0].apartmentBlockUnitNumber)}}</td>\n\t\t\t\t\t  <td class=\"grey\">{{getBookedDate(i, unit.insertedOn)}}</td> \n\t\t\t\t\t <td><i class=\"fa fa-file\" aria-hidden=\"true\" [ngStyle]=\"{'color': getColor(unit.isdocsubmitted)}\" style=\"border: 1;\"></i></td> \n\t\t\t\t\t  <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"viewUserInfo(unit.id)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editUserInfo(unit)\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"  (click)=\"showConfirmModal(unit.id)\"><i-feather class=\"icon del\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table> -->\n\t\t\t<!-- <div class=\"button-wrapper\">\n\t\t\t\t<a class=\"btn lime-green sf\"\n    \t\t\t\t(click)=\"approveUsers()\"\n\t\t\t\t\t[ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n\t\t\t\t\t<span>Approve Selected Users</span>\n    \t\t\t</a>\n    \t\t\t<a class=\"btn trans-white sf \"\n    \t\t\t\trouterLink=\"addunit\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"\n\t\t\t\t\t[ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n\t\t\t\t\t<span>Re-send verification link</span>\n    \t\t\t</a>\n    \t\t\t<p>Once approved the user will be informed automatically</p>\n\t\t\t</div> -->\n\t\t\t<!-- <app-pagination \n\t\t\t\t[totalItems]=\"totalUserItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemUserStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemUserEndIndex\"\n\t\t\t\t[itemLimit] = \"itemUserLimit\"\n\t\t\t\t(outputParams) = \"getUserIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n\t\t</div>\n\t</div>\n\n\t<!-- user Profile -->\n\t<div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t<app-my-profile type=\"admin\" [isProfile]=\"isProfile\" [userId]=\"viewUserId\" (outputParams)=\"getParams($event)\"></app-my-profile>\n\t</div>\n\n\t<div class=\"card mt-30\">\n\t\t<!-- <div class=\"card-header pointer\" (click)=\"showLogs()\" [ngClass]=\"isLogs ? '' : 'no-border'\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5 class=\"p-0\">Logs</h5>\n    \t\t</div>\n    \t\t<div class=\"float-right switch\" [ngClass]=\"isLogs ? 'up' : 'down'\">\n    \t\t\t<a href=\"javascript:void(0)\"></a>\n    \t\t</div>\n  \t\t</div> -->\n  \t\t<div class=\"card-body p-0\" *ngIf=\"isLogs\">\n  \t\t\t\n  \t\t\t<app-loader *ngIf=\"!isLogsDataLoaded\"></app-loader>\n\n  \t\t\t<ng-container *ngIf=\"isLogsDataLoaded\">\n\n\t  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('blockno')\">Date <span [ngClass]=\"getFieldOrderBy('blockno')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('unitno')\">By <span [ngClass]=\"getFieldOrderBy('unitno')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('sqrt')\">Comment <span [ngClass]=\"getFieldOrderBy('sqrt')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('intercom')\">Before <span [ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('intercom')\">After <span [ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let log of logsData | slice:ItemLogStartIndex:ItemLogEndIndex\">\n\t\t\t\t\t      <td class=\"name\"><a href=\"javascript:void(0)\">{{log.date}}</a></td>\n\t\t\t\t\t      <td class=\"grey\">{{log.by}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{log.comment}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{log.before}}</td>\n\t\t\t\t\t      <td class=\"grey\">{{log.after}}</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalLogItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemLogStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemLogEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLogLimit\"\n\t\t\t\t\t(outputParams) = \"getLogIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t\t\t</ng-container>\n\n  \t\t</div>\n\t</div>\n\n\n\t<!-- <div class=\"card mt-30\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Mass Upload</h5>\n    \t\t\t<p>To create Residents accounts in mass, Download this<a href=\"javascript:void(0)\" class=\"tc-blue ml-2 t-decor\">Excel Template</a>\n    \t\t\t</p>\n    \t\t</div>\n    \t\t\n  \t\t</div>\n  \t\t<div class=\"card-body\">\n  \t\t\t<a class=\"btn sf lime-green\">\n\t\t\t\t<span>Upload Document</span>\n\t\t\t</a>\n\t\t\t<p class=\"info\">If you have any trouble in uploading document, Please raise a\n\t\t\t<a href=\"javascript:void(0)\" class=\"tc-red ml-2 t-decor\">support ticket</a></p>\n  \t\t</div>\n  \t</div> -->\n\n\n  \t<ng-template #viewUnapprovedUserRef let-user>\n    \t<div class=\"user-info info-modal-box rel\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{user?.firstName}} {{user?.lastName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{user?.roleName}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t<p>{{user?.userId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t<p>{{user?.emailId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Block No</h6>\n\t\t\t\t\t\t\t<p>{{user?.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{user?.phoneNumber}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t<p>{{user?.bloodGroup}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t<p>{{user?.address1}} {{user?.address2}} {{user?.zipCode}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n    \t</div>\n\t</ng-template>\n\n</div>";
     /***/
   },
 
@@ -393,7 +393,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"my-profile-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"card user-card mb-20\" *ngIf=\"isUserDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\" [ngClass]=\"isNotAdmin() ? 'd-none' : ''\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\" (click)=\"closeUserInfo()\">\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<div class=\"float-left\">\n\t\t\t\t\n\t\t\t\t<div class=\"media\">\n\t\t\t\t  <div class=\"profile-picture\" (click)=\"uploadProfilePic()\">\n\t\t\t\t  \t<img class=\"svg\" [src] =\"profilePicUrl\" id=\"userProfile\">\n\t\t\t\t  </div>\n\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t    <h5 class=\"mt-0\">{{user.firstName}} {{user.lastName}}</h5>\n\t\t\t\t    <p>{{userRole.roleName}}</p>\n\t\t\t\t    <ul class=\"other list-inline d-none d-sm-block\">\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t\t    \t\t<span>{{user.emailId}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t\t    \t\t<span>{{user.phoneNumber}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    </ul>\n\t\t\t\t  </div>\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"other list-inline d-block d-sm-none\">\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t    \t\t<span>{{user.emailId}}</span>\n\t\t\t    \t</li>\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t    \t\t<span>{{user.phoneNumber}}</span>\n\t\t\t    \t</li>\n\t\t\t\t</ul>\n\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<!-- <div class=\"card-body p-0\" [ngClass]=\"isNotAdmin() ? 'border-top' : ''\"> -->\n\t\t<div class=\"card-body p-0 border-top\"> \n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-3\">\n\t\t\t\t\t<div class=\"left-menubar\">\n\t\t\t\t\t\t<h4 [ngClass]=\"isNotAdmin() ? '' : 'd-none'\">Settings</h4>\n\t\t\t\t\t\t<ul class=\"list-group lists\">\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"basic/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/user-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"unit/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/unit-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Details</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"staffs/{{userId}}\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/staff-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Staffs</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"vehicles/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><i-feather class=\"truck\" name=\"truck\"></i-feather></span>\n\t\t\t\t\t\t\t\t<span>Unit Vehicles & Parking</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"pets/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\" \n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/dog-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Pets</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"propertymanager/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/manager-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Property Manager</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"family/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/family-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Family Members</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"lease/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/key-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Rental/Lease Information</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"interest/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/heart-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>My Interest Group</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"absence/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/moveout-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Out of Condo/Prolonged Absence</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-9 d-none d-md-block\">\n\t\t\t\t\t<div class=\"inner-content\">\n\t\t\t\t\t\t<router-outlet></router-outlet>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"my-profile-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"card user-card mb-20\" *ngIf=\"isUserDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\" [ngClass]=\"isNotAdmin() ? 'd-none' : ''\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\" (click)=\"closeUserInfo()\">\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<div class=\"float-left\">\n\t\t\t\t\n\t\t\t\t<div class=\"media\">\n\t\t\t\t  <div class=\"profile-picture\" (click)=\"uploadProfilePic()\">\n\t\t\t\t  \t<img class=\"svg\" [src] =\"profilePicUrl\" id=\"userProfile\">\n\t\t\t\t  </div>\n\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t    <h5 class=\"mt-0\">{{user?.firstName}} {{user?.lastName}}</h5>\n\t\t\t\t    <p>{{userRole?.roleName}}</p>\n\t\t\t\t    <ul class=\"other list-inline d-none d-sm-block\">\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t\t    \t\t<span>{{user?.emailId}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t\t    \t\t<span>{{user?.phoneNumber}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    </ul>\n\t\t\t\t  </div>\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"other list-inline d-block d-sm-none\">\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t    \t\t<span>{{user?.emailId}}</span>\n\t\t\t    \t</li>\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t    \t\t<span>{{user?.phoneNumber}}</span>\n\t\t\t    \t</li>\n\t\t\t\t</ul>\n\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<!-- <div class=\"card-body p-0\" [ngClass]=\"isNotAdmin() ? 'border-top' : ''\"> -->\n\t\t<div class=\"card-body p-0 border-top\"> \n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-3\">\n\t\t\t\t\t<div class=\"left-menubar\">\n\t\t\t\t\t\t<h4 [ngClass]=\"isNotAdmin() ? '' : 'd-none'\">Settings</h4>\n\t\t\t\t\t\t<ul class=\"list-group lists\" (click)=\"selectSection()\"  >\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"basic/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/user-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"unit/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/unit-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Details</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"staffs/{{userId}}\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/staff-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Staffs</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"vehicles/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><i-feather class=\"truck\" name=\"truck\"></i-feather></span>\n\t\t\t\t\t\t\t\t<span>Unit Vehicles & Parking</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"pets/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\" \n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/dog-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Pets</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"propertymanager/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/manager-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Property Manager</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"family/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/family-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Family Members</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"lease/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/key-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Rental/Lease Information</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"interest/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/heart-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>My Interest Group</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"absence/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/moveout-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Out of Condo/Prolonged Absence</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-9 d-none d-md-block\">\n\t\t\t\t\t<div class=\"inner-content\">\n\t\t\t\t\t\t<router-outlet></router-outlet>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>";
     /***/
   },
 
@@ -546,6 +546,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isProfile = false;
         this.selectedInput = "";
         this.columnField = {};
+        this.isDefaultSelected = false;
+        this.selectAllDefaulters = false;
+        this.checkedList = [];
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
       }
 
@@ -653,6 +656,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (event.target.innerWidth <= 991) this.isMobile = true;else this.isMobile = false;
         }
       }, {
+        key: "onCheckDefaulterHeader",
+        value: function onCheckDefaulterHeader(detail) {
+          var allDataRecords = this.datagrid.getrows();
+          underscore__WEBPACK_IMPORTED_MODULE_9__["each"](allDataRecords, function (item) {
+            item.checked = detail.checked;
+          });
+          this.checkedList = allDataRecords; // this.isDefaultSelected = allDataRecords.some(item => {
+          //   return item.checked
+          // })
+
+          this.datagrid.refresh();
+          this.getSelectedUnapprovedUser();
+        }
+      }, {
+        key: "onCheckDefaulterRow",
+        value: function onCheckDefaulterRow(detail) {
+          debugger;
+          var allDataRecords = this.datagrid.getrows();
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          dataRecord.checked = detail.checked;
+          this.checkedList = allDataRecords; // this.isDefaultSelected = allDataRecords.some(item => {
+          //   return item.checked
+          // })
+
+          this.getSelectedUnapprovedUser();
+        }
+      }, {
         key: "isMobileView",
         value: function isMobileView() {
           return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -687,9 +717,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "getSelectedUnapprovedUser",
-        value: function getSelectedUnapprovedUser(unit) {
+        value: function getSelectedUnapprovedUser() {
           var length = 0;
-          underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.unitListData, function (item) {
+          underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.checkedList, function (item) {
             if (item.checked) {
               length++;
             }
@@ -715,17 +745,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this = this;
 
           this.isUserDataLoaded = false;
-          underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.unitListData, function (item, index) {
+          underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.checkedList, function (item, index) {
             if (item.checked) {
-              _this.userService.getUserById(item.id).subscribe(function (res) {
-                var user = res[0]; // user.isApproved = true;
+              var getUserParam = {
+                userid: item.id
+              };
 
-                _this.SharedToaster.openSnackBar("Approved", '');
+              _this.userService.getUserById(getUserParam).subscribe(function (res) {
+                var user = res[0];
+                var updateUserParam = {
+                  user: user
+                };
 
-                _this.userService.updateUser(user).subscribe(function (res) {
-                  _this.unitListData.splice(index, 1);
+                _this.userService.updateUser(updateUserParam).subscribe(function (res) {
+                  _this.SharedToaster.openSnackBar("Approved", ''); // this.unitListData.splice(index, 1);
+                  // this.totalUserItems = this.unitListData.length;
 
-                  _this.totalUserItems = _this.unitListData.length;
+
+                  _this.getUnApprovedList();
+
                   _this.isUserDataLoaded = true;
                 });
               });
@@ -773,6 +811,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getParams",
         value: function getParams(event) {
           this.isProfile = event;
+        }
+      }, {
+        key: "selectedTab",
+        value: function selectedTab() {
+          setTimeout(function () {
+            var elem = document.querySelector('.user-info-card');
+            var scrollTo = elem.getBoundingClientRect().top - 100;
+            window.scroll({
+              top: scrollTo,
+              behavior: 'smooth'
+            });
+          }, 100);
         }
       }, {
         key: "viewUserInfo",
@@ -868,41 +918,61 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           this.columnData = [{
+            text: '',
+            datafield: 'checked',
+            width: 80,
+            pinned: true,
+            sortable: false,
+            menu: false,
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              var chkedProperty;
+
+              if (value) {
+                chkedProperty = 'checked="true"';
+              } else {
+                chkedProperty = '';
+              }
+
+              return '<div class="jqx-custom-inner-cell">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check text-center">' + '<input type="checkbox" class="form-check-input" onClick="checkDefaulterRowEvent(' + row + ', this.checked)" id="defaultChecker' + row + '" name="defaultChecker' + row + '" ' + chkedProperty + '>' + '<label class="form-check-label" for="defaultChecker' + row + '"></label>' + '</div>' + '</div>' + '</div>';
+            },
+            renderer: function renderer(value) {
+              return '<div style="padding: 10px">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check check-header text-center">' + '<input type="checkbox" id="selectAllDefaulters" name="selectAllDefaulters" onClick="checkDefaulterHeaderEvent(event, this.checked)" >' + '<label class="form-check-label" for="selectAllDefaulters"></label>' + '</div>' + '</div>' + '</div>';
+            }
+          }, {
             text: 'Name',
             datafield: 'name',
-            width: 100,
-            pinned: true,
+            minwidth: 120,
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
           }, {
             text: 'Phone',
             datafield: 'phone',
             cellsrenderer: cellsrenderer,
-            minwidth: 80,
+            width: 200,
             renderer: columnrenderer
           }, {
             text: 'Email',
             datafield: 'email',
             cellsrenderer: cellsrenderer,
-            minwidth: 170,
+            width: 200,
             renderer: columnrenderer
           }, {
             text: 'Block  No',
             datafield: 'apartmentBlockNumberJQ',
             cellsrenderer: cellsrenderer,
-            minwidth: 170,
+            width: 200,
             renderer: columnrenderer
           }, {
             text: 'Unit No',
             datafield: 'apartmentBlockUnitNumberJQ',
             cellsrenderer: cellsrenderer,
-            minwidth: 80,
+            width: 200,
             renderer: columnrenderer
           }, {
             text: 'Requested On',
             datafield: 'insertedOn',
             cellsrenderer: cellsrenderer,
-            minwidth: 170,
+            width: 200,
             renderer: columnrenderer
           }, {
             text: 'Actions',
@@ -914,40 +984,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             },
             renderer: columnrenderer
           }];
-          if (window.innerWidth <= 991) this.isMobile = true;else this.isMobile = false;
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-          };
-          this.userService.getAllUnApprovedUsersByApartmentId(params).subscribe(function (res) {
-            var unitListData = res;
-            console.log(res); //filter active true items
-
-            _this6.unitListData = unitListData.filter(function (data) {
-              data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
-              data.apartmentBlockNumberJQ = data.apartmentBlockUnit[0].apartmentBlockNumber;
-              data.apartmentBlockUnitNumberJQ = data.apartmentBlockUnit[0].apartmentBlockUnitNumber;
-              return data.active;
-            });
-            setTimeout(function () {
-              console.log(_this6.unitListData);
-            }, 2000);
-            _this6.gridSourceData = {
-              localdata: unitListData,
-              datatype: "array"
-            };
-            _this6.unitListData = new jqx.dataAdapter(_this6.gridSourceData);
-            _this6.totalUserItems = _this6.unitListData.length;
-
-            if (_this6.totalUserItems > _this6.itemUserLimit) {
-              _this6.ItemUserEndIndex = _this6.itemUserLimit;
-            } else {
-              _this6.ItemUserEndIndex = _this6.totalUserItems;
-            }
-
-            _this6.isUserDataLoaded = true;
-          }, function (error) {
-            console.log(error);
-          }); // delete user
+          this.getUnApprovedList();
+          if (window.innerWidth <= 991) this.isMobile = true;else this.isMobile = false; // delete user
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
@@ -976,6 +1014,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 console.log(error);
               });
             }
+          });
+        }
+      }, {
+        key: "getUnApprovedList",
+        value: function getUnApprovedList() {
+          var _this7 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.userService.getAllUnApprovedUsersByApartmentId(params).subscribe(function (res) {
+            var unitListData = res;
+            console.log(res); //filter active true items
+
+            _this7.unitListData = unitListData.filter(function (data) {
+              data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
+              data.apartmentBlockNumberJQ = data.apartmentBlockUnit[0].apartmentBlockNumber;
+              data.apartmentBlockUnitNumberJQ = data.apartmentBlockUnit[0].apartmentBlockUnitNumber;
+              return data.active;
+            });
+            setTimeout(function () {
+              console.log(_this7.unitListData);
+            }, 2000);
+            _this7.gridSourceData = {
+              localdata: unitListData,
+              datatype: "array"
+            };
+            _this7.unitListData = new jqx.dataAdapter(_this7.gridSourceData);
+            _this7.totalUserItems = _this7.unitListData.length;
+
+            if (_this7.totalUserItems > _this7.itemUserLimit) {
+              _this7.ItemUserEndIndex = _this7.itemUserLimit;
+            } else {
+              _this7.ItemUserEndIndex = _this7.totalUserItems;
+            }
+
+            _this7.isUserDataLoaded = true;
+          }, function (error) {
+            console.log(error);
           });
         }
       }, {
@@ -1020,6 +1097,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       "static": false
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__["jqxGridComponent"])], UnapprovedComponent.prototype, "datagrid", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:resize', ['$event']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], UnapprovedComponent.prototype, "onResize", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckDefaulterHeader', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], UnapprovedComponent.prototype, "onCheckDefaulterHeader", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckDefaulterRow', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], UnapprovedComponent.prototype, "onCheckDefaulterRow", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onUnapproveDelete', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], UnapprovedComponent.prototype, "onUnapproveDelete", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onviewUserInfo', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], UnapprovedComponent.prototype, "onviewUserInfo", null);
     UnapprovedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1053,6 +1132,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }
 
     window.viewUserInfo = viewUserInfo;
+
+    function checkDefaulterHeaderEvent(event, isChecked) {
+      event.stopPropagation();
+      var newEvent = new CustomEvent('onCheckDefaulterHeader', {
+        detail: {
+          checked: isChecked
+        }
+      });
+      window.dispatchEvent(newEvent);
+    }
+
+    window.checkDefaulterHeaderEvent = checkDefaulterHeaderEvent;
+
+    function checkDefaulterRowEvent(row, isChecked) {
+      var event = new CustomEvent('onCheckDefaulterRow', {
+        detail: {
+          rowId: row,
+          checked: isChecked
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.checkDefaulterRowEvent = checkDefaulterRowEvent;
     /***/
   },
 
@@ -1407,7 +1510,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitProfileBasicForm",
         value: function submitProfileBasicForm(form) {
-          var _this7 = this;
+          var _this8 = this;
 
           if (!this.IsvalidatePhoneNo(this.user.phoneNumber)) return true;
           if (!this.IsValidEmail(this.user.emailId)) return true;
@@ -1451,14 +1554,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.userService.updateUser(params).subscribe(function (res) {
             if (res.message) {
-              _this7.isUserDataLoaded = true;
-              _this7.isEdit = false;
-              if (!_this7.isAdmin()) // if its user module, update the userdata everywhere on the fly
-                _this7.sharedService.setUserDetails(userDetails);
-              _this7.paraUserId = res.message;
+              _this8.isUserDataLoaded = true;
+              _this8.isEdit = false;
+              if (!_this8.isAdmin()) // if its user module, update the userdata everywhere on the fly
+                _this8.sharedService.setUserDetails(userDetails);
+              _this8.paraUserId = res.message;
               console.log(res.message);
 
-              _this7.sharedService.setAlertMessage("User updated successfully");
+              _this8.sharedService.setAlertMessage("User updated successfully");
             }
           }, function (error) {});
           this.router.navigate(['ams/unit&users/unapproved/basic', 1]);
@@ -1466,17 +1569,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadFile",
         value: function uploadFile(event) {
-          var _this8 = this;
+          var _this9 = this;
 
           var file = event[0];
           this.profilepPicUploadService.upload(file, this.userId).subscribe(function (res) {
             console.log(res);
             var newParams = {
               fileDetailsId: Number(res),
-              apartmentId: parseInt(_this8.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this9.cookieService.get('apartmentId'))
             };
 
-            _this8.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+            _this9.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
               var path = res[0].filePath;
               var params = {
                 fileNameOnBlob: path,
@@ -1499,7 +1602,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               });
 
-              _this8.httpClient.post('/api/FileDetails/DownloadAsync', {}, {
+              _this9.httpClient.post('/api/FileDetails/DownloadAsync', {}, {
                 params: queryParams,
                 observe: 'response',
                 responseType: 'blob'
@@ -1508,20 +1611,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   type: 'application/octet-stream'
                 });
 
-                var fileUrl = _this8.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob)); //this.url = fileUrl.replace('unsafe:', '').replace('http://localhost:4200/', environment.rootUrl);
+                var fileUrl = _this9.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob)); //this.url = fileUrl.replace('unsafe:', '').replace('http://localhost:4200/', environment.rootUrl);
 
 
                 console.log(fileUrl);
               });
             });
           }, function (err) {
-            _this8.error = err;
+            _this9.error = err;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this10 = this;
 
           this.user = {};
           this.user.bloodGroup = "";
@@ -1537,19 +1640,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             userid: this.userId
           };
           this.userService.getUserById(queryParamBase).subscribe(function (res) {
-            _this9.user = res[0];
-            _this9.genderType = '' + _this9.user.genderId;
-            _this9.isUserDataLoaded = true;
+            _this10.user = res[0];
+            _this10.genderType = '' + _this10.user.genderId;
+            _this10.isUserDataLoaded = true;
           }, function (error) {});
           var groupParams = {
             LookupTypeId: 24
           };
           this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-            _this9.bloodGroupData = res;
+            _this10.bloodGroupData = res;
           });
           this.sharedService.profilepiccast.subscribe(function (profilePicUrl) {
-            _this9.profilePicUrl = profilePicUrl;
-            if (_this9.profilePicUrl == _this9.sharedService.getDefaultProfilePic()) _this9.isDefaultProfilePic = true;
+            _this10.profilePicUrl = profilePicUrl;
+            if (_this10.profilePicUrl == _this10.sharedService.getDefaultProfilePic()) _this10.isDefaultProfilePic = true;
           });
         }
       }, {
@@ -1786,7 +1889,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteMember",
         value: function deleteMember() {
-          var _this10 = this;
+          var _this11 = this;
 
           var params = {
             userFamilyMemberId: parseInt(this.user.userFamilyMemberId),
@@ -1794,20 +1897,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.userService.deleteUserFamilyMember(params).subscribe(function (res) {
             if (res.message) {
-              _this10.isDataLoaded = true;
+              _this11.isDataLoaded = true;
 
-              _this10.sharedService.setAlertMessage("Member deleted");
+              _this11.sharedService.setAlertMessage("Member deleted");
 
-              _this10.outputParams.emit(true);
+              _this11.outputParams.emit(true);
             } else {
-              _this10.isDataLoaded = true;
+              _this11.isDataLoaded = true;
             }
           });
         }
       }, {
         key: "submitProfileFamilyForm",
         value: function submitProfileFamilyForm(form) {
-          var _this11 = this;
+          var _this12 = this;
 
           if (!this.isEdit) {
             var details = {
@@ -1832,13 +1935,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.userService.addUserFamilyMember(params).subscribe(function (res) {
               if (res.message) {
-                _this11.isDataLoaded = true;
+                _this12.isDataLoaded = true;
 
-                _this11.sharedService.setAlertMessage("Family Member added successfully");
+                _this12.sharedService.setAlertMessage("Family Member added successfully");
 
-                _this11.outputParams.emit(true);
+                _this12.outputParams.emit(true);
               } else {
-                _this11.isDataLoaded = true;
+                _this12.isDataLoaded = true;
               }
             });
           } else {
@@ -1865,13 +1968,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.userService.updateUserFamilyMember(_params).subscribe(function (res) {
               if (res.message) {
-                _this11.isDataLoaded = true;
+                _this12.isDataLoaded = true;
 
-                _this11.sharedService.setAlertMessage("Family Member updated successfully");
+                _this12.sharedService.setAlertMessage("Family Member updated successfully");
 
-                _this11.outputParams.emit(true);
+                _this12.outputParams.emit(true);
               } else {
-                _this11.isDataLoaded = true;
+                _this12.isDataLoaded = true;
               }
             });
           }
@@ -1879,7 +1982,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this13 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -1891,7 +1994,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 24
           };
           this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-            _this12.bloodGroupData = res;
+            _this13.bloodGroupData = res;
           });
 
           if (this.isFamilyNew) {
@@ -2039,16 +2142,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfileFamilyMembersComponent, [{
         key: "getParams",
         value: function getParams(event) {
-          var _this13 = this;
+          var _this14 = this;
 
           if (event) {
             this.isDataLoaded = false;
             this.userService.getUserFamilyMembersByUserId(this.userId).subscribe(function (res) {
-              _this13.familyDataList = res.filter(function (item) {
+              _this14.familyDataList = res.filter(function (item) {
                 return item.isActive;
               });
               ;
-              _this13.isDataLoaded = true;
+              _this14.isDataLoaded = true;
             });
           }
         }
@@ -2060,7 +2163,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this15 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -2069,11 +2172,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.userService.getUserFamilyMembersByUserId(this.userId).subscribe(function (res) {
-            _this14.familyDataList = res.filter(function (item) {
+            _this15.familyDataList = res.filter(function (item) {
               return item.isActive;
             });
             ;
-            _this14.isDataLoaded = true;
+            _this15.isDataLoaded = true;
           });
         }
       }]);
@@ -2211,7 +2314,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllGroupCategory",
         value: function getAllGroupCategory() {
-          var _this15 = this;
+          var _this16 = this;
 
           var queryParamBase = {
             apartmentId: this.apartmentID
@@ -2219,57 +2322,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe(function (res) {
             var allBroadcastGroupCategory = res; //filter active true items
 
-            _this15.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+            _this16.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
               return data.isActive;
             });
-            _this15.adminInterestGroupCategory = _this15.allBroadcastGroupCategory.filter(function (data) {
+            _this16.adminInterestGroupCategory = _this16.allBroadcastGroupCategory.filter(function (data) {
               return data.privilege == "Admin";
             });
-            _this15.userInterestGroupCategory = _this15.allBroadcastGroupCategory.filter(function (data) {
+            _this16.userInterestGroupCategory = _this16.allBroadcastGroupCategory.filter(function (data) {
               return data.privilege.includes("All");
             });
 
-            _this15.getAllGoupUsers();
+            _this16.getAllGoupUsers();
           });
         }
       }, {
         key: "getAllGoupUsers",
         value: function getAllGoupUsers() {
-          var _this16 = this;
+          var _this17 = this;
 
           var queryParamBase = {
             apartmentId: this.apartmentID
           };
           this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
-            _this16.interestGroupUsers = res;
-            _this16.assignedInterestGroupUsers = _this16.interestGroupUsers.filter(function (data) {
-              return data.userId == _this16.userId && data.isActive;
+            _this17.interestGroupUsers = res;
+            _this17.assignedInterestGroupUsers = _this17.interestGroupUsers.filter(function (data) {
+              return data.userId == _this17.userId && data.isActive;
             });
-            _this16.assignedInterestGroupsToUser = [];
+            _this17.assignedInterestGroupsToUser = [];
 
-            _this16.assignedInterestGroupUsers.forEach(function (element) {
-              _this16.assignedInterestGroupsToUser.push(element.broadCastGroupCategoryId);
-            });
-
-            _this16.adminInterestGroupCategory.forEach(function (element) {
-              element.IsAssigned = _this16.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+            _this17.assignedInterestGroupUsers.forEach(function (element) {
+              _this17.assignedInterestGroupsToUser.push(element.broadCastGroupCategoryId);
             });
 
-            _this16.userInterestGroupCategory.forEach(function (element) {
-              element.IsAssigned = _this16.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+            _this17.adminInterestGroupCategory.forEach(function (element) {
+              element.IsAssigned = _this17.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+            });
+
+            _this17.userInterestGroupCategory.forEach(function (element) {
+              element.IsAssigned = _this17.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
             });
           });
         }
       }, {
         key: "getUserDetails",
         value: function getUserDetails() {
-          var _this17 = this;
+          var _this18 = this;
 
           var queryParamBase = {
             userId: this.userId
           };
           this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe(function (res) {
-            _this17.userDetails = res.filter(function (obj) {
+            _this18.userDetails = res.filter(function (obj) {
               return obj.apartmentId == this.apartmentId && obj.userid == this.userId;
             });
           });
@@ -2277,11 +2380,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ChangeInterestGroup",
         value: function ChangeInterestGroup(interestGroup) {
-          var _this18 = this;
+          var _this19 = this;
 
           if (interestGroup.IsAssigned) {
             var categoryUser = this.interestGroupUsers.filter(function (obj) {
-              return obj.broadCastGroupCategoryId == interestGroup.broadCastGroupCategoryId && obj.userId == _this18.userId;
+              return obj.broadCastGroupCategoryId == interestGroup.broadCastGroupCategoryId && obj.userId == _this19.userId;
             });
             this.removeUser(categoryUser[0].broadCastGroupCategoryUserId);
           } else {
@@ -2290,13 +2393,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe(function (res) {
               var currentAppUserUnits = res.filter(function (obj) {
-                return obj.apartmentId == _this18.apartmentID;
+                return obj.apartmentId == _this19.apartmentID;
               });
 
               if (currentAppUserUnits != undefined && currentAppUserUnits.length > 0) {
                 var userAppUnit = currentAppUserUnits[0];
 
-                _this18.insertGroupUser(_this18.userId, userAppUnit.roleId, userAppUnit.apartmentBlockId, userAppUnit.apartmentBlockUnitId, interestGroup.broadCastGroupCategoryId);
+                _this19.insertGroupUser(_this19.userId, userAppUnit.roleId, userAppUnit.apartmentBlockId, userAppUnit.apartmentBlockUnitId, interestGroup.broadCastGroupCategoryId);
               }
             });
           } // interestGroup.IsAssigned=!interestGroup.IsAssigned;
@@ -2305,22 +2408,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "removeUser",
         value: function removeUser(broadCastGroupCategoryUserId) {
-          var _this19 = this;
+          var _this20 = this;
 
           var params = {
             broadCastGroupCategoryUserId: broadCastGroupCategoryUserId,
             deleteBy: this.userId
           };
           this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
-            _this19.sharedService.setAlertMessage("User has been removed from interest group successfully");
+            _this20.sharedService.setAlertMessage("User has been removed from interest group successfully");
 
-            _this19.getAllGoupUsers();
+            _this20.getAllGoupUsers();
           }); //}
         }
       }, {
         key: "insertGroupUser",
         value: function insertGroupUser(userId, roleId, blockId, unitId, broadCastGroupCategoryId) {
-          var _this20 = this;
+          var _this21 = this;
 
           var broadCastGroupCategoryUser = {
             'broadCastGroupCategoryUserID': 0,
@@ -2342,9 +2445,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.broadcastService.upsertBroadCastGroupCategoryUser(params).subscribe(function (res) {
             if (res.message) {
-              _this20.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
+              _this21.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
 
-              _this20.getAllGoupUsers();
+              _this21.getAllGoupUsers();
             }
           });
         }
@@ -2629,7 +2732,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfileLeaseInfoComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this21 = this;
+          var _this22 = this;
 
           this.rent = {};
           this.userId = this.route.params['value'].id;
@@ -2638,9 +2741,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.apartmentService.getApartmentBlockUnitByUserId(params).subscribe(function (res) {
             var data = res[0] || {};
-            _this21.apartmentBlockUnitId = data.apartmentBlockUnitId;
+            _this22.apartmentBlockUnitId = data.apartmentBlockUnitId;
 
-            _this21.getListData();
+            _this22.getListData();
           }, function (error) {
             console.log(error);
           });
@@ -2648,17 +2751,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getListData",
         value: function getListData() {
-          var _this22 = this;
+          var _this23 = this;
 
           this.rentService.getAllApartmentBlockUnitRents().subscribe(function (res) {
-            _this22.rentListData = res.filter(function (data) {
+            _this23.rentListData = res.filter(function (data) {
               data.startDate = moment__WEBPACK_IMPORTED_MODULE_5__(data.startDate).format('MM/DD/YYYY');
               data.expiryDate = moment__WEBPACK_IMPORTED_MODULE_5__(data.expiryDate).format('MM/DD/YYYY');
-              return data.isActive && data.apartmentBlockUnitId == _this22.apartmentBlockUnitId;
+              return data.isActive && data.apartmentBlockUnitId == _this23.apartmentBlockUnitId;
             });
-            var length = _this22.rentListData.length - 1;
-            _this22.rent = _this22.rentListData[length];
-            _this22.isDataLoaded = true;
+            var length = _this23.rentListData.length - 1;
+            _this23.rent = _this23.rentListData[length];
+            _this23.isDataLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -2666,7 +2769,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitLeaseInfoForm",
         value: function submitLeaseInfoForm(form) {
-          var _this23 = this;
+          var _this24 = this;
 
           this.isDataLoaded = false;
           var details = {
@@ -2691,18 +2794,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.rentService.addApartmentBlockUnitRent(AddApartmentBlockUnitRentParams).subscribe(function (res) {
             if (res.message) {
-              _this23.rent = {};
+              _this24.rent = {};
 
-              _this23.sharedService.setAlertMessage("Lease Info added successfully");
+              _this24.sharedService.setAlertMessage("Lease Info added successfully");
 
-              _this23.getListData();
+              _this24.getListData();
 
-              _this23.isEdit = false;
+              _this24.isEdit = false;
             }
 
-            _this23.isDataLoaded = true;
+            _this24.isDataLoaded = true;
           }, function (error) {
-            _this23.isDataLoaded = true;
+            _this24.isDataLoaded = true;
             console.log(error);
           });
         }
@@ -2933,7 +3036,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deletePet",
         value: function deletePet() {
-          var _this24 = this;
+          var _this25 = this;
 
           var params = {
             petId: parseInt(this.pet.petId),
@@ -2941,20 +3044,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.petService.deletePet(params).subscribe(function (res) {
             if (res.message) {
-              _this24.isDataLoaded = true;
+              _this25.isDataLoaded = true;
 
-              _this24.sharedService.setAlertMessage("Pet deleted");
+              _this25.sharedService.setAlertMessage("Pet deleted");
 
-              _this24.outputParams.emit(true);
+              _this25.outputParams.emit(true);
             } else {
-              _this24.isDataLoaded = true;
+              _this25.isDataLoaded = true;
             }
           });
         }
       }, {
         key: "submitProfilPetForm",
         value: function submitProfilPetForm(form) {
-          var _this25 = this;
+          var _this26 = this;
 
           this.isDataLoaded = false;
 
@@ -2974,10 +3077,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.petService.addPet(params).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitId": parseInt(_this25.apartmentBlockUnitId),
+                  "apartmentBlockUnitId": parseInt(_this26.apartmentBlockUnitId),
                   "petId": res.message,
                   "isActive": true,
-                  "insertedBy": parseInt(_this25.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this26.cookieService.get('userId')),
                   "insertedOn": new Date().toISOString(),
                   "updatedBy": 0,
                   "updatedOn": "2020-03-27T07:52:53.767Z"
@@ -2986,19 +3089,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   apartmentBlockUnitPet: unitDetails
                 };
 
-                _this25.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
+                _this26.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
                   if (res.message) {
-                    _this25.isDataLoaded = true;
+                    _this26.isDataLoaded = true;
 
-                    _this25.sharedService.setAlertMessage("Pet added successfully");
+                    _this26.sharedService.setAlertMessage("Pet added successfully");
 
-                    _this25.outputParams.emit(true);
+                    _this26.outputParams.emit(true);
                   } else {
-                    _this25.isDataLoaded = true;
+                    _this26.isDataLoaded = true;
                   }
                 });
               } else {
-                _this25.isDataLoaded = true;
+                _this26.isDataLoaded = true;
               }
             });
           } else {
@@ -3018,32 +3121,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.petService.updatePet(_params3).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitPetId": parseInt(_this25.petUnit.apartmentBlockUnitPetId),
-                  "apartmentBlockUnitId": parseInt(_this25.petUnit.apartmentBlockUnitId),
-                  "petId": parseInt(_this25.pet.petId),
-                  "isActive": _this25.petUnit.isActive,
-                  "insertedBy": _this25.petUnit.insertedBy,
-                  "insertedOn": _this25.petUnit.insertedOn,
-                  "updatedBy": parseInt(_this25.cookieService.get('userId')),
+                  "apartmentBlockUnitPetId": parseInt(_this26.petUnit.apartmentBlockUnitPetId),
+                  "apartmentBlockUnitId": parseInt(_this26.petUnit.apartmentBlockUnitId),
+                  "petId": parseInt(_this26.pet.petId),
+                  "isActive": _this26.petUnit.isActive,
+                  "insertedBy": _this26.petUnit.insertedBy,
+                  "insertedOn": _this26.petUnit.insertedOn,
+                  "updatedBy": parseInt(_this26.cookieService.get('userId')),
                   "updatedOn": new Date().toISOString()
                 };
                 var _params4 = {
                   apartmentBlockUnitPet: unitDetails
                 };
 
-                _this25.petService.updateApartmentBlockUnitPet(_params4).subscribe(function (res) {
+                _this26.petService.updateApartmentBlockUnitPet(_params4).subscribe(function (res) {
                   if (res.message) {
-                    _this25.isDataLoaded = true;
+                    _this26.isDataLoaded = true;
 
-                    _this25.sharedService.setAlertMessage("Pet updated successfully");
+                    _this26.sharedService.setAlertMessage("Pet updated successfully");
 
-                    _this25.outputParams.emit(true);
+                    _this26.outputParams.emit(true);
                   } else {
-                    _this25.isDataLoaded = true;
+                    _this26.isDataLoaded = true;
                   }
                 });
               } else {
-                _this25.isDataLoaded = true;
+                _this26.isDataLoaded = true;
               }
             });
           }
@@ -3051,7 +3154,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this26 = this;
+          var _this27 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -3073,7 +3176,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 85
           };
           this.lookupService.getLookupValueByLookupTypeId(petTypeParams).subscribe(function (res) {
-            _this26.petTypeList = res;
+            _this27.petTypeList = res;
           });
         }
       }, {
@@ -3257,7 +3360,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfilePetComponent, [{
         key: "showUnitDetails",
         value: function showUnitDetails(id) {
-          var _this27 = this;
+          var _this28 = this;
 
           this.isUserDataLoaded = false;
           this.isUnitSelected = true;
@@ -3266,15 +3369,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
             if (res.length != 0) {
-              _this27.petDataList = res.filter(function (item) {
+              _this28.petDataList = res.filter(function (item) {
                 return item.pet.isActive;
               });
-              _this27.isPetsAvailable = true;
+              _this28.isPetsAvailable = true;
             } else {
-              _this27.isPetsAvailable = false;
+              _this28.isPetsAvailable = false;
             }
 
-            _this27.isUserDataLoaded = true;
+            _this28.isUserDataLoaded = true;
           });
         }
       }, {
@@ -3319,7 +3422,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getParams",
         value: function getParams(event) {
-          var _this28 = this;
+          var _this29 = this;
 
           if (event) {
             var petListParams = {
@@ -3327,15 +3430,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
               if (res.length != 0) {
-                _this28.petDataList = res.filter(function (item) {
+                _this29.petDataList = res.filter(function (item) {
                   return item.pet.isActive;
                 });
-                _this28.isPetsAvailable = true;
+                _this29.isPetsAvailable = true;
               } else {
-                _this28.isPetsAvailable = false;
+                _this29.isPetsAvailable = false;
               }
 
-              _this28.isUserDataLoaded = true;
+              _this29.isUserDataLoaded = true;
             });
           }
         }
@@ -3347,7 +3450,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this29 = this;
+          var _this30 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -3360,27 +3463,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this29.blockData = res;
+            _this30.blockData = res;
           });
           var petParams = {
             LookupTypeId: 85
           };
           this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
-            _this29.petTypeList = res;
+            _this30.petTypeList = res;
           });
           var unitParams = {
             LookupTypeId: 1
           };
           this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
-            _this29.unitTypeData = res;
+            _this30.unitTypeData = res;
 
-            _this29.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this29.userId).subscribe(function (unit) {
-              _this29.unitListData = unit;
-              underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this29.unitListData, function (item) {
-                _this29.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
-                  _this29.unitNameList.push(data[0]);
+            _this30.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this30.userId).subscribe(function (unit) {
+              _this30.unitListData = unit;
+              underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this30.unitListData, function (item) {
+                _this30.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
+                  _this30.unitNameList.push(data[0]);
 
-                  _this29.isUserDataLoaded = true;
+                  _this30.isUserDataLoaded = true;
                 }, function (error) {});
               });
             }, function (error) {});
@@ -3549,14 +3652,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUnits",
         value: function getUnits(id) {
-          var _this30 = this;
+          var _this31 = this;
 
           var params = {
             apartmentBlockId: parseInt(id)
           };
           this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-            _this30.blockUnitData = res;
-            _this30.isBlockSelected = true;
+            _this31.blockUnitData = res;
+            _this31.isBlockSelected = true;
           });
         }
       }, {
@@ -3626,7 +3729,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitProfileUnitForm",
         value: function submitProfileUnitForm(form) {
-          var _this31 = this;
+          var _this32 = this;
 
           this.isUserDataLoaded = false;
           var apartmentBlockUnitUser = {
@@ -3647,58 +3750,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe(function (res) {
             if (res.message) {
               var details = {
-                "apartmentBlockUnitId": parseInt(_this31.block.apartmentBlockUnitId),
-                "apartmentBlockUnitNumber": _this31.block.apartmentBlockUnitNumber,
-                "apartmentBlockId": parseInt(_this31.block.apartmentBlockId),
-                "unitTypeId": _this31.unitTypeId,
-                "builtupArea": _this31.block.builtupArea,
-                "carpetArea": _this31.block.carpetArea,
-                "intercom": _this31.block.intercom,
-                "cars": parseInt(_this31.block.cars),
-                "isAvailableForRent": _this31.block.isAvailableForRent,
+                "apartmentBlockUnitId": parseInt(_this32.block.apartmentBlockUnitId),
+                "apartmentBlockUnitNumber": _this32.block.apartmentBlockUnitNumber,
+                "apartmentBlockId": parseInt(_this32.block.apartmentBlockId),
+                "unitTypeId": _this32.unitTypeId,
+                "builtupArea": _this32.block.builtupArea,
+                "carpetArea": _this32.block.carpetArea,
+                "intercom": _this32.block.intercom,
+                "cars": parseInt(_this32.block.cars),
+                "isAvailableForRent": _this32.block.isAvailableForRent,
                 "availableDate": "2019-12-13T07:07:59.550Z",
-                "rentAmount": _this31.block.rentAmount,
-                "advanceAmount": _this31.block.advanceAmount,
-                "isPetsAllowed": _this31.block.isPetsAllowed,
-                "isFurnished": _this31.block.isFurnished,
-                "isVacant": _this31.block.isVacant,
+                "rentAmount": _this32.block.rentAmount,
+                "advanceAmount": _this32.block.advanceAmount,
+                "isPetsAllowed": _this32.block.isPetsAllowed,
+                "isFurnished": _this32.block.isFurnished,
+                "isVacant": _this32.block.isVacant,
                 "propertyManagerId": null,
-                "isActive": _this31.block.isActive,
-                "insertedBy": _this31.block.insertedBy,
-                "insertedOn": _this31.block.insertedOn,
-                "updatedBy": parseInt(_this31.cookieService.get('userId')),
+                "isActive": _this32.block.isActive,
+                "insertedBy": _this32.block.insertedBy,
+                "insertedOn": _this32.block.insertedOn,
+                "updatedBy": parseInt(_this32.cookieService.get('userId')),
                 "updatedOn": new Date().toISOString()
               };
               var apartmentBlockUnitParams = {
                 apartmentBlockUnit: details
               };
 
-              _this31.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
+              _this32.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
                 if (res.message) {
-                  _this31.isUserDataLoaded = true;
-                  _this31.isEdit = false;
+                  _this32.isUserDataLoaded = true;
+                  _this32.isEdit = false;
 
-                  _this31.sharedService.setAlertMessage("Unit updated successfully");
+                  _this32.sharedService.setAlertMessage("Unit updated successfully");
 
-                  _this31.isBlockSelected = false;
+                  _this32.isBlockSelected = false;
                 } else {
-                  _this31.isError = true;
-                  _this31.errorMessage = res.errorMessage;
+                  _this32.isError = true;
+                  _this32.errorMessage = res.errorMessage;
                 }
               }, function (error) {});
             } else {
-              _this31.isError = true;
-              _this31.errorMessage = res.errorMessage;
+              _this32.isError = true;
+              _this32.errorMessage = res.errorMessage;
             }
           }, function (error) {
-            _this31.isError = true;
-            _this31.errorMessage = "Some error occured";
+            _this32.isError = true;
+            _this32.errorMessage = "Some error occured";
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this32 = this;
+          var _this33 = this;
 
           this.block = {};
 
@@ -3713,38 +3816,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this32.blockData = res;
+            _this33.blockData = res;
           });
           var queryParamBase = {
             userId: this.userId
           }; // get role
 
           this.userService.getRolesByUserId(queryParamBase).subscribe(function (data) {
-            _this32.userType = data[0].roleId.toString();
+            _this33.userType = data[0].roleId.toString();
           }, function (error) {});
           var unitTypeParams = {
             LookupTypeId: 1
           };
           this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-            _this32.unitTypeData = res;
+            _this33.unitTypeData = res;
             var queryParamBase = {
-              userId: _this32.userId
+              userId: _this33.userId
             };
 
-            _this32.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
-              _this32.unitListData = unit;
-              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this32.unitListData, function (item) {
+            _this33.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
+              _this33.unitListData = unit;
+              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this33.unitListData, function (item) {
                 var queryParamBase = {
                   apartmentBlockUnitId: item.apartmentBlockUnitId
                 };
 
-                _this32.apartmentService.getApartmentBlockUnitById(queryParamBase).subscribe(function (data) {
-                  _this32.unitNameList.push(data[0]);
+                _this33.apartmentService.getApartmentBlockUnitById(queryParamBase).subscribe(function (data) {
+                  _this33.unitNameList.push(data[0]);
 
-                  _this32.isUserDataLoaded = true;
-                  var id = _this32.unitListData[0].apartmentBlockUnitId;
+                  _this33.isUserDataLoaded = true;
+                  var id = _this33.unitListData[0].apartmentBlockUnitId;
 
-                  _this32.showUnitDetails(id);
+                  _this33.showUnitDetails(id);
                 }, function (error) {});
               });
             }, function (error) {});
@@ -3998,7 +4101,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfileUserAbsenceComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this33 = this;
+          var _this34 = this;
 
           this.data = {};
           this.userId = this.route.params['value'].id;
@@ -4006,13 +4109,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             userId: this.userId
           };
           this.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
-            _this33.unitListData = unit;
+            _this34.unitListData = unit;
 
-            _this33.apartmentService.getApartmentBlockUnitByUserId(queryParamBase).subscribe(function (res) {
+            _this34.apartmentService.getApartmentBlockUnitByUserId(queryParamBase).subscribe(function (res) {
               var data = res[0] || {};
-              _this33.apartmentBlockUnitId = data.apartmentBlockUnitId;
+              _this34.apartmentBlockUnitId = data.apartmentBlockUnitId;
 
-              _this33.getUnitUserId(_this33.apartmentBlockUnitId);
+              _this34.getUnitUserId(_this34.apartmentBlockUnitId);
             }, function (error) {
               console.log(error);
             });
@@ -4037,23 +4140,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getHistoryData",
         value: function getHistoryData() {
-          var _this34 = this;
+          var _this35 = this;
 
           var params = {
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
             "ApartmentBlockUnitUserId": this.apartmentBlockUnitUserId
           };
           this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
-            _this34.historyListData = unit.filter(function (data) {
+            _this35.historyListData = unit.filter(function (data) {
               data.outFrom = moment__WEBPACK_IMPORTED_MODULE_5__(data.outFrom).format('MM/DD/YYYY');
               data.outTo = moment__WEBPACK_IMPORTED_MODULE_5__(data.outTo).format('MM/DD/YYYY');
               data.startDate = moment__WEBPACK_IMPORTED_MODULE_5__(data.outFrom).format('MM/DD/YYYY');
               data.expiryDate = moment__WEBPACK_IMPORTED_MODULE_5__(data.outTo).format('MM/DD/YYYY');
               return data.isActive;
             });
-            var length = _this34.historyListData.length - 1;
-            _this34.data = _this34.historyListData[length];
-            _this34.isDataLoaded = true;
+            var length = _this35.historyListData.length - 1;
+            _this35.data = _this35.historyListData[length];
+            _this35.isDataLoaded = true;
           }, function (error) {});
         }
       }, {
@@ -4084,7 +4187,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAbsenceForm",
         value: function submitAbsenceForm(form) {
-          var _this35 = this;
+          var _this36 = this;
 
           this.isDataLoaded = false;
           var details = {
@@ -4113,18 +4216,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.apartmentService.addApartmentLongAbsence(params).subscribe(function (data) {
             if (data.message) {
-              _this35.data = {};
+              _this36.data = {};
 
-              _this35.sharedService.setAlertMessage("Out of condo Info added successfully");
+              _this36.sharedService.setAlertMessage("Out of condo Info added successfully");
 
-              _this35.getHistoryData();
+              _this36.getHistoryData();
 
-              _this35.isEdit = false;
+              _this36.isEdit = false;
             }
 
-            _this35.isDataLoaded = true;
+            _this36.isDataLoaded = true;
           }, function (error) {
-            _this35.isDataLoaded = false;
+            _this36.isDataLoaded = false;
           });
         }
       }]);
@@ -4306,7 +4409,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitProfilVehicleForm",
         value: function submitProfilVehicleForm(form) {
-          var _this36 = this;
+          var _this37 = this;
 
           this.isDataLoaded = false;
 
@@ -4330,9 +4433,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitId": parseInt(_this36.apartmentBlockUnitId),
+                  "apartmentBlockUnitId": parseInt(_this37.apartmentBlockUnitId),
                   "vehicleId": res.message,
-                  "userId": parseInt(_this36.userId),
+                  "userId": parseInt(_this37.userId),
                   "documentId": null,
                   "parkingSlotId": null,
                   "stickerNumber": "string",
@@ -4341,7 +4444,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   "toDate": "2020-03-26T20:30:26.576Z",
                   "isPassIssued": true,
                   "isActive": true,
-                  "insertedBy": parseInt(_this36.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this37.cookieService.get('userId')),
                   "insertedOn": new Date().toISOString(),
                   "updatedBy": 0,
                   "updatedOn": "2020-03-26T20:30:26.576Z"
@@ -4350,19 +4453,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this36.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this37.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this36.isDataLoaded = true;
+                    _this37.isDataLoaded = true;
 
-                    _this36.sharedService.setAlertMessage("Vehicle added successfully");
+                    _this37.sharedService.setAlertMessage("Vehicle added successfully");
 
-                    _this36.outputParams.emit(true);
+                    _this37.outputParams.emit(true);
                   } else {
-                    _this36.isDataLoaded = true;
+                    _this37.isDataLoaded = true;
                   }
                 });
               } else {
-                _this36.isDataLoaded = true;
+                _this37.isDataLoaded = true;
               }
             });
           } else {
@@ -4386,40 +4489,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.vehicleService.updateVehicle(_vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitVehicleId": parseInt(_this36.vehicleUnit.apartmentBlockUnitVehicleId),
-                  "apartmentBlockUnitId": parseInt(_this36.apartmentBlockUnitId),
-                  "vehicleId": parseInt(_this36.vehicle.vehicleId),
-                  "userId": parseInt(_this36.userId),
+                  "apartmentBlockUnitVehicleId": parseInt(_this37.vehicleUnit.apartmentBlockUnitVehicleId),
+                  "apartmentBlockUnitId": parseInt(_this37.apartmentBlockUnitId),
+                  "vehicleId": parseInt(_this37.vehicle.vehicleId),
+                  "userId": parseInt(_this37.userId),
                   "documentId": null,
                   "parkingSlotId": null,
                   "stickerNumber": "string",
                   "rfid": "string",
                   "fromDate": "2020-03-26T20:30:26.576Z",
                   "toDate": "2020-03-26T20:30:26.576Z",
-                  "isPassIssued": _this36.vehicle.isPassIssued,
-                  "isActive": _this36.vehicle.isActive,
-                  "insertedBy": _this36.vehicle.insertedBy,
-                  "insertedOn": _this36.vehicle.insertedOn,
-                  "updatedBy": parseInt(_this36.cookieService.get('userId')),
+                  "isPassIssued": _this37.vehicle.isPassIssued,
+                  "isActive": _this37.vehicle.isActive,
+                  "insertedBy": _this37.vehicle.insertedBy,
+                  "insertedOn": _this37.vehicle.insertedOn,
+                  "updatedBy": parseInt(_this37.cookieService.get('userId')),
                   "updatedOn": new Date().toISOString()
                 };
                 var unitParams = {
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this36.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this37.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this36.isDataLoaded = true;
+                    _this37.isDataLoaded = true;
 
-                    _this36.sharedService.setAlertMessage("Vehicle updated successfully");
+                    _this37.sharedService.setAlertMessage("Vehicle updated successfully");
 
-                    _this36.outputParams.emit(true);
+                    _this37.outputParams.emit(true);
                   } else {
-                    _this36.isDataLoaded = true;
+                    _this37.isDataLoaded = true;
                   }
                 });
               } else {
-                _this36.isDataLoaded = true;
+                _this37.isDataLoaded = true;
               }
             });
           }
@@ -4427,7 +4530,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this37 = this;
+          var _this38 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -4450,7 +4553,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 2
           };
           this.lookupService.getLookupValueByLookupTypeId(vehcileTypeParams).subscribe(function (res) {
-            _this37.vehicleTypeList = res;
+            _this38.vehicleTypeList = res;
           });
         }
       }, {
@@ -4622,7 +4725,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfileVehiclesComponent, [{
         key: "showUnitDetails",
         value: function showUnitDetails(id) {
-          var _this38 = this;
+          var _this39 = this;
 
           this.isUserDataLoaded = false;
           this.isUnitSelected = true;
@@ -4630,14 +4733,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentBlockUnitId: parseInt(id)
           };
           this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-            _this38.vehicleDataList = res;
-            _this38.isUserDataLoaded = true;
+            _this39.vehicleDataList = res;
+            _this39.isUserDataLoaded = true;
           });
           var parkingListParams = {
             apartmentIdBlockUnitId: parseInt(id)
           };
           this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
-            _this38.parkingSlotsDataList = res;
+            _this39.parkingSlotsDataList = res;
           });
         }
       }, {
@@ -4673,15 +4776,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getParams",
         value: function getParams(event) {
-          var _this39 = this;
+          var _this40 = this;
 
           if (event) {
             var params = {
               apartmentBlockUnitId: parseInt(this.userUnitId)
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(params).subscribe(function (res) {
-              _this39.vehicleDataList = res;
-              _this39.isUserDataLoaded = true;
+              _this40.vehicleDataList = res;
+              _this40.isUserDataLoaded = true;
             });
           }
         }
@@ -4698,7 +4801,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this40 = this;
+          var _this41 = this;
 
           if (this.route.params['value'].id != undefined) {
             this.userId = this.route.params['value'].id;
@@ -4711,30 +4814,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this40.blockData = res;
+            _this41.blockData = res;
           });
           var vehicleTypeParams = {
             LookupTypeId: 2
           };
           this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-            _this40.vehicleTypeList = res;
+            _this41.vehicleTypeList = res;
           });
           var unitTypeParams = {
             LookupTypeId: 1
           };
           this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-            _this40.unitTypeData = res;
+            _this41.unitTypeData = res;
 
-            _this40.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this40.userId).subscribe(function (unit) {
-              _this40.unitListData = unit;
-              underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this40.unitListData, function (item) {
-                _this40.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
-                  _this40.unitNameList.push(data[0]);
+            _this41.apartmentService.getAllApartmentBlockUnitUsersByUserId(_this41.userId).subscribe(function (unit) {
+              _this41.unitListData = unit;
+              underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this41.unitListData, function (item) {
+                _this41.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (data) {
+                  _this41.unitNameList.push(data[0]);
 
-                  _this40.isUserDataLoaded = true;
-                  var id = _this40.unitListData[0].apartmentBlockUnitId;
+                  _this41.isUserDataLoaded = true;
+                  var id = _this41.unitListData[0].apartmentBlockUnitId;
 
-                  _this40.showUnitDetails(id);
+                  _this41.showUnitDetails(id);
                 }, function (error) {});
               });
             }, function (error) {});
@@ -4979,7 +5082,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitPropertyManagerCreateForm",
         value: function submitPropertyManagerCreateForm(form) {
-          var _this41 = this;
+          var _this42 = this;
 
           this.isDataLoaded = false;
           var details = {
@@ -5006,15 +5109,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log('res', res);
 
             if (res.message) {
-              _this41.sharedService.setAlertMessage("Property Manager added successfully");
+              _this42.sharedService.setAlertMessage("Property Manager added successfully");
 
-              _this41.propertyData = {};
-              _this41.isDataLoaded = true;
+              _this42.propertyData = {};
+              _this42.isDataLoaded = true;
 
-              _this41.outputParams.emit('close');
+              _this42.outputParams.emit('close');
             }
           }, function (error) {
-            _this41.isDataLoaded = true;
+            _this42.isDataLoaded = true;
             console.log(error);
           });
         }
@@ -5205,7 +5308,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(PropertyManagerComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this42 = this;
+          var _this43 = this;
 
           this.userId = this.route.params['value'].id;
           var params = {
@@ -5213,14 +5316,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.apartmentService.getApartmentBlockUnitByUserId(params).subscribe(function (res) {
             var data = res[0] || {};
-            _this42.apartmentBlockUnitId = data.apartmentBlockUnitId;
+            _this43.apartmentBlockUnitId = data.apartmentBlockUnitId;
             var param = {
-              apartmentBlockUnitId: parseInt(_this42.apartmentBlockUnitId)
+              apartmentBlockUnitId: parseInt(_this43.apartmentBlockUnitId)
             };
 
-            _this42.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
-              _this42.propertyData = res[0];
-              _this42.isDataLoaded = true;
+            _this43.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
+              _this43.propertyData = res[0];
+              _this43.isDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -5287,7 +5390,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitpropertyManagerForm",
         value: function submitpropertyManagerForm(form) {
-          var _this43 = this;
+          var _this44 = this;
 
           this.isDataLoaded = false;
           var details = {
@@ -5315,30 +5418,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log('res', res);
 
             if (res.message) {
-              _this43.sharedService.setAlertMessage("Property Manager updated successfully");
+              _this44.sharedService.setAlertMessage("Property Manager updated successfully");
 
-              _this43.isEdit = false;
+              _this44.isEdit = false;
               var param = {
-                apartmentBlockUnitId: parseInt(_this43.apartmentBlockUnitId)
+                apartmentBlockUnitId: parseInt(_this44.apartmentBlockUnitId)
               };
 
-              _this43.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
-                _this43.propertyData = res[0] || {};
-                _this43.isDataLoaded = true;
-                console.log('propertyData', _this43.propertyData);
+              _this44.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
+                _this44.propertyData = res[0] || {};
+                _this44.isDataLoaded = true;
+                console.log('propertyData', _this44.propertyData);
               }, function (error) {
                 console.log(error);
               });
             }
           }, function (error) {
-            _this43.isDataLoaded = true;
+            _this44.isDataLoaded = true;
             console.log(error);
           });
         }
       }, {
         key: "deletePropertyManager",
         value: function deletePropertyManager() {
-          var _this44 = this;
+          var _this45 = this;
 
           var message = "Are you sure want to delete?";
           var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
@@ -5349,15 +5452,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (dialogResult) {
             if (dialogResult) {
-              _this44.isDataLoaded = false;
+              _this45.isDataLoaded = false;
               var details = {
-                "propertyManagerId": _this44.propertyData.propertyManagerId,
-                "deleteBy": _this44.userId
+                "propertyManagerId": _this45.propertyData.propertyManagerId,
+                "deleteBy": _this45.userId
               };
 
-              _this44.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+              _this45.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
                 if (res.message) {
-                  _this44.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                  _this45.sharedService.setAlertMessage("Property Manager Deleted successfully");
                 }
               }, function (error) {});
             }
@@ -5695,6 +5798,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isUserDataLoaded = false;
         this.profilePicUrl = "";
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.tabSelection = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
       }
 
       _createClass(MyProfileComponent, [{
@@ -5714,7 +5818,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this45 = this;
+          var _this46 = this;
 
           this.user = {};
 
@@ -5726,14 +5830,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             userid: this.userId
           };
           this.userService.getUserById(queryParamBase).subscribe(function (res) {
-            _this45.user = res[0];
+            _this46.user = res[0];
             var queryParamBase2 = {
-              userId: _this45.userId
+              userId: _this46.userId
             };
 
-            _this45.userService.getRolesByUserId(queryParamBase2).subscribe(function (role) {
-              _this45.userRole = role[0];
-              _this45.isUserDataLoaded = true;
+            _this46.userService.getRolesByUserId(queryParamBase2).subscribe(function (role) {
+              _this46.userRole = role[0];
+              _this46.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -5741,16 +5845,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(error);
           });
           this.sharedService.userdetailscast.subscribe(function (user) {
-            return _this45.user = user;
+            return _this46.user = user;
           });
           this.sharedService.profilepiccast.subscribe(function (profilePicUrl) {
-            _this45.profilePicUrl = profilePicUrl;
+            _this46.profilePicUrl = profilePicUrl;
           });
         }
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges(changes) {
-          var _this46 = this;
+          var _this47 = this;
 
           if (this.type != 'admin') {
             this.userId = parseInt(this.cookieService.get('userId'));
@@ -5758,12 +5862,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           console.log(this.userId);
           this.userService.getUserById(this.userId).subscribe(function (res) {
-            _this46.user = res[0];
-            console.log(_this46.user);
+            _this47.user = res[0];
+            console.log(_this47.user);
 
-            _this46.userService.getRolesByUserId(_this46.userId).subscribe(function (role) {
-              _this46.userRole = role[0];
-              _this46.isUserDataLoaded = true;
+            _this47.userService.getRolesByUserId(_this47.userId).subscribe(function (role) {
+              _this47.userRole = role[0];
+              _this47.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -5790,6 +5894,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)], MyProfileComponent.prototype, "isProfile", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], MyProfileComponent.prototype, "userId", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], MyProfileComponent.prototype, "outputParams", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], MyProfileComponent.prototype, "tabSelection", void 0);
     MyProfileComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-my-profile',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
