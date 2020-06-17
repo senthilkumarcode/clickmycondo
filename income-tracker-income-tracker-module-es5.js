@@ -2685,6 +2685,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             _this23.invoiceDataList = new jqx.dataAdapter(_this23.gridSourceData);
             _this23.totalItems = invoiceDataList.length;
+            _this23.isInvoiceDataLoaded = true;
 
             _this23.renderColumns();
           });

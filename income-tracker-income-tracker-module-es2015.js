@@ -1935,6 +1935,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
             };
             this.invoiceDataList = new jqx.dataAdapter(this.gridSourceData);
             this.totalItems = invoiceDataList.length;
+            this.isInvoiceDataLoaded = true;
             this.renderColumns();
         });
     }
