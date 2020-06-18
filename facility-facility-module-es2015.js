@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5 *ngIf=\"facilityType.type == 'create'\">Add Facility</h5>\n                <h5 *ngIf=\"facilityType.type == 'edit' || facilityType.type == 'slot'\">Edit Facility</h5>\n                <h5 *ngIf=\"facilityType.type == 'view'\">View Facility</h5>\n            </div>\n            <div class=\"col-sm-4\"> \n                <a class=\"btn lime-green float-right\" href=\"javascript:void(0)\" routerLink=\"facility/list\" [routerLinkActiveOptions] = \"{exact:true}\">\n                    <i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <app-alert-message [message]=\"alertMessage\" [isError]=\"isCategoryError\" ></app-alert-message>\n        <form #facilitySettingsForm = \"ngForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Facility Name*</label>\n                        <input  type=\"text\" class=\"form-control\" placeholder=\"Facility Name\" name=\"staffCategory\" [(ngModel)]=\"facility.facilityName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\">\n                    <div class=\"input-box radio-box\">\n                        <label>Is Booking Allow</label>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityBookingAllowId\" id=\"EnaBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\" [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"EnaBookAllow\">Yes</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityBookingAllowId\" id=\"DisBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\" [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"DisBookAllow\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box radio-box\">\n                        <label>Enable Time Slot* </label>\n                        <div class=\"form-group\">\n                            <input  name=\"enableTimeSlotBook\" id=\"enableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\" [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"enableSlotTime\">Yes</label>\n                            </div>\n                        <div class=\"form-group\">\n                            <input  name=\"enableTimeSlotBook\" id=\"disableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\" [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"disableSlotTime\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box radio-box\">\n                        <label>Rate Type*</label>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityRateBaseId\" id=\"hourType\"  [(ngModel)]=\"facility.rateBaseId\"  [value]=\"138\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"hourType\">Hour</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityRateBaseId\" id=\"dayType\" [(ngModel)]=\"facility.rateBaseId\" [value]=\"139\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"dayType\">Day</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\">\n                    <div class=\"input-box radio-box\">\n                        <label>Service Type*</label>\n                        <div class=\"form-group\">\n                            <input name=\"faclityTypeId\" id=\"paidType\" [(ngModel)]=\"facility.facilityTypeId\" [value]=\"184\" type=\"radio\"required>\n                            <label class=\"radio-inline\" for=\"paidType\">Paid</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input name=\"faclityTypeId\" id=\"freeType\" [(ngModel)]=\"facility.facilityTypeId\" [value]=\"185\" type=\"radio\"required>\n                            <label class=\"radio-inline\" for=\"freeType\">Free</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Facility Location*</label>\n                        <select name=\"location\" class=\"form-control\" [(ngModel)]=\"facility.apartmentBlockId\" required>\n                            <option value=\"0\"  selected >Select Location</option>\n                            <option *ngFor=\"let item of towerslist\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                    <div class=\"input-box\">\n                        <label>Booking Amount ({{pesoValue}})</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Booking Amount\" name=\"amount\" [(ngModel)]=\"facility.amount\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.facilityTypeId == 184\">\n                    <div class=\"input-box\">\n                        <label>Security Deposit ({{pesoValue}})*</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Security Amount\" name=\"deposit\" [(ngModel)]=\"facility.cautionDeposit\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box\">\n                        <label>Advance Booking In Days*</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"autoCancelDays\" [(ngModel)]=\"facility.advanceBookingindays\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                    <div class=\"input-box\" >\n                        <label>Payment Due In Days*</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Payment Due Days\" name=\"autoCancelDays\" [(ngModel)]=\"facility.autoCancelDays\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box\">\n                        <label>Min Hours Booking*</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Min Hrs Booking\" name=\"minHoursBooking\" [(ngModel)]=\"facility.minHoursBooking\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\"> \n                    <div class=\"input-box\">\n                        <label>Facility Opens At*</label>\n                        <input  class=\"form-control\" name=\"minTimeLimit\" [owlDateTime]=\"minTimeLimit\" [owlDateTimeTrigger]=\"minTimeLimit\" placeholder=\"Time\" [(ngModel)]=\"facility.minTimeLimit\" required>\n                        <owl-date-time  [pickerType]=\"'timer'\" #minTimeLimit></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"minTimeLimit\">\n                            <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box\">\n                        <label>Facility Closes At*</label>\n                        <input  class=\"form-control\" name=\"maxTimeLimit\" [owlDateTime]=\"maxTimeLimit\" [owlDateTimeTrigger]=\"maxTimeLimit\" placeholder=\"Time\" [(ngModel)]=\"facility.maxTimeLimit\" required>\n                        <owl-date-time  [pickerType]=\"'timer'\" #maxTimeLimit></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"maxTimeLimit\">\n                            <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\" >\n                        <label>Total No Of Occupancy</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Occupancy\" name=\"autoCancelDays\" [(ngModel)]=\"facility.totalallowedperson\" >\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box radio-box\">\n                        <label>Approval Required* </label>\n                        <div class=\"form-group\">\n                            <input  name=\"approvalType\" id=\"Yes\" [(ngModel)]=\"facility.isApproved\"  [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"approvalType\" id=\"No\" [(ngModel)]=\"facility.isApproved\" [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"No\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-10\">\n                    <div class=\"input-box\">\n                        <label>Accessed By*</label>\n                        <ng-select [items]=\"towerslist\" \n                            [ngModelOptions]=\"{standalone: true}\"\n                            bindLabel=\"apartmentBlockNumber\"\n                            bindValue=\"apartmentBlockId\"\n                            [multiple]=\"true\"\n                            placeholder=\"Select Tower/Block List\"\n                            (change)=\"accessed($event)\"\n                            [(ngModel)]=\"selectedTowersIds\">\n                        </ng-select>\n                    </div>\n                </div>\n                <div class=\"col-sm-12 mt-3 mb-5\" *ngIf=\"facility.isSlotBooking\">\n                    <ul class=\"list-group tabs clear\" id=\"accordion2\">\n                        <li class=\"list-group-item\" #accordion2 data-toggle=\"collapse\" data-target=\"#slot\"\n                            aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                            <span class=\"font-med\">Slot</span>\n                        </li>\n                        <div id=\"slot\" [ngClass]=\"facilityType.type == 'slot' ? 'show': ''\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion2\">\n                            <a class=\"btn lime-green float-right mt-2 mb-2\" (click)=\"addSlot()\">\n                                <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                            </a>\n                            <div class=\"mt-2 ml-2 mr-2\" *ngFor=\"let slot of facility.apartmentFacilitySlot;let i= index\">\n                                <ul class=\"list-group tabs clear col-sm-12\" id=\"accordions{{i}}\">\n                                    <li class=\"list-group-item\" #accordions{{i}} data-toggle=\"collapse\" attr.data-target=\"#test{{i}}\"\n                                        aria-expanded=\"false\" aria-controls=\"collapseOne{{i}}\">\n                                        <span class=\"font-med\">Slot {{i+1}} <span *ngIf=\"slot.slotBeginTime.length > 0\">- {{slot.slotBeginTime | date: 'h:mm a'}} - {{slot.slotEndTime | date: 'h:mm a'}}</span></span>\n                                        <i class=\"fa fa-trash text-danger float-right mr-5 mt-2\" (click)=deleteSlot(i,slot) aria-hidden=\"true\"></i>\n                                    </li>\n                                    <div id=\"test{{i}}\" [ngClass]=\"facilityType.type == 'slot' && facility.apartmentFacilitySlot.length-1 == i  ? 'show': ''\" class=\"collapse\" aria-labelledby=\"headingOne{{i}}\" data-parent=\"#accordions{{i}}\">\n                                        <div class=\"row mt-3 ml-2 mr-2\">\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>Begin Time*</label>\n                                                    <input class=\"form-control\" name=\"slotBeginTime{{i}}\" [owlDateTime]=\"slotBeginTime\" [owlDateTimeTrigger]=\"slotBeginTime\" placeholder=\"Time\" [(ngModel)]=\"slot.slotBeginTime\">\n                                                    <owl-date-time [pickerType]=\"'timer'\" #slotBeginTime></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotBeginTime\">\n                                                        <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>End Time*</label>\n                                                    <input class=\"form-control\" name=\"slotEndTime{{i}}\" [min]=\"minEndTime\" [owlDateTime]=\"slotEndTime\" [owlDateTimeTrigger]=\"slotEndTime\" placeholder=\"Time\" [(ngModel)]=\"slot.slotEndTime\">\n                                                    <owl-date-time [pickerType]=\"'timer'\" #slotEndTime></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotEndTime\">\n                                                        <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>Cost ({{pesoValue}})*</label>\n                                                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"cost{{i}}\" [(ngModel)]=\"slot.cost\">\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                    <label>Comments</label>\n                                                    <textarea placeholder=\"some text here\" name=\"comments{{i}}\" [(ngModel)]=\"slot.comment\"></textarea>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </ul>\n                            </div>\n                        </div>\n                    </ul>\n                </div>\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <quill-editor \n                            class=\"quill-editor\"\n                            name=\"description\"\n                            [(ngModel)]=\"facility.description\"\n                            [placeholder]=\"editorPlacehorder\">\n                        </quill-editor>\n                    </div>\n                </div>\n                <div class=\"col-sm-12 text-right\">\n                    <button class=\"btn blue mr-2\" [disabled]=\"facilitySettingsForm.invalid\" (click)=\"createFacility()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>\n\n    ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5 *ngIf=\"facilityType.type == 'create'\">Add Facility</h5>\n                <h5 *ngIf=\"facilityType.type == 'edit' || facilityType.type == 'slot'\">Edit Facility</h5>\n                <h5 *ngIf=\"facilityType.type == 'view'\">View Facility</h5>\n            </div>\n            <div class=\"col-sm-4\"> \n                <a class=\"btn lime-green float-right\" href=\"javascript:void(0)\" routerLink=\"facility/list\" [routerLinkActiveOptions] = \"{exact:true}\">\n                    <i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body facility-create-wrapper\">\n        <app-alert-message [message]=\"alertMessage\" [isError]=\"isCategoryError\" ></app-alert-message>\n        <p class=\"text-muted mt-3 mb-5 font-weight-bold alert\" *ngIf=\"facility.isSlotBooking\">Alert Messages : You have selected 'TIME SLOT' as YES, Please create slots for this facility.</p>\n        <form #facilitySettingsForm = \"ngForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Facility Name*</label>\n                        <input  type=\"text\" class=\"form-control\" placeholder=\"Facility Name\" name=\"staffCategory\" [(ngModel)]=\"facility.facilityName\"\n                        autocomplete=\"off\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\">\n                    <div class=\"input-box radio-box\">\n                        <label>Is Booking Allowed*</label>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityBookingAllowId\" id=\"EnaBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\"\n                             (change)=\"isBookingAllowed()\"  [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"EnaBookAllow\">Yes</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityBookingAllowId\" id=\"DisBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\"\n                             (change)=\"isBookingAllowed()\"  [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"DisBookAllow\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box radio-box\">\n                        <label>Rate Type*</label>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityRateBaseId\" id=\"hourType\"  [(ngModel)]=\"facility.rateBaseId\" (change)=\"isHourDay()\"\n                              [value]=\"138\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"hourType\">Hour</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"faclityRateBaseId\" id=\"dayType\" [(ngModel)]=\"facility.rateBaseId\" (change)=\"isHourDay()\"\n                             [value]=\"139\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"dayType\">Day</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed && facility.rateBaseId == 138\">\n                    <div class=\"input-box radio-box\">\n                        <label>Enable Time Slot* </label>\n                        <div class=\"form-group\">\n                            <input  name=\"enableTimeSlotBook\" id=\"enableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\"\n                             (change)=\"enableSlot()\" [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"enableSlotTime\">Yes</label>\n                            </div>\n                        <div class=\"form-group\">\n                            <input  name=\"enableTimeSlotBook\" id=\"disableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\"\n                             (change)=\"enableSlot()\" [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"disableSlotTime\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-2\">\n                    <div class=\"input-box radio-box\">\n                        <label>Service Type*</label>\n                        <div class=\"form-group\">\n                            <input name=\"faclityTypeId\" id=\"paidType\" [(ngModel)]=\"facility.facilityTypeId\" (change)=\"isPaidOrFree()\"\n                             [value]=\"184\" type=\"radio\"required>\n                            <label class=\"radio-inline\" for=\"paidType\">Paid</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input name=\"faclityTypeId\" id=\"freeType\" [(ngModel)]=\"facility.facilityTypeId\" (change)=\"isPaidOrFree()\"\n                             [value]=\"185\" type=\"radio\"required>\n                            <label class=\"radio-inline\" for=\"freeType\">Free</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Facility Location*</label>\n                        <select name=\"location\" class=\"form-control\" [(ngModel)]=\"facility.apartmentBlockId\" required>\n                            <option value=\"0\"  selected >Select Location</option>\n                            <option *ngFor=\"let item of towerslist\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                    <div class=\"input-box\">\n                        <label>Booking Amount Per {{ facility.rateBaseId == 138 ? 'Hour' : 'Day'}} ({{pesoValue}})</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Booking Amount\" name=\"amount\"\n                         [(ngModel)]=\"facility.amount\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.facilityTypeId == 184\">\n                    <div class=\"input-box\">\n                        <label>Security Deposit ({{pesoValue}})*</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Security Amount\" name=\"deposit\"\n                         [(ngModel)]=\"facility.cautionDeposit\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box\">\n                        <label>Advance Booking In Days*</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Booking Days\" name=\"advanceBookingindays\"\n                         [(ngModel)]=\"facility.advanceBookingindays\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                    <div class=\"input-box\" >\n                        <label>Payment Due In Days*</label>\n                        <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Payment Due Days\" name=\"autoCancelDays\"\n                         [(ngModel)]=\"facility.autoCancelDays\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.rateBaseId == 138\">\n                    <div class=\"input-box\">\n                        <label>Min Hours Booking*</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Min Hrs Booking\" name=\"minHoursBooking\"\n                         [(ngModel)]=\"facility.minHoursBooking\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\"> \n                    <div class=\"input-box\">\n                        <label>Facility Opens At*</label>\n                        <input  class=\"form-control\" name=\"minTimeLimit\" [owlDateTime]=\"minTimeLimit\" [owlDateTimeTrigger]=\"minTimeLimit\"\n                         placeholder=\"Time\" [(ngModel)]=\"facility.minTimeLimit\"\n                        autocomplete=\"off\" required>\n                        <owl-date-time  [pickerType]=\"'timer'\" #minTimeLimit></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"minTimeLimit\">\n                            <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box\">\n                        <label>Facility Closes At*</label>\n                        <input  class=\"form-control\" name=\"maxTimeLimit\" [owlDateTime]=\"maxTimeLimit\" [owlDateTimeTrigger]=\"maxTimeLimit\"\n                         placeholder=\"Time\" [(ngModel)]=\"facility.maxTimeLimit\"\n                        autocomplete=\"off\" required>\n                        <owl-date-time  [pickerType]=\"'timer'\" #maxTimeLimit></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"maxTimeLimit\">\n                            <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\" >\n                        <label>Total No Of Occupancy</label>\n                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Occupancy\" name=\"autoCancelDays\"\n                         [(ngModel)]=\"facility.totalallowedperson\" >\n                    </div>\n                </div>\n                <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                    <div class=\"input-box radio-box\">\n                        <label>Approval Required* </label>\n                        <div class=\"form-group\">\n                            <input  name=\"approvalType\" id=\"Yes\" [(ngModel)]=\"facility.isApproved\"  [value]=\"true\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input  name=\"approvalType\" id=\"No\" [(ngModel)]=\"facility.isApproved\" [value]=\"false\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"No\">No</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-10\">\n                    <div class=\"input-box\">\n                        <label>Accessed By*</label>\n                        <angular2-multiselect [data]=\"accessTower.dropdownList\" name=\"accessTowerDropDown\"\n                            [(ngModel)]=\"accessTower.selectedItems\"\n                            [settings]=\"accessTowerdropdownSettings\">\n                        </angular2-multiselect>\n                    </div>\n                </div>\n                <div class=\"col-sm-12 mt-3 mb-5\" *ngIf=\"facility.isSlotBooking\">\n                    <ul class=\"list-group tabs clear\" id=\"accordion2\">\n                        <li class=\"list-group-item\" #accordion2 data-toggle=\"collapse\" data-target=\"#slot\"\n                            aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                            <span class=\"font-med\">Slot</span>\n                        </li>\n                        <div id=\"slot\" [ngClass]=\"facility.apartmentFacilitySlot.length > 0 ? 'show': ''\" class=\"collapse\"\n                             aria-labelledby=\"headingOne\" data-parent=\"#accordion2\">\n                            <a class=\"btn lime-green float-right mt-2 mb-2\" (click)=\"addSlot()\">\n                                <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                            </a>\n                            <div class=\"mt-2 ml-2 mr-2\" *ngFor=\"let slot of facility.apartmentFacilitySlot;let i= index\">\n                                <ul class=\"list-group tabs clear col-sm-12\" id=\"accordions{{i}}\">\n                                    <li class=\"list-group-item\" #accordions{{i}} data-toggle=\"collapse\" attr.data-target=\"#test{{i}}\"\n                                        aria-expanded=\"false\" aria-controls=\"collapseOne{{i}}\">\n                                        <span class=\"font-med\">Slot {{i+1}} </span>\n                                        <i class=\"fa fa-trash text-danger float-right mr-5 mt-2\" (click)=deleteSlot(i,slot) aria-hidden=\"true\"></i>\n                                    </li>\n                                    <div id=\"test{{i}}\" [ngClass]=\"facilityType.type == 'slot' && facility.apartmentFacilitySlot.length-1 == i  ? 'show': ''\" class=\"collapse\"\n                                     aria-labelledby=\"headingOne{{i}}\" data-parent=\"#accordions{{i}}\">\n                                        <p class=\"error mt-1 mb-1 ml-4\" *ngIf=\"slot.error\">Please Enter Minimum {{facility.minHoursBooking}} Hours</p>\n                                        <div class=\"row mt-3 ml-2 mr-2\">\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>Begin Time*</label>\n                                                    <input class=\"form-control\" name=\"slotBeginTime{{i}}\" [owlDateTime]=\"slotBeginTime\" [owlDateTimeTrigger]=\"slotBeginTime\"\n                                                     placeholder=\"Time\" [(ngModel)]=\"slot.slotBeginTime\" (dateTimeInput)=\"setMinTime(i)\" [required]=\"facility.isSlotBooking\" autocomplete=\"off\">\n                                                    <owl-date-time [pickerType]=\"'timer'\" #slotBeginTime></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotBeginTime\">\n                                                        <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>End Time*</label>\n                                                    <input class=\"form-control\" name=\"slotEndTime{{i}}\" [min]=\"slot.slotBeginTime\" [max]=\"24\" [owlDateTime]=\"slotEndTime\"\n                                                     [owlDateTimeTrigger]=\"slotEndTime\" placeholder=\"Time\" [(ngModel)]=\"slot.slotEndTime\"\n                                                    (dateTimeInput)=\"setMinTime(i)\" [required]=\"facility.isSlotBooking\" autocomplete=\"off\">\n                                                    <owl-date-time [pickerType]=\"'timer'\" #slotEndTime></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotEndTime\">\n                                                        <i-feather class=\"icon time float-left\" name=\"clock\" width=\"18\"></i-feather>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-4\">\n                                                <div class=\"input-box\">\n                                                    <label>Cost per Slot ({{pesoValue}})*</label>\n                                                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"cost\" name=\"cost{{i}}\" [(ngModel)]=\"slot.cost\"\n                                                     [required]=\"facility.isSlotBooking\">\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                    <label>Comments</label>\n                                                    <textarea placeholder=\"some text here\" name=\"comments{{i}}\" [(ngModel)]=\"slot.comment\"></textarea>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </ul>\n                            </div>\n                        </div>\n                    </ul>\n                </div>\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <quill-editor \n                            class=\"quill-editor\"\n                            name=\"description\"\n                            [(ngModel)]=\"facility.description\"\n                            [placeholder]=\"editorPlacehorder\">\n                        </quill-editor>\n                    </div>\n                </div>\n                <div class=\"col-sm-12 text-right\">\n                    <button class=\"btn blue mr-2\" [disabled]=\"facilitySettingsForm.invalid\" (click)=\"createFacility()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>\n\n    ");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\" >\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-9\">\n            <h5>Facilities</h5>\n            </div>\n            <div class=\"col-sm-2 ml-5\">\n            <a class=\"btn lime-green float-right ml-4\" (click)=\"addNewFacilityCategory()\" >\n                <i class=\"fa fa-plus\" aria-hidden=\"true\"> Add New Facility</i>\n            </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"ml-4 facility-settings-wrapper\">\n            <app-loader *ngIf=\"!isFacilityCategoryLoaded\"></app-loader>\n            <div class=\"category-list list-boxes big\" *ngIf=\"isFacilityCategoryLoaded\">\n                <li class=\"list-inline-item\"  *ngFor=\"let item of facilityCategoryData; let i = index\">\n                    <div class=\"card\">\n                        <div class=\"card-body nohover\">\n                            <div class=\"icons\">\n                                <a href=\"javascript:void(0)\"><i-feather class=\"icon view\" name=\"eye\" (click)=\"viewFacility(item)\"></i-feather></a>\n                                <a href=\"javascript:void(0)\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"updateFacility(item)\"></i-feather></a>\n                            </div>\n                            <h6>{{item.facilityName}}</h6>\n                            <p *ngIf=\"item.amount>0\">{{item.amount}} {{pesoValue}}/- per {{getRateBase(item.rateBaseId)}}</p>\n                            <p *ngIf=\"item.amount==0\">Free</p>\n                            <div class=\"bottom\">\n                                <p>{{getSlots(item.apartmentFacilitySlot).length}} Slot(s)</p>\n                                <div class=\"ml-auto\">\n                                    <button class=\"btn sf trans-white hover-green\" [disabled]=\"!item.isSlotBooking\" (click)=\"addSlotFacility(item)\">\n                                        <i-feather class=\"icon sm plus\" name=\"plus\"></i-feather>\n                                        <span>Add Slot</span>\n                                    </button>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </li>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\" >\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-9\">\n            <h5>Facilities</h5>\n            </div>\n            <div class=\"col-sm-2 ml-5\">\n            <a class=\"btn lime-green float-right ml-4\" (click)=\"addNewFacilityCategory()\" >\n                <i class=\"fa fa-plus\" aria-hidden=\"true\"> Add New Facility</i>\n            </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"ml-4 facility-settings-wrapper\">\n            <app-loader *ngIf=\"!isFacilityCategoryLoaded\"></app-loader>\n            <div class=\"category-list list-boxes big\" *ngIf=\"isFacilityCategoryLoaded\">\n                <li class=\"list-inline-item\"  *ngFor=\"let item of facilityCategoryData; let i = index\">\n                    <div class=\"card\">\n                        <div class=\"card-body nohover card-height\">\n                            <div class=\"icons\">\n                                <a href=\"javascript:void(0)\"><i-feather class=\"icon view\" name=\"eye\" (click)=\"viewFacility(item)\"></i-feather></a>\n                                <a href=\"javascript:void(0)\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"updateFacility(item)\"></i-feather></a>\n                            </div>\n                            <h6>{{item.facilityName}}</h6>\n                            <p *ngIf=\"item.amount>0\">{{item.amount}} Per {{getRateBase(item.rateBaseId)}} {{pesoValue}}</p>\n                            <p *ngIf=\"item.amount==0\">Free</p>\n                            <div class=\"bottom\" *ngIf=\"item.rateBaseId == 138\">\n                                <p>{{getSlots(item.apartmentFacilitySlot).length}} Slot(s)</p>\n                                <div class=\"ml-auto\"> \n                                    <button class=\"btn sf trans-white hover-green\" [disabled]=\"!item.isSlotBooking\" (click)=\"addSlotFacility(item)\">\n                                        <i-feather class=\"icon sm plus\" name=\"plus\"></i-feather>\n                                        <span>Add Slot</span>\n                                    </button>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </li>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -127,6 +127,770 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
+
+/***/ }),
+
+/***/ "./node_modules/util/node_modules/inherits/inherits_browser.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/util/node_modules/inherits/inherits_browser.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/util/support/isBufferBrowser.js":
+/*!******************************************************!*\
+  !*** ./node_modules/util/support/isBufferBrowser.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function isBuffer(arg) {
+  return arg && typeof arg === 'object'
+    && typeof arg.copy === 'function'
+    && typeof arg.fill === 'function'
+    && typeof arg.readUInt8 === 'function';
+}
+
+/***/ }),
+
+/***/ "./node_modules/util/util.js":
+/*!***********************************!*\
+  !*** ./node_modules/util/util.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+var getOwnPropertyDescriptors = Object.getOwnPropertyDescriptors ||
+  function getOwnPropertyDescriptors(obj) {
+    var keys = Object.keys(obj);
+    var descriptors = {};
+    for (var i = 0; i < keys.length; i++) {
+      descriptors[keys[i]] = Object.getOwnPropertyDescriptor(obj, keys[i]);
+    }
+    return descriptors;
+  };
+
+var formatRegExp = /%[sdj%]/g;
+exports.format = function(f) {
+  if (!isString(f)) {
+    var objects = [];
+    for (var i = 0; i < arguments.length; i++) {
+      objects.push(inspect(arguments[i]));
+    }
+    return objects.join(' ');
+  }
+
+  var i = 1;
+  var args = arguments;
+  var len = args.length;
+  var str = String(f).replace(formatRegExp, function(x) {
+    if (x === '%%') return '%';
+    if (i >= len) return x;
+    switch (x) {
+      case '%s': return String(args[i++]);
+      case '%d': return Number(args[i++]);
+      case '%j':
+        try {
+          return JSON.stringify(args[i++]);
+        } catch (_) {
+          return '[Circular]';
+        }
+      default:
+        return x;
+    }
+  });
+  for (var x = args[i]; i < len; x = args[++i]) {
+    if (isNull(x) || !isObject(x)) {
+      str += ' ' + x;
+    } else {
+      str += ' ' + inspect(x);
+    }
+  }
+  return str;
+};
+
+
+// Mark that a method should not be used.
+// Returns a modified function which warns once by default.
+// If --no-deprecation is set, then it is a no-op.
+exports.deprecate = function(fn, msg) {
+  if (typeof process !== 'undefined' && process.noDeprecation === true) {
+    return fn;
+  }
+
+  // Allow for deprecating things in the process of starting up.
+  if (typeof process === 'undefined') {
+    return function() {
+      return exports.deprecate(fn, msg).apply(this, arguments);
+    };
+  }
+
+  var warned = false;
+  function deprecated() {
+    if (!warned) {
+      if (process.throwDeprecation) {
+        throw new Error(msg);
+      } else if (process.traceDeprecation) {
+        console.trace(msg);
+      } else {
+        console.error(msg);
+      }
+      warned = true;
+    }
+    return fn.apply(this, arguments);
+  }
+
+  return deprecated;
+};
+
+
+var debugs = {};
+var debugEnviron;
+exports.debuglog = function(set) {
+  if (isUndefined(debugEnviron))
+    debugEnviron = process.env.NODE_DEBUG || '';
+  set = set.toUpperCase();
+  if (!debugs[set]) {
+    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
+      var pid = process.pid;
+      debugs[set] = function() {
+        var msg = exports.format.apply(exports, arguments);
+        console.error('%s %d: %s', set, pid, msg);
+      };
+    } else {
+      debugs[set] = function() {};
+    }
+  }
+  return debugs[set];
+};
+
+
+/**
+ * Echos the value of a value. Trys to print the value out
+ * in the best way possible given the different types.
+ *
+ * @param {Object} obj The object to print out.
+ * @param {Object} opts Optional options object that alters the output.
+ */
+/* legacy: obj, showHidden, depth, colors*/
+function inspect(obj, opts) {
+  // default options
+  var ctx = {
+    seen: [],
+    stylize: stylizeNoColor
+  };
+  // legacy...
+  if (arguments.length >= 3) ctx.depth = arguments[2];
+  if (arguments.length >= 4) ctx.colors = arguments[3];
+  if (isBoolean(opts)) {
+    // legacy...
+    ctx.showHidden = opts;
+  } else if (opts) {
+    // got an "options" object
+    exports._extend(ctx, opts);
+  }
+  // set default options
+  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
+  if (isUndefined(ctx.depth)) ctx.depth = 2;
+  if (isUndefined(ctx.colors)) ctx.colors = false;
+  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
+  if (ctx.colors) ctx.stylize = stylizeWithColor;
+  return formatValue(ctx, obj, ctx.depth);
+}
+exports.inspect = inspect;
+
+
+// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
+inspect.colors = {
+  'bold' : [1, 22],
+  'italic' : [3, 23],
+  'underline' : [4, 24],
+  'inverse' : [7, 27],
+  'white' : [37, 39],
+  'grey' : [90, 39],
+  'black' : [30, 39],
+  'blue' : [34, 39],
+  'cyan' : [36, 39],
+  'green' : [32, 39],
+  'magenta' : [35, 39],
+  'red' : [31, 39],
+  'yellow' : [33, 39]
+};
+
+// Don't use 'blue' not visible on cmd.exe
+inspect.styles = {
+  'special': 'cyan',
+  'number': 'yellow',
+  'boolean': 'yellow',
+  'undefined': 'grey',
+  'null': 'bold',
+  'string': 'green',
+  'date': 'magenta',
+  // "name": intentionally not styling
+  'regexp': 'red'
+};
+
+
+function stylizeWithColor(str, styleType) {
+  var style = inspect.styles[styleType];
+
+  if (style) {
+    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
+           '\u001b[' + inspect.colors[style][1] + 'm';
+  } else {
+    return str;
+  }
+}
+
+
+function stylizeNoColor(str, styleType) {
+  return str;
+}
+
+
+function arrayToHash(array) {
+  var hash = {};
+
+  array.forEach(function(val, idx) {
+    hash[val] = true;
+  });
+
+  return hash;
+}
+
+
+function formatValue(ctx, value, recurseTimes) {
+  // Provide a hook for user-specified inspect functions.
+  // Check that value is an object with an inspect function on it
+  if (ctx.customInspect &&
+      value &&
+      isFunction(value.inspect) &&
+      // Filter out the util module, it's inspect function is special
+      value.inspect !== exports.inspect &&
+      // Also filter out any prototype objects using the circular check.
+      !(value.constructor && value.constructor.prototype === value)) {
+    var ret = value.inspect(recurseTimes, ctx);
+    if (!isString(ret)) {
+      ret = formatValue(ctx, ret, recurseTimes);
+    }
+    return ret;
+  }
+
+  // Primitive types cannot have properties
+  var primitive = formatPrimitive(ctx, value);
+  if (primitive) {
+    return primitive;
+  }
+
+  // Look up the keys of the object.
+  var keys = Object.keys(value);
+  var visibleKeys = arrayToHash(keys);
+
+  if (ctx.showHidden) {
+    keys = Object.getOwnPropertyNames(value);
+  }
+
+  // IE doesn't make error fields non-enumerable
+  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
+  if (isError(value)
+      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
+    return formatError(value);
+  }
+
+  // Some type of object without properties can be shortcutted.
+  if (keys.length === 0) {
+    if (isFunction(value)) {
+      var name = value.name ? ': ' + value.name : '';
+      return ctx.stylize('[Function' + name + ']', 'special');
+    }
+    if (isRegExp(value)) {
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+    }
+    if (isDate(value)) {
+      return ctx.stylize(Date.prototype.toString.call(value), 'date');
+    }
+    if (isError(value)) {
+      return formatError(value);
+    }
+  }
+
+  var base = '', array = false, braces = ['{', '}'];
+
+  // Make Array say that they are Array
+  if (isArray(value)) {
+    array = true;
+    braces = ['[', ']'];
+  }
+
+  // Make functions say that they are functions
+  if (isFunction(value)) {
+    var n = value.name ? ': ' + value.name : '';
+    base = ' [Function' + n + ']';
+  }
+
+  // Make RegExps say that they are RegExps
+  if (isRegExp(value)) {
+    base = ' ' + RegExp.prototype.toString.call(value);
+  }
+
+  // Make dates with properties first say the date
+  if (isDate(value)) {
+    base = ' ' + Date.prototype.toUTCString.call(value);
+  }
+
+  // Make error with message first say the error
+  if (isError(value)) {
+    base = ' ' + formatError(value);
+  }
+
+  if (keys.length === 0 && (!array || value.length == 0)) {
+    return braces[0] + base + braces[1];
+  }
+
+  if (recurseTimes < 0) {
+    if (isRegExp(value)) {
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+    } else {
+      return ctx.stylize('[Object]', 'special');
+    }
+  }
+
+  ctx.seen.push(value);
+
+  var output;
+  if (array) {
+    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
+  } else {
+    output = keys.map(function(key) {
+      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
+    });
+  }
+
+  ctx.seen.pop();
+
+  return reduceToSingleString(output, base, braces);
+}
+
+
+function formatPrimitive(ctx, value) {
+  if (isUndefined(value))
+    return ctx.stylize('undefined', 'undefined');
+  if (isString(value)) {
+    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+                                             .replace(/'/g, "\\'")
+                                             .replace(/\\"/g, '"') + '\'';
+    return ctx.stylize(simple, 'string');
+  }
+  if (isNumber(value))
+    return ctx.stylize('' + value, 'number');
+  if (isBoolean(value))
+    return ctx.stylize('' + value, 'boolean');
+  // For some reason typeof null is "object", so special case here.
+  if (isNull(value))
+    return ctx.stylize('null', 'null');
+}
+
+
+function formatError(value) {
+  return '[' + Error.prototype.toString.call(value) + ']';
+}
+
+
+function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
+  var output = [];
+  for (var i = 0, l = value.length; i < l; ++i) {
+    if (hasOwnProperty(value, String(i))) {
+      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+          String(i), true));
+    } else {
+      output.push('');
+    }
+  }
+  keys.forEach(function(key) {
+    if (!key.match(/^\d+$/)) {
+      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+          key, true));
+    }
+  });
+  return output;
+}
+
+
+function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
+  var name, str, desc;
+  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
+  if (desc.get) {
+    if (desc.set) {
+      str = ctx.stylize('[Getter/Setter]', 'special');
+    } else {
+      str = ctx.stylize('[Getter]', 'special');
+    }
+  } else {
+    if (desc.set) {
+      str = ctx.stylize('[Setter]', 'special');
+    }
+  }
+  if (!hasOwnProperty(visibleKeys, key)) {
+    name = '[' + key + ']';
+  }
+  if (!str) {
+    if (ctx.seen.indexOf(desc.value) < 0) {
+      if (isNull(recurseTimes)) {
+        str = formatValue(ctx, desc.value, null);
+      } else {
+        str = formatValue(ctx, desc.value, recurseTimes - 1);
+      }
+      if (str.indexOf('\n') > -1) {
+        if (array) {
+          str = str.split('\n').map(function(line) {
+            return '  ' + line;
+          }).join('\n').substr(2);
+        } else {
+          str = '\n' + str.split('\n').map(function(line) {
+            return '   ' + line;
+          }).join('\n');
+        }
+      }
+    } else {
+      str = ctx.stylize('[Circular]', 'special');
+    }
+  }
+  if (isUndefined(name)) {
+    if (array && key.match(/^\d+$/)) {
+      return str;
+    }
+    name = JSON.stringify('' + key);
+    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
+      name = name.substr(1, name.length - 2);
+      name = ctx.stylize(name, 'name');
+    } else {
+      name = name.replace(/'/g, "\\'")
+                 .replace(/\\"/g, '"')
+                 .replace(/(^"|"$)/g, "'");
+      name = ctx.stylize(name, 'string');
+    }
+  }
+
+  return name + ': ' + str;
+}
+
+
+function reduceToSingleString(output, base, braces) {
+  var numLinesEst = 0;
+  var length = output.reduce(function(prev, cur) {
+    numLinesEst++;
+    if (cur.indexOf('\n') >= 0) numLinesEst++;
+    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
+  }, 0);
+
+  if (length > 60) {
+    return braces[0] +
+           (base === '' ? '' : base + '\n ') +
+           ' ' +
+           output.join(',\n  ') +
+           ' ' +
+           braces[1];
+  }
+
+  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
+}
+
+
+// NOTE: These type checking functions intentionally don't use `instanceof`
+// because it is fragile and can be easily faked with `Object.create()`.
+function isArray(ar) {
+  return Array.isArray(ar);
+}
+exports.isArray = isArray;
+
+function isBoolean(arg) {
+  return typeof arg === 'boolean';
+}
+exports.isBoolean = isBoolean;
+
+function isNull(arg) {
+  return arg === null;
+}
+exports.isNull = isNull;
+
+function isNullOrUndefined(arg) {
+  return arg == null;
+}
+exports.isNullOrUndefined = isNullOrUndefined;
+
+function isNumber(arg) {
+  return typeof arg === 'number';
+}
+exports.isNumber = isNumber;
+
+function isString(arg) {
+  return typeof arg === 'string';
+}
+exports.isString = isString;
+
+function isSymbol(arg) {
+  return typeof arg === 'symbol';
+}
+exports.isSymbol = isSymbol;
+
+function isUndefined(arg) {
+  return arg === void 0;
+}
+exports.isUndefined = isUndefined;
+
+function isRegExp(re) {
+  return isObject(re) && objectToString(re) === '[object RegExp]';
+}
+exports.isRegExp = isRegExp;
+
+function isObject(arg) {
+  return typeof arg === 'object' && arg !== null;
+}
+exports.isObject = isObject;
+
+function isDate(d) {
+  return isObject(d) && objectToString(d) === '[object Date]';
+}
+exports.isDate = isDate;
+
+function isError(e) {
+  return isObject(e) &&
+      (objectToString(e) === '[object Error]' || e instanceof Error);
+}
+exports.isError = isError;
+
+function isFunction(arg) {
+  return typeof arg === 'function';
+}
+exports.isFunction = isFunction;
+
+function isPrimitive(arg) {
+  return arg === null ||
+         typeof arg === 'boolean' ||
+         typeof arg === 'number' ||
+         typeof arg === 'string' ||
+         typeof arg === 'symbol' ||  // ES6 symbol
+         typeof arg === 'undefined';
+}
+exports.isPrimitive = isPrimitive;
+
+exports.isBuffer = __webpack_require__(/*! ./support/isBuffer */ "./node_modules/util/support/isBufferBrowser.js");
+
+function objectToString(o) {
+  return Object.prototype.toString.call(o);
+}
+
+
+function pad(n) {
+  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+}
+
+
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+              'Oct', 'Nov', 'Dec'];
+
+// 26 Feb 16:19:34
+function timestamp() {
+  var d = new Date();
+  var time = [pad(d.getHours()),
+              pad(d.getMinutes()),
+              pad(d.getSeconds())].join(':');
+  return [d.getDate(), months[d.getMonth()], time].join(' ');
+}
+
+
+// log is just a thin wrapper to console.log that prepends a timestamp
+exports.log = function() {
+  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+};
+
+
+/**
+ * Inherit the prototype methods from one constructor into another.
+ *
+ * The Function.prototype.inherits from lang.js rewritten as a standalone
+ * function (not on Function.prototype). NOTE: If this file is to be loaded
+ * during bootstrapping this function needs to be rewritten using some native
+ * functions as prototype setup using normal JavaScript does not work as
+ * expected during bootstrapping (see mirror.js in r114903).
+ *
+ * @param {function} ctor Constructor function which needs to inherit the
+ *     prototype.
+ * @param {function} superCtor Constructor function to inherit prototype from.
+ */
+exports.inherits = __webpack_require__(/*! inherits */ "./node_modules/util/node_modules/inherits/inherits_browser.js");
+
+exports._extend = function(origin, add) {
+  // Don't do anything if add isn't an object
+  if (!add || !isObject(add)) return origin;
+
+  var keys = Object.keys(add);
+  var i = keys.length;
+  while (i--) {
+    origin[keys[i]] = add[keys[i]];
+  }
+  return origin;
+};
+
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+var kCustomPromisifiedSymbol = typeof Symbol !== 'undefined' ? Symbol('util.promisify.custom') : undefined;
+
+exports.promisify = function promisify(original) {
+  if (typeof original !== 'function')
+    throw new TypeError('The "original" argument must be of type Function');
+
+  if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
+    var fn = original[kCustomPromisifiedSymbol];
+    if (typeof fn !== 'function') {
+      throw new TypeError('The "util.promisify.custom" argument must be of type Function');
+    }
+    Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+      value: fn, enumerable: false, writable: false, configurable: true
+    });
+    return fn;
+  }
+
+  function fn() {
+    var promiseResolve, promiseReject;
+    var promise = new Promise(function (resolve, reject) {
+      promiseResolve = resolve;
+      promiseReject = reject;
+    });
+
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+    args.push(function (err, value) {
+      if (err) {
+        promiseReject(err);
+      } else {
+        promiseResolve(value);
+      }
+    });
+
+    try {
+      original.apply(this, args);
+    } catch (err) {
+      promiseReject(err);
+    }
+
+    return promise;
+  }
+
+  Object.setPrototypeOf(fn, Object.getPrototypeOf(original));
+
+  if (kCustomPromisifiedSymbol) Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+    value: fn, enumerable: false, writable: false, configurable: true
+  });
+  return Object.defineProperties(
+    fn,
+    getOwnPropertyDescriptors(original)
+  );
+}
+
+exports.promisify.custom = kCustomPromisifiedSymbol
+
+function callbackifyOnRejected(reason, cb) {
+  // `!reason` guard inspired by bluebird (Ref: https://goo.gl/t5IS6M).
+  // Because `null` is a special error value in callbacks which means "no error
+  // occurred", we error-wrap so the callback consumer can distinguish between
+  // "the promise rejected with null" or "the promise fulfilled with undefined".
+  if (!reason) {
+    var newReason = new Error('Promise was rejected with a falsy value');
+    newReason.reason = reason;
+    reason = newReason;
+  }
+  return cb(reason);
+}
+
+function callbackify(original) {
+  if (typeof original !== 'function') {
+    throw new TypeError('The "original" argument must be of type Function');
+  }
+
+  // We DO NOT return the promise as it gives the user a false sense that
+  // the promise is actually somehow related to the callback's execution
+  // and that the callback throwing will reject the promise.
+  function callbackified() {
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+
+    var maybeCb = args.pop();
+    if (typeof maybeCb !== 'function') {
+      throw new TypeError('The last argument must be of type Function');
+    }
+    var self = this;
+    var cb = function() {
+      return maybeCb.apply(self, arguments);
+    };
+    // In true node style we process the callback on `nextTick` with all the
+    // implications (stack, `uncaughtException`, `async_hooks`)
+    original.apply(this, args)
+      .then(function(ret) { process.nextTick(cb, null, ret) },
+            function(rej) { process.nextTick(callbackifyOnRejected, rej, cb) });
+  }
+
+  Object.setPrototypeOf(callbackified, Object.getPrototypeOf(original));
+  Object.defineProperties(callbackified,
+                          getOwnPropertyDescriptors(original));
+  return callbackified;
+}
+exports.callbackify = callbackify;
+
 
 /***/ }),
 
@@ -813,7 +1577,7 @@ FacilityCalenderComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep ng-select span {\n  font-size: 1.4rem;\n}\n\n::ng-deep .ng-placeholder {\n  font-size: 1.4rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1jcmVhdGUvZmFjaWxpdHktY3JlYXRlLmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwic3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1jcmVhdGUvZmFjaWxpdHktY3JlYXRlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1JO0VDd0VGLGlCQUFBO0FDNUVGOztBRlNBO0VDbUVFLGlCQUFBO0FDeEVGIiwiZmlsZSI6InNyYy9hcHAvYW1zL2ZhY2lsaXR5L2NvbXBvbmVudHMvZmFjaWxpdHktY3JlYXRlL2ZhY2lsaXR5LWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG5cbjo6bmctZGVlcCBuZy1zZWxlY3Qge1xuICAgIHNwYW4ge1xuICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcbiAgICB9XG59XG5cbjo6bmctZGVlcCAubmctcGxhY2Vob2xkZXIge1xuICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIiwiOjpuZy1kZWVwIG5nLXNlbGVjdCBzcGFuIHtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG5cbjo6bmctZGVlcCAubmctcGxhY2Vob2xkZXIge1xuICBmb250LXNpemU6IDEuNHJlbTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep .c-btn span {\n  font-size: 1.4rem;\n}\n\n.facility-create-wrapper .alert {\n  font-size: 1.2rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1jcmVhdGUvZmFjaWxpdHktY3JlYXRlLmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwic3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1jcmVhdGUvZmFjaWxpdHktY3JlYXRlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1JO0VDd0VGLGlCQUFBO0FDNUVGOztBRlNJO0VDbUVGLGlCQUFBO0FDeEVGIiwiZmlsZSI6InNyYy9hcHAvYW1zL2ZhY2lsaXR5L2NvbXBvbmVudHMvZmFjaWxpdHktY3JlYXRlL2ZhY2lsaXR5LWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG5cbjo6bmctZGVlcCAuYy1idG4ge1xuICAgIHNwYW4ge1xuICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcbiAgICB9XG59XG4uZmFjaWxpdHktY3JlYXRlLXdyYXBwZXIge1xuICAgIC5hbGVydCB7XG4gICAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtdGlueSk7XG4gICAgfVxufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIiwiOjpuZy1kZWVwIC5jLWJ0biBzcGFuIHtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG5cbi5mYWNpbGl0eS1jcmVhdGUtd3JhcHBlciAuYWxlcnQge1xuICBmb250LXNpemU6IDEuMnJlbTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -833,14 +1597,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _service_facility_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../service/facility-service.service */ "./src/app/ams/facility/service/facility-service.service.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-
-
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
 
 
@@ -851,48 +1611,100 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let FacilityCreateComponent = class FacilityCreateComponent {
-    constructor(facilityservice, facilityapiservice, cd, cookieService, apartmentService, lookupService, routerActivate, router, sharedService, fb) {
-        this.facilityservice = facilityservice;
+    constructor(facilityapiservice, cookieService, apartmentService, lookupService, routerActivate, router, sharedService) {
         this.facilityapiservice = facilityapiservice;
-        this.cd = cd;
         this.cookieService = cookieService;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.routerActivate = routerActivate;
         this.router = router;
         this.sharedService = sharedService;
-        this.fb = fb;
         this.facility = {
-            apartmentFacilitySlot: []
+            apartmentFacilitySlot: [],
+            apartmentFacilityAllowedBlock: []
         };
-        this.allowedBlock = [];
+        this.accessTower = {
+            "dropdownList": [],
+            "selectedItems": []
+        };
+        this.accessTowerdropdownSettings = {};
         this.alertMessage = "";
         this.isCategoryError = false;
     }
-    loadFacilityLocation() {
-        let towerParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-        };
-        this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe((res) => {
-            this.towerslist = res;
-        });
+    isBookingAllowed() {
+        this.facility.rateBaseId = '';
+        this.facility.isSlotBooking = '';
+        this.facility.amount = '';
+        this.facility.advanceBookingindays = '';
+        this.facility.autoCancelDays = '';
+        this.facility.minHoursBooking = '';
+        this.facility.minTimeLimit = '';
+        this.facility.maxTimeLimit = '';
+        this.facility.isApproved = '';
     }
-    accessed(event) {
-        let accessBlock = [];
-        event.forEach(element => {
-            accessBlock.push({
-                id: 0,
-                apartmentId: element.apartmentId,
-                apartmentBlockId: element.apartmentBlockId,
-                apartmentFacilityId: this.facilityType.type == 'create' ? 0 : this.facility.apartmentFacilityId,
-                isActive: true,
-                insertedBy: parseInt(this.cookieService.get('userId')),
-                insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
-                updatedBy: null,
-                updatedOn: null
-            });
-        });
-        this.allowedBlock = accessBlock;
+    isHourDay() {
+        if (this.facility.rateBaseId == 139) {
+            this.facility.isSlotBooking = false;
+            this.facility.minHoursBooking = null;
+        }
+        else {
+            this.facility.isSlotBooking = '';
+            this.facility.minHoursBooking = null;
+        }
+    }
+    enableSlot() {
+        if (this.facility.isSlotBooking) {
+            this.addSlot();
+        }
+        else {
+            this.facility.apartmentFacilitySlot = [];
+        }
+    }
+    isPaidOrFree() {
+        this.facility.amount = null;
+        this.facility.cautionDeposit = null;
+        this.facility.autoCancelDays = null;
+    }
+    addSlot() {
+        let entity = {
+            slotBeginTime: null,
+            slotEndTime: null,
+            cost: '',
+            comment: '',
+            apartmentFacilitySlotId: 0,
+            apartmentFacilityId: this.facilityType.type == 'create' ? 0 : this.facility.apartmentFacilityId,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            isActive: true,
+            insertedBy: parseInt(this.cookieService.get('userId')),
+            insertedOn: new Date().toISOString(),
+            updatedBy: 0,
+            updatedOn: null,
+            error: false
+        };
+        this.facility.apartmentFacilitySlot.push(entity);
+    }
+    deleteSlot(index, data) {
+        this.facility.apartmentFacilitySlot.splice(index, 1);
+    }
+    setMinTime(i) {
+        let startTime = this.facility.apartmentFacilitySlot[i].slotBeginTime;
+        let endTime = this.facility.apartmentFacilitySlot[i].slotEndTime;
+        let difference;
+        if (startTime && endTime) {
+            difference = moment__WEBPACK_IMPORTED_MODULE_2__["duration"](moment__WEBPACK_IMPORTED_MODULE_2__(endTime).diff(moment__WEBPACK_IMPORTED_MODULE_2__(startTime)));
+            let diffHours = difference.hours();
+            let diffMinutes = difference.minutes();
+            let totalDiffHrs = difference.hours() + (difference.minutes() / 60);
+            if (totalDiffHrs >= this.facility.minHoursBooking) {
+                this.facility.apartmentFacilitySlot[i].error = false;
+                let cost = ((this.facility.amount / (this.facility.minHoursBooking * 60)) * ((diffHours * 60) + (diffMinutes)));
+                this.facility.apartmentFacilitySlot[i].cost = cost.toFixed(2);
+            }
+            else {
+                this.facility.apartmentFacilitySlot[i].error = true;
+                this.facility.apartmentFacilitySlot[i].cost = '';
+            }
+        }
     }
     createFacility() {
         this.facility.apartmentFacilityId = this.facilityType.type == 'create' ? 0 : this.facility.apartmentFacilityId;
@@ -901,17 +1713,37 @@ let FacilityCreateComponent = class FacilityCreateComponent {
         this.facility.description = this.facility.description;
         this.facility.minTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.minTimeLimit).format('HH:mm:ss');
         this.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.maxTimeLimit).format('HH:mm:ss');
-        this.facility.ApartmentFacilityAllowedBlock = this.allowedBlock;
-        this.facility.apartmentFacilitySlot.forEach((data) => {
-            data.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotBeginTime).format('HH:mm:ss');
-            data.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotEndTime).format('HH:mm:ss');
+        this.facility.apartmentFacilityAllowedBlock = [];
+        this.accessTower.selectedItems.forEach(ele => {
+            let entity = {
+                id: ele.id ? ele.id : 0,
+                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                apartmentBlockId: ele.apartmentBlockId,
+                apartmentFacilityId: this.facilityType.type == 'create' ? 0 : this.facility.apartmentFacilityId,
+                isActive: true,
+                insertedBy: parseInt(this.cookieService.get('userId')),
+                insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
+                updatedBy: null,
+                updatedOn: null
+            };
+            this.facility.apartmentFacilityAllowedBlock.push(entity);
         });
+        if (this.facility.rateBaseId == 138 && this.facility.isSlotBooking) {
+            this.facility.apartmentFacilitySlot.forEach((data) => {
+                data.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotBeginTime).format('HH:mm:ss');
+                data.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotEndTime).format('HH:mm:ss');
+                delete data.error;
+            });
+        }
+        else {
+            this.facility.apartmentFacilitySlot = [];
+        }
         let entity = {
             "approvalRequired": true,
             "fileAttachmentId": null,
             "isActive": true,
             "insertedBy": parseInt(this.cookieService.get('userId')),
-            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_2__().format(),
+            "insertedOn": new Date().toISOString(),
             "updatedBy": null,
             "updatedOn": null,
         };
@@ -923,6 +1755,7 @@ let FacilityCreateComponent = class FacilityCreateComponent {
             if (res.message) {
                 let message = this.facilityType.type == 'create' ? 'Facility added successfully' : 'Facility Updated successfully';
                 this.sharedService.setAlertMessage(message);
+                this.router.navigate(['/ams/facility/list']);
             }
             else {
                 this.isCategoryError = true;
@@ -933,28 +1766,34 @@ let FacilityCreateComponent = class FacilityCreateComponent {
             this.alertMessage = "Server Error";
         });
     }
-    addSlot() {
-        let entity = {
-            slotBeginTime: '',
-            slotEndTime: '',
-            cost: '',
-            comment: '',
-            apartmentFacilitySlotId: 0,
-            apartmentFacilityId: this.facilityType.type == 'create' ? 0 : this.facility.apartmentFacilityId,
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            isActive: true,
-            insertedBy: parseInt(this.cookieService.get('userId')),
-            insertedOn: new Date().toISOString(),
-            updatedBy: 0,
-            updatedOn: null
-        };
-        this.facility.apartmentFacilitySlot.push(entity);
-    }
-    deleteSlot(index, data) {
-        this.facility.apartmentFacilitySlot.splice(index, 1);
+    getBlockNumber(id) {
+        let data = this.towerslist.find((data) => data.apartmentBlockId == id);
+        return data.apartmentBlockNumber;
     }
     ngOnInit() {
-        this.loadFacilityLocation();
+        this.accessTowerdropdownSettings = {
+            singleSelection: false,
+            primaryKey: 'apartmentBlockId',
+            labelKey: 'apartmentBlockNumber',
+            enableSearchFilter: true,
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 240
+        };
+        //Tower
+        let towerParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe((res) => {
+            this.towerslist = res;
+            res.forEach((data) => {
+                this.accessTower.dropdownList.push({
+                    apartmentBlockNumber: data.apartmentBlockNumber,
+                    apartmentBlockId: data.apartmentBlockId
+                });
+            });
+        });
+        //Currency Value
         let params = {
             LookupTypeId: 101,
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -962,6 +1801,7 @@ let FacilityCreateComponent = class FacilityCreateComponent {
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.pesoValue = res[0].lookupValueName;
         });
+        //Edit Based
         this.routerActivate.queryParams.subscribe((params) => {
             this.facilityType = params;
             if (params.type) {
@@ -979,7 +1819,14 @@ let FacilityCreateComponent = class FacilityCreateComponent {
                             ele.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(ele.slotBeginTime, 'HH:mm:ss').format();
                             ele.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(ele.slotEndTime, 'HH:mm:ss').format();
                         });
-                        this.selectedTowersIds = this.facility.apartmentFacilityAllowedBlock;
+                        this.facility.apartmentFacilityAllowedBlock.forEach((data) => {
+                            this.accessTower.selectedItems.push({
+                                apartmentBlockNumber: this.getBlockNumber(data.apartmentBlockId),
+                                apartmentBlockId: data.apartmentBlockId,
+                                id: data.id
+                            });
+                        });
+                        this.accessTower.selectedItems;
                         if (params.type == 'slot') {
                             this.addSlot();
                         }
@@ -993,16 +1840,13 @@ let FacilityCreateComponent = class FacilityCreateComponent {
     }
 };
 FacilityCreateComponent.ctorParameters = () => [
-    { type: _service_facility_service_service__WEBPACK_IMPORTED_MODULE_6__["FacilityServiceService"] },
-    { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_8__["FacilityService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__["FacilityService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] }
 ];
 FacilityCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1010,15 +1854,13 @@ FacilityCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./facility-create.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/facility/components/facility-create/facility-create.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./facility-create.component.scss */ "./src/app/ams/facility/components/facility-create/facility-create.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_service_facility_service_service__WEBPACK_IMPORTED_MODULE_6__["FacilityServiceService"],
-        src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_8__["FacilityService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__["FacilityService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]])
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
 ], FacilityCreateComponent);
 
 
@@ -1345,7 +2187,7 @@ FacilityEntryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".facility-settings-wrapper button {\n  border: 2px solid #5cd67c;\n}\n.facility-settings-wrapper .btn.disabled, .facility-settings-wrapper .btn:disabled {\n  border: 2px solid #797979 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1saXN0L2ZhY2lsaXR5LWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9mYWNpbGl0eS9jb21wb25lbnRzL2ZhY2lsaXR5LWxpc3QvZmFjaWxpdHktbGlzdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLSTtFQUNJLHlCQUFBO0FDSlI7QURNSTtFQUNJLG9DQUFBO0FDSlIiLCJmaWxlIjoic3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1saXN0L2ZhY2lsaXR5LWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLmZhY2lsaXR5LXNldHRpbmdzLXdyYXBwZXIge1xuICAgIGJ1dHRvbiB7XG4gICAgICAgIGJvcmRlcjogMnB4IHNvbGlkICRsaW1lLWdyZWVuLTAyO1xuICAgIH1cbiAgICAuYnRuLmRpc2FibGVkLCAuYnRuOmRpc2FibGVkIHtcbiAgICAgICAgYm9yZGVyIDogMnB4IHNvbGlkICRncmV5LTc1MCAhaW1wb3J0YW50O1xuICAgIH1cbn0iLCIuZmFjaWxpdHktc2V0dGluZ3Mtd3JhcHBlciBidXR0b24ge1xuICBib3JkZXI6IDJweCBzb2xpZCAjNWNkNjdjO1xufVxuLmZhY2lsaXR5LXNldHRpbmdzLXdyYXBwZXIgLmJ0bi5kaXNhYmxlZCwgLmZhY2lsaXR5LXNldHRpbmdzLXdyYXBwZXIgLmJ0bjpkaXNhYmxlZCB7XG4gIGJvcmRlcjogMnB4IHNvbGlkICM3OTc5NzkgIWltcG9ydGFudDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".facility-settings-wrapper button {\n  border: 2px solid #5cd67c;\n}\n.facility-settings-wrapper .btn.disabled, .facility-settings-wrapper .btn:disabled {\n  border: 2px solid #797979 !important;\n}\n.facility-settings-wrapper .card-height {\n  height: 170px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1saXN0L2ZhY2lsaXR5LWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy9mYWNpbGl0eS9jb21wb25lbnRzL2ZhY2lsaXR5LWxpc3QvZmFjaWxpdHktbGlzdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLSTtFQUNJLHlCQUFBO0FDSlI7QURNSTtFQUNJLG9DQUFBO0FDSlI7QURNSTtFQUNJLGFBQUE7QUNKUiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9mYWNpbGl0eS9jb21wb25lbnRzL2ZhY2lsaXR5LWxpc3QvZmFjaWxpdHktbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4uZmFjaWxpdHktc2V0dGluZ3Mtd3JhcHBlciB7XG4gICAgYnV0dG9uIHtcbiAgICAgICAgYm9yZGVyOiAycHggc29saWQgJGxpbWUtZ3JlZW4tMDI7XG4gICAgfVxuICAgIC5idG4uZGlzYWJsZWQsIC5idG46ZGlzYWJsZWQge1xuICAgICAgICBib3JkZXIgOiAycHggc29saWQgJGdyZXktNzUwICFpbXBvcnRhbnQ7XG4gICAgfVxuICAgIC5jYXJkLWhlaWdodCB7XG4gICAgICAgIGhlaWdodCA6IDE3MHB4O1xuICAgIH1cbn0iLCIuZmFjaWxpdHktc2V0dGluZ3Mtd3JhcHBlciBidXR0b24ge1xuICBib3JkZXI6IDJweCBzb2xpZCAjNWNkNjdjO1xufVxuLmZhY2lsaXR5LXNldHRpbmdzLXdyYXBwZXIgLmJ0bi5kaXNhYmxlZCwgLmZhY2lsaXR5LXNldHRpbmdzLXdyYXBwZXIgLmJ0bjpkaXNhYmxlZCB7XG4gIGJvcmRlcjogMnB4IHNvbGlkICM3OTc5NzkgIWltcG9ydGFudDtcbn1cbi5mYWNpbGl0eS1zZXR0aW5ncy13cmFwcGVyIC5jYXJkLWhlaWdodCB7XG4gIGhlaWdodDogMTcwcHg7XG59Il19 */");
 
 /***/ }),
 
