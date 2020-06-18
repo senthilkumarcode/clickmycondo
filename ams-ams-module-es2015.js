@@ -7157,7 +7157,7 @@ AmsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_settings_admin_admin_component__WEBPACK_IMPORTED_MODULE_21__["AdminComponent"],
             _components_ams_bottom_menu_ams_bottom_menu_component__WEBPACK_IMPORTED_MODULE_18__["AmsBottomMenuComponent"],
             _components_notification_notification_component__WEBPACK_IMPORTED_MODULE_22__["NotificationComponent"],
-            _dashboard_components_shared_add_widget_custom_dash_add_widget_custom_dash_component__WEBPACK_IMPORTED_MODULE_25__["AddWidgetCustomDashComponent"],
+            _dashboard_components_shared_add_widget_custom_dash_add_widget_custom_dash_component__WEBPACK_IMPORTED_MODULE_25__["AddWidgetCustomDashComponent"]
         ],
         entryComponents: [
             _components_apartment_dialog_apartment_dialog_component__WEBPACK_IMPORTED_MODULE_17__["ApartmentDialogComponent"]

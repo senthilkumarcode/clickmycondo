@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isCreditSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\tfieldText = \"Select Bill No\"\n\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\tfieldItemName=\"collectionId\"\n\t\t\t\t\t\t\t[fieldModel] = \"credit.collectionId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"billData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addCreditNoteForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isCreditSubmitted\">\n\t\t\t\n\t\t\t<div [ngClass]=\"isGeneralCredit ? 'card clear mb-20' : ''\">\n\t\t\t\t<div [ngClass]=\"isGeneralCredit ? 'card-body pb-0' : ''\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf =\"isGeneralCredit\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\tname=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Block\"\n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"apartmentBlockId\" (ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isGeneralCredit\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t   <select \n\t\t\t\t\t\t\t\t\tname=\"unitNo\" \n\t\t\t\t\t\t\t\t\tid=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"apartmentBlockUnitId\" (ngModelChange)=\"getAllCollection(apartmentBlockUnitId)\" [disabled] = \"!isBlockSelected\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of unitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\t\t\tfieldText = \"Select Bill No\"\n\t\t\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\t\t\tfieldItemName=\"collectionId\"\n\t\t\t\t\t\t\t\t\t[fieldModel] = \"credit.collectionId\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList] = \"billData\"\n\t\t\t\t\t\t\t\t\t[disabled] = \"!isUnitSelected\"\n\t\t\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> \n\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\n\t\t\n\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\"[ngClass]=\"isGeneralCredit ? 'mb-20' : ''\">\n\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addCreditNoteForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm(addCustomerAdvanceForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isAdvanceSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isAdvanceSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\tfieldText = \"Select Bill No\"\n\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\tfieldItemName=\"collectionId\"\n\t\t\t\t\t\t\t[fieldModel] = \"advance.collectionId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"billData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addCustomerAdvanceForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm(addCustomerAdvanceForm)\"  novalidate>\n\n\t\t\t\n\t\t<app-loader *ngIf=\"!isAdvanceSubmitted\"></app-loader>\n\n\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t<ng-container *ngIf=\"isAdvanceSubmitted\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<app-select-search-box\n\t\t\t\t\t\t\tfieldName = \"collectionId\" \n\t\t\t\t\t\t\tfieldText = \"Select Gl Account\"\n\t\t\t\t\t\t\tisLabel = \"true\"\n\t\t\t\t\t\t\tfieldItemName=\"glaccountName\"\n\t\t\t\t\t\t\t[fieldModel] = \"advance.glaccountName\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Type...\"\n\t\t\t\t\t\t\tfieldRequired = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"glAccountsDataList\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-select-search-box>\n\t\t\t\t\t</div>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div [ngClass]=\"isEdit ? 'col-sm-12' : 'col-sm-4'\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"addCustomerAdvanceForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\n\t</form> \n</div>");
 
 /***/ }),
 
@@ -75,6 +75,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n<ng-container *ngIf=\"isReceiptSubmitted\">\n\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\n\t\t<div class=\"row\">\n\t\t\t\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t            <label>Comments</label>\n\t\t            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<button class=\"btn blue\" [disabled]=\"reverseIncomeHistoryForm.invalid\">Submit</button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n</ng-container>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.html":
+/*!************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.html ***!
+  \************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-invoice-credit-wrapper\">\n\n    <ul class=\"icon-tabs\">\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"javascript:void(0)\" \n            routerLink=\"post-invoice\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/post-invoice-icon.svg\" /></span>\n\t\t\t\t<span>Post Invoice</span>\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"add-credit\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/credit-note-icon.svg\" /></span>\n\t\t\t\t<span>Create Credit</span>\n\t\t\t</a>\n        </li>\n    </ul>\n\n    <div class=\"d-block mt-50\">\n        <router-outlet></router-outlet>\n    </div>\n\n</div>");
 
 /***/ }),
 
@@ -152,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\t\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isAccountDataLoaded && !isGeneralInvoice\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-4\" *ngIf=\"isEditInvoice\"><span>Invoice ID: </span>{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf =\"isGeneralInvoice\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Block No*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Block\"\n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockId\" (ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"isGeneralInvoice\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Unit No*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockUnitId\" [disabled] = \"!isBlockSelected\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of unitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.custInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #custInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"custInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-card-wrapper\">\n\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t\t<div class=\"w-250 heads\">Account*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t\t<div class=\"w-200 heads\">Comments*</div>\n\t\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\"\n\t\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Discount</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\" [ngClass]=\"isDeselectColumn()\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" \n\t\t\t\t\t\t\t\t\t[readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\"\n\t\t\t\t\t\t\t\t\t[tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountFinalChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\t\t\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-post-invoice-wrapper\">\n\n\t<h5 class=\"mb-3\" *ngIf=\"isSingleInvoice && !isEditInvoice && !isGeneralInvoice\">\n\t\t<span>Post Single Invoice</span>\n\t</h5>\n\n\t<h5 class=\"mb-3\" *ngIf=\"!isSingleInvoice && !isEditInvoice && !isGeneralInvoice\">\n\t\t<span>Post Multi Invoice</span>\n\t</h5>\n\t\n\n\t<h5 class=\"mb-3\" *ngIf=\"isEditInvoice && !isGeneralInvoice\">\n\t\t<span>Edit Invoice</span>\n\t</h5>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isAccountDataLoaded && !isGeneralInvoice\">\n\t\t\n\t\t<div class=\"card-header at-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t\t<p class=\"d-inline-block ft mr-md-4\" *ngIf=\"isEditInvoice\"><span>Invoice ID: </span>{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft\"><span>Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t\t<p class=\"d-inline-block ft ml-md-4\"><span>Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\n\t\t<form #postIncomeMultiInvoiceForm = \"ngForm\" name=\"postIncomeMultiInvoiceForm\" (ngSubmit)=\"submitIncomeMultiInvoiceForm(postIncomeMultiInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"card clear mb-20\">\n\n\t\t\t\t<div class=\"card-body pb-0\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf =\"isGeneralInvoice\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Block No*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Block\"\n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockId\" (ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"isGeneralInvoice\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Unit No*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"unitNo\" \n\t\t\t\t\t\t\t        id=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"apartmentBlockUnitId\" [disabled] = \"!isBlockSelected\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of unitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Invoice Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\t\tname=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTime]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"custInvoiceDate\" \n\t\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.custInvoiceDate\" \n\t\t\t\t\t\t\t\t\trequired \n\t\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #custInvoiceDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"custInvoiceDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Due Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\t\tname=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTime]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"invoiceDueDate\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" \n\t\t\t\t\t\t\t\trequired\n\t\t\t\t\t\t\t\t[readonly]=\"isEditInvoice\"\n\t\t\t\t\t\t\t\t[ngClass]=\"isEditInvoice ? 'no-link' : ''\" [tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t<owl-date-time #invoiceDueDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDueDate\" [ngClass]=\"isEditInvoice ? 'no-link' : ''\">\n\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\t\t\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card\">\n\n\t\t\t\t<div class=\"invoice-card-wrapper\">\n\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-header\">\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">S.No</div>\n\t\t\t\t\t\t\t<div class=\"w-250 heads\">Account*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Invoice Amount*</div>\n\t\t\t\t\t\t\t<div class=\"w-200 heads\">Comments*</div>\n\t\t\t\t\t\t\t<div class=\"w-220 heads\">Discount*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Tax*</div>\n\t\t\t\t\t\t\t<div class=\"w-120 heads\">Amount</div>\n\t\t\t\t\t\t\t<div class=\"w-50 heads\">Actions</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card-body p-0 invoice-fields\"\n\t\t\t\t\t\t\t*ngFor=\"let invoiceGLAccountsData of invoiceGLAccountsArray; let i = index\" \n\t\t\t\t\t\t\tapp-income-post-multi-invoice-fields \n\t\t\t\t\t\t\t[invoiceGLAccountsArray] = \"invoiceGLAccountsArray\" \n\t\t\t\t\t\t\t[invoiceGLAccountsData] = \"invoiceGLAccountsData\"\n\t\t\t\t\t\t\t[isEditInvoice]=\"isEditInvoice\"\n\t\t\t\t\t\t\t[index]=\"i\" \n\t\t\t\t\t\t\t(fieldParams) = \"getFieldParams($event)\"\n\t\t\t\t\t\t\t(taxParams) = \"getCustTaxInvoiceParams($event)\">\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t\t<div class=\"card-body p-0\" *ngIf=\"!isEditInvoice && !isSingleInvoice\">\n\t\t\t\t\t<div class=\"add-invoice-box\">\n\t\t\t\t\t\t<div class=\"float-left add-invoice-link\" (click)=\"addInvoice()\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<span>Add Another Line</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"total-box border-top\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Sub Amount</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.subAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngFor=\" let item of vatTypeDataList; let i = index \">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>VAT [{{item.lookupValueName}}%]:</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{item.custVatTypeAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-6 col-9\">\n\t\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t\t<p>Discount</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-4\" [ngClass]=\"isDeselectColumn()\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-input\"> \n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter\" name=\"discountFinalAmount\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"invoice.invoicefinalinputdiscount\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"onDiscountFinalAdded(invoice.invoicefinalinputdiscount)\" \n\t\t\t\t\t\t\t\t\t[readonly]=\"!invoice.isFinalDiscount || isEditInvoice\" autocomplete=\"off\"\n\t\t\t\t\t\t\t\t\t[tabindex]=\"isEditInvoice ? -1 : 0\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"float-left ml-3\">\n\t\t\t\t\t\t\t\t<div class=\"input-box discount-box rel\">\n\t\t\t\t\t\t\t\t\t<app-simple-select-box\n\t\t\t\t\t\t\t\t\t\tfieldName = \"discountGenType\" \n\t\t\t\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel] = \"invoice.finalDiscountTypeName\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired] = \"'null'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList] = \"discountFinalTypeDataList\"\n\t\t\t\t\t\t\t\t\t\t[isDisabled] = \"isEditInvoice\"\n\t\t\t\t\t\t\t\t\t\t(inputChange) = \"onDiscountFinalChange($event)\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-3\">\n\t\t\t\t\t\t\t<p class=\"text-right\">{{invoice.invoicefinaldiscount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"total-box final border-top\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"offset-md-4 col-md-2 col-6\">\n\t\t\t\t\t\t\t<p>Total</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4 d-none d-md-block\"></div>\n\t\t\t\t\t\t<div class=\"col-md-2 col-6\">\n\t\t\t\t\t\t\t<p class=\"text-right\"><span class=\"ml-1\">{{invoice.custInvoiceAmount}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<button class=\"btn lime-green float-right mt-4\" [disabled]=\"postIncomeMultiInvoiceForm.invalid || isFormInValid\" [ngClass]=\"\">Submit</button>\n\n\t\t</form>\n\t\t\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -488,8 +501,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
 
 
 
@@ -497,27 +512,44 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddCreditComponent = class IncomeAddCreditComponent {
-    constructor(router, route, accountsService, sharedService, cookieService) {
+    constructor(router, route, accountsService, apartmentService, sharedService, cookieService) {
         this.router = router;
         this.route = route;
         this.accountsService = accountsService;
+        this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isCreditSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
+        this.isGeneralCredit = false;
+        this.isBlockSelected = false;
+        this.isUnitSelected = false;
+        this.apartmentBlockId = "";
+        this.apartmentBlockUnitId = "";
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
-    getCollection(id) {
-        var data = this.billData.filter(item => {
-            return item.collectionId == id;
+    getUnits() {
+        let params = {
+            apartmentBlockId: parseInt(this.apartmentBlockId)
+        };
+        this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
+            this.isBlockSelected = true;
+            this.unitData = res;
+        }, error => {
+            console.log(error);
         });
-        if (data == undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            this.credit.invoiceId = data[0].invoiceId;
-        }
+    }
+    getAllCollection(id) {
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentBlockUnitId: id
+        };
+        this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
+            this.billData = res;
+            this.isCreditSubmitted = true;
+            this.isUnitSelected = true;
+        });
     }
     onSelectChange(event) {
         if (event != null)
@@ -527,7 +559,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         if (!this.isEdit) {
             let details = {
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "blockUnitUserId": null,
                 "custCreditNoteId": null,
                 "glaccountId": null,
@@ -567,7 +599,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         else {
             let details = {
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "blockUnitUserId": this.credit.blockUnitUserId,
                 "custCreditNoteId": this.credit.custCreditNoteId,
                 "glaccountId": this.credit.glaccountId,
@@ -612,15 +644,24 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         }
     }
     ngOnInit() {
-        this.credit.collectionId = "";
-        let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            apartmentBlockUnitId: this.route.params['value'].id
-        };
-        this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
-            this.billData = res;
-            this.isCreditSubmitted = true;
-        });
+        if (this.route.params['value'].id != undefined) {
+            this.apartmentBlockUnitId = this.route.params['value'].id;
+            this.credit.collectionId = "";
+            this.getAllCollection(this.route.params['value'].id);
+        }
+        else {
+            this.credit = {};
+            this.credit.collectionId = "";
+            let params = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            };
+            //get apartment blocks
+            this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
+                this.blocksData = res;
+                this.isGeneralCredit = true;
+                this.isCreditSubmitted = true;
+            });
+        }
     }
     ngOnChanges(changes) {
         this.credit.collectionId = "";
@@ -630,8 +671,9 @@ IncomeAddCreditComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -658,8 +700,9 @@ IncomeAddCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
 ], IncomeAddCreditComponent);
 
 
@@ -711,6 +754,7 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
         this.isAdvanceSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
+        this.glAccountIndicator = "Cust_Invoice";
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     getCollection(id) {
@@ -726,17 +770,17 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
     }
     onSelectChange(event) {
         if (event != null)
-            this.advance.collectionId = event.collectionId;
+            this.advance.glaccountId = event.glaccountId;
     }
     submitAddCustomerAdvanceForm(form) {
         if (!this.isEdit) {
             let details = {
                 "apartmentId": parseInt(this.cookieService.get('apartmentId')),
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-                "blockUnitUserId": parseInt(this.route.params['value'].id),
-                "glaccountId": 1,
+                "blockUnitUserId": null,
+                "glaccountId": parseInt(this.advance.glaccountId),
                 "invoiceId": 1,
-                "collectionId": parseInt(this.advance.collectionId),
+                "collectionId": null,
                 "transactionType": 1,
                 "amount": parseInt(this.advance.amount),
                 "comment": this.advance.comment,
@@ -818,13 +862,15 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
         }
     }
     ngOnInit() {
-        this.advance.collectionId = "";
+        this.advance.glaccountId = "";
         let params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             apartmentBlockUnitId: this.route.params['value'].id
         };
-        this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
-            this.billData = res;
+        this.accountsService.getAllGlAccounts().subscribe((res) => {
+            this.glAccountsDataList = res.filter(item => {
+                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
+            });
             this.isAdvanceSubmitted = true;
         });
     }
@@ -1417,6 +1463,51 @@ IncomeHistoryReverseComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 
 /***/ }),
 
+/***/ "./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.scss":
+/*!**********************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.scss ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("@charset \"UTF-8\";\n.income-invoice-credit-wrapper .icon-tabs {\n  display: flex;\n  justify-content: center;\n}\n.income-invoice-credit-wrapper .icon-tabs li {\n  padding: 0;\n}\n.income-invoice-credit-wrapper .icon-tabs li:not(:last-child) {\n  margin-right: 30px;\n}\n.income-invoice-credit-wrapper .icon-tabs li a {\n  color: #585858;\n  font-size: 1.6rem;\n  border-radius: 6px !important;\n  padding: 4px 10px;\n  position: relative;\n}\n.income-invoice-credit-wrapper .icon-tabs li a span {\n  white-space: nowrap;\n}\n.income-invoice-credit-wrapper .icon-tabs li a .icon {\n  text-align: center;\n  display: block;\n  margin: 0 0 6px 0;\n}\n.income-invoice-credit-wrapper .icon-tabs li a .icon .svg {\n  width: 25px;\n  height: 25px;\n  fill: #585858;\n}\n.income-invoice-credit-wrapper .icon-tabs li a.active {\n  background-color: #3f51b5;\n  color: #ffffff;\n}\n.income-invoice-credit-wrapper .icon-tabs li a.active .icon .svg {\n  fill: #ffffff;\n}\n.income-invoice-credit-wrapper .icon-tabs li a.active:after {\n  font-family: FontAwesome;\n  content: \"\";\n  position: absolute;\n  bottom: -32px;\n  transform: translateX(-50%) !important;\n  color: #3f51b5;\n  font-size: 5rem;\n  left: 50%;\n}\n@media (max-width: 767px) {\n  .income-invoice-credit-wrapper .icon-tabs {\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    flex-direction: row;\n    justify-content: start;\n  }\n  .income-invoice-credit-wrapper .icon-tabs li {\n    flex: 0 0 auto;\n    height: 90px;\n  }\n  .income-invoice-credit-wrapper .icon-tabs li:not(:last-child) {\n    margin-right: 15px;\n  }\n  .income-invoice-credit-wrapper .icon-tabs li a .icon .svg {\n    width: 20px;\n    height: 20px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYW1zL2luY29tZS10cmFja2VyL2NvbXBvbmVudHMvaW5jb21lLWludm9pY2UtY3JlZGl0L2luY29tZS1pbnZvaWNlLWNyZWRpdC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvaW5jb21lLXRyYWNrZXIvY29tcG9uZW50cy9pbmNvbWUtaW52b2ljZS1jcmVkaXQvaW5jb21lLWludm9pY2UtY3JlZGl0LmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvbWl4aW5zLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCO0FDS1o7RUFDRixhQUFBO0VBQ0EsdUJBQUE7QURIRjtBQ0lFO0VBQ0MsVUFBQTtBREZIO0FDR0s7RUFDQyxrQkFBQTtBREROO0FDR0s7RUFDQyxjQ21GSztFQ25CVCxpQkFBQTtFQ3ZFRCw2QkFBQTtFSFVHLGlCQUFBO0VBQ0ssa0JDYko7QUZjTDtBQ0FJO0VBQ0MsbUJBQUE7QURFTDtBQ0FTO0VBQ0Msa0JBQUE7RUFDQSxjQUFBO0VBQ0wsaUJBQUE7QURFTDtBQ0RVO0VBQ0MsV0FBQTtFQUNBLFlBQUE7RUFDQSxhQ29FQTtBRmpFWDtBQ0FTO0VBQ0MseUJDNEJEO0VEM0JDLGNDb0ZGO0FGbEZSO0FDQVc7RUFDQyxhQ2lGSjtBRi9FUjtBQ0NVO0VBQ0Msd0JDeENMO0VEeUNLLFlBQUE7RUFDQSxrQkN2Q047RUR3Q00sYUFBQTtFR1BWLHNDQUFBO0VIU1UsY0NlRjtFQ2lCUCxlQUFBO0VGOUJTLFNBQUE7QURHWDtBQ0VTO0VBaERMO0lBaURRLGlCQUFBO0lBQ0EsZ0JBQUE7SUFDQSxtQkFBQTtJQUNBLHNCQUFBO0VEQ1Y7RUNBVTtJQUNJLGNBQUE7SUFDQSxZQUFBO0VERWQ7RUNEYztJQUNJLGtCQUFBO0VER2xCO0VDQ3NCO0lBQ0ksV0FBQTtJQUNBLFlBQUE7RURDMUI7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9pbmNvbWUtdHJhY2tlci9jb21wb25lbnRzL2luY29tZS1pbnZvaWNlLWNyZWRpdC9pbmNvbWUtaW52b2ljZS1jcmVkaXQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAY2hhcnNldCBcIlVURi04XCI7XG4uaW5jb21lLWludm9pY2UtY3JlZGl0LXdyYXBwZXIgLmljb24tdGFicyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuLmluY29tZS1pbnZvaWNlLWNyZWRpdC13cmFwcGVyIC5pY29uLXRhYnMgbGkge1xuICBwYWRkaW5nOiAwO1xufVxuLmluY29tZS1pbnZvaWNlLWNyZWRpdC13cmFwcGVyIC5pY29uLXRhYnMgbGk6bm90KDpsYXN0LWNoaWxkKSB7XG4gIG1hcmdpbi1yaWdodDogMzBweDtcbn1cbi5pbmNvbWUtaW52b2ljZS1jcmVkaXQtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEge1xuICBjb2xvcjogIzU4NTg1ODtcbiAgZm9udC1zaXplOiAxLjZyZW07XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiA0cHggMTBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuLmluY29tZS1pbnZvaWNlLWNyZWRpdC13cmFwcGVyIC5pY29uLXRhYnMgbGkgYSBzcGFuIHtcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbn1cbi5pbmNvbWUtaW52b2ljZS1jcmVkaXQtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEgLmljb24ge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDAgMCA2cHggMDtcbn1cbi5pbmNvbWUtaW52b2ljZS1jcmVkaXQtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEgLmljb24gLnN2ZyB7XG4gIHdpZHRoOiAyNXB4O1xuICBoZWlnaHQ6IDI1cHg7XG4gIGZpbGw6ICM1ODU4NTg7XG59XG4uaW5jb21lLWludm9pY2UtY3JlZGl0LXdyYXBwZXIgLmljb24tdGFicyBsaSBhLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzZjUxYjU7XG4gIGNvbG9yOiAjZmZmZmZmO1xufVxuLmluY29tZS1pbnZvaWNlLWNyZWRpdC13cmFwcGVyIC5pY29uLXRhYnMgbGkgYS5hY3RpdmUgLmljb24gLnN2ZyB7XG4gIGZpbGw6ICNmZmZmZmY7XG59XG4uaW5jb21lLWludm9pY2UtY3JlZGl0LXdyYXBwZXIgLmljb24tdGFicyBsaSBhLmFjdGl2ZTphZnRlciB7XG4gIGZvbnQtZmFtaWx5OiBGb250QXdlc29tZTtcbiAgY29udGVudDogXCLvg51cIjtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IC0zMnB4O1xuICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKSAhaW1wb3J0YW50O1xuICAtbW96LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKSAhaW1wb3J0YW50O1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSkgIWltcG9ydGFudDtcbiAgY29sb3I6ICMzZjUxYjU7XG4gIGZvbnQtc2l6ZTogNXJlbTtcbiAgbGVmdDogNTAlO1xufVxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5pbmNvbWUtaW52b2ljZS1jcmVkaXQtd3JhcHBlciAuaWNvbi10YWJzIHtcbiAgICBmbGV4LXdyYXA6IG5vd3JhcDtcbiAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAganVzdGlmeS1jb250ZW50OiBzdGFydDtcbiAgfVxuICAuaW5jb21lLWludm9pY2UtY3JlZGl0LXdyYXBwZXIgLmljb24tdGFicyBsaSB7XG4gICAgZmxleDogMCAwIGF1dG87XG4gICAgaGVpZ2h0OiA5MHB4O1xuICB9XG4gIC5pbmNvbWUtaW52b2ljZS1jcmVkaXQtd3JhcHBlciAuaWNvbi10YWJzIGxpOm5vdCg6bGFzdC1jaGlsZCkge1xuICAgIG1hcmdpbi1yaWdodDogMTVweDtcbiAgfVxuICAuaW5jb21lLWludm9pY2UtY3JlZGl0LXdyYXBwZXIgLmljb24tdGFicyBsaSBhIC5pY29uIC5zdmcge1xuICAgIHdpZHRoOiAyMHB4O1xuICAgIGhlaWdodDogMjBweDtcbiAgfVxufSIsIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4uaW5jb21lLWludm9pY2UtY3JlZGl0LXdyYXBwZXIge1xuICAgIC5pY29uLXRhYnMge1xuXHRcdGRpc3BsYXk6IGZsZXg7XG5cdFx0anVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG5cdFx0bGkge1xuXHRcdFx0cGFkZGluZzogMDtcbiAgXHRcdFx0Jjpub3QoOmxhc3QtY2hpbGQpe1xuICBcdFx0XHRcdG1hcmdpbi1yaWdodDogMzBweDtcbiAgXHRcdFx0fVxuICBcdFx0XHRhIHtcbiAgXHRcdFx0XHRjb2xvcjogJGdyZXktNzAwO1xuICAgICBcdCBcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1ub3JtYWwpO1xuICAgICBcdCBcdFx0QGluY2x1ZGUgYm9yZGVyLXJhZGl1cyg2cHgpO1xuXHRcdFx0XHRwYWRkaW5nOiA0cHggMTBweDtcbiAgICAgXHQgXHRcdHBvc2l0aW9uOiAkcmVsO1xuXHRcdFx0XHRzcGFuIHtcblx0XHRcdFx0XHR3aGl0ZS1zcGFjZTogbm93cmFwO1xuXHRcdFx0XHR9XG4gICAgIFx0IFx0XHQuaWNvbiB7XG4gICAgIFx0IFx0XHRcdHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgXHQgXHRcdFx0ZGlzcGxheTogYmxvY2s7XG5cdFx0XHRcdFx0bWFyZ2luOiAwIDAgNnB4IDA7XG4gICAgIFx0IFx0XHRcdC5zdmcge1xuICAgICBcdCBcdFx0XHRcdHdpZHRoOiAyNXB4O1xuICAgICBcdCBcdFx0XHRcdGhlaWdodDogMjVweDtcbiAgICAgXHQgXHRcdFx0XHRmaWxsOiAkZ3JleS03MDA7XG4gICAgIFx0IFx0XHRcdH1cbiAgICAgXHQgXHRcdH1cbiAgICAgXHQgXHRcdCYuYWN0aXZlIHtcbiAgICAgXHQgXHRcdFx0YmFja2dyb3VuZC1jb2xvcjogJG0tYmx1ZTtcbiAgICAgXHQgXHRcdFx0Y29sb3I6ICR3aGl0ZTtcbiAgICAgXHQgXHRcdFx0Lmljb24ge1xuICAgICBcdCBcdFx0XHRcdC5zdmcge1xuICAgICBcdCBcdFx0XHRcdFx0ZmlsbDogJHdoaXRlO1xuICAgICBcdCBcdFx0XHRcdH1cbiAgICAgXHQgXHRcdFx0fVxuICAgICBcdCBcdFx0XHQmOmFmdGVyIHtcbiAgICAgXHQgXHRcdFx0XHRmb250LWZhbWlseTogJGZ0YTtcbiAgICAgXHQgXHRcdFx0XHRjb250ZW50OiBcIlxcZjBkZFwiO1xuICAgICBcdCBcdFx0XHRcdHBvc2l0aW9uOiAkYWJzO1xuICAgICBcdCBcdFx0XHRcdGJvdHRvbTogLTMycHg7XG4gICAgIFx0IFx0XHRcdFx0QGluY2x1ZGUgdHJhbnNmb3JtKHRyYW5zbGF0ZVgoLTUwJSkpO1xuICAgICBcdCBcdFx0XHRcdGNvbG9yOiAkbS1ibHVlO1xuICAgICBcdCBcdFx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtYmlnLTAzKTtcbiAgICAgXHQgXHRcdFx0XHRsZWZ0OiA1MCU7XG4gICAgIFx0IFx0XHRcdH1cbiAgICAgXHQgXHRcdH1cbiAgXHRcdFx0fVxuXHRcdH1cbiAgICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAgICAgICAgICAgZmxleC13cmFwOiBub3dyYXA7XG4gICAgICAgICAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogc3RhcnQ7XG4gICAgICAgICAgICBsaSB7XG4gICAgICAgICAgICAgICAgZmxleDogMCAwIGF1dG87XG4gICAgICAgICAgICAgICAgaGVpZ2h0OiA5MHB4O1xuICAgICAgICAgICAgICAgICY6bm90KDpsYXN0LWNoaWxkKXtcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBhIHtcbiAgICAgICAgICAgICAgICAgICAgLmljb24ge1xuICAgICAgICAgICAgICAgICAgICAgICAgLnN2ZyB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDIwcHg7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OiAyMHB4O1xuICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfVxuICAgICAgICAgfVxuXHR9XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC1iYXNlLTAyOjExO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuQG1peGluIHB1YmxpYy1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIGhlYWQtbGlnaHQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbn1cblxuQG1peGluIGhlYWQtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNzAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIGRlc2VsZWN0ICgpIHtcbiAgLW1vei11c2VyLXNlbGVjdDogLW1vei1ub25lO1xuXHQta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1vLXVzZXItc2VsZWN0OiBub25lO1xuXHR1c2VyLXNlbGVjdDogbm9uZTtcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO1xuICBhbGlnbi1pdGVtczpjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICRiZztcbiAgY29sb3I6ICR0YztcbiAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cygkcik7XG59XG5cbkBtaXhpbiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzLi4uKSB7XG4gIC8vIERpcmVjdGlvbiBoYXMgYmVlbiBvbWl0dGVkIGFuZCBoYXBwZW5zIHRvIGJlIGEgY29sb3Itc3RvcFxuICBAaWYgaXMtZGlyZWN0aW9uKCRkaXJlY3Rpb24pID09IGZhbHNlIHtcbiAgICAkY29sb3Itc3RvcHM6ICRkaXJlY3Rpb24sICRjb2xvci1zdG9wcztcbiAgICAkZGlyZWN0aW9uOiAxODBkZWc7XG4gIH1cblxuICBiYWNrZ3JvdW5kOiBudGgobnRoKCRjb2xvci1zdG9wcywgMSksIDEpO1xuICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChsZWdhY3ktZGlyZWN0aW9uKCRkaXJlY3Rpb24pLCAkY29sb3Itc3RvcHMpO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzKTtcbn1cblxuQG1peGluIGZsaXAoJGRpcmVjdGlvbikge1xuICB0cmFuc2Zvcm0gOiByb3RhdGVZKCRkaXJlY3Rpb24pO1xufVxuXG5AbWl4aW4gcGxhY2Vob2xkZXIge1xuICAmOjotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHtAY29udGVudH1cbiAgJjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6Oi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAge0Bjb250ZW50fVxuICAmOi1tcy1pbnB1dC1wbGFjZWhvbGRlciAgICAgIHtAY29udGVudH0gIFxufVxuXG5cbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.ts":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.ts ***!
+  \********************************************************************************************************/
+/*! exports provided: IncomeInvoiceCreditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeInvoiceCreditComponent", function() { return IncomeInvoiceCreditComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let IncomeInvoiceCreditComponent = class IncomeInvoiceCreditComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+IncomeInvoiceCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-income-invoice-credit',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-invoice-credit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-invoice-credit.component.scss */ "./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], IncomeInvoiceCreditComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/ams/income-tracker/components/income-invoice-reverse/income-invoice-reverse.component.scss":
 /*!************************************************************************************************************!*\
   !*** ./src/app/ams/income-tracker/components/income-invoice-reverse/income-invoice-reverse.component.scss ***!
@@ -1785,7 +1876,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         this.selectedInvoiceIdArray = [];
         allDataRecords.forEach(item => {
             item.checked = detail.checked;
-            this.totalAmountArray.push(item.billAmount);
+            this.totalAmountArray.push(item.remainingAmount);
             this.selectedInvoiceIdArray.push(item.custInvoiceID);
         });
         this.isInvoiceSelected = allDataRecords.some(item => {
@@ -1802,7 +1893,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         allDataRecords.forEach(item => {
             if (item.checked) {
                 length++;
-                this.totalAmountArray.push(item.billAmount);
+                this.totalAmountArray.push(item.remainingAmount);
                 this.selectedInvoiceIdArray.push(item.custInvoiceID);
             }
         });
@@ -2982,17 +3073,20 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
             this.invoiceGLAccountsArray.splice(0, 1);
             this.isSingleInvoice = true;
             this.isEditInvoice = false;
+            this.isGeneralInvoice = false;
         }
         //for post multi invoice
         if (this.route.params['value'].type != 'single' && this.route.params['value'].invoiceid == undefined) {
             this.isSingleInvoice = false;
             this.isEditInvoice = false;
+            this.isGeneralInvoice = false;
         }
         //for edit single and multi invoice
         if (this.route.params['value'].invoiceid != undefined) {
             this.isInvoiceSubmitted = false;
             this.isFormInValid = false;
             this.isEditInvoice = true;
+            this.isGeneralInvoice = false;
             var params = {
                 apartmentId: parseInt(this.cookieService.get('apartmentId')),
                 invoiceId: this.route.params['value'].invoiceid
@@ -7358,6 +7452,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/income-customer-advances/income-customer-advances.component */ "./src/app/ams/income-tracker/components/income-customer-advances/income-customer-advances.component.ts");
 /* harmony import */ var _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/income-security-deposit/income-security-deposit.component */ "./src/app/ams/income-tracker/components/income-security-deposit/income-security-deposit.component.ts");
 /* harmony import */ var _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/income-journal/income-journal.component */ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.ts");
+/* harmony import */ var _components_income_invoice_credit_income_invoice_credit_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/income-invoice-credit/income-invoice-credit.component */ "./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.ts");
+
 
 
 
@@ -7402,6 +7498,13 @@ const routes = [
             { path: 'security-deposit/:id', component: _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_22__["IncomeSecurityDepositComponent"] },
             { path: 'journal/:id', component: _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_23__["IncomeJournalComponent"] },
             { path: '**', redirectTo: 'pay-invoice/:id', pathMatch: 'full' }
+        ]
+    },
+    { path: 'invoice-credit', component: _components_income_invoice_credit_income_invoice_credit_component__WEBPACK_IMPORTED_MODULE_24__["IncomeInvoiceCreditComponent"],
+        children: [
+            { path: 'post-invoice', component: _components_income_post_multi_invoice_income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_9__["IncomePostMultiInvoiceComponent"], pathMatch: 'full' },
+            { path: 'add-credit', component: _components_income_add_credit_income_add_credit_component__WEBPACK_IMPORTED_MODULE_12__["IncomeAddCreditComponent"], pathMatch: 'full' },
+            { path: '**', redirectTo: 'post-invoice', pathMatch: 'full' }
         ]
     },
     { path: 'subledger', component: _components_income_sub_ledger_income_sub_ledger_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSubLedgerComponent"] },
@@ -7525,6 +7628,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/income-journal/income-journal.component */ "./src/app/ams/income-tracker/components/income-journal/income-journal.component.ts");
 /* harmony import */ var _components_income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/income-add-customer-advance/income-add-customer-advance.component */ "./src/app/ams/income-tracker/components/income-add-customer-advance/income-add-customer-advance.component.ts");
 /* harmony import */ var _components_income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/income-add-security-deposit/income-add-security-deposit.component */ "./src/app/ams/income-tracker/components/income-add-security-deposit/income-add-security-deposit.component.ts");
+/* harmony import */ var _components_income_invoice_credit_income_invoice_credit_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/income-invoice-credit/income-invoice-credit.component */ "./src/app/ams/income-tracker/components/income-invoice-credit/income-invoice-credit.component.ts");
+
 
 
 
@@ -7594,7 +7699,8 @@ IncomeTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_31__["IncomeSecurityDepositComponent"],
             _components_income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_32__["IncomeJournalComponent"],
             _components_income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_33__["IncomeAddCustomerAdvanceComponent"],
-            _components_income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_34__["IncomeAddSecurityDepositComponent"]
+            _components_income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_34__["IncomeAddSecurityDepositComponent"],
+            _components_income_invoice_credit_income_invoice_credit_component__WEBPACK_IMPORTED_MODULE_35__["IncomeInvoiceCreditComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
