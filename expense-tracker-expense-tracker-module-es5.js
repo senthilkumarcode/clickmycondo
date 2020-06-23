@@ -6,6 +6,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["expense-tracker-expense-tracker-module"], {
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.html":
+  /*!*************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.html ***!
+    \*************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsExpenseTrackerComponentsExpenseActionsExpenseActionsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"expense-actions-wrapper\">\n\n    <ul class=\"icon-tabs\">\n\t\t<li class=\"nav-item\">\n            <a class=\"nav-link \" href=\"javascript:void(0)\"\n            routerLink=\"view-invoice-history/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/time-icon.svg\" /></span>\n\t\t\t\t<span>Payment History</span>\n\t\t\t</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"javascript:void(0)\" \n            routerLink=\"post-payment/{{actionIndex}}\" \n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/coin-stack-icon.svg\" /></span>\n\t\t\t\t<span>Post Payment</span>\n\t\t\t</a>\n\t\t</li>\n\t</ul>\n    \n    <div class=\"d-block mt-50\">\n        <router-outlet></router-outlet>\n    </div>\n\n</div>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-pay-invoice/expense-pay-invoice.component.html":
   /*!*********************************************************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-pay-invoice/expense-pay-invoice.component.html ***!
@@ -226,6 +246,131 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.scss":
+  /*!***********************************************************************************************!*\
+    !*** ./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.scss ***!
+    \***********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsExpenseTrackerComponentsExpenseActionsExpenseActionsComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "@charset \"UTF-8\";\n.expense-actions-wrapper .icon-tabs {\n  display: flex;\n  justify-content: center;\n}\n.expense-actions-wrapper .icon-tabs li {\n  padding: 0;\n}\n.expense-actions-wrapper .icon-tabs li:not(:last-child) {\n  margin-right: 30px;\n}\n.expense-actions-wrapper .icon-tabs li a {\n  color: #585858;\n  font-size: 1.6rem;\n  border-radius: 6px !important;\n  padding: 4px 10px;\n  position: relative;\n}\n.expense-actions-wrapper .icon-tabs li a span {\n  white-space: nowrap;\n}\n.expense-actions-wrapper .icon-tabs li a .icon {\n  text-align: center;\n  display: block;\n  margin: 0 0 6px 0;\n}\n.expense-actions-wrapper .icon-tabs li a .icon .svg {\n  width: 25px;\n  height: 25px;\n  fill: #585858;\n}\n.expense-actions-wrapper .icon-tabs li a.active {\n  background-color: #3f51b5;\n  color: #ffffff;\n}\n.expense-actions-wrapper .icon-tabs li a.active .icon .svg {\n  fill: #ffffff;\n}\n.expense-actions-wrapper .icon-tabs li a.active:after {\n  font-family: FontAwesome;\n  content: \"\";\n  position: absolute;\n  bottom: -32px;\n  transform: translateX(-50%) !important;\n  color: #3f51b5;\n  font-size: 5rem;\n  left: 50%;\n}\n@media (max-width: 767px) {\n  .expense-actions-wrapper .icon-tabs {\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    flex-direction: row;\n    justify-content: start;\n  }\n  .expense-actions-wrapper .icon-tabs li {\n    flex: 0 0 auto;\n    height: 90px;\n  }\n  .expense-actions-wrapper .icon-tabs li:not(:last-child) {\n    margin-right: 15px;\n  }\n  .expense-actions-wrapper .icon-tabs li a .icon .svg {\n    width: 20px;\n    height: 20px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYW1zL2V4cGVuc2UtdHJhY2tlci9jb21wb25lbnRzL2V4cGVuc2UtYWN0aW9ucy9leHBlbnNlLWFjdGlvbnMuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9hcHAvYW1zL2V4cGVuc2UtdHJhY2tlci9jb21wb25lbnRzL2V4cGVuc2UtYWN0aW9ucy9leHBlbnNlLWFjdGlvbnMuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9taXhpbnMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxnQkFBZ0I7QUNLWjtFQUNGLGFBQUE7RUFDQSx1QkFBQTtBREhGO0FDSUU7RUFDQyxVQUFBO0FERkg7QUNHSztFQUNDLGtCQUFBO0FERE47QUNHSztFQUNDLGNDbUZLO0VDbkJULGlCQUFBO0VDdkVELDZCQUFBO0VIVUcsaUJBQUE7RUFDSyxrQkNiSjtBRmNMO0FDQUk7RUFDQyxtQkFBQTtBREVMO0FDQVM7RUFDQyxrQkFBQTtFQUNBLGNBQUE7RUFDTCxpQkFBQTtBREVMO0FDRFU7RUFDQyxXQUFBO0VBQ0EsWUFBQTtFQUNBLGFDb0VBO0FGakVYO0FDQVM7RUFDQyx5QkM0QkQ7RUQzQkMsY0NvRkY7QUZsRlI7QUNBVztFQUNDLGFDaUZKO0FGL0VSO0FDQ1U7RUFDQyx3QkN4Q0w7RUR5Q0ssWUFBQTtFQUNBLGtCQ3ZDTjtFRHdDTSxhQUFBO0VHUFYsc0NBQUE7RUhTVSxjQ2VGO0VDaUJQLGVBQUE7RUY5QlMsU0FBQTtBREdYO0FDRVM7RUFoREw7SUFpRFEsaUJBQUE7SUFDQSxnQkFBQTtJQUNBLG1CQUFBO0lBQ0Esc0JBQUE7RURDVjtFQ0FVO0lBQ0ksY0FBQTtJQUNBLFlBQUE7RURFZDtFQ0RjO0lBQ0ksa0JBQUE7RURHbEI7RUNDc0I7SUFDSSxXQUFBO0lBQ0EsWUFBQTtFREMxQjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYW1zL2V4cGVuc2UtdHJhY2tlci9jb21wb25lbnRzL2V4cGVuc2UtYWN0aW9ucy9leHBlbnNlLWFjdGlvbnMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAY2hhcnNldCBcIlVURi04XCI7XG4uZXhwZW5zZS1hY3Rpb25zLXdyYXBwZXIgLmljb24tdGFicyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuLmV4cGVuc2UtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGkge1xuICBwYWRkaW5nOiAwO1xufVxuLmV4cGVuc2UtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGk6bm90KDpsYXN0LWNoaWxkKSB7XG4gIG1hcmdpbi1yaWdodDogMzBweDtcbn1cbi5leHBlbnNlLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEge1xuICBjb2xvcjogIzU4NTg1ODtcbiAgZm9udC1zaXplOiAxLjZyZW07XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNnB4ICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiA0cHggMTBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuLmV4cGVuc2UtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGkgYSBzcGFuIHtcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbn1cbi5leHBlbnNlLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEgLmljb24ge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDAgMCA2cHggMDtcbn1cbi5leHBlbnNlLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIGxpIGEgLmljb24gLnN2ZyB7XG4gIHdpZHRoOiAyNXB4O1xuICBoZWlnaHQ6IDI1cHg7XG4gIGZpbGw6ICM1ODU4NTg7XG59XG4uZXhwZW5zZS1hY3Rpb25zLXdyYXBwZXIgLmljb24tdGFicyBsaSBhLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzZjUxYjU7XG4gIGNvbG9yOiAjZmZmZmZmO1xufVxuLmV4cGVuc2UtYWN0aW9ucy13cmFwcGVyIC5pY29uLXRhYnMgbGkgYS5hY3RpdmUgLmljb24gLnN2ZyB7XG4gIGZpbGw6ICNmZmZmZmY7XG59XG4uZXhwZW5zZS1hY3Rpb25zLXdyYXBwZXIgLmljb24tdGFicyBsaSBhLmFjdGl2ZTphZnRlciB7XG4gIGZvbnQtZmFtaWx5OiBGb250QXdlc29tZTtcbiAgY29udGVudDogXCLvg51cIjtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IC0zMnB4O1xuICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKSAhaW1wb3J0YW50O1xuICAtbW96LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKSAhaW1wb3J0YW50O1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSkgIWltcG9ydGFudDtcbiAgY29sb3I6ICMzZjUxYjU7XG4gIGZvbnQtc2l6ZTogNXJlbTtcbiAgbGVmdDogNTAlO1xufVxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5leHBlbnNlLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIHtcbiAgICBmbGV4LXdyYXA6IG5vd3JhcDtcbiAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAganVzdGlmeS1jb250ZW50OiBzdGFydDtcbiAgfVxuICAuZXhwZW5zZS1hY3Rpb25zLXdyYXBwZXIgLmljb24tdGFicyBsaSB7XG4gICAgZmxleDogMCAwIGF1dG87XG4gICAgaGVpZ2h0OiA5MHB4O1xuICB9XG4gIC5leHBlbnNlLWFjdGlvbnMtd3JhcHBlciAuaWNvbi10YWJzIGxpOm5vdCg6bGFzdC1jaGlsZCkge1xuICAgIG1hcmdpbi1yaWdodDogMTVweDtcbiAgfVxuICAuZXhwZW5zZS1hY3Rpb25zLXdyYXBwZXIgLmljb24tdGFicyBsaSBhIC5pY29uIC5zdmcge1xuICAgIHdpZHRoOiAyMHB4O1xuICAgIGhlaWdodDogMjBweDtcbiAgfVxufSIsIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuXG4uZXhwZW5zZS1hY3Rpb25zLXdyYXBwZXIge1xuICAgIC5pY29uLXRhYnMge1xuXHRcdGRpc3BsYXk6IGZsZXg7XG5cdFx0anVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG5cdFx0bGkge1xuXHRcdFx0cGFkZGluZzogMDtcbiAgXHRcdFx0Jjpub3QoOmxhc3QtY2hpbGQpe1xuICBcdFx0XHRcdG1hcmdpbi1yaWdodDogMzBweDtcbiAgXHRcdFx0fVxuICBcdFx0XHRhIHtcbiAgXHRcdFx0XHRjb2xvcjogJGdyZXktNzAwO1xuICAgICBcdCBcdFx0QGluY2x1ZGUgZnQtY2FsYygkZm9udC1ub3JtYWwpO1xuICAgICBcdCBcdFx0QGluY2x1ZGUgYm9yZGVyLXJhZGl1cyg2cHgpO1xuXHRcdFx0XHRwYWRkaW5nOiA0cHggMTBweDtcbiAgICAgXHQgXHRcdHBvc2l0aW9uOiAkcmVsO1xuXHRcdFx0XHRzcGFuIHtcblx0XHRcdFx0XHR3aGl0ZS1zcGFjZTogbm93cmFwO1xuXHRcdFx0XHR9XG4gICAgIFx0IFx0XHQuaWNvbiB7XG4gICAgIFx0IFx0XHRcdHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgXHQgXHRcdFx0ZGlzcGxheTogYmxvY2s7XG5cdFx0XHRcdFx0bWFyZ2luOiAwIDAgNnB4IDA7XG4gICAgIFx0IFx0XHRcdC5zdmcge1xuICAgICBcdCBcdFx0XHRcdHdpZHRoOiAyNXB4O1xuICAgICBcdCBcdFx0XHRcdGhlaWdodDogMjVweDtcbiAgICAgXHQgXHRcdFx0XHRmaWxsOiAkZ3JleS03MDA7XG4gICAgIFx0IFx0XHRcdH1cbiAgICAgXHQgXHRcdH1cbiAgICAgXHQgXHRcdCYuYWN0aXZlIHtcbiAgICAgXHQgXHRcdFx0YmFja2dyb3VuZC1jb2xvcjogJG0tYmx1ZTtcbiAgICAgXHQgXHRcdFx0Y29sb3I6ICR3aGl0ZTtcbiAgICAgXHQgXHRcdFx0Lmljb24ge1xuICAgICBcdCBcdFx0XHRcdC5zdmcge1xuICAgICBcdCBcdFx0XHRcdFx0ZmlsbDogJHdoaXRlO1xuICAgICBcdCBcdFx0XHRcdH1cbiAgICAgXHQgXHRcdFx0fVxuICAgICBcdCBcdFx0XHQmOmFmdGVyIHtcbiAgICAgXHQgXHRcdFx0XHRmb250LWZhbWlseTogJGZ0YTtcbiAgICAgXHQgXHRcdFx0XHRjb250ZW50OiBcIlxcZjBkZFwiO1xuICAgICBcdCBcdFx0XHRcdHBvc2l0aW9uOiAkYWJzO1xuICAgICBcdCBcdFx0XHRcdGJvdHRvbTogLTMycHg7XG4gICAgIFx0IFx0XHRcdFx0QGluY2x1ZGUgdHJhbnNmb3JtKHRyYW5zbGF0ZVgoLTUwJSkpO1xuICAgICBcdCBcdFx0XHRcdGNvbG9yOiAkbS1ibHVlO1xuICAgICBcdCBcdFx0XHRcdEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtYmlnLTAzKTtcbiAgICAgXHQgXHRcdFx0XHRsZWZ0OiA1MCU7XG4gICAgIFx0IFx0XHRcdH1cbiAgICAgXHQgXHRcdH1cbiAgXHRcdFx0fVxuXHRcdH1cbiAgICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAgICAgICAgICAgZmxleC13cmFwOiBub3dyYXA7XG4gICAgICAgICAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogc3RhcnQ7XG4gICAgICAgICAgICBsaSB7XG4gICAgICAgICAgICAgICAgZmxleDogMCAwIGF1dG87XG4gICAgICAgICAgICAgICAgaGVpZ2h0OiA5MHB4O1xuICAgICAgICAgICAgICAgICY6bm90KDpsYXN0LWNoaWxkKXtcbiAgICAgICAgICAgICAgICAgICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBhIHtcbiAgICAgICAgICAgICAgICAgICAgLmljb24ge1xuICAgICAgICAgICAgICAgICAgICAgICAgLnN2ZyB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDIwcHg7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OiAyMHB4O1xuICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfVxuICAgICAgICAgfVxuXHR9XG59IiwiXG4kZnRhOiBGb250QXdlc29tZTtcblxuJGZkOmZpeGVkO1xuJGFiczphYnNvbHV0ZTtcbiRyZWw6cmVsYXRpdmU7XG4kc3Q6c3RhdGljO1xuXG4kZGFyay1ibHVlOiAjMDgzZDcxO1xuJGRhcmstYmx1ZS0wMjogIzIzNmFhZjtcbiRkYXJrLWJsdWUtMDM6ICMxMzRiODI7XG4kbGlnaHQtYmx1ZTogIzgzOTFhMTtcbiRsaWdodC1ibHVlLTAyOiAjZWVmMGYzO1xuJGdyZXktYmx1ZTogI2YzZjhmZjtcbiRzLWJsdWU6ICMwM2E5ZjQ7XG4kbGlnaHQtcmVkOiAjZmY1NDdiO1xuJG0tbGlnaHQtcmVkOiAjZmY3Njg4O1xuJGJyaWdodC1yZWQ6ICNlMjM4NWU7XG4kcy1yZWQ6ICNlYTc5NjI7XG4kcy1yZWQtMDI6ICNmZjM2Mzg7XG4kcy1yZWQtMDM6ICNmNDQzMzY7XG4kbS1yZWQ6ICNkNzU3M2Q7XG4kZG0tcmVkOiAjOGU0ZDQwO1xuJGwtcGFsZS1yZWQ6ICNmZmYzZjU7XG4kaC1wYWxlLXJlZDogI2ZmZmJmYjtcbiRncmV5LXJlZCA6ICNmMWRkZGQ7XG4kcy1jeWFuOiAjMDBiY2Q0O1xuJGQtY3lhbjogIzAyMjkyNTtcbiRkLWN5YW4tMDI6ICMwOWE1OTY7XG4kZC1jeWFuLTAzOiMwMGQxZmE7XG4kdmQtY3lhbjogIzAwNmQ2ZDtcbiRwYWxlLWN5YW46ICNkOGZmZmI7XG4kcy1ncmV5OiAjY2NjY2NjO1xuJGwtZ3JleTogI2Q4ZTBlNjtcblxuJGxoLXJlZDojZTIzZjA2YzQ7XG4kbGgteWVsbG93OiNkY2JlMDg7XG4kcy1vcmFuZ2U6ICNmZjk4MDA7XG4kZC1vcmFuZ2U6ICM3ZDY1MjA7XG4kZC1vcmFuZ2UtMDI6ICM1MjQ3Mjg7XG4kcy15ZWxsb3c6ICNmZmViM2I7XG4kbS15ZWxsb3c6ICNmZmMxMDc7XG4kcy12aW9sZXQ6ICM2NzNhYjc7XG5cbiRncmV5LTMwMDogI2YwZjNmMztcbiRncmV5LTIwMDogI2Y2ZjhmODtcbiRncmV5LTUwMDogI2U2ZTZlNjtcbiRoLWN5YW46ICMwM2NjYTY7XG4kZHMtY3lhbjogIzgxYjI5YTtcbiRoZC1ibHVlOiAjMDQyODU0O1xuXG4kbGltZS1ncmVlbjogIzVjZDY5NDsgLy8jNWJjYzczXG4kbGltZS1ncmVlbi0wMjogIzVjZDY3YztcbiRsaW1lLWdyZWVuLTAzOiAjNTJjNTcwO1xuJGxpZ2h0LWdyZWVuOiAjZWRmNWUwO1xuJG0tZ3JlZW46ICM1NGI5NDE7XG4kZC1ncmVlbjogIzM4OTU4MztcbiRkLWdyZWVuLTAyOiAjZGFlMGNkO1xuJGRzLWdyZWVuOiAjZTRlN2RmO1xuJGRzLWdyZWVuLTAyOiAjZjRmN2VmO1xuXG4kbS1ibHVlOiAjM2Y1MWI1O1xuJHMtYmx1ZTogIzUyOWVmZjtcbiRkcy1ibHVlOiAjNjA3ZDhiO1xuJG1kcy1ibHVlOiAjNjA3ZDhiO1xuJGwtYmx1ZTogI2VhZWZmZDtcbiRsZy1ibHVlOiAjZTBlM2VjO1xuJGxnLWJsdWUtMDI6ICNmNGY0Zjc7XG4kbGctYmx1ZS0wMzojZGFlMmU2O1xuJGxnLWJsdWUtMDQ6ICM3MjdmOGU7XG4kbGctYmx1ZS0wNTogI2U3ZWNlYztcbiRsZy1ibHVlLTA2OiAjZTllY2VmO1xuJGxnLWJsdWUtMDc6ICNlMWY1ZmU7XG5cbi8vZW1lZ2VuY3kgY29sb3JzOlxuJGUtbWVkLTAxOiAjMDBiY2Q0O1xuJGUtbWVkLTAyOiAjMjE5NmYzO1xuXG4kZS10aC0wMTogI2Y3ZDA2MTtcbiRlLXRoLTAyOiAjZWY2MGE1O1xuXG4kZS1mZS0wMTogI0ZGOTgwMDtcbiRlLWZlLTAyOiAjRTkxRTYzO1xuXG4kZS1zaHItMDE6ICM2NGExZmQ7XG4kZS1zaHItMDI6ICM5MTAwZmY7XG5cbiRlLXBjLTAxOiAjNjFhMWUxO1xuJGUtcGMtMDI6ICMwNmJmNTg7XG5cbiRlLW90LTAxOiAjNjFhMWUxO1xuJGUtb3QtMDI6ICMzN2U3ODU7XG5cbiRncmV5LTkwMDogIzE5MWMxZTtcbiRncmV5LTg1MDogIzY4Njk2YjtcbiRncmV5LTgwMDogIzM3Mzk0NjsgLy8jNDI0ODU2O1xuJGdyZXktNzUwOiAjNzk3OTc5O1xuJGdyZXktNzAwOiAjNTg1ODU4O1xuJGdyZXktNjAwOiAjZGVkZWRlO1xuJGdyZXktNjUwOiAjNWY1ZjVmO1xuJGdyZXktNTUwOiAjYjFiMWIxO1xuJGdyZXktNDgwOiAjYzVjNmM3O1xuJGdyZXktNDYwOiAjZGVlMmU2O1xuJGdyZXktNDcwOiAjZTVlNWU1O1xuJGdyZXktNDUwOiAjZWFlYWVhOyAvLyNkZWUwZTQ7XG4kZ3JleS00NDA6ICNDOUQwREY7XG4kZ3JleS00MzA6ICNlNGU0ZTQ7XG4kZ3JleS00MTA6ICNlY2YwZjU7XG4kZ3JleS00MDA6ICNlYWVhZWE7XG4kZ3JleS0zNTA6ICM4ZThlOGU7XG4kZ3JleS0yNTA6ICNmNWY1ZjU7XG4kZ3JleS0yMjA6ICNmYWZhZmE7XG4kZ3JleS0yMTA6ICNmM2Y1Zjc7XG4kZ3JleS0xNTA6ICNmOWY5Zjk7XG4kZ3JleS0xMjA6ICNmN2Y3Zjc7XG4kZ3JleS0xMzA6ICNmNmY2Zjc7XG4kZ3JleS0xMDA6ICNmZGZkZmQ7XG5cbiR3aGl0ZTogI2ZmZmZmZjtcbiRibGFjazogIzAwMDAwMDtcbiR0cmFuczogdHJhbnNwYXJlbnQ7XG5cblxuLy9wdWJsaWMgcGFnZXMgY29sb3JzXG4kZHMtdjojMzQyNjNjO1xuJGwtZ3JleS0wMTojZjJmMmYyO1xuJGwtZ3JleS0wMjojZGRkZGRkO1xuJGdyZXktdjogIzZlNjc3MztcbiRkLWdyZXktMDE6IzhhOGE4YTtcbiRzdC1ibHVlOiMwNTgyYzg7XG4kc3QtYmx1ZS0wMTogIzFjYTBkNTtcbiRzdC1ibHVlLTAyOiAjMDE5N2Q0O1xuJHBtLWJsdWU6IzIyOTZlZjtcbiRncmV5LXA6I2Y2ZWVmMztcbiRwLXJlZDogI2ZmNGY1YTtcbiRwLWdyZXktMDE6ICMyZjJmMmY7XG4kcC1ncmV5LTAyOiAjNGQ0YTRhO1xuJHAtZ3JleS0wMzogIzYzNjE2MTtcblxuXG4vL2ZvbnQtc2l6ZXNcbiRmdC1iYXNlOjEwO1xuJGZvbnQtYmlnLTAzOjUwO1xuJGZvbnQtYmlnOjM4O1xuJGZvbnQtYmlnLTAyOjM2O1xuJGZvbnQtaDI6MzQ7XG4kZm9udC1tZWRpdW0tMDI6MjQ7XG4kZm9udC1tZWRpdW0tMDM6MjY7XG4kZm9udC1tZWRpdW0tMDQ6MzA7XG4kZm9udC1oMzoyODtcbiRmb250LWgzLTAyOjMyO1xuJGZvbnQtaDQ6IDIyO1xuJGZvbnQtbWVkaXVtOjIwO1xuJGZvbnQtYmFzZToxODtcbiRmb250LW5vcm1hbC0wMjoxNTtcbiRmb250LW5vcm1hbDoxNjtcbiRmb250LXNtYWxsOjE0O1xuJGZvbnQtc21hbGxlcjoxMztcbiRmb250LXRpbnk6MTI7XG4kZm9udC1iYXNlLTAyOjExO1xuJGZvbnQtdGluaWVyOjEwO1xuJGZvbnQtbWljcm86OTtcblxuLy8gb3RoZXJzXG4kZnVsbDoxMDAlICFpbXBvcnRhbnQ7XG5cblxuLy8gaW1hZ2VzXG4kaW1hZ2VzOiBcIi9hc3NldHMvaW1hZ2VzXCI7XG5cbiRoZWFkZXItaGVpZ2h0OiA3MHB4O1xuXG4iLCJcbkBpbXBvcnQgXCJ2YXJpYWJsZXNcIjtcblxuQG1peGluIHB1YmxpYy1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIGhlYWQtbGlnaHQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbn1cblxuQG1peGluIGhlYWQtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ0xhdG8nLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNzAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIGRlc2VsZWN0ICgpIHtcbiAgLW1vei11c2VyLXNlbGVjdDogLW1vei1ub25lO1xuXHQta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1vLXVzZXItc2VsZWN0OiBub25lO1xuXHR1c2VyLXNlbGVjdDogbm9uZTtcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO1xuICBhbGlnbi1pdGVtczpjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICRiZztcbiAgY29sb3I6ICR0YztcbiAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cygkcik7XG59XG5cbkBtaXhpbiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzLi4uKSB7XG4gIC8vIERpcmVjdGlvbiBoYXMgYmVlbiBvbWl0dGVkIGFuZCBoYXBwZW5zIHRvIGJlIGEgY29sb3Itc3RvcFxuICBAaWYgaXMtZGlyZWN0aW9uKCRkaXJlY3Rpb24pID09IGZhbHNlIHtcbiAgICAkY29sb3Itc3RvcHM6ICRkaXJlY3Rpb24sICRjb2xvci1zdG9wcztcbiAgICAkZGlyZWN0aW9uOiAxODBkZWc7XG4gIH1cblxuICBiYWNrZ3JvdW5kOiBudGgobnRoKCRjb2xvci1zdG9wcywgMSksIDEpO1xuICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChsZWdhY3ktZGlyZWN0aW9uKCRkaXJlY3Rpb24pLCAkY29sb3Itc3RvcHMpO1xuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGRpcmVjdGlvbiwgJGNvbG9yLXN0b3BzKTtcbn1cblxuQG1peGluIGZsaXAoJGRpcmVjdGlvbikge1xuICB0cmFuc2Zvcm0gOiByb3RhdGVZKCRkaXJlY3Rpb24pO1xufVxuXG5AbWl4aW4gcGxhY2Vob2xkZXIge1xuICAmOjotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHtAY29udGVudH1cbiAgJjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgICB7QGNvbnRlbnR9XG4gICY6Oi1tb3otcGxhY2Vob2xkZXIgICAgICAgICAge0Bjb250ZW50fVxuICAmOi1tcy1pbnB1dC1wbGFjZWhvbGRlciAgICAgIHtAY29udGVudH0gIFxufVxuXG5cbiJdfQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.ts":
+  /*!*********************************************************************************************!*\
+    !*** ./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.ts ***!
+    \*********************************************************************************************/
+
+  /*! exports provided: ExpenseActionsComponent */
+
+  /***/
+  function srcAppAmsExpenseTrackerComponentsExpenseActionsExpenseActionsComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ExpenseActionsComponent", function () {
+      return ExpenseActionsComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../../shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+
+    var ExpenseActionsComponent =
+    /*#__PURE__*/
+    function () {
+      function ExpenseActionsComponent(router, route, sharedService) {
+        var _this = this;
+
+        _classCallCheck(this, ExpenseActionsComponent);
+
+        this.router = router;
+        this.route = route;
+        this.sharedService = sharedService;
+        router.events.subscribe(function (event) {
+          if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
+            var path = _this.router.url;
+            var name = path.split('/');
+
+            if (path.indexOf('actions') != -1) {
+              var id = name[name.length - 1];
+
+              _this.sharedService.setActionIncomeTrackerIndex(id);
+            }
+          }
+        });
+      }
+
+      _createClass(ExpenseActionsComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this2 = this;
+
+          this.sharedService.actionexpensetrackerindexcast.subscribe(function (actionIndex) {
+            return _this2.actionIndex = actionIndex;
+          });
+        }
+      }]);
+
+      return ExpenseActionsComponent;
+    }();
+
+    ExpenseActionsComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+      }];
+    };
+
+    ExpenseActionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-expense-actions',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./expense-actions.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./expense-actions.component.scss */
+      "./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])], ExpenseActionsComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/ams/expense-tracker/components/expense-pay-invoice/expense-pay-invoice.component.scss":
   /*!*******************************************************************************************************!*\
     !*** ./src/app/ams/expense-tracker/components/expense-pay-invoice/expense-pay-invoice.component.scss ***!
@@ -434,7 +579,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllInvoices",
         value: function getAllInvoices() {
-          var _this = this;
+          var _this3 = this;
 
           this.totalAmountArray = [];
           this.selectedInvoiceIdArray = [];
@@ -443,9 +588,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceDataList, function (item) {
               item.checked = true;
 
-              _this.totalAmountArray.push(item.vendorInvoiceAmount);
+              _this3.totalAmountArray.push(item.vendorInvoiceAmount);
 
-              _this.selectedInvoiceIdArray.push(item.vendorInvoiceId);
+              _this3.selectedInvoiceIdArray.push(item.vendorInvoiceId);
             });
             this.isInvoiceSelected = true;
           } else {
@@ -458,7 +603,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSelectedInvoice",
         value: function getSelectedInvoice(invoice) {
-          var _this2 = this;
+          var _this4 = this;
 
           var length = 0;
           this.totalAmountArray = [];
@@ -467,9 +612,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (item.checked) {
               length++;
 
-              _this2.totalAmountArray.push(item.vendorInvoiceAmount);
+              _this4.totalAmountArray.push(item.vendorInvoiceAmount);
 
-              _this2.selectedInvoiceIdArray.push(item.vendorInvoiceId);
+              _this4.selectedInvoiceIdArray.push(item.vendorInvoiceId);
             }
           });
 
@@ -509,52 +654,52 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCustInvoices",
         value: function getCustInvoices() {
-          var _this3 = this;
+          var _this5 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             vendorId: this.route.params['value'].id
           };
           this.accountsService.getVendorInvoiceByVendorId(params).subscribe(function (res) {
-            _this3.invoiceDataList = res;
-            _this3.totalItems = _this3.invoiceDataList.length;
+            _this5.invoiceDataList = res;
+            _this5.totalItems = _this5.invoiceDataList.length;
 
-            if (_this3.totalItems > _this3.itemLimit) {
-              _this3.ItemEndIndex = _this3.itemLimit;
+            if (_this5.totalItems > _this5.itemLimit) {
+              _this5.ItemEndIndex = _this5.itemLimit;
             } else {
-              _this3.ItemEndIndex = _this3.totalItems;
+              _this5.ItemEndIndex = _this5.totalItems;
             }
 
             var params = {
-              apartmentId: parseInt(_this3.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this5.cookieService.get('apartmentId'))
             };
 
-            _this3.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
-              _this3.userDataList = res;
-              _this3.isInvoiceDataLoaded = true;
+            _this5.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
+              _this5.userDataList = res;
+              _this5.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this6 = this;
 
           this.getCustInvoices();
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
-            _this4.vendorDataList = res.filter(function (item) {
-              return item.vendorId == _this4.route.params['value'].id;
+            _this6.vendorDataList = res.filter(function (item) {
+              return item.vendorId == _this6.route.params['value'].id;
             });
-            _this4.isVendorDataLoaded = true;
+            _this6.isVendorDataLoaded = true;
             var categoryParams = {
               LookupTypeId: 57
             };
 
-            _this4.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this4.vendorCategoryData = res.filter(function (item) {
+            _this6.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+              _this6.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -564,7 +709,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             groupId: 3
           };
           this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
-            _this4.glAccountListData = res;
+            _this6.glAccountListData = res;
           });
         }
       }]);
@@ -733,7 +878,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitExpenseInvoiceForm",
         value: function submitExpenseInvoiceForm(form) {
-          var _this5 = this;
+          var _this7 = this;
 
           this.isInvoiceSubmitted = false;
 
@@ -789,18 +934,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.accountsService.addVendorInvoice(vendorParams).subscribe(function (res) {
               if (res.message) {
-                _this5.isInvoiceSubmitted = true;
+                _this7.isInvoiceSubmitted = true;
 
-                _this5.sharedService.setAlertMessage("Expense added successfully");
+                _this7.sharedService.setAlertMessage("Expense added successfully");
 
-                _this5.router.navigate(['ams/expense/subledger']);
+                _this7.router.navigate(['ams/expense/subledger']);
               } else {
-                _this5.isInvoiceSubmitted = true;
-                _this5.isError = true;
-                _this5.alertMessage = res.errorMessage;
+                _this7.isInvoiceSubmitted = true;
+                _this7.isError = true;
+                _this7.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this5.isInvoiceSubmitted = true;
+              _this7.isInvoiceSubmitted = true;
             });
           } else {
             var _details = {
@@ -856,25 +1001,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.accountsService.updateVendorInvoice(_vendorParams).subscribe(function (res) {
               if (res.message) {
-                _this5.isInvoiceSubmitted = true;
+                _this7.isInvoiceSubmitted = true;
 
-                _this5.sharedService.setAlertMessage("Expense updated successfully");
+                _this7.sharedService.setAlertMessage("Expense updated successfully");
 
-                _this5.router.navigate(['ams/expense/subledger']);
+                _this7.router.navigate(['ams/expense/subledger']);
               } else {
-                _this5.isInvoiceSubmitted = true;
-                _this5.isError = true;
-                _this5.alertMessage = res.errorMessage;
+                _this7.isInvoiceSubmitted = true;
+                _this7.isError = true;
+                _this7.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this5.isInvoiceSubmitted = true;
+              _this7.isInvoiceSubmitted = true;
             });
           }
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this6 = this;
+          var _this8 = this;
 
           this.invoice = {};
           this.invoice.glaccountId = "";
@@ -883,16 +1028,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
-            _this6.vendorDataList = res.filter(function (item) {
-              return item.vendorId == _this6.route.params['value'].id;
+            _this8.vendorDataList = res.filter(function (item) {
+              return item.vendorId == _this8.route.params['value'].id;
             });
-            _this6.isVendorDataLoaded = true;
+            _this8.isVendorDataLoaded = true;
             var categoryParams = {
               LookupTypeId: 57
             };
 
-            _this6.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this6.vendorCategoryData = res.filter(function (item) {
+            _this8.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+              _this8.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -910,14 +1055,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.isNewInvoice = true;
             this.vendorService.getVendorById(this.route.params['value'].id).subscribe(function (res) {
-              _this6.invoice.vendorTypeId = res[0].vendorTypeId;
-              _this6.invoice.vendorName = res[0].vendorName;
+              _this8.invoice.vendorTypeId = res[0].vendorTypeId;
+              _this8.invoice.vendorName = res[0].vendorName;
             });
           }
 
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this6.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this6.cookieService.get('apartmentId')) && item.indicator == _this6.glAccountIndicator;
+            _this8.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this8.cookieService.get('apartmentId')) && item.indicator == _this8.glAccountIndicator;
             });
           });
         }
@@ -1274,7 +1419,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this7 = this;
+          var _this9 = this;
 
           this.vendorinvoiceTaxData = {
             "vendorinvoiceTaxId": 0,
@@ -1301,8 +1446,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this7.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this7.cookieService.get('apartmentId')) && item.indicator == _this7.glAccountIndicator;
+            _this9.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this9.cookieService.get('apartmentId')) && item.indicator == _this9.glAccountIndicator;
             });
           });
           var vatListParams = {
@@ -1310,21 +1455,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this7.vatTypeDataList = res;
+            _this9.vatTypeDataList = res;
           });
           var withHoldingListParams = {
             LookupTypeId: 179
           }; //withholding tax types
 
           this.lookupService.getLookupValueByLookupTypeId(withHoldingListParams).subscribe(function (res) {
-            _this7.withTaxTypeDataList = res;
+            _this9.withTaxTypeDataList = res;
           });
           var disListParams = {
             LookupTypeId: 88
           }; //discount types
 
           this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe(function (res) {
-            _this7.discountTypeDataList = res;
+            _this9.discountTypeDataList = res;
           });
         }
       }]);
@@ -1625,7 +1770,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "calculateInputVats",
         value: function calculateInputVats() {
-          var _this8 = this;
+          var _this10 = this;
 
           var validLineItems = this.invoiceVendorAccountsArray.filter(function (item) {
             return item.form;
@@ -1644,7 +1789,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.vatTypeDataList.forEach(function (item) {
-            var data = _this8.vendorinvoiceTaxArray.filter(function (invoice) {
+            var data = _this10.vendorinvoiceTaxArray.filter(function (invoice) {
               return item.lookupValueId == invoice.vendorInvoiceTypeId;
             });
 
@@ -1713,7 +1858,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitExpenseMultiInvoiceForm",
         value: function submitExpenseMultiInvoiceForm(form) {
-          var _this9 = this;
+          var _this11 = this;
 
           this.isInvoiceSubmitted = false;
           this.invoiceVendorAccountsArray.map(function (item) {
@@ -1770,16 +1915,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.accountsService.addVendorInvoice(params).subscribe(function (res) {
               if (res.message) {
-                _this9.isInvoiceSubmitted = true;
+                _this11.isInvoiceSubmitted = true;
 
-                _this9.sharedService.setAlertMessage("All Vendor Invoices added successfully");
+                _this11.sharedService.setAlertMessage("All Vendor Invoices added successfully");
 
-                _this9.router.navigate(['ams/expense/subledger']);
+                _this11.router.navigate(['ams/expense/subledger']);
               } else {
-                _this9.isInvoiceSubmitted = true;
+                _this11.isInvoiceSubmitted = true;
               }
             }, function (error) {
-              _this9.isInvoiceSubmitted = true;
+              _this11.isInvoiceSubmitted = true;
             });
           } else {
             var _details2 = {
@@ -1825,23 +1970,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.accountsService.updateVendorInvoice(_params).subscribe(function (res) {
               if (res.message) {
-                _this9.isInvoiceSubmitted = true;
+                _this11.isInvoiceSubmitted = true;
 
-                _this9.sharedService.setAlertMessage("All Vendor Invoices updated successfully");
+                _this11.sharedService.setAlertMessage("All Vendor Invoices updated successfully");
 
-                _this9.router.navigate(['ams/expense/subledger']);
+                _this11.router.navigate(['ams/expense/subledger']);
               } else {
-                _this9.isInvoiceSubmitted = true;
+                _this11.isInvoiceSubmitted = true;
               }
             }, function (error) {
-              _this9.isInvoiceSubmitted = true;
+              _this11.isInvoiceSubmitted = true;
             });
           }
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this12 = this;
 
           this.invoice = {};
           this.invoice.vendorId = this.route.params['value'].id;
@@ -1956,15 +2101,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 74
           };
           this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe(function (res) {
-            _this10.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_9__().add(parseInt(res[0].lookupValueName), 'days');
+            _this12.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_9__().add(parseInt(res[0].lookupValueName), 'days');
           });
           var vatListParams = {
             LookupTypeId: 77
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this10.vatTypeDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this10.vatTypeDataList, function (item) {
+            _this12.vatTypeDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this12.vatTypeDataList, function (item) {
               item.custVatTypeAmount = 0;
             });
           });
@@ -1973,7 +2118,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //discount types
 
           this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe(function (res) {
-            _this10.discountFinalTypeDataList = res;
+            _this12.discountFinalTypeDataList = res;
           }); //for post single invoice
 
           if (this.route.params['value'].type == 'single' && this.route.params['value'].invoiceid == undefined) {
@@ -2002,12 +2147,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this10.vendorDataList = res.filter(function (item) {
-              return item.vendorId == _this10.route.params['value'].id;
+            _this12.vendorDataList = res.filter(function (item) {
+              return item.vendorId == _this12.route.params['value'].id;
             });
-            _this10.invoice.vendorInvoiceNumber = _this10.vendorDataList[0].contactPerson;
-            _this10.invoice.voucherNumber = _this10.vendorDataList[0].contactPerson;
-            _this10.isVendorDataLoaded = true;
+            _this12.invoice.vendorInvoiceNumber = _this12.vendorDataList[0].contactPerson;
+            _this12.invoice.voucherNumber = _this12.vendorDataList[0].contactPerson;
+            _this12.isVendorDataLoaded = true;
           });
         }
       }]);
@@ -2147,18 +2292,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ExpensePostPaymentComponent, [{
         key: "submitExpensePostCollectionForm",
         value: function submitExpensePostCollectionForm(form) {
-          var _this11 = this;
+          var _this13 = this;
 
           var custInvoiceObjArray = [];
           underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, function (item, index) {
             var details = {
-              "apartmentId": parseInt(_this11.cookieService.get('apartmentId')),
+              "apartmentId": parseInt(_this13.cookieService.get('apartmentId')),
               "paymentId": 11,
               "invoiceId": item,
-              "amount": _this11.totalAmountArray[index],
+              "amount": _this13.totalAmountArray[index],
               "comment": "",
               "isActive": true,
-              "insertedBy": parseInt(_this11.cookieService.get('userId')),
+              "insertedBy": parseInt(_this13.cookieService.get('userId')),
               "insertedOn": "2020-01-10T06:59:54.422Z",
               "updatedBy": 0,
               "updatedOn": "2020-01-10T06:59:54.422Z"
@@ -2190,24 +2335,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.addVendorPayment(vendorParams).subscribe(function (res) {
             if (res.message) {
-              _this11.isCollectionSubmitted = true;
+              _this13.isCollectionSubmitted = true;
 
-              _this11.sharedService.setAlertMessage("Payment done successfully");
+              _this13.sharedService.setAlertMessage("Payment done successfully");
 
-              _this11.collectionParams.emit(true);
+              _this13.collectionParams.emit(true);
             } else {
-              _this11.isCollectionSubmitted = true;
-              _this11.isError = true;
-              _this11.alertMessage = res.errorMessage;
+              _this13.isCollectionSubmitted = true;
+              _this13.isError = true;
+              _this13.alertMessage = res.errorMessage;
             }
           }, function (error) {
-            _this11.isCollectionSubmitted = true;
+            _this13.isCollectionSubmitted = true;
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this14 = this;
 
           this.collection = {};
           this.collection.instrumentTypeId = "";
@@ -2219,7 +2364,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //payment mode
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this12.instrumentTypeListData = res.filter(function (item) {
+            _this14.instrumentTypeListData = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -2228,7 +2373,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             groupId: 3
           };
           this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
-            _this12.glAccountListData = res;
+            _this14.glAccountListData = res;
           });
           this.isCollectionSubmitted = true;
         }
@@ -2421,25 +2566,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__["ModalService"]);
-      } // getIndexParams(event){
-      //   this.ItemStartIndex = event.ItemStartIndex;
-      //   this.ItemEndIndex = event.ItemEndIndex;
-      //   this.itemLimit = event.itemLimit;
-      // }
-      // sortUnitData(type){
-      //   this.unitFieldType = type;
-      //   this.unitOrder = !this.unitOrder;
-      // }
-      // getFieldOrderBy(type) {
-      //   if(this.unitFieldType == type){
-      //     return this.unitOrder ? 'asc' : 'desc';
-      //   }
-      //   else return '';
-      // }
-      // isMobileView() {
-      //   return window.innerWidth <= 767 ? 'table-responsive' : '';
-      // }
-
+      }
 
       _createClass(ExpenseSubLedgerComponent, [{
         key: "getDueAmount",
@@ -2450,31 +2577,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getSelected",
         value: function getSelected(type) {
           return this.filterSelected == type ? 'selected' : '';
-        } // selectColInput(value){
-        //   this.selectedInput = value;
-        // }
-        // onSelectChange(event, type, name){
-        //   if(!_.isEmpty(event)){
-        //     this.selectedInput = type;
-        //     this.columnField[type] = event[name];
-        //   }
-        //   else {
-        //      this.columnField = {};
-        //   }
-        // }
-        // clearFilter(){
-        // 	this.filterSelected = 'all';
-        // 	this.singleBlock = "Select Block";
-        // }
-
+        }
       }, {
         key: "isItemsAvailable",
         value: function isItemsAvailable() {
           return this.totalItems > 0 ? true : false;
-        } // isNoItemsAvailable(){
-        // 	return this.totalItems == 0 ? true : false;
-        // }
-
+        }
       }, {
         key: "getVendorCategory",
         value: function getVendorCategory(ledger, id) {
@@ -2501,14 +2609,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return name[0].lookupValueName;
             }
           }
-        } // showInvoiceTypes(ledger){
-        //   this.dialogRef = this.dialog.open(this.viewInvoiceTypeRef, {
-        //       panelClass: 'material',
-        //       disableClose: true,
-        //       data: ledger
-        //   });
-        // }
-
+        }
       }, {
         key: "dialogClose",
         value: function dialogClose() {
@@ -2517,7 +2618,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this13 = this;
+          var _this15 = this;
 
           if (this.subLedgerData != "") {
             var filtergroup = new jqx.filter();
@@ -2530,7 +2631,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this15.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -2539,14 +2640,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
-        key: "onshowInvoiceTypes",
-        value: function onshowInvoiceTypes(detail) {
-          var dataRecord = this.datagrid.getrowdata(detail.rowId);
-          this.dialogRef = this.dialog.open(this.viewInvoiceTypeRef, {
-            panelClass: 'material',
-            disableClose: true,
-            data: dataRecord
-          });
+        key: "onShowSingleInvoice",
+        value: function onShowSingleInvoice(detail) {
+          var ledger = this.datagrid.getrowdata(detail.rowId);
+          this.router.navigateByUrl('/ams/expense/post-multi-invoice/' + ledger.vendorId + '/single');
+        }
+      }, {
+        key: "onShowMultiInvoice",
+        value: function onShowMultiInvoice(detail) {
+          var ledger = this.datagrid.getrowdata(detail.rowId);
+          this.router.navigateByUrl('/ams/expense/post-multi-invoice/' + ledger.vendorId + '/multi');
+        }
+      }, {
+        key: "onActions",
+        value: function onActions(detail) {
+          var ledger = this.datagrid.getrowdata(detail.rowId);
+          this.router.navigateByUrl('/ams/expense/actions/view-invoice-history/' + ledger.vendorId);
+        }
+      }, {
+        key: "onInvoiceDropDown",
+        value: function onInvoiceDropDown(detail) {
+          var datainfo = this.datagrid.getdatainformation();
+          var paginginfo = datainfo.paginginformation;
+          var rowIndex = Math.min(datainfo.rowscount, (paginginfo.pagenum + 1) * paginginfo.pagesize) - paginginfo.pagenum * paginginfo.pagesize;
+
+          if (rowIndex * (paginginfo.pagenum + 1) == detail.rowId + 1) {
+            var elem = document.querySelector('.simple-action-index' + detail.rowId);
+            elem.classList.add('dropup');
+          }
         }
       }, {
         key: "onviewHistory",
@@ -2563,7 +2684,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this16 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2612,47 +2733,47 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             align: 'right',
             cellclassname: 'action-cell',
             minwidth: 100,
-            cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="simple-actions"> <a href="javascript:void(0)" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false"> <span class="action-dot"></span> <span class="action-dot"></span> <span class="action-dot"></span> </a> <div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="invoiceDropDown"> <a href="javascript:void(0)" onClick="viewHistory(' + row + ')">View History</a> <a href="javascript:void(0)" onClick="showInvoiceTypes(' + row + ')">Post Invoice</a> <a href="javascript:void(0)" onClick="viewPayment(' + row + ')" >Payment</a> </div> </div>';
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions simple-action-index' + row + '">' + '<a href="javascript:void(0)" onClick="invoiceDropDownEvent(' + row + ')" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="icon delete mr-2">' + '<svg height="16" viewBox="-26 0 477 477.96064" width="16" xmlns="http://www.w3.org/2000/svg">' + '<path fill="" d="m335.769531 235.914062v-127.589843c0-2.78125-1.15625-5.433594-3.191406-7.324219l-105.84375-98.324219c-1.847656-1.71875-4.28125-2.675781-6.804687-2.675781h-175.449219c-24.289063.0273438-43.972657 19.710938-44 44v335.792969c.027343 24.289062 19.710937 43.972656 44 44h155.382812c30.578125 45.125 87.140625 64.835937 139.140625 48.488281s87.109375-64.882812 86.363282-119.386719c-.746094-54.503906-37.167969-102.0625-89.597657-116.980469zm-105.097656-202.285156 70.976563 65.9375h-46.976563c-13.246094-.015625-23.984375-10.753906-24-24zm-186.191406 370.164063c-13.25-.015625-23.984375-10.753907-24-24v-335.792969c.015625-13.25 10.75-23.984375 24-24h166.191406v55.566406c.027344 24.289063 19.710937 43.972656 44 44h61.101563v112.417969c-34.90625-3.925781-69.832032 7.210937-96.023438 30.621094-26.191406 23.410156-41.160156 56.875-41.15625 92-.015625 16.925781 3.46875 33.671875 10.234375 49.1875zm257.503906 54.207031c-57.101563 0-103.394531-46.292969-103.394531-103.394531 0-57.101563 46.292968-103.394531 103.394531-103.394531 57.105469 0 103.394531 46.292968 103.394531 103.394531-.0625 57.078125-46.316406 103.328125-103.394531 103.394531zm0 0"/>' + '<path fill="" d="m354.488281 342.945312h-40.84375v-40.84375c0-5.523437-4.476562-10-10-10-5.523437 0-10 4.476563-10 10v40.84375h-40.84375c-5.523437 0-10 4.476563-10 10 0 5.523438 4.476563 10 10 10h40.84375v46.375c0 5.523438 4.476563 10 10 10 5.523438 0 10-4.476562 10-10v-46.375h40.84375c5.523438 0 10-4.476562 10-10 0-5.519531-4.476562-10-10-10zm0 0"/>' + '</svg>' + '</span>' + '</a>' + '<div class="dropdown-menu action-menu dropdown-menu-right invoice-dropdown-menu' + row + '" aria-labelledby="invoiceDropDown">' + '<a href="javascript:void(0)" onClick="showSingleInvoiceEvent(' + row + ')">Post Single Invoice</a>' + '<a href="javascript:void(0)" onClick="showMultiInvoiceEvent(' + row + ')">Post Multi Invoice</a>' + '</div>' + '<a href="javascript:void(0)" class="btn action mr-2" onClick="actionEvent(' + row + ')">' + 'Action' + '</a>' + '</div>';
             },
+
+            /*cellsrenderer: (row: number,column,value): string => {
+              return    '<div class="simple-actions"> <a href="javascript:void(0)" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false"> <span class="action-dot"></span> <span class="action-dot"></span> <span class="action-dot"></span> </a> <div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="invoiceDropDown"> <a href="javascript:void(0)" onClick="viewHistory('+ row + ')">View History</a> <a href="javascript:void(0)" onClick="showInvoiceTypes('+ row +')">Post Invoice</a> <a href="javascript:void(0)" onClick="viewPayment('+ row +')" >Payment</a> </div> </div>'
+            },*/
             renderer: columnrenderer
           }];
           this.accountsService.getExpenseTrackerInvoicesByApartmentId(this.params).subscribe(function (res) {
-            _this14.subLedgerDataList = res;
-            console.log("sub ledger", _this14.subLedgerDataList);
-            _this14.totalItems = _this14.subLedgerDataList.length;
-            _this14.subLedgerDataList = new jqx.dataAdapter({
-              localdata: _this14.subLedgerDataList,
+            _this16.subLedgerDataList = res;
+            _this16.totalItems = _this16.subLedgerDataList.length;
+            _this16.subLedgerDataList = new jqx.dataAdapter({
+              localdata: _this16.subLedgerDataList,
               datatype: "array"
             });
-            console.log('subLedgerDataList jq adapter', _this14.subLedgerDataList);
 
-            if (_this14.totalItems > _this14.itemLimit) {
-              _this14.ItemEndIndex = _this14.itemLimit;
+            if (_this16.totalItems > _this16.itemLimit) {
+              _this16.ItemEndIndex = _this16.itemLimit;
             } else {
-              _this14.ItemEndIndex = _this14.totalItems;
+              _this16.ItemEndIndex = _this16.totalItems;
             }
 
-            _this14.netDueAmount = 0;
-            _this14.totalDueAmount = 0;
-            underscore__WEBPACK_IMPORTED_MODULE_12__["each"](_this14.subLedgerDataList._source.localdata, function (item, index) {
-              _this14.netDueAmount = _this14.netDueAmount + item.due;
-              if (item.due >= 0) _this14.totalDueAmount = _this14.totalDueAmount + item.due;
+            _this16.netDueAmount = 0;
+            _this16.totalDueAmount = 0;
+            underscore__WEBPACK_IMPORTED_MODULE_12__["each"](_this16.subLedgerDataList._source.localdata, function (item, index) {
+              _this16.netDueAmount = _this16.netDueAmount + item.due;
+              if (item.due >= 0) _this16.totalDueAmount = _this16.totalDueAmount + item.due;
             });
             var lookUp = {
               LookupTypeId: 57
             };
 
-            _this14.lookupService.getLookupValueByLookupTypeId(lookUp).subscribe(function (res) {
-              _this14.vendorCategoryData = res.filter(function (item) {
+            _this16.lookupService.getLookupValueByLookupTypeId(lookUp).subscribe(function (res) {
+              _this16.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log('vendorCategoryData', _this14.vendorCategoryData);
 
-              _this14.vendorService.getVendorByApartmentId(_this14.params).subscribe(function (res) {
-                _this14.vendorDataList = res;
-                console.log('vendorDataList', _this14.vendorDataList);
-                _this14.isSubLedgerDataLoaded = true;
+              _this16.vendorService.getVendorByApartmentId(_this16.params).subscribe(function (res) {
+                _this16.vendorDataList = res;
+                _this16.isSubLedgerDataLoaded = true;
               });
             }, function (error) {});
           });
@@ -2690,7 +2811,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_11__["jqxGridComponent"])], ExpenseSubLedgerComponent.prototype, "datagrid", void 0);
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onshowInvoiceTypes', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ExpenseSubLedgerComponent.prototype, "onshowInvoiceTypes", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onShowSingleInvoice', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ExpenseSubLedgerComponent.prototype, "onShowSingleInvoice", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onShowMultiInvoice', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ExpenseSubLedgerComponent.prototype, "onShowMultiInvoice", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onActions', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ExpenseSubLedgerComponent.prototype, "onActions", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onInvoiceDropDown', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ExpenseSubLedgerComponent.prototype, "onInvoiceDropDown", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onviewHistory', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ExpenseSubLedgerComponent.prototype, "onviewHistory", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onviewPayment', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ExpenseSubLedgerComponent.prototype, "onviewPayment", null);
     ExpenseSubLedgerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2703,46 +2827,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       "./src/app/ams/expense-tracker/components/expense-sub-ledger/expense-sub-ledger.component.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])], ExpenseSubLedgerComponent);
 
-    function getClassName(value) {
-      // var name = value.split('-');
-      // return name[0].toLowerCase();
-      return value === "Due" ? 'high' : 'low';
-    }
+    var getClassName = function getClassName(value) {
+      return value != 'Due' ? 'high' : 'low';
+    };
 
     window.getClassName = getClassName;
 
-    function showConfirmDeleteEvent(row) {
-      var event = new CustomEvent('onTicketDelete', {
+    var showSingleInvoiceEvent = function showSingleInvoiceEvent(row) {
+      var event = new CustomEvent('onShowSingleInvoice', {
         detail: {
           rowId: row
         }
       });
       window.dispatchEvent(event);
-    }
+    };
 
-    window.showConfirmDeleteEvent = showConfirmDeleteEvent;
+    window.showSingleInvoiceEvent = showSingleInvoiceEvent;
 
-    function editTicketEvent(row) {
-      var event = new CustomEvent('onEditTicket', {
+    var showMultiInvoiceEvent = function showMultiInvoiceEvent(row) {
+      var event = new CustomEvent('onShowMultiInvoice', {
         detail: {
           rowId: row
         }
       });
       window.dispatchEvent(event);
-    }
+    };
 
-    window.editTicketEvent = editTicketEvent;
-
-    function showInvoiceTypes(ledger) {
-      var event = new CustomEvent('onshowInvoiceTypes', {
-        detail: {
-          rowId: ledger
-        }
-      });
-      window.dispatchEvent(event);
-    }
-
-    window.showInvoiceTypes = showInvoiceTypes;
+    window.showMultiInvoiceEvent = showMultiInvoiceEvent;
 
     function viewHistory(value) {
       var event = new CustomEvent('onviewHistory', {
@@ -2765,6 +2876,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }
 
     window.viewPayment = viewPayment;
+
+    var actionEvent = function actionEvent(row) {
+      var event = new CustomEvent('onActions', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    };
+
+    window.actionEvent = actionEvent;
+
+    var invoiceDropDownEvent = function invoiceDropDownEvent(row) {
+      var event = new CustomEvent('onInvoiceDropDown', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    };
+
+    window.invoiceDropDownEvent = invoiceDropDownEvent;
     /***/
   },
 
@@ -2944,7 +3077,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitExpenseReportsVendorForm",
         value: function submitExpenseReportsVendorForm(form) {
-          var _this15 = this;
+          var _this17 = this;
 
           this.isReportSubmitted = true;
           this.isDataLoaded = false;
@@ -2960,24 +3093,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe(function (res) {
-            _this15.reportsDataList = res;
-            console.log(_this15.reportsDataList);
-            _this15.totalItems = _this15.reportsDataList.length;
+            _this17.reportsDataList = res;
+            console.log(_this17.reportsDataList);
+            _this17.totalItems = _this17.reportsDataList.length;
 
-            if (_this15.totalItems > _this15.itemLimit) {
-              _this15.ItemEndIndex = _this15.itemLimit;
+            if (_this17.totalItems > _this17.itemLimit) {
+              _this17.ItemEndIndex = _this17.itemLimit;
             } else {
-              _this15.ItemEndIndex = _this15.totalItems;
+              _this17.ItemEndIndex = _this17.totalItems;
             }
 
-            _this15.isDataLoaded = true;
-            _this15.isReportSubmitted = false;
+            _this17.isDataLoaded = true;
+            _this17.isReportSubmitted = false;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this16 = this;
+          var _this18 = this;
 
           this.report = {};
           this.report.apartmentBlockId = "";
@@ -2988,17 +3121,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this16.blockData = res;
+            _this18.blockData = res;
           });
           var vendorParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this16.vendorData = res;
+            _this18.vendorData = res;
           });
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this16.glAccountsDataList = res.filter(function (item) {
-              return item.isActive && parseInt(_this16.cookieService.get('apartmentId')) && item.indicator == _this16.glAccountIndicator;
+            _this18.glAccountsDataList = res.filter(function (item) {
+              return item.isActive && parseInt(_this18.cookieService.get('apartmentId')) && item.indicator == _this18.glAccountIndicator;
             });
           }); //Gl Document 
 
@@ -3006,7 +3139,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 31
           };
           this.lookupService.getLookupValueByLookupTypeId(documentParams).subscribe(function (res) {
-            _this16.glDocumentTypeDataList = res;
+            _this18.glDocumentTypeDataList = res;
           }, function (error) {});
         }
       }]);
@@ -3390,7 +3523,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this17 = this;
+          var _this19 = this;
 
           if (this.invoiceData != "") {
             var filtergroup = new jqx.filter();
@@ -3403,7 +3536,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this17.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this19.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3421,7 +3554,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this18 = this;
+          var _this20 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3473,16 +3606,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             renderer: columnrenderer
           }];
           this.vendorService.getVendorByApartmentId(this.params).subscribe(function (res) {
-            _this18.vendorDataList = res.filter(function (item) {
-              return item.vendorId == _this18.route.params['value'].id;
+            _this20.vendorDataList = res.filter(function (item) {
+              return item.vendorId == _this20.route.params['value'].id;
             });
-            _this18.isVendorDataLoaded = true;
+            _this20.isVendorDataLoaded = true;
             var categoryParams = {
               LookupTypeId: 57
             };
 
-            _this18.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this18.vendorCategoryData = res.filter(function (item) {
+            _this20.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+              _this20.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -3492,33 +3625,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             groupId: 3
           };
           this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
-            _this18.glAccountListData = res;
+            _this20.glAccountListData = res;
           });
           var paymentParams = {
             VendorID: this.route.params['value'].id
           };
           this.accountsService.getVendorPaymenntHistoryById(paymentParams).subscribe(function (res) {
-            _this18.invoiceDataList = res;
-            _this18.totalItems = _this18.invoiceDataList.length;
-            _this18.gridSourceData = {
-              localdata: _this18.invoiceDataList,
+            _this20.invoiceDataList = res;
+            _this20.totalItems = _this20.invoiceDataList.length;
+            _this20.gridSourceData = {
+              localdata: _this20.invoiceDataList,
               datatype: "array"
             };
-            _this18.invoiceDataList = new jqx.dataAdapter(_this18.gridSourceData);
+            _this20.invoiceDataList = new jqx.dataAdapter(_this20.gridSourceData);
 
-            if (_this18.totalItems > _this18.itemLimit) {
-              _this18.ItemEndIndex = _this18.itemLimit;
+            if (_this20.totalItems > _this20.itemLimit) {
+              _this20.ItemEndIndex = _this20.itemLimit;
             } else {
-              _this18.ItemEndIndex = _this18.totalItems;
+              _this20.ItemEndIndex = _this20.totalItems;
             }
 
             var params = {
-              apartmentId: parseInt(_this18.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this20.cookieService.get('apartmentId'))
             };
 
-            _this18.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
-              _this18.userDataList = res;
-              _this18.isInvoiceDataLoaded = true;
+            _this20.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
+              _this20.userDataList = res;
+              _this20.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
@@ -3721,7 +3854,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this19 = this;
+          var _this21 = this;
 
           if (this.invoiceData != "") {
             var filtergroup = new jqx.filter();
@@ -3734,7 +3867,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this19.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this21.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3752,7 +3885,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this20 = this;
+          var _this22 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3796,32 +3929,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             groupId: 3
           };
           this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
-            _this20.glAccountListData = res;
+            _this22.glAccountListData = res;
           });
           var invoiceParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getExpenseTrackerInvoicesByApartmentId(invoiceParams).subscribe(function (res) {
-            _this20.invoiceDataList = res;
-            _this20.totalItems = _this20.invoiceDataList.length;
-            _this20.invoiceDataList = new jqx.dataAdapter({
-              localData: _this20.invoiceDataList,
+            _this22.invoiceDataList = res;
+            _this22.totalItems = _this22.invoiceDataList.length;
+            _this22.invoiceDataList = new jqx.dataAdapter({
+              localData: _this22.invoiceDataList,
               datatype: "array"
             });
 
-            if (_this20.totalItems > _this20.itemLimit) {
-              _this20.ItemEndIndex = _this20.itemLimit;
+            if (_this22.totalItems > _this22.itemLimit) {
+              _this22.ItemEndIndex = _this22.itemLimit;
             } else {
-              _this20.ItemEndIndex = _this20.totalItems;
+              _this22.ItemEndIndex = _this22.totalItems;
             }
 
             var dataParams = {
-              apartmentId: parseInt(_this20.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this22.cookieService.get('apartmentId'))
             };
 
-            _this20.userService.getAllUsersByApartmentId(dataParams).subscribe(function (res) {
-              _this20.userDataList = res;
-              _this20.isInvoiceDataLoaded = true;
+            _this22.userService.getAllUsersByApartmentId(dataParams).subscribe(function (res) {
+              _this22.userDataList = res;
+              _this22.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
@@ -3948,6 +4081,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_expense_tracker_reports_expense_tracker_reports_vendor_expense_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component */
     "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.ts");
+    /* harmony import */
+
+
+    var _components_expense_actions_expense_actions_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./components/expense-actions/expense-actions.component */
+    "./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.ts");
 
     var routes = [{
       path: '',
@@ -3957,11 +4096,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       path: 'subledger',
       component: _components_expense_sub_ledger_expense_sub_ledger_component__WEBPACK_IMPORTED_MODULE_3__["ExpenseSubLedgerComponent"]
     }, {
+      path: 'actions',
+      component: _components_expense_actions_expense_actions_component__WEBPACK_IMPORTED_MODULE_10__["ExpenseActionsComponent"],
+      children: [{
+        path: 'view-invoice-history/:id',
+        component: _components_expense_view_invoice_history_expense_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_5__["ExpenseViewInvoiceHistoryComponent"]
+      }, {
+        path: 'post-payment/:id',
+        component: _components_expense_view_invoice_history_expense_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_5__["ExpenseViewInvoiceHistoryComponent"],
+        pathMatch: 'full'
+      }, {
+        path: '**',
+        redirectTo: 'view-invoice-history/:id',
+        pathMatch: 'full'
+      }]
+    }, {
       path: 'view-invoice-history/:id',
       component: _components_expense_view_invoice_history_expense_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_5__["ExpenseViewInvoiceHistoryComponent"]
     }, {
       path: 'all-invoices',
       component: _components_expense_view_invoice_expense_view_invoice_component__WEBPACK_IMPORTED_MODULE_4__["ExpenseViewInvoiceComponent"]
+    }, {
+      path: 'post-invoice',
+      component: _components_expense_post_multi_invoice_expense_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_7__["ExpensePostMultiInvoiceComponent"]
     }, {
       path: 'post-multi-invoice/:id/:type',
       component: _components_expense_post_multi_invoice_expense_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_7__["ExpensePostMultiInvoiceComponent"]
@@ -4188,13 +4345,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_expense_tracker_reports_expense_tracker_reports_vendor_expense_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ./components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component */
     "./src/app/ams/expense-tracker/components/expense-tracker-reports/expense-tracker-reports-vendor/expense-tracker-reports-vendor.component.ts");
+    /* harmony import */
+
+
+    var _components_expense_actions_expense_actions_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! ./components/expense-actions/expense-actions.component */
+    "./src/app/ams/expense-tracker/components/expense-actions/expense-actions.component.ts");
 
     var ExpenseTrackerModule = function ExpenseTrackerModule() {
       _classCallCheck(this, ExpenseTrackerModule);
     };
 
     ExpenseTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_expense_tracker_component__WEBPACK_IMPORTED_MODULE_5__["ExpenseTrackerComponent"], _components_expense_sub_ledger_expense_sub_ledger_component__WEBPACK_IMPORTED_MODULE_6__["ExpenseSubLedgerComponent"], _components_expense_view_invoice_expense_view_invoice_component__WEBPACK_IMPORTED_MODULE_7__["ExpenseViewInvoiceComponent"], _components_expense_post_invoice_expense_post_invoice_component__WEBPACK_IMPORTED_MODULE_8__["ExpensePostInvoiceComponent"], _components_expense_post_payment_expense_post_payment_component__WEBPACK_IMPORTED_MODULE_9__["ExpensePostPaymentComponent"], _components_expense_view_invoice_history_expense_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_10__["ExpenseViewInvoiceHistoryComponent"], _components_expense_pay_invoice_expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_11__["ExpensePayInvoiceComponent"], _components_expense_post_multi_invoice_expense_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_12__["ExpensePostMultiInvoiceComponent"], _components_expense_post_multi_invoice_fields_expense_post_multi_invoice_fields_component__WEBPACK_IMPORTED_MODULE_13__["ExpensePostMultiInvoiceFieldsComponent"], _components_expense_tracker_reports_expense_tracker_reports_component__WEBPACK_IMPORTED_MODULE_14__["ExpenseTrackerReportsComponent"], _components_expense_tracker_reports_expense_tracker_reports_vendor_expense_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_15__["ExpenseTrackerReportsVendorComponent"]],
+      declarations: [_expense_tracker_component__WEBPACK_IMPORTED_MODULE_5__["ExpenseTrackerComponent"], _components_expense_sub_ledger_expense_sub_ledger_component__WEBPACK_IMPORTED_MODULE_6__["ExpenseSubLedgerComponent"], _components_expense_view_invoice_expense_view_invoice_component__WEBPACK_IMPORTED_MODULE_7__["ExpenseViewInvoiceComponent"], _components_expense_post_invoice_expense_post_invoice_component__WEBPACK_IMPORTED_MODULE_8__["ExpensePostInvoiceComponent"], _components_expense_post_payment_expense_post_payment_component__WEBPACK_IMPORTED_MODULE_9__["ExpensePostPaymentComponent"], _components_expense_view_invoice_history_expense_view_invoice_history_component__WEBPACK_IMPORTED_MODULE_10__["ExpenseViewInvoiceHistoryComponent"], _components_expense_pay_invoice_expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_11__["ExpensePayInvoiceComponent"], _components_expense_post_multi_invoice_expense_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_12__["ExpensePostMultiInvoiceComponent"], _components_expense_post_multi_invoice_fields_expense_post_multi_invoice_fields_component__WEBPACK_IMPORTED_MODULE_13__["ExpensePostMultiInvoiceFieldsComponent"], _components_expense_tracker_reports_expense_tracker_reports_component__WEBPACK_IMPORTED_MODULE_14__["ExpenseTrackerReportsComponent"], _components_expense_tracker_reports_expense_tracker_reports_vendor_expense_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_15__["ExpenseTrackerReportsVendorComponent"], _components_expense_actions_expense_actions_component__WEBPACK_IMPORTED_MODULE_16__["ExpenseActionsComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _expense_tracker_routing_module__WEBPACK_IMPORTED_MODULE_3__["ExpenseTrackerRoutingModule"]],
       bootstrap: [_expense_tracker_component__WEBPACK_IMPORTED_MODULE_5__["ExpenseTrackerComponent"]]
     })], ExpenseTrackerModule);

@@ -12197,8 +12197,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "onScroll",
-        value: function onScroll(event) {
-          if (this.isSideBarMini) this.activeNav = "";
+        value: function onScroll(event) {//if(this.isSideBarMini)
+          //this.activeNav = ""
         }
       }, {
         key: "isNavMini",

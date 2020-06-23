@@ -7566,8 +7566,8 @@ let SidebarComponent = class SidebarComponent {
         }
     }
     onScroll(event) {
-        if (this.isSideBarMini)
-            this.activeNav = "";
+        //if(this.isSideBarMini)
+        //this.activeNav = ""
     }
     isNavMini(name) {
         return (this.activeNav === name) && this.isSideBarMini ? 'fixed' : '';
