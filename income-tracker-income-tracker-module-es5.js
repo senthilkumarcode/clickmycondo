@@ -3596,10 +3596,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.collection.instrumentTypeId = "";
           this.collection.collectionAccountTypeId = "";
           this.collection.depositSlipNumber = "";
-          this.collection.collectionStatusId = ""; //if only one entry of collection data is added
-
-          this.collection.amount = this.totalAmountArray[0];
-          this.maxCollectionAmount = this.totalAmountArray[0];
+          this.collection.collectionStatusId = "";
           var paymentListParams = {
             LookupTypeId: 34
           }; //payment status
@@ -3635,23 +3632,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             id: 4
           }];
           this.isCollectionSubmitted = true;
+          this.collection.amount = parseFloat(this.totalAmountArray[0]).toFixed(2);
+          this.maxCollectionAmount = this.collection.amount;
         }
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges(changes) {
-          var _this34 = this;
-
-          this.collection.amount = this.totalAmountArray.reduce(function (a, b) {
-            _this34.maxCollectionAmount = a + b;
-            return a + b;
-          });
-
           if (this.totalAmountArray.length > 1) {
             this.isMultipleEntry = true;
+            this.collection.amount = this.totalAmountArray.reduce(function (a, b) {
+              return a + b;
+            }).toFixed(2);
+            this.maxCollectionAmount = this.collection.amount;
           } else {
             this.isMultipleEntry = false;
-            this.collection.amount = this.totalAmountArray[0];
-            this.maxCollectionAmount = this.totalAmountArray[0];
+            this.collection.amount = parseFloat(this.totalAmountArray[0]).toFixed(2);
+            this.maxCollectionAmount = this.collection.amount;
           }
         }
       }]);
@@ -3966,7 +3962,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this35 = this;
+          var _this34 = this;
 
           this.apartmentBlockUnitId = this.route.params['value'].id;
           this.custInvoiceTaxData = {
@@ -3989,8 +3985,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this35.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this35.cookieService.get('apartmentId')) && item.indicator == _this35.glAccountIndicator;
+            _this34.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this34.cookieService.get('apartmentId')) && item.indicator == _this34.glAccountIndicator;
             });
           });
           var vatListParams = {
@@ -3998,14 +3994,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this35.vatTypeDataList = res;
+            _this34.vatTypeDataList = res;
           });
           var disListParams = {
             LookupTypeId: 88
           }; //discount types
 
           this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe(function (res) {
-            _this35.discountTypeDataList = res;
+            _this34.discountTypeDataList = res;
           });
         }
       }]);
@@ -4245,7 +4241,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCustTaxInvoiceParams",
         value: function getCustTaxInvoiceParams(event) {
-          var _this36 = this;
+          var _this35 = this;
 
           if (event.isAdded) {
             if (!this.custInvoiceTaxArray.includes(event)) this.custInvoiceTaxArray.push(event);
@@ -4261,7 +4257,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.vatTypeDataList.forEach(function (item) {
-            var data = _this36.custInvoiceTaxArray.filter(function (invoice) {
+            var data = _this35.custInvoiceTaxArray.filter(function (invoice) {
               return item.lookupValueId == invoice.invoiceTaxId;
             });
 
@@ -4330,7 +4326,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitIncomeMultiInvoiceForm",
         value: function submitIncomeMultiInvoiceForm(form) {
-          var _this37 = this;
+          var _this36 = this;
 
           this.isInvoiceSubmitted = false;
           this.invoiceGLAccountsArray.map(function (item) {
@@ -4389,16 +4385,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.accountsService.addCustInvoice(params).subscribe(function (res) {
               if (res.message) {
-                _this37.isInvoiceSubmitted = true;
+                _this36.isInvoiceSubmitted = true;
 
-                _this37.sharedService.setAlertMessage("All Invoices added successfully");
+                _this36.sharedService.setAlertMessage("All Invoices added successfully");
 
-                _this37.router.navigate(['ams/income/subledger']);
+                _this36.router.navigate(['ams/income/subledger']);
               } else {
-                _this37.isInvoiceSubmitted = true;
+                _this36.isInvoiceSubmitted = true;
               }
             }, function (error) {
-              _this37.isInvoiceSubmitted = true;
+              _this36.isInvoiceSubmitted = true;
             });
           } else {
             var _details4 = {
@@ -4448,16 +4444,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.accountsService.updateCustInvoice(_params4).subscribe(function (res) {
               if (res.message) {
-                _this37.isInvoiceSubmitted = true;
+                _this36.isInvoiceSubmitted = true;
 
-                _this37.sharedService.setAlertMessage("All Invoices updated successfully");
+                _this36.sharedService.setAlertMessage("All Invoices updated successfully");
 
-                _this37.router.navigate(['ams/income/subledger']);
+                _this36.router.navigate(['ams/income/subledger']);
               } else {
-                _this37.isInvoiceSubmitted = true;
+                _this36.isInvoiceSubmitted = true;
               }
             }, function (error) {
-              _this37.isInvoiceSubmitted = true;
+              _this36.isInvoiceSubmitted = true;
             });
           }
         }
@@ -4469,14 +4465,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUnits",
         value: function getUnits() {
-          var _this38 = this;
+          var _this37 = this;
 
           var params = {
             apartmentBlockId: parseInt(this.apartmentBlockId)
           };
           this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-            _this38.isBlockSelected = true;
-            _this38.unitData = res;
+            _this37.isBlockSelected = true;
+            _this37.unitData = res;
           }, function (error) {
             console.log(error);
           });
@@ -4484,7 +4480,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this39 = this;
+          var _this38 = this;
 
           this.apartmentBlockUnitId = this.route.params['value'].id;
           this.invoice = {};
@@ -4583,15 +4579,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 74
           };
           this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe(function (res) {
-            _this39.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_9__().add(parseInt(res[0].lookupValueName), 'days');
+            _this38.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_9__().add(parseInt(res[0].lookupValueName), 'days');
           });
           var vatListParams = {
             LookupTypeId: 77
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this39.vatTypeDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this39.vatTypeDataList, function (item) {
+            _this38.vatTypeDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this38.vatTypeDataList, function (item) {
               item.custVatTypeAmount = 0;
             });
           });
@@ -4600,7 +4596,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //discount types
 
           this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe(function (res) {
-            _this39.discountFinalTypeDataList = res;
+            _this38.discountFinalTypeDataList = res;
           }); //for post single invoice
 
           if (this.route.params['value'].type == 'single' && this.route.params['value'].invoiceid == undefined) {
@@ -4628,24 +4624,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               invoiceId: this.route.params['value'].invoiceid
             };
             this.accountsService.getCustInvoiceById(params).subscribe(function (res) {
-              _this39.invoice = res[0];
-              _this39.invoiceGLAccountsArray = _this39.invoice.invoiceGLAccounts;
+              _this38.invoice = res[0];
+              _this38.invoiceGLAccountsArray = _this38.invoice.invoiceGLAccounts;
 
-              _this39.invoiceGLAccountsArray.forEach(function (item) {
+              _this38.invoiceGLAccountsArray.forEach(function (item) {
                 item.form = true;
               });
 
-              _this39.custInvoiceTaxArray = _this39.invoice.custinvoiceTax; //getting vat amount list
+              _this38.custInvoiceTaxArray = _this38.invoice.custinvoiceTax; //getting vat amount list
 
-              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this39.vatTypeDataList, function (item) {
+              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this38.vatTypeDataList, function (item) {
                 var totalVatAmount = 0;
-                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this39.custInvoiceTaxArray, function (data) {
+                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this38.custInvoiceTaxArray, function (data) {
                   if (data.invoiceTaxId == item.lookupValueId) {
                     item.custVatTypeAmount = data.invoiceTotalAmount;
                   }
                 });
               });
-              _this39.isInvoiceSubmitted = true;
+              _this38.isInvoiceSubmitted = true;
             });
           } //for general invoice
 
@@ -4660,7 +4656,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }; //get apartment blocks
 
             this.apartmentService.getApartmentBlockByApartmentId(_params5).subscribe(function (res) {
-              _this39.blocksData = res;
+              _this38.blocksData = res;
             });
           }
 
@@ -4668,10 +4664,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
-            _this39.accountDataList = res.filter(function (item) {
-              return item.apartmentBlockUnitId == _this39.route.params['value'].id;
+            _this38.accountDataList = res.filter(function (item) {
+              return item.apartmentBlockUnitId == _this38.route.params['value'].id;
             });
-            _this39.isAccountDataLoaded = true;
+            _this38.isAccountDataLoaded = true;
           });
         }
       }]);
@@ -4797,7 +4793,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(IncomeReceiptsReverseComponent, [{
         key: "submitReverseIncomeReceiptsForm",
         value: function submitReverseIncomeReceiptsForm(form) {
-          var _this40 = this;
+          var _this39 = this;
 
           this.isReceiptSubmitted = false;
           var details = {
@@ -4820,22 +4816,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.addCustCollectionReversal(params).subscribe(function (res) {
             if (res.message) {
-              _this40.isReceiptSubmitted = true;
+              _this39.isReceiptSubmitted = true;
 
-              _this40.sharedService.setAlertMessage("Invoice reversed successfully");
+              _this39.sharedService.setAlertMessage("Invoice reversed successfully");
             } else {
-              _this40.isReceiptSubmitted = true;
-              _this40.isError = true;
-              _this40.alertMessage = res.errorMessage;
+              _this39.isReceiptSubmitted = true;
+              _this39.isError = true;
+              _this39.alertMessage = res.errorMessage;
             }
           }, function (error) {
             //this.isReceiptSubmitted = true;
-            _this40.isError = true;
-            _this40.alertMessage = "Some error occured";
+            _this39.isError = true;
+            _this39.alertMessage = "Some error occured";
           }, function () {
-            _this40.isReceiptSubmitted = true;
+            _this39.isReceiptSubmitted = true;
 
-            _this40.childEvent.emit(true);
+            _this39.childEvent.emit(true);
           });
         }
       }, {
@@ -4982,7 +4978,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this41 = this;
+          var _this40 = this;
 
           if (this.securityDepositData != "") {
             var filtergroup = new jqx.filter();
@@ -4995,7 +4991,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this41.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this40.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -5012,22 +5008,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addSecurityDeposit",
         value: function addSecurityDeposit() {
-          var _this42 = this;
+          var _this41 = this;
 
           this.isEditDeposit = false;
           this.popOverSelector = '#addSecurityDepositElement';
           this.popOverPosition = 'bottom';
           this.popoverWidth = '600';
           setTimeout(function () {
-            _this42.reversePopOver.createComponent();
+            _this41.reversePopOver.createComponent();
 
-            _this42.reversePopOver.open();
+            _this41.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "onSecurityDeposit",
         value: function onSecurityDeposit(detail) {
-          var _this43 = this;
+          var _this42 = this;
 
           this.isEditDeposit = true;
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -5037,15 +5033,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.popOverPosition = 'left';
           this.popoverWidth = '200';
           setTimeout(function () {
-            _this43.reversePopOver.createComponent();
+            _this42.reversePopOver.createComponent();
 
-            _this43.reversePopOver.open();
+            _this42.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "getSecurityDepositData",
         value: function getSecurityDepositData() {
-          var _this44 = this;
+          var _this43 = this;
 
           this.isDepositLoaded = false;
           var params = {
@@ -5054,13 +5050,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getSecurityDepositByApartmentBlockUnitId(params).subscribe(function (res) {
             var securityDepositDataList = res;
-            _this44.gridSourceData = {
+            _this43.gridSourceData = {
               localdata: securityDepositDataList,
               datatype: "array"
             };
-            _this44.securityDepositDataList = new jqx.dataAdapter(_this44.gridSourceData);
-            _this44.totalItems = securityDepositDataList.length;
-            _this44.isDepositLoaded = true;
+            _this43.securityDepositDataList = new jqx.dataAdapter(_this43.gridSourceData);
+            _this43.totalItems = securityDepositDataList.length;
+            _this43.isDepositLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -5068,7 +5064,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this45 = this;
+          var _this44 = this;
 
           this.apartmentBlockUnitId = parseInt(this.route.params['value'].id);
 
@@ -5123,7 +5119,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             align: 'center',
             width: 120,
             cellsrenderer: function cellsrenderer(row) {
-              var elemId = _this45.securityDepositDataList.loadedData[row].transactionId;
+              var elemId = _this44.securityDepositDataList.loadedData[row].transactionId;
               console.log(elemId);
               return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editSecurityDepositEvent(' + row + ')" ><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
             },
@@ -5317,7 +5313,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllBlockData",
         value: function getAllBlockData() {
-          var _this46 = this;
+          var _this45 = this;
 
           this.filterSelected = 'all';
           this.singleBlock = "Select Block";
@@ -5327,6 +5323,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
             var subLedgerDataList = res;
             console.log(res);
+            _this45.gridSourceData.localdata = subLedgerDataList;
+
+            _this45.datagrid.updatebounddata('cells');
+
+            _this45.calculateTotalAmount(subLedgerDataList);
+          });
+        }
+      }, {
+        key: "getSingleBlock",
+        value: function getSingleBlock(block) {
+          var _this46 = this;
+
+          this.filterSelected = 'single';
+          this.singleBlock = block.apartmentBlockNumber;
+          this.selectedBlockId = block.apartmentBlockId;
+          this.accountsService.getIncomeTrackerSubLedgersByApartmentId(this.params).subscribe(function (res) {
+            var subLedgerDataList = res.filter(function (item) {
+              return item.apartmentBlockNumber == _this46.singleBlock;
+            });
             _this46.gridSourceData.localdata = subLedgerDataList;
 
             _this46.datagrid.updatebounddata('cells');
@@ -5335,35 +5350,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
-        key: "getSingleBlock",
-        value: function getSingleBlock(block) {
-          var _this47 = this;
-
-          this.filterSelected = 'single';
-          this.singleBlock = block.apartmentBlockNumber;
-          this.selectedBlockId = block.apartmentBlockId;
-          this.accountsService.getIncomeTrackerSubLedgersByApartmentId(this.params).subscribe(function (res) {
-            var subLedgerDataList = res.filter(function (item) {
-              return item.apartmentBlockNumber == _this47.singleBlock;
-            });
-            _this47.gridSourceData.localdata = subLedgerDataList;
-
-            _this47.datagrid.updatebounddata('cells');
-
-            _this47.calculateTotalAmount(subLedgerDataList);
-          });
-        }
-      }, {
         key: "calculateTotalAmount",
         value: function calculateTotalAmount(subLedgerDataList) {
-          var _this48 = this;
+          var _this47 = this;
 
           this.totalItems = subLedgerDataList.length;
           this.netDueAmount = 0;
           this.totalDueAmount = 0;
           underscore__WEBPACK_IMPORTED_MODULE_8__["each"](subLedgerDataList, function (item, index) {
-            _this48.netDueAmount = _this48.netDueAmount + item.due;
-            if (item.due >= 0) _this48.totalDueAmount = _this48.totalDueAmount + item.due;
+            _this47.netDueAmount = _this47.netDueAmount + item.due;
+            if (item.due >= 0) _this47.totalDueAmount = _this47.totalDueAmount + item.due;
           });
         }
       }, {
@@ -5413,7 +5409,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this49 = this;
+          var _this48 = this;
 
           if (this.subLedgerData != "") {
             var filtergroup = new jqx.filter();
@@ -5426,7 +5422,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this49.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this48.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -5505,31 +5501,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this50 = this;
+          var _this49 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-            _this50.blockListData = res;
+            _this49.blockListData = res;
             var params = {
-              apartmentId: parseInt(_this50.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this49.cookieService.get('apartmentId'))
             };
 
-            _this50.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
-              _this50.isSubLedgerDataLoaded = true;
-              _this50.filterSelected = 'all';
-              _this50.singleBlock = "Select Block";
+            _this49.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
+              _this49.isSubLedgerDataLoaded = true;
+              _this49.filterSelected = 'all';
+              _this49.singleBlock = "Select Block";
               var subLedgerDataList = res;
-              _this50.gridSourceData = {
+              _this49.gridSourceData = {
                 localdata: subLedgerDataList,
                 datatype: "array"
               };
-              _this50.subLedgerDataList = new jqx.dataAdapter(_this50.gridSourceData);
+              _this49.subLedgerDataList = new jqx.dataAdapter(_this49.gridSourceData);
 
-              _this50.renderColumns();
+              _this49.renderColumns();
 
-              _this50.calculateTotalAmount(subLedgerDataList);
+              _this49.calculateTotalAmount(subLedgerDataList);
             });
           });
         }
@@ -5800,19 +5796,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "drawChart",
         value: function drawChart() {
-          var _this51 = this;
+          var _this50 = this;
 
           setTimeout(function () {
-            _this51.isChartLoaded = true;
+            _this50.isChartLoaded = true;
             var data = {
               labels: ["0-30 Days", "31-60 Days", "61-90 Days", "Over 90 Days"],
               datasets: [{
-                data: [parseInt(_this51.totalAmountItem1Percent), parseInt(_this51.totalAmountItem3Percent), parseInt(_this51.totalAmountItem4Percent), parseInt(_this51.totalAmountItem5Percent)],
+                data: [parseInt(_this50.totalAmountItem1Percent), parseInt(_this50.totalAmountItem3Percent), parseInt(_this50.totalAmountItem4Percent), parseInt(_this50.totalAmountItem5Percent)],
                 backgroundColor: ["#5bcc73", "#00bcd4", "#ff3638", "#3f51b5"],
                 hoverBackgroundColor: ["#5bcc73", "#00bcd4", "#ff3638", "#3f51b5"]
               }]
             };
-            _this51.chart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"](_this51.chartRef.nativeElement, {
+            _this50.chart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"](_this50.chartRef.nativeElement, {
               type: 'doughnut',
               data: data,
               options: {
@@ -5832,7 +5828,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAgeingData",
         value: function getAgeingData() {
-          var _this52 = this;
+          var _this51 = this;
 
           this.totalAmountItem1 = 0;
           this.totalAmountItem3 = 0;
@@ -5864,42 +5860,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isDataLoaded = false;
           this.isChartLoaded = false;
           this.accountsService.getArAgingCollectionDueSummary(ageingParams).subscribe(function (res) {
-            _this52.isDataLoaded = true;
-            _this52.ageingDataDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this52.ageingDataDataList, function (item) {
+            _this51.isDataLoaded = true;
+            _this51.ageingDataDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this51.ageingDataDataList, function (item) {
               item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
-            _this52.totalItems = _this52.ageingDataDataList.length;
+            _this51.totalItems = _this51.ageingDataDataList.length;
 
-            if (_this52.totalItems > _this52.itemLimit) {
-              _this52.ItemEndIndex = _this52.itemLimit;
+            if (_this51.totalItems > _this51.itemLimit) {
+              _this51.ItemEndIndex = _this51.itemLimit;
             } else {
-              _this52.ItemEndIndex = _this52.totalItems;
+              _this51.ItemEndIndex = _this51.totalItems;
             }
 
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this52.ageingDataDataList, function (item, index) {
-              _this52.totalInvoices = _this52.totalInvoices + item.bucketCount1 + item.bucketCount2 + item.bucketCount3 + item.bucketCount4 + item.bucketCount5;
-              _this52.totalAmountItem1 = _this52.totalAmountItem1 + item.bucketAmt1 + item.bucketAmt2;
-              _this52.totalAmountItem3 = _this52.totalAmountItem3 + item.bucketAmt3;
-              _this52.totalAmountItem4 = _this52.totalAmountItem4 + item.bucketAmt4;
-              _this52.totalAmountItem5 = _this52.totalAmountItem5 + item.bucketAmt5;
-              _this52.totalAmount = _this52.totalAmountItem1 + _this52.totalAmountItem3 + _this52.totalAmountItem4 + _this52.totalAmountItem5;
-              _this52.totalAmountItem1Percent = _this52.totalAmountItem1 / _this52.totalAmount * 100;
-              _this52.totalAmountItem3Percent = _this52.totalAmountItem3 / _this52.totalAmount * 100;
-              _this52.totalAmountItem4Percent = _this52.totalAmountItem4 / _this52.totalAmount * 100;
-              _this52.totalAmountItem5Percent = _this52.totalAmountItem5 / _this52.totalAmount * 100;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this51.ageingDataDataList, function (item, index) {
+              _this51.totalInvoices = _this51.totalInvoices + item.bucketCount1 + item.bucketCount2 + item.bucketCount3 + item.bucketCount4 + item.bucketCount5;
+              _this51.totalAmountItem1 = _this51.totalAmountItem1 + item.bucketAmt1 + item.bucketAmt2;
+              _this51.totalAmountItem3 = _this51.totalAmountItem3 + item.bucketAmt3;
+              _this51.totalAmountItem4 = _this51.totalAmountItem4 + item.bucketAmt4;
+              _this51.totalAmountItem5 = _this51.totalAmountItem5 + item.bucketAmt5;
+              _this51.totalAmount = _this51.totalAmountItem1 + _this51.totalAmountItem3 + _this51.totalAmountItem4 + _this51.totalAmountItem5;
+              _this51.totalAmountItem1Percent = _this51.totalAmountItem1 / _this51.totalAmount * 100;
+              _this51.totalAmountItem3Percent = _this51.totalAmountItem3 / _this51.totalAmount * 100;
+              _this51.totalAmountItem4Percent = _this51.totalAmountItem4 / _this51.totalAmount * 100;
+              _this51.totalAmountItem5Percent = _this51.totalAmountItem5 / _this51.totalAmount * 100;
 
-              if (index == _this52.ageingDataDataList.length - 1) {
-                _this52.drawChart();
+              if (index == _this51.ageingDataDataList.length - 1) {
+                _this51.drawChart();
               }
 
               var unitParams = {
-                ApartmentID: parseInt(_this52.cookieService.get('apartmentId')),
-                asOfDate: _this52.asOfDate,
+                ApartmentID: parseInt(_this51.cookieService.get('apartmentId')),
+                asOfDate: _this51.asOfDate,
                 unitId: item.unitID
               };
 
-              _this52.accountsService.getArAgingCollectionDueByUnitId(unitParams).subscribe(function (res) {
+              _this51.accountsService.getArAgingCollectionDueByUnitId(unitParams).subscribe(function (res) {
                 item.invoiceDetails = res;
               }, function (error) {});
             });
@@ -6256,14 +6252,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUnits",
         value: function getUnits(id) {
-          var _this53 = this;
+          var _this52 = this;
 
           var params = {
             apartmentBlockId: parseInt(id)
           };
           this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-            _this53.blockUnitData = res;
-            _this53.isBlockSelected = true;
+            _this52.blockUnitData = res;
+            _this52.isBlockSelected = true;
           });
         }
       }, {
@@ -6299,7 +6295,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitIncomeReportsCustomerForm",
         value: function submitIncomeReportsCustomerForm(form) {
-          var _this54 = this;
+          var _this53 = this;
 
           this.isReportSubmitted = true;
           this.isDataLoaded = false;
@@ -6315,23 +6311,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getCustGltransactionsMultiFilter(details).subscribe(function (res) {
-            _this54.reportsDataList = res;
-            _this54.totalItems = _this54.reportsDataList.length;
+            _this53.reportsDataList = res;
+            _this53.totalItems = _this53.reportsDataList.length;
 
-            if (_this54.totalItems > _this54.itemLimit) {
-              _this54.ItemEndIndex = _this54.itemLimit;
+            if (_this53.totalItems > _this53.itemLimit) {
+              _this53.ItemEndIndex = _this53.itemLimit;
             } else {
-              _this54.ItemEndIndex = _this54.totalItems;
+              _this53.ItemEndIndex = _this53.totalItems;
             }
 
-            _this54.isDataLoaded = true;
-            _this54.isReportSubmitted = false;
+            _this53.isDataLoaded = true;
+            _this53.isReportSubmitted = false;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this55 = this;
+          var _this54 = this;
 
           this.report = {};
           this.report.apartmentBlockId = "";
@@ -6342,11 +6338,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this55.blockData = res;
+            _this54.blockData = res;
           });
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this55.glAccountsDataList = res.filter(function (item) {
-              return item.isActive && parseInt(_this55.cookieService.get('apartmentId')) && item.indicator == _this55.glAccountIndicator;
+            _this54.glAccountsDataList = res.filter(function (item) {
+              return item.isActive && parseInt(_this54.cookieService.get('apartmentId')) && item.indicator == _this54.glAccountIndicator;
             });
           });
           var glDocParams = {
@@ -6354,7 +6350,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //Gl Document 
 
           this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
-            _this55.glDocumentTypeDataList = res;
+            _this54.glDocumentTypeDataList = res;
           }, function (error) {});
         }
       }]);
@@ -6564,7 +6560,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitIncomeReportsVendorForm",
         value: function submitIncomeReportsVendorForm(form) {
-          var _this56 = this;
+          var _this55 = this;
 
           this.isReportSubmitted = true;
           this.isDataLoaded = false;
@@ -6580,23 +6576,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe(function (res) {
-            _this56.reportsDataList = res;
-            _this56.totalItems = _this56.reportsDataList.length;
+            _this55.reportsDataList = res;
+            _this55.totalItems = _this55.reportsDataList.length;
 
-            if (_this56.totalItems > _this56.itemLimit) {
-              _this56.ItemEndIndex = _this56.itemLimit;
+            if (_this55.totalItems > _this55.itemLimit) {
+              _this55.ItemEndIndex = _this55.itemLimit;
             } else {
-              _this56.ItemEndIndex = _this56.totalItems;
+              _this55.ItemEndIndex = _this55.totalItems;
             }
 
-            _this56.isDataLoaded = true;
-            _this56.isReportSubmitted = false;
+            _this55.isDataLoaded = true;
+            _this55.isReportSubmitted = false;
           }, function (error) {});
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this57 = this;
+          var _this56 = this;
 
           this.report = {};
           this.report.apartmentBlockId = "";
@@ -6607,17 +6603,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this57.blockData = res;
+            _this56.blockData = res;
           });
           var vendorParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-            _this57.vendorData = res;
+            _this56.vendorData = res;
           });
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this57.glAccountsDataList = res.filter(function (item) {
-              return item.isActive && parseInt(_this57.cookieService.get('apartmentId')) && item.indicator == _this57.glAccountIndicator;
+            _this56.glAccountsDataList = res.filter(function (item) {
+              return item.isActive && parseInt(_this56.cookieService.get('apartmentId')) && item.indicator == _this56.glAccountIndicator;
             });
           });
           var glDocParams = {
@@ -6625,7 +6621,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //Gl Document 
 
           this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
-            _this57.glDocumentTypeDataList = res;
+            _this56.glDocumentTypeDataList = res;
           }, function (error) {});
         }
       }]);
@@ -6894,7 +6890,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addAutoinvoiceConfig",
         value: function addAutoinvoiceConfig(data) {
-          var _this58 = this;
+          var _this57 = this;
 
           var reqObj = {};
           reqObj = {
@@ -6918,18 +6914,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.autoinvoiceConfig = reqObj;
           this.accountsService.addAutoinvoiceConfig(params).subscribe(function (res) {
             if (res) {
-              _this58.sharedService.setAlertMessage("Auto invoice config added successfully");
+              _this57.sharedService.setAlertMessage("Auto invoice config added successfully");
 
-              _this58.row = {};
+              _this57.row = {};
 
-              _this58.getAutoinvoiceConfigByApartmentId();
+              _this57.getAutoinvoiceConfigByApartmentId();
             }
           });
         }
       }, {
         key: "updateAutoinvoiceConfig",
         value: function updateAutoinvoiceConfig(data) {
-          var _this59 = this;
+          var _this58 = this;
 
           var reqObj = {};
           reqObj = {
@@ -6953,20 +6949,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.autoinvoiceConfig = reqObj;
           this.accountsService.updateAutoinvoiceConfig(params).subscribe(function (res) {
             if (res) {
-              _this59.sharedService.setAlertMessage("Auto invoice config Updated successfully");
+              _this58.sharedService.setAlertMessage("Auto invoice config Updated successfully");
 
-              _this59.isEditRow = false;
-              _this59.updateAutoInvoiceIndex = -1;
-              _this59.row = {};
+              _this58.isEditRow = false;
+              _this58.updateAutoInvoiceIndex = -1;
+              _this58.row = {};
 
-              _this59.getAutoinvoiceConfigByApartmentId();
+              _this58.getAutoinvoiceConfigByApartmentId();
             }
           });
         }
       }, {
         key: "getAutoinvoiceConfigByApartmentId",
         value: function getAutoinvoiceConfigByApartmentId() {
-          var _this60 = this;
+          var _this59 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -6974,14 +6970,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getAutoinvoiceConfigByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this60.autoInvoicingData = res && res.length > 0 ? res : [];
-              console.log("auto invoice ", _this60.autoInvoicingData);
-              _this60.totalItems = _this60.autoInvoicingData.length;
+              _this59.autoInvoicingData = res && res.length > 0 ? res : [];
+              console.log("auto invoice ", _this59.autoInvoicingData);
+              _this59.totalItems = _this59.autoInvoicingData.length;
 
-              if (_this60.totalItems > _this60.itemLimit) {
-                _this60.ItemEndIndex = _this60.itemLimit;
+              if (_this59.totalItems > _this59.itemLimit) {
+                _this59.ItemEndIndex = _this59.itemLimit;
               } else {
-                _this60.ItemEndIndex = _this60.totalItems;
+                _this59.ItemEndIndex = _this59.totalItems;
               }
             }
           });
@@ -6989,7 +6985,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getGlAccountsIdbyGlAccountTypeId",
         value: function getGlAccountsIdbyGlAccountTypeId() {
-          var _this61 = this;
+          var _this60 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -6998,21 +6994,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getGlAccountsIdbyGlAccountTypeId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this61.glAccountList = res ? res : [];
-              console.log(_this61.glAccountList);
+              _this60.glAccountList = res ? res : [];
+              console.log(_this60.glAccountList);
             }
           });
         }
       }, {
         key: "getApartmentBlockByApartmentId",
         value: function getApartmentBlockByApartmentId() {
-          var _this62 = this;
+          var _this61 = this;
 
           var blockListParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockListParams).subscribe(function (res) {
-            _this62.blockDataList = res ? res : [];
+            _this61.blockDataList = res ? res : [];
           });
         }
       }, {
@@ -7025,7 +7021,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this63 = this;
+          var _this62 = this;
 
           this.isAutoInvoicingDataLoaded = true;
           this.getApartmentBlockByApartmentId(); //VAT
@@ -7035,7 +7031,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 77
           };
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this63.vatPecentageDataList = res.filter(function (item) {
+            _this62.vatPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           }); //TAx
@@ -7045,41 +7041,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 183
           };
           this.lookupService.getLookupValueByLookupTypeId(taxListParams).subscribe(function (res) {
-            _this63.taxPecentageDataList = res.filter(function (item) {
+            _this62.taxPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
           this.getGlAccountsIdbyGlAccountTypeId();
           setTimeout(function () {
-            _this63.getAutoinvoiceConfigByApartmentId();
+            _this62.getAutoinvoiceConfigByApartmentId();
           }, 1000); //DeleteRow
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             console.log("id", id);
 
             if (id != null) {
-              if (_this63.deleteType) {
+              if (_this62.deleteType) {
                 var deleteparam = {};
                 deleteparam = {
-                  apartmentId: _this63.cookieService.get('apartmentId'),
+                  apartmentId: _this62.cookieService.get('apartmentId'),
                   Id: id,
-                  deleteBy: parseInt(_this63.cookieService.get('userId'))
+                  deleteBy: parseInt(_this62.cookieService.get('userId'))
                 };
 
-                _this63.accountsService.deleteAutoinvoiceConfig(deleteparam).subscribe(function (res) {
+                _this62.accountsService.deleteAutoinvoiceConfig(deleteparam).subscribe(function (res) {
                   if (res.message) {
-                    _this63.getAutoinvoiceConfigByApartmentId();
+                    _this62.getAutoinvoiceConfigByApartmentId();
 
                     setTimeout(function () {
-                      _this63.sharedService.setAlertMessage("Auto invoicing deleted successfully");
+                      _this62.sharedService.setAlertMessage("Auto invoicing deleted successfully");
 
-                      _this63.sharedService.setUnitListDeleteIndex(null);
+                      _this62.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   } else {
-                    _this63.sharedService.setAlertMessage(res.errorMessage);
+                    _this62.sharedService.setAlertMessage(res.errorMessage);
                   }
 
-                  _this63.deleteType = true;
+                  _this62.deleteType = true;
                 }, function (error) {
                   console.log(error);
                 });
@@ -7219,10 +7215,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(IncomeTrackerSetupGeneralComponent, [{
         key: "addCustAccount",
         value: function addCustAccount() {
-          var _this64 = this;
+          var _this63 = this;
 
           var data = this.glAccountListData.filter(function (item) {
-            return item.glaccountId == _this64.glaccountId;
+            return item.glaccountId == _this63.glaccountId;
           });
           var details = {
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
@@ -7239,7 +7235,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.addCustAccount(params).subscribe(function (res) {
             if (res.message) {
-              _this64.sharedService.setAlertMessage("Gl Account added successfully");
+              _this63.sharedService.setAlertMessage("Gl Account added successfully");
             }
           });
         }
@@ -7261,14 +7257,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCustomerIncomePayment",
         value: function getCustomerIncomePayment() {
-          var _this65 = this;
+          var _this64 = this;
 
           var custPayParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId')),
             LookupTypeId: 74
           };
           this.lookupService.getLookupValueByLookupTypeId(custPayParams).subscribe(function (res) {
-            _this65.custIncomePaymentlist = res.filter(function (item) {
+            _this64.custIncomePaymentlist = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -7289,7 +7285,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCustomerIncomePayment",
         value: function submitCustomerIncomePayment() {
-          var _this66 = this;
+          var _this65 = this;
 
           var details = {
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
@@ -7312,17 +7308,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             lookupvalue: details
           };
           this.lookupService.addLookupValue(params).subscribe(function (res) {
-            _this66.clearCustomerIncome();
+            _this65.clearCustomerIncome();
 
-            _this66.sharedService.setAlertMessage("Customer Income Payment Term added successfully");
+            _this65.sharedService.setAlertMessage("Customer Income Payment Term added successfully");
 
-            _this66.getCustomerIncomePayment();
+            _this65.getCustomerIncomePayment();
           });
         }
       }, {
         key: "getCustomerVat",
         value: function getCustomerVat() {
-          var _this67 = this;
+          var _this66 = this;
 
           //VAT
           var vatListParams = {
@@ -7330,7 +7326,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 77
           };
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this67.vatPecentageDataList = res.filter(function (item) {
+            _this66.vatPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -7351,7 +7347,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCustomerVat",
         value: function submitCustomerVat() {
-          var _this68 = this;
+          var _this67 = this;
 
           var details = {
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
@@ -7374,17 +7370,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             lookupvalue: details
           };
           this.lookupService.addLookupValue(params).subscribe(function (res) {
-            _this68.clearCustomerVat();
+            _this67.clearCustomerVat();
 
-            _this68.sharedService.setAlertMessage("Customer Vat added successfully");
+            _this67.sharedService.setAlertMessage("Customer Vat added successfully");
 
-            _this68.getCustomerVat();
+            _this67.getCustomerVat();
           });
         }
       }, {
         key: "getCustomerTax",
         value: function getCustomerTax() {
-          var _this69 = this;
+          var _this68 = this;
 
           //Tax
           var taxListParams = {
@@ -7392,7 +7388,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 183
           };
           this.lookupService.getLookupValueByLookupTypeId(taxListParams).subscribe(function (res) {
-            _this69.taxPecentageDataList = res.filter(function (item) {
+            _this68.taxPecentageDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -7413,7 +7409,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitCustomerTax",
         value: function submitCustomerTax() {
-          var _this70 = this;
+          var _this69 = this;
 
           var details = {
             "apartmentId": parseInt(this.cookieService.get('apartmentId')),
@@ -7436,17 +7432,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             lookupvalue: details
           };
           this.lookupService.addLookupValue(params).subscribe(function (res) {
-            _this70.clearCustomerTax();
+            _this69.clearCustomerTax();
 
-            _this70.sharedService.setAlertMessage("Customer Tax added successfully");
+            _this69.sharedService.setAlertMessage("Customer Tax added successfully");
 
-            _this70.getCustomerTax();
+            _this69.getCustomerTax();
           });
         }
       }, {
         key: "deleteLookupValueItem",
         value: function deleteLookupValueItem(event, item, type) {
-          var _this71 = this;
+          var _this70 = this;
 
           event.stopPropagation();
           var details = {
@@ -7455,14 +7451,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.deleteLookupvalue(details).subscribe(function (res) {
             if (res.message) {
-              if (type == 'income') _this71.getCustomerIncomePayment();else if (type == "vat") _this71.getCustomerVat();else _this71.getCustomerTax();
+              if (type == 'income') _this70.getCustomerIncomePayment();else if (type == "vat") _this70.getCustomerVat();else _this70.getCustomerTax();
             }
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this72 = this;
+          var _this71 = this;
 
           this.getCustomerIncomePayment();
           this.getCustomerVat();
@@ -7473,10 +7469,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 101
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this72.currencyTypeDataList = res.filter(function (item) {
+            _this71.currencyTypeDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this72.currencyTypeId = _this72.currencyTypeDataList[0].lookupValueId;
+            _this71.currencyTypeId = _this71.currencyTypeDataList[0].lookupValueId;
           }); //GLAccountTypeId
 
           var glAccountTypeIdparams = {
@@ -7484,10 +7480,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             GLAccountTypeId: 165
           };
           this.accountsService.getGlAccountsIdbyGlAccountTypeId(glAccountTypeIdparams).subscribe(function (res) {
-            _this72.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this72.cookieService.get('apartmentId')) && item.indicator == _this72.glAccountIndicator;
+            _this71.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this71.cookieService.get('apartmentId')) && item.indicator == _this71.glAccountIndicator;
             });
-            _this72.glaccountId = _this72.glAccountListData[0].glaccountId;
+            _this71.glaccountId = _this71.glAccountListData[0].glaccountId;
           });
         }
       }]);
@@ -7679,7 +7675,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addPenaltyConfig",
         value: function addPenaltyConfig(data) {
-          var _this73 = this;
+          var _this72 = this;
 
           var reqObj = {};
           reqObj = {
@@ -7703,21 +7699,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log("added data ", params);
           this.accountsService.addPenaltyConfig(params).subscribe(function (res) {
             if (res.message) {
-              _this73.sharedService.setAlertMessage("Penalty Setup Config added successfully");
+              _this72.sharedService.setAlertMessage("Penalty Setup Config added successfully");
 
-              _this73.isAssetLoaded = false;
-              _this73.row = {};
+              _this72.isAssetLoaded = false;
+              _this72.row = {};
 
-              _this73.getAllPenaltyConfigByApartmentId();
+              _this72.getAllPenaltyConfigByApartmentId();
             } else {
-              _this73.sharedService.setAlertMessage(res.errorMessage);
+              _this72.sharedService.setAlertMessage(res.errorMessage);
             }
           });
         }
       }, {
         key: "updatePenaltyConfig",
         value: function updatePenaltyConfig(data) {
-          var _this74 = this;
+          var _this73 = this;
 
           var reqObj = {};
           reqObj = {
@@ -7740,13 +7736,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.penaltyConfig = reqObj;
           this.accountsService.updatePenaltyConfig(params).subscribe(function (res) {
             if (res) {
-              _this74.sharedService.setAlertMessage("Penalty setup config Updated successfully"); // this.isAssetLoaded = false;
+              _this73.sharedService.setAlertMessage("Penalty setup config Updated successfully"); // this.isAssetLoaded = false;
 
 
-              _this74.isEditRow = false;
-              _this74.updatePenaltyRowIndex = -1;
+              _this73.isEditRow = false;
+              _this73.updatePenaltyRowIndex = -1;
 
-              _this74.getAllPenaltyConfigByApartmentId();
+              _this73.getAllPenaltyConfigByApartmentId();
             }
           });
         }
@@ -7769,7 +7765,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllPenaltyConfigByApartmentId",
         value: function getAllPenaltyConfigByApartmentId() {
-          var _this75 = this;
+          var _this74 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -7780,15 +7776,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res) {
               console.log("resp of penalty", res); // this.penaltyData = [];
 
-              _this75.penaltyData = res && res.length > 0 ? res : [];
-              _this75.isAssetLoaded = false; // this.tempWarehouseData = this.warehouseData;
+              _this74.penaltyData = res && res.length > 0 ? res : [];
+              _this74.isAssetLoaded = false; // this.tempWarehouseData = this.warehouseData;
 
-              _this75.totalItems = _this75.penaltyData.length;
+              _this74.totalItems = _this74.penaltyData.length;
 
-              if (_this75.totalItems > _this75.itemLimit) {
-                _this75.ItemEndIndex = _this75.itemLimit;
+              if (_this74.totalItems > _this74.itemLimit) {
+                _this74.ItemEndIndex = _this74.itemLimit;
               } else {
-                _this75.ItemEndIndex = _this75.totalItems;
+                _this74.ItemEndIndex = _this74.totalItems;
               }
             }
           });
@@ -7796,7 +7792,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPenaltyConfigByPenaltyId",
         value: function getPenaltyConfigByPenaltyId() {
-          var _this76 = this;
+          var _this75 = this;
 
           var queryParamBase = {};
           console.log("data[0]", this.penaltyData);
@@ -7806,16 +7802,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isAssetLoaded = true;
           this.accountsService.getPenaltyConfigByPenaltyId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this76.isAssetLoaded = false;
-              _this76.penaltyType = res ? res : [];
-              console.log("penalty type ==> ", _this76.penaltyType);
+              _this75.isAssetLoaded = false;
+              _this75.penaltyType = res ? res : [];
+              console.log("penalty type ==> ", _this75.penaltyType);
             }
           });
         }
       }, {
         key: "getGlAccountsIdbyGlAccountTypeId",
         value: function getGlAccountsIdbyGlAccountTypeId() {
-          var _this77 = this;
+          var _this76 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -7826,27 +7822,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.accountsService.getGlAccountsIdbyGlAccountTypeId(queryParamBase).subscribe(function (res) {
             if (res) {
               // this.isAssetLoaded = false;
-              _this77.glAccountList = res ? res : [];
-              console.log(_this77.glAccountList);
+              _this76.glAccountList = res ? res : [];
+              console.log(_this76.glAccountList);
             }
           });
         }
       }, {
         key: "getApartmentBlockByApartmentId",
         value: function getApartmentBlockByApartmentId() {
-          var _this78 = this;
+          var _this77 = this;
 
           var blockListParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockListParams).subscribe(function (res) {
-            _this78.blockDataList = res ? res : [];
+            _this77.blockDataList = res ? res : [];
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this79 = this;
+          var _this78 = this;
 
           this.isPenaltySetupDataLoaded = true; // this.addPenaltyRow();
 
@@ -7856,28 +7852,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.getApartmentBlockByApartmentId();
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
-              if (_this79.deleteType) {
+              if (_this78.deleteType) {
                 var param = {};
                 param = {
-                  apartmentId: _this79.cookieService.get('apartmentId'),
+                  apartmentId: _this78.cookieService.get('apartmentId'),
                   PenaltyId: id,
-                  deleteBy: parseInt(_this79.cookieService.get('userId'))
+                  deleteBy: parseInt(_this78.cookieService.get('userId'))
                 };
 
-                _this79.accountsService.deletePenaltyConfig(param).subscribe(function (res) {
+                _this78.accountsService.deletePenaltyConfig(param).subscribe(function (res) {
                   if (res.message) {
-                    _this79.getAllPenaltyConfigByApartmentId();
+                    _this78.getAllPenaltyConfigByApartmentId();
 
                     setTimeout(function () {
-                      _this79.sharedService.setAlertMessage("Penalty deleted successfully");
+                      _this78.sharedService.setAlertMessage("Penalty deleted successfully");
 
-                      _this79.sharedService.setUnitListDeleteIndex(null);
+                      _this78.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   } else {
-                    _this79.sharedService.setAlertMessage(res.errorMessage);
+                    _this78.sharedService.setAlertMessage(res.errorMessage);
                   }
 
-                  _this79.deleteType = false;
+                  _this78.deleteType = false;
                 }, function (error) {
                   console.log(error);
                 });
@@ -8115,7 +8111,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this80 = this;
+          var _this79 = this;
 
           if (this.creditNoteData != "") {
             var filtergroup = new jqx.filter();
@@ -8128,7 +8124,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this80.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this79.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -8144,21 +8140,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addCreditNote",
         value: function addCreditNote() {
-          var _this81 = this;
+          var _this80 = this;
 
           this.isEditCredit = false;
           this.popOverSelector = '#addCreditNoteElement';
           this.popOverPosition = 'bottom';
           setTimeout(function () {
-            _this81.reversePopOver.createComponent();
+            _this80.reversePopOver.createComponent();
 
-            _this81.reversePopOver.open();
+            _this80.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "onEditCreditNote",
         value: function onEditCreditNote(detail) {
-          var _this82 = this;
+          var _this81 = this;
 
           this.isEditCredit = true;
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -8167,15 +8163,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.popOverSelector = '#' + transactionId;
           this.popOverPosition = 'left';
           setTimeout(function () {
-            _this82.reversePopOver.createComponent();
+            _this81.reversePopOver.createComponent();
 
-            _this82.reversePopOver.open();
+            _this81.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "getCreditNotesData",
         value: function getCreditNotesData() {
-          var _this83 = this;
+          var _this82 = this;
 
           this.isCreditNoteLoaded = false;
           var params = {
@@ -8183,13 +8179,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe(function (res) {
             var creditNoteDataList = res;
-            _this83.gridSourceData = {
+            _this82.gridSourceData = {
               localdata: creditNoteDataList,
               datatype: "array"
             };
-            _this83.creditNoteDataList = new jqx.dataAdapter(_this83.gridSourceData);
-            _this83.totalItems = creditNoteDataList.length;
-            _this83.isCreditNoteLoaded = true;
+            _this82.creditNoteDataList = new jqx.dataAdapter(_this82.gridSourceData);
+            _this82.totalItems = creditNoteDataList.length;
+            _this82.isCreditNoteLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -8197,7 +8193,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this84 = this;
+          var _this83 = this;
 
           this.apartmentBlockUnitId = this.route.params['value'].id;
 
@@ -8258,7 +8254,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             align: 'center',
             width: 120,
             cellsrenderer: function cellsrenderer(row) {
-              var elemId = _this84.creditNoteDataList.loadedData[row].transactionId;
+              var elemId = _this83.creditNoteDataList.loadedData[row].transactionId;
               return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" id="' + elemId + '" onClick="editCreditNoteEvent(' + row + ')" ><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
             },
             renderer: columnrenderer
@@ -8404,7 +8400,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(IncomeViewDefaultersComponent, [{
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this85 = this;
+          var _this84 = this;
 
           if (this.defaultData != "") {
             var filtergroup = new jqx.filter();
@@ -8417,7 +8413,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this85.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this84.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -8540,26 +8536,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this86 = this;
+          var _this85 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerDefaulterByApartmentId(params).subscribe(function (res) {
-            _this86.gridDefaultDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this86.gridDefaultDataList, function (item) {
+            _this85.gridDefaultDataList = res;
+            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this85.gridDefaultDataList, function (item) {
               item.checked = false;
             });
-            _this86.gridSourceData = {
-              localdata: _this86.gridDefaultDataList,
+            _this85.gridSourceData = {
+              localdata: _this85.gridDefaultDataList,
               datatype: "array"
             };
-            _this86.defaultDataList = new jqx.dataAdapter(_this86.gridSourceData);
+            _this85.defaultDataList = new jqx.dataAdapter(_this85.gridSourceData);
 
-            _this86.renderColumns();
+            _this85.renderColumns();
 
-            _this86.totalItems = _this86.defaultDataList.length;
-            _this86.isDefaultersDataLoaded = true;
+            _this85.totalItems = _this85.defaultDataList.length;
+            _this85.isDefaultersDataLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -8818,7 +8814,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getFieldParams",
         value: function getFieldParams(event) {
-          var _this87 = this;
+          var _this86 = this;
 
           this.isInvoiceDataTableLoaded = false;
           var postStartDate = moment__WEBPACK_IMPORTED_MODULE_7__(event.PostStartDate).format('MM-DD-YYYY');
@@ -8829,111 +8825,111 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             PostEndDate: postEndDate
           };
           this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this87.invoiceDataList = res;
+            _this86.invoiceDataList = res;
 
-            _this87.invoiceDataList.forEach(function (item) {
+            _this86.invoiceDataList.forEach(function (item) {
               return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
             }); //filter items
 
 
             if (event.isReversed != null) {
-              _this87.invoiceDataList = _this87.invoiceDataList.filter(function (item) {
+              _this86.invoiceDataList = _this86.invoiceDataList.filter(function (item) {
                 return item.isReversed == event.isReversed;
               });
             }
 
             if (event.isCreditNote != null) {
-              _this87.invoiceDataList = _this87.invoiceDataList.filter(function (item) {
+              _this86.invoiceDataList = _this86.invoiceDataList.filter(function (item) {
                 return item.isCreditNote == event.isCreditNote;
               });
             }
 
             if (event.postedDate != null) {
-              _this87.invoiceDataList = _this87.invoiceDataList.filter(function (item) {
+              _this86.invoiceDataList = _this86.invoiceDataList.filter(function (item) {
                 return moment__WEBPACK_IMPORTED_MODULE_7__(item.postedDate).format("MM-DD-YYYY") == moment__WEBPACK_IMPORTED_MODULE_7__(event.postedDate).format("MM-DD-YYYY");
               });
             }
 
             if (event.billNo != null) {
-              _this87.invoiceDataList = _this87.invoiceDataList.filter(function (item) {
+              _this86.invoiceDataList = _this86.invoiceDataList.filter(function (item) {
                 return item.billNo == event.billNo;
               });
             }
 
             if (event.receiptNo != null) {
-              _this87.invoiceDataList = _this87.invoiceDataList.filter(function (item) {
+              _this86.invoiceDataList = _this86.invoiceDataList.filter(function (item) {
                 return item.receiptNo == event.receiptNo;
               });
             }
+
+            _this86.invoiceDataList.sort(function (a, b) {
+              return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
+            });
+
+            _this86.totalItems = _this86.invoiceDataList.length;
+            _this86.isInvoiceDataTableLoaded = true;
+          }, function (error) {});
+        }
+      }, {
+        key: "tableBinding",
+        value: function tableBinding() {
+          var _this87 = this;
+
+          this.accountsService.getAllGlAccounts().subscribe(function (res) {
+            var glAccountListData = res.filter(function (item) {
+              return item.apartmentId == parseInt(_this87.cookieService.get('apartmentId'));
+            });
+            _this87.glAccountListData = glAccountListData;
+          });
+          var params = {
+            ApartmentBlockUnitID: this.route.params['value'].id
+          };
+          this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
+            _this87.invoiceDataList = res;
+
+            _this87.invoiceDataList.forEach(function (item) {
+              return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
+            });
+
+            _this87.invoice = _this87.invoiceDataList[0];
+            _this87.invoicePopOverSlector = '#' + _this87.invoice.billNo;
+            console.log(_this87.invoiceDataList); //sorting by date ( new to old )
 
             _this87.invoiceDataList.sort(function (a, b) {
               return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
             });
 
             _this87.totalItems = _this87.invoiceDataList.length;
-            _this87.isInvoiceDataTableLoaded = true;
-          }, function (error) {});
-        }
-      }, {
-        key: "tableBinding",
-        value: function tableBinding() {
-          var _this88 = this;
-
-          this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            var glAccountListData = res.filter(function (item) {
-              return item.apartmentId == parseInt(_this88.cookieService.get('apartmentId'));
-            });
-            _this88.glAccountListData = glAccountListData;
-          });
-          var params = {
-            ApartmentBlockUnitID: this.route.params['value'].id
-          };
-          this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe(function (res) {
-            _this88.invoiceDataList = res;
-
-            _this88.invoiceDataList.forEach(function (item) {
-              return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
-            });
-
-            _this88.invoice = _this88.invoiceDataList[0];
-            _this88.invoicePopOverSlector = '#' + _this88.invoice.billNo;
-            console.log(_this88.invoiceDataList); //sorting by date ( new to old )
-
-            _this88.invoiceDataList.sort(function (a, b) {
-              return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
-            });
-
-            _this88.totalItems = _this88.invoiceDataList.length;
-            _this88.gridSourceData = {
-              localdata: _this88.invoiceDataList,
+            _this87.gridSourceData = {
+              localdata: _this87.invoiceDataList,
               datatype: "array"
             };
-            _this88.invoiceDataList = new jqx.dataAdapter(_this88.gridSourceData);
+            _this87.invoiceDataList = new jqx.dataAdapter(_this87.gridSourceData);
             var accountListParams = {
-              apartmentId: parseInt(_this88.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this87.cookieService.get('apartmentId'))
             };
 
-            _this88.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
-              _this88.accountDataList = res.filter(function (item) {
-                return item.apartmentBlockUnitId == _this88.route.params['value'].id;
+            _this87.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
+              _this87.accountDataList = res.filter(function (item) {
+                return item.apartmentBlockUnitId == _this87.route.params['value'].id;
               });
-              _this88.isAccountDataLoaded = true;
+              _this87.isAccountDataLoaded = true;
             });
 
             var userListParams = {
-              apartmentId: parseInt(_this88.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this87.cookieService.get('apartmentId'))
             };
 
-            _this88.userService.getAllUsersByApartmentId(userListParams).subscribe(function (res) {
-              _this88.userDataList = res;
-              _this88.isInvoiceDataLoaded = true;
+            _this87.userService.getAllUsersByApartmentId(userListParams).subscribe(function (res) {
+              _this87.userDataList = res;
+              _this87.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this89 = this;
+          var _this88 = this;
 
           if (this.invoiceData != "") {
             var filtergroup = new jqx.filter();
@@ -8946,7 +8942,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this89.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this88.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -8964,21 +8960,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditReverse",
         value: function onEditReverse(detail) {
-          var _this90 = this;
+          var _this89 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           this.invoice = dataRecord;
           this.invoicePopOverSlector = '#invoiceHistory' + detail.rowId;
           setTimeout(function () {
-            _this90.reversePopOver.createComponent();
+            _this89.reversePopOver.createComponent();
 
-            _this90.reversePopOver.open();
+            _this89.reversePopOver.open();
           }, 300);
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this91 = this;
+          var _this90 = this;
 
           this.tableBinding();
 
@@ -8995,7 +8991,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             datafield: 'postedDate',
             width: 120,
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this91.constantsService.dateFormat) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this90.constantsService.dateFormat) + '</div>';
             },
             renderer: columnrenderer
           }, {
@@ -9358,7 +9354,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this92 = this;
+          var _this91 = this;
 
           if (this.invoiceData != "") {
             var filtergroup = new jqx.filter();
@@ -9371,7 +9367,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this92.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this91.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -9382,7 +9378,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDownloadInvoice",
         value: function onDownloadInvoice(detail) {
-          var _this93 = this;
+          var _this92 = this;
 
           var invoice = this.datagrid.getrowdata(detail.rowId);
           this.isInvoicePrintLoaded = false;
@@ -9395,8 +9391,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             invoiceId: invoice.custInvoiceId
           };
           this.accountsService.getCustInvoiceById(params).subscribe(function (res) {
-            _this93.custTaxDetails = res[0].custinvoiceTax;
-            _this93.isInvoicePrintLoaded = true;
+            _this92.custTaxDetails = res[0].custinvoiceTax;
+            _this92.isInvoicePrintLoaded = true;
           });
         }
       }, {
@@ -9410,15 +9406,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditReverse",
         value: function onEditReverse(detail) {
-          var _this94 = this;
+          var _this93 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           this.invoice = dataRecord;
           this.reversePopOverSelector = '#' + this.invoice.custInvoiceId;
           setTimeout(function () {
-            _this94.reversePopOver.createComponent();
+            _this93.reversePopOver.createComponent();
 
-            _this94.reversePopOver.open();
+            _this93.reversePopOver.open();
           }, 100);
         }
       }, {
@@ -9446,7 +9442,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateInvoiceItem",
         value: function updateInvoiceItem(invoice, type) {
-          var _this95 = this;
+          var _this94 = this;
 
           if (type == 'email') {
             if (invoice.isEmailSent) invoice.isEmailSent = false;else invoice.isEmailSent = true;
@@ -9501,12 +9497,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.accountsService.updateCustInvoice(params).subscribe(function (res) {
             if (res.message) {
-              _this95.sharedService.setAlertMessage("Invoice updated successfully");
+              _this94.sharedService.setAlertMessage("Invoice updated successfully");
             } else {
-              _this95.isInvoiceDataLoaded = true;
+              _this94.isInvoiceDataLoaded = true;
             }
           }, function (error) {
-            _this95.isInvoiceDataLoaded = true;
+            _this94.isInvoiceDataLoaded = true;
           });
         }
       }, {
@@ -9518,7 +9514,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this96 = this;
+          var _this95 = this;
 
           this.popperDataSource = {
             localdata: true,
@@ -9530,13 +9526,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             active: 1
           };
           this.apartmentService.getApartmentByApartmentId(apartmentParams).subscribe(function (res) {
-            _this96.apartmentDetails = res[0];
+            _this95.apartmentDetails = res[0];
           });
           var termsParams = {
             ApartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getAllTermsConditionsByApartmentId(termsParams).subscribe(function (res) {
-            _this96.apartmentTerms = res.filter(function (item) {
+            _this95.apartmentTerms = res.filter(function (item) {
               return item.termsNo == '2'; //invoice terms
             });
           });
@@ -9545,15 +9541,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //VAT types
 
           this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
-            _this96.vatTypeDataList = res;
+            _this95.vatTypeDataList = res;
           });
           var accountParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             groupId: 3
           };
           this.accountsService.getAllGlAccounts().subscribe(function (res) {
-            _this96.glAccountListData = res.filter(function (item) {
-              return item.isActive && parseInt(_this96.cookieService.get('apartmentId')) && item.indicator == _this96.glAccountIndicator;
+            _this95.glAccountListData = res.filter(function (item) {
+              return item.isActive && parseInt(_this95.cookieService.get('apartmentId')) && item.indicator == _this95.glAccountIndicator;
             });
           }); //BIND THE TABLE
 
@@ -9562,7 +9558,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "tableBindingdata",
         value: function tableBindingdata() {
-          var _this97 = this;
+          var _this96 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
@@ -9572,19 +9568,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             underscore__WEBPACK_IMPORTED_MODULE_14__["each"](invoiceDataList, function (item) {
               item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
-            _this97.invoice = invoiceDataList[0];
-            _this97.reversePopOverSelector = '#' + _this97.invoice.custInvoiceId;
-            _this97.gridSourceData = {
+            _this96.invoice = invoiceDataList[0];
+            _this96.reversePopOverSelector = '#' + _this96.invoice.custInvoiceId;
+            _this96.gridSourceData = {
               localdata: invoiceDataList,
               datatype: "array"
             };
-            _this97.invoiceDataList = new jqx.dataAdapter(_this97.gridSourceData);
+            _this96.invoiceDataList = new jqx.dataAdapter(_this96.gridSourceData);
             /*this.getSourceDataAdapter = (datafield: string): any => {
               let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
               return dataAdapter;
             }*/
 
-            _this97.totalItems = _this97.invoiceDataList.length;
+            _this96.totalItems = _this96.invoiceDataList.length;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -9594,7 +9590,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return '<div style="padding: 14px">' + value + '</div>';
             };
 
-            _this97.columnData = [{
+            _this96.columnData = [{
               text: 'Invoice Id',
               datafield: 'custInvoiceId',
               width: 120,
@@ -9608,7 +9604,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datafield: 'postedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this97.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this96.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -9650,7 +9646,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               datafield: 'dueDate',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this97.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this96.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -9677,12 +9673,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               renderer: columnrenderer
             }];
             var params = {
-              apartmentId: parseInt(_this97.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this96.cookieService.get('apartmentId'))
             };
 
-            _this97.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
-              _this97.userDataList = res;
-              _this97.isInvoiceDataLoaded = true;
+            _this96.userService.getAllUsersByApartmentId(params).subscribe(function (res) {
+              _this96.userDataList = res;
+              _this96.isInvoiceDataLoaded = true;
             }, function (error) {});
           });
         }
@@ -10013,7 +10009,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this98 = this;
+          var _this97 = this;
 
           if (this.receiptsData != "") {
             var filtergroup = new jqx.filter();
@@ -10026,7 +10022,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this98.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this97.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -10037,15 +10033,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onEditReverse",
         value: function onEditReverse(detail) {
-          var _this99 = this;
+          var _this98 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           this.receipts = dataRecord;
           this.reversePopOverSelectorReceipt = '#' + this.receipts.receiptNumber;
           setTimeout(function () {
-            _this99.reversePopOver.createComponent();
+            _this98.reversePopOver.createComponent();
 
-            _this99.reversePopOver.open();
+            _this98.reversePopOver.open();
           }, 100);
         }
       }, {
@@ -10057,7 +10053,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "downloadReceiptEvent",
         value: function downloadReceiptEvent() {
-          var _this100 = this;
+          var _this99 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -10066,8 +10062,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.isReceiptPrintLoaded = false;
           this.accountsService.getCollectionByCollectionId(params).subscribe(function (res) {
             // this.custTaxDetails = res[0].custinvoiceTax
-            _this100.isReceiptPrintLoaded = true;
-            _this100.receiptInfoDetails = res;
+            _this99.isReceiptPrintLoaded = true;
+            _this99.receiptInfoDetails = res;
             console.log("receipt list ", res);
           });
           this.dialog.open(this.viewReceiptsDetailsRef, {
@@ -10083,30 +10079,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "tablebinding",
         value: function tablebinding() {
-          var _this101 = this;
+          var _this100 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.accountsService.getIncomeTrackerReceiptsByApartmentId(params).subscribe(function (res) {
-            _this101.receiptsDataList = res;
-            _this101.receipts = _this101.receiptsDataList[0];
-            _this101.reversePopOverSelectorReceipt = '#' + _this101.receipts.receiptNumber;
-            _this101.gridSourceData = {
-              localdata: _this101.receiptsDataList,
+            _this100.receiptsDataList = res;
+            _this100.receipts = _this100.receiptsDataList[0];
+            _this100.reversePopOverSelectorReceipt = '#' + _this100.receipts.receiptNumber;
+            _this100.gridSourceData = {
+              localdata: _this100.receiptsDataList,
               datatype: "array"
             };
-            _this101.receiptsDataList = new jqx.dataAdapter(_this101.gridSourceData);
-            _this101.totalItems = _this101.receiptsDataList.length;
-            console.log('aaa', _this101.receiptsDataList);
+            _this100.receiptsDataList = new jqx.dataAdapter(_this100.gridSourceData);
+            _this100.totalItems = _this100.receiptsDataList.length;
+            console.log('aaa', _this100.receiptsDataList);
 
-            if (_this101.totalItems > _this101.itemLimit) {
-              _this101.ItemEndIndex = _this101.itemLimit;
+            if (_this100.totalItems > _this100.itemLimit) {
+              _this100.ItemEndIndex = _this100.itemLimit;
             } else {
-              _this101.ItemEndIndex = _this101.totalItems;
+              _this100.ItemEndIndex = _this100.totalItems;
             }
 
-            _this101.isReceiptsLoaded = true;
+            _this100.isReceiptsLoaded = true;
           }, function (error) {
             console.log(error);
           });
@@ -10114,7 +10110,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this102 = this;
+          var _this101 = this;
 
           this.popperDataSource = {
             localdata: true,
@@ -10150,7 +10146,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             datafield: 'paymentDate',
             minwidth: 120,
             cellsrenderer: function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format(_this102.constantsService.dateFormat) + '</div>';
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format(_this101.constantsService.dateFormat) + '</div>';
             },
             renderer: columnrenderer
           }, {
@@ -10188,7 +10184,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 120,
             datafield: 'isReversed',
             cellsrenderer: function cellsrenderer(row, coloumn, value) {
-              var elemId = _this102.receiptsDataList.loadedData[row].receiptNumber; // return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent('+ row +')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="'+ elemId +'" onClick="editReverseEvent('+ row +')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>'
+              var elemId = _this101.receiptsDataList.loadedData[row].receiptNumber; // return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent('+ row +')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" id="'+ elemId +'" onClick="editReverseEvent('+ row +')"><i class="fa fa-repeat icon delete" aria-hidden="true"></i></a></div>'
 
               return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2 ' + getReverseStatus(value) + '" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">' + '<i class="fa fa-repeat icon delete" aria-hidden="true"></i>' + '</a>' + '<span class="squares medium ml-1 ' + getStatusClassName(value) + '">R</span>' + '</div>';
             },

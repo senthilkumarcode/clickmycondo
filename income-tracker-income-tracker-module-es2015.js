@@ -2670,9 +2670,6 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         this.collection.collectionAccountTypeId = "";
         this.collection.depositSlipNumber = "";
         this.collection.collectionStatusId = "";
-        //if only one entry of collection data is added
-        this.collection.amount = this.totalAmountArray[0];
-        this.maxCollectionAmount = this.totalAmountArray[0];
         let paymentListParams = {
             LookupTypeId: 34
         };
@@ -2702,19 +2699,21 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         });
         this.depositSlipLisData = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
         this.isCollectionSubmitted = true;
+        this.collection.amount = parseFloat(this.totalAmountArray[0]).toFixed(2);
+        this.maxCollectionAmount = this.collection.amount;
     }
     ngOnChanges(changes) {
-        this.collection.amount = this.totalAmountArray.reduce((a, b) => {
-            this.maxCollectionAmount = a + b;
-            return a + b;
-        });
         if (this.totalAmountArray.length > 1) {
             this.isMultipleEntry = true;
+            this.collection.amount = this.totalAmountArray.reduce((a, b) => {
+                return a + b;
+            }).toFixed(2);
+            this.maxCollectionAmount = this.collection.amount;
         }
         else {
             this.isMultipleEntry = false;
-            this.collection.amount = this.totalAmountArray[0];
-            this.maxCollectionAmount = this.totalAmountArray[0];
+            this.collection.amount = parseFloat(this.totalAmountArray[0]).toFixed(2);
+            this.maxCollectionAmount = this.collection.amount;
         }
     }
 };

@@ -1005,8 +1005,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 _this6.workpermit.WPContact = res[0].contactNumber;
                 _this6.workpermit.WPStartdate = res[0].startDate;
                 _this6.workpermit.WPEnddate = res[0].endDate;
-                _this6.workpermit.workPermitStatusId = res[0].workPermitStatusId, _this6.workpermit.WPStarttime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].startTime, 'hh:mm').format();
-                _this6.workpermit.WPEndtime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].endTime, 'hh:mm').format();
+                _this6.workpermit.workPermitStatusId = res[0].workPermitStatusId, _this6.workpermit.WPStarttime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].startTime, 'HH:mm').format();
+                _this6.workpermit.WPEndtime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].endTime, 'HH:mm').format();
                 _this6.workpermit.serialNo = res[0].serialNo;
                 _this6.workpermit.terms = res[0].termsConditions;
 
@@ -1286,8 +1286,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "contactNumber": this.workpermit.WPContact,
             "startDate": this.workpermit.WPStartdate,
             "endDate": this.workpermit.WPEnddate,
-            "startTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPStarttime).format('hh:mm'),
-            "endTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPEndtime).format('hh:mm'),
+            "startTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPStarttime).format('HH:mm'),
+            "endTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPEndtime).format('HH:mm'),
             "workPermitStatusId": this.pageType == 'edit' ? this.workpermit.workPermitStatusId : 354,
             "isApproved": true,
             "approvedBy": null,

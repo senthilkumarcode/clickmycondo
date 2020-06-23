@@ -411,15 +411,6 @@ let UserDashboardComponent = class UserDashboardComponent {
                 value: '',
                 icon: 'party-hall-unapproved'
             }];
-        const dialogRef = this.dialog.open(_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_8__["NewUserRegistrationComponent"], {
-            width: '500px',
-            height: 'auto',
-        });
-        dialogRef.afterClosed().subscribe(result => {
-            if (result) {
-                // this.getCategoryList();
-            }
-        });
     }
     isMobileView() {
         return window.innerWidth <= 767 ? true : false;
@@ -535,6 +526,27 @@ let UserDashboardComponent = class UserDashboardComponent {
         };
         this.userService.getUserById(params).subscribe((res) => {
             this.userName = res[0].firstName;
+            this.userDetails = res[0];
+            if (this.userDetails && !this.userDetails.isApproved) {
+                let data = this.userDetails;
+                data['isOpen'] = true;
+                if (this.userDetails.isDocSubmitted == null || !this.userDetails.isDocSubmitted) {
+                    data.isOpen = true;
+                }
+                else if (this.userDetails.isDocSubmitted && !this.userDetails.isApproved) {
+                    data.isOpen = false;
+                }
+                const dialogRef = this.dialog.open(_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_8__["NewUserRegistrationComponent"], {
+                    width: 'auto',
+                    height: 'auto',
+                    data: data
+                });
+                dialogRef.afterClosed().subscribe(result => {
+                    if (result) {
+                        // this.getCategoryList();
+                    }
+                });
+            }
         }, error => {
             console.log(error);
         });

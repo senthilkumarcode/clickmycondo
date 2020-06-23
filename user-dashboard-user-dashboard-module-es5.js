@@ -625,14 +625,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           value: '',
           icon: 'party-hall-unapproved'
         }];
-        var dialogRef = this.dialog.open(_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_8__["NewUserRegistrationComponent"], {
-          width: '500px',
-          height: 'auto'
-        });
-        dialogRef.afterClosed().subscribe(function (result) {
-          if (result) {// this.getCategoryList();
-          }
-        });
       }
 
       _createClass(UserDashboardComponent, [{
@@ -773,6 +765,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.userService.getUserById(params).subscribe(function (res) {
             _this6.userName = res[0].firstName;
+            _this6.userDetails = res[0];
+
+            if (_this6.userDetails && !_this6.userDetails.isApproved) {
+              var data = _this6.userDetails;
+              data['isOpen'] = true;
+
+              if (_this6.userDetails.isDocSubmitted == null || !_this6.userDetails.isDocSubmitted) {
+                data.isOpen = true;
+              } else if (_this6.userDetails.isDocSubmitted && !_this6.userDetails.isApproved) {
+                data.isOpen = false;
+              }
+
+              var dialogRef = _this6.dialog.open(_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_8__["NewUserRegistrationComponent"], {
+                width: 'auto',
+                height: 'auto',
+                data: data
+              });
+
+              dialogRef.afterClosed().subscribe(function (result) {
+                if (result) {// this.getCategoryList();
+                }
+              });
+            }
           }, function (error) {
             console.log(error);
           });

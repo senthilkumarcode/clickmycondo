@@ -1,3 +1,9 @@
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -21,7 +27,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"vendors-view-wrapper\">\n\n\t<app-loader *ngIf=\"!isVendorCategoryLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorCategoryLoaded\">\n\n\t\t<form #viewVendorForm=\"ngForm\" name=\"viewVendorForm\" novalidate>\n\n\t\t\t<div class=\"card mb-30\">\n\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h5>Select Category</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Category Type*</label>\n\t\t\t\t\t\t\t\t<select name=\"vendorCategoryId\" id=\"vendorCategoryId\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendorCategoryId\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getVendorCategoryName(vendorCategoryId)\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option value=\"All\" >All</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isVendorLoaded && isVendorCategorySelected && isVendorCategoryLoaded\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>All {{categoryName}} Vendors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<!-- <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"VendorData\"> -->\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"vendorData\"\n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n\t\t\t\t</li>\n\t\t\t\t<!-- <li class=\"list-inline-item\">\n\t\t\t\t\t<a (click)=\"vendorPrint(vendor)\" class=\"btn trans-white mt_5\">\n\t\t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n\t\t\t\t\t\t<span>Print</span>\n\t\t\t\t\t</a>\n\t\t\t\t</li> -->\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" routerLink=\"/ams/vendor/create-vendor\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Vendor</span>\n\t\t\t\t\t</a>\n\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\n\n\t\t<!-- <div class=\"card-body p-0\">\n\n  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Vendor Id\n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorId')\" [ngClass]=\"getFieldOrderBy('vendorId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['vendorId']\" (ngModelChange)=\"selectColInput('vendorId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Vendor Name\n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorName')\" [ngClass]=\"getFieldOrderBy('vendorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Vendor Name\" [(ngModel)]=\"columnField['vendorName']\" (ngModelChange)=\"selectColInput('vendorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Contact Person\n\t\t\t\t       \t<span (click)=\"sortUnitData('contactPerson')\" [ngClass]=\"getFieldOrderBy('contactPerson')\"></span>\n\t\t\t\t       \t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" [(ngModel)]=\"columnField['contactPerson']\" (ngModelChange)=\"selectColInput('contactPerson')\" >\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Email\n\t\t\t\t      \t<span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Phone No\n\t\t\t\t      \t<span (click)=\"sortUnitData('phone1')\" [ngClass]=\"getFieldOrderBy('phone1')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['phone1']\" (ngModelChange)=\"selectColInput('phone1')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let vendor of vendorListData | simpleSearch: vendorData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"vendor.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td class=\"name\">{{vendor.vendorId}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.vendorName}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.contactPerson}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.phone1}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" #v (click)=\"showVendorInfo(vendor)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/vendor/edit-vendor/{{vendor.vendorId}}\"\n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showDeleteConfirmModal(vendor.vendorId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination\n\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t</app-pagination>\n\n  \t\t</div> -->\n\n\t</div>\n\n\t<ng-template #viewVendorRef let-vendor>\n    \t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Vendor Info</h5>\n\t\t\t</div>\n\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{vendor.email}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor ID</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vendorId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Contact Person</h6>\n\t\t\t\t\t\t\t<p>{{vendor.contactPerson}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.phone1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">VAT No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vatorTin}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax1 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax2 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax2}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax3 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax3}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax4 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax4}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-template>\n\n\t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"vendorTableList\" [columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n\t\t</div>\n\t</div>";
+    __webpack_exports__["default"] = "<div class=\"vendors-view-wrapper\">\n\n\t<app-loader *ngIf=\"!isVendorCategoryLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isVendorCategoryLoaded\">\n\n\t\t<form #viewVendorForm=\"ngForm\" name=\"viewVendorForm\" novalidate>\n\n\t\t\t<div class=\"card mb-30\">\n\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h5>Select Category</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Category Type*</label>\n\t\t\t\t\t\t\t\t<select name=\"vendorCategoryId\" id=\"vendorCategoryId\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendorCategoryId\"\n\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getVendorCategoryName(vendorCategoryId)\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option value=\"All\" >All</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isVendorLoaded && isVendorCategorySelected && isVendorCategoryLoaded\">\n\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>All {{categoryName}} Vendors <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t</div>\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<select (change)=\"onFilterByVendorTypeChange()\" name=\"vendorTypeFilter\" id=\"vendorTypeFilter\" class=\"form-control filter-width\" [(ngModel)]=\"selectedType\" required>\n\t\t\t\t\t\t<option value=\"All\" selected>Select Vendor Type</option>\n\t\t\t\t\t\t<option value=225 >Goods</option>\n\t\t\t\t\t\t<option value=226 >Services</option>\n        </select>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<!-- <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"VendorData\"> -->\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"vendorData\"\n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n\t\t\t\t</li>\n\t\t\t\t<!-- <li class=\"list-inline-item\">\n\t\t\t\t\t<a (click)=\"vendorPrint(vendor)\" class=\"btn trans-white mt_5\">\n\t\t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n\t\t\t\t\t\t<span>Print</span>\n\t\t\t\t\t</a>\n\t\t\t\t</li> -->\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" routerLink=\"/ams/vendor/create-vendor\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Vendor</span>\n\t\t\t\t\t</a>\n\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\n\n\t\t<!-- <div class=\"card-body p-0\">\n\n  \t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Vendor Id\n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorId')\" [ngClass]=\"getFieldOrderBy('vendorId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"ID\" [(ngModel)]=\"columnField['vendorId']\" (ngModelChange)=\"selectColInput('vendorId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Vendor Name\n\t\t\t\t      \t<span (click)=\"sortUnitData('vendorName')\" [ngClass]=\"getFieldOrderBy('vendorName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Vendor Name\" [(ngModel)]=\"columnField['vendorName']\" (ngModelChange)=\"selectColInput('vendorName')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Contact Person\n\t\t\t\t       \t<span (click)=\"sortUnitData('contactPerson')\" [ngClass]=\"getFieldOrderBy('contactPerson')\"></span>\n\t\t\t\t       \t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" [(ngModel)]=\"columnField['contactPerson']\" (ngModelChange)=\"selectColInput('contactPerson')\" >\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Email\n\t\t\t\t      \t<span (click)=\"sortUnitData('email')\" [ngClass]=\"getFieldOrderBy('email')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" [(ngModel)]=\"columnField['email']\" (ngModelChange)=\"selectColInput('email')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Phone No\n\t\t\t\t      \t<span (click)=\"sortUnitData('phone1')\" [ngClass]=\"getFieldOrderBy('phone1')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone No\" [(ngModel)]=\"columnField['phone1']\" (ngModelChange)=\"selectColInput('phone1')\" >\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t  </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let vendor of vendorListData | simpleSearch: vendorData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\" [ngClass]=\"vendor.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td class=\"name\">{{vendor.vendorId}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.vendorName}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.contactPerson}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.email}}</td>\n\t\t\t\t      <td class=\"grey\">{{vendor.phone1}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" #v (click)=\"showVendorInfo(vendor)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/vendor/edit-vendor/{{vendor.vendorId}}\"\n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showDeleteConfirmModal(vendor.vendorId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination\n\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t</app-pagination>\n\n  \t\t</div> -->\n\n\t</div>\n\n\t<ng-template #viewVendorRef let-vendor>\n    \t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Vendor Info</h5>\n\t\t\t</div>\n\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t  <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t\t    <h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n\t\t\t\t\t    <p class=\"grey\">{{vendor.email}}</p>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor ID</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vendorId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Contact Person</h6>\n\t\t\t\t\t\t\t<p>{{vendor.contactPerson}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.phone1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Alternate No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.phone2}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t\t<p>{{vendor.address1}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor Category</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vendorCategoryName}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor Type</h6>\n\t\t\t\t\t\t\t\t<p>{{vendor.vendorTypeName}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor Legal Type</h6>\n\t\t\t\t\t\t\t\t<p>{{vendor.vendorLegalTypeName}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">VAT No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vatorTin}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax1 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax2 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax2}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax3 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax3}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax4 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax4}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-template>\n\n\t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"vendorTableList\" [columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n\t\t</div>\n\t</div>\n";
     /***/
   },
 
@@ -121,7 +127,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy92ZW5kb3IvY29tcG9uZW50cy9hbGwtdmVuZG9ycy9hbGwtdmVuZG9ycy5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = ".mandatory {\n  color: red;\n  font-size: 16px;\n}\n\n.filter-width {\n  width: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvdmVuZG9yL2NvbXBvbmVudHMvYWxsLXZlbmRvcnMvYWxsLXZlbmRvcnMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy92ZW5kb3IvY29tcG9uZW50cy9hbGwtdmVuZG9ycy9hbGwtdmVuZG9ycy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFVBQUE7RUFDQSxlQUFBO0FDQ0Y7O0FERUE7RUFDRSxZQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvdmVuZG9yL2NvbXBvbmVudHMvYWxsLXZlbmRvcnMvYWxsLXZlbmRvcnMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFuZGF0b3J5e1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE2cHg7XG59XG5cbi5maWx0ZXItd2lkdGh7XG4gIHdpZHRoOiAyMDBweDtcbn1cbiIsIi5tYW5kYXRvcnkge1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE2cHg7XG59XG5cbi5maWx0ZXItd2lkdGgge1xuICB3aWR0aDogMjAwcHg7XG59Il19 */";
     /***/
   },
 
@@ -323,6 +329,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getVendorCategoryName(id) {
           var _this2 = this;
 
+          this.selectedType = 'All';
           underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.vendorCategoryData, function (item, index) {
             if (item.lookupValueId == parseInt(id)) {
               _this2.categoryName = item.lookupValueName;
@@ -348,6 +355,47 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this2.vendorListData = res.filter(function (item) {
                 return item.isActive;
               });
+            }
+
+            var _iterator = _createForOfIteratorHelper(_this2.vendorListData),
+                _step;
+
+            try {
+              var _loop = function _loop() {
+                var vendor = _step.value;
+
+                var category = _this2.vendorCategoryData.find(function (x) {
+                  return x.lookupValueId == vendor.vendorCategoryId;
+                });
+
+                if (category) {
+                  vendor.vendorCategoryName = category.lookupValueName;
+                }
+
+                var legaltype = _this2.vendorLegalTypeList && _this2.vendorLegalTypeList.find(function (x) {
+                  return x.lookupValueId == vendor.legalTypeId;
+                });
+
+                if (legaltype) {
+                  vendor.vendorLegalTypeName = legaltype.lookupValueName;
+                }
+
+                if (vendor.vendorTypeId && vendor.vendorTypeId == "225") {
+                  vendor.vendorTypeName = 'Goods';
+                }
+
+                if (vendor.vendorTypeId && vendor.vendorTypeId == "226") {
+                  vendor.vendorTypeName = 'Services';
+                }
+              };
+
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                _loop();
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
             }
 
             var arrangeVendorRawData = {
@@ -415,9 +463,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
+        key: "onFilterByVendorTypeChange",
+        value: function onFilterByVendorTypeChange() {
+          var _this3 = this;
+
+          if (this.selectedType == 'All') {
+            this.vendorFilterList = this.vendorListData;
+            var arrangeVendorRawData = {
+              localdata: this.vendorFilterList,
+              datatype: "array"
+            };
+            this.vendorTableList = new jqx.dataAdapter(arrangeVendorRawData);
+          } else {
+            this.vendorFilterList = this.vendorListData.filter(function (x) {
+              return x.vendorTypeId == _this3.selectedType;
+            });
+            var _arrangeVendorRawData = {
+              localdata: this.vendorFilterList,
+              datatype: "array"
+            };
+            this.vendorTableList = new jqx.dataAdapter(_arrangeVendorRawData);
+          }
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this3 = this;
+          var _this4 = this;
+
+          this.selectedType = 'All';
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -434,8 +507,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
           }, {
+            text: 'Vendor Name',
+            datafield: 'vendorName',
+            minwidth: 200,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
             text: 'Contact Person',
             datafield: 'contactPerson',
+            minwidth: 200,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Vendor Category',
+            datafield: 'vendorCategoryName',
+            minwidth: 200,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Vendor Type',
+            datafield: 'vendorTypeName',
+            minwidth: 200,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Vendor Status',
+            datafield: 'vendorStatus',
             minwidth: 200,
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
@@ -478,42 +575,52 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 57
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this3.isVendorCategoryLoaded = true;
-            _this3.vendorCategoryData = res.filter(function (item) {
+            _this4.isVendorCategoryLoaded = true;
+            _this4.vendorCategoryData = res.filter(function (item) {
               return item.isActive;
+            }); //vendor type
+
+            var vendorTypeParams = {
+              LookupTypeId: 59
+            };
+
+            _this4.lookupService.getLookupValueByLookupTypeId(vendorTypeParams).subscribe(function (res) {
+              _this4.vendorLegalTypeList = res.filter(function (item) {
+                return item.isActive;
+              });
+
+              _this4.getVendorCategoryName(_this4.vendorCategoryId);
+
+              if (_this4.route.params['value'].id != undefined) {
+                _this4.vendorCategoryId = "" + _this4.route.params['value'].id;
+
+                _this4.getVendorCategoryName(_this4.vendorCategoryId);
+              }
             });
-
-            _this3.getVendorCategoryName(_this3.vendorCategoryId);
-
-            if (_this3.route.params['value'].id != undefined) {
-              _this3.vendorCategoryId = "" + _this3.route.params['value'].id;
-
-              _this3.getVendorCategoryName(_this3.vendorCategoryId);
-            }
           }); // delete vendor
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
             if (id != null) {
               var params = {
                 vendorId: id,
-                deleteBy: parseInt(_this3.cookieService.get('userId'))
+                deleteBy: parseInt(_this4.cookieService.get('userId'))
               };
 
-              _this3.vendorService.deleteVendor(params).subscribe(function (res) {
-                underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this3.vendorListData, function (type) {
+              _this4.vendorService.deleteVendor(params).subscribe(function (res) {
+                underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this4.vendorListData, function (type) {
                   if (type.vendorId == id) {
                     type.isActive = false;
                   }
                 });
                 setTimeout(function () {
-                  _this3.vendorListData = _this3.vendorListData.filter(function (type) {
+                  _this4.vendorListData = _this4.vendorListData.filter(function (type) {
                     return type.vendorId !== id;
                   });
-                  _this3.totalItems = _this3.vendorListData.length;
+                  _this4.totalItems = _this4.vendorListData.length;
 
-                  _this3.sharedService.setAlertMessage("Vendor deleted Successfully");
+                  _this4.sharedService.setAlertMessage("Vendor deleted Successfully");
 
-                  _this3.sharedService.setUnitListDeleteIndex(null);
+                  _this4.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -900,7 +1007,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this5 = this;
 
           this.vendor = {};
           this.vendor.glaccountTypeId = "";
@@ -913,21 +1020,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.isVendorSubmitted = true;
             this.sharedService.vendorupdate.subscribe(function (id) {
               if (id) {
-                _this4.submitAddVendorForm(id);
+                _this5.submitAddVendorForm(id);
               }
             });
             var vendorIdParam = {
               vendorId: this.route.params['value'].id
             };
             this.vendorService.getVendorById(vendorIdParam).subscribe(function (res) {
-              _this4.vendor = res[0];
-              _this4.vendorTypeId = "" + _this4.vendor.vendorTypeId;
+              _this5.vendor = res[0];
+              _this5.vendorTypeId = "" + _this5.vendor.vendorTypeId;
 
-              if (_this4.vendor.email == " ") {
-                _this4.vendor.email = undefined;
+              if (_this5.vendor.email == " ") {
+                _this5.vendor.email = undefined;
               }
 
-              _this4.isVendorSubmitted = false;
+              _this5.isVendorSubmitted = false;
             }, function (error) {});
 
             if (this.vendor.bankAccountDetailsId) {
@@ -944,14 +1051,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             groupId: 3
           };
           this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
-            _this4.glAccountListData = res;
+            _this5.glAccountListData = res;
           });
           var params = {
             LookupTypeId: 57
           }; //vendor Category
 
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this4.vendorCategoryList = res.filter(function (item) {
+            _this5.vendorCategoryList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -960,7 +1067,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; //vendor type
 
           this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
-            _this4.vendorTypeList = res.filter(function (item) {
+            _this5.vendorTypeList = res.filter(function (item) {
               return item.isActive;
             });
           }, function (error) {});
@@ -1201,7 +1308,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onGlSearchFilter",
         value: function onGlSearchFilter() {
-          var _this5 = this;
+          var _this6 = this;
 
           if (this.vendorData != "") {
             var filtergroup = new jqx.filter();
@@ -1214,7 +1321,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this5.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this6.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -1240,7 +1347,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this6 = this;
+          var _this7 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1311,14 +1418,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
-            _this6.allVendorListData = res;
-            _this6.isVendorLoaded = true;
+            _this7.allVendorListData = res;
+            _this7.isVendorLoaded = true;
           }, function (error) {});
           var vendorParams = {
             LookupTypeId: 57
           };
           this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
-            _this6.vendorCategoryData = res.filter(function (item) {
+            _this7.vendorCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -1492,7 +1599,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteVendorCategory",
         value: function deleteVendorCategory(item) {
-          var _this7 = this;
+          var _this8 = this;
 
           this.isVendorCategoryLoaded = false;
           console.log(item);
@@ -1502,7 +1609,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
             //this.vendorCategoryData.splice(index, 1);
-            _this7.loadVendorCategory();
+            _this8.loadVendorCategory();
           });
         }
       }, {
@@ -1543,7 +1650,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitVendorCategoryForm",
         value: function submitVendorCategoryForm(form) {
-          var _this8 = this;
+          var _this9 = this;
 
           this.isVendorCategorySubmitted = false;
           this.isError = false;
@@ -1568,22 +1675,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   LookupTypeId: 57
                 };
 
-                _this8.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                  _this8.isVendorCategorySubmitted = true;
+                _this9.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                  _this9.isVendorCategorySubmitted = true;
 
-                  _this8.sharedService.setAlertMessage("Category added Successfully!");
+                  _this9.sharedService.setAlertMessage("Category added Successfully!");
 
-                  _this8.vendorCategoryData = res.filter(function (item) {
+                  _this9.vendorCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
               } else {
-                _this8.isVendorCategorySubmitted = true;
-                _this8.isError = true;
-                _this8.alertMessage = res.errorMessage;
+                _this9.isVendorCategorySubmitted = true;
+                _this9.isError = true;
+                _this9.alertMessage = res.errorMessage;
 
-                if (_this8.alertMessage === "addLookupValue Not Added as it already exist.") {
-                  _this8.alertMessage = "Invalid action. " + details.lookupValueName + " vendor category already exist.";
+                if (_this9.alertMessage === "addLookupValue Not Added as it already exist.") {
+                  _this9.alertMessage = "Invalid action. " + details.lookupValueName + " vendor category already exist.";
                 }
               }
             });
@@ -1608,19 +1715,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   LookupTypeId: 57
                 };
 
-                _this8.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                  _this8.isVendorCategorySubmitted = true;
+                _this9.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                  _this9.isVendorCategorySubmitted = true;
 
-                  _this8.sharedService.setAlertMessage("Category updated Successfully!");
+                  _this9.sharedService.setAlertMessage("Category updated Successfully!");
 
-                  _this8.vendorCategoryData = res.filter(function (item) {
+                  _this9.vendorCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
               } else {
-                _this8.isVendorCategorySubmitted = true;
-                _this8.isError = true;
-                _this8.alertMessage = res.errorMessage;
+                _this9.isVendorCategorySubmitted = true;
+                _this9.isError = true;
+                _this9.alertMessage = res.errorMessage;
               }
             });
           }
@@ -1630,40 +1737,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadVendorCategory",
         value: function loadVendorCategory() {
-          var _this9 = this;
+          var _this10 = this;
 
           var categoryParams = {
             LookupTypeId: 57
           };
           this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
             console.log("vendor category resp", res);
-            _this9.vendorCategoryData = res.filter(function (item) {
+            _this10.vendorCategoryData = res.filter(function (item) {
               return item.isActive;
             });
             var vendorListParams = {
-              apartmentId: parseInt(_this9.cookieService.get('apartmentId'))
+              apartmentId: parseInt(_this10.cookieService.get('apartmentId'))
             };
 
-            _this9.vendorService.getVendorByApartmentId(vendorListParams).subscribe(function (res) {
-              _this9.vendorListData = res;
-              _this9.isVendorCategoryLoaded = true;
+            _this10.vendorService.getVendorByApartmentId(vendorListParams).subscribe(function (res) {
+              _this10.vendorListData = res;
+              _this10.isVendorCategoryLoaded = true;
             }, function (error) {});
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this11 = this;
 
           this.loadVendorCategory();
           this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
             if (is_category_form) {
-              _this10.submitVendorCategoryForm(is_category_form);
+              _this11.submitVendorCategoryForm(is_category_form);
             }
           });
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
             if (item_id) {
-              _this10.deleteVendorCategory(item_id);
+              _this11.deleteVendorCategory(item_id);
             }
           }); //vendor category
         }

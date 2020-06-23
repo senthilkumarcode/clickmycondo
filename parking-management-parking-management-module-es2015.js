@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h2 mat-dialog-title>Slot Confirmation Unit Owned</h2>\n<div mat-dialog-content>\n  <form>\n    <div class=\"form-group\">\n      <label for=\"name\" class=\"control-label  w-100\">Allocate</label>\n      <label for=\"name\" class=\"control-label\">A 101</label>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"name\" class=\"control-label w-100\">Located In</label>\n        <label for=\"name\" class=\"control-label\">Block No</label>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"name\" class=\"control-label  w-100\">Type</label>\n        <label for=\"name\" class=\"control-label\">Unit Owned</label>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"name\" class=\"control-label  w-100\">Contact Name</label>\n        <label for=\"name\" class=\"control-label\">Name</label>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"type\" class=\"control-label  w-100\">Unit</label>\n        <select formControlName=\"type\" class=\"form-control\">\n          <option value=\"\">Choose</option>\n          <!-- <option *ngFor=\"let t of documentTypeDataList\" [value]=\"t.lookupValueId\">{{t.lookupValueName}}</option> -->\n        </select>\n        <!-- <div *ngIf=\"canShowError('type')\">\n          <p class=\"error-txt\" *ngIf=\"hasError('type','required')\">Document type is required</p>\n        </div> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"type\" class=\"control-label\">Block</label>\n        <select formControlName=\"type\" class=\"form-control\">\n          <option value=\"\">Choose</option>\n          <!-- <option *ngFor=\"let t of documentTypeDataList\" [value]=\"t.lookupValueId\">{{t.lookupValueName}}</option> -->\n        </select>\n        <!-- <div *ngIf=\"canShowError('type')\">\n          <p class=\"error-txt\" *ngIf=\"hasError('type','required')\">Document type is required</p>\n        </div> -->\n      </div>\n    <div class=\"form-group mt-4\">\n      <label for=\"description\">Comments</label>\n      <textarea class=\"form-control\" formControlName=\"description\" rows=\"3\"></textarea>\n    </div>\n  </form>\n\n</div>\n<div mat-dialog-actions>\n  <button mat-button (click)=\"close()\">Cancel</button>\n  <button mat-button class=\"btn blue\">\n    <!-- {{config.type=='ADD'? 'Submit':'Update'}} -->\n    Submit\n  </button>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"slot-confirm-wrapper\">\n  <h5 class=\"font-weight-bold mb-5\">{{allocateSlotData.slotMainTypeName | titlecase}}</h5>\n  <form>\n    <div class=\"row mb-5\">\n      <div class=\"col-sm-6\">\n        <h6>Allocate : {{allocateSlotData.slotName}}</h6>\n      </div>\n      <div class=\"col-sm-6\">\n        <h6>Located In : {{allocateSlotData.parkingSlotBlockNumber}}</h6>\n      </div>\n    </div>\n    <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 299\">\n      <div class=\"col-sm-6\">\n        <div class=\"input-box\">\n          <label>Contact Name</label>\n          <input  type=\"text\" class=\"form-control\" placeholder=\"Contact Name\" name=\"primaryName\" [(ngModel)]=\"allocateSlotData.contactName\">\n        </div>\n      </div>\n      <div class=\"col-sm-6\">\n        <div class=\"select-box\">\n          <label>Unit No</label>\n          <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"allocateSlotData.apartmentBlockUnitId\" required>\n            <option value=\"\" disabled selected hidden>Select</option>\n            <option *ngFor=\"let item of blockUnit\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n          </select>\n        </div>\n      </div>\n    </div>\n    <div class=\"row mb-2\">\n      <div class=\"col-sm-12\">\n        <div class=\"input-box\">\n          <label>Comments</label>\n          <textarea class=\"comment-box\" placeholder=\"some text here\" [(ngModel)]=\"allocateSlotData.comment\" rows=\"2\" name=\"comment\"></textarea>\n        </div>\n      </div>\n    </div>\n    <div class=\"row btn-wrapper\">\n      <div class=\"col-sm-12 text-right\">\n        <a href=\"javascript:void(0)\" class=\"btn blue mr-3\" (click)=\"slotAllocation()\">Submit</a>\n        <a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"onDismiss()\">Cancel</a>\n      </div>\n    </div>\n  </form>\n</div>");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/parking-management/manage-allocate-availability-list\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg white\" src=\"assets/images/car-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Parking Booking</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\t<div class=\"card clear mb-30\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\tCreate Parking Booking\n    \t\t\t</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Fill in the details</p>\n    \t\t</div>\n    \t\t<div class=\"float-right\">\n    \t\t\t \n    \t\t</div>\n    \t\t<div class=\"float-right\">\n    \t\t\t \n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\n\t\t\t\t<form #createParkingSlotForm = \"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Slot Name</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"slotName\">\n\t                \t\t</div>\n                        </div>\n                        \n                        <div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Slot Type</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"SlotType\" \n\t\t\t\t\t\t\t        id=\"SlotType\" \n\t\t\t\t\t\t\t        class=\"form-control\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option value=\"Unit Owned\">Unit Owned</option>\n\t\t\t\t\t\t\t\t\t<option value=\"Community Owned\">Community Owned</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t \n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Block No</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"blockno\">\n\t                \t\t</div>\n                        </div>\n                        \n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Permanent UnitNo</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"permanentUnitno\">\n                            </div>\n                        </div>\n\t\t\t\t \n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\"> \n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Unit Owner</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"uniteowner\">\n                            </div>\n                        </div>\n                        \n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Temp block</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"tempblock\">\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Temp Unit</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"tempunit\">\n                            </div>\n                        </div>\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Temp Owner</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"tempowner\">\n                            </div>\n                        </div>\n\n                    </div>\n\n                    <div class=\"row\"> \n                        \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"startTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div>\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n                    </div>\n\n                    <div class=\"row\">     \n                        <div class=\"col-sm-3\"> \n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Slot Rate Type</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"slotRateType\" \n\t\t\t\t\t\t\t        id=\"slotRateType\" \n\t\t\t\t\t\t\t        class=\"form-control\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option value=\"Daily\">Daily</option>\n                                    <option value=\"No Fee\">No Fee</option>\n                                    <option value=\"Monthly\">Monthly</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t \n\t\t\t\t\t\t<div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Price</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"price\">\n                            </div>\n                        </div> \n                        \n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Status</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"slotRateType\" \n\t\t\t\t\t\t\t        id=\"slotRateType\" \n\t\t\t\t\t\t\t        class=\"form-control\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option value=\"Assign\">Assign</option>\n                                    <option value=\"Allocate\">Allocate</option> \n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</form> \n\n\t\t\t<div class=\"message hidden\">\n\t\t\t\t<div class=\"icon-wrapper float-left\">\n\t\t\t\t\t<i-feather class=\"icon float-left\" name=\"check\" width=\"20\"></i-feather>\n\t\t\t\t</div>\n\t\t\t\t<h5 class=\"float-left\" >Slot added successfully!</h5> \n\t\t\t</div>\n\n\t\t</div>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/parking-management/manage-allocate-availability-list\" \n\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg white\" src=\"assets/images/car-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Parking Booking</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\t<div class=\"card clear mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\tCreate Parking Booking\n    \t\t\t</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Fill in the details</p>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\t\t\t<form #createParkingSlotForm = \"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 d-flex flex-row\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold pt-3 mr-2\">Search your Slot</h6>\n\t\t\t\t\t\t<div class=\"input-box search-slot\">\n\t\t\t\t\t\t\t<input type=\"text\" placeholder=\"Enter three characters to search slot\" name=\"parkingId\" matInput class=\"form-control\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"parkingSlotData.displaySlotNumber\" (ngModelChange)=\"slotSubject.next($event)\" [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t<mat-autocomplete #auto = \"matAutocomplete\" (optionSelected)=\"onSelectSlot($event)\">\n\t\t\t\t\t\t\t\t<mat-option *ngFor = \"let option of slotData$ | async\" [value] = \"option\">\n\t\t\t\t\t\t\t\t\t{{option.parkingSlotNo}} {{option.apartmentBlockUnitNumber}}\n\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Block Unit Number</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.apartmentBlockUnitNumber\" placeholder=\"Permanent Unit\" name=\"apartmentBlockUnitNumber\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Type</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.slotTypeName\" placeholder=\"Slot Type\" name=\"slotTypeName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Owner</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.permOwner\" placeholder=\"Permanent Owner\" name=\"permOwner\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Vehicle No</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.vehicleNo\" placeholder=\"Vehicle No\" name=\"vehicleNo\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [(ngModel)]=\"parkingSlotData.startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Time</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startTime\" [(ngModel)]=\"parkingSlotData.startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"startTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startTime\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [(ngModel)]=\"parkingSlotData.endDate\"  [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>End Time</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endTime\" [(ngModel)]=\"parkingSlotData.endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"submitParkingSlot()\">Submit</button>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form> \n\t\t</div>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/parking-management/manage-parking-slots\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg white\" src=\"assets/images/car-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Parking Slot</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\t<div class=\"card clear mb-30\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t{{isCreateSlot ? 'Create Parking Slot' : 'Update Parking Slot'}}\n    \t\t\t</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Fill in the details</p>\n    \t\t</div>\n    \t\t<div class=\"float-right\">\n    \t\t\t \n    \t\t</div>\n    \t\t<div class=\"float-right\">\n    \t\t\t \n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\n\t\t\t\t<form #createParkingSlotForm = \"ngForm\" name=\"addSlotForm\" (ngSubmit)=\"parkingSlot()\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Slot Name</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" [(ngModel)]=\"createSlot.slotName\" name=\"slotName\">\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Slot Block No</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" [(ngModel)]=\"createSlot.parkingSlotBlockNumber\" name=\"slotBlockno\">\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Slot Main Type</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"SlotMainType\" \n\t\t\t\t\t\t\t\t\tid=\"SlotMainType\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"createSlot.slotMainTypeId\"\n\t\t\t\t\t\t\t        class=\"form-control\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of slotMainTypeList\"  value=\"{{item.lookupValueId}}\">{{item.lookupValueName}}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Slot Type</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"SlotType\" \n\t\t\t\t\t\t\t\t\tid=\"SlotType\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"createSlot.slotTypeId\"\n\t\t\t\t\t\t\t        class=\"form-control\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of slotTypeList\"  value=\"{{item.lookupValueId}}\">{{item.lookupValueName}}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Vehicle Type</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"ParkingType\" \n\t\t\t\t\t\t\t\t\tid=\"ParkingType\" \n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"createSlot.parkingTypeId\"\n\t\t\t\t\t\t\t        class=\"form-control\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of parkingTypeList\"  value=\"{{item.id}}\">{{item.name}}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Sq.M</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"createSlot.sqrFt\"  placeholder=\"Enter value\" name=\"sqm\">\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn blue mr-2\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</form> \n\n\t\t\t<div class=\"message hidden\">\n\t\t\t\t<div class=\"icon-wrapper float-left\">\n\t\t\t\t\t<i-feather class=\"icon float-left\" name=\"check\" width=\"20\"></i-feather>\n\t\t\t\t</div>\n\t\t\t\t<h5 class=\"float-left\" >Slot added successfully!</h5> \n\t\t\t</div>\n\n\t\t</div>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/parking-management/manage-parking-slots\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg white\" src=\"assets/images/car-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Parking Slot</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\t<div class=\"card clear mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t{{isCreateSlot ? 'Create Parking Slot' : 'Update Parking Slot'}}\n    \t\t\t</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Fill in the details</p>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\t\t\t<form #createParkingSlotForm = \"ngForm\" name=\"addSlotForm\" (ngSubmit)=\"parkingSlot()\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Slot Name\" [(ngModel)]=\"createSlot.slotName\" name=\"slotName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Block No</label>\n\t\t\t\t\t\t\t<select name=\"slotBlockno\" id=\"slotBlockno\" [(ngModel)]=\"createSlot.parkingSlotBlockNumber\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{item.apartmentBlockNumber}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Slot Main Type</label>\n\t\t\t\t\t\t\t<select name=\"SlotMainType\" id=\"SlotMainType\" [(ngModel)]=\"createSlot.slotMainTypeId\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of slotMainTypeList\" [ngValue]=\"item.lookupValueId\">{{item.lookupValueName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Slot Type</label>\n\t\t\t\t\t\t\t<select name=\"SlotType\" id=\"SlotType\" [(ngModel)]=\"createSlot.slotTypeId\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of slotTypeList\" [ngValue]=\"item.lookupValueId\">{{item.lookupValueName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Vehicle Type</label>\n\t\t\t\t\t\t\t<select name=\"ParkingType\" id=\"ParkingType\" [(ngModel)]=\"createSlot.parkingTypeId\" class=\"form-control\" >\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of parkingTypeList\" [ngValue]=\"item.id\">{{item.name}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Sq.M</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"createSlot.sqrFt\"  placeholder=\"Enter value\" name=\"sqm\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn blue mr-2\">Submit</button>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -191,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-mangae-allocated-slots-wrapper\">\n    <ul class=\"legends list-inline\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>UnAllocated</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Allocated</li>\n\t</ul>\n    <div class=\"card table-card mt-30 clear\">\n      <div class=\"card-header\">\n          <div class=\"float-left\">\n              <h5>Manage Allocated Slots</h5>\n              <p class=\"d-none d-md-inline-block\">View Allocated Slots</p>\n          </div>\n          <ul class=\"list-inline d-flex\">\n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                  <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"filterSlot\" (ngModelChange)=\"searchSlotRate()\" >\n              </li>\n              <li class=\"list-inline-item wpx-160\"> \n                <select \n                    name=\"tower\" \n                    id=\"tower\" \n                    class=\"form-control\"\n                    required>\n                    <option value=\"\" disabled selected hidden>Select Tower</option>\n                    <option value=\"Tower-1\" >Tower-1</option>\n                    <option value=\"Tower-2\" >Tower-2</option>\n                    <option value=\"Tower-3\" >Tower-3</option>\n                    <option value=\"Tower-4\" >Tower-4</option>\n                </select>\n                  <!-- <a class=\"btn lime-green mt_5\"\n                  routerLink=\"/ams/parking-management/allocate-slots\" \n                  routerLinkActive=\"active\"\n                  [routerLinkActiveOptions] = \"\">\n                      <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                      <span>Allocate Parking Slots</span>\n                  </a> -->\n              </li>\n          </ul>\n      </div>\n\n\n      <div class=\"card-body p-0\">\n        <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n            [filterable]=\"true\" [sortable]=\"true\" [source]=\"allocatedSlotData\" [columns]=\"allocatedSlotHeader\"\n            [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n        </jqxGrid>\n    </div>\n    </div> \n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-mangae-allocated-slots-wrapper\">\n    <ul class=\"legends list-inline\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>UnAllocated</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Allocated</li>\n\t</ul>\n    <div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Manage Allocated Slots</h5>\n                <p class=\"d-none d-md-inline-block\">View Allocated Slots</p>\n            </div>\n            <ul class=\"list-inline d-flex\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"filterData\" (ngModelChange)=\"searchSlotRate()\" >\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"allocatedSlotData\" [columns]=\"allocatedSlotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div> \n</div>");
 
 /***/ }),
 
@@ -256,7 +256,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-manage-parkings-slots-wrapper\">\n\n    <ul class=\"legends list-inline\">\n        <li class=\"list-inline-item\"><span class=\"dots medium\"></span>Medium</li>\n        <li class=\"list-inline-item mr-0\"><span class=\"dots low\"></span>Low</li>\n    </ul>\n\n  \t<div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Parking Slots <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Manage Parking lots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"filterSlot\"  (ngModelChange)=\"searchSlotRate()\" >\n    \t\t\t</li>\n    \t\t\t\n    \t\t\t<li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/parking-management/create-parking-slot\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Parking Slot</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n\t\t</div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"slotDataList\" [columns]=\"slotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n  \t</div> ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-manage-parkings-slots-wrapper\">\n\n  \t<div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Parking Slots <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Manage Parking Slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"filterData\"  (ngModelChange)=\"searchSlotRate()\" >\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/parking-management/create-parking-slot\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Parking Slot</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n\t\t</div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"slotDataList\" [columns]=\"slotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n        </div>\n  \t</div> ");
 
 /***/ }),
 
@@ -295,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-add-setup-vehicle-type-wrapper\">\n\t<form #addVehicleForm = \"ngForm\" name=\"addVehicleForm\" (ngSubmit)=\"submitAddVehicleForm(addVehicleForm)\"  novalidate>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t                <label>{{config.type}}</label>\n\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vehicleCategory\" [(ngModel)]=\"vehicleCategory\" required>\n\t    \t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVehicleForm.invalid\">{{config.category == 'add'? 'Submit':'Update'}}</button>\n\t\t\t\t<button class=\"btn mr-2\" (click)=\"closeDialog(false)\"  >Cancel</button>\n\t\t\t</div>\n\t\t</div>\n\t</form>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-add-setup-vehicle-type-wrapper\">\n\t<div *ngIf=\"config.type == 'Vehicle Type';else raiseTicket\">\n\t\t<form #addVehicleForm = \"ngForm\" name=\"addVehicleForm\" (ngSubmit)=\"submitAddVehicleForm(addVehicleForm)\"  novalidate>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>{{config.type}}</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vehicleCategory\" [(ngModel)]=\"vehicleCategory\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addVehicleForm.invalid\">{{config.category == 'add'? 'Submit':'Update'}}</button>\n\t\t\t\t\t<button class=\"btn mr-2\" (click)=\"closeDialog(false)\"  >Cancel</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\t<ng-template #raiseTicket>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12 d-flex flex-row-reverse\">\n\t\t\t\t<h6 class=\"mt-1 mb-1 font-weight-bold\">Please Raise a Service Ticket</h6>\n\t\t\t\t<button class=\"btn mr-2\" (click)=\"closeDialog(false)\">Cancel</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-template>\n\t\n</div>\n");
 
 /***/ }),
 
@@ -950,7 +950,7 @@ AddVehicleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9wYXJraW5nLW1hbmFnZW1lbnQvY29tcG9uZW50cy9hbGxvY2F0ZWQtc2xvdC1jb25maXJtYXRpb24vYWxsb2NhdGVkLXNsb3QtY29uZmlybWF0aW9uLmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".slot-confirm-wrapper .comment-box {\n  height: unset;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvYWxsb2NhdGVkLXNsb3QtY29uZmlybWF0aW9uL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL3BhcmtpbmctbWFuYWdlbWVudC9jb21wb25lbnRzL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi9hbGxvY2F0ZWQtc2xvdC1jb25maXJtYXRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0k7RUFDSSxhQUFBO0FDQVIiLCJmaWxlIjoic3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvYWxsb2NhdGVkLXNsb3QtY29uZmlybWF0aW9uL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zbG90LWNvbmZpcm0td3JhcHBlciB7XG4gICAgLmNvbW1lbnQtYm94IHtcbiAgICAgICAgaGVpZ2h0OiB1bnNldDtcbiAgICB9XG59IiwiLnNsb3QtY29uZmlybS13cmFwcGVyIC5jb21tZW50LWJveCB7XG4gIGhlaWdodDogdW5zZXQ7XG59Il19 */");
 
 /***/ }),
 
@@ -967,21 +967,79 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Vehicle */ "./src/app/api/controllers/Vehicle.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+
+
+
 
 
 
 let AllocatedSlotConfirmationComponent = class AllocatedSlotConfirmationComponent {
-    constructor(dialogRef, data) {
+    constructor(dialogRef, apartmentService, vehicleService, sharedService, cookieService, data) {
         this.dialogRef = dialogRef;
+        this.apartmentService = apartmentService;
+        this.vehicleService = vehicleService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
         this.data = data;
+        this.allocateSlotData = {};
+        this.blockUnit = [];
+    }
+    onDismiss() {
+        this.dialogRef.close(false);
+    }
+    slotAllocation() {
+        let entity = {
+            apartmentId: this.allocateSlotData.apartmentId,
+            parkingSlotBlockNumber: this.allocateSlotData.parkingSlotBlockNumber,
+            apartmentBlockUnitId: this.allocateSlotData.apartmentBlockUnitId,
+            comment: this.allocateSlotData.comment,
+            isActive: true,
+            parkingSlotId: this.allocateSlotData.parkingSlotId,
+            parkingTypeId: this.allocateSlotData.parkingTypeId,
+            permSlotStatusId: parseInt(this.allocateSlotData.permSlotStatusId),
+            slotMainTypeId: this.allocateSlotData.slotMainTypeId,
+            slotName: this.allocateSlotData.slotName,
+            slotStatusId: this.allocateSlotData.slotStatusId,
+            slotTypeId: this.allocateSlotData.slotTypeId,
+            sqrFt: this.allocateSlotData.sqrFt,
+            insertedBy: this.allocateSlotData.insertedBy,
+            insertedOn: this.allocateSlotData.insertedOn,
+            updatedBy: parseInt(this.cookieService.get('userId')),
+            updatedOn: new Date().toISOString()
+        };
+        let parkingSlot = {
+            parkingSlot: entity
+        };
+        this.vehicleService.updateParkingSlot(parkingSlot).subscribe(resp => {
+            this.sharedService.setAlertMessage("Parking Slot Updated successfully");
+            this.dialogRef.close(true);
+        });
     }
     ngOnInit() {
-    }
-    close() {
+        this.allocateSlotData = this.data;
+        if (this.allocateSlotData.slotMainTypeId == 299) {
+            let unitParams = {
+                apartmentBlockId: this.allocateSlotData.parkingSlotBlockNumber
+            };
+            this.apartmentService.getApartmentBlockUnitByBlockId(unitParams).subscribe((res) => {
+                this.blockUnit = res;
+            }, error => {
+                console.log(error);
+            });
+        }
     }
 };
 AllocatedSlotConfirmationComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
 ];
 AllocatedSlotConfirmationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -990,8 +1048,12 @@ AllocatedSlotConfirmationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./allocated-slot-confirmation.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/allocated-slot-confirmation/allocated-slot-confirmation.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./allocated-slot-confirmation.component.scss */ "./src/app/ams/parking-management/components/allocated-slot-confirmation/allocated-slot-confirmation.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(5, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], Object])
 ], AllocatedSlotConfirmationComponent);
 
 
@@ -1242,7 +1304,7 @@ ParkingAllocateSlotsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9wYXJraW5nLW1hbmFnZW1lbnQvY29tcG9uZW50cy9wYXJraW5nLWNyZWF0ZS1wYXJraW5nLWJvb2tpbmcvcGFya2luZy1jcmVhdGUtcGFya2luZy1ib29raW5nLmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".search-slot {\n  width: 30%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvcGFya2luZy1jcmVhdGUtcGFya2luZy1ib29raW5nL3BhcmtpbmctY3JlYXRlLXBhcmtpbmctYm9va2luZy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL3BhcmtpbmctbWFuYWdlbWVudC9jb21wb25lbnRzL3BhcmtpbmctY3JlYXRlLXBhcmtpbmctYm9va2luZy9wYXJraW5nLWNyZWF0ZS1wYXJraW5nLWJvb2tpbmcuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxVQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvcGFya2luZy1jcmVhdGUtcGFya2luZy1ib29raW5nL3BhcmtpbmctY3JlYXRlLXBhcmtpbmctYm9va2luZy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zZWFyY2gtc2xvdCB7XG4gICAgd2lkdGg6MzAlXG59IiwiLnNlYXJjaC1zbG90IHtcbiAgd2lkdGg6IDMwJTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1258,20 +1320,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParkingCreateParkingBookingComponent", function() { return ParkingCreateParkingBookingComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Parking */ "./src/app/api/controllers/Parking.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+
+
+
+
+
+
+
 
 
 let ParkingCreateParkingBookingComponent = class ParkingCreateParkingBookingComponent {
-    constructor() { }
+    constructor(parkingService, cookieService, sharedService, router) {
+        this.parkingService = parkingService;
+        this.cookieService = cookieService;
+        this.sharedService = sharedService;
+        this.router = router;
+        this.slotSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.parkingSlotData = {};
+    }
+    onSelectSlot(event) {
+        this.parkingSlotData.displaySlotNumber = event.option.value.parkingSlotNo;
+        this.parkingSlotData.parkingSlotID = event.option.value.parkingSlotID;
+        this.parkingSlotData.apartmentBlockUnitNumber = event.option.value.apartmentBlockUnitNumber;
+        this.parkingSlotData.slotTypeName = event.option.value.slotTypeName;
+        this.parkingSlotData.permOwner = event.option.value.permOwner;
+        this.parkingSlotData.vehicleNo = event.option.value.vehicleNo;
+    }
+    submitParkingSlot() {
+        let entity = {
+            "id": 0,
+            "parkingId": this.parkingSlotData.parkingSlotID,
+            "startDate": this.parkingSlotData.startDate,
+            "endDate": this.parkingSlotData.endDate,
+            "startTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingSlotData.startTime).format('HH:mm:ss'),
+            "endTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingSlotData.endTime).format('HH:mm:ss'),
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null
+        };
+        let parking = {
+            availabelParking: entity
+        };
+        this.parkingService.addAvailableParking(parking).subscribe((res) => {
+            this.sharedService.setAlertMessage("Parking Slot Created successfully");
+            this.router.navigate(['/ams/parking-management/set-parking-availablity/unit-parking-availablity']);
+        });
+    }
     ngOnInit() {
+        this.slotSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])()).subscribe(value => {
+            if (this.parkingSlotData.displaySlotNumber && this.parkingSlotData.displaySlotNumber.length > 2) {
+                let entity = {
+                    ApartmentID: parseInt(this.cookieService.get('apartmentId')),
+                    KeywordSlotNo: this.parkingSlotData.displaySlotNumber,
+                };
+                this.slotData$ = this.parkingService.getParkingSlotNoByKeyword(entity);
+                this.slotData$.subscribe((data) => {
+                    if (data.length > 0) {
+                        this.parkingSlotList = data;
+                    }
+                });
+            }
+        });
     }
 };
+ParkingCreateParkingBookingComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] }
+];
 ParkingCreateParkingBookingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-parking-create-parking-booking',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./parking-create-parking-booking.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-create-parking-booking/parking-create-parking-booking.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./parking-create-parking-booking.component.scss */ "./src/app/ams/parking-management/components/parking-create-parking-booking/parking-create-parking-booking.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]])
 ], ParkingCreateParkingBookingComponent);
 
 
@@ -1308,6 +1443,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../api/controllers/Parking */ "./src/app/api/controllers/Parking.ts");
 /* harmony import */ var _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/controllers/Vehicle */ "./src/app/api/controllers/Vehicle.ts");
 /* harmony import */ var _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
+
 
 
 
@@ -1316,39 +1455,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ParkingCreateParkingSlotComponent = class ParkingCreateParkingSlotComponent {
-    constructor(parkingService, vehicleService, lookupService, router, sharedService, activatedRoute) {
+    constructor(parkingService, vehicleService, lookupService, router, apartmentService, cookieService, sharedService, activatedRoute) {
         this.parkingService = parkingService;
         this.vehicleService = vehicleService;
         this.lookupService = lookupService;
         this.router = router;
+        this.apartmentService = apartmentService;
+        this.cookieService = cookieService;
         this.sharedService = sharedService;
         this.activatedRoute = activatedRoute;
-        this.isEditSlot = false;
-        this.isSlotAdded = false;
         this.slotMainTypeList = [];
         this.slotTypeList = [];
         this.parkingTypeList = [];
+        this.towerList = [];
         this.isCreateSlot = true;
     }
     ngOnInit() {
         this.createSlot = {
             "parkingSlotId": 0,
-            "apartmentId": 0,
-            "apartmentBlockUnitId": 0,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentBlockUnitId": null,
             "slotName": "",
             "slotTypeId": 0,
-            "slotStatusId": 0,
+            "slotStatusId": null,
             "comment": "",
             "isActive": true,
-            "insertedBy": 0,
-            "insertedOn": "2020-05-09T11:11:03.794Z",
-            "updatedBy": 0,
-            "updatedOn": "2020-05-09T11:11:03.794Z",
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null,
             "parkingTypeId": 0,
             "parkingSlotBlockNumber": 0,
             "sqrFt": 0,
             "slotMainTypeId": 0,
-            "permSlotStatusId": 0
+            "permSlotStatusId": null
         };
         this.getMasterData();
         this.slotId = this.activatedRoute.params['value'].id;
@@ -1370,10 +1510,10 @@ let ParkingCreateParkingSlotComponent = class ParkingCreateParkingSlotComponent 
                 return item.isActive;
             });
         });
+        //slot type
         let slotTypeParams = {
             LookupTypeId: 18
         };
-        //slot type
         this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe((res) => {
             this.slotTypeList = res.filter(item => {
                 return item.isActive;
@@ -1382,35 +1522,37 @@ let ParkingCreateParkingSlotComponent = class ParkingCreateParkingSlotComponent 
         //parking type
         this.parkingService.getParkingType().subscribe((resp) => {
             this.parkingTypeList = resp;
-        }, error => {
+        });
+        let towerParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe((res) => {
+            this.towerList = res;
         });
     }
     getParkingSlot() {
-        this.vehicleService.getParkingSlotById(this.slotId).subscribe(resp => {
-            let slotDetails = resp[0];
-            for (const key in slotDetails) {
-                this.createSlot[key] = slotDetails[key];
-            }
-        }, error => {
+        let params = {
+            parkingSlotId: this.slotId,
+        };
+        this.vehicleService.getParkingSlotById(params).subscribe(resp => {
+            this.createSlot = resp[0];
         });
     }
     parkingSlot() {
+        let entity = {
+            parkingSlot: this.createSlot
+        };
         if (this.isCreateSlot) {
-            this.createSlot.insertedBy = 1;
-            this.createSlot.updatedBy = 0;
-            this.vehicleService.addParkingSlot(this.createSlot).subscribe(resp => {
+            this.createSlot.sqrFt = parseFloat(this.createSlot.sqrFt);
+            this.vehicleService.addParkingSlot(entity).subscribe(resp => {
                 this.sharedService.setAlertMessage("Parking Slot Created successfully");
                 this.router.navigate(['/ams/parking-management/manage-parking-slots']);
-            }, error => {
             });
         }
         else {
-            this.createSlot.insertedBy = 0;
-            this.createSlot.updatedBy = 1;
-            this.vehicleService.updateParkingSlot(this.createSlot).subscribe(resp => {
+            this.vehicleService.updateParkingSlot(entity).subscribe(resp => {
                 this.sharedService.setAlertMessage("Parking Slot Updated successfully");
                 this.router.navigate(['/ams/parking-management/manage-parking-slots']);
-            }, error => {
             });
         }
     }
@@ -1420,6 +1562,8 @@ ParkingCreateParkingSlotComponent.ctorParameters = () => [
     { type: _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_5__["VehicleService"] },
     { type: _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
@@ -1433,6 +1577,8 @@ ParkingCreateParkingSlotComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_5__["VehicleService"],
         _api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
 ], ParkingCreateParkingSlotComponent);
@@ -1959,10 +2105,71 @@ let ParkingManageAllocatedSlotsComponent = class ParkingManageAllocatedSlotsComp
         this.cookieService = cookieService;
         this.router = router;
         this.allocatedSlotData = [];
-        this.filterSlot = "";
+        this.filterData = "";
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
+    searchSlotRate() {
+        if (this.filterData != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.filterData;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.allocatedSlotHeader.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    getSlotMainType(slotTypeId) {
+    }
+    ondeleteSlot(detail) {
+        console.log(detail);
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        // let permitId = dataRecord.workPermitId
+        // this.router.navigate(['/ams/work-permit/create'],{queryParams:{id:permitId,type:'view'}});
+    }
+    oneditSlot(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        const dialogRef = this.dialog.open(_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_2__["AllocatedSlotConfirmationComponent"], {
+            width: '600px',
+            height: 'auto',
+            data: dataRecord
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getAllocatedSlot();
+            }
+        });
+    }
+    getAllocatedSlot() {
+        let getParam = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+        };
+        this.vehicleService.getParkingSlotByApartmentId(getParam).subscribe((res) => {
+            var rawSlotRateType = res.filter(data => {
+                return data.isActive;
+            });
+            let arrangeSlotRawData = {
+                localdata: rawSlotRateType,
+                datatype: "array"
+            };
+            this.allocatedSlotData = new jqx.dataAdapter(arrangeSlotRawData);
+        });
+    }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'AllocatedSlot');
+    }
     ngOnInit() {
+        this.getAllocatedSlot();
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -1987,107 +2194,58 @@ let ParkingManageAllocatedSlotsComponent = class ParkingManageAllocatedSlotsComp
         this.allocatedSlotHeader = [{
                 text: 'slot name',
                 datafield: 'slotName',
-                width: 100,
                 cellsrenderer: cellsrenderer,
+                minwidth: 80,
                 renderer: columnrenderer
             }, {
                 text: 'slot block no',
                 datafield: 'parkingSlotBlockNumber',
-                minwidth: 100,
                 cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'owner unit',
+                datafield: 'apartmentBlockUnitNumber',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'slot main type',
+                datafield: 'slotMainTypeName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
                 renderer: columnrenderer
             }, {
                 text: 'slot type',
-                cellsrenderer: (row) => {
-                    return `<div class="jqx-custom-inner-cell">${this.getSlotMainType(row.slotTypeId)}</div>`;
-                },
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'unit block no',
-                datafield: 'apartmentBlockUnitId',
-                cellsrenderer: columnrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            },
-            {
-                text: 'permanant unit no',
-                datafield: 'permSlotStatusId',
-                cellsrenderer: columnrenderer,
-                minwidth: 100,
+                datafield: 'slotTypeName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
                 renderer: columnrenderer
             }, {
                 text: 'status',
                 datafield: 'slotStatusId',
                 cellsrenderer: cellsrenderer,
-                minwidth: 100,
+                minwidth: 80,
                 renderer: columnrenderer
-            },
-            {
+            }, {
                 text: 'allocations',
                 cellsalign: 'center',
                 align: 'center',
-                width: 120,
                 cellsrenderer: (row) => {
                     return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i-feather name="user-check"></i-feather></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i-feather name="user-x"></i-feather></a></div>';
                 },
+                minwidth: 80,
                 renderer: columnrenderer
             }, {
-                text: 'actions',
+                text: 'Actions',
                 cellsalign: 'center',
                 align: 'center',
-                width: 120,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editAllocateSlot(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDelete(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
                 },
+                minwidth: 100,
                 renderer: columnrenderer
             }];
-        this.getAllocatedSlot();
-    }
-    openConfirmation() {
-        const dialogRef = this.dialog.open(_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_2__["AllocatedSlotConfirmationComponent"], {});
-        // dialogRef.afterClosed().subscribe(result => {
-        //   console.log('The dialog was closed');
-        //   this.animal = result;
-        // });
-    }
-    getAllocatedSlot() {
-        let getParam = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-        };
-        this.vehicleService.getParkingSlotByApartmentId(getParam).subscribe((res) => {
-            var rawSlotRateType = res.filter(data => {
-                return data.isActive;
-            });
-            let arrangeSlotRawData = {
-                localdata: rawSlotRateType,
-                datatype: "array"
-            };
-            this.allocatedSlotData = new jqx.dataAdapter(arrangeSlotRawData);
-        });
-    }
-    searchSlotRate() {
-        if (this.filterSlot != "") {
-            let filtergroup = new jqx.filter();
-            let filter_or_operator = 1;
-            let filtervalue = this.filterSlot;
-            let filtercondition = 'contains';
-            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-            filtergroup.operator = 'or';
-            filtergroup.addfilter(filter_or_operator, filterData);
-            this.datagrid.showfiltercolumnbackground(false);
-            this.allocatedSlotHeader.forEach(item => {
-                if (item.datafield != 'Actions') {
-                    this.datagrid.addfilter(item.datafield, filtergroup, true);
-                }
-            });
-            this.datagrid.applyfilters();
-        }
-        else {
-            this.datagrid.clearfilters();
-        }
-    }
-    getSlotMainType(slotTypeId) {
     }
 };
 ParkingManageAllocatedSlotsComponent.ctorParameters = () => [
@@ -2101,6 +2259,18 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__["jqxGridComponent"])
 ], ParkingManageAllocatedSlotsComponent.prototype, "datagrid", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:ondeleteSlot', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], ParkingManageAllocatedSlotsComponent.prototype, "ondeleteSlot", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:oneditSlot', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], ParkingManageAllocatedSlotsComponent.prototype, "oneditSlot", null);
 ParkingManageAllocatedSlotsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-parking-manage-allocated-slots',
@@ -2114,6 +2284,24 @@ ParkingManageAllocatedSlotsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
 ], ParkingManageAllocatedSlotsComponent);
 
+function showConfirmDelete(row) {
+    var event = new CustomEvent('ondeleteSlot', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.showConfirmDelete = showConfirmDelete;
+function editAllocateSlot(row) {
+    var event = new CustomEvent('oneditSlot', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.editAllocateSlot = editAllocateSlot;
 
 
 /***/ }),
@@ -2360,10 +2548,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var _shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-
+/* harmony import */ var _shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
 
 
@@ -2393,7 +2579,7 @@ let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponen
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
         this.slotDataList = [];
-        this.filterSlot = "";
+        this.filterData = "";
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     onEditTicket(detail) {
@@ -2406,92 +2592,11 @@ let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponen
         let parkingSlotId = dataRecord.parkingSlotId;
         this.modalService.showConfirmModal(parkingSlotId);
     }
-    ngOnInit() {
-        this.getMasterData();
-        var cellsrenderer = (row, column, value) => {
-            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-        };
-        var columnrenderer = (value) => {
-            return '<div style="padding: 14px">' + value + '</div>';
-        };
-        // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(item => {
-            if (item != null) {
-                this.isDataLoaded = false;
-                var params = {
-                    parkingSlotId: item,
-                    deleteBy: parseInt(this.cookieService.get('userId'))
-                };
-                this.vehicleService.deleteParkingSlot(params).subscribe((res) => {
-                    this.getParkingSlot();
-                    // this.parkingSlotDataList = this.parkingSlotDataList.filter((type) => type.parkingSlotId !== item.parkingSlotId);
-                    // this.isDataLoaded = true;
-                });
-            }
-        });
-        this.slotHeader = [{
-                text: 'slot name',
-                datafield: 'slotName',
-                width: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'slot block no',
-                datafield: 'parkingSlotBlockNumber',
-                minwidth: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'slot main type',
-                cellsrenderer: (row) => {
-                    return `<div class="jqx-custom-inner-cell">${this.getSlotMainType(row.slotMainTypeId)}</div>`;
-                },
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'slot type',
-                cellsrenderer: (row) => {
-                    return '<div class="jqx-custom-inner-cell">' + this.getSlotMainType(row.slotTypeId) + '</div>';
-                },
-                minwidth: 100,
-                renderer: columnrenderer
-            },
-            {
-                text: 'vehicle type',
-                cellsrenderer: (row) => {
-                    return '<div class="jqx-custom-inner-cell">' + this.getSlotMainType(row.parkingTypeId) + '</div>';
-                },
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'sq. m',
-                datafield: 'sqrFt',
-                cellsrenderer: cellsrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'status',
-                datafield: 'slotStatusId',
-                cellsrenderer: cellsrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            },
-            {
-                text: 'action',
-                cellsalign: 'center',
-                align: 'center',
-                width: 120,
-                cellsrenderer: (row) => {
-                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
-                },
-                renderer: columnrenderer
-            }];
-    }
     searchSlotRate() {
-        if (this.filterSlot != "") {
+        if (this.filterData != "") {
             let filtergroup = new jqx.filter();
             let filter_or_operator = 1;
-            let filtervalue = this.filterSlot;
+            let filtervalue = this.filterData;
             let filtercondition = 'contains';
             let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.operator = 'or';
@@ -2508,52 +2613,78 @@ let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponen
             this.datagrid.clearfilters();
         }
     }
-    /**
-     * get Msater Data
-     */
-    getMasterData() {
-        let blockUnitParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-        };
-        this.apartmentService.getApartmentBlockUnitByApartmentId(blockUnitParams).subscribe((res) => {
-            this.apartmentBlockUnitDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        let slotMainParams = {
-            LookupTypeId: 71
-        };
-        //slot main type
-        this.lookupService.getLookupValueByLookupTypeId(slotMainParams).subscribe((res) => {
-            this.slotMainTypeDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        let slotTypeParams = {
-            LookupTypeId: 18
-        };
-        //slot type
-        this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe((res) => {
-            this.slotTypeDataList = res.filter(item => {
-                return item.isActive;
-            });
-            console.log(this.slotTypeDataList);
-        });
-        let vehicleTypeParams = {
-            LookupTypeId: 2
-        };
-        //vehicle type
-        this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe((res) => {
-            this.vehicleTypeDataList = res.filter(item => {
-                return item.isActive;
-            });
-        });
-        //parking type
-        this.parkingService.getParkingType().subscribe((resp) => {
-            this.parkingTypeList = resp;
-        }, error => {
-        });
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'ParkingSlots');
+    }
+    ngOnInit() {
         this.getParkingSlot();
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.slotHeader = [{
+                text: 'slot name',
+                datafield: 'slotName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 100,
+                renderer: columnrenderer
+            }, {
+                text: 'slot block no',
+                datafield: 'parkingSlotBlockNumber',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'slot main type',
+                datafield: 'slotMainTypeName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'slot type',
+                datafield: 'slotTypeName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'vehicle type',
+                datafield: 'parkingTypeName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'sq. m',
+                datafield: 'sqrFt',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+                },
+                minwidth: 120,
+                renderer: columnrenderer
+            }];
+        //delete item
+        this.sharedService.unitlistdeleteindexcast.subscribe(item => {
+            if (item != null) {
+                this.isDataLoaded = false;
+                var params = {
+                    parkingSlotId: item,
+                    deleteBy: parseInt(this.cookieService.get('userId'))
+                };
+                this.vehicleService.deleteParkingSlot(params).subscribe((res) => {
+                    this.getParkingSlot();
+                    // this.parkingSlotDataList = this.parkingSlotDataList.filter((type) => type.parkingSlotId !== item.parkingSlotId);
+                    // this.isDataLoaded = true;
+                });
+            }
+        });
     }
     /**
      * get parking slot
@@ -2573,70 +2704,6 @@ let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponen
             this.slotDataList = new jqx.dataAdapter(arrangeSlotRawData);
         });
     }
-    getIndexParams(event) {
-        this.ItemStartIndex = event.ItemStartIndex;
-        this.ItemEndIndex = event.ItemEndIndex;
-        this.itemLimit = event.itemLimit;
-    }
-    sortUnitData(type) {
-        this.slotFieldType = type;
-        this.slotData = !this.slotData;
-    }
-    getFieldOrderBy(type) {
-        if (this.slotFieldType == type) {
-            return this.slotData ? 'desc' : 'asc';
-        }
-        else
-            return '';
-    }
-    getBlockNo(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.apartmentBlockUnitDataList, function (item) {
-            if (item.apartmentBlockUnitId === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].apartmentBlockNumber + " " + data[0].apartmentBlockUnitNumber;
-        }
-    }
-    getSlotMainType(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.slotMainTypeDataList, function (item) {
-            if (item.lookupValueId === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].lookupValueName;
-        }
-    }
-    getSlotType(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.slotTypeDataList, function (item) {
-            if (item.lookupValueId === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].lookupValueName;
-        }
-    }
-    getParkingType(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.parkingTypeList, function (item) {
-            if (item.id === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].name;
-        }
-    }
 };
 ParkingManageParkingSlotsComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
@@ -2647,11 +2714,11 @@ ParkingManageParkingSlotsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_11__["jqxGridComponent"])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__["jqxGridComponent"])
 ], ParkingManageParkingSlotsComponent.prototype, "datagrid", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditTicket', ['$event.detail']),
@@ -2679,7 +2746,7 @@ ParkingManageParkingSlotsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]])
 ], ParkingManageParkingSlotsComponent);
 
 function showConfirmDeleteEvent(row) {
@@ -4606,7 +4673,6 @@ const routes = [
     { path: 'add-vehicle/:slotid', component: _components_add_vehicle_add_vehicle_component__WEBPACK_IMPORTED_MODULE_22__["AddVehicleComponent"] },
     { path: 'edit-vehicle/:id', component: _components_add_vehicle_add_vehicle_component__WEBPACK_IMPORTED_MODULE_22__["AddVehicleComponent"] },
     { path: 'edit-allotted-slot/:id', component: _components_add_slot_container_add_slot_container_component__WEBPACK_IMPORTED_MODULE_8__["AddSlotContainerComponent"] },
-    { path: 'create-parking-booking', component: _components_parking_create_parking_booking_parking_create_parking_booking_component__WEBPACK_IMPORTED_MODULE_14__["ParkingCreateParkingBookingComponent"] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let ParkingManagementRoutingModule = class ParkingManagementRoutingModule {

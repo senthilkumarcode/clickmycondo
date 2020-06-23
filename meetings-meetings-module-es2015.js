@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card ov card-table\" *ngIf=\"isMeetingDataLoaded\">\n    <div class=\"card-header\">\n        <div class=\"float-left\">\n            <h5>Meeting List <span class=\"badge blue\">{{totalMeetingItems}}</span></h5>\n        </div>\n        <ul class=\"float-right\">\n            <!-- <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" >\n            </li>\n            <li class=\"list-inline-item\">\n                <a class=\"btn trans-white mt_5\">\n                    <i-feather class=\"icon print\" name=\"printer\"></i-feather>\n                    <span>Print</span>\n                </a>\n            </li> -->\n            <li class=\"list-inline-item\">\n\n                <a class=\"btn lime-green mt_5\"\n                (click)=\"addMeeting()\">\n                    <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                    <span>Add Meeting</span>\n                </a>\n\n            </li>\n        </ul>\n      </div>\n    <div class=\"card-body ov p-0\">\n        <jqxGrid \n            [theme]=\"'material'\" \n            [width]=\"'100%'\"\n            [rowsheight]=\"48\"\n            [autoheight]=\"true\"\n            [pageable]=\"true\" \n            [filterable]=\"true\" \n            [sortable]=\"true\" \n            [source]=\"lstMeetingData\"\n            [columns]=\"columnData\"\n            [columnsresize]=\"true\"\n            [enablehover]=\"false\" #datagrid>\n\t\t</jqxGrid> \n        \n<!--         \n        <table  class=\"table table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                  <th scope=\"col\" >\n                    Date \n                    <span (click)=\"sortMeetingData('meetingDate')\" [ngClass]=\"getFieldOrderBy('meetingDate')\"></span>\n                    <app-simple-date-box \n                      [dateModel]=\"meetingDate\"\n                      (inputChange) = \"onDateChange($event, 'meetingDate')\"\n                      ></app-simple-date-box>\n                    </th>\n                  <th scope=\"col\">\n                      From Time \n                      <span (click)=\"sortMeetingData('fromTime')\" [ngClass]=\"getFieldOrderBy('fromTime')\"></span>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"From Time\" [(ngModel)]=\"columnField['fromTime']\" (ngModelChange)=\"selectColInput('fromTime')\" >\n                  </th>\n                  <th scope=\"col\">\n                      To Time \n                      <span (click)=\"sortMeetingData('toTime')\" [ngClass]=\"getFieldOrderBy('toTime')\"></span>\n                       <input type=\"text\" class=\"form-control\" placeholder=\"To Time\" [(ngModel)]=\"columnField['toTime']\" (ngModelChange)=\"selectColInput('toTime')\" >\n                  </th>\n                  <th scope=\"col\">\n                      Type <span  (click)=\"sortMeetingData('meetingTypeId')\" [ngClass]=\"getFieldOrderBy('meetingTypeId')\"></span>\n                       <input type=\"text\" class=\"form-control\" placeholder=\"Type\" [(ngModel)]=\"columnField['meetingTypeId']\" (ngModelChange)=\"selectColInput('meetingTypeId')\" >\n                  </th>\n                  <th scope=\"col\">\n                      Catgeory <span  (click)=\"sortMeetingData('meetingCategoryId')\" [ngClass]=\"getFieldOrderBy('meetingCategoryId')\"></span>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Category\" [(ngModel)]=\"columnField['meetingCategoryId']\" (ngModelChange)=\"selectColInput('meetingCategoryId')\" >\n                  </th>\n                  <th scope=\"col\">Subject<span  (click)=\"sortMeetingData('subject')\" [ngClass]=\"getFieldOrderBy('subject')\"></span>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Subject\" [(ngModel)]=\"columnField['subject']\" (ngModelChange)=\"selectColInput('subject')\">\n                  </th>\n                  <th scope=\"col\">Recepients<span  (click)=\"sortMeetingData('meetingRecipientsId')\" [ngClass]=\"getFieldOrderBy('meetingRecipientsId')\"></span>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Recepients\" [(ngModel)]=\"columnField['meetingRecipientsId']\" (ngModelChange)=\"selectColInput('meetingRecipientsId')\">\n                </th>\n                <th scope=\"col\">Status<span  (click)=\"sortMeetingData('meetingStatusId')\" [ngClass]=\"getFieldOrderBy('meetingStatusId')\"></span>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Status\" [(ngModel)]=\"columnField['meetingStatusId']\" (ngModelChange)=\"selectColInput('meetingStatusId')\">\n                </th>\n                  <th scope=\"col\" class=\"simple-actions\">\n                  Actions\n                  <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let meeting of lstMeetingData | orderBy : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex | columnSearch: columnField:selectedInput | simpleSearch: unitData ; let i = index\" \n               >\n               <td class=\"grey\">{{meeting.meetingDate}}</td>\n               <td class=\"grey\">{{meeting.fromTime}}</td>\n               <td class=\"grey\">{{meeting.toTime}}</td>\n               <td class=\"grey\">{{meeting.meetingTypeId}}</td>\n                  <td class=\"grey\">{{meeting.meetingCategoryId}}</td>\n                  <td class=\"grey\">{{meeting.subject}}</td>\n                  <td class=\"grey\">{{meeting.meetingRecipientsId}}</td>\n                  <td class=\"grey\">{{meeting.meetingStatusId}}</td>\n                  <td class=\"simple-actions\">\n                    <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"addMeetingMinutes(meeting)\"><i-feather class=\"icon plus\" name=\"plus\"></i-feather></a>\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"viewMeetingInfo(meeting)\"><i-feather class=\"icon view\" name=\"eye\"></i-feather></a>\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editMeetingInfo(meeting)\">\n                          <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                      </a>\n                      <a href=\"javascript:void(0)\"  (click)=\"showConfirmModal(unit.id)\"><i-feather class=\"icon del\" name=\"trash\"></i-feather></a>\n                </td>\n                </tr>\n            </tbody>\n        </table>\n       \n        <app-pagination \n            [totalItems]=\"totalMeetingItems \"  \n            [ItemStartIndex]=\"ItemMeetingStartIndex\"\n            [ItemEndIndex] = \"ItemMeetingEndIndex\"\n            [itemLimit] = \"itemMeetingLimit\"\n            (outputParams) = \"getMeetingIndexParams($event)\">\t\n        </app-pagination> -->\n\n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card ov card-table\" *ngIf=\"isMeetingDataLoaded\">\n    <div class=\"card-header\">\n        <div class=\"float-left\">\n            <h5>Meeting List <span class=\"badge blue\">{{totalMeetingItems}}</span></h5>\n        </div>\n        <ul class=\"float-right\">\n            <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"meetingFilter\" (ngModelChange)=\"searchData()\" >\n            </li>\n            <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n            <a class=\"btn lime-green mt_5\" (click)=\"addMeeting()\">\n                <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                <span>Add Meeting</span>\n            </a>\n        </ul>\n    </div>\n    <div class=\"card-body ov p-0\">\n        <jqxGrid \n            [theme]=\"'material'\" \n            [width]=\"'100%'\"\n            [rowsheight]=\"48\"\n            [autoheight]=\"true\"\n            [pageable]=\"true\" \n            [filterable]=\"true\" \n            [sortable]=\"true\" \n            [source]=\"lstMeetingData\"\n            [columns]=\"columnData\"\n            [columnsresize]=\"true\"\n            [enablehover]=\"false\" #datagrid>\n\t\t</jqxGrid> \n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -608,14 +608,32 @@ let MeetingsListComponent = class MeetingsListComponent {
         this.cookieService = cookieService;
         this.dialog = dialog;
         this.isMeetingDataLoaded = false;
-        this.meetingFieldType = "meetingId";
-        this.meetingOrder = false;
-        this.selectedInput = "";
-        this.columnField = {};
         this.isMobile = false;
-        this.ItemMeetingStartIndex = 0;
-        this.itemMeetingLimit = 15;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+    }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'Meeting');
+    }
+    searchData() {
+        if (this.meetingFilter != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.meetingFilter;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
     }
     ngOnInit() {
         this.getMeetingList();
@@ -679,28 +697,16 @@ let MeetingsListComponent = class MeetingsListComponent {
         ];
     }
     getMeetingList() {
-        if (window.innerWidth <= 991)
-            this.isMobile = true;
-        else
-            this.isMobile = false;
         let params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
         this.meetingService.getMeetingByApartmentId(params).subscribe((res) => {
             this.lstMeetingData = res;
-            console.log(res);
             this.gridSourceData = {
                 localdata: this.lstMeetingData,
                 datatype: "array"
             };
             this.lstMeetingData = new jqx.dataAdapter(this.gridSourceData);
-            // this.totalMeetingItems = this.lstMeetingData.length;
-            // if(this.totalMeetingItems>this.itemMeetingLimit){
-            //   this.ItemMeetingEndIndex = this.itemMeetingLimit;
-            // }
-            // else {
-            //   this.ItemMeetingEndIndex = this.totalMeetingItems;
-            // }
             this.isMeetingDataLoaded = true;
         }, error => {
             console.log(error);
@@ -711,17 +717,6 @@ let MeetingsListComponent = class MeetingsListComponent {
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    addMeetingMinutes(data) {
-        this.modalService.showMeetingAddMinutesModal(data);
-    }
-    viewMeetingInfo(data) {
-        data.isEdit = false;
-        this.modalService.showMeetingEditorViewModal(data);
-    }
-    editMeetingInfo(data) {
-        data.isEdit = true;
-        this.modalService.showMeetingEditorViewModal(data);
     }
 };
 MeetingsListComponent.ctorParameters = () => [

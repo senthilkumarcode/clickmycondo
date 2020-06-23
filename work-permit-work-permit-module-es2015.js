@@ -698,8 +698,8 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
                     this.workpermit.WPStartdate = res[0].startDate;
                     this.workpermit.WPEnddate = res[0].endDate;
                     this.workpermit.workPermitStatusId = res[0].workPermitStatusId,
-                        this.workpermit.WPStarttime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].startTime, 'hh:mm').format();
-                    this.workpermit.WPEndtime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].endTime, 'hh:mm').format();
+                        this.workpermit.WPStarttime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].startTime, 'HH:mm').format();
+                    this.workpermit.WPEndtime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].endTime, 'HH:mm').format();
                     this.workpermit.serialNo = res[0].serialNo;
                     this.workpermit.terms = res[0].termsConditions;
                     this.apartmentService.getApartmentBlockUnitById(res[0].apartmentUnitId).subscribe((data) => {
@@ -909,8 +909,8 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
             "contactNumber": this.workpermit.WPContact,
             "startDate": this.workpermit.WPStartdate,
             "endDate": this.workpermit.WPEnddate,
-            "startTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPStarttime).format('hh:mm'),
-            "endTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPEndtime).format('hh:mm'),
+            "startTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPStarttime).format('HH:mm'),
+            "endTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPEndtime).format('HH:mm'),
             "workPermitStatusId": this.pageType == 'edit' ? this.workpermit.workPermitStatusId : 354,
             "isApproved": true,
             "approvedBy": null,
