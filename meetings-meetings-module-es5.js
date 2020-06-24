@@ -33,7 +33,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\">\n                <h5 *ngIf=\"isAddMeeting\">Create Meeting</h5>\n                <h5 *ngIf=\"!isAddMeeting\">Edit Meeting</h5>\n            </div>\n        <div class=\"col-sm-4\"> \n            <button class=\"btn lime-green\" (click)=\"Goback()\" style=\"float: right;\" >\n                <i class=\"fa fa-arrow-left\" aria-hidden=\"true\"> Go Back</i>\n            </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <ng-container>\n            <form #addmeetingForm = \"ngForm\" name=\"addmeetingForm\" (ngSubmit)=\"submitAddmeetingForm(addmeetingForm)\"  novalidate>\n                <div class=\"row\">\n                    <div  class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Role Type</label>\n                            <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                            [(ngModel)]=\"roleTypeArr.selectedItems\"\n                            [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                            (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                        </div>  \n                    </div>\n                    <div  class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Apartment Block</label>\n                            <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                            [settings]=\"blockdropdownSettings\"\n                            (onSelect)=\"updateUsers()\"></angular2-multiselect>\n                        </div>  \n                    </div>\n                    <div  class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Conditions</label>\n                            <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                            [(ngModel)]=\"condition.selectedItems\"\n                            [settings]=\"roleDropdownSettings\" \n                            (onSelect)=\"updateUsers()\"\n                            ></angular2-multiselect>\n                        </div>  \n                    </div>\n                    <div  class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Role</label>\n                            <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                            [(ngModel)]=\"roleCategory.selectedItems\"\n                            [settings]=\"roleDropdownSettings\"\n                            (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                            (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                            ></angular2-multiselect>\n                        </div>  \n                        </div>\n                        <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                        <div class=\"select-box\">\n                            <label>Staff Category</label>\n                            <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                            [(ngModel)]=\"staffCategory.selectedItems\"\n                            [settings]=\"dropdownSettings\"\n                            (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                            (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                            </angular2-multiselect>\n                        </div>  \n                    </div>\n                    <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                        <div class=\"select-box\">\n                            <label>Staff SubCategory</label>\n                            <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                            [(ngModel)]=\"staffSubCategory.selectedItems\"\n                            [settings]=\"dropdownSettings\"\n                            (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                            (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                            (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                            ></angular2-multiselect>\n                        </div>  \n                    </div>\n                </div>\n                <div class=\"row recipentsDiv\" > \n                    <div class=\"col-sm-12\">\n                        <label>Recipients</label>\n                        <div  class=\"col-sm-12 box\" >\n                            <label *ngFor=\"let user of users\" >\n                                {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                            </label>\n                        </div> \n                    </div> \n                </div>\n                <div class=\"row mt-5\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Meeting Type*</label>\n                            <select \n                                name=\"meetingCategory\" \n                                id=\"meetingCategory\" \n                                class=\"form-control\"\n                                placeholder = \"Meeting Type\"\n                                [(ngModel)]=\"meeting.meetingTypeId\"\n                                (ngModelChange)=\"showTable()\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of meetingCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\" *ngIf=\"showTableContent\">\n                        <table  class=\"table table-borderless table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                            <thead>\n                                <tr>\n                                    <th scope=\"col\">Select Date</th>\n                                    <th scope=\"col\">Start Time</th>\n                                    <th scope=\"col\">End Time</th>\n                                    <th scope=\"col\">Action</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <td class=\"select w-30\">\n                                        <input class=\"form-control\" name=\"meetingDate\" [owlDateTime]=\"meetingDate\"\n                                            [owlDateTimeTrigger]=\"meetingDate\" placeholder=\"Date\" [(ngModel)]=\"subMeetingField.meetingDate\">\n                                            <owl-date-time #meetingDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <!-- <div class=\"date-btn\">\n                                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                        </div> -->\n                                    </td>\n                                    <td class=\"select w-30\">\n                                        <div class=\"form-group\">\n                                            <input class=\"form-control\" name=\"meetingStartTime\" [owlDateTime]=\"meetingStartTime\" [owlDateTimeTrigger]=\"meetingStartTime\" placeholder=\"Start Time\" [(ngModel)]=\"subMeetingField.meetingStartTime\">\n                                            <owl-date-time [pickerType]=\"'timer'\" #meetingStartTime></owl-date-time>\n                                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingStartTime\">\n                                                <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                            </div>\n                                        </div>\n                                    </td>\n                                    <td class=\"select w-30\">\n                                        <div class=\"form-group\">\n                                            <input class=\"form-control\" name=\"meetingEndTime\" [owlDateTime]=\"meetingEndTime\" [owlDateTimeTrigger]=\"meetingEndTime\" placeholder=\"End Time\" [(ngModel)]=\"subMeetingField.meetingEndTime\">\n                                            <owl-date-time [pickerType]=\"'timer'\" #meetingEndTime></owl-date-time>\n                                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingEndTime\">\n                                                <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                            </div>\n                                        </div> \n                                    </td>\n                                    <td class=\"select w-10\">\n                                        <a class=\"btn lime-green create-row\" (click)=\"addMeetingSchedule()\" >\n                                            <i class=\"fa fa-plus\"> Add Row</i>\n                                        </a>\n                                        <a class=\"lime-green add-row\" (click)=\"addMeetingSchedule()\" >\n                                            <i class=\"fa fa-plus lime-green mt-3\" (click)=\"addMeetingSchedule()\"></i>\n                                        </a>\n                                    </td>\n                                </tr>\n                                <tr *ngFor=\"let item of subMeeting;let i = index\">\n                                    <td class=\"select w-30\">{{item.meetingDate | date : 'dd-MM-yyyy'}}</td>\n                                    <td class=\"select w-30\">{{item.meetingStartTime}}</td>\n                                    <td class=\"select w-30\">{{item.meetingEndTime}}</td>\n                                    <td class=\"select w-10\">\n                                        <a href=\"javascript:void(0)\" (click)=\"editMeetingScheduleRow(item,i)\"><i-feather class=\"icon edit mr-3\" name=\"edit\"></i-feather></a>\n                                        <a href=\"javascript:void(0)\" (click)=\"deleteMeetingScheduleRow(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                                    </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n                <br>\n                <div class=\"row\">\n                    <div class=\"col-sm-9 col-10\">\n                        <div class=\"input-box\">\n                            <label>Subject*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Subject\" name=\"meetingSubject\" [(ngModel)]=\"meeting.meetingSubject\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Message*</label>\n                            <quill-editor\n                            class=\"quill-editor\"\n                            name=\"ckeditor\"\n                            placeholder=\"Message Description\"\n                            [(ngModel)]=\"meeting.meetingMessage\">\n                            </quill-editor>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <ul class=\"list-inline float-right\">\n                            <li class=\"list-inline-item\">\n                                <button class=\"btn blue mr-2\">Submit</button>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            </form>\n        </ng-container>\n    </div>\n</div>\n    ";
+    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"row\">\n            <div class=\"col-sm-8\" *ngIf=\"data\">\n                <h5 *ngIf=\"data.type == 'create'\">Create Meeting</h5>\n                <h5 *ngIf=\"data.type == 'edit'\">Edit Meeting</h5>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <ng-container>\n            <form #addmeetingForm = \"ngForm\" name=\"addmeetingForm\" novalidate>\n                <div class=\"row\">\n                    <div  class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Role Type</label>\n                            <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                            [(ngModel)]=\"roleTypeArr.selectedItems\"\n                            [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getAppartmentRole($event)\"\n                            (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\"></angular2-multiselect>\n                        </div>  \n                    </div>\n                    <div  class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Apartment Block</label>\n                            <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                            [(ngModel)]=\"apartmentBlock.selectedItems\"\n                            [settings]=\"blockdropdownSettings\"\n                            (onSelect)=\"updateUsers()\"></angular2-multiselect>\n                        </div>  \n                    </div>\n                    <div  class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Conditions</label>\n                            <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                            [(ngModel)]=\"condition.selectedItems\"\n                            [settings]=\"roleDropdownSettings\" \n                            (onSelect)=\"updateUsers()\"\n                            ></angular2-multiselect>\n                        </div>  \n                    </div>\n                    <div  class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Role</label>\n                            <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleDropDown\"\n                            [(ngModel)]=\"roleCategory.selectedItems\"\n                            [settings]=\"roleDropdownSettings\"\n                            (onSelect)=\"getstaffCategories($event)\"  (onDeSelect)=\"removeStaffCategories($event)\"\n                            (onSelectAll)=\"getAllStaffCategories($event)\"  (onDeSelectAll)=\"removeAllStaffCategories($event)\"\n                            ></angular2-multiselect>\n                        </div>  \n                        </div>\n                        <div  class=\"col-sm-4\" *ngIf=\"this.roleCategory.selectedItems.length>0 && isStaff\">\n                        <div class=\"select-box\">\n                            <label>Staff Category</label>\n                            <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffDropDown\"\n                            [(ngModel)]=\"staffCategory.selectedItems\"\n                            [settings]=\"dropdownSettings\"\n                            (onSelect)=\"getStaffSubCategories($event)\" (onDeSelect)=\"removeSubStaffCategories($event)\"\n                            (onSelectAll)=\"getAllSubStaffCategories($event)\"  (onDeSelectAll)=\"removeAllSubStaffCategories($event)\" \n                                (onGroupDeSelect)=\"getGroupSubStaffCategories($event)\"       (onGroupSelect)=\"removeGroupSubStaffCategories($event)\"                                >\n                            </angular2-multiselect>\n                        </div>  \n                    </div>\n                    <div  class=\"col-sm-4\" *ngIf=\"this.staffCategory.selectedItems.length>0\">\n                        <div class=\"select-box\">\n                            <label>Staff SubCategory</label>\n                            <angular2-multiselect [data]=\"staffSubCategory.dropdownList\" name=\"subStaffDropDown\"\n                            [(ngModel)]=\"staffSubCategory.selectedItems\"\n                            [settings]=\"dropdownSettings\"\n                            (onSelect)=\"updateUsers()\"        (onDeSelect)=\"updateUsers()\"\n                            (onSelectAll)=\"updateUsers()\"     (onDeSelectAll)=\"updateUsers()\" \n                            (onGroupDeSelect)=\"updateUsers()\" (onGroupSelect)=\"updateUsers()\"   \n                            ></angular2-multiselect>\n                        </div>  \n                    </div>\n                </div>\n                <div class=\"row recipentsDiv\" > \n                    <div class=\"col-sm-12\">\n                        <label>Recipients</label>\n                        <div  class=\"col-sm-12 box\" >\n                            <label *ngFor=\"let user of users\" >\n                                {{user.firstName+\" \"+user.middleName+\" \"+user.lastName+\",\"}}\n                            </label>\n                        </div> \n                    </div> \n                </div>\n                <div class=\"row mt-5\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Meeting Type*</label>\n                            <select \n                                name=\"meetingCategory\" \n                                id=\"meetingCategory\" \n                                class=\"form-control\"\n                                placeholder = \"Meeting Type\"\n                                [(ngModel)]=\"meeting.meetingTypeId\"\n                                (ngModelChange)=\"showTable()\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of meetingCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\" *ngIf=\"showTableContent\">\n                        <table  class=\"table table-borderless table-resizable table-checker\" cellpadding=\"0\" cellspacing=\"0\" [ngClass]=\"isMobileView()\">\n                            <thead>\n                                <tr>\n                                    <th scope=\"col\">Select Date</th>\n                                    <th scope=\"col\">Start Time</th>\n                                    <th scope=\"col\">End Time</th>\n                                    <th scope=\"col\" *ngIf=\"data.type == 'create' || (data.type == 'edit' && subMeeting.length < 1)\">Action</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <td class=\"select w-30\">\n                                        <input class=\"form-control\" name=\"meetingDate\" [owlDateTime]=\"meetingDate\"\n                                            [owlDateTimeTrigger]=\"meetingDate\" placeholder=\"Date\" [(ngModel)]=\"subMeetingField.meetingDate\">\n                                            <owl-date-time #meetingDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <!-- <div class=\"date-btn\">\n                                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                        </div> -->\n                                    </td>\n                                    <td class=\"select w-30\">\n                                        <div class=\"form-group\">\n                                            <input class=\"form-control\" name=\"meetingStartTime\" [owlDateTime]=\"meetingStartTime\" [owlDateTimeTrigger]=\"meetingStartTime\" placeholder=\"Start Time\" [(ngModel)]=\"subMeetingField.meetingStartTime\">\n                                            <owl-date-time [pickerType]=\"'timer'\" #meetingStartTime></owl-date-time>\n                                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingStartTime\">\n                                                <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                            </div>\n                                        </div>\n                                    </td>\n                                    <td class=\"select w-30\">\n                                        <div class=\"form-group\">\n                                            <input class=\"form-control\" name=\"meetingEndTime\" [owlDateTime]=\"meetingEndTime\" [owlDateTimeTrigger]=\"meetingEndTime\" placeholder=\"End Time\" [(ngModel)]=\"subMeetingField.meetingEndTime\">\n                                            <owl-date-time [pickerType]=\"'timer'\" #meetingEndTime></owl-date-time>\n                                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"meetingEndTime\">\n                                                <!-- <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather> -->\n                                            </div>\n                                        </div> \n                                    </td>\n                                    <td class=\"select w-10\" *ngIf=\"data.type == 'create' || (data.type == 'edit' && subMeeting.length < 1)\">\n                                        <a class=\"btn lime-green create-row\" (click)=\"addMeetingSchedule()\" >\n                                            <i class=\"fa fa-plus\"> Add Row</i>\n                                        </a>\n                                        <a class=\"lime-green add-row\" (click)=\"addMeetingSchedule()\" >\n                                            <i class=\"fa fa-plus lime-green mt-3\" (click)=\"addMeetingSchedule()\"></i>\n                                        </a>\n                                        <p class=\"error mt-1\" *ngIf=\"subMeetingField.meetingDate && subMeetingField.meetingStartTime && subMeetingField.meetingEndTime\">Click Add Row</p>\n                                    </td>\n                                </tr>\n                                <tr *ngFor=\"let item of subMeeting;let i = index\">\n                                    <td class=\"select w-30\">{{item.meetingDate | date : 'dd-MM-yyyy'}}</td>\n                                    <td class=\"select w-30\">{{item.meetingStartTime}}</td>\n                                    <td class=\"select w-30\">{{item.meetingEndTime}}</td>\n                                    <td class=\"select w-10\">\n                                        <a href=\"javascript:void(0)\" (click)=\"editMeetingScheduleRow(item,i)\"><i-feather class=\"icon edit mr-3\" name=\"edit\"></i-feather></a>\n                                        <a href=\"javascript:void(0)\" (click)=\"deleteMeetingScheduleRow(i)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n                                    </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n                <br>\n                <div class=\"row\">\n                    <div class=\"col-sm-9 col-10\">\n                        <div class=\"input-box\">\n                            <label>Subject*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Subject\" name=\"meetingSubject\" [(ngModel)]=\"meeting.meetingSubject\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Message*</label>\n                            <quill-editor\n                            class=\"quill-editor\"\n                            name=\"ckeditor\"\n                            placeholder=\"Message Description\"\n                            [(ngModel)]=\"meeting.meetingMessage\">\n                            </quill-editor>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row btn-wrapper\" *ngIf=\"data\">\n                    <div class=\"col-sm-12 text-right\" >\n                        <a *ngIf=\"data.type == 'create'\" href=\"javascript:void(0)\" class=\"btn blue mr-3\" (click)=\"onCreate()\">Submit</a>\n                        <a *ngIf=\"data.type == 'edit'\" href=\"javascript:void(0)\" class=\"btn blue mr-3\" (click)=\"onUpdate()\">Update</a>\n                        <a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"onDismiss()\">Cancel</a>\n                    </div>\n                </div>\n            </form>\n        </ng-container>\n    </div>\n</div>\n    ";
     /***/
   },
 
@@ -211,73 +211,75 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-    /* harmony import */
-
-
-    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! src/app/api/controllers/User */
     "./src/app/api/controllers/User.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/api/controllers/Apartment */
     "./src/app/api/controllers/Apartment.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/api/controllers/Lookup */
     "./src/app/api/controllers/Lookup.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_7___default =
+    var moment__WEBPACK_IMPORTED_MODULE_6___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
     /* harmony import */
 
 
-    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/api/controllers/Staff */
     "./src/app/api/controllers/Staff.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! src/app/api/controllers/Meeting */
     "./src/app/api/controllers/Meeting.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
 
     var MeetingsCreateComponent =
     /*#__PURE__*/
     function () {
-      function MeetingsCreateComponent(lookupService, router, cookieService, apartmentService, staffService, userService, meetingService, cd) {
+      function MeetingsCreateComponent(lookupService, cookieService, apartmentService, staffService, userService, meetingService, sharedService) {
         _classCallCheck(this, MeetingsCreateComponent);
 
         this.lookupService = lookupService;
-        this.router = router;
         this.cookieService = cookieService;
         this.apartmentService = apartmentService;
         this.staffService = staffService;
         this.userService = userService;
         this.meetingService = meetingService;
-        this.cd = cd;
-        this.isAddMeeting = true;
+        this.sharedService = sharedService;
+        this.data = {
+          type: 'create'
+        };
+        this.popupClose = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.subMeeting = [];
         this.subMeetingField = {
           meetingDate: '',
@@ -315,14 +317,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           "dropdownList": [],
           "selectedItems": []
         };
-      }
+      } // Goback(){
+      //   this.router.navigate(['ams/meetings/list']);
+      // }
+
 
       _createClass(MeetingsCreateComponent, [{
-        key: "Goback",
-        value: function Goback() {
-          this.router.navigate(['ams/meetings/list']);
-        }
-      }, {
         key: "isMobileView",
         value: function isMobileView() {
           return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -574,11 +574,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addMeetingSchedule",
         value: function addMeetingSchedule() {
+          if (this.data.type == 'edit' && this.subMeeting.length < 1) {
+            this.addSchedule();
+          }
+
+          if (this.data.type == 'create') {
+            this.addSchedule();
+          }
+        }
+      }, {
+        key: "addSchedule",
+        value: function addSchedule() {
           if (this.subMeetingField.meetingDate && this.subMeetingField.meetingStartTime && this.subMeetingField.meetingEndTime) {
             var entity = {
-              meetingDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingDate).format(),
-              meetingStartTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingStartTime).format('hh:mm'),
-              meetingEndTime: moment__WEBPACK_IMPORTED_MODULE_7__(this.subMeetingField.meetingEndTime).format('hh:mm')
+              meetingDate: moment__WEBPACK_IMPORTED_MODULE_6__(this.subMeetingField.meetingDate).format(),
+              meetingStartTime: moment__WEBPACK_IMPORTED_MODULE_6__(this.subMeetingField.meetingStartTime).format('HH:mm'),
+              meetingEndTime: moment__WEBPACK_IMPORTED_MODULE_6__(this.subMeetingField.meetingEndTime).format('HH:mm')
             };
             this.subMeeting.push(entity);
             this.subMeetingField.meetingDate = '';
@@ -589,9 +600,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editMeetingScheduleRow",
         value: function editMeetingScheduleRow(data, index) {
-          this.subMeetingField.meetingDate = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingDate).format();
-          this.subMeetingField.meetingStartTime = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingStartTime, 'hh:mm a').format();
-          this.subMeetingField.meetingEndTime = moment__WEBPACK_IMPORTED_MODULE_7__(data.meetingEndTime, 'hh:mm a').format();
+          this.subMeetingField.meetingDate = moment__WEBPACK_IMPORTED_MODULE_6__(data.meetingDate).format();
+          this.subMeetingField.meetingStartTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.meetingStartTime, 'HH:mm').format();
+          this.subMeetingField.meetingEndTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.meetingEndTime, 'HH:mm').format();
           ;
           this.subMeeting.splice(index, 1);
         }
@@ -601,8 +612,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.subMeeting.splice(index, 1);
         }
       }, {
-        key: "submitAddmeetingForm",
-        value: function submitAddmeetingForm(data) {
+        key: "onCreate",
+        value: function onCreate() {
           var _this11 = this;
 
           var apartment = this.apartmentBlock.selectedItems.reduce(function (acc, data, index) {
@@ -662,7 +673,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   meetingTypeId: parseInt(_this11.meeting.meetingTypeId),
                   meetingCategoryId: null,
                   meetingRecipientsIds: users,
-                  meetingDate: new Date(_this11.subMeeting[i].meetingDate).toISOString(),
+                  meetingDate: _this11.subMeeting[i].meetingDate,
                   fromTime: _this11.subMeeting[i].meetingStartTime,
                   toTime: _this11.subMeeting[i].meetingEndTime,
                   subject: _this11.meeting.meetingSubject,
@@ -680,43 +691,217 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 };
 
                 _this11.meetingService.addMeeting(_params).subscribe(function (res) {
-                  console.log(res);
+                  _this11.sharedService.setAlertMessage("Meeting Created successfully");
+
+                  _this11.popupClose.emit(true);
                 });
               }
             }
           });
         }
       }, {
+        key: "onUpdate",
+        value: function onUpdate() {
+          var _this12 = this;
+
+          var apartment = this.apartmentBlock.selectedItems.reduce(function (acc, data, index) {
+            if (index == 0) {
+              return JSON.stringify(data.apartmentBlockId);
+            } else {
+              return acc + ',' + JSON.stringify(data.apartmentBlockId);
+            }
+          }, '');
+          var condition = this.condition.selectedItems.reduce(function (acc, data, index) {
+            if (index == 0) {
+              return JSON.stringify(data.value);
+            } else {
+              return acc + ',' + JSON.stringify(data.value);
+            }
+          }, '');
+          var roleIds = this.roleCategory.selectedItems.reduce(function (acc, data, index) {
+            if (index == 0) {
+              return JSON.stringify(data.value);
+            } else {
+              return acc + ',' + JSON.stringify(data.value);
+            }
+          }, '');
+          var params = {};
+          params.meetingFilters_model = {
+            "filterId": this.meeting.filterId,
+            "roleTypeId": Number(this.roleTypeArr.selectedItems.length > 0 ? this.roleTypeArr.selectedItems[0].value : 0),
+            "apartmentBlockIds": String(apartment ? apartment : '0'),
+            "conditions": String(condition ? condition : '0'),
+            "roleIds": String(roleIds),
+            "staffCategoryIds": '0',
+            "subStaffCategoryIds": '0',
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null
+          };
+          this.meetingService.upsertMeetingFilters(params).toPromise();
+          var users = this.users.reduce(function (acc, data, i) {
+            if (i == 0) {
+              return JSON.stringify(data.userId);
+            } else {
+              return acc + ',' + JSON.stringify(data.userId);
+            }
+          }, '');
+          var meetingUpdate = {};
+
+          for (var i = 0; i < this.subMeeting.length; i++) {
+            meetingUpdate.meetings = {
+              meetingId: this.meeting.meetingId,
+              filterId: this.meeting.filterId,
+              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              meetingTypeId: parseInt(this.meeting.meetingTypeId),
+              meetingCategoryId: null,
+              meetingRecipientsIds: users,
+              meetingDate: this.subMeeting[i].meetingDate,
+              fromTime: this.subMeeting[i].meetingStartTime,
+              toTime: this.subMeeting[i].meetingEndTime,
+              subject: this.meeting.meetingSubject,
+              message: this.meeting.meetingMessage,
+              comments: "string",
+              isActive: true,
+              insertedBy: parseInt(this.cookieService.get('userId')),
+              insertedOn: new Date().toISOString(),
+              updatedBy: null,
+              updatedOn: null,
+              meetingStatusId: null,
+              meetingAttendees: "string",
+              meetingminutes: "string",
+              actionitems: "string"
+            };
+            this.meetingService.updateMeeting(meetingUpdate).subscribe(function (res) {
+              _this12.sharedService.setAlertMessage("Meeting Updated successfully");
+
+              _this12.popupClose.emit(true);
+            });
+          }
+        }
+      }, {
+        key: "onDismiss",
+        value: function onDismiss() {
+          this.popupClose.emit(false);
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this13 = this;
 
           this.meeting = {};
           var params = {
             LookupTypeId: 21
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this12.meetingCategoryData = res.filter(function (item) {
+            _this13.meetingCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
           this.userService.getAllRoleTypes().subscribe(function (res) {
-            _this12.roleTypeArr.dropdownList = res;
+            _this13.roleTypeArr.dropdownList = res;
           });
           var users = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.userService.getUsersByApartmentId(users).subscribe(function (res) {
-            _this12.allUsers = res;
+            _this13.allUsers = res;
 
-            _this12.updateUsers();
+            _this13.updateUsers();
           });
           var apartmentBlock = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(apartmentBlock).subscribe(function (res) {
-            _this12.apartmentBlock.dropdownList = res;
-          });
+            _this13.apartmentBlock.dropdownList = res;
+          }); //Meeting Edit
+
+          if (this.data.type == 'edit') {
+            var _params2 = {
+              meetingId: parseInt(this.data.id)
+            };
+            this.meetingService.getMeetingById(_params2).subscribe(function (res) {
+              _this13.meeting.meetingSubject = res[0].subject;
+              _this13.meeting.meetingMessage = res[0].message;
+              _this13.meeting.meetingTypeId = res[0].meetingTypeId;
+              _this13.meeting.filterId = res[0].filterId;
+              _this13.meeting.meetingId = parseInt(_this13.data.id);
+              var entity = {
+                meetingDate: moment__WEBPACK_IMPORTED_MODULE_6__(res[0].meetingDate).format(),
+                meetingStartTime: res[0].fromTime,
+                meetingEndTime: res[0].toTime
+              };
+              _this13.showTableContent = true;
+
+              _this13.subMeeting.push(entity);
+
+              var filterId = {
+                apartmentId: parseInt(_this13.cookieService.get('apartmentId'))
+              };
+
+              _this13.meetingService.getMeetingFiltersByApartmentId(filterId).subscribe(function (filterList) {
+                var filter = filterList.filter(function (ele) {
+                  return res[0].filterId == ele.filterId;
+                });
+
+                if (filter.length > 0) {
+                  _this13.roleTypeArr.selectedItems = _this13.roleTypeArr.dropdownList.filter(function (role) {
+                    return role.value == filter[0].roleTypeId;
+                  });
+                  var apartment = filter[0].apartmentBlockIds.split(',');
+                  apartment.forEach(function (ele1) {
+                    _this13.apartmentBlock.dropdownList.forEach(function (ele2) {
+                      if (parseInt(ele1) == ele2.apartmentBlockId) {
+                        _this13.apartmentBlock.selectedItems.push(ele2);
+                      }
+                    });
+                  });
+                  var user = {
+                    'ApartmentId': parseInt(_this13.cookieService.get('apartmentId')),
+                    'RoleTypeId': _this13.roleTypeArr.selectedItems[0].value
+                  };
+
+                  _this13.userService.getApartmentRolesByRoleTypeId(user).subscribe(function (userRole) {
+                    _this13.roleCategory.dropdownList = userRole;
+                    var conditinArr = [{
+                      "name": "IsLiving",
+                      "value": 1
+                    }, {
+                      "name": "IsPrimaryContact",
+                      "value": 2
+                    }];
+
+                    if (parseInt(_this13.roleTypeArr.selectedItems[0].value) == 2 || parseInt(_this13.roleTypeArr.selectedItems[0].valuee) == 4) {
+                      _this13.condition.dropdownList = conditinArr;
+                    }
+
+                    var roleId = filter[0].roleIds.split(',');
+                    roleId.forEach(function (ele1) {
+                      _this13.roleCategory.dropdownList.forEach(function (ele2) {
+                        if (parseInt(ele1) == ele2.value) {
+                          _this13.roleCategory.selectedItems.push(ele2);
+                        }
+                      });
+                    });
+                    var conditions = filter[0].conditions.split(',');
+                    conditions.forEach(function (ele1) {
+                      _this13.condition.dropdownList.forEach(function (ele2) {
+                        if (parseInt(ele1) == ele2.value) {
+                          _this13.condition.selectedItems.push(ele2);
+                        }
+                      });
+                    });
+
+                    _this13.updateUsers();
+                  });
+                }
+              });
+            });
+          }
+
           this.roleTypedropdownSettings = {
             singleSelection: true,
             primaryKey: 'value',
@@ -762,24 +947,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     MeetingsCreateComponent.ctorParameters = function () {
       return [{
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
       }, {
-        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"]
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"]
       }, {
-        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_8__["MeetingService"]
       }, {
-        type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_9__["MeetingService"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('popup'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], MeetingsCreateComponent.prototype, "data", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], MeetingsCreateComponent.prototype, "popupClose", void 0);
     MeetingsCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-meetings-create',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -788,7 +973,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./meetings-create.component.scss */
       "./src/app/ams/meetings/components/meetings-create/meetings-create.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_9__["MeetingService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], MeetingsCreateComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_8__["MeetingService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]])], MeetingsCreateComponent);
     /***/
   },
 
@@ -909,14 +1094,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       _createClass(MeetingsListComponent, [{
-        key: "getPrintParams",
-        value: function getPrintParams(event) {
-          this.datagrid.exportdata(event, 'Meeting');
-        }
-      }, {
         key: "searchData",
         value: function searchData() {
-          var _this13 = this;
+          var _this14 = this;
 
           if (this.meetingFilter != "") {
             var filtergroup = new jqx.filter();
@@ -929,7 +1109,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this14.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -938,8 +1118,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "addMeeting",
+        value: function addMeeting() {
+          this.router.navigate(['ams/meetings/create']);
+        }
+      }, {
+        key: "isMobileView",
+        value: function isMobileView() {
+          return window.innerWidth <= 767 ? 'table-responsive' : '';
+        }
+      }, {
+        key: "getMeetingList",
+        value: function getMeetingList() {
+          var _this15 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
+            _this15.lstMeetingData = res;
+            _this15.gridSourceData = {
+              localdata: _this15.lstMeetingData.reverse(),
+              datatype: "array"
+            };
+            _this15.lstMeetingData = new jqx.dataAdapter(_this15.gridSourceData);
+            _this15.isMeetingDataLoaded = true;
+          }, function (error) {
+            console.log(error);
+          });
+        }
+      }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'Meeting');
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this16 = this;
+
           this.getMeetingList();
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -959,16 +1176,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             },
             renderer: columnrenderer
           }, {
-            text: 'From Time',
+            text: 'Time',
             datafield: 'fromTime',
-            minwidth: 100,
-            cellsrenderer: cellsrenderer,
-            renderer: columnrenderer
-          }, {
-            text: 'To Time',
-            datafield: 'toTime',
-            cellsrenderer: cellsrenderer,
-            minwidth: 100,
+            minwidth: 160,
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              var time,
+                  fromTime,
+                  toTime = _this16.lstMeetingData.loadedData[row].toTime;
+
+              if (value && toTime) {
+                fromTime = moment__WEBPACK_IMPORTED_MODULE_3__(value, 'HH:mm:ss').format('hh:mm A');
+                toTime = moment__WEBPACK_IMPORTED_MODULE_3__(toTime, 'HH:mm:ss').format('hh:mm A');
+                time = "".concat(fromTime, " - ").concat(toTime);
+              } else {
+                time = '-';
+              }
+
+              return '<div class="jqx-custom-inner-cell">' + time + '</div>';
+            },
             renderer: columnrenderer
           }, {
             text: 'Type',
@@ -978,7 +1203,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             renderer: columnrenderer
           }, {
             text: 'Catgeory',
-            datafield: 'meetingCategoryId',
+            datafield: 'meetingCategoryName',
             cellsrenderer: cellsrenderer,
             minwidth: 100,
             renderer: columnrenderer
@@ -989,48 +1214,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 150,
             renderer: columnrenderer
           }, {
-            text: 'Recepients',
-            datafield: 'meetingRecipientsId',
-            cellsrenderer: cellsrenderer,
-            minwidth: 80,
-            renderer: columnrenderer
-          }, {
             text: 'Status',
-            datafield: 'meetingStatusId',
+            datafield: 'meetingStatusName',
             cellsrenderer: cellsrenderer,
             minwidth: 80,
             renderer: columnrenderer
           }];
-        }
-      }, {
-        key: "getMeetingList",
-        value: function getMeetingList() {
-          var _this14 = this;
-
-          var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-          };
-          this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
-            _this14.lstMeetingData = res;
-            _this14.gridSourceData = {
-              localdata: _this14.lstMeetingData,
-              datatype: "array"
-            };
-            _this14.lstMeetingData = new jqx.dataAdapter(_this14.gridSourceData);
-            _this14.isMeetingDataLoaded = true;
-          }, function (error) {
-            console.log(error);
-          });
-        }
-      }, {
-        key: "addMeeting",
-        value: function addMeeting() {
-          this.router.navigate(['ams/meetings/create']);
-        }
-      }, {
-        key: "isMobileView",
-        value: function isMobileView() {
-          return window.innerWidth <= 767 ? 'table-responsive' : '';
         }
       }]);
 
@@ -1306,7 +1495,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "appointmentClick",
         value: function appointmentClick(event) {
-          var _this15 = this;
+          var _this17 = this;
 
           if (this.cookieService.get('userRole') == 'Admin') {
             var data = event.args.appointment.originalData;
@@ -1318,7 +1507,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this15.getMeetingList();
+                _this17.getMeetingList();
               }
             });
           }
@@ -1326,7 +1515,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "appointmentAdd",
         value: function appointmentAdd(event) {
-          var _this16 = this;
+          var _this18 = this;
 
           this.myScheduler.closeDialog();
 
@@ -1341,7 +1530,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this16.getMeetingList();
+                _this18.getMeetingList();
               }
             });
           }
@@ -1349,14 +1538,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMeetingList",
         value: function getMeetingList() {
-          var _this17 = this;
+          var _this19 = this;
 
           var params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
             if (res.length > 0) {
-              _this17.schedulerList = [];
+              _this19.schedulerList = [];
               res.forEach(function (data, i) {
                 var year = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).year();
                 var month = moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).month();
@@ -1376,10 +1565,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   end: new Date(year, month, date, endHours, endMin)
                 };
 
-                _this17.schedulerList.push(entity);
+                _this19.schedulerList.push(entity);
               });
-              _this17.source.localdata = _this17.schedulerList;
-              _this17.dataAdapter = new jqx.dataAdapter(_this17.source); //this.resources.source = new jqx.dataAdapter(this.source);
+              _this19.source.localdata = _this19.schedulerList;
+              _this19.dataAdapter = new jqx.dataAdapter(_this19.source); //this.resources.source = new jqx.dataAdapter(this.source);
             }
           });
         }
@@ -1554,7 +1743,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteMeetingCategory",
         value: function deleteMeetingCategory(item, index) {
-          var _this18 = this;
+          var _this20 = this;
 
           this.isMeetingCategoryLoaded = false;
           console.log(item);
@@ -1563,11 +1752,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             updateUserId: parseInt(this.cookieService.get('userId'))
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-            _this18.meetingCategoryData.splice(index, 1);
+            _this20.meetingCategoryData.splice(index, 1);
 
-            _this18.isMeetingCategoryLoaded = true;
+            _this20.isMeetingCategoryLoaded = true;
 
-            _this18.removeCategoryBox();
+            _this20.removeCategoryBox();
           });
         }
       }, {
@@ -1582,7 +1771,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitMeetingCategoryForm",
         value: function submitMeetingCategoryForm(form) {
-          var _this19 = this;
+          var _this21 = this;
 
           this.isMeetingCategorySubmitted = false;
 
@@ -1603,26 +1792,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.addLookupValue(params).subscribe(function (res) {
               if (res.message) {
-                var _params2 = {
+                var _params3 = {
                   LookupTypeId: 21
                 };
 
-                _this19.lookupService.getLookupValueByLookupTypeId(_params2).subscribe(function (res) {
-                  _this19.isMeetingCategorySubmitted = true;
-                  _this19.isCategorySuccess = true;
+                _this21.lookupService.getLookupValueByLookupTypeId(_params3).subscribe(function (res) {
+                  _this21.isMeetingCategorySubmitted = true;
+                  _this21.isCategorySuccess = true;
 
-                  _this19.sharedService.setAlertMessage("Meeting Type Added Successfully!");
+                  _this21.sharedService.setAlertMessage("Meeting Type Added Successfully!");
 
-                  _this19.meetingCategoryData = res.filter(function (item) {
+                  _this21.meetingCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
 
-                _this19.removeCategoryBox();
+                _this21.removeCategoryBox();
               } else {
-                _this19.isMeetingCategorySubmitted = true;
-                _this19.isCategoryError = true;
-                _this19.alertMeetingMessage = res.errorMessage;
+                _this21.isMeetingCategorySubmitted = true;
+                _this21.isCategoryError = true;
+                _this21.alertMeetingMessage = res.errorMessage;
               }
             });
           } else {
@@ -1638,31 +1827,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "updatedBy": null,
               "updatedOn": null
             };
-            var _params3 = {
+            var _params4 = {
               lookupvalue: _details
             };
-            this.lookupService.updateLookupValue(_params3).subscribe(function (res) {
+            this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
               if (res.message) {
-                var _params4 = {
+                var _params5 = {
                   LookupTypeId: 21
                 };
 
-                _this19.lookupService.getLookupValueByLookupTypeId(_params4).subscribe(function (res) {
-                  _this19.isMeetingCategorySubmitted = true;
-                  _this19.isCategorySuccess = true;
+                _this21.lookupService.getLookupValueByLookupTypeId(_params5).subscribe(function (res) {
+                  _this21.isMeetingCategorySubmitted = true;
+                  _this21.isCategorySuccess = true;
 
-                  _this19.sharedService.setAlertMessage("Meeting Type Updated Successfully!");
+                  _this21.sharedService.setAlertMessage("Meeting Type Updated Successfully!");
 
-                  _this19.meetingCategoryData = res.filter(function (item) {
+                  _this21.meetingCategoryData = res.filter(function (item) {
                     return item.isActive;
                   });
                 });
 
-                _this19.removeCategoryBox();
+                _this21.removeCategoryBox();
               } else {
-                _this19.isMeetingCategorySubmitted = true;
-                _this19.isCategoryError = true;
-                _this19.alertMeetingMessage = res.errorMessage;
+                _this21.isMeetingCategorySubmitted = true;
+                _this21.isCategoryError = true;
+                _this21.alertMeetingMessage = res.errorMessage;
               }
             });
           }
@@ -1670,15 +1859,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this20 = this;
+          var _this22 = this;
 
           this.meeting = {};
           var params = {
             LookupTypeId: 21
           };
           this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-            _this20.isMeetingCategoryLoaded = true;
-            _this20.meetingCategoryData = res.filter(function (item) {
+            _this22.isMeetingCategoryLoaded = true;
+            _this22.meetingCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -1686,8 +1875,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 22
           };
           this.lookupService.getLookupValueByLookupTypeId(meetingParams).subscribe(function (res) {
-            _this20.isMeetingCategoryLoaded = true;
-            _this20.recepientsTypeData = res.filter(function (item) {
+            _this22.isMeetingCategoryLoaded = true;
+            _this22.recepientsTypeData = res.filter(function (item) {
               return item.isActive;
             });
           });

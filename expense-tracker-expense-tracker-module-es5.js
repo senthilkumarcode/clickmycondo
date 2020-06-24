@@ -121,7 +121,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"expense-post-collection-wrapper mt-20\">\n\n\t<div class=\"card clear mb-30\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Post Collection</h5>\n    \t\t</div>\n\t\t</div>\n\n\t\t<form #postExpenseCollectionForm = \"ngForm\" name=\"postExpenseCollectionForm\" (ngSubmit)=\"submitExpensePostCollectionForm(postExpenseCollectionForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isCollectionSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isCollectionSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Payment Amount*</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"collectionAmount\" [(ngModel)]=\"collection.paymentAmount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                   <label>Instrument Type*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"InstrumentType\" \n\t\t\t\t\t\t\t        id=\"InstrumentType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"collection.instrumentTypeId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of instrumentTypeListData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Post On*</label>\n\t\t\t                    <input class=\"form-control\" name=\"collectionPostOn\" [owlDateTime]=\"collectionPostOn\" [owlDateTimeTrigger]=\"collectionPostOn\" placeholder=\"Date\" [(ngModel)]=\"collection.postOn\">\n\t\t\t\t\t\t\t\t<owl-date-time #collectionPostOn [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"collectionPostOn\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Comments</label>\n\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"collection.comment\" required>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"postExpenseCollectionForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"expense-post-collection-wrapper mt-20\">\n\n\t<div class=\"card clear mb-30\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Post Collection</h5>\n    \t\t</div>\n\t\t</div>\n\n\t\t<form #postExpenseCollectionForm = \"ngForm\" name=\"postExpenseCollectionForm\" (ngSubmit)=\"submitExpensePostCollectionForm(postExpenseCollectionForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isCollectionSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isCollectionSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Payment Amount*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" \n\t\t\t\t\t\t\t\tclass=\"form-control\" \n\t\t\t\t\t\t\t\tplaceholder=\"Enter text\"\n\t\t\t\t\t\t\t\t[customMin] =\"minCollectionAmount\" [customMax] =\"maxCollectionAmount\" \n\t\t\t\t\t\t\t\tname=\"collectionAmount\" [(ngModel)]=\"collection.paymentAmount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                   <label>Instrument Type*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"InstrumentType\" \n\t\t\t\t\t\t\t        id=\"InstrumentType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"collection.instrumentTypeId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of instrumentTypeListData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Post On*</label>\n\t\t\t                    <input class=\"form-control\" name=\"collectionPostOn\" [owlDateTime]=\"collectionPostOn\" [owlDateTimeTrigger]=\"collectionPostOn\" placeholder=\"Date\" [(ngModel)]=\"collection.postOn\">\n\t\t\t\t\t\t\t\t<owl-date-time #collectionPostOn [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"collectionPostOn\">\n  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Comments</label>\n\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"collection.comment\" required>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"postExpenseCollectionForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>";
     /***/
   },
 
@@ -2309,6 +2309,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isCollectionSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
+        this.minCollectionAmount = 1;
+        this.maxCollectionAmount = 0;
+        this.isMultipleEntry = false;
         this.collectionParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](false);
       }
 
@@ -2379,9 +2382,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.collection = {};
           this.collection.instrumentTypeId = "";
-          this.collection.paymentAmount = this.totalAmountArray.reduce(function (a, b) {
-            return a + b;
-          });
           var params = {
             LookupTypeId: 33
           }; //payment mode
@@ -2399,13 +2399,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this14.glAccountListData = res;
           });
           this.isCollectionSubmitted = true;
+          this.collection.paymentAmount = parseFloat(this.totalAmountArray[0]).toFixed(2);
+          this.maxCollectionAmount = this.collection.paymentAmount;
         }
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges(changes) {
-          this.collection.paymentAmount = this.totalAmountArray.reduce(function (a, b) {
-            return a + b;
-          });
+          if (this.totalAmountArray.length > 1) {
+            this.isMultipleEntry = true;
+            this.collection.paymentAmount = this.totalAmountArray.reduce(function (a, b) {
+              return a + b;
+            }).toFixed(2);
+            this.maxCollectionAmount = this.collection.paymentAmount;
+          } else {
+            this.isMultipleEntry = false;
+            this.collection.paymentAmount = parseFloat(this.totalAmountArray[0]).toFixed(2);
+            this.maxCollectionAmount = this.collection.paymentAmount;
+          }
         }
       }]);
 

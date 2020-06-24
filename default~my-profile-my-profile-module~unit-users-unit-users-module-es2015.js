@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-basic wrapper profile-section\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isUserDataLoaded && !isEdit\">\n\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit\">\n\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<ng-container *ngIf=\"isUserDataLoaded && !isEdit\">\n\t\t\n\t\t<form #profileBasicForm = \"ngForm\" name=\"profileBasicForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>First Name</label>\n\t\t\t                <p>{{user.firstName}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>Last Name</label>\n\t\t\t                <p>{{user.lastName}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Phone/Mobile</label>\n\t\t                    <p>{{user.phoneNumber}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Address</label>\n\t\t                    <p>{{user.address1}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Email</label>\n\t\t                    <p>{{user.emailId}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Date Of Birth</label>\n\t\t                    <p>{{getDOB(user.dob)}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t<p>{{user.bloodGroup}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-12 border-top\">\n\t\t\t\t\t\t<div class=\"profile-pic-upload input-box\">\n\t\t\t\t\t\t\t<label>Profile Picture</label>\n\t\t\t\t\t\t\t<figure class=\"profile-picture\" *ngIf=\"!isDefaultProfilePic\">\n\t\t\t\t\t\t\t\t<img class=\"svg\" [src] =\"user.image\" id=\"userProfile\">\n\t\t\t\t\t\t\t</figure>\n\t\t\t\t\t\t\t<ng-container *ngIf=\"isDefaultProfilePic\">\n\t\t\t\t\t\t\t\t<div class=\"browse-files\" appDragAndDrop (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted()\">\n\t\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t\t<div class=\"attachfiles-normal\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"attachfiles-dragSupport\">Drop file here or </span>\n\t\t\t\t\t\t\t\t\t\t<a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n\t\t\t\t\t\t\t\t\t<div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isUserDataLoaded && isEdit\">\n\t\t\n\t\t<form #profileBasicForm = \"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>First Name*</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Last Name*</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Phone/Mobile*</label>\n\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"number\" class=\"form-control\" placeholder=\"Phoneno\" name=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\">\n\t\t\t\t\t\t<!-- <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"number\"  #phoneNo=\"ngModel\" pattern=\"^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[789]\\d{9}$\" \n\t\t\t\t\t\tclass=\"form-control\" placeholder=\"Phoneno\" name=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\" required [ngClass]=\"isInvalidLogin ? 'error' :''\">\n\t\t\t\t\t\t<span *ngIf=\"phoneNo.errors && phoneNo.dirty\" class = \"error-message\" >Invalid input</span> -->\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Address</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address\" [(ngModel)]=\"user.address1\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Email*</label>\n\t                    <input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"user.emailId\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Date Of Birth</label>\n\t                    <input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\" [owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date of Birth\" [(ngModel)]=\"user.dob\">\n\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"userDOB\">\n\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t</div>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t                        <input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\"  value=\"43\" type=\"radio\" required>\n\t                        <label class=\"radio-inline\" for=\"male\">Male</label>\n\t             \t\t</div>\n\t                \t<div class=\"form-group\">\n\t                        <input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\" type=\"radio\" required>\n\t                        <label class=\"radio-inline\" for=\"female\">Female</label>\n\t                     </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"select-box\">\n\t                   <label>Blood Group</label>\n\t                   <select \n\t\t\t\t\t        name=\"bloodGroup\" \n\t\t\t\t\t        id=\"bloodGroup\" \n\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t        [(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t        <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t    </select>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"profileBasicForm.invalid\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-basic wrapper profile-section\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isUserDataLoaded && !isEdit\">\n\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit\">\n\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<ng-container *ngIf=\"isUserDataLoaded && !isEdit\">\n\t\t\n\t\t<form #profileBasicForm = \"ngForm\" name=\"profileBasicForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>First Name</label>\n\t\t\t                <p>{{user.firstName}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>Last Name</label>\n\t\t\t                <p>{{user.lastName}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Phone/Mobile</label>\n\t\t                    <p>{{user.phoneNumber}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Address</label>\n\t\t                    <p>{{user.address1}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Email</label>\n\t\t                    <p>{{user.emailId}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Date Of Birth</label>\n\t\t                    <p>{{getDOB(user.dob)}}</p>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t<p>{{user.bloodGroup}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-12 border-top\">\n\t\t\t\t\t\t<div class=\"profile-pic-upload input-box\">\n\t\t\t\t\t\t\t<label>Profile Picture</label>\n\t\t\t\t\t\t\t<div class=\"browse-files\" appDragAndDrop (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess()\">\n\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t<div class=\"attachfiles-normal\">\n\t\t\t\t\t\t\t\t\t<span class=\"attachfiles-dragSupport\">Drop file here or </span>\n\t\t\t\t\t\t\t\t\t<a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"progress\" *ngIf=\"isUploadProgess()\">\n\t\t\t\t\t\t\t\t<div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isUserDataLoaded && isEdit\">\n\t\t\n\t\t<form #profileBasicForm = \"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>First Name*</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Last Name*</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\" required>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Phone/Mobile*</label>\n\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"number\" class=\"form-control\" placeholder=\"Phoneno\" name=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\">\n\t\t\t\t\t\t<!-- <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"number\"  #phoneNo=\"ngModel\" pattern=\"^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[789]\\d{9}$\" \n\t\t\t\t\t\tclass=\"form-control\" placeholder=\"Phoneno\" name=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\" required [ngClass]=\"isInvalidLogin ? 'error' :''\">\n\t\t\t\t\t\t<span *ngIf=\"phoneNo.errors && phoneNo.dirty\" class = \"error-message\" >Invalid input</span> -->\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Address</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address\" [(ngModel)]=\"user.address1\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Email*</label>\n\t                    <input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\" [(ngModel)]=\"user.emailId\">\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Date Of Birth</label>\n\t                    <input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\" [owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date of Birth\" [(ngModel)]=\"user.dob\">\n\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"userDOB\">\n\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t</div>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t                        <input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\"  value=\"43\" type=\"radio\" required>\n\t                        <label class=\"radio-inline\" for=\"male\">Male</label>\n\t             \t\t</div>\n\t                \t<div class=\"form-group\">\n\t                        <input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\" type=\"radio\" required>\n\t                        <label class=\"radio-inline\" for=\"female\">Female</label>\n\t                     </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"select-box\">\n\t                   <label>Blood Group</label>\n\t                   <select \n\t\t\t\t\t        name=\"bloodGroup\" \n\t\t\t\t\t        id=\"bloodGroup\" \n\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t        [(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t        <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t    </select>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"profileBasicForm.invalid\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -243,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"my-profile-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"card user-card mb-20\" *ngIf=\"isUserDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\" [ngClass]=\"isNotAdmin() ? 'd-none' : ''\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\" (click)=\"closeUserInfo()\">\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<div class=\"float-left\">\n\t\t\t\t\n\t\t\t\t<div class=\"media\">\n\t\t\t\t  <div class=\"profile-picture\" (click)=\"uploadProfilePic()\">\n\t\t\t\t  \t<img class=\"svg\" *ngIf=\"user && user.image != null\"  [src]=\"user?.image\" id=\"userProfile\">\n\t\t\t\t  \t<img class=\"svg\" *ngIf=\"user && user.image == null\" id=\"userProfile\">\n\t\t\t\t  </div>\n\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t    <h5 class=\"mt-0\">{{user?.firstName}} {{user?.lastName}}</h5>\n\t\t\t\t    <p>{{userRole?.roleName}}</p>\n\t\t\t\t    <ul class=\"other list-inline d-none d-sm-block\">\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t\t    \t\t<span>{{user?.emailId}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t\t    \t\t<span>{{user?.phoneNumber}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    </ul>\n\t\t\t\t  </div>\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"other list-inline d-block d-sm-none\">\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t    \t\t<span>{{user?.emailId}}</span>\n\t\t\t    \t</li>\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t    \t\t<span>{{user?.phoneNumber}}</span>\n\t\t\t    \t</li>\n\t\t\t\t</ul>\n\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<!-- <div class=\"card-body p-0\" [ngClass]=\"isNotAdmin() ? 'border-top' : ''\"> -->\n\t\t<div class=\"card-body p-0 border-top\"> \n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-3\">\n\t\t\t\t\t<div class=\"left-menubar\">\n\t\t\t\t\t\t<h4 [ngClass]=\"isNotAdmin() ? '' : 'd-none'\">Settings</h4>\n\t\t\t\t\t\t<ul class=\"list-group lists\" (click)=\"selectSection()\"  >\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"basic/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/user-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"unit/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/unit-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Details</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<!-- <li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"staffs/{{userId}}\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/staff-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Staffs</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"vehicles/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><i-feather class=\"truck\" name=\"truck\"></i-feather></span>\n\t\t\t\t\t\t\t\t<span>Unit Vehicles & Parking</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"pets/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\" \n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/dog-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Pets</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"propertymanager/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/manager-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Property Manager</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"family/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/family-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Family Members</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"lease/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/key-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Rental/Lease Information</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"interest/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/heart-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>My Interest Group</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"absence/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/moveout-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Out of Condo/Prolonged Absence</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-9 d-none d-md-block\">\n\t\t\t\t\t<div class=\"inner-content\">\n\t\t\t\t\t\t<router-outlet></router-outlet>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"my-profile-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"card user-card mb-20\" *ngIf=\"isUserDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\" [ngClass]=\"isAdmin() ? '' : 'd-none'\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"float-right\" (click)=\"closeUserInfo()\">\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<div class=\"float-left\">\n\t\t\t\t\n\t\t\t\t<div class=\"media\">\n\t\t\t\t  <div class=\"profile-picture\">\n\t\t\t\t\t  <img class=\"svg\" [src]=\"profilePicUrl\" id=\"userProfile\" *ngIf=\"!isAdmin()\">\n\t\t\t\t\t  <img class=\"svg\" [src]=\"userPicUrl\" id=\"userProfile\" *ngIf=\"isAdmin()\">\n\t\t\t\t  </div>\n\t\t\t\t  <div class=\"media-body\">\n\t\t\t\t    <h5 class=\"mt-0\">{{user.firstName}} {{user.lastName}}</h5>\n\t\t\t\t    <p>{{user.roleName}}</p>\n\t\t\t\t    <ul class=\"other list-inline d-none d-sm-block\">\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t\t    \t\t<span>{{user.emailId}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t\t    \t\t<span>{{user.phoneNumber}}</span>\n\t\t\t\t    \t</li>\n\t\t\t\t    </ul>\n\t\t\t\t  </div>\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"other list-inline d-block d-sm-none\">\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon\" name=\"mail\"></i-feather>\n\t\t\t    \t\t<span>{{user.emailId}}</span>\n\t\t\t    \t</li>\n\t\t\t    \t<li class=\"list-inline-item\">\n\t\t\t    \t\t<i-feather class=\"icon phone\" name=\"phone\"></i-feather>\n\t\t\t    \t\t<span>{{user.phoneNumber}}</span>\n\t\t\t    \t</li>\n\t\t\t\t</ul>\n\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class=\"card-body p-0 border-top\"> \n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-3\">\n\t\t\t\t\t<div class=\"left-menubar\">\n\t\t\t\t\t\t<h4 [ngClass]=\"isAdmin() ? 'd-none' : ''\">Settings</h4>\n\t\t\t\t\t\t<ul class=\"list-group lists\" (click)=\"selectSection()\"  >\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"basic/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/user-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Profile</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"unit/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/unit-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Details</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<!-- <li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"staffs/{{userId}}\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/staff-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Staffs</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"vehicles/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><i-feather class=\"truck\" name=\"truck\"></i-feather></span>\n\t\t\t\t\t\t\t\t<span>Unit Vehicles & Parking</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"pets/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\" \n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/dog-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Unit Pets</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"propertymanager/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/manager-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Property Manager</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"family/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/family-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Family Members</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"lease/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/key-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Rental/Lease Information</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"interest/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/heart-liner-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>My Interest Group</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"absence/{{userId}}\" \n\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<span class=\"icon\"><img class=\"svg\" src=\"assets/images/moveout-icon.svg\" width=\"20\" /></span>\n\t\t\t\t\t\t\t\t<span>Out of Condo/Prolonged Absence</span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12 col-md-12 col-lg-9 d-none d-md-block\">\n\t\t\t\t\t<div class=\"inner-content\">\n\t\t\t\t\t\t<router-outlet></router-outlet>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>");
 
 /***/ }),
 
@@ -999,20 +999,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/services/profilep-pic-upload.service */ "./src/app/shared/services/profilep-pic-upload.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var src_app_ams_unit_users_components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/ams/unit-users/components/unapproved/unapproved.component */ "./src/app/ams/unit-users/components/unapproved/unapproved.component.ts");
-
-
-
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../shared/services/profilep-pic-upload.service */ "./src/app/shared/services/profilep-pic-upload.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_ams_unit_users_components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/ams/unit-users/components/unapproved/unapproved.component */ "./src/app/ams/unit-users/components/unapproved/unapproved.component.ts");
 
 
 
@@ -1024,13 +1018,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileBasicComponent = class ProfileBasicComponent {
-    constructor(httpClient, sanitizer, router, route, userService, fileDetailsService, lookupService, sharedService, profilepPicUploadService, cookieService) {
-        this.httpClient = httpClient;
-        this.sanitizer = sanitizer;
+    constructor(router, route, userService, lookupService, sharedService, profilepPicUploadService, cookieService) {
         this.router = router;
         this.route = route;
         this.userService = userService;
-        this.fileDetailsService = fileDetailsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.profilepPicUploadService = profilepPicUploadService;
@@ -1040,8 +1031,6 @@ let ProfileBasicComponent = class ProfileBasicComponent {
         this.isEdit = false;
         this.isValidphoneNumber = false;
         this.isValidemail = false;
-        this.profilePicUrl = "";
-        this.isDefaultProfilePic = false;
         this.progessbarWidth = 0;
         this.uploadResponse = { status: '', message: '', filePath: '' };
         this.error = "";
@@ -1054,14 +1043,14 @@ let ProfileBasicComponent = class ProfileBasicComponent {
             return "";
         }
         else {
-            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD-MM-YY");
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD-MM-YY");
         }
     }
     showEditForm() {
         this.isEdit = !this.isEdit;
     }
     isAdmin() {
-        return (this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff') ? true : false;
+        return this.route.params['value'].id != undefined;
     }
     isUploadProgess() {
         return this.uploadResponse.status == "progress" ? true : false;
@@ -1119,7 +1108,6 @@ let ProfileBasicComponent = class ProfileBasicComponent {
                 if (!this.isAdmin()) // if its user module, update the userdata everywhere on the fly
                     this.sharedService.setUserDetails(userDetails);
                 this.paraUserId = res.message;
-                console.log(res.message);
                 this.sharedService.setAlertMessage("User updated successfully");
             }
         }, error => {
@@ -1128,43 +1116,31 @@ let ProfileBasicComponent = class ProfileBasicComponent {
     }
     uploadFile(event) {
         var file = event[0];
-        this.profilepPicUploadService.upload(file, this.userId).subscribe((res) => {
-            console.log(res);
-            let newParams = {
-                fileDetailsId: Number(res),
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
-            };
-            this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
-                var path = res[0].filePath;
-                let params = {
-                    fileNameOnBlob: path,
-                    savefileNameWithPath: ""
-                };
-                const queryParamBase = {
-                    fileNameOnBlob: path,
-                    savefileNameWithPath: "",
-                };
-                let queryParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]();
-                Object.entries(queryParamBase).forEach(([key, value]) => {
-                    if (value !== undefined) {
-                        if (typeof value === 'string')
-                            queryParams = queryParams.set(key, value);
-                        else if (Array.isArray(value))
-                            value.forEach(v => queryParams = queryParams.append(key, v));
-                        else
-                            queryParams = queryParams.set(key, JSON.stringify(value));
-                    }
-                });
-                this.httpClient.post('/api/FileDetails/DownloadAsync', {}, {
-                    params: queryParams,
-                    observe: 'response', responseType: 'blob'
-                }).subscribe((res) => {
-                    const blob = new Blob([res], { type: 'application/octet-stream' });
-                    let fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
-                    //this.url = fileUrl.replace('unsafe:', '').replace('http://localhost:4200/', environment.rootUrl);
-                    console.log(fileUrl);
-                });
-            });
+        this.profilepPicUploadService.upload(file, this.user.emailId).subscribe((res) => {
+            if (res != undefined) {
+                this.uploadResponse = res;
+            }
+            if (this.isUploadCompleted()) {
+                if (res.message) {
+                    let userParams = {
+                        userid: this.userId
+                    };
+                    this.userService.getUserById(userParams).subscribe((res) => {
+                        var imagePath = 'data:image/png;base64,' + res[0].image;
+                        //admin interface
+                        if (this.isAdmin()) {
+                            this.sharedService.setUserPic(imagePath);
+                        }
+                        //user interface
+                        else {
+                            this.sharedService.setProfilePic(imagePath);
+                        }
+                        this.sharedService.setAlertMessage("Picture updated successfully");
+                    }, error => {
+                        console.log(error);
+                    });
+                }
+            }
         }, (err) => {
             this.error = err;
         });
@@ -1172,7 +1148,7 @@ let ProfileBasicComponent = class ProfileBasicComponent {
     ngOnInit() {
         this.user = {};
         this.user.bloodGroup = "";
-        if (this.route.params['value'].id != undefined) {
+        if (this.isAdmin()) {
             this.userId = this.route.params['value'].id;
         }
         else {
@@ -1186,12 +1162,6 @@ let ProfileBasicComponent = class ProfileBasicComponent {
             this.user = res[0];
             this.genderType = '' + this.user.genderId;
             this.isUserDataLoaded = true;
-            if (this.user.image == null) {
-                this.isDefaultProfilePic = true;
-            }
-            else {
-                this.isDefaultProfilePic = false;
-            }
         }, error => {
         });
         let groupParams = {
@@ -1199,11 +1169,6 @@ let ProfileBasicComponent = class ProfileBasicComponent {
         };
         this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe((res) => {
             this.bloodGroupData = res;
-        });
-        this.sharedService.profilepiccast.subscribe(profilePicUrl => {
-            this.profilePicUrl = profilePicUrl;
-            if (this.profilePicUrl == this.sharedService.getDefaultProfilePic())
-                this.isDefaultProfilePic = true;
         });
     }
     IsValidEmail(val) {
@@ -1254,20 +1219,17 @@ let ProfileBasicComponent = class ProfileBasicComponent {
     }
 };
 ProfileBasicComponent.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
-    { type: _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_9__["ProfilepPicUploadService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_6__["ProfilepPicUploadService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("UnapprovedComponent", { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_ams_unit_users_components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_12__["UnapprovedComponent"])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_ams_unit_users_components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_9__["UnapprovedComponent"])
 ], ProfileBasicComponent.prototype, "unAppComp", void 0);
 ProfileBasicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1275,16 +1237,13 @@ ProfileBasicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-basic.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/user/my-profile/components/profile-basic/profile-basic.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-basic.component.scss */ "./src/app/user/my-profile/components/profile-basic/profile-basic.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
-        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
-        _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_9__["ProfilepPicUploadService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_6__["ProfilepPicUploadService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
 ], ProfileBasicComponent);
 
 
@@ -4012,81 +3971,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-
 
 
 
 
 let MyProfileComponent = class MyProfileComponent {
-    constructor(userService, sharedService, cookieService) {
+    constructor(userService, sharedService) {
         this.userService = userService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.isUserDataLoaded = false;
         this.profilePicUrl = "";
+        this.userPicUrl = "";
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.tabSelection = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
-    isNotAdmin() {
-        return this.type != 'admin' ? true : false;
+    isAdmin() {
+        return this.type == 'admin' ? true : false;
     }
     closeUserInfo() {
         this.isProfile = false;
         this.outputParams.emit(this.isProfile);
     }
-    uploadProfilePic() {
-    }
     ngOnInit() {
         this.user = {};
-        if (this.type != 'admin') {
-            this.userId = parseInt(this.cookieService.get('userId'));
-        }
-        let queryParamBase = {
-            userid: this.userId,
-        };
-        this.userService.getUserById(queryParamBase).subscribe((res) => {
-            this.user = res[0];
-            let queryParamBase2 = {
-                userId: this.userId,
-            };
-            this.userService.getRolesByUserId(queryParamBase2).subscribe((role) => {
-                this.userRole = role[0];
+        this.sharedService.userdetailscast.subscribe(user => {
+            this.user = user;
+            if (user != null)
                 this.isUserDataLoaded = true;
-            }, error => {
-                console.log(error);
-            });
-        }, error => {
-            console.log(error);
         });
-        this.sharedService.userdetailscast.subscribe(user => this.user = user);
-        // this.sharedService.profilepiccast.subscribe( profilePicUrl => {
-        //   this.profilePicUrl = profilePicUrl
-        // })
+        this.sharedService.profilepiccast.subscribe(profilePicUrl => {
+            this.profilePicUrl = profilePicUrl;
+        });
+        this.sharedService.userpiccast.subscribe(userPicUrl => {
+            this.userPicUrl = userPicUrl;
+            console.log(this.userPicUrl);
+        });
     }
-    ngOnChanges(changes) {
-        if (this.type != 'admin') {
-            this.userId = parseInt(this.cookieService.get('userId'));
-        }
-        console.log(this.userId);
-        this.userService.getUserById(this.userId).subscribe((res) => {
-            this.user = res[0];
-            console.log(this.user);
-            this.userService.getRolesByUserId(this.userId).subscribe((role) => {
-                this.userRole = role[0];
-                this.isUserDataLoaded = true;
+    ngOnChanges() {
+        if (this.isAdmin()) {
+            let params = {
+                userid: this.userId
+            };
+            this.isUserDataLoaded = false;
+            this.userService.getUserById(params).subscribe((res) => {
+                this.user = res[0];
+                if (this.user.image != null) {
+                    var imagePath = 'data:image/png;base64,' + this.user.image;
+                    this.sharedService.setUserPic(imagePath);
+                }
+                else {
+                    var imagePath = 'assets/images/user-icon.svg';
+                    this.sharedService.setUserPic(imagePath);
+                }
+                let params = {
+                    userId: this.userId
+                };
+                this.userService.getRolesByUserId(params).subscribe((role) => {
+                    this.user.roleName = role[0].roleName;
+                    this.isUserDataLoaded = true;
+                }, error => {
+                    console.log(error);
+                });
             }, error => {
                 console.log(error);
             });
-        }, error => {
-            console.log(error);
-        });
+        }
     }
 };
 MyProfileComponent.ctorParameters = () => [
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
-    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+    { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -4115,8 +4069,7 @@ MyProfileComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./my-profile.component.scss */ "./src/app/user/my-profile/my-profile.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"],
-        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+        _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])
 ], MyProfileComponent);
 
 

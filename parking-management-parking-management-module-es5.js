@@ -181,7 +181,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/parking-management/manage-allocate-availability-list\" \n\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg white\" src=\"assets/images/car-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Parking Booking</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\t<div class=\"card clear mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\tCreate Parking Booking\n    \t\t\t</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Fill in the details</p>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\t\t\t<form #createParkingSlotForm = \"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 d-flex flex-row\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold pt-3 mr-2\">Search your Slot</h6>\n\t\t\t\t\t\t<div class=\"input-box search-slot\">\n\t\t\t\t\t\t\t<input type=\"text\" placeholder=\"Enter three characters to search slot\" name=\"parkingId\" matInput class=\"form-control\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"parkingSlotData.displaySlotNumber\" (ngModelChange)=\"slotSubject.next($event)\" [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t<mat-autocomplete #auto = \"matAutocomplete\" (optionSelected)=\"onSelectSlot($event)\">\n\t\t\t\t\t\t\t\t<mat-option *ngFor = \"let option of slotData$ | async\" [value] = \"option\">\n\t\t\t\t\t\t\t\t\t{{option.parkingSlotNo}} {{option.apartmentBlockUnitNumber}}\n\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Block Unit Number</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.apartmentBlockUnitNumber\" placeholder=\"Permanent Unit\" name=\"apartmentBlockUnitNumber\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Type</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.slotTypeName\" placeholder=\"Slot Type\" name=\"slotTypeName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Owner</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.permOwner\" placeholder=\"Permanent Owner\" name=\"permOwner\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Vehicle No</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.vehicleNo\" placeholder=\"Vehicle No\" name=\"vehicleNo\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [(ngModel)]=\"parkingSlotData.startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Time</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startTime\" [(ngModel)]=\"parkingSlotData.startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"startTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startTime\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [(ngModel)]=\"parkingSlotData.endDate\"  [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>End Time</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endTime\" [(ngModel)]=\"parkingSlotData.endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"submitParkingSlot()\">Submit</button>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form> \n\t\t</div>\n\t</div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/parking-management/manage-allocate-availability-list\" \n\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg white\" src=\"assets/images/car-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Availability</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\t<div class=\"card clear mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Set Parking Availability</h5>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\t\t\t<form #createParkingSlotForm = \"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t\t<div class=\"row mb-2\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<h6 class=\"font-weight-bold pt-3 ml-3\">Search your Slot</h6>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<input type=\"text\" placeholder=\"Enter Three characters to search SlotNo or Owner Name or Owner UnitNo \" name=\"parkingId\" matInput class=\"form-control\" \n\t\t\t\t\t\t\t[(ngModel)]=\"parkingSlotData.displaySlotNumber\" (ngModelChange)=\"slotSubject.next($event)\" [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t<mat-autocomplete #auto = \"matAutocomplete\" (optionSelected)=\"onSelectSlot($event)\">\n\t\t\t\t\t\t\t\t<mat-option *ngFor = \"let option of slotData$ | async\" [value] = \"option\">\n\t\t\t\t\t\t\t\t\t{{option.parkingSlotNo}} location {{option.slotTypeName}} ({{option.permOwner}} {{option.apartmentBlockNumber}} {{option.apartmentBlockUnitNumber}})\n\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\" *ngIf=\"parkingSlotData.parkingSlotID\">\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Parking Slot Number</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.parkingSlotNo\" placeholder=\"Permanent Unit\" name=\"apartmentBlockUnitNumber\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Location</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.apartmentBlockUnitNumber\" placeholder=\"Permanent Unit\" name=\"apartmentBlockUnitNumber\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Type</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.slotTypeName\" placeholder=\"Slot Type\" name=\"slotTypeName\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Owner</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"parkingSlotData.permOwner\" placeholder=\"Permanent Owner\" name=\"permOwner\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [(ngModel)]=\"parkingSlotData.startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Time</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startTime\" [(ngModel)]=\"parkingSlotData.startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"startTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startTime\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [(ngModel)]=\"parkingSlotData.endDate\"  [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>End Time</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endTime\" [(ngModel)]=\"parkingSlotData.endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"submitParkingSlot()\">Submit</button>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form> \n\t\t</div>\n\t</div>\n</div>";
     /***/
   },
 
@@ -221,7 +221,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-list-wrapper\">  \n    <mat-accordion class=\"pt-5\">\n        <mat-expansion-panel>\n            <mat-expansion-panel-header>\n                <mat-panel-title>\n                    <div class=\"flex wd-100\">\n                        <div class=\"flex wd-50\">Filter</div>\n                    </div>\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <!-- <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"float-left\">\n                        <h5 class=\"mt-3\" >View Available lots</h5> \n                    </div>\n                    <div class=\"float-right\">\n                        <ul class=\"list-inline float-left\">\n                            <li class=\"list-inline-item\">\n                                <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            \n        \n            </div> -->\n            <div class=\"card-body\"> \n        \n                <form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n                                <owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n                                <owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                    </div>\n\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <select \n                                    name=\"tower\" \n                                    id=\"tower\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n                                </select>\n                            </div>\n                        </div> \n                     \n                        <!-- <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Type </label>\n                                <select    \n                                    name=\"stype\" \n                                    id=\"stype\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n                                </select>\n                            </div>\n                        </div> -->\n                        <div class=\"col-sm-9 d-flex justify-content-end align-items-center\">\n                            <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                        </div>\n                    </div>\n \n                    <!-- <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-left mt-4\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div> -->\n\n                </form> \n            \n        </div>\n            \n        </mat-expansion-panel>\n    </mat-accordion>\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Community to Others Allocation</h5>\n                <p class=\"d-none d-md-inline-block\">Manage Allocation Availability</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\"  >\n                </li>\n                \n                <li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\"\n                    routerLink=\"/ams/parking-management/create-parking-booking\" \n                    routerLinkActive=\"active\"\n                    [routerLinkActiveOptions] = \"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Allocate</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n  \n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n      </div>\n     \n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-list-wrapper\">  \n    <mat-accordion class=\"pt-5\">\n        <mat-expansion-panel>\n            <mat-expansion-panel-header>\n                <mat-panel-title>\n                    <div class=\"flex wd-100\">\n                        <div class=\"flex wd-50\">Filter</div>\n                    </div>\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <!-- <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"float-left\">\n                        <h5 class=\"mt-3\" >View Available lots</h5> \n                    </div>\n                    <div class=\"float-right\">\n                        <ul class=\"list-inline float-left\">\n                            <li class=\"list-inline-item\">\n                                <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            \n        \n            </div> -->\n            <div class=\"card-body\"> \n        \n                <form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n                                <owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n                                <owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                    </div>\n\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <select \n                                    name=\"tower\" \n                                    id=\"tower\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n                                </select>\n                            </div>\n                        </div> \n                     \n                        <!-- <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Type </label>\n                                <select    \n                                    name=\"stype\" \n                                    id=\"stype\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n                                </select>\n                            </div>\n                        </div> -->\n                        <div class=\"col-sm-9 d-flex justify-content-end align-items-center\">\n                            <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                        </div>\n                    </div>\n \n                    <!-- <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-left mt-4\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div> -->\n\n                </form> \n            \n        </div>\n            \n        </mat-expansion-panel>\n    </mat-accordion>\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Community to Others Allocation</h5>\n                <p class=\"d-none d-md-inline-block\">Manage Allocation Availability</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\"  >\n                </li>\n                \n                <li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\"\n                    routerLink=\"/ams/parking-management/set-parking\" \n                    routerLinkActive=\"active\"\n                    [routerLinkActiveOptions] = \"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Allocate</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n  \n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n      </div>\n     \n</div>\n";
     /***/
   },
 
@@ -241,7 +241,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-list-wrapper\">  \n    <mat-accordion class=\"pt-5\">\n        <mat-expansion-panel>\n            <mat-expansion-panel-header>\n                <mat-panel-title>\n                    <div class=\"flex wd-100\">\n                        <div class=\"flex wd-50\">Filter</div>\n                    </div>\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <!-- <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"float-left\">\n                        <h5 class=\"mt-3\" >View Available lots</h5> \n                    </div>\n                    <div class=\"float-right\">\n                        <ul class=\"list-inline float-left\">\n                            <li class=\"list-inline-item\">\n                                <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            \n        \n            </div> -->\n            <div class=\"card-body\"> \n        \n                <form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n                                <owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n                                <owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                    </div>\n\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <select \n                                    name=\"tower\" \n                                    id=\"tower\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n                                </select>\n                            </div>\n                        </div> \n                     \n                        <!-- <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Type </label>\n                                <select \n                                    name=\"stype\" \n                                    id=\"stype\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n                                </select>\n                            </div>\n                        </div> -->\n                        <div class=\"col-sm-9 d-flex justify-content-end align-items-center\">\n                            <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                        </div>\n                    </div>\n \n                    <!-- <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-left mt-4\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div> -->\n\n                </form> \n            \n        </div>\n            \n        </mat-expansion-panel>\n    </mat-accordion>\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Unit to Community</h5>\n                <p class=\"d-none d-md-inline-block\">Manage Allocation Availability</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\"  >\n                </li>\n                \n                <li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\"\n                    routerLink=\"/ams/parking-management/create-parking-booking\" \n                    routerLinkActive=\"active\"\n                    [routerLinkActiveOptions] = \"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Allocate</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n  \n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n      </div>    \n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-list-wrapper\">  \n    <mat-accordion class=\"pt-5\">\n        <mat-expansion-panel>\n            <mat-expansion-panel-header>\n                <mat-panel-title>\n                    <div class=\"flex wd-100\">\n                        <div class=\"flex wd-50\">Filter</div>\n                    </div>\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <!-- <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"float-left\">\n                        <h5 class=\"mt-3\" >View Available lots</h5> \n                    </div>\n                    <div class=\"float-right\">\n                        <ul class=\"list-inline float-left\">\n                            <li class=\"list-inline-item\">\n                                <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            \n        \n            </div> -->\n            <div class=\"card-body\"> \n        \n                <form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n                                <owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n                                <owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                    </div>\n\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <select \n                                    name=\"tower\" \n                                    id=\"tower\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n                                </select>\n                            </div>\n                        </div> \n                     \n                        <!-- <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Type </label>\n                                <select \n                                    name=\"stype\" \n                                    id=\"stype\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n                                </select>\n                            </div>\n                        </div> -->\n                        <div class=\"col-sm-9 d-flex justify-content-end align-items-center\">\n                            <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                        </div>\n                    </div>\n \n                    <!-- <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-left mt-4\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div> -->\n\n                </form> \n            \n        </div>\n            \n        </mat-expansion-panel>\n    </mat-accordion>\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Unit to Community</h5>\n                <p class=\"d-none d-md-inline-block\">Manage Allocation Availability</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\"  >\n                </li>\n                \n                <li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\"\n                    routerLink=\"/ams/parking-management/set-parking\" \n                    routerLinkActive=\"active\"\n                    [routerLinkActiveOptions] = \"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Allocate</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n  \n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n      </div>    \n</div>\n";
     /***/
   },
 
@@ -261,7 +261,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <mat-accordion class=\"pt-5\">\n        <mat-expansion-panel>\n            <mat-expansion-panel-header>\n                <mat-panel-title>\n                    <div class=\"flex wd-100\">\n                        <div class=\"flex wd-50\">Filter</div>\n                    </div>\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <!-- <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"float-left\">\n                        <h5 class=\"mt-3\" >View Available lots</h5> \n                    </div>\n                    <div class=\"float-right\">\n                        <ul class=\"list-inline float-left\">\n                            <li class=\"list-inline-item\">\n                                <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            \n        \n            </div> -->\n            <div class=\"card-body\"> \n        \n                <form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n                                <owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n                                <owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                    </div>\n\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <select \n                                    name=\"tower\" \n                                    id=\"tower\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n                                </select>\n                            </div>\n                        </div> \n                     \n                        <!-- <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Type </label>\n                                <select \n                                    name=\"stype\" \n                                    id=\"stype\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n                                </select>\n                            </div>\n                        </div> -->\n                        <div class=\"col-sm-9 d-flex justify-content-end align-items-center\">\n                            <button class=\"btn blue mr-2\" (click)=\"searchList()\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                        </div>\n                    </div>\n \n                    <!-- <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-left mt-4\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div> -->\n\n                </form> \n            \n        </div>\n            \n        </mat-expansion-panel>\n    </mat-accordion>\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Unit to Unit Allocation</h5>\n                <p class=\"d-none d-md-inline-block\">Manage Allocation Availability</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n                </li>\n\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/create-parking-booking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Allocate</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
+    __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <mat-accordion class=\"pt-5\">\n        <mat-expansion-panel>\n            <mat-expansion-panel-header>\n                <mat-panel-title>\n                    <div class=\"flex wd-100\">\n                        <div class=\"flex wd-50\">Filter</div>\n                    </div>\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <!-- <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"float-left\">\n                        <h5 class=\"mt-3\" >View Available lots</h5> \n                    </div>\n                    <div class=\"float-right\">\n                        <ul class=\"list-inline float-left\">\n                            <li class=\"list-inline-item\">\n                                <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            \n        \n            </div> -->\n            <div class=\"card-body\"> \n        \n                <form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n                                <owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n                                <owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                      <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                  </div>\n                            </div>\n                        </div> \n\n                    </div>\n\n                    <div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <select \n                                    name=\"tower\" \n                                    id=\"tower\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n                                </select>\n                            </div>\n                        </div> \n                     \n                        <!-- <div class=\"col-sm-3\">\n                            <div class=\"select-box\">\n                                <label>Type </label>\n                                <select \n                                    name=\"stype\" \n                                    id=\"stype\" \n                                    class=\"form-control\"\n                                    required>\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n                                </select>\n                            </div>\n                        </div> -->\n                        <div class=\"col-sm-9 d-flex justify-content-end align-items-center\">\n                            <button class=\"btn blue mr-2\" (click)=\"searchList()\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                        </div>\n                    </div>\n \n                    <!-- <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <ul class=\"list-inline float-left mt-4\">\n                                <li class=\"list-inline-item\">\n                                    <button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n                                </li>\n                            </ul>\n                        </div>\n                    </div> -->\n\n                </form> \n            \n        </div>\n            \n        </mat-expansion-panel>\n    </mat-accordion>\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Unit to Unit Allocation</h5>\n                <p class=\"d-none d-md-inline-block\">Manage Allocation Availability</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n                </li>\n\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/set-parking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Allocate</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
     /***/
   },
 
@@ -301,7 +301,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-wrapper\">\n    <ul class=\"legends list-inline\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>UnAllocated</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Allocated</li>\n\t</ul>\n    <div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Manage Allocated Slots</h5>\n                <p class=\"d-none d-md-inline-block\">View Allocated Slots</p>\n            </div>\n            <ul class=\"list-inline d-flex\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"filterData\" (ngModelChange)=\"searchSlotRate()\" >\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"allocatedSlotData\" [columns]=\"allocatedSlotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div> \n</div>";
+    __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-wrapper\">\n    <ul class=\"legends list-inline\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>UnAllocated</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Allocated</li>\n\t</ul>\n    <div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Manage Allocated Slots</h5>\n                <p class=\"d-none d-md-inline-block\">View Allocated Slots</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item d-none search d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"allocateFilter\"  (ngModelChange)=\"searchAllocate()\" >\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                 <li class=\"list-inline-item\"></li>  <!-- This Line is Must, If you removed console error occurred -->\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"allocatedSlotData\" [columns]=\"allocatedSlotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div> \n</div>";
     /***/
   },
 
@@ -401,7 +401,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-manage-parkings-slots-wrapper\">\n\n  \t<div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Parking Slots <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Manage Parking Slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"filterData\"  (ngModelChange)=\"searchSlotRate()\" >\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/parking-management/create-parking-slot\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Parking Slot</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n\t\t</div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"slotDataList\" [columns]=\"slotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n        </div>\n  \t</div> ";
+    __webpack_exports__["default"] = "<div class=\"parking-manage-parkings-slots-wrapper\">\n  \t<div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Parking Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Manage Parking Slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"slotFilter\"  (ngModelChange)=\"searchSlot()\" >\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/create-parking-slot\" routerLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Parking Slot</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n\t\t</div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"slotDataList\" [columns]=\"slotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n        </div>\n\t</div> \n</div>";
     /***/
   },
 
@@ -621,7 +621,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Make Community Parking Available</h5>\n                <p class=\"d-none d-md-inline-block\">You are making Community Parking Available for Booking</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n                </li>\n\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/create-parking-booking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Set Availablity</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
+    __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Make Community Parking Available</h5>\n                <p class=\"d-none d-md-inline-block\">You are making Community Parking Available for Booking</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"communityFilter\" (ngModelChange)=\"communitySearch()\">\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/set-parking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Set Availablity</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"communityAllocationData\" [columns]=\"communityAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
     /***/
   },
 
@@ -681,7 +681,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Make Unit Parking Available</h5>\n                <p class=\"d-none d-md-inline-block\">You are making Resident Parking Available(on behalf ofresident)</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n                </li>\n\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/create-parking-booking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Set Availablity</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
+    __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Make Unit Parking Available</h5>\n                <p class=\"d-none d-md-inline-block\">You are making Resident Parking Available(on behalf ofresident)</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitFilter\" (ngModelChange)=\"unitSearch()\">\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/set-parking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Set Availablity</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
     /***/
   },
 
@@ -1977,7 +1977,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".search-slot {\n  width: 30%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvcGFya2luZy1jcmVhdGUtcGFya2luZy1ib29raW5nL3BhcmtpbmctY3JlYXRlLXBhcmtpbmctYm9va2luZy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL3BhcmtpbmctbWFuYWdlbWVudC9jb21wb25lbnRzL3BhcmtpbmctY3JlYXRlLXBhcmtpbmctYm9va2luZy9wYXJraW5nLWNyZWF0ZS1wYXJraW5nLWJvb2tpbmcuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxVQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvcGFya2luZy1jcmVhdGUtcGFya2luZy1ib29raW5nL3BhcmtpbmctY3JlYXRlLXBhcmtpbmctYm9va2luZy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zZWFyY2gtc2xvdCB7XG4gICAgd2lkdGg6MzAlXG59IiwiLnNlYXJjaC1zbG90IHtcbiAgd2lkdGg6IDMwJTtcbn0iXX0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9wYXJraW5nLW1hbmFnZW1lbnQvY29tcG9uZW50cy9wYXJraW5nLWNyZWF0ZS1wYXJraW5nLWJvb2tpbmcvcGFya2luZy1jcmVhdGUtcGFya2luZy1ib29raW5nLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
@@ -2078,12 +2078,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ParkingCreateParkingBookingComponent, [{
         key: "onSelectSlot",
         value: function onSelectSlot(event) {
-          this.parkingSlotData.displaySlotNumber = event.option.value.parkingSlotNo;
-          this.parkingSlotData.parkingSlotID = event.option.value.parkingSlotID;
-          this.parkingSlotData.apartmentBlockUnitNumber = event.option.value.apartmentBlockUnitNumber;
-          this.parkingSlotData.slotTypeName = event.option.value.slotTypeName;
-          this.parkingSlotData.permOwner = event.option.value.permOwner;
-          this.parkingSlotData.vehicleNo = event.option.value.vehicleNo;
+          var selectedValue = event.option.value;
+          this.parkingSlotData.displaySlotNumber = "".concat(selectedValue.parkingSlotNo, " location ").concat(selectedValue.slotTypeName, "(").concat(selectedValue.permOwner, " ").concat(selectedValue.apartmentBlockNumber, " ").concat(selectedValue.apartmentBlockUnitNumber, ")");
+          this.parkingSlotData.parkingSlotNo = selectedValue.parkingSlotNo;
+          this.parkingSlotData.parkingSlotID = selectedValue.parkingSlotID;
+          this.parkingSlotData.slotTypeName = selectedValue.slotTypeName;
+          this.parkingSlotData.permOwner = selectedValue.permOwner;
         }
       }, {
         key: "submitParkingSlot",
@@ -2117,7 +2117,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this9 = this;
 
-          this.slotSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])()).subscribe(function (value) {
+          this.slotSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(600), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])()).subscribe(function (value) {
             if (_this9.parkingSlotData.displaySlotNumber && _this9.parkingSlotData.displaySlotNumber.length > 2) {
               var entity = {
                 ApartmentID: parseInt(_this9.cookieService.get('apartmentId')),
@@ -3125,69 +3125,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-    /* harmony import */
-
-
-    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../../api/controllers/Vehicle */
     "./src/app/api/controllers/Vehicle.ts");
 
     var ParkingManageAllocatedSlotsComponent =
     /*#__PURE__*/
     function () {
-      function ParkingManageAllocatedSlotsComponent(injector, dialog, // private userService: UserService,
-      vehicleService, // private lookupService: LookupService,
-      // private sharedService:SharedService,
-      cookieService, router) {
+      function ParkingManageAllocatedSlotsComponent(injector, dialog, vehicleService, cookieService) {
         _classCallCheck(this, ParkingManageAllocatedSlotsComponent);
 
         this.injector = injector;
         this.dialog = dialog;
         this.vehicleService = vehicleService;
         this.cookieService = cookieService;
-        this.router = router;
         this.allocatedSlotData = [];
-        this.filterData = "";
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.allocateFilter = "";
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(ParkingManageAllocatedSlotsComponent, [{
-        key: "searchSlotRate",
-        value: function searchSlotRate() {
-          var _this13 = this;
-
-          if (this.filterData != "") {
-            var filtergroup = new jqx.filter();
-            var filter_or_operator = 1;
-            var filtervalue = this.filterData;
-            var filtercondition = 'contains';
-            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-            filtergroup.operator = 'or';
-            filtergroup.addfilter(filter_or_operator, filterData);
-            this.datagrid.showfiltercolumnbackground(false);
-            this.allocatedSlotHeader.forEach(function (item) {
-              if (item.datafield != 'Actions') {
-                _this13.datagrid.addfilter(item.datafield, filtergroup, true);
-              }
-            });
-            this.datagrid.applyfilters();
-          } else {
-            this.datagrid.clearfilters();
-          }
-        }
-      }, {
-        key: "getSlotMainType",
-        value: function getSlotMainType(slotTypeId) {}
-      }, {
         key: "ondeleteSlot",
         value: function ondeleteSlot(detail) {
           console.log(detail);
@@ -3197,7 +3160,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "oneditSlot",
         value: function oneditSlot(detail) {
-          var _this14 = this;
+          var _this13 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           var dialogRef = this.dialog.open(_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_2__["AllocatedSlotConfirmationComponent"], {
@@ -3207,9 +3170,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this14.getAllocatedSlot();
+              _this13.getAllocatedSlot();
             }
           });
+        }
+      }, {
+        key: "searchAllocate",
+        value: function searchAllocate() {
+          var _this14 = this;
+
+          if (this.allocateFilter != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.allocateFilter;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.allocatedSlotHeader.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
         }
       }, {
         key: "getAllocatedSlot",
@@ -3330,11 +3317,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
       }, {
-        type: _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_8__["VehicleService"]
+        type: _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_7__["VehicleService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
       }];
     };
 
@@ -3351,7 +3336,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./parking-manage-allocated-slots.component.scss */
       "./src/app/ams/parking-management/components/parking-manage-allocated-slots/parking-manage-allocated-slots.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_8__["VehicleService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])], ParkingManageAllocatedSlotsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_7__["VehicleService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], ParkingManageAllocatedSlotsComponent);
 
     function showConfirmDelete(row) {
       var event = new CustomEvent('ondeleteSlot', {
@@ -3809,81 +3794,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/api/controllers/Apartment */
-    "./src/app/api/controllers/Apartment.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/api/controllers/Parking */
-    "./src/app/api/controllers/Parking.ts");
-    /* harmony import */
-
-
-    var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/api/controllers/Vehicle */
     "./src/app/api/controllers/Vehicle.ts");
     /* harmony import */
 
 
-    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/api/controllers/Lookup */
-    "./src/app/api/controllers/Lookup.ts");
-    /* harmony import */
-
-
-    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../shared/services/shared.service */
     "./src/app/shared/services/shared.service.ts");
     /* harmony import */
 
 
-    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../shared/services/modal.service */
     "./src/app/shared/services/modal.service.ts");
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var _shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../../shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
     "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+    ;
 
     var ParkingManageParkingSlotsComponent =
     /*#__PURE__*/
     function () {
-      function ParkingManageParkingSlotsComponent(injector, dialog, parkingService, apartmentService, vehicleService, lookupService, sharedService, cookieService, router) {
+      function ParkingManageParkingSlotsComponent(injector, dialog, vehicleService, sharedService, cookieService, router) {
         _classCallCheck(this, ParkingManageParkingSlotsComponent);
 
         this.injector = injector;
         this.dialog = dialog;
-        this.parkingService = parkingService;
-        this.apartmentService = apartmentService;
         this.vehicleService = vehicleService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.router = router;
         this.isDataLoaded = false;
-        this.slotFieldType = "unitno";
-        this.slotData = false;
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
         this.slotDataList = [];
-        this.filterData = "";
-        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+        this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
 
       _createClass(ParkingManageParkingSlotsComponent, [{
@@ -3901,14 +3862,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.modalService.showConfirmModal(parkingSlotId);
         }
       }, {
-        key: "searchSlotRate",
-        value: function searchSlotRate() {
+        key: "searchSlot",
+        value: function searchSlot() {
           var _this16 = this;
 
-          if (this.filterData != "") {
+          if (this.slotFilter != "") {
             var filtergroup = new jqx.filter();
             var filter_or_operator = 1;
-            var filtervalue = this.filterData;
+            var filtervalue = this.slotFilter;
             var filtercondition = 'contains';
             var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.operator = 'or';
@@ -3925,6 +3886,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "getParkingSlot",
+        value: function getParkingSlot() {
+          var _this17 = this;
+
+          var parkingSlotParams = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.vehicleService.getParkingSlotByApartmentId(parkingSlotParams).subscribe(function (res) {
+            var rawSlotRateType = res.filter(function (data) {
+              return data.isActive;
+            });
+            var arrangeSlotRawData = {
+              localdata: rawSlotRateType,
+              datatype: "array"
+            };
+            _this17.slotDataList = new jqx.dataAdapter(arrangeSlotRawData);
+          });
+        }
+      }, {
         key: "getPrintParams",
         value: function getPrintParams(event) {
           this.datagrid.exportdata(event, 'ParkingSlots');
@@ -3932,7 +3912,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this17 = this;
+          var _this18 = this;
 
           this.getParkingSlot();
 
@@ -3993,41 +3973,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
             if (item != null) {
-              _this17.isDataLoaded = false;
+              _this18.isDataLoaded = false;
               var params = {
                 parkingSlotId: item,
-                deleteBy: parseInt(_this17.cookieService.get('userId'))
+                deleteBy: parseInt(_this18.cookieService.get('userId'))
               };
 
-              _this17.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
-                _this17.getParkingSlot(); // this.parkingSlotDataList = this.parkingSlotDataList.filter((type) => type.parkingSlotId !== item.parkingSlotId);
-                // this.isDataLoaded = true;
+              _this18.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
+                _this18.getParkingSlot();
 
+                _this18.isDataLoaded = true;
               });
             }
-          });
-        }
-        /**
-         * get parking slot
-         */
-
-      }, {
-        key: "getParkingSlot",
-        value: function getParkingSlot() {
-          var _this18 = this;
-
-          var parkingSlotParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
-          };
-          this.vehicleService.getParkingSlotByApartmentId(parkingSlotParams).subscribe(function (res) {
-            var rawSlotRateType = res.filter(function (data) {
-              return data.isActive;
-            });
-            var arrangeSlotRawData = {
-              localdata: rawSlotRateType,
-              datatype: "array"
-            };
-            _this18.slotDataList = new jqx.dataAdapter(arrangeSlotRawData);
           });
         }
       }]);
@@ -4041,25 +3998,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"]
+        type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
       }, {
-        type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_5__["VehicleService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }, {
-        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
-      }, {
-        type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
-      }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]
       }];
     };
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__["jqxGridComponent"])], ParkingManageParkingSlotsComponent.prototype, "datagrid", void 0);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__["jqxGridComponent"])], ParkingManageParkingSlotsComponent.prototype, "datagrid", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditTicket', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ParkingManageParkingSlotsComponent.prototype, "onEditTicket", null);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onTicketDelete', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], ParkingManageParkingSlotsComponent.prototype, "onTicketDelete", null);
     ParkingManageParkingSlotsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -4070,7 +4021,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./parking-manage-parking-slots.component.scss */
       "./src/app/ams/parking-management/components/parking-manage-parking-slots/parking-manage-parking-slots.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_5__["VehicleService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]])], ParkingManageParkingSlotsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]])], ParkingManageParkingSlotsComponent);
 
     function showConfirmDeleteEvent(row) {
       var event = new CustomEvent('onTicketDelete', {
@@ -6212,17 +6163,98 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
     "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Parking */
+    "./src/app/api/controllers/Parking.ts");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 
     var CommunityParkingAvailablityComponent =
     /*#__PURE__*/
     function () {
-      function CommunityParkingAvailablityComponent() {
+      function CommunityParkingAvailablityComponent(parkingService, cookieService) {
         _classCallCheck(this, CommunityParkingAvailablityComponent);
+
+        this.parkingService = parkingService;
+        this.cookieService = cookieService;
       }
 
       _createClass(CommunityParkingAvailablityComponent, [{
+        key: "communitySearch",
+        value: function communitySearch() {
+          var _this38 = this;
+
+          if (this.communityFilter != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.communityFilter;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.communityAllocationHeader.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this38.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "getCommunityAvailability",
+        value: function getCommunityAvailability() {
+          var _this39 = this;
+
+          var params = {
+            ApartmantId: parseInt(this.cookieService.get('apartmentId')),
+            ApartmentBlockId: null,
+            ParkingSlotId: null,
+            StartDate: null,
+            EndDate: null,
+            StartTime: null,
+            EndTime: null
+          };
+          this.parkingService.getAllRentedParking(params).subscribe(function (res) {
+            _this39.communityAllocationData = res;
+            _this39.gridSourceData = {
+              localdata: _this39.communityAllocationData,
+              datatype: "array"
+            };
+            _this39.communityAllocationData = new jqx.dataAdapter(_this39.gridSourceData);
+          });
+        }
+      }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'CommunityAvailability');
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
+          this.getCommunityAvailability();
+
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
           };
@@ -6231,7 +6263,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return '<div style="padding: 14px">' + value + '</div>';
           };
 
-          this.unitAllocationHeader = [{
+          this.communityAllocationHeader = [{
             text: 'SLOT NO',
             datafield: 'slotType',
             width: 100,
@@ -6257,26 +6289,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             renderer: columnrenderer
           }, {
             text: 'START DATE',
-            datafield: 'startDateTime',
-            cellsrenderer: cellsrenderer,
+            datafield: 'startDate',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_5__(value).format("DD-MM-YYYY") + '</div>';
+            },
             minwidth: 100,
             renderer: columnrenderer
           }, {
             text: 'START TIME',
-            datafield: 'endDateTime',
-            cellsrenderer: cellsrenderer,
+            datafield: 'startTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_5__(value, 'HH:mm:ss').format('hh:mm A') + '</div>';
+            },
             minwidth: 100,
             renderer: columnrenderer
           }, {
             text: 'END DATE',
-            datafield: 'slotRateType',
-            cellsrenderer: cellsrenderer,
+            datafield: 'endDate',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_5__(value).format("DD-MM-YYYY") + '</div>';
+            },
             minwidth: 100,
             renderer: columnrenderer
           }, {
             text: 'END TIME',
-            datafield: 'price',
-            cellsrenderer: cellsrenderer,
+            datafield: 'endTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_5__(value, 'HH:mm:ss').format('hh:mm A') + '</div>';
+            },
             minwidth: 100,
             renderer: columnrenderer
           }, {
@@ -6286,21 +6326,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             width: 100,
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
-          }]; //  var ticketListData = res.filter(data => {
-          //   return data.isActive
-          // })
-
-          var localData = [];
-          this.gridSourceData = {
-            localdata: localData,
-            datatype: "array"
-          };
-          this.unitAllocationData = new jqx.dataAdapter(this.gridSourceData);
+          }];
         }
       }]);
 
       return CommunityParkingAvailablityComponent;
     }();
+
+    CommunityParkingAvailablityComponent.ctorParameters = function () {
+      return [{
+        type: src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+      }];
+    };
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
@@ -6313,7 +6352,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./community-parking-availablity.component.scss */
       "./src/app/ams/parking-management/components/set-parking-availablity/community-parking-availablity/community-parking-availablity.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], CommunityParkingAvailablityComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], CommunityParkingAvailablityComponent);
     /***/
   },
 
@@ -6540,17 +6579,98 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
     "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Parking */
+    "./src/app/api/controllers/Parking.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 
     var UnitParkingAvailablityComponent =
     /*#__PURE__*/
     function () {
-      function UnitParkingAvailablityComponent() {
+      function UnitParkingAvailablityComponent(parkingService, cookieService) {
         _classCallCheck(this, UnitParkingAvailablityComponent);
+
+        this.parkingService = parkingService;
+        this.cookieService = cookieService;
       }
 
       _createClass(UnitParkingAvailablityComponent, [{
+        key: "unitSearch",
+        value: function unitSearch() {
+          var _this40 = this;
+
+          if (this.unitFilter != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.unitFilter;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.unitAllocationHeader.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this40.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "getUnitAvailability",
+        value: function getUnitAvailability() {
+          var _this41 = this;
+
+          var params = {
+            ApartmantId: parseInt(this.cookieService.get('apartmentId')),
+            ApartmentBlockId: null,
+            ParkingSlotId: null,
+            StartDate: null,
+            EndDate: null,
+            StartTime: null,
+            EndTime: null
+          };
+          this.parkingService.getAllRentedParking(params).subscribe(function (res) {
+            _this41.unitAllocationData = res;
+            _this41.gridSourceData = {
+              localdata: _this41.unitAllocationData,
+              datatype: "array"
+            };
+            _this41.unitAllocationData = new jqx.dataAdapter(_this41.gridSourceData);
+          });
+        }
+      }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'UnitAvailability');
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
+          this.getUnitAvailability();
+
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
           };
@@ -6585,26 +6705,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             renderer: columnrenderer
           }, {
             text: 'START DATE',
-            datafield: 'startDateTime',
-            cellsrenderer: cellsrenderer,
+            datafield: 'startDate',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_5__(value).format("DD-MM-YYYY") + '</div>';
+            },
             minwidth: 100,
             renderer: columnrenderer
           }, {
             text: 'START TIME',
-            datafield: 'endDateTime',
-            cellsrenderer: cellsrenderer,
+            datafield: 'startTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_5__(value, 'HH:mm:ss').format('hh:mm A') + '</div>';
+            },
             minwidth: 100,
             renderer: columnrenderer
           }, {
             text: 'END DATE',
-            datafield: 'slotRateType',
-            cellsrenderer: cellsrenderer,
+            datafield: 'endDate',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_5__(value).format("DD-MM-YYYY") + '</div>';
+            },
             minwidth: 100,
             renderer: columnrenderer
           }, {
             text: 'END TIME',
-            datafield: 'price',
-            cellsrenderer: cellsrenderer,
+            datafield: 'endTime',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_5__(value, 'HH:mm:ss').format('hh:mm A') + '</div>';
+            },
             minwidth: 100,
             renderer: columnrenderer
           }, {
@@ -6614,21 +6742,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             width: 100,
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
-          }]; //  var ticketListData = res.filter(data => {
-          //   return data.isActive
-          // })
-
-          var localData = [];
-          this.gridSourceData = {
-            localdata: localData,
-            datatype: "array"
-          };
-          this.unitAllocationData = new jqx.dataAdapter(this.gridSourceData);
+          }];
         }
       }]);
 
       return UnitParkingAvailablityComponent;
     }();
+
+    UnitParkingAvailablityComponent.ctorParameters = function () {
+      return [{
+        type: src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_3__["ParkingService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }];
+    };
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
       "static": false
@@ -6641,7 +6768,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./unit-parking-availablity.component.scss */
       "./src/app/ams/parking-management/components/set-parking-availablity/unit-parking-availablity/unit-parking-availablity.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], UnitParkingAvailablityComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_3__["ParkingService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], UnitParkingAvailablityComponent);
     /***/
   },
 
@@ -6910,7 +7037,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       path: 'view-booking',
       component: _components_parking_admin_view_booking_parking_admin_view_booking_component__WEBPACK_IMPORTED_MODULE_20__["ParkingAdminViewBookingComponent"]
     }, {
-      path: 'create-parking-booking',
+      path: 'set-parking',
       component: _components_parking_create_parking_booking_parking_create_parking_booking_component__WEBPACK_IMPORTED_MODULE_14__["ParkingCreateParkingBookingComponent"]
     }, {
       path: 'view-available-slots',
