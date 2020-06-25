@@ -1348,7 +1348,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getStepperList",
         value: function getStepperList(statusId) {
           var selectedStepper = [];
-          debugger;
           selectedStepper = this.stepperList.filter(function (key, index) {
             if (statusId == 216 && index < 1) {
               key.isActive = true;

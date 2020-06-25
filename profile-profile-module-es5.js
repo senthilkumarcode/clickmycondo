@@ -213,9 +213,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (res.message) {
                   _this.isSubmitted = true;
 
-                  _this.sharedService.setAlertMessage("Password has been reset successfully");
+                  _this.sharedService.setAlertMessage("Password has been reset successfully"); // this.router.navigateByUrl('/ams');
 
-                  _this.router.navigateByUrl('/ams');
+
+                  var userRole = _this.cookieService.get('userRole');
+
+                  if (userRole == 'Admin' || userRole == 'SuperAdmin' || userRole == 'Staff' || userRole == 'Security') {
+                    _this.router.navigateByUrl('/ams');
+                  } else if (userRole == 'Owner' || userRole == 'Tenant') {
+                    _this.router.navigateByUrl('/user');
+                  } else {}
                 }
               });
             }, function (error) {});
@@ -229,7 +236,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this2 = this;
 
-          this.userService.getUserById(this.route.params['value'].id).subscribe(function (res) {
+          var getUserParam = {
+            userid: this.route.params['value'].id
+          };
+          this.userService.getUserById(getUserParam).subscribe(function (res) {
             _this2.user = res[0];
             _this2.genderType = _this2.user.genderId.toString();
           });

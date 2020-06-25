@@ -137,7 +137,16 @@ let ResetPasswordComponent = class ResetPasswordComponent {
                     if (res.message) {
                         this.isSubmitted = true;
                         this.sharedService.setAlertMessage("Password has been reset successfully");
-                        this.router.navigateByUrl('/ams');
+                        // this.router.navigateByUrl('/ams');
+                        var userRole = this.cookieService.get('userRole');
+                        if (userRole == 'Admin' || userRole == 'SuperAdmin' || userRole == 'Staff' || userRole == 'Security') {
+                            this.router.navigateByUrl('/ams');
+                        }
+                        else if (userRole == 'Owner' || userRole == 'Tenant') {
+                            this.router.navigateByUrl('/user');
+                        }
+                        else {
+                        }
                     }
                 });
             }, error => {
@@ -147,7 +156,10 @@ let ResetPasswordComponent = class ResetPasswordComponent {
     clearErrors() {
     }
     ngOnInit() {
-        this.userService.getUserById(this.route.params['value'].id).subscribe((res) => {
+        let getUserParam = {
+            userid: this.route.params['value'].id
+        };
+        this.userService.getUserById(getUserParam).subscribe((res) => {
             this.user = res[0];
             this.genderType = this.user.genderId.toString();
         });

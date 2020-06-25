@@ -593,7 +593,6 @@ let FolderListsComponent = class FolderListsComponent {
         this.isUserPage = false;
     }
     uploadFile(files) {
-        debugger;
         this.isFileAdded = true;
         this.fileToUpload = files.item(0);
         var selectedFile = files[0];

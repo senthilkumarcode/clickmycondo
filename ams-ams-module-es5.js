@@ -10951,9 +10951,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'broadcast',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | broadcast-broadcast-module */
-          "broadcast-broadcast-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~broadcast-broadcast-module~inbox-inbox-module"), __webpack_require__.e("broadcast-broadcast-module")]).then(__webpack_require__.bind(null,
           /*! ./broadcast/broadcast.module */
           "./src/app/ams/broadcast/broadcast.module.ts")).then(function (m) {
             return m.BroadcastModule;
@@ -11182,9 +11182,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'inbox',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | inbox-inbox-module */
-          "inbox-inbox-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~broadcast-broadcast-module~inbox-inbox-module"), __webpack_require__.e("inbox-inbox-module")]).then(__webpack_require__.bind(null,
           /*! ./inbox/inbox.module */
           "./src/app/ams/inbox/inbox.module.ts")).then(function (m) {
             return m.InboxModule;

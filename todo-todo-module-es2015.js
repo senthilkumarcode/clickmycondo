@@ -901,7 +901,6 @@ let TodoListComponent = class TodoListComponent {
     }
     getStepperList(statusId) {
         let selectedStepper = [];
-        debugger;
         selectedStepper = this.stepperList.filter((key, index) => {
             if (statusId == 216 && index < 1) {
                 key.isActive = true;

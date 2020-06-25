@@ -923,7 +923,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(FolderListsComponent, [{
         key: "uploadFile",
         value: function uploadFile(files) {
-          debugger;
           this.isFileAdded = true;
           this.fileToUpload = files.item(0);
           var selectedFile = files[0]; //let formData = new FormData(); 
