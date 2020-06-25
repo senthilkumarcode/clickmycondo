@@ -1506,20 +1506,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ../../../../shared/services/constants.service */
+    "./src/app/shared/services/constants.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
     /* harmony import */
 
 
-    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! src/app/api/controllers/Apartment */
     "./src/app/api/controllers/Apartment.ts");
 
     var AssetsCreateComponent =
     /*#__PURE__*/
     function () {
-      function AssetsCreateComponent(router, sanitizer, route, assetService, vendorService, lookupService, sharedService, fileUploadService, fileDownloadService, fileDetailsService, cookieService, apartmentService) {
+      function AssetsCreateComponent(router, sanitizer, route, assetService, vendorService, lookupService, sharedService, fileUploadService, fileDownloadService, fileDetailsService, constantsService, cookieService, apartmentService) {
         _classCallCheck(this, AssetsCreateComponent);
 
         this.router = router;
@@ -1532,6 +1538,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.fileUploadService = fileUploadService;
         this.fileDownloadService = fileDownloadService;
         this.fileDetailsService = fileDetailsService;
+        this.constantsService = constantsService;
         this.cookieService = cookieService;
         this.apartmentService = apartmentService;
         this.insurance = {};
@@ -1601,7 +1608,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
             _this11.isFileDetailsAvailable = true;
             var splitFile = filePath.split('.');
-            _this11.isImageUploaded = _this11.sharedService.imageFormats.includes(splitFile[1]);
+            var ext = splitFile[1].replace(/^/, '.');
+            _this11.isImageUploaded = _this11.constantsService.imageFormats.includes(ext);
             var blob = res.body;
             var objectURL = URL.createObjectURL(blob);
 
@@ -2060,9 +2068,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"]
       }, {
-        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"]
+        type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"]
       }, {
-        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"]
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__["CookieService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__["ApartmentService"]
       }];
     };
 
@@ -2074,7 +2084,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./assets-create.component.scss */
       "./src/app/ams/assets/components/assets-create/assets-create.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"], _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"]])], AssetsCreateComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"], _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"], _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__["CookieService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__["ApartmentService"]])], AssetsCreateComponent);
     /***/
   },
 

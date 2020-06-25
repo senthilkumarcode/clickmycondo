@@ -941,8 +941,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
 /* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
 /* harmony import */ var _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
 
 
 
@@ -957,7 +959,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AssetsCreateComponent = class AssetsCreateComponent {
-    constructor(router, sanitizer, route, assetService, vendorService, lookupService, sharedService, fileUploadService, fileDownloadService, fileDetailsService, cookieService, apartmentService) {
+    constructor(router, sanitizer, route, assetService, vendorService, lookupService, sharedService, fileUploadService, fileDownloadService, fileDetailsService, constantsService, cookieService, apartmentService) {
         this.router = router;
         this.sanitizer = sanitizer;
         this.route = route;
@@ -968,6 +970,7 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         this.fileUploadService = fileUploadService;
         this.fileDownloadService = fileDownloadService;
         this.fileDetailsService = fileDetailsService;
+        this.constantsService = constantsService;
         this.cookieService = cookieService;
         this.apartmentService = apartmentService;
         this.insurance = {};
@@ -1019,7 +1022,8 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         this.fileDownloadService.downloadFile(filePath).subscribe((res) => {
             this.isFileDetailsAvailable = true;
             let splitFile = filePath.split('.');
-            this.isImageUploaded = this.sharedService.imageFormats.includes(splitFile[1]);
+            var ext = splitFile[1].replace(/^/, '.');
+            this.isImageUploaded = this.constantsService.imageFormats.includes(ext);
             const blob = res.body;
             let objectURL = URL.createObjectURL(blob);
             let sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
@@ -1418,8 +1422,9 @@ AssetsCreateComponent.ctorParameters = () => [
     { type: _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"] },
     { type: _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"] },
     { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"] }
+    { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__["CookieService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__["ApartmentService"] }
 ];
 AssetsCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1437,8 +1442,9 @@ AssetsCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"],
         _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"],
         src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_11__["CookieService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"]])
+        _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__["CookieService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__["ApartmentService"]])
 ], AssetsCreateComponent);
 
 
