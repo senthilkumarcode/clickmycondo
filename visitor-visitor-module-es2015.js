@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"visitor-setup-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30 vehicle-type-table-card\" *ngIf=\"isDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Visitor Categories <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Delete Visitor Categories</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categoryData\" >\n    \t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" (click)=\"addNewCategoryType()\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Category</span>\n\t\t\t\t\t</a>\n\t    \t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Sno <span [ngClass]=\"getFieldOrderBy('primayContact')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Visitor Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th> \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryDataList | simpleSearch: categoryData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td>{{i + 1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.lookupValueName}}</td> \n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"updateCategoryType(category)\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"deleteCategoryType(category)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t                </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\t\t</div>\n\n    </div>\n\n    <div class=\"card mb-30 vehicle-type-card\" *ngIf=\"isCategoryTypeNew || isCategoryTypeUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isCategoryTypeNew\">Add Visitor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isCategoryTypeNew\">Update Visitor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryTypeBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">  \n\t\t\t\n\t\t\t<!-- <app-alert-message [isError]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isCategoryTypeSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isCategoryTypeSubmitted\">\n\n\t\t\t\t<form #addCategoryTypeForm = \"ngForm\" name=\"addCategoryTypeForm\"  (ngSubmit)=\"submitCategoryTypeForm(addCategoryTypeForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Visitor Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"categoryType\" [(ngModel)]=\"categoryType\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<button class=\"btn blue at-input\" [disabled]=\"addCategoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"visitor-setup-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30 vehicle-type-table-card\" *ngIf=\"isDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Visitor Categories <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Delete Visitor Categories</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categoryData\" >\n    \t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" (click)=\"addNewCategoryType()\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Category</span>\n\t\t\t\t\t</a>\n\t    \t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Sno <span [ngClass]=\"getFieldOrderBy('primayContact')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Visitor Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th> \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryDataList | simpleSearch: categoryData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td>{{category.number}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.lookupValueName}}</td> \n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"updateCategoryType(category)\">\n\t\t\t\t\t\t\t<i class=\"fa fa-pencil icon edit\" title=\"Edit\" aria-hidden=\"true\"></i>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"deleteCategoryType(category)\"><i class=\"fa fa-trash icon delete\" title=\"Delete\" aria-hidden=\"true\"></i></a>\n\t\t\t\t\t\t</td>\n\t                </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\t\t</div>\n\n    </div>\n\n    <div class=\"card mb-30 vehicle-type-card\" *ngIf=\"isCategoryTypeNew || isCategoryTypeUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isCategoryTypeNew\">Add Visitor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isCategoryTypeNew\">Update Visitor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryTypeBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">  \n\t\t\t\n\t\t\t<!-- <app-alert-message [isError]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isCategoryTypeSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isCategoryTypeSubmitted\">\n\n\t\t\t\t<form #addCategoryTypeForm = \"ngForm\" name=\"addCategoryTypeForm\"  (ngSubmit)=\"submitCategoryTypeForm(addCategoryTypeForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Visitor Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"categoryType\" [(ngModel)]=\"categoryType\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<button class=\"btn blue at-input\" [disabled]=\"addCategoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n</div>\n");
 
 /***/ }),
 
@@ -255,6 +255,8 @@ let CheckinVisitorComponent = class CheckinVisitorComponent {
             if (res.message) {
                 this.sharedService.setAlertMessage("Visitor Checked In successfully");
                 this.visitor = {};
+                this.visitTypeId = null;
+                this.visitCategoryId = null;
                 this.isVisitorSubmitted = false;
             }
             else {
@@ -2079,25 +2081,52 @@ let VisitorSetupComponent = class VisitorSetupComponent {
         }, 100);
     }
     deleteCategoryType(item) {
-        this.modalService.showConfirmModal(item);
-        // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(item => {
-            if (item != null) {
-                this.isDataLoaded = false;
+        const confirmationMessage = `Are you sure you want to delete?`;
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            this.result = dialogResult;
+            if (this.result) {
                 var params = {
                     lookupValueId: item.lookupValueId,
                     updateUserId: parseInt(this.cookieService.get('userId'))
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
-                    this.categoryDataList = this.categoryDataList.filter((type) => type.lookupValueId !== item.lookupValueId);
-                    this.sharedService.setUnitListDeleteIndex(null);
-                    this.isDataLoaded = true;
+                    if (res.message) {
+                        var errorDetails = {
+                            msg: 'Visitor category deleted successfully',
+                            type: "Success"
+                        };
+                        this.sharedService.setCustomAlertMessage(errorDetails);
+                        this.isDataLoaded = false;
+                        let categoryParams = {
+                            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+                            LookupTypeId: 100
+                        };
+                        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
+                            this.isDataLoaded = true;
+                            this.categoryDataList = res.filter((item, i) => {
+                                item.number = i + 1;
+                                return item.isActive;
+                            });
+                            this.totalItems = this.categoryDataList.length;
+                            if (this.totalItems > this.itemLimit) {
+                                this.ItemEndIndex = this.itemLimit;
+                            }
+                            else {
+                                this.ItemEndIndex = this.totalItems;
+                            }
+                            this.isDataLoaded = true;
+                        });
+                    }
+                    else {
+                        this.isDataLoaded = true;
+                    }
                 });
-                var errorDetails = {
-                    msg: 'Visitor category deleted successfully',
-                    type: "Success"
-                };
-                this.sharedService.setCustomAlertMessage(errorDetails);
             }
         });
     }
@@ -2146,6 +2175,7 @@ let VisitorSetupComponent = class VisitorSetupComponent {
                             this.sharedService.setAlertMessage("Visitor Category added successfully");
                             this.isCategoryTypeNew = false;
                             this.isCategoryTypeSubmitted = true;
+                            this.categoryType = '';
                             this.isDataLoaded = false;
                             let categoryParams = {
                                 ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -2153,7 +2183,8 @@ let VisitorSetupComponent = class VisitorSetupComponent {
                             };
                             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                                 this.isDataLoaded = true;
-                                this.categoryDataList = res.filter(item => {
+                                this.categoryDataList = res.filter((item, i) => {
+                                    item.number = i + 1;
                                     return item.isActive;
                                 });
                                 this.totalItems = this.categoryDataList.length;
@@ -2182,14 +2213,13 @@ let VisitorSetupComponent = class VisitorSetupComponent {
                 else {
                     let details = {
                         "lookupValueId": this.categoryUpdateId,
+                        "ApartmentId": parseInt(this.cookieService.get('apartmentId')),
                         "lookupTypeId": 100,
                         "lookupValueName": this.categoryType,
                         "description": this.categoryType,
                         "isActive": true,
-                        "insertedBy": 0,
-                        "insertedOn": "2019-11-20T16:51:24.105Z",
                         "updatedBy": parseInt(this.cookieService.get('userId')),
-                        "updatedOn": "2019-11-20T16:51:24.105Z"
+                        "updatedOn": new Date().toISOString()
                     };
                     let params = {
                         lookupvalue: details
@@ -2204,9 +2234,17 @@ let VisitorSetupComponent = class VisitorSetupComponent {
                                 this.isCategoryTypeUpdate = false;
                                 this.isCategoryTypeSubmitted = true;
                                 this.sharedService.setAlertMessage("Visitor Category updated successfully");
-                                this.categoryDataList = res.filter(item => {
+                                this.categoryDataList = res.filter((item, i) => {
+                                    item.number = i + 1;
                                     return item.isActive;
                                 });
+                                this.totalItems = this.categoryDataList.length;
+                                if (this.totalItems > this.itemLimit) {
+                                    this.ItemEndIndex = this.itemLimit;
+                                }
+                                else {
+                                    this.ItemEndIndex = this.totalItems;
+                                }
                             });
                         }
                         else {
@@ -2233,7 +2271,8 @@ let VisitorSetupComponent = class VisitorSetupComponent {
             LookupTypeId: 100
         };
         this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe((res) => {
-            this.categoryDataList = res.filter(item => {
+            this.categoryDataList = res.filter((item, i) => {
+                item.number = i + 1;
                 return item.isActive;
             });
             this.totalItems = this.categoryDataList.length;

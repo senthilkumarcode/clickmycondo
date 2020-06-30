@@ -1078,7 +1078,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "isAdmin",
         value: function isAdmin() {
-          return this.cookieService.get('userRole') == "Admin";
+          return this.cookieService.get('userRoleType') == "Admin";
         }
       }, {
         key: "isMobileView",

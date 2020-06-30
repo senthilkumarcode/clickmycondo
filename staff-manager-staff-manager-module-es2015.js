@@ -211,7 +211,7 @@ let AddEntryComponent = class AddEntryComponent {
         this.entryComments = "";
     }
     isAdmin() {
-        return (this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff') ? true : false;
+        return (this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff') ? true : false;
     }
     isShiftSelected() {
         return this.shiftType != "" ? true : false;

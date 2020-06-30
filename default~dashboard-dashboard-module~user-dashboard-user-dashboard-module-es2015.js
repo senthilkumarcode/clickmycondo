@@ -10104,7 +10104,7 @@ let AdminDashboardComponent = class AdminDashboardComponent {
         });
     }
     ngOnInit() {
-        this.userRole = this.cookieService.get('userRole');
+        this.userRole = this.cookieService.get('userRoleType');
         this.secondRow();
         this.fourthRow();
         this.sixthRow();
@@ -10945,7 +10945,7 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
             this.widgets[0].backValue = res.totalTowers;
         });
         this.dashboardService.getDashTotalownersbyApartmentId(params).subscribe((res) => {
-            this.widgets[1].frontValue = 50;
+            this.widgets[1].frontValue = res.totalOwners;
         });
         this.dashboardService.getDashTotalTenantsbyApartmentId(params).subscribe((res) => {
             this.widgets[1].middleValue = res.totalTenants;
@@ -11511,7 +11511,7 @@ let DashComListComponent = class DashComListComponent {
         this.facility = [];
     }
     ngOnInit() {
-        this.role = this.cookieService.get('userRole');
+        this.role = this.cookieService.get('userRoleType');
         let entity = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             active: 1,

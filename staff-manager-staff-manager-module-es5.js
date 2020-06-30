@@ -352,7 +352,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AddEntryComponent, [{
         key: "isAdmin",
         value: function isAdmin() {
-          return this.cookieService.get('userRole') == 'Admin' || this.cookieService.get('userRole') == 'Staff' ? true : false;
+          return this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff' ? true : false;
         }
       }, {
         key: "isShiftSelected",

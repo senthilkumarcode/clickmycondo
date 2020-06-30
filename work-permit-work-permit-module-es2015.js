@@ -758,7 +758,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         });
     }
     isAdmin() {
-        return this.cookieService.get('userRole') == "Admin";
+        return this.cookieService.get('userRoleType') == "Admin";
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';

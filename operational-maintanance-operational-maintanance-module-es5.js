@@ -41,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper inventory-outer\">\n\t<form name=\"opmaintain\" #opmaintain=\"ngForm\" novalidate>\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\t\t\t\n\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance</span>\n\t\t\t<span *ngIf=\"isEdit\">Edit Maintenance</span>\t\t\t\n\t\t</h4>\n\t\t<!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t\tCurrent Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"categoryId\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintain.categoryId\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of categoriesData\" [value]=\"item.genMaintenanceCategoryId\">{{ item.genMaintenanceCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Sub Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"subCategoryId\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintain.subCategoryId\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of subCategoriesData\" [value]=\"item.genMaintenanceSubCategoryId\">{{ item.genMaintenanceSubCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint. Record No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Maint Record No\" \n\t\t\t\t\t\t\t\t\t\tname=\"recordNo\" [(ngModel)]=\"maintain.recordNo\" >\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-8\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Title</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Title\" \n                                        name=\"maintTitle\" [(ngModel)]=\"maintain.maintTitle\" >\n\t\t\t\t            \t\t</div>\n                                </div>\t\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"maintain.plannedMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [max]=\"currentDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" \n\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"maintain.actualMaintDate\" >\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"lastMaintenance\" placeholder=\"Last Maintenance Date\" [(ngModel)]=\"maintain.lastMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #lastMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                             \n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maint. performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintain.isAssociationStaff\"   (change)=\"maintain.isAssociationStaff = true;maintain.maintenanceByCompany =''\" [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"maintain.isAssociationStaff\"  (change)=\"maintain.isAssociationStaff = false;maintain.performedbyAssociationStaffId =''\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t</div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\" *ngIf=\"maintain?.isAssociationStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <!-- <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n\t\t\t\t\t\t\t\t\t\tname=\"staffName\" [(ngModel)]=\"maintain.maintenanceByPerson\" > -->\n\t\t\t\t\t\t\t\t\t\t<!-- <select name=\"performedbyAssociationStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"maintain.performedbyAssociationStaffId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n\t\t\t\t\t\t\t\t\t</select> -->\n\t\t\t\t\t\t\t\t\t<angular2-multiselect  name=\"issueToStaff\" [data]=\"staffList\" [(ngModel)]=\"issueToStaff\"\n\t\t\t\t\t\t\t\t\t\t[settings]=\"assetSettings\" (onSelect)=\"onItemSelectToStaff($event)\"\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t(onDeSelect)=\"OnItemDeSelectToStaff($event)\" (onSelectAll)=\"onSelectAllToStaff($event)\"\n\t\t\t\t\t\t\t\t\t\t(onDeSelectAll)=\"onDeSelectAllToStaff($event)\">\n\t\t\t\t\t\t\t\t   </angular2-multiselect>  \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\" *ngIf=\"maintain?.isAssociationStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintain.maintenanceByCompany\" >\n\t\t\t                \t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t <quill-editor\n\t\t\t\t\t\t\t\t\t class=\"quill-editor\"\n\t\t\t\t\t\t\t\t\t name=\"ckeditor\"\n\t\t\t\t\t\t\t\t\t [placeholder]=\"editorPlacehorder\"\n\t\t\t\t\t\t\t\t\t [(ngModel)]=\"maintain.notes\"\n\t\t\t\t\t\t\t\t\t (onContentChanged)=\"onContentChanged($event)\">\n\t\t\t\t\t\t\t\t  </quill-editor>\n\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"maintLaborCost\" [(ngModel)]=\"maintain.maintLaborCost\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"maintPartsCost\" [(ngModel)]=\"maintain.maintPartsCost\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>VAT</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"vat\" [(ngModel)]=\"maintain.maintVat\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"withHoldingTax\" [(ngModel)]=\"maintain.maintWithTax\" OnlyNumber=\"true\">\n\t\t\t                \t\t</div>\n                                </div>\n                              \n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"totalBilledAmount\" [(ngModel)]=\"maintain.totalBilledAmount\" OnlyNumber=\"true\">\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"maintain.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter alert before days\" \n                                        name=\"alertBeforeDays\" [(ngModel)]=\"maintain.alertBeforeDays\" >\n\t\t\t\t\t\t\t\t\t\t <!-- <input class=\"form-control\" name=\"nextPlannedDate\" [owlDateTime]=\"nextPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"nextPlannedDate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"maintain.alertBeforeDays\" >\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                        -->\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"   name=\"files\" #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>                             \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" *ngIf=\"!isEdit\" (click)=\"addMaintanance()\" [disabled]=\"opmaintain.invalid\">Submit</button>\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" *ngIf=\"isEdit\" (click)=\"updateMaintanance()\" [disabled]=\"opmaintain.invalid\">Submit</button>\n                    </li>\n                    <!-- <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li> -->\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"assets-create-wrapper inventory-outer\">\n\t<form name=\"opmaintain\" #opmaintain=\"ngForm\" novalidate>\n\t\t<h4 class=\"main-title-mini float-left mt-3\">\t\t\t\n\t\t\t<span *ngIf=\"!isEdit\">Create Maintenance</span>\n\t\t\t<span *ngIf=\"isEdit\">Edit Maintenance</span>\t\t\t\n\t\t</h4>\n\t\t<!-- <div class=\"relative-card float-right\">\n\t\t\t<div class=\"relative-icon\">\n\t\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/assets/maintenance-history\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/boxes-icon.svg\" width=\"17\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class=\"d-inline-block\">View Maintenance</span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div> -->\n\t\t<div class=\"card clear mb-30\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#assetCollapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t\tCurrent Maintenance</li>\n\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details cardOuter\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"categoryId\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintain.categoryId\" (change)=\"dropDownListOfSubCategory()\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of categoriesData\" [ngValue]=\"item.genMaintenanceCategoryId\">{{ item.genMaintenanceCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"maintain.categoryId\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint Sub Category</label>\n\t\t\t\t\t                    <select \n\t\t\t\t\t\t\t\t\t        name=\"subCategoryId\" \t\t\t\t\t\t\t\t\t     \n\t\t\t\t\t\t\t\t\t        class=\"form-control\" [(ngModel)]=\"maintain.subCategoryId\">\n\t\t\t\t\t\t\t\t\t        <option value=\"\" disabled selected >Select</option>\n\t\t\t\t\t\t\t\t\t        <option *ngFor=\"let item of subCategoriesDropDown\" [value]=\"item.genMaintenanceSubCategoryId\">{{ item.genMaintenanceSubCategoryName }}</option>\n\t\t\t\t\t\t\t\t\t    </select>\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Maint. Record No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Maint Record No\" \n\t\t\t\t\t\t\t\t\t\tname=\"recordNo\" [(ngModel)]=\"maintain.recordNo\" >\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t            \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-8\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t                    <label>Title</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Title\" \n                                        name=\"maintTitle\" [(ngModel)]=\"maintain.maintTitle\" >\n\t\t\t\t            \t\t</div>\n                                </div>\t\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"maitainPlannedDate\" placeholder=\"Planned Maintenance Date\" [(ngModel)]=\"maintain.plannedMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #maitainPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Actual Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [max]=\"currentDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"actualMaintenance\" placeholder=\"Actual Maintenance Date\" \n\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"maintain.actualMaintDate\" >\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #actualMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Maintenance Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTime]=\"lastMaintenance\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"lastMaintenance\" placeholder=\"Last Maintenance Date\" [(ngModel)]=\"maintain.lastMaintenanceDate\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #lastMaintenance [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                         \n\t\t\t                \t\t</div>\n                                </div>                                \n                             \n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Maint. performed by Association Staff</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintain.isAssociationStaff\"   (change)=\"maintain.isAssociationStaff = true;maintain.maintenanceByCompany =''\" [value]=\"true\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t                     \t\t</div>\n\t\t\t\t                    \t<div class=\"form-group\">\n\t\t\t\t                            <input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"maintain.isAssociationStaff\"  (change)=\"maintain.isAssociationStaff = false;maintain.performedbyAssociationStaffId =''\" [value]=\"false\" type=\"radio\" >\n\t\t\t\t                            <label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t</div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\" *ngIf=\"maintain?.isAssociationStaff == true\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Staff Name</label>\n                                        <!-- <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Staff Name\" \n\t\t\t\t\t\t\t\t\t\tname=\"staffName\" [(ngModel)]=\"maintain.maintenanceByPerson\" > -->\n\t\t\t\t\t\t\t\t\t\t<!-- <select name=\"performedbyAssociationStaffId\"  class=\"form-control\"\n                                        [(ngModel)]=\"maintain.performedbyAssociationStaffId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option  *ngFor=\"let item of staffList\" [value]=\"item.staffId\">\n                                            {{ item.firstName }}\n                                        </option>\n\t\t\t\t\t\t\t\t\t</select> -->\n\t\t\t\t\t\t\t\t\t<angular2-multiselect  name=\"issueToStaff\" [data]=\"staffList\" [(ngModel)]=\"issueToStaff\"\n\t\t\t\t\t\t\t\t\t\t[settings]=\"assetSettings\" (onSelect)=\"onItemSelectToStaff($event)\"\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t(onDeSelect)=\"OnItemDeSelectToStaff($event)\" (onSelectAll)=\"onSelectAllToStaff($event)\"\n\t\t\t\t\t\t\t\t\t\t(onDeSelectAll)=\"onDeSelectAllToStaff($event)\">\n\t\t\t\t\t\t\t\t   </angular2-multiselect>  \n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\" *ngIf=\"maintain?.isAssociationStaff == false\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n                                        <input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n                                        name=\"Company\" [(ngModel)]=\"maintain.maintenanceByCompany\" >\n\t\t\t                \t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t <quill-editor\n\t\t\t\t\t\t\t\t\t class=\"quill-editor\"\n\t\t\t\t\t\t\t\t\t name=\"ckeditor\"\n\t\t\t\t\t\t\t\t\t [placeholder]=\"editorPlacehorder\"\n\t\t\t\t\t\t\t\t\t [(ngModel)]=\"maintain.notes\"\n\t\t\t\t\t\t\t\t\t (onContentChanged)=\"onContentChanged($event)\">\n\t\t\t\t\t\t\t\t  </quill-editor>\n\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Maintenance Expenses</li>\n\t\t\t\t\t<div id=\"assetCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Labor Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Labor Cost\" \n                                        name=\"maintLaborCost\" [(ngModel)]=\"maintain.maintLaborCost\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Maintenance Parts Cost</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Parts Cost\" \n                                        name=\"maintPartsCost\" [(ngModel)]=\"maintain.maintPartsCost\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>VAT</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Vat\" \n                                        name=\"vat\" [(ngModel)]=\"maintain.maintVat\" OnlyNumber=\"true\" >\n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>With Holding Tax</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter With Holding Tax\" \n                                        name=\"withHoldingTax\" [(ngModel)]=\"maintain.maintWithTax\" OnlyNumber=\"true\">\n\t\t\t                \t\t</div>\n                                </div>\n                              \n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Billed Amount</label>\n                                        <input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter Total Billed Amount\" \n                                        name=\"totalBilledAmount\" [(ngModel)]=\"maintain.totalBilledAmount\" OnlyNumber=\"true\">\n\t\t\t                \t\t</div>\n                                </div>\n                               \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#assetCollapseThree\" aria-expanded=\"true\" aria-controls=\"collapseOne\">Future Plan</li>\n\t\t\t\t\t<div id=\"assetCollapseThree\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Next Planned Maintenance date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedDate\" [owlDateTime]=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"plannedDate\" placeholder=\"Next Planned Maintenance date\" [(ngModel)]=\"maintain.nextPlannedMaintenance\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>                                        \n\t\t\t                \t\t</div>\n                                </div>\n                                <div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Remind me before next planned Date</label>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\"\n                                         placeholder=\"Enter alert before days\" \n                                        name=\"alertBeforeDays\" [(ngModel)]=\"maintain.alertBeforeDays\" >\n\t\t\t\t\t\t\t\t\t\t <!-- <input class=\"form-control\" name=\"nextPlannedDate\" [owlDateTime]=\"nextPlannedDate\"\n\t\t\t\t\t\t\t\t\t\t [owlDateTimeTrigger]=\"nextPlannedDate\" placeholder=\"Enter Remind me before Date\" [(ngModel)]=\"maintain.alertBeforeDays\" >\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #nextPlannedDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t  \t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t  \t\t\t\t\t\t\t\t</div>  \n                                        -->\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>   \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" [ngStyle]=\"maintain?.maintenanceStatusId?{'pointer-events':'none','opacity':'0.4'}:''\">\n                                    <div class=\"input-box uploadbtn\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploader.click()\">\n\t\t\t\t\t\t\t\t\t    <input class=\"form-control\"   name=\"files\" #uploader type=\"file\"\n\t\t\t\t\t\t\t\t\t    (change)=\"uploadFile($event)\" [(ngModel)]=\"file\" multiple>\n\t\t\t\t\t\t\t\t\t    <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Image</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t                \t\t</div>\n                                </div>                             \n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" *ngIf=\"!isEdit\" (click)=\"addMaintanance()\" [disabled]=\"opmaintain.invalid\">Submit</button>\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" *ngIf=\"isEdit\" (click)=\"updateMaintanance()\" [disabled]=\"opmaintain.invalid\">Submit</button>\n                    </li>\n                    <!-- <li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn cancelBtn mr-2\">cancel</button>\n\t\t\t\t\t</li> -->\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n";
     /***/
   },
 
@@ -502,6 +502,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.message = {};
         this.subCategoriesData = [];
         this.categoriesData = [];
+        this.subCategoriesDropDown = [];
         this.maintain = {};
         this.staffList = [];
         this.currentDate = new Date();
@@ -768,6 +769,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           });
         }
+      }, {
+        key: "dropDownListOfSubCategory",
+        value: function dropDownListOfSubCategory() {
+          var _this10 = this;
+
+          this.subCategoriesDropDown = this.subCategoriesData.filter(function (data) {
+            return data.genMaintenanceCategoryId == _this10.maintain.categoryId;
+          });
+        }
       }]);
 
       return MaintainOperationalMaintananceComponent;
@@ -990,7 +1000,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMaintenaceHistory",
         value: function getMaintenaceHistory() {
-          var _this10 = this;
+          var _this11 = this;
 
           var params = {};
           params.apartmentId = parseInt(this.cookieService.get('apartmentId'));
@@ -1016,17 +1026,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               if (responeData && responeData.length > 0) {
                 responeData.filter(function (val) {
-                  val.actualMaintDate = val.actualMaintDate ? _this10.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
-                  val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this10.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
+                  val.actualMaintDate = val.actualMaintDate ? _this11.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
+                  val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this11.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
                 });
               }
 
-              _this10.tempMaintenanceList = res;
-              _this10.gridSourceData = {
+              _this11.tempMaintenanceList = res;
+              _this11.gridSourceData = {
                 localdata: responeData.length > 0 ? responeData : [],
                 datatype: "array"
               };
-              _this10.maintainHistoryData = new jqx.dataAdapter(_this10.gridSourceData);
+              _this11.maintainHistoryData = new jqx.dataAdapter(_this11.gridSourceData);
             }
           });
         }
@@ -1038,7 +1048,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSearchFilter",
         value: function onSearchFilter() {
-          var _this11 = this;
+          var _this12 = this;
 
           if (this.histroySearch != "") {
             var filterGroup = new jqx.filter();
@@ -1051,7 +1061,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.unitAllocationHeader.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this11.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this12.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -1062,7 +1072,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchMaintain",
         value: function searchMaintain() {
-          var _this12 = this;
+          var _this13 = this;
 
           var filterArr = [];
           var filterCategoryArr = [];
@@ -1071,7 +1081,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.assetName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this12.assetName == val.assetName) {
+                if (_this13.assetName == val.assetName) {
                   filterArr.push(val);
                 }
               });
@@ -1082,7 +1092,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.assetName && this.categoryName) {
             filterArr.filter(function (val) {
-              if (_this12.categoryName == val.categoryName) {
+              if (_this13.categoryName == val.categoryName) {
                 filterCategoryArr.push(val);
               }
             });
@@ -1090,7 +1100,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else if (!this.assetName && this.categoryName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this12.categoryName == val.categoryName) {
+                if (_this13.categoryName == val.categoryName) {
                   filterCategoryArr.push(val);
                 }
               });
@@ -1100,7 +1110,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.categoryName && this.subCategoryName) {
             filterCategoryArr.filter(function (val) {
-              if (_this12.subCategoryName == val.subCategoryName) {
+              if (_this13.subCategoryName == val.subCategoryName) {
                 filterSubCategoryArr.push(val);
               }
             });
@@ -1108,7 +1118,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else if (!this.categoryName && this.subCategoryName) {
             if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
               this.tempMaintenanceList.filter(function (val) {
-                if (_this12.subCategoryName == val.subCategoryName) {
+                if (_this13.subCategoryName == val.subCategoryName) {
                   filterSubCategoryArr.push(val);
                 }
               });
@@ -1184,7 +1194,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onStatusFilter",
         value: function onStatusFilter() {
-          var _this13 = this;
+          var _this14 = this;
 
           if (this.historyStatus != "") {
             var filterGroup = new jqx.filter();
@@ -1197,7 +1207,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.unitAllocationHeader.forEach(function (item) {
               if (item.datafield == 'historyStatus') {
-                _this13.datagrid.addfilter(item.datafield, filterGroup, true);
+                _this14.datagrid.addfilter(item.datafield, filterGroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -1208,13 +1218,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this14 = this;
+          var _this15 = this;
 
           this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
             if (res) {
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this14.categoriesData.push({
+                  _this15.categoriesData.push({
                     'id': val.genMaintenanceCategoryId,
                     'itemName': val.genMaintenanceCategoryName
                   });
@@ -1226,13 +1236,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllSubCategory",
         value: function getAllSubCategory() {
-          var _this15 = this;
+          var _this16 = this;
 
           this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
             if (res) {
               if (res && res.length > 0) {
                 res.filter(function (val) {
-                  _this15.subCategoriesData.push({
+                  _this16.subCategoriesData.push({
                     'id': val.genMaintenanceSubCategoryId,
                     'itemName': val.genMaintenanceSubCategoryName
                   });
@@ -1411,7 +1421,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(OperationalMaintananceListComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this16 = this;
+          var _this17 = this;
 
           this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]); // delete maintenance
 
@@ -1420,23 +1430,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var param = {};
               param = {
                 genMaintenancePlanId: id,
-                deleteBy: parseInt(_this16.cookieService.get('userId'))
+                deleteBy: parseInt(_this17.cookieService.get('userId'))
               };
 
-              _this16.genMaintService.deleteGenMaintenancePlan(param).subscribe(function (res) {
+              _this17.genMaintService.deleteGenMaintenancePlan(param).subscribe(function (res) {
                 // this.getAllMaitainList();
-                var pos = _this16.maintList.map(function (e) {
+                var pos = _this17.maintList.map(function (e) {
                   return e.id;
                 }).indexOf(id);
 
-                _this16.maintList.splice(pos, 1);
+                _this17.maintList.splice(pos, 1);
 
-                _this16.totalItems = _this16.maintList.length;
-                _this16.ItemEndIndex = _this16.totalItems;
+                _this17.totalItems = _this17.maintList.length;
+                _this17.ItemEndIndex = _this17.totalItems;
                 setTimeout(function () {
-                  _this16.sharedService.setAlertMessage("Maintenance  deleted successfully");
+                  _this17.sharedService.setAlertMessage("Maintenance  deleted successfully");
 
-                  _this16.sharedService.setUnitListDeleteIndex(null);
+                  _this17.sharedService.setUnitListDeleteIndex(null);
                 }, 500);
               }, function (error) {
                 console.log(error);
@@ -1465,7 +1475,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllMaitainList",
         value: function getAllMaitainList() {
-          var _this17 = this;
+          var _this18 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -1475,8 +1485,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.genMaintService.getAllGenMaintenancePlanByApartmentId(queryParamBase).subscribe(function (res) {
             if (res) {
               // this.isAssetLoaded = false;
-              _this17.maintList = res ? res : [];
-              _this17.tempMaintList = _this17.maintList; // if(this.maintList && this.maintList.length > 0){
+              _this18.maintList = res ? res : [];
+              _this18.tempMaintList = _this18.maintList; // if(this.maintList && this.maintList.length > 0){
               // 	this.statusData.filter( status =>{
               // 	this.maintList.filter( val => {
               //     if(status.lookupValueId == val.maintenanceStatusId){
@@ -1489,12 +1499,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               // })
               // }
 
-              _this17.totalItems = _this17.maintList.length;
+              _this18.totalItems = _this18.maintList.length;
 
-              if (_this17.totalItems > _this17.itemLimit) {
-                _this17.ItemEndIndex = _this17.itemLimit;
+              if (_this18.totalItems > _this18.itemLimit) {
+                _this18.ItemEndIndex = _this18.itemLimit;
               } else {
-                _this17.ItemEndIndex = _this17.totalItems;
+                _this18.ItemEndIndex = _this18.totalItems;
               }
             }
           });
@@ -1502,7 +1512,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getStatusList",
         value: function getStatusList() {
-          var _this18 = this;
+          var _this19 = this;
 
           var queryParamBase = {};
           queryParamBase = {
@@ -1511,14 +1521,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
             if (res) {
-              _this18.statusData = res ? res : [];
+              _this19.statusData = res ? res : [];
             }
           });
         }
       }, {
         key: "addComments",
         value: function addComments(lookup, list) {
-          var _this19 = this;
+          var _this20 = this;
 
           var dialogRef = this.dialog.open(_operational_status_reason_operational_status_reason_component__WEBPACK_IMPORTED_MODULE_6__["OperationalStatusReasonComponent"], {
             // width: '50%',
@@ -1536,14 +1546,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               list.maintainStatusName = lookup.lookupValueName;
               list.comments = result;
 
-              _this19.updateMaintanancePlan(list);
+              _this20.updateMaintanancePlan(list);
             }
           });
         }
       }, {
         key: "updateMaintanancePlan",
         value: function updateMaintanancePlan(data) {
-          var _this20 = this;
+          var _this21 = this;
 
           var reqObj = {}; //   reqObj= {
           // 	"id": 0,
@@ -1596,7 +1606,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res) {
               console.log(res);
 
-              _this20.sharedService.setAlertMessage("Operational Maintanance updated successfully"); // this.isAssetLoaded = false;
+              _this21.sharedService.setAlertMessage("Operational Maintanance updated successfully"); // this.isAssetLoaded = false;
               // this.getAllMaitainList();
               // let events:any ={};
               // events.ItemStartIndex=this.ItemStartIndex;
@@ -1606,7 +1616,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               // if(this.maintList && this.maintList.length > 0){	
 
 
-              _this20.maintList.filter(function (val) {
+              _this21.maintList.filter(function (val) {
                 if (data.id == val.id) {
                   val.maintenanceStatusId = data.maintenanceStatusId;
                   val.comments = data.comments;
@@ -1869,7 +1879,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(OperationalMaintananceSetupComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this21 = this;
+          var _this22 = this;
 
           this.getAllCategory();
           this.getAllSubCategory();
@@ -1879,21 +1889,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (id != null) {
               var param = {};
 
-              if (_this21.deleteSubCatgory == true) {
+              if (_this22.deleteSubCatgory == true) {
                 param = {
                   genMaintenanceSubCategoryId: id,
-                  deleteBy: parseInt(_this21.cookieService.get('userId'))
+                  deleteBy: parseInt(_this22.cookieService.get('userId'))
                 };
 
-                _this21.genMaintService.deleteGenMaintenanceSubCategory(param).subscribe(function (res) {
+                _this22.genMaintService.deleteGenMaintenanceSubCategory(param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this21.sharedService.setAlertMessage(" Sub Category deleted successfully");
+                    _this22.sharedService.setAlertMessage(" Sub Category deleted successfully");
 
-                    _this21.sharedService.setUnitListDeleteIndex(null);
+                    _this22.sharedService.setUnitListDeleteIndex(null);
 
-                    _this21.getAllSubCategory();
+                    _this22.getAllSubCategory();
 
-                    _this21.deleteSubCatgory = false;
+                    _this22.deleteSubCatgory = false;
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -1901,16 +1911,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               } else {
                 param = {
                   genMaintenanceCategoryId: id,
-                  deleteBy: parseInt(_this21.cookieService.get('userId'))
+                  deleteBy: parseInt(_this22.cookieService.get('userId'))
                 };
 
-                _this21.genMaintService.deleteGenMaintenanceCategory(param).subscribe(function (res) {
+                _this22.genMaintService.deleteGenMaintenanceCategory(param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this21.sharedService.setAlertMessage("Category deleted successfully");
+                    _this22.sharedService.setAlertMessage("Category deleted successfully");
 
-                    _this21.sharedService.setUnitListDeleteIndex(null);
+                    _this22.sharedService.setUnitListDeleteIndex(null);
 
-                    _this21.getAllCategory();
+                    _this22.getAllCategory();
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -1981,19 +1991,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllCategory",
         value: function getAllCategory() {
-          var _this22 = this;
+          var _this23 = this;
 
           this.isAssetLoaded = true;
           this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
             if (res) {
-              _this22.categoriesData = res ? res : [];
-              _this22.tempCategoriesData = _this22.categoriesData;
-              _this22.totalItems = _this22.categoriesData.length;
+              _this23.categoriesData = res ? res : [];
+              _this23.tempCategoriesData = _this23.categoriesData;
+              _this23.totalItems = _this23.categoriesData.length;
 
-              if (_this22.totalItems > _this22.itemLimit) {
-                _this22.ItemEndIndex = _this22.itemLimit;
+              if (_this23.totalItems > _this23.itemLimit) {
+                _this23.ItemEndIndex = _this23.itemLimit;
               } else {
-                _this22.ItemEndIndex = _this22.totalItems;
+                _this23.ItemEndIndex = _this23.totalItems;
               }
             }
           });
@@ -2001,7 +2011,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addCategory",
         value: function addCategory(data) {
-          var _this23 = this;
+          var _this24 = this;
 
           var reqObj = {};
           reqObj = {
@@ -2018,19 +2028,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.model = reqObj;
           this.genMaintService.addGenMaintenanceCategory(params).subscribe(function (res) {
             if (res) {
-              _this23.sharedService.setAlertMessage("Category added successfully");
+              _this24.sharedService.setAlertMessage("Category added successfully");
 
-              _this23.isAssetLoaded = false;
-              _this23.row = {};
+              _this24.isAssetLoaded = false;
+              _this24.row = {};
 
-              _this23.getAllCategory();
+              _this24.getAllCategory();
             }
           });
         }
       }, {
         key: "updateCategory",
         value: function updateCategory(data) {
-          var _this24 = this;
+          var _this25 = this;
 
           var reqObj = {};
           reqObj = {
@@ -2047,10 +2057,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.model = reqObj;
           this.genMaintService.updateGenMaintenanceCategory(params).subscribe(function (res) {
             if (res) {
-              _this24.sharedService.setAlertMessage("Category updated successfully");
+              _this25.sharedService.setAlertMessage("Category updated successfully");
 
-              _this24.isAssetLoaded = false;
-              _this24.opIndex = -1;
+              _this25.isAssetLoaded = false;
+              _this25.opIndex = -1;
             }
           });
         }
@@ -2071,20 +2081,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllSubCategory",
         value: function getAllSubCategory() {
-          var _this25 = this;
+          var _this26 = this;
 
           this.isAssetLoaded = true;
           this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
             if (res) {
-              _this25.isAssetLoaded = false;
-              _this25.subCategoriesData = res ? res : [];
-              _this25.tempSubCategoriesData = res ? res : [];
-              _this25.subTotalItems = _this25.subCategoriesData.length;
+              _this26.isAssetLoaded = false;
+              _this26.subCategoriesData = res ? res : [];
+              _this26.tempSubCategoriesData = res ? res : [];
+              _this26.subTotalItems = _this26.subCategoriesData.length;
 
-              if (_this25.subTotalItems > _this25.subItemLimit) {
-                _this25.subItemEndIndex = _this25.subItemLimit;
+              if (_this26.subTotalItems > _this26.subItemLimit) {
+                _this26.subItemEndIndex = _this26.subItemLimit;
               } else {
-                _this25.subItemEndIndex = _this25.subTotalItems;
+                _this26.subItemEndIndex = _this26.subTotalItems;
               }
             }
           });
@@ -2092,7 +2102,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addSubCategory",
         value: function addSubCategory(data) {
-          var _this26 = this;
+          var _this27 = this;
 
           var reqObj = {};
           reqObj = {
@@ -2111,19 +2121,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.model = reqObj;
           this.genMaintService.addGenMaintenanceSubCategory(params).subscribe(function (res) {
             if (res) {
-              _this26.sharedService.setAlertMessage(" Sub Category added successfully");
+              _this27.sharedService.setAlertMessage(" Sub Category added successfully");
 
-              _this26.isAssetLoaded = false;
-              _this26.subCatgory = {};
+              _this27.isAssetLoaded = false;
+              _this27.subCatgory = {};
 
-              _this26.getAllSubCategory();
+              _this27.getAllSubCategory();
             }
           });
         }
       }, {
         key: "updateSubCategory",
         value: function updateSubCategory(data) {
-          var _this27 = this;
+          var _this28 = this;
 
           var reqObj = {};
           reqObj = {
@@ -2142,12 +2152,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           params.model = reqObj;
           this.genMaintService.updateGenMaintenanceSubCategory(params).subscribe(function (res) {
             if (res) {
-              _this27.sharedService.setAlertMessage("Sub Category updated successfully");
+              _this28.sharedService.setAlertMessage("Sub Category updated successfully");
 
-              _this27.isAssetLoaded = false;
-              _this27.opSubIndex = -1;
+              _this28.isAssetLoaded = false;
+              _this28.opSubIndex = -1;
 
-              _this27.getAllSubCategory();
+              _this28.getAllSubCategory();
             }
           });
         }

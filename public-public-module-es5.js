@@ -5786,7 +5786,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var user = res[0];
             if (user.resetPassword) _this18.cookieService.set('isReset', 'yes');else _this18.cookieService.set('isReset', 'no');
 
-            var userRole = _this18.cookieService.get('userRole');
+            var userRole = _this18.cookieService.get('userRoleType');
 
             if (user.resetPassword) {
               _this18.router.navigateByUrl('/profile/resetpassword/' + user.userId);
@@ -5821,7 +5821,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               _this19.cookieService.set('userId', data.userId);
 
-              _this19.cookieService.set('userRole', data.roleName);
+              _this19.cookieService.set('userRoleType', data.roleTypeName);
 
               _this19.getUserDetails(data.userId);
             } else {

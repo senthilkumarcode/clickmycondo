@@ -14212,7 +14212,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.userRole = this.cookieService.get('userRole');
+          this.userRole = this.cookieService.get('userRoleType');
           this.secondRow();
           this.fourthRow();
           this.sixthRow();
@@ -15372,7 +15372,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this76.widgets[0].backValue = res.totalTowers;
           });
           this.dashboardService.getDashTotalownersbyApartmentId(params).subscribe(function (res) {
-            _this76.widgets[1].frontValue = 50;
+            _this76.widgets[1].frontValue = res.totalOwners;
           });
           this.dashboardService.getDashTotalTenantsbyApartmentId(params).subscribe(function (res) {
             _this76.widgets[1].middleValue = res.totalTenants;
@@ -16201,7 +16201,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this91 = this;
 
-          this.role = this.cookieService.get('userRole');
+          this.role = this.cookieService.get('userRoleType');
           var entity = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             active: 1

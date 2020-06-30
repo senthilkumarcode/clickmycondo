@@ -3775,7 +3775,7 @@ let LoginComponent = class LoginComponent {
                 this.cookieService.set('isReset', 'yes');
             else
                 this.cookieService.set('isReset', 'no');
-            var userRole = this.cookieService.get('userRole');
+            var userRole = this.cookieService.get('userRoleType');
             if (user.resetPassword) {
                 this.router.navigateByUrl('/profile/resetpassword/' + user.userId);
             }
@@ -3806,7 +3806,7 @@ let LoginComponent = class LoginComponent {
                 //store the tooken in cookie
                 this.cookieService.set('token', data.tokenString);
                 this.cookieService.set('userId', data.userId);
-                this.cookieService.set('userRole', data.roleName);
+                this.cookieService.set('userRoleType', data.roleTypeName);
                 this.getUserDetails(data.userId);
             }
             else {

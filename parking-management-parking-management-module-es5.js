@@ -81,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"slot-confirm-wrapper\">\n  <h5 class=\"font-weight-bold mb-5\">{{allocateSlotData.slotMainTypeName | titlecase}}</h5>\n  <form>\n    <div class=\"row mb-5\">\n      <div class=\"col-sm-6\">\n        <h6>Allocate : {{allocateSlotData.slotName}}</h6>\n      </div>\n      <div class=\"col-sm-6\">\n        <h6>Located In : {{allocateSlotData.parkingSlotBlockNumber}}</h6>\n      </div>\n    </div>\n    <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 299\">\n      <div class=\"col-sm-6\">\n        <div class=\"input-box\">\n          <label>Contact Name</label>\n          <input  type=\"text\" class=\"form-control\" placeholder=\"Contact Name\" name=\"primaryName\" [(ngModel)]=\"allocateSlotData.contactName\">\n        </div>\n      </div>\n      <div class=\"col-sm-6\">\n        <div class=\"select-box\">\n          <label>Unit No</label>\n          <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"allocateSlotData.apartmentBlockUnitId\" required>\n            <option value=\"\" disabled selected hidden>Select</option>\n            <option *ngFor=\"let item of blockUnit\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n          </select>\n        </div>\n      </div>\n    </div>\n    <div class=\"row mb-2\">\n      <div class=\"col-sm-12\">\n        <div class=\"input-box\">\n          <label>Comments</label>\n          <textarea class=\"comment-box\" placeholder=\"some text here\" [(ngModel)]=\"allocateSlotData.comment\" rows=\"2\" name=\"comment\"></textarea>\n        </div>\n      </div>\n    </div>\n    <div class=\"row btn-wrapper\">\n      <div class=\"col-sm-12 text-right\">\n        <a href=\"javascript:void(0)\" class=\"btn blue mr-3\" (click)=\"slotAllocation()\">Submit</a>\n        <a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"onDismiss()\">Cancel</a>\n      </div>\n    </div>\n  </form>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"slot-confirm-wrapper\">\n  <h5 class=\"font-weight-bold mb-5\">{{allocateSlotData.slotMainTypeName | uppercase}}</h5>\n  <form>\n    <div class=\"row mb-5\">\n      <div class=\"col-sm-7\">\n        <p class=\"allocate-heading\">Allocate Parking Slot: {{allocateSlotData.slotName}}</p>\n      </div>\n      <div class=\"col-sm-5\">\n        <p class=\"allocate-heading\">Located In : {{allocateSlotData.parkingSlotBlockNumber_Label}}</p>\n      </div>\n    </div>\n    <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 299\">\n        <div class=\"col-sm-6\">\n          <label>Tower</label>\n            <select name=\"slotBlockno\" id=\"slotBlockno\" [(ngModel)]=\"towerId\" (ngModelChange)=\"getUnits('change')\" class=\"form-control\">\n              <option disabled selected hidden>Select</option>\n              <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{item.apartmentBlockNumber}}</option>\n            </select>\n        </div>\n      <div class=\"col-sm-6\">\n        <div class=\"select-box\">\n          <label>Unit No</label>\n          <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"allocateSlotData.apartmentBlockUnitId\" required>\n            <option value=\"\" disabled selected hidden>Select</option>\n            <option *ngFor=\"let item of blockUnit\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"col-sm-6\">\n        <h5>{{allocateSlotData.isPrimaryContactName}}</h5>\n      </div>\n    </div>\n    <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 300\">\n      <div class=\"col-sm-12\">\n        <div class=\"select-box\">\n            <label>Staff</label>\n            <angular2-multiselect [data]=\"staffsList.dropdownList\" name=\"staffsdropdown\" [(ngModel)]=\"staffsList.selectedItems\" \n            [settings]=\"staffsdropdownSettings\">\n            </angular2-multiselect>\n        </div> \n    </div>\n    </div>\n    <div class=\"row mb-2\">\n      <div class=\"col-sm-12\">\n        <div class=\"input-box\">\n          <label>Comments</label>\n          <textarea class=\"comment-box\" placeholder=\"some text here\" [(ngModel)]=\"allocateSlotData.comment\" rows=\"2\" name=\"comment\"></textarea>\n        </div>\n      </div>\n    </div>\n    <div class=\"row btn-wrapper\">\n      <div class=\"col-sm-12 text-right\">\n        <a href=\"javascript:void(0)\" class=\"btn blue mr-3\" (click)=\"slotAllocation()\">Submit</a>\n        <a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"onDismiss()\">Cancel</a>\n      </div>\n    </div>\n  </form>\n</div>";
     /***/
   },
 
@@ -201,7 +201,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/parking-management/manage-parking-slots\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg white\" src=\"assets/images/car-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Parking Slot</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\t<div class=\"card clear mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t{{isCreateSlot ? 'Create Parking Slot' : 'Update Parking Slot'}}\n    \t\t\t</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Fill in the details</p>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\t\t\t<form #createParkingSlotForm = \"ngForm\" name=\"addSlotForm\" (ngSubmit)=\"parkingSlot()\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Slot Name\" [(ngModel)]=\"createSlot.slotName\" name=\"slotName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Block No</label>\n\t\t\t\t\t\t\t<select name=\"slotBlockno\" id=\"slotBlockno\" [(ngModel)]=\"createSlot.parkingSlotBlockNumber\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{item.apartmentBlockNumber}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Slot Main Type</label>\n\t\t\t\t\t\t\t<select name=\"SlotMainType\" id=\"SlotMainType\" [(ngModel)]=\"createSlot.slotMainTypeId\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of slotMainTypeList\" [ngValue]=\"item.lookupValueId\">{{item.lookupValueName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Slot Type</label>\n\t\t\t\t\t\t\t<select name=\"SlotType\" id=\"SlotType\" [(ngModel)]=\"createSlot.slotTypeId\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of slotTypeList\" [ngValue]=\"item.lookupValueId\">{{item.lookupValueName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Vehicle Type</label>\n\t\t\t\t\t\t\t<select name=\"ParkingType\" id=\"ParkingType\" [(ngModel)]=\"createSlot.parkingTypeId\" class=\"form-control\" >\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of parkingTypeList\" [ngValue]=\"item.id\">{{item.name}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Sq.M</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"createSlot.sqrFt\"  placeholder=\"Enter value\" name=\"sqm\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn blue mr-2\">Submit</button>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"relative-card float-right\">\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/parking-management/manage-parking-slots\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<img class=\"svg white\" src=\"assets/images/car-icon.svg\" width=\"17\">\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">View Parking Slot</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\t<div class=\"card clear mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>\n    \t\t\t\t{{isCreateSlot ? 'Create Parking Slot' : 'Update Parking Slot'}}\n    \t\t\t</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Fill in the details</p>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\t\t\t<form #createParkingSlotForm = \"ngForm\" name=\"addSlotForm\" (ngSubmit)=\"parkingSlot()\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Slot Name\" [(ngModel)]=\"createSlot.slotName\" name=\"slotName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Slot Location</label>\n\t\t\t\t\t\t\t<select name=\"slotBlockno\" id=\"slotBlockno\" [(ngModel)]=\"createSlot.parkingSlotBlockNumber\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{item.apartmentBlockNumber}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Slot Main Type</label>\n\t\t\t\t\t\t\t<select name=\"SlotMainType\" id=\"SlotMainType\" [(ngModel)]=\"createSlot.slotMainTypeId\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of slotMainTypeList\" [ngValue]=\"item.lookupValueId\">{{item.lookupValueName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Slot Type</label>\n\t\t\t\t\t\t\t<select name=\"SlotType\" id=\"SlotType\" [(ngModel)]=\"createSlot.slotTypeId\" class=\"form-control\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of slotTypeList\" [ngValue]=\"item.lookupValueId\">{{item.lookupValueName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Vehicle Type</label>\n\t\t\t\t\t\t\t<select name=\"ParkingType\" id=\"ParkingType\" [(ngModel)]=\"createSlot.parkingTypeId\" class=\"form-control\" >\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of parkingTypeList\" [ngValue]=\"item.id\">{{item.name}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Sq.M</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"createSlot.sqrFt\"  placeholder=\"Enter value\" name=\"sqm\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn blue mr-2\">Submit</button>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n</div>";
     /***/
   },
 
@@ -301,7 +301,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-wrapper\">\n    <ul class=\"legends list-inline\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>UnAllocated</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Allocated</li>\n\t</ul>\n    <div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Manage Allocated Slots</h5>\n                <p class=\"d-none d-md-inline-block\">View Allocated Slots</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item d-none search d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"allocateFilter\"  (ngModelChange)=\"searchAllocate()\" >\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                 <li class=\"list-inline-item\"></li>  <!-- This Line is Must, If you removed console error occurred -->\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"allocatedSlotData\" [columns]=\"allocatedSlotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div> \n</div>";
+    __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-wrapper\">\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <ul class=\"legends list-inline\" *ngIf=\"!isDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots high\"></span>UnAllocated</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots low\"></span>Allocated</li>\n\t</ul>\n    <div class=\"card table-card mt-30 clear\" *ngIf=\"!isDataLoaded\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Manage Allocated Slots</h5>\n                <p class=\"d-none d-md-inline-block\">View Allocated Slots</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item d-none search d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"allocateFilter\"  (ngModelChange)=\"searchAllocate()\" >\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                 <li class=\"list-inline-item\"></li>  <!-- This Line is Must, If you removed console error occurred -->\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"allocatedSlotData\" [columns]=\"allocatedSlotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div> \n</div>";
     /***/
   },
 
@@ -386,6 +386,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.html":
+  /*!****************************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.html ***!
+    \****************************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsParkingManagementComponentsParkingManageFilterParkingManageFilterComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"parking-common-filter-wrapper\">\n    <ul class=\"list-group tabs clear filter-collapse\" id=\"accordion2\">\n        <li class=\"list-group-item\" #accordion2 data-toggle=\"collapse\" data-target=\"#parking\"\n            aria-expanded=\"false\" aria-controls=\"collapseOne\">\n            <h6>Filter</h6>\n        </li>\n        <div id=\"parking\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion2\">\n            <div class=\"card\">\n                <div class=\"card-body\"> \n                    <form>\n                        <div class=\"row\"> \n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label>Start Date</label>\n                                    <input class=\"form-control\" name=\"startDate\" [(ngModel)]=\"filter.startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                    <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                        <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label>Start Time</label>\n                                    <input class=\"form-control\" name=\"startTime\" [(ngModel)]=\"filter.startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"startTime\" placeholder=\"Start Time\">\n                                    <owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"startTime\">\n                                        <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label>End Date</label>\n                                    <input class=\"form-control\" name=\"endDate\" [(ngModel)]=\"filter.endDate\"  [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                    <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                        <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                    </div>\n                                </div>\n                            </div> \n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label>End Time</label>\n                                    <input class=\"form-control\" name=\"endTime\" [(ngModel)]=\"filter.endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n                                    <owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n                                        <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                                    </div>\n                                </div>\n                            </div> \n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <ul class=\"list-inline float-right mt-4\">\n                                    <li class=\"list-inline-item\">\n                                        <button class=\"btn blue\" (click)=\"filterSlot()\">Submit</button>\n                                        <button class=\"btn mr-2\" (click)=\"filterSlot()\">Cancel</button>\n                                    </li>\n                                </ul>\n                            </div>\n                        </div>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </ul>\n</div>";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-manage-parking-slots/parking-manage-parking-slots.component.html":
   /*!******************************************************************************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-manage-parking-slots/parking-manage-parking-slots.component.html ***!
@@ -401,7 +421,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-manage-parkings-slots-wrapper\">\n  \t<div class=\"card table-card mt-30 clear\">\n        <div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Parking Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Manage Parking Slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"slotFilter\"  (ngModelChange)=\"searchSlot()\" >\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/create-parking-slot\" routerLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Parking Slot</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n\t\t</div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"slotDataList\" [columns]=\"slotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n        </div>\n\t</div> \n</div>";
+    __webpack_exports__["default"] = "<div class=\"parking-manage-parkings-slots-wrapper\">\n\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n  \t<div class=\"card table-card mt-30 clear\" *ngIf=\"!isDataLoaded\">\n        <div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Parking Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Manage Parking Slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"slotFilter\"  (ngModelChange)=\"searchSlot()\" >\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item\"> \n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/create-parking-slot\" routerLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Parking Slot</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n\t\t</div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"slotDataList\" [columns]=\"slotHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n        </div>\n\t</div> \n</div>";
     /***/
   },
 
@@ -621,7 +641,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Make Community Parking Available</h5>\n                <p class=\"d-none d-md-inline-block\">You are making Community Parking Available for Booking</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"communityFilter\" (ngModelChange)=\"communitySearch()\">\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/set-parking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Set Availablity</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"communityAllocationData\" [columns]=\"communityAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
+    __webpack_exports__["default"] = "<div class=\"community-parking-availability-wrapper\">\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <ng-container *ngIf=\"!isDataLoaded\">\n        <app-parking-manage-filter [type]=\"'unit'\"></app-parking-manage-filter>\n    </ng-container>\n    <div *ngIf=\"!isDataLoaded\" class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Make Community Parking Available</h5>\n                <p class=\"d-none d-md-inline-block\">You are making Community Parking Available for Booking</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"communityFilter\" (ngModelChange)=\"communitySearch()\">\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/set-parking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Set Availablity</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"communityAllocationData\" [columns]=\"communityAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -681,7 +701,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Make Unit Parking Available</h5>\n                <p class=\"d-none d-md-inline-block\">You are making Resident Parking Available(on behalf ofresident)</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitFilter\" (ngModelChange)=\"unitSearch()\">\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/set-parking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Set Availablity</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>";
+    __webpack_exports__["default"] = "<div class=\"unit-parking-availability-wrapper\">\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <ng-container *ngIf=\"!isDataLoaded\">\n        <app-parking-manage-filter [type]=\"'unit'\"></app-parking-manage-filter>\n    </ng-container>\n    <div *ngIf=\"!isDataLoaded\" class=\"card table-card clear mt-3\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Make Unit Parking Available</h5>\n                <p class=\"d-none d-md-inline-block\">You are making Resident Parking Available(on behalf ofresident)</p>\n            </div>\n            <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitFilter\" (ngModelChange)=\"unitSearch()\">\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                <li class=\"list-inline-item\">\n                    <a class=\"btn lime-green mt_5\" routerLink=\"/ams/parking-management/set-parking\"\n                        routerLinkActive=\"active\" [routerLinkActiveOptions]=\"\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                        <span>Set Availablity</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n        <div class=\"card-body p-0\">\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -1388,7 +1408,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".slot-confirm-wrapper .comment-box {\n  height: unset;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvYWxsb2NhdGVkLXNsb3QtY29uZmlybWF0aW9uL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL3BhcmtpbmctbWFuYWdlbWVudC9jb21wb25lbnRzL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi9hbGxvY2F0ZWQtc2xvdC1jb25maXJtYXRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0k7RUFDSSxhQUFBO0FDQVIiLCJmaWxlIjoic3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvYWxsb2NhdGVkLXNsb3QtY29uZmlybWF0aW9uL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zbG90LWNvbmZpcm0td3JhcHBlciB7XG4gICAgLmNvbW1lbnQtYm94IHtcbiAgICAgICAgaGVpZ2h0OiB1bnNldDtcbiAgICB9XG59IiwiLnNsb3QtY29uZmlybS13cmFwcGVyIC5jb21tZW50LWJveCB7XG4gIGhlaWdodDogdW5zZXQ7XG59Il19 */";
+    __webpack_exports__["default"] = ".slot-confirm-wrapper .allocate-heading {\n  font-size: 1.5rem;\n}\n.slot-confirm-wrapper .comment-box {\n  height: unset;\n}\n.slot-confirm-wrapper ::ng-deep .c-btn span {\n  font-size: 1.4rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvcGFya2luZy1tYW5hZ2VtZW50L2NvbXBvbmVudHMvYWxsb2NhdGVkLXNsb3QtY29uZmlybWF0aW9uL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyIsInNyYy9hcHAvYW1zL3BhcmtpbmctbWFuYWdlbWVudC9jb21wb25lbnRzL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi9hbGxvY2F0ZWQtc2xvdC1jb25maXJtYXRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBS0k7RUN5RUYsaUJBQUE7QUM1RUY7QUZNSTtFQUNJLGFBQUE7QUVKUjtBRlFRO0VDaUVOLGlCQUFBO0FDdEVGIiwiZmlsZSI6InNyYy9hcHAvYW1zL3BhcmtpbmctbWFuYWdlbWVudC9jb21wb25lbnRzL2FsbG9jYXRlZC1zbG90LWNvbmZpcm1hdGlvbi9hbGxvY2F0ZWQtc2xvdC1jb25maXJtYXRpb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLnNsb3QtY29uZmlybS13cmFwcGVyIHtcbiAgICAuYWxsb2NhdGUtaGVhZGluZyB7XG4gICAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtbm9ybWFsLTAyKTtcbiAgICB9XG4gICAgLmNvbW1lbnQtYm94IHtcbiAgICAgICAgaGVpZ2h0OiB1bnNldDtcbiAgICB9XG4gICAgOjpuZy1kZWVwIC5jLWJ0biB7XG4gICAgICAgIC8vd2lkdGg6IDkwJSAhaW1wb3J0YW50O1xuICAgICAgICBzcGFuIHtcbiAgICAgICAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGwpO1xuICAgICAgICB9XG4gICAgfVxufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnTGF0bycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIiwiLnNsb3QtY29uZmlybS13cmFwcGVyIC5hbGxvY2F0ZS1oZWFkaW5nIHtcbiAgZm9udC1zaXplOiAxLjVyZW07XG59XG4uc2xvdC1jb25maXJtLXdyYXBwZXIgLmNvbW1lbnQtYm94IHtcbiAgaGVpZ2h0OiB1bnNldDtcbn1cbi5zbG90LWNvbmZpcm0td3JhcHBlciA6Om5nLWRlZXAgLmMtYnRuIHNwYW4ge1xuICBmb250LXNpemU6IDEuNHJlbTtcbn0iXX0= */";
     /***/
   },
 
@@ -1453,21 +1473,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-cookie-service */
     "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Staff */
+    "./src/app/api/controllers/Staff.ts");
 
     var AllocatedSlotConfirmationComponent =
     /*#__PURE__*/
     function () {
-      function AllocatedSlotConfirmationComponent(dialogRef, apartmentService, vehicleService, sharedService, cookieService, data) {
+      function AllocatedSlotConfirmationComponent(dialogRef, apartmentService, vehicleService, sharedService, staffService, cookieService, data) {
         _classCallCheck(this, AllocatedSlotConfirmationComponent);
 
         this.dialogRef = dialogRef;
         this.apartmentService = apartmentService;
         this.vehicleService = vehicleService;
         this.sharedService = sharedService;
+        this.staffService = staffService;
         this.cookieService = cookieService;
         this.data = data;
         this.allocateSlotData = {};
         this.blockUnit = [];
+        this.towerList = [];
+        this.staffsList = {
+          "dropdownList": [],
+          "selectedItems": []
+        };
+        this.staffsdropdownSettings = {};
       }
 
       _createClass(AllocatedSlotConfirmationComponent, [{
@@ -1496,6 +1529,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             sqrFt: this.allocateSlotData.sqrFt,
             insertedBy: this.allocateSlotData.insertedBy,
             insertedOn: this.allocateSlotData.insertedOn,
+            tempApartmentBlockUnitUserId: 0,
+            staffId: this.staffsList.selectedItems[0].staffId,
             updatedBy: parseInt(this.cookieService.get('userId')),
             updatedOn: new Date().toISOString()
           };
@@ -1509,18 +1544,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
+        key: "getUnits",
+        value: function getUnits(type) {
           var _this7 = this;
 
+          var unitParams = {};
+
+          if (type == 'change') {
+            this.allocateSlotData.apartmentBlockUnitId = '';
+            unitParams = {
+              apartmentBlockId: this.towerId
+            };
+          } else {
+            unitParams = {
+              apartmentBlockId: this.allocateSlotData.parkingSlotBlockNumber
+            };
+          }
+
+          this.apartmentService.getApartmentBlockUnitByBlockId(unitParams).subscribe(function (res) {
+            _this7.blockUnit = res;
+          }, function (error) {
+            console.log(error);
+          });
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this8 = this;
+
+          this.staffsdropdownSettings = {
+            singleSelection: true,
+            primaryKey: 'userId',
+            labelKey: 'customLabel',
+            enableSearchFilter: true,
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 130
+          };
           this.allocateSlotData = this.data;
 
           if (this.allocateSlotData.slotMainTypeId == 299) {
-            var unitParams = {
-              apartmentBlockId: this.allocateSlotData.parkingSlotBlockNumber
+            var towerParams = {
+              apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
-            this.apartmentService.getApartmentBlockUnitByBlockId(unitParams).subscribe(function (res) {
-              _this7.blockUnit = res;
+            this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe(function (res) {
+              _this8.towerList = res;
+            }, function (error) {
+              console.log(error);
+            });
+            this.getUnits('initial');
+          } else {
+            this.staffService.getAllStaffs().subscribe(function (res) {
+              if (res.length) {
+                res.forEach(function (ele) {
+                  ele.customLabel = "".concat(ele.firstName, " ").concat(ele.lastName, " ").concat(ele.staffCategory_Label);
+                });
+                _this8.staffsList.dropdownList = res;
+              }
             }, function (error) {
               console.log(error);
             });
@@ -1541,6 +1621,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
       }, {
+        type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
+      }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
       }, {
         type: undefined,
@@ -1559,7 +1641,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./allocated-slot-confirmation.component.scss */
       "./src/app/ams/parking-management/components/allocated-slot-confirmation/allocated-slot-confirmation.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(5, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], Object])], AllocatedSlotConfirmationComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(6, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], Object])], AllocatedSlotConfirmationComponent);
     /***/
   },
 
@@ -2088,7 +2170,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitParkingSlot",
         value: function submitParkingSlot() {
-          var _this8 = this;
+          var _this9 = this;
 
           var entity = {
             "id": 0,
@@ -2107,27 +2189,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             availabelParking: entity
           };
           this.parkingService.addAvailableParking(parking).subscribe(function (res) {
-            _this8.sharedService.setAlertMessage("Parking Slot Created successfully");
+            _this9.sharedService.setAlertMessage("Parking Slot Created successfully");
 
-            _this8.router.navigate(['/ams/parking-management/set-parking-availablity/unit-parking-availablity']);
+            _this9.router.navigate(['/ams/parking-management/set-parking-availablity/unit-parking-availablity']);
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this10 = this;
 
           this.slotSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(600), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])()).subscribe(function (value) {
-            if (_this9.parkingSlotData.displaySlotNumber && _this9.parkingSlotData.displaySlotNumber.length > 2) {
+            if (_this10.parkingSlotData.displaySlotNumber && _this10.parkingSlotData.displaySlotNumber.length > 2) {
               var entity = {
-                ApartmentID: parseInt(_this9.cookieService.get('apartmentId')),
-                KeywordSlotNo: _this9.parkingSlotData.displaySlotNumber
+                ApartmentID: parseInt(_this10.cookieService.get('apartmentId')),
+                KeywordSlotNo: _this10.parkingSlotData.displaySlotNumber
               };
-              _this9.slotData$ = _this9.parkingService.getParkingSlotNoByKeyword(entity);
+              _this10.slotData$ = _this10.parkingService.getParkingSlotNoByKeyword(entity);
 
-              _this9.slotData$.subscribe(function (data) {
+              _this10.slotData$.subscribe(function (data) {
                 if (data.length > 0) {
-                  _this9.parkingSlotList = data;
+                  _this10.parkingSlotList = data;
                 }
               });
             }
@@ -2312,14 +2394,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMasterData",
         value: function getMasterData() {
-          var _this10 = this;
+          var _this11 = this;
 
           var mainTypeParam = {
             LookupTypeId: 71
           }; //slot main type
 
           this.lookupService.getLookupValueByLookupTypeId(mainTypeParam).subscribe(function (res) {
-            _this10.slotMainTypeList = res.filter(function (item) {
+            _this11.slotMainTypeList = res.filter(function (item) {
               return item.isActive;
             });
           }); //slot type
@@ -2328,37 +2410,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 18
           };
           this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe(function (res) {
-            _this10.slotTypeList = res.filter(function (item) {
+            _this11.slotTypeList = res.filter(function (item) {
               return item.isActive;
             });
           }); //parking type
 
           this.parkingService.getParkingType().subscribe(function (resp) {
-            _this10.parkingTypeList = resp;
+            _this11.parkingTypeList = resp;
           });
           var towerParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe(function (res) {
-            _this10.towerList = res;
+            _this11.towerList = res;
           });
         }
       }, {
         key: "getParkingSlot",
         value: function getParkingSlot() {
-          var _this11 = this;
+          var _this12 = this;
 
           var params = {
             parkingSlotId: this.slotId
           };
           this.vehicleService.getParkingSlotById(params).subscribe(function (resp) {
-            _this11.createSlot = resp[0];
+            _this12.createSlot = resp[0];
           });
         }
       }, {
         key: "parkingSlot",
         value: function parkingSlot() {
-          var _this12 = this;
+          var _this13 = this;
 
           var entity = {
             parkingSlot: this.createSlot
@@ -2367,15 +2449,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.isCreateSlot) {
             this.createSlot.sqrFt = parseFloat(this.createSlot.sqrFt);
             this.vehicleService.addParkingSlot(entity).subscribe(function (resp) {
-              _this12.sharedService.setAlertMessage("Parking Slot Created successfully");
+              _this13.sharedService.setAlertMessage("Parking Slot Created successfully");
 
-              _this12.router.navigate(['/ams/parking-management/manage-parking-slots']);
+              _this13.router.navigate(['/ams/parking-management/manage-parking-slots']);
             });
           } else {
             this.vehicleService.updateParkingSlot(entity).subscribe(function (resp) {
-              _this12.sharedService.setAlertMessage("Parking Slot Updated successfully");
+              _this13.sharedService.setAlertMessage("Parking Slot Updated successfully");
 
-              _this12.router.navigate(['/ams/parking-management/manage-parking-slots']);
+              _this13.router.navigate(['/ams/parking-management/manage-parking-slots']);
             });
           }
         }
@@ -3134,33 +3216,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../../../../api/controllers/Vehicle */
     "./src/app/api/controllers/Vehicle.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
 
     var ParkingManageAllocatedSlotsComponent =
     /*#__PURE__*/
     function () {
-      function ParkingManageAllocatedSlotsComponent(injector, dialog, vehicleService, cookieService) {
+      function ParkingManageAllocatedSlotsComponent(injector, dialog, vehicleService, sharedService, cookieService) {
         _classCallCheck(this, ParkingManageAllocatedSlotsComponent);
 
         this.injector = injector;
         this.dialog = dialog;
         this.vehicleService = vehicleService;
+        this.sharedService = sharedService;
         this.cookieService = cookieService;
-        this.allocatedSlotData = [];
-        this.allocateFilter = "";
+        this.isDataLoaded = true;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
       }
 
       _createClass(ParkingManageAllocatedSlotsComponent, [{
         key: "ondeleteSlot",
         value: function ondeleteSlot(detail) {
-          console.log(detail);
-          var dataRecord = this.datagrid.getrowdata(detail.rowId); // let permitId = dataRecord.workPermitId
-          // this.router.navigate(['/ams/work-permit/create'],{queryParams:{id:permitId,type:'view'}});
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var parkingSlotId = dataRecord.parkingSlotId;
+          this.modalService.showConfirmModal(parkingSlotId);
         }
       }, {
         key: "oneditSlot",
         value: function oneditSlot(detail) {
-          var _this13 = this;
+          var _this14 = this;
 
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
           var dialogRef = this.dialog.open(_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_2__["AllocatedSlotConfirmationComponent"], {
@@ -3170,14 +3258,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this13.getAllocatedSlot();
+              _this14.getAllocatedSlot();
             }
           });
         }
       }, {
         key: "searchAllocate",
         value: function searchAllocate() {
-          var _this14 = this;
+          var _this15 = this;
 
           if (this.allocateFilter != "") {
             var filtergroup = new jqx.filter();
@@ -3190,7 +3278,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.allocatedSlotHeader.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this15.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3201,8 +3289,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllocatedSlot",
         value: function getAllocatedSlot() {
-          var _this15 = this;
+          var _this16 = this;
 
+          this.isDataLoaded = true;
           var getParam = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
@@ -3214,7 +3303,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               localdata: rawSlotRateType,
               datatype: "array"
             };
-            _this15.allocatedSlotData = new jqx.dataAdapter(arrangeSlotRawData);
+            _this16.allocatedSlotData = new jqx.dataAdapter(arrangeSlotRawData);
+            _this16.isDataLoaded = false;
           });
         }
       }, {
@@ -3225,6 +3315,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this17 = this;
+
           this.getAllocatedSlot();
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -3233,22 +3325,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var columnrenderer = function columnrenderer(value) {
             return '<div style="padding: 14px">' + value + '</div>';
-          }; // delete item
-          // this.sharedService.unitlistdeleteindexcast.subscribe( item => {
-          //   if(item != null){
-          //     this.isDataLoaded = false;
-          //     var params = {
-          //       parkingSlotId: item,
-          //       deleteBy: parseInt(this.cookieService.get('userId'))
-          //     }
-          //     this.vehicleService.deleteParkingSlot(params).subscribe((res:any) => {
-          //       this.getParkingSlot();
-          //       // this.parkingSlotDataList = this.parkingSlotDataList.filter((type) => type.parkingSlotId !== item.parkingSlotId);
-          //       // this.isDataLoaded = true;
-          //     });
-          //   }
-          // });
-
+          };
 
           this.allocatedSlotHeader = [{
             text: 'slot name',
@@ -3257,13 +3334,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 80,
             renderer: columnrenderer
           }, {
-            text: 'slot block no',
-            datafield: 'parkingSlotBlockNumber',
+            text: 'Slot Location',
+            cellsalign: 'center',
+            align: 'center',
+            datafield: 'parkingSlotBlockNumber_Label',
             cellsrenderer: cellsrenderer,
             minwidth: 80,
             renderer: columnrenderer
           }, {
             text: 'owner unit',
+            cellsalign: 'center',
+            align: 'center',
             datafield: 'apartmentBlockUnitNumber',
             cellsrenderer: cellsrenderer,
             minwidth: 80,
@@ -3281,17 +3362,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 80,
             renderer: columnrenderer
           }, {
-            text: 'status',
-            datafield: 'slotStatusId',
-            cellsrenderer: cellsrenderer,
-            minwidth: 80,
-            renderer: columnrenderer
-          }, {
             text: 'allocations',
             cellsalign: 'center',
             align: 'center',
             cellsrenderer: function cellsrenderer(row) {
-              return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i-feather name="user-check"></i-feather></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i-feather name="user-x"></i-feather></a></div>';
+              if (_this17.allocatedSlotData.loadedData[row].slotMainTypeId == 299 && _this17.allocatedSlotData.loadedData[row].apartmentBlockUnitId) {
+                return '<div class="simple-actions"><span class="dots low"></div>';
+              } else if (_this17.allocatedSlotData.loadedData[row].slotMainTypeId == 300) {
+                return '<div class="simple-actions"><span class="dots low"></div>';
+              } else {
+                return '<div class="simple-actions"><span class="dots high link" onClick="editAllocateSlot(' + row + ')"></div>';
+              }
             },
             minwidth: 80,
             renderer: columnrenderer
@@ -3304,7 +3385,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             },
             minwidth: 100,
             renderer: columnrenderer
-          }];
+          }]; //delete item
+
+          this.apiUnsubcribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
+            if (item != null) {
+              var params = {
+                parkingSlotId: item,
+                deleteBy: parseInt(_this17.cookieService.get('userId'))
+              };
+
+              _this17.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
+                _this17.sharedService.setUnitListDeleteIndex(null);
+
+                _this17.getAllocatedSlot();
+              });
+            }
+          });
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.apiUnsubcribe.unsubscribe();
         }
       }]);
 
@@ -3318,6 +3419,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
       }, {
         type: _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_7__["VehicleService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
       }, {
         type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
       }];
@@ -3336,7 +3439,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./parking-manage-allocated-slots.component.scss */
       "./src/app/ams/parking-management/components/parking-manage-allocated-slots/parking-manage-allocated-slots.component.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_7__["VehicleService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], ParkingManageAllocatedSlotsComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_7__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], ParkingManageAllocatedSlotsComponent);
 
     function showConfirmDelete(row) {
       var event = new CustomEvent('ondeleteSlot', {
@@ -3735,6 +3838,95 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.scss":
+  /*!**************************************************************************************************************!*\
+    !*** ./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.scss ***!
+    \**************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsParkingManagementComponentsParkingManageFilterParkingManageFilterComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9wYXJraW5nLW1hbmFnZW1lbnQvY29tcG9uZW50cy9wYXJraW5nLW1hbmFnZS1maWx0ZXIvcGFya2luZy1tYW5hZ2UtZmlsdGVyLmNvbXBvbmVudC5zY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.ts":
+  /*!************************************************************************************************************!*\
+    !*** ./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.ts ***!
+    \************************************************************************************************************/
+
+  /*! exports provided: ParkingManageFilterComponent */
+
+  /***/
+  function srcAppAmsParkingManagementComponentsParkingManageFilterParkingManageFilterComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ParkingManageFilterComponent", function () {
+      return ParkingManageFilterComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var ParkingManageFilterComponent =
+    /*#__PURE__*/
+    function () {
+      function ParkingManageFilterComponent() {
+        _classCallCheck(this, ParkingManageFilterComponent);
+
+        this.filter = {};
+        this.filterObj = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+      }
+
+      _createClass(ParkingManageFilterComponent, [{
+        key: "filterSlot",
+        value: function filterSlot() {
+          this.filterObj.emit(this.filter);
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return ParkingManageFilterComponent;
+    }();
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('filterType'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], ParkingManageFilterComponent.prototype, "filterType", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])('filterObj'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], ParkingManageFilterComponent.prototype, "filterObj", void 0);
+    ParkingManageFilterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-parking-manage-filter',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./parking-manage-filter.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./parking-manage-filter.component.scss */
+      "./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], ParkingManageFilterComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/ams/parking-management/components/parking-manage-parking-slots/parking-manage-parking-slots.component.scss":
   /*!****************************************************************************************************************************!*\
     !*** ./src/app/ams/parking-management/components/parking-manage-parking-slots/parking-manage-parking-slots.component.scss ***!
@@ -3842,7 +4034,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.router = router;
-        this.isDataLoaded = false;
+        this.isDataLoaded = true;
         this.slotDataList = [];
         this.modalService = this.injector.get(_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
       }
@@ -3864,7 +4056,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchSlot",
         value: function searchSlot() {
-          var _this16 = this;
+          var _this18 = this;
 
           if (this.slotFilter != "") {
             var filtergroup = new jqx.filter();
@@ -3877,7 +4069,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.slotHeader.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this16.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this18.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3888,8 +4080,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getParkingSlot",
         value: function getParkingSlot() {
-          var _this17 = this;
+          var _this19 = this;
 
+          this.isDataLoaded = true;
           var parkingSlotParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
@@ -3901,7 +4094,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               localdata: rawSlotRateType,
               datatype: "array"
             };
-            _this17.slotDataList = new jqx.dataAdapter(arrangeSlotRawData);
+            _this19.slotDataList = new jqx.dataAdapter(arrangeSlotRawData);
+            _this19.isDataLoaded = false;
           });
         }
       }, {
@@ -3912,7 +4106,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this18 = this;
+          var _this20 = this;
 
           this.getParkingSlot();
 
@@ -3931,8 +4125,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             minwidth: 100,
             renderer: columnrenderer
           }, {
-            text: 'slot block no',
-            datafield: 'parkingSlotBlockNumber',
+            text: 'slot location',
+            datafield: 'parkingSlotBlockNumber_Label',
             cellsrenderer: cellsrenderer,
             minwidth: 80,
             renderer: columnrenderer
@@ -3971,21 +4165,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             renderer: columnrenderer
           }]; //delete item
 
-          this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
+          this.apiUnsubcribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
             if (item != null) {
-              _this18.isDataLoaded = false;
               var params = {
                 parkingSlotId: item,
-                deleteBy: parseInt(_this18.cookieService.get('userId'))
+                deleteBy: parseInt(_this20.cookieService.get('userId'))
               };
 
-              _this18.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
-                _this18.getParkingSlot();
+              _this20.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
+                _this20.sharedService.setUnitListDeleteIndex(null);
 
-                _this18.isDataLoaded = true;
+                _this20.getParkingSlot();
               });
             }
           });
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.apiUnsubcribe.unsubscribe();
         }
       }]);
 
@@ -4207,12 +4405,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "showVehicleInfo",
         value: function showVehicleInfo(index) {
-          var _this19 = this;
+          var _this21 = this;
 
           var vehicleId = this.allSlotsData[index].vehicleId;
           this.vehicleService.getVehicleByVehicleId(vehicleId).subscribe(function (res) {
             var vehicleData = res[0];
-            var data = underscore__WEBPACK_IMPORTED_MODULE_11__["filter"](_this19.vehicleTypeData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_11__["filter"](_this21.vehicleTypeData, function (item) {
               if (item.lookupValueId === vehicleData.vehicleTypeId) {
                 return item;
               }
@@ -4224,7 +4422,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               vehicleData.type = data[0].lookupValueName;
             }
 
-            _this19.dialog.open(_this19.viewVehicleRef, {
+            _this21.dialog.open(_this21.viewVehicleRef, {
               panelClass: 'material',
               disableClose: true,
               data: vehicleData
@@ -4234,7 +4432,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "showSelectedBlockSlots",
         value: function showSelectedBlockSlots() {
-          var _this20 = this;
+          var _this22 = this;
 
           this.isBlockSelected = true;
           this.isDataLoaded = false;
@@ -4243,28 +4441,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var data = item.slotName.split(' ');
             var blockName = data[0];
 
-            if (_this20.apartmentBlockNumber == blockName) {
-              _this20.allottedSlotListData.push(item);
+            if (_this22.apartmentBlockNumber == blockName) {
+              _this22.allottedSlotListData.push(item);
             }
 
-            _this20.totalUserItems = _this20.allottedSlotListData.length;
+            _this22.totalUserItems = _this22.allottedSlotListData.length;
 
-            if (_this20.totalUserItems > _this20.itemUserLimit) {
-              _this20.ItemUserEndIndex = _this20.itemUserLimit;
+            if (_this22.totalUserItems > _this22.itemUserLimit) {
+              _this22.ItemUserEndIndex = _this22.itemUserLimit;
             } else {
-              _this20.ItemUserEndIndex = _this20.totalUserItems;
+              _this22.ItemUserEndIndex = _this22.totalUserItems;
             }
 
-            _this20.vehicleService.getAllVehiclesByApartmentBlockUnitId(item.apartmentBlockUnitId).subscribe(function (data) {
+            _this22.vehicleService.getAllVehiclesByApartmentBlockUnitId(item.apartmentBlockUnitId).subscribe(function (data) {
               if (data == undefined || data.length == 0) {
-                _this20.allSlotsData[index].isVehicleAvailable = false;
+                _this22.allSlotsData[index].isVehicleAvailable = false;
               } else {
-                _this20.allSlotsData[index].isVehicleAvailable = true;
-                _this20.allSlotsData[index].vehicleId = data[0].vehicleId;
+                _this22.allSlotsData[index].isVehicleAvailable = true;
+                _this22.allSlotsData[index].vehicleId = data[0].vehicleId;
               }
             });
 
-            _this20.isDataLoaded = true;
+            _this22.isDataLoaded = true;
           });
         }
       }, {
@@ -4288,42 +4486,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this21 = this;
+          var _this23 = this;
 
           var slotParams = {
             LookupTypeId: 18
           }; //get slot type
 
           this.lookupService.getLookupValueByLookupTypeId(slotParams).subscribe(function (res) {
-            _this21.slotTypeData = res;
+            _this23.slotTypeData = res;
           }, function (error) {});
           var vehicleParams = {
             LookupTypeId: 2
           }; //get vehicle type
 
           this.lookupService.getLookupValueByLookupTypeId(vehicleParams).subscribe(function (res) {
-            _this21.vehicleTypeData = res;
+            _this23.vehicleTypeData = res;
           }, function (error) {});
           var allSlotParams = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.vehicleService.getParkingSlotByApartmentId(allSlotParams).subscribe(function (res) {
-            _this21.allSlotsData = res.filter(function (item) {
+            _this23.allSlotsData = res.filter(function (item) {
               return item.isActive;
             });
-            underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this21.allSlotsData, function (item, index) {
-              _this21.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (res) {
-                _this21.allSlotsData[index].blockNo = res[0].apartmentBlockNumber;
-                _this21.allSlotsData[index].unitNo = res[0].apartmentBlockUnitNumber;
+            underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this23.allSlotsData, function (item, index) {
+              _this23.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (res) {
+                _this23.allSlotsData[index].blockNo = res[0].apartmentBlockNumber;
+                _this23.allSlotsData[index].unitNo = res[0].apartmentBlockUnitNumber;
 
-                _this21.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(item.apartmentBlockUnitId).subscribe(function (res) {
+                _this23.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(item.apartmentBlockUnitId).subscribe(function (res) {
                   if (res == undefined || res.length == 0) {
                     return '';
                   } else {
                     var userId = res[0].userId;
 
-                    _this21.userService.getUserById(userId).subscribe(function (res) {
-                      _this21.allSlotsData[index].userName = res[0].firstName + ' ' + res[0].lastName;
+                    _this23.userService.getUserById(userId).subscribe(function (res) {
+                      _this23.allSlotsData[index].userName = res[0].firstName + ' ' + res[0].lastName;
                       ;
                     });
                   }
@@ -4335,7 +4533,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
           };
           this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-            _this21.blocksData = res;
+            _this23.blocksData = res;
           }, function (error) {
             console.log(error);
           });
@@ -4555,7 +4753,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddVehicleForm",
         value: function submitAddVehicleForm() {
-          var _this22 = this;
+          var _this24 = this;
 
           if (this.config.category != 'edit') {
             var details = {
@@ -4574,11 +4772,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.addLookupValue(params).subscribe(function (res) {
               if (res.message) {
-                _this22.sharedService.setAlertMessage("".concat(_this22.config.type, " added successfully"));
+                _this24.sharedService.setAlertMessage("".concat(_this24.config.type, " added successfully"));
 
-                _this22.emitConfig.emit({
-                  isAdd: _this22.config.category,
-                  type: _this22.typeId
+                _this24.emitConfig.emit({
+                  isAdd: _this24.config.category,
+                  type: _this24.typeId
                 });
               } else {}
             });
@@ -4600,11 +4798,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
               if (res.message) {
-                _this22.sharedService.setAlertMessage("Vehicle Type added successfully");
+                _this24.sharedService.setAlertMessage("Vehicle Type added successfully");
 
-                _this22.emitConfig.emit({
-                  isAdd: _this22.config.category,
-                  type: _this22.typeId
+                _this24.emitConfig.emit({
+                  isAdd: _this24.config.category,
+                  type: _this24.typeId
                 });
               } else {}
             });
@@ -4749,7 +4947,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ParkingManagementSettingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this23 = this;
+          var _this25 = this;
 
           this.getVehicleType();
           this.getMainSlotType();
@@ -4759,16 +4957,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (item != null) {
               var params = {
                 lookupValueId: item.lookupValueId,
-                updateUserId: parseInt(_this23.cookieService.get('userId'))
+                updateUserId: parseInt(_this25.cookieService.get('userId'))
               };
 
-              _this23.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+              _this25.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                 // if (res.message) {
-                _this23.refreshList({
+                _this25.refreshList({
                   type: item.typeId
                 });
 
-                _this23.sharedService.setUnitListDeleteIndex(null); // }
+                _this25.sharedService.setUnitListDeleteIndex(null); // }
 
               });
             }
@@ -4777,15 +4975,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getVehicleType",
         value: function getVehicleType() {
-          var _this24 = this;
+          var _this26 = this;
 
           var categoryParams = {
             LookupTypeId: 2
           }; //get vehcile type
 
           this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-            _this24.isVehicleDataLoaded = true;
-            _this24.vehicleCategoryData = res.filter(function (item) {
+            _this26.isVehicleDataLoaded = true;
+            _this26.vehicleCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4793,15 +4991,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMainSlotType",
         value: function getMainSlotType() {
-          var _this25 = this;
+          var _this27 = this;
 
           var slotCategoryParams = {
             LookupTypeId: 71
           }; //get main slot type
 
           this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe(function (res) {
-            _this25.isSlotMainDataLoaded = true;
-            _this25.slotMainCategoryData = res.filter(function (item) {
+            _this27.isSlotMainDataLoaded = true;
+            _this27.slotMainCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -4809,15 +5007,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSlotType",
         value: function getSlotType() {
-          var _this26 = this;
+          var _this28 = this;
 
           var slotCategoryParams = {
             LookupTypeId: 18
           }; //get slot type
 
           this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe(function (res) {
-            _this26.isSlotDataLoaded = true;
-            _this26.slotCategoryData = res.filter(function (item) {
+            _this28.isSlotDataLoaded = true;
+            _this28.slotCategoryData = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -5027,7 +5225,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteSlotType",
         value: function deleteSlotType(item, index) {
-          var _this27 = this;
+          var _this29 = this;
 
           this.isDataLoaded = false;
           var params = {
@@ -5035,7 +5233,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             updateUserId: parseInt(this.cookieService.get('userId'))
           };
           this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-            _this27.getSlotType(); // this.slotDataList.splice(index, 1);
+            _this29.getSlotType(); // this.slotDataList.splice(index, 1);
             // this.isDataLoaded = true;
 
           });
@@ -5058,7 +5256,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddSlotTypeForm",
         value: function submitAddSlotTypeForm(form) {
-          var _this28 = this;
+          var _this30 = this;
 
           this.isSlotTypeSubmitted = false;
 
@@ -5078,17 +5276,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.addLookupValue(params).subscribe(function (res) {
               if (res.message) {
-                _this28.isSlotTypeSubmitted = true;
+                _this30.isSlotTypeSubmitted = true;
 
-                _this28.sharedService.setAlertMessage("Slot Type added successfully");
+                _this30.sharedService.setAlertMessage("Slot Type added successfully");
 
-                _this28.isSlotTypeNew = !_this28.isSlotTypeNew;
+                _this30.isSlotTypeNew = !_this30.isSlotTypeNew;
 
-                _this28.getSlotType();
+                _this30.getSlotType();
               } else {
-                _this28.isSlotTypeSubmitted = true;
-                _this28.isError = true;
-                _this28.alertMessage = res.errorMessage;
+                _this30.isSlotTypeSubmitted = true;
+                _this30.isError = true;
+                _this30.alertMessage = res.errorMessage;
               }
             });
           } else {
@@ -5108,17 +5306,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.updateLookupValue(_params5).subscribe(function (res) {
               if (res.message) {
-                _this28.isSlotTypeSubmitted = true;
+                _this30.isSlotTypeSubmitted = true;
 
-                _this28.sharedService.setAlertMessage("Vehicle Type updated successfully");
+                _this30.sharedService.setAlertMessage("Vehicle Type updated successfully");
 
-                _this28.isSlotTypeUpdate = !_this28.isSlotTypeUpdate;
+                _this30.isSlotTypeUpdate = !_this30.isSlotTypeUpdate;
 
-                _this28.getSlotType();
+                _this30.getSlotType();
               } else {
-                _this28.isSlotTypeSubmitted = true;
-                _this28.isError = true;
-                _this28.alertMessage = res.errorMessage;
+                _this30.isSlotTypeSubmitted = true;
+                _this30.isError = true;
+                _this30.alertMessage = res.errorMessage;
               }
             });
           }
@@ -5126,14 +5324,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this29 = this;
+          var _this31 = this;
 
           this.getSlotType();
           var slotMainParams = {
             LookupTypeId: 71
           };
           this.lookupService.getLookupValueByLookupTypeId(slotMainParams).subscribe(function (res) {
-            _this29.slotMainTypeDataList = res.filter(function (item) {
+            _this31.slotMainTypeDataList = res.filter(function (item) {
               return item.isActive;
             });
           });
@@ -5145,24 +5343,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSlotType",
         value: function getSlotType() {
-          var _this30 = this;
+          var _this32 = this;
 
           var slotListParams = {
             LookupTypeId: 18
           };
           this.lookupService.getLookupValueByLookupTypeId(slotListParams).subscribe(function (res) {
-            _this30.slotDataList = res.filter(function (item) {
+            _this32.slotDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this30.totalItems = _this30.slotDataList.length;
+            _this32.totalItems = _this32.slotDataList.length;
 
-            if (_this30.totalItems > _this30.itemLimit) {
-              _this30.ItemEndIndex = _this30.itemLimit;
+            if (_this32.totalItems > _this32.itemLimit) {
+              _this32.ItemEndIndex = _this32.itemLimit;
             } else {
-              _this30.ItemEndIndex = _this30.totalItems;
+              _this32.ItemEndIndex = _this32.totalItems;
             }
 
-            _this30.isDataLoaded = true;
+            _this32.isDataLoaded = true;
           });
         }
       }]);
@@ -5451,7 +5649,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitAddvehicleTypeForm",
         value: function submitAddvehicleTypeForm(form) {
-          var _this31 = this;
+          var _this33 = this;
 
           this.isVehicleTypeSubmitted = false;
 
@@ -5471,22 +5669,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.addLookupValue(params).subscribe(function (res) {
               if (res.message) {
-                _this31.isVehicleTypeSubmitted = true;
+                _this33.isVehicleTypeSubmitted = true;
 
-                _this31.sharedService.setAlertMessage("Vehicle Type added successfully");
+                _this33.sharedService.setAlertMessage("Vehicle Type added successfully");
 
-                _this31.isVehicleTypeNew = !_this31.isVehicleTypeNew;
+                _this33.isVehicleTypeNew = !_this33.isVehicleTypeNew;
 
-                _this31.getVehicleTypeList(); // this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res:any) => {
+                _this33.getVehicleTypeList(); // this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res:any) => {
                 //   this.vehicleDataList = res.filter(item => {
                 //       return item.isActive;
                 //   });  
                 // });
 
               } else {
-                _this31.isVehicleTypeSubmitted = true;
-                _this31.isError = true;
-                _this31.alertMessage = res.errorMessage;
+                _this33.isVehicleTypeSubmitted = true;
+                _this33.isError = true;
+                _this33.alertMessage = res.errorMessage;
               }
             });
           } else {
@@ -5506,21 +5704,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             };
             this.lookupService.updateLookupValue(_params6).subscribe(function (res) {
               if (res.message) {
-                _this31.isVehicleTypeSubmitted = true;
-                _this31.isVehicleTypeUpdate = !_this31.isVehicleTypeUpdate;
+                _this33.isVehicleTypeSubmitted = true;
+                _this33.isVehicleTypeUpdate = !_this33.isVehicleTypeUpdate;
 
-                _this31.sharedService.setAlertMessage("Vehicle Type updated successfully");
+                _this33.sharedService.setAlertMessage("Vehicle Type updated successfully");
 
-                _this31.getVehicleTypeList(); // this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res:any) => {
+                _this33.getVehicleTypeList(); // this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res:any) => {
                 //   this.vehicleDataList = res.filter(item => {
                 //       return item.isActive;
                 //   });   
                 // });
 
               } else {
-                _this31.isVehicleTypeSubmitted = true;
-                _this31.isError = true;
-                _this31.alertMessage = res.errorMessage;
+                _this33.isVehicleTypeSubmitted = true;
+                _this33.isError = true;
+                _this33.alertMessage = res.errorMessage;
               }
             });
           }
@@ -5528,7 +5726,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this32 = this;
+          var _this34 = this;
 
           this.getVehicleTypeList(); // delete item
 
@@ -5537,17 +5735,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               // this.isDataLoaded = false;
               var params = {
                 lookupValueId: item.lookupValueId,
-                updateUserId: parseInt(_this32.cookieService.get('userId'))
+                updateUserId: parseInt(_this34.cookieService.get('userId'))
               };
 
-              _this32.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                _this32.vehicleDataList = _this32.vehicleDataList.filter(function (type) {
+              _this34.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this34.vehicleDataList = _this34.vehicleDataList.filter(function (type) {
                   return type.lookupValueId !== item.lookupValueId;
                 });
 
-                _this32.sharedService.setUnitListDeleteIndex(null);
+                _this34.sharedService.setUnitListDeleteIndex(null);
 
-                _this32.getVehicleTypeList(); // this.isDataLoaded = true;
+                _this34.getVehicleTypeList(); // this.isDataLoaded = true;
 
               });
             }
@@ -5560,24 +5758,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getVehicleTypeList",
         value: function getVehicleTypeList() {
-          var _this33 = this;
+          var _this35 = this;
 
           var vehicleDataListParams = {
             LookupTypeId: 2
           };
           this.lookupService.getLookupValueByLookupTypeId(vehicleDataListParams).subscribe(function (res) {
-            _this33.vehicleDataList = res.filter(function (item) {
+            _this35.vehicleDataList = res.filter(function (item) {
               return item.isActive;
             });
-            _this33.totalItems = _this33.vehicleDataList.length;
+            _this35.totalItems = _this35.vehicleDataList.length;
 
-            if (_this33.totalItems > _this33.itemLimit) {
-              _this33.ItemEndIndex = _this33.itemLimit;
+            if (_this35.totalItems > _this35.itemLimit) {
+              _this35.ItemEndIndex = _this35.itemLimit;
             } else {
-              _this33.ItemEndIndex = _this33.totalItems;
+              _this35.ItemEndIndex = _this35.totalItems;
             }
 
-            _this33.isDataLoaded = true;
+            _this35.isDataLoaded = true;
           });
         }
       }]);
@@ -5831,7 +6029,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this34 = this;
+          var _this36 = this;
 
           var cellsrenderer = function cellsrenderer(row, column, value) {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -5846,14 +6044,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (item != null) {
               var params = {
                 parkingSlotId: item,
-                deleteBy: parseInt(_this34.cookieService.get('userId'))
+                deleteBy: parseInt(_this36.cookieService.get('userId'))
               };
 
-              _this34.parkingService.deleteParkingSlotType(params).subscribe(function (res) {
+              _this36.parkingService.deleteParkingSlotType(params).subscribe(function (res) {
                 // if (res.message) {
-                _this34.getSlotRateType();
+                _this36.getSlotRateType();
 
-                _this34.sharedService.setUnitListDeleteIndex(null); // }
+                _this36.sharedService.setUnitListDeleteIndex(null); // }
 
               });
             }
@@ -5898,7 +6096,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSlotRateType",
         value: function getSlotRateType() {
-          var _this35 = this;
+          var _this37 = this;
 
           var getParam = {
             ApartmantId: parseInt(this.cookieService.get('apartmentId'))
@@ -5911,13 +6109,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               localdata: rawSlotRateType,
               datatype: "array"
             };
-            _this35.slotRateData = new jqx.dataAdapter(arrangeSlotRawData);
+            _this37.slotRateData = new jqx.dataAdapter(arrangeSlotRawData);
           }, function (error) {});
         }
       }, {
         key: "searchSlotRate",
         value: function searchSlotRate() {
-          var _this36 = this;
+          var _this38 = this;
 
           if (this.filterSlotRate != "") {
             var filtergroup = new jqx.filter();
@@ -5930,7 +6128,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.slotRateHeader.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this36.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this38.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -5941,7 +6139,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "slotRateType",
         value: function slotRateType() {
-          var _this37 = this;
+          var _this39 = this;
 
           if (this.isCreateSlot) {
             this.slotRateParam.insertedBy = parseInt(this.cookieService.get('userId'));
@@ -5950,11 +6148,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               parkingAllocationTypeDto: this.slotRateParam
             };
             this.parkingService.upsertParkingSlotType(addParam).subscribe(function (resp) {
-              _this37.sharedService.setAlertMessage("Slot Rate Type Created Successfully");
+              _this39.sharedService.setAlertMessage("Slot Rate Type Created Successfully");
 
-              _this37.isShowCreateSlot = !_this37.isShowCreateSlot;
+              _this39.isShowCreateSlot = !_this39.isShowCreateSlot;
 
-              _this37.getSlotRateType();
+              _this39.getSlotRateType();
             }, function (error) {});
           } else {
             this.slotRateParam.updatedBy = parseInt(this.cookieService.get('userId'));
@@ -5963,11 +6161,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               parkingAllocationTypeDto: this.slotRateParam
             };
             this.parkingService.upsertParkingSlotType(updateParam).subscribe(function (resp) {
-              _this37.sharedService.setAlertMessage("Slot Rate Type Updated Successfully");
+              _this39.sharedService.setAlertMessage("Slot Rate Type Updated Successfully");
 
-              _this37.isShowCreateSlot = !_this37.isShowCreateSlot;
+              _this39.isShowCreateSlot = !_this39.isShowCreateSlot;
 
-              _this37.getSlotRateType();
+              _this39.getSlotRateType();
             }, function (error) {});
           }
         }
@@ -6196,12 +6394,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.parkingService = parkingService;
         this.cookieService = cookieService;
+        this.isDataLoaded = true;
       }
 
       _createClass(CommunityParkingAvailablityComponent, [{
         key: "communitySearch",
         value: function communitySearch() {
-          var _this38 = this;
+          var _this40 = this;
 
           if (this.communityFilter != "") {
             var filtergroup = new jqx.filter();
@@ -6214,7 +6413,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.communityAllocationHeader.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this38.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this40.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -6225,8 +6424,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCommunityAvailability",
         value: function getCommunityAvailability() {
-          var _this39 = this;
+          var _this41 = this;
 
+          this.isDataLoaded = true;
           var params = {
             ApartmantId: parseInt(this.cookieService.get('apartmentId')),
             ApartmentBlockId: null,
@@ -6237,12 +6437,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             EndTime: null
           };
           this.parkingService.getAllRentedParking(params).subscribe(function (res) {
-            _this39.communityAllocationData = res;
-            _this39.gridSourceData = {
-              localdata: _this39.communityAllocationData,
+            _this41.communityAllocationData = res;
+            _this41.gridSourceData = {
+              localdata: _this41.communityAllocationData,
               datatype: "array"
             };
-            _this39.communityAllocationData = new jqx.dataAdapter(_this39.gridSourceData);
+            _this41.communityAllocationData = new jqx.dataAdapter(_this41.gridSourceData);
+            _this41.isDataLoaded = false;
           });
         }
       }, {
@@ -6270,14 +6471,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
           }, {
-            text: 'SLOT BLOCK',
+            text: 'SLOT Location',
             datafield: 'slotBlockNo',
             minwidth: 100,
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
           }, {
+            text: 'Perm.Owner Name',
+            datafield: '',
+            minwidth: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Perm.Owner Block',
+            datafield: 'k',
+            minwidth: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
             text: 'SLOT UNIT',
-            datafield: 'tempBlock',
+            datafield: 'tempBloc',
             cellsrenderer: cellsrenderer,
             minwidth: 100,
             renderer: columnrenderer
@@ -6612,12 +6825,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.parkingService = parkingService;
         this.cookieService = cookieService;
+        this.isDataLoaded = true;
       }
 
       _createClass(UnitParkingAvailablityComponent, [{
         key: "unitSearch",
         value: function unitSearch() {
-          var _this40 = this;
+          var _this42 = this;
 
           if (this.unitFilter != "") {
             var filtergroup = new jqx.filter();
@@ -6630,7 +6844,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.datagrid.showfiltercolumnbackground(false);
             this.unitAllocationHeader.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this40.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this42.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -6641,8 +6855,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUnitAvailability",
         value: function getUnitAvailability() {
-          var _this41 = this;
+          var _this43 = this;
 
+          this.isDataLoaded = true;
           var params = {
             ApartmantId: parseInt(this.cookieService.get('apartmentId')),
             ApartmentBlockId: null,
@@ -6653,12 +6868,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             EndTime: null
           };
           this.parkingService.getAllRentedParking(params).subscribe(function (res) {
-            _this41.unitAllocationData = res;
-            _this41.gridSourceData = {
-              localdata: _this41.unitAllocationData,
+            _this43.unitAllocationData = res;
+            _this43.gridSourceData = {
+              localdata: _this43.unitAllocationData,
               datatype: "array"
             };
-            _this41.unitAllocationData = new jqx.dataAdapter(_this41.gridSourceData);
+            _this43.unitAllocationData = new jqx.dataAdapter(_this43.gridSourceData);
+            _this43.isDataLoaded = false;
           });
         }
       }, {
@@ -6686,14 +6902,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
           }, {
-            text: 'SLOT BLOCK',
+            text: 'SLOT Location',
             datafield: 'slotBlockNo',
             minwidth: 100,
             cellsrenderer: cellsrenderer,
             renderer: columnrenderer
           }, {
+            text: 'Perm.Owner Name',
+            datafield: '',
+            minwidth: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'Perm.Owner Block',
+            datafield: 'k',
+            minwidth: 100,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
             text: 'SLOT UNIT',
-            datafield: 'tempBlock',
+            datafield: 'tempBloc',
             cellsrenderer: cellsrenderer,
             minwidth: 100,
             renderer: columnrenderer
@@ -7424,13 +7652,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _components_set_parking_availablity_create_availablity_create_availablity_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
     /*! ./components/set-parking-availablity/create-availablity/create-availablity.component */
     "./src/app/ams/parking-management/components/set-parking-availablity/create-availablity/create-availablity.component.ts");
+    /* harmony import */
+
+
+    var _components_parking_manage_filter_parking_manage_filter_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
+    /*! ./components/parking-manage-filter/parking-manage-filter.component */
+    "./src/app/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.ts");
 
     var ParkingManagementModule = function ParkingManagementModule() {
       _classCallCheck(this, ParkingManagementModule);
     };
 
     ParkingManagementModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_components_parking_management_settings_parking_management_settings_component__WEBPACK_IMPORTED_MODULE_6__["ParkingManagementSettingsComponent"], _components_parking_management_allotted_parking_management_allotted_component__WEBPACK_IMPORTED_MODULE_7__["ParkingManagementAllottedComponent"], _components_parking_management_unallotted_parking_management_unallotted_component__WEBPACK_IMPORTED_MODULE_8__["ParkingManagementUnallottedComponent"], _components_parking_management_reports_parking_management_reports_component__WEBPACK_IMPORTED_MODULE_9__["ParkingManagementReportsComponent"], _parking_management_component__WEBPACK_IMPORTED_MODULE_5__["ParkingManagementComponent"], _components_parking_manage_parking_slots_parking_manage_parking_slots_component__WEBPACK_IMPORTED_MODULE_12__["ParkingManageParkingSlotsComponent"], _components_parking_create_parking_slot_parking_create_parking_slot_component__WEBPACK_IMPORTED_MODULE_13__["ParkingCreateParkingSlotComponent"], _components_parking_allocate_slots_parking_allocate_slots_component__WEBPACK_IMPORTED_MODULE_14__["ParkingAllocateSlotsComponent"], _components_parking_manage_allocated_slots_parking_manage_allocated_slots_component__WEBPACK_IMPORTED_MODULE_15__["ParkingManageAllocatedSlotsComponent"], _components_parking_manage_allocate_availability_list_parking_manage_allocate_availability_list_component__WEBPACK_IMPORTED_MODULE_16__["ParkingManageAllocateAvailabilityListComponent"], _components_parking_create_parking_booking_parking_create_parking_booking_component__WEBPACK_IMPORTED_MODULE_17__["ParkingCreateParkingBookingComponent"], _components_parking_view_available_slots_parking_view_available_slots_component__WEBPACK_IMPORTED_MODULE_18__["ParkingViewAvailableSlotsComponent"], _components_parking_manage_booking_parking_manage_booking_component__WEBPACK_IMPORTED_MODULE_22__["ParkingManageBookingComponent"], _components_parking_manage_allocate_availability_list_parking_aa_unit_to_unit_allocation_parking_aa_unit_to_unit_allocation_component__WEBPACK_IMPORTED_MODULE_19__["ParkingAaUnitToUnitAllocationComponent"], _components_parking_manage_allocate_availability_list_parking_aa_unit_to_community_parking_aa_unit_to_community_component__WEBPACK_IMPORTED_MODULE_20__["ParkingAaUnitToCommunityComponent"], _components_parking_manage_allocate_availability_list_parking_aa_community_to_others_parking_aa_community_to_others_component__WEBPACK_IMPORTED_MODULE_21__["ParkingAaCommunityToOthersComponent"], _components_parking_manage_booking_parking_manage_booking_community_to_other_parking_manage_booking_community_to_other_component__WEBPACK_IMPORTED_MODULE_23__["ParkingManageBookingCommunityToOtherComponent"], _components_parking_manage_booking_parking_manage_booking_unit_to_community_parking_manage_booking_unit_to_community_component__WEBPACK_IMPORTED_MODULE_24__["ParkingManageBookingUnitToCommunityComponent"], _components_parking_admin_view_booking_parking_admin_view_booking_component__WEBPACK_IMPORTED_MODULE_25__["ParkingAdminViewBookingComponent"], _components_parking_admin_view_booking_parking_booking_view_community_owned_to_unit_parking_booking_view_community_owned_to_unit_component__WEBPACK_IMPORTED_MODULE_26__["ParkingBookingViewCommunityOwnedToUnitComponent"], _components_parking_admin_view_booking_parking_booking_view_community_owned_to_vistor_parking_booking_view_community_owned_to_vistor_component__WEBPACK_IMPORTED_MODULE_27__["ParkingBookingViewCommunityOwnedToVistorComponent"], _components_parking_setup_parking_setup_component__WEBPACK_IMPORTED_MODULE_28__["ParkingSetupComponent"], _components_add_slot_add_slot_component__WEBPACK_IMPORTED_MODULE_10__["AddSlotComponent"], _components_add_slot_container_add_slot_container_component__WEBPACK_IMPORTED_MODULE_11__["AddSlotContainerComponent"], _components_add_vehicle_add_vehicle_component__WEBPACK_IMPORTED_MODULE_29__["AddVehicleComponent"], _components_parking_management_settings_parking_add_setup_vehicle_type_parking_add_setup_vehicle_type_component__WEBPACK_IMPORTED_MODULE_30__["ParkingAddSetupVehicleTypeComponent"], _components_parking_management_vehicle_types_parking_management_vehicle_types_component__WEBPACK_IMPORTED_MODULE_31__["ParkingManagementVehicleTypesComponent"], _components_parking_management_slot_types_parking_management_slot_types_component__WEBPACK_IMPORTED_MODULE_32__["ParkingManagementSlotTypesComponent"], _components_parking_slot_rate_parking_slot_rate_component__WEBPACK_IMPORTED_MODULE_33__["ParkingSlotRateComponent"], _components_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_34__["AllocatedSlotConfirmationComponent"], _components_parking_manage_booking_booking_confirmation_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_35__["BookingConfirmationComponent"], _components_set_parking_availablity_set_parking_availablity_component__WEBPACK_IMPORTED_MODULE_36__["SetParkingAvailablityComponent"], _components_set_parking_availablity_unit_parking_availablity_unit_parking_availablity_component__WEBPACK_IMPORTED_MODULE_37__["UnitParkingAvailablityComponent"], _components_set_parking_availablity_community_parking_availablity_community_parking_availablity_component__WEBPACK_IMPORTED_MODULE_38__["CommunityParkingAvailablityComponent"], _components_set_parking_availablity_create_availablity_create_availablity_component__WEBPACK_IMPORTED_MODULE_39__["CreateAvailablityComponent"]],
+      declarations: [_components_parking_management_settings_parking_management_settings_component__WEBPACK_IMPORTED_MODULE_6__["ParkingManagementSettingsComponent"], _components_parking_management_allotted_parking_management_allotted_component__WEBPACK_IMPORTED_MODULE_7__["ParkingManagementAllottedComponent"], _components_parking_management_unallotted_parking_management_unallotted_component__WEBPACK_IMPORTED_MODULE_8__["ParkingManagementUnallottedComponent"], _components_parking_management_reports_parking_management_reports_component__WEBPACK_IMPORTED_MODULE_9__["ParkingManagementReportsComponent"], _parking_management_component__WEBPACK_IMPORTED_MODULE_5__["ParkingManagementComponent"], _components_parking_manage_parking_slots_parking_manage_parking_slots_component__WEBPACK_IMPORTED_MODULE_12__["ParkingManageParkingSlotsComponent"], _components_parking_create_parking_slot_parking_create_parking_slot_component__WEBPACK_IMPORTED_MODULE_13__["ParkingCreateParkingSlotComponent"], _components_parking_allocate_slots_parking_allocate_slots_component__WEBPACK_IMPORTED_MODULE_14__["ParkingAllocateSlotsComponent"], _components_parking_manage_allocated_slots_parking_manage_allocated_slots_component__WEBPACK_IMPORTED_MODULE_15__["ParkingManageAllocatedSlotsComponent"], _components_parking_manage_allocate_availability_list_parking_manage_allocate_availability_list_component__WEBPACK_IMPORTED_MODULE_16__["ParkingManageAllocateAvailabilityListComponent"], _components_parking_create_parking_booking_parking_create_parking_booking_component__WEBPACK_IMPORTED_MODULE_17__["ParkingCreateParkingBookingComponent"], _components_parking_view_available_slots_parking_view_available_slots_component__WEBPACK_IMPORTED_MODULE_18__["ParkingViewAvailableSlotsComponent"], _components_parking_manage_booking_parking_manage_booking_component__WEBPACK_IMPORTED_MODULE_22__["ParkingManageBookingComponent"], _components_parking_manage_allocate_availability_list_parking_aa_unit_to_unit_allocation_parking_aa_unit_to_unit_allocation_component__WEBPACK_IMPORTED_MODULE_19__["ParkingAaUnitToUnitAllocationComponent"], _components_parking_manage_allocate_availability_list_parking_aa_unit_to_community_parking_aa_unit_to_community_component__WEBPACK_IMPORTED_MODULE_20__["ParkingAaUnitToCommunityComponent"], _components_parking_manage_allocate_availability_list_parking_aa_community_to_others_parking_aa_community_to_others_component__WEBPACK_IMPORTED_MODULE_21__["ParkingAaCommunityToOthersComponent"], _components_parking_manage_booking_parking_manage_booking_community_to_other_parking_manage_booking_community_to_other_component__WEBPACK_IMPORTED_MODULE_23__["ParkingManageBookingCommunityToOtherComponent"], _components_parking_manage_booking_parking_manage_booking_unit_to_community_parking_manage_booking_unit_to_community_component__WEBPACK_IMPORTED_MODULE_24__["ParkingManageBookingUnitToCommunityComponent"], _components_parking_admin_view_booking_parking_admin_view_booking_component__WEBPACK_IMPORTED_MODULE_25__["ParkingAdminViewBookingComponent"], _components_parking_admin_view_booking_parking_booking_view_community_owned_to_unit_parking_booking_view_community_owned_to_unit_component__WEBPACK_IMPORTED_MODULE_26__["ParkingBookingViewCommunityOwnedToUnitComponent"], _components_parking_admin_view_booking_parking_booking_view_community_owned_to_vistor_parking_booking_view_community_owned_to_vistor_component__WEBPACK_IMPORTED_MODULE_27__["ParkingBookingViewCommunityOwnedToVistorComponent"], _components_parking_setup_parking_setup_component__WEBPACK_IMPORTED_MODULE_28__["ParkingSetupComponent"], _components_add_slot_add_slot_component__WEBPACK_IMPORTED_MODULE_10__["AddSlotComponent"], _components_add_slot_container_add_slot_container_component__WEBPACK_IMPORTED_MODULE_11__["AddSlotContainerComponent"], _components_add_vehicle_add_vehicle_component__WEBPACK_IMPORTED_MODULE_29__["AddVehicleComponent"], _components_parking_management_settings_parking_add_setup_vehicle_type_parking_add_setup_vehicle_type_component__WEBPACK_IMPORTED_MODULE_30__["ParkingAddSetupVehicleTypeComponent"], _components_parking_management_vehicle_types_parking_management_vehicle_types_component__WEBPACK_IMPORTED_MODULE_31__["ParkingManagementVehicleTypesComponent"], _components_parking_management_slot_types_parking_management_slot_types_component__WEBPACK_IMPORTED_MODULE_32__["ParkingManagementSlotTypesComponent"], _components_parking_slot_rate_parking_slot_rate_component__WEBPACK_IMPORTED_MODULE_33__["ParkingSlotRateComponent"], _components_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_34__["AllocatedSlotConfirmationComponent"], _components_parking_manage_booking_booking_confirmation_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_35__["BookingConfirmationComponent"], _components_set_parking_availablity_set_parking_availablity_component__WEBPACK_IMPORTED_MODULE_36__["SetParkingAvailablityComponent"], _components_set_parking_availablity_unit_parking_availablity_unit_parking_availablity_component__WEBPACK_IMPORTED_MODULE_37__["UnitParkingAvailablityComponent"], _components_set_parking_availablity_community_parking_availablity_community_parking_availablity_component__WEBPACK_IMPORTED_MODULE_38__["CommunityParkingAvailablityComponent"], _components_set_parking_availablity_create_availablity_create_availablity_component__WEBPACK_IMPORTED_MODULE_39__["CreateAvailablityComponent"], _components_parking_manage_filter_parking_manage_filter_component__WEBPACK_IMPORTED_MODULE_40__["ParkingManageFilterComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _parking_management_routing_module__WEBPACK_IMPORTED_MODULE_3__["ParkingManagementRoutingModule"]],
       bootstrap: [_parking_management_component__WEBPACK_IMPORTED_MODULE_5__["ParkingManagementComponent"]]
     })], ParkingManagementModule);

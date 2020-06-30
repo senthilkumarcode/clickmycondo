@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card ov card-table\" *ngIf=\"isMeetingDataLoaded\">\n    <div class=\"card-header\">\n        <div class=\"float-left\">\n            <h5>Meeting List <span class=\"badge blue\">{{totalMeetingItems}}</span></h5>\n        </div>\n        <ul class=\"float-right\">\n            <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"meetingFilter\" (ngModelChange)=\"searchData()\" >\n            </li>\n            <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n            <a class=\"btn lime-green mt_5\" (click)=\"addMeeting()\">\n                <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                <span>Add Meeting</span>\n            </a>\n        </ul>\n    </div>\n    <div class=\"card-body ov p-0\">\n        <jqxGrid \n            [theme]=\"'material'\" \n            [width]=\"'100%'\"\n            [rowsheight]=\"48\"\n            [autoheight]=\"true\"\n            [pageable]=\"true\" \n            [filterable]=\"true\" \n            [sortable]=\"true\" \n            [source]=\"lstMeetingData\"\n            [columns]=\"columnData\"\n            [columnsresize]=\"true\"\n            [enablehover]=\"false\" #datagrid>\n\t\t</jqxGrid> \n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"meeting-list-wrapper\">\n    <app-loader *ngIf=\"!isMeetingDataLoaded\"></app-loader>\n    <div class=\"card ov card-table\" *ngIf=\"isMeetingDataLoaded\">\n        <div class=\"card-header\">\n            <div class=\"float-left\">\n                <h5>Meeting List <span class=\"badge blue\">{{totalMeetingItems}}</span></h5>\n            </div>\n            <ul class=\"float-right\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                    <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"meetingFilter\" (ngModelChange)=\"searchData()\" >\n                </li>\n                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                <a class=\"btn lime-green mt_5\" (click)=\"addMeeting()\">\n                    <i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n                    <span>Add Meeting</span>\n                </a>\n            </ul>\n        </div>\n        <div class=\"card-body ov p-0\">\n            <jqxGrid \n                [theme]=\"'material'\" \n                [width]=\"'100%'\"\n                [rowsheight]=\"48\"\n                [autoheight]=\"true\"\n                [pageable]=\"true\" \n                [filterable]=\"true\" \n                [sortable]=\"true\" \n                [source]=\"lstMeetingData\"\n                [columns]=\"columnData\"\n                [columnsresize]=\"true\"\n                [enablehover]=\"false\" #datagrid>\n            </jqxGrid> \n        </div>\n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -757,6 +757,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../meeting-edit-display/meeting-edit-display.component */ "./src/app/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
 
 
 
@@ -767,15 +771,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MeetingsListComponent = class MeetingsListComponent {
-    constructor(router, meetingService, injector, cookieService, dialog) {
+    constructor(router, meetingService, injector, cookieService, sharedService, dialog) {
         this.router = router;
         this.meetingService = meetingService;
         this.injector = injector;
         this.cookieService = cookieService;
+        this.sharedService = sharedService;
         this.dialog = dialog;
         this.isMeetingDataLoaded = false;
         this.isMobile = false;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+    }
+    oneditMeeting(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let data = {
+            type: 'edit',
+            id: dataRecord.meetingId
+        };
+        const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_9__["MeetingEditDisplayComponent"], {
+            width: 'auto',
+            height: '700px',
+            data: data
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getMeetingList();
+            }
+        });
+    }
+    ondeleteSlot(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.modalService.showConfirmModal(dataRecord.meetingId);
     }
     searchData() {
         if (this.meetingFilter != "") {
@@ -801,20 +827,19 @@ let MeetingsListComponent = class MeetingsListComponent {
     addMeeting() {
         this.router.navigate(['ams/meetings/create']);
     }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
     getMeetingList() {
         let params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId'))
         };
         this.meetingService.getMeetingByApartmentId(params).subscribe((res) => {
-            this.lstMeetingData = res;
-            this.gridSourceData = {
-                localdata: this.lstMeetingData.reverse(),
-                datatype: "array"
-            };
-            this.lstMeetingData = new jqx.dataAdapter(this.gridSourceData);
+            if (res.length > 0) {
+                this.lstMeetingData = res.filter((data) => data.isActive);
+                this.gridSourceData = {
+                    localdata: this.lstMeetingData.reverse(),
+                    datatype: "array"
+                };
+                this.lstMeetingData = new jqx.dataAdapter(this.gridSourceData);
+            }
             this.isMeetingDataLoaded = true;
         }, error => {
             console.log(error);
@@ -834,15 +859,14 @@ let MeetingsListComponent = class MeetingsListComponent {
         this.columnData = [{
                 text: 'Date',
                 datafield: 'meetingDate',
-                width: 100,
                 cellsrenderer: (row, column, value) => {
                     return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("DD-MM-YYYY") + '</div>';
                 },
+                minwidth: 100,
                 renderer: columnrenderer
             }, {
                 text: 'Time',
                 datafield: 'fromTime',
-                minwidth: 160,
                 cellsrenderer: (row, column, value) => {
                     let time, fromTime, toTime = this.lstMeetingData.loadedData[row].toTime;
                     if (value && toTime) {
@@ -855,33 +879,51 @@ let MeetingsListComponent = class MeetingsListComponent {
                     }
                     return '<div class="jqx-custom-inner-cell">' + time + '</div>';
                 },
+                minwidth: 100,
                 renderer: columnrenderer,
             }, {
                 text: 'Type',
                 datafield: 'meetingTypeId',
                 cellsrenderer: cellsrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'Catgeory',
-                datafield: 'meetingCategoryName',
-                cellsrenderer: cellsrenderer,
-                minwidth: 100,
+                minwidth: 80,
                 renderer: columnrenderer
             }, {
                 text: 'Subject',
                 datafield: 'subject',
                 cellsrenderer: cellsrenderer,
-                minwidth: 150,
+                minwidth: 180,
                 renderer: columnrenderer
             }, {
                 text: 'Status',
                 datafield: 'meetingStatusName',
                 cellsrenderer: cellsrenderer,
-                minwidth: 80,
+                minwidth: 120,
                 renderer: columnrenderer
-            },
-        ];
+            }, {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions">'
+                        + '<a href="javascript:void(0)" class="mr-3" onClick="editMeeting(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
+                        + '<a href="javascript:void(0)" class="mr-2" onClick="showConfirmDelete(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>';
+                },
+                minwidth: 120,
+                renderer: columnrenderer
+            }];
+        //delete item
+        this.sharedService.unitlistdeleteindexcast.subscribe(item => {
+            if (item != null) {
+                var params = {
+                    meetingId: item,
+                    deleteBy: parseInt(this.cookieService.get('userId'))
+                };
+                this.meetingService.deleteMeeting(params).subscribe((res) => {
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    this.getMeetingList();
+                });
+            }
+        });
     }
 };
 MeetingsListComponent.ctorParameters = () => [
@@ -889,12 +931,25 @@ MeetingsListComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])
 ], MeetingsListComponent.prototype, "datagrid", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:oneditMeeting', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], MeetingsListComponent.prototype, "oneditMeeting", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:ondeleteMeeting', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], MeetingsListComponent.prototype, "ondeleteSlot", null);
 MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-meetings-list',
@@ -905,9 +960,28 @@ MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
 ], MeetingsListComponent);
 
+function editMeeting(row) {
+    var event = new CustomEvent('oneditMeeting', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.editMeeting = editMeeting;
+function showConfirmDelete(row) {
+    var event = new CustomEvent('ondeleteMeeting', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.showConfirmDelete = showConfirmDelete;
 
 
 /***/ }),
@@ -1046,7 +1120,7 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
         return 950;
     }
     appointmentClick(event) {
-        if (this.cookieService.get('userRole') == 'Admin') {
+        if (this.cookieService.get('userRoleType') == 'Admin') {
             let data = event.args.appointment.originalData;
             data.type = 'edit';
             const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
@@ -1063,7 +1137,7 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
     }
     appointmentAdd(event) {
         this.myScheduler.closeDialog();
-        if (this.cookieService.get('userRole') == 'Admin') {
+        if (this.cookieService.get('userRoleType') == 'Admin') {
             let data = { type: 'create' };
             const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
                 width: 'auto',
@@ -1171,14 +1245,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+
 
 
 
 
 
 let MeetingsSetupComponent = class MeetingsSetupComponent {
-    constructor(lookupService, sharedService, cookieService) {
+    constructor(lookupService, injector, sharedService, cookieService) {
         this.lookupService = lookupService;
+        this.injector = injector;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.isMeetingCategoryLoaded = false;
@@ -1193,6 +1270,7 @@ let MeetingsSetupComponent = class MeetingsSetupComponent {
         this.isCategorySuccess = false;
         this.meetingCategoryDesc = "";
         this.isViewMode = false;
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     addNewMeetingCategory() {
         this.isCategorySuccess = this.isCategoryError = false;
@@ -1222,17 +1300,11 @@ let MeetingsSetupComponent = class MeetingsSetupComponent {
         this.isViewMode = false;
     }
     deleteMeetingCategory(item, index) {
-        this.isMeetingCategoryLoaded = false;
-        console.log(item);
-        var params = {
-            lookupValueId: item.lookupValueId,
-            updateUserId: parseInt(this.cookieService.get('userId'))
+        let params = {
+            id: item.lookupValueId,
+            index: index
         };
-        this.lookupService.deleteLookupvalue(params).subscribe((res) => {
-            this.meetingCategoryData.splice(index, 1);
-            this.isMeetingCategoryLoaded = true;
-            this.removeCategoryBox();
-        });
+        this.modalService.showConfirmModal(params);
     }
     removeCategoryBox() {
         this.isMeetingCategoryNew = false;
@@ -1339,10 +1411,28 @@ let MeetingsSetupComponent = class MeetingsSetupComponent {
                 return item.isActive;
             });
         });
+        //delete item
+        this.sharedService.unitlistdeleteindexcast.subscribe(item => {
+            if (item != null) {
+                this.isMeetingCategoryLoaded = false;
+                var params = {
+                    lookupValueId: item.id,
+                    updateUserId: parseInt(this.cookieService.get('userId'))
+                };
+                this.lookupService.deleteLookupvalue(params).subscribe((res) => {
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    this.meetingCategoryData.splice(item.index, 1);
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    this.isMeetingCategoryLoaded = true;
+                    this.removeCategoryBox();
+                });
+            }
+        });
     }
 };
 MeetingsSetupComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
 ];
@@ -1353,6 +1443,7 @@ MeetingsSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./meetings-setup.component.scss */ "./src/app/ams/meetings/components/meetings-setup/meetings-setup.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
 ], MeetingsSetupComponent);

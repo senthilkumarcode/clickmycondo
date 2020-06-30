@@ -161,7 +161,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"visitor-setup-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30 vehicle-type-table-card\" *ngIf=\"isDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Visitor Categories <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Delete Visitor Categories</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categoryData\" >\n    \t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" (click)=\"addNewCategoryType()\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Category</span>\n\t\t\t\t\t</a>\n\t    \t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Sno <span [ngClass]=\"getFieldOrderBy('primayContact')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Visitor Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th> \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryDataList | simpleSearch: categoryData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td>{{i + 1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.lookupValueName}}</td> \n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"updateCategoryType(category)\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"deleteCategoryType(category)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t                </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\t\t</div>\n\n    </div>\n\n    <div class=\"card mb-30 vehicle-type-card\" *ngIf=\"isCategoryTypeNew || isCategoryTypeUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isCategoryTypeNew\">Add Visitor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isCategoryTypeNew\">Update Visitor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryTypeBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">  \n\t\t\t\n\t\t\t<!-- <app-alert-message [isError]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isCategoryTypeSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isCategoryTypeSubmitted\">\n\n\t\t\t\t<form #addCategoryTypeForm = \"ngForm\" name=\"addCategoryTypeForm\"  (ngSubmit)=\"submitCategoryTypeForm(addCategoryTypeForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Visitor Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"categoryType\" [(ngModel)]=\"categoryType\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<button class=\"btn blue at-input\" [disabled]=\"addCategoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"visitor-setup-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30 vehicle-type-table-card\" *ngIf=\"isDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Visitor Categories <span class=\"badge blue\">{{totalItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Delete Visitor Categories</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categoryData\" >\n    \t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" (click)=\"addNewCategoryType()\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<span>Add Category</span>\n\t\t\t\t\t</a>\n\t    \t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t\n\t\t<div class=\"card-body p-0\">\n\t\t\n\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Sno <span [ngClass]=\"getFieldOrderBy('primayContact')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Visitor Category <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th> \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryDataList | simpleSearch: categoryData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td>{{category.number}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.lookupValueName}}</td> \n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"updateCategoryType(category)\">\n\t\t\t\t\t\t\t<i class=\"fa fa-pencil icon edit\" title=\"Edit\" aria-hidden=\"true\"></i>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"deleteCategoryType(category)\"><i class=\"fa fa-trash icon delete\" title=\"Delete\" aria-hidden=\"true\"></i></a>\n\t\t\t\t\t\t</td>\n\t                </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\t\t</div>\n\n    </div>\n\n    <div class=\"card mb-30 vehicle-type-card\" *ngIf=\"isCategoryTypeNew || isCategoryTypeUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isCategoryTypeNew\">Add Visitor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isCategoryTypeNew\">Update Visitor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryTypeBox()\">\n    \t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">  \n\t\t\t\n\t\t\t<!-- <app-alert-message [isError]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isCategoryTypeSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isCategoryTypeSubmitted\">\n\n\t\t\t\t<form #addCategoryTypeForm = \"ngForm\" name=\"addCategoryTypeForm\"  (ngSubmit)=\"submitCategoryTypeForm(addCategoryTypeForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Visitor Category*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"categoryType\" [(ngModel)]=\"categoryType\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4\">\n\t\t\t\t\t\t\t<button class=\"btn blue at-input\" [disabled]=\"addCategoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t\t\n\t\t</div>\n\n\t</div>\n\n</div>\n";
     /***/
   },
 
@@ -403,6 +403,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this.sharedService.setAlertMessage("Visitor Checked In successfully");
 
               _this.visitor = {};
+              _this.visitTypeId = null;
+              _this.visitCategoryId = null;
               _this.isVisitorSubmitted = false;
             } else {
               _this.isVisitorSubmitted = false;
@@ -2876,32 +2878,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function deleteCategoryType(item) {
           var _this18 = this;
 
-          this.modalService.showConfirmModal(item); // delete item
+          var confirmationMessage = "Are you sure you want to delete?";
+          var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
+          var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            _this18.result = dialogResult;
 
-          this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
-            if (item != null) {
-              _this18.isDataLoaded = false;
+            if (_this18.result) {
               var params = {
                 lookupValueId: item.lookupValueId,
                 updateUserId: parseInt(_this18.cookieService.get('userId'))
               };
 
               _this18.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                _this18.categoryDataList = _this18.categoryDataList.filter(function (type) {
-                  return type.lookupValueId !== item.lookupValueId;
-                });
+                if (res.message) {
+                  var errorDetails = {
+                    msg: 'Visitor category deleted successfully',
+                    type: "Success"
+                  };
 
-                _this18.sharedService.setUnitListDeleteIndex(null);
+                  _this18.sharedService.setCustomAlertMessage(errorDetails);
 
-                _this18.isDataLoaded = true;
+                  _this18.isDataLoaded = false;
+                  var categoryParams = {
+                    ApartmentId: parseInt(_this18.cookieService.get('apartmentId')),
+                    LookupTypeId: 100
+                  };
+
+                  _this18.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                    _this18.isDataLoaded = true;
+                    _this18.categoryDataList = res.filter(function (item, i) {
+                      item.number = i + 1;
+                      return item.isActive;
+                    });
+                    _this18.totalItems = _this18.categoryDataList.length;
+
+                    if (_this18.totalItems > _this18.itemLimit) {
+                      _this18.ItemEndIndex = _this18.itemLimit;
+                    } else {
+                      _this18.ItemEndIndex = _this18.totalItems;
+                    }
+
+                    _this18.isDataLoaded = true;
+                  });
+                } else {
+                  _this18.isDataLoaded = true;
+                }
               });
-
-              var errorDetails = {
-                msg: 'Visitor category deleted successfully',
-                type: "Success"
-              };
-
-              _this18.sharedService.setCustomAlertMessage(errorDetails);
             }
           });
         }
@@ -2960,6 +2987,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                     _this19.isCategoryTypeNew = false;
                     _this19.isCategoryTypeSubmitted = true;
+                    _this19.categoryType = '';
                     _this19.isDataLoaded = false;
                     var categoryParams = {
                       ApartmentId: parseInt(_this19.cookieService.get('apartmentId')),
@@ -2968,7 +2996,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                     _this19.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
                       _this19.isDataLoaded = true;
-                      _this19.categoryDataList = res.filter(function (item) {
+                      _this19.categoryDataList = res.filter(function (item, i) {
+                        item.number = i + 1;
                         return item.isActive;
                       });
                       _this19.totalItems = _this19.categoryDataList.length;
@@ -2997,14 +3026,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               } else {
                 var _details = {
                   "lookupValueId": _this19.categoryUpdateId,
+                  "ApartmentId": parseInt(_this19.cookieService.get('apartmentId')),
                   "lookupTypeId": 100,
                   "lookupValueName": _this19.categoryType,
                   "description": _this19.categoryType,
                   "isActive": true,
-                  "insertedBy": 0,
-                  "insertedOn": "2019-11-20T16:51:24.105Z",
                   "updatedBy": parseInt(_this19.cookieService.get('userId')),
-                  "updatedOn": "2019-11-20T16:51:24.105Z"
+                  "updatedOn": new Date().toISOString()
                 };
                 var _params = {
                   lookupvalue: _details
@@ -3023,9 +3051,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                       _this19.sharedService.setAlertMessage("Visitor Category updated successfully");
 
-                      _this19.categoryDataList = res.filter(function (item) {
+                      _this19.categoryDataList = res.filter(function (item, i) {
+                        item.number = i + 1;
                         return item.isActive;
                       });
+                      _this19.totalItems = _this19.categoryDataList.length;
+
+                      if (_this19.totalItems > _this19.itemLimit) {
+                        _this19.ItemEndIndex = _this19.itemLimit;
+                      } else {
+                        _this19.ItemEndIndex = _this19.totalItems;
+                      }
                     });
                   } else {
                     _this19.isCategoryTypeSubmitted = true;
@@ -3055,7 +3091,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             LookupTypeId: 100
           };
           this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe(function (res) {
-            _this20.categoryDataList = res.filter(function (item) {
+            _this20.categoryDataList = res.filter(function (item, i) {
+              item.number = i + 1;
               return item.isActive;
             });
             _this20.totalItems = _this20.categoryDataList.length;

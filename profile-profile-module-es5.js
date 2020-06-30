@@ -216,9 +216,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   _this.sharedService.setAlertMessage("Password has been reset successfully"); // this.router.navigateByUrl('/ams');
 
 
-                  var userRole = _this.cookieService.get('userRole');
+                  var userRole = _this.cookieService.get('userRoleType');
 
-                  if (userRole == 'Admin' || userRole == 'SuperAdmin' || userRole == 'Staff' || userRole == 'Security') {
+                  if (userRole == 'Admin' || userRole == 'Super Admin' || userRole == 'Staff') {
                     _this.router.navigateByUrl('/ams');
                   } else if (userRole == 'Owner' || userRole == 'Tenant') {
                     _this.router.navigateByUrl('/user');

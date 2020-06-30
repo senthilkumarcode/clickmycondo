@@ -138,8 +138,8 @@ let ResetPasswordComponent = class ResetPasswordComponent {
                         this.isSubmitted = true;
                         this.sharedService.setAlertMessage("Password has been reset successfully");
                         // this.router.navigateByUrl('/ams');
-                        var userRole = this.cookieService.get('userRole');
-                        if (userRole == 'Admin' || userRole == 'SuperAdmin' || userRole == 'Staff' || userRole == 'Security') {
+                        var userRole = this.cookieService.get('userRoleType');
+                        if (userRole == 'Admin' || userRole == 'Super Admin' || userRole == 'Staff') {
                             this.router.navigateByUrl('/ams');
                         }
                         else if (userRole == 'Owner' || userRole == 'Tenant') {
