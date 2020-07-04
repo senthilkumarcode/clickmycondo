@@ -11136,7 +11136,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
-        path: 'operational-maintanance',
+        path: 'operational-maintenance',
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() | operational-maintanance-operational-maintanance-module */

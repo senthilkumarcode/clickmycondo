@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"facilitybooking-actions-wrapper\">\n\t<app-loader *ngIf=\"!isBookingDataLoaded\"></app-loader>\n\t<div class=\"row mb-2\" *ngIf=\"isBookingDataLoaded\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<ul class=\"list-group tabs clear filter-collapse\" id=\"accordion2\">\n\t\t\t\t<li class=\"list-group-item\" #accordion2 data-toggle=\"collapse\" data-target=\"#parking\"\n\t\t\t\t\taria-expanded=\"false\" aria-controls=\"collapseOne\">\n\t\t\t\t\t<h6>Filter</h6>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"parking\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion2\">\n\t\t\t\t\t<form>\n\t\t\t\t\t\t<div class=\"card\">\n\t\t\t\t\t\t\t<div class=\"card-body row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\" >\n\t\t\t\t\t\t\t\t\t\t<label>Facility Name</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"facilityName\" id=\"facilityName\" class=\"form-control\" [(ngModel)]=\"filterFacility.apartmentFacilityID\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of facilityListData\" [ngValue]=\"item.apartmentFacilityId\">{{ item.facilityName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Event Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"eventDate\" [owlDateTime]=\"eventDate\" [owlDateTimeTrigger]=\"eventDate\" placeholder=\"Event Date\" \n\t\t\t\t\t\t\t\t\t\t autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time [pickerType]=\"'calendar'\" #eventDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDate\">\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Event Name</label>\n\t\t\t\t\t\t\t\t\t\t<input  type=\"text\"  class=\"form-control\" placeholder=\"Event Name\" name=\"eventName\" [(ngModel)]=\"filterFacility.eventName\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\" >\n\t\t\t\t\t\t\t\t\t\t<label>Booked On</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"bookingDate\" [owlDateTime]=\"bookingDate\" [owlDateTimeTrigger]=\"bookingDate\" placeholder=\"Booked On\" \n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"filterFacility.bookedOn\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time [pickerType]=\"'calendar'\" #bookingDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingDate\">\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"urlType == 'all-bookings'\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"facilityBookingStatusId\" id=\"statusId\" class=\"form-control\" [(ngModel)]=\"filterFacility.facilityBookingStatusID\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of statusTypeData\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn blue mr-3\" (click)=\"getBookingList()\">Submit</a>\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"resetField()\">Cancel</a>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\t<div class=\"card table-card\" *ngIf=\"isBookingDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<h5 *ngIf=\"urlType == 'all-bookings'\">All Bookings</h5>\n\t\t\t<h5 *ngIf=\"urlType == 'bookings-pending'\">Pending Bookings</h5>\n\t\t\t<h5 *ngIf=\"urlType == 'bookings-confirmed'\">Confirmed Bookings</h5>\n\t\t\t<h5 *ngIf=\"urlType == 'bookings-cancelled'\">Cancelled Bookings</h5>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"bookingSearch\" (ngModelChange)=\"searchData()\"  placeholder=\"Search...\" >\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\" routerLink=\"/ams/facility/create-booking\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Booking</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n  \t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"bookingListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid> \n\n  \t\t</div>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"facilitybooking-actions-wrapper\">\n\t<app-loader *ngIf=\"!isBookingDataLoaded\"></app-loader>\n\t<div class=\"row mb-2\" *ngIf=\"isBookingDataLoaded\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<ul class=\"list-group tabs clear filter-collapse\" id=\"accordion2\">\n\t\t\t\t<li class=\"list-group-item\" #accordion2 data-toggle=\"collapse\" data-target=\"#parking\"\n\t\t\t\t\taria-expanded=\"false\" aria-controls=\"collapseOne\">\n\t\t\t\t\t<h6>Filter</h6>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"parking\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion2\">\n\t\t\t\t\t<form>\n\t\t\t\t\t\t<div class=\"card\">\n\t\t\t\t\t\t\t<div class=\"card-body row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\" >\n\t\t\t\t\t\t\t\t\t\t<label>Facility Name</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"facilityName\" id=\"facilityName\" class=\"form-control\" [(ngModel)]=\"filterFacility.apartmentFacilityID\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of facilityListData\" [ngValue]=\"item.apartmentFacilityId\">{{ item.facilityName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Event From</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"eventDateFrom\" [owlDateTime]=\"eventDateFrom\" [owlDateTimeTrigger]=\"eventDateFrom\" placeholder=\"Event From\" \n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"filterFacility.eventDate_From\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time [pickerType]=\"'calendar'\" #eventDateFrom></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateFrom\">\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Event To</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"eventDateTo\" [owlDateTime]=\"eventDateTo\" [owlDateTimeTrigger]=\"eventDateTo\" placeholder=\"Event To\" \n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"filterFacility.eventDate_To\" autocomplete=\"off\" [disabled]=\"urlType == 'bookings-history' ? true : false\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time [pickerType]=\"'calendar'\" #eventDateTo></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateTo\">\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"urlType != 'bookings-history'\"></div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"urlType != 'bookings-history'\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\" >\n\t\t\t\t\t\t\t\t\t\t<label>Booked From</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"bookingDateFrom\" [owlDateTime]=\"bookingDateFrom\" [owlDateTimeTrigger]=\"bookingDateFrom\" placeholder=\"Booked From\" \n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"filterFacility.bookedOn_From\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time [pickerType]=\"'calendar'\" #bookingDateFrom></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingDateFrom\">\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"urlType != 'bookings-history'\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\" >\n\t\t\t\t\t\t\t\t\t\t<label>Booked To</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"bookingDateTo\" [owlDateTime]=\"bookingDateTo\" [owlDateTimeTrigger]=\"bookingDateTo\" placeholder=\"Booked To\" \n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"filterFacility.bookedOn_To\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time [pickerType]=\"'calendar'\" #bookingDateTo></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingDateTo\">\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\" *ngIf=\"urlType == 'bookings-history'\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"facilityBookingStatusId\" id=\"statusId\" class=\"form-control\" [(ngModel)]=\"filterFacility.facilityBookingStatusID\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of statusTypeData\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn blue mr-3\" (click)=\"getBookingList()\">Submit</a>\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"resetField()\">Cancel</a>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\t<div class=\"card table-card\" *ngIf=\"isBookingDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<h5 *ngIf=\"urlType == 'bookings-history'\">Bookings History ({{filterFacility.eventDate_From | date: 'MMM d, y'}} - {{filterFacility.eventDate_To | date: 'MMM d, y'}})</h5>\n\t\t\t<h5 *ngIf=\"urlType == 'bookings-pending'\">Pending Bookings</h5>\n\t\t\t<h5 *ngIf=\"urlType == 'bookings-confirmed'\">Confirmed Bookings</h5>\n\t\t\t<h5 *ngIf=\"urlType == 'bookings-cancelled'\">Cancelled Bookings</h5>\n\t\t\t<h5 *ngIf=\"urlType == 'bookings-rejected'\">Rejected Bookings</h5>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"bookingSearch\" (ngModelChange)=\"searchData()\"  placeholder=\"Search...\" >\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\" routerLink=\"/ams/facility/create-booking\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Booking</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n  \t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"bookingListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid> \n\n  \t\t</div>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".filter-collapse {\n  float: unset !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1ib29raW5nLWFjdGlvbnMvZmFjaWxpdHktYm9va2luZy1hY3Rpb25zLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1ib29raW5nLWFjdGlvbnMvZmFjaWxpdHktYm9va2luZy1hY3Rpb25zLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksdUJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9mYWNpbGl0eS9jb21wb25lbnRzL2ZhY2lsaXR5LWJvb2tpbmctYWN0aW9ucy9mYWNpbGl0eS1ib29raW5nLWFjdGlvbnMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmlsdGVyLWNvbGxhcHNlIHtcbiAgICBmbG9hdDogdW5zZXQgIWltcG9ydGFudDtcbn0iLCIuZmlsdGVyLWNvbGxhcHNlIHtcbiAgZmxvYXQ6IHVuc2V0ICFpbXBvcnRhbnQ7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".facilitybooking-actions-wrapper .filter-collapse {\n  float: unset !important;\n}\n.facilitybooking-actions-wrapper .w-100 {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1ib29raW5nLWFjdGlvbnMvZmFjaWxpdHktYm9va2luZy1hY3Rpb25zLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvZmFjaWxpdHkvY29tcG9uZW50cy9mYWNpbGl0eS1ib29raW5nLWFjdGlvbnMvZmFjaWxpdHktYm9va2luZy1hY3Rpb25zLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBQ0ksdUJBQUE7QUNBUjtBREVJO0VBQ0ksV0FBQTtBQ0FSIiwiZmlsZSI6InNyYy9hcHAvYW1zL2ZhY2lsaXR5L2NvbXBvbmVudHMvZmFjaWxpdHktYm9va2luZy1hY3Rpb25zL2ZhY2lsaXR5LWJvb2tpbmctYWN0aW9ucy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mYWNpbGl0eWJvb2tpbmctYWN0aW9ucy13cmFwcGVyIHtcbiAgICAuZmlsdGVyLWNvbGxhcHNlIHtcbiAgICAgICAgZmxvYXQ6IHVuc2V0ICFpbXBvcnRhbnQ7XG4gICAgfVxuICAgIC53LTEwMCB7XG4gICAgICAgIHdpZHRoIDogMTAwJTtcbiAgICB9XG59IiwiLmZhY2lsaXR5Ym9va2luZy1hY3Rpb25zLXdyYXBwZXIgLmZpbHRlci1jb2xsYXBzZSB7XG4gIGZsb2F0OiB1bnNldCAhaW1wb3J0YW50O1xufVxuLmZhY2lsaXR5Ym9va2luZy1hY3Rpb25zLXdyYXBwZXIgLnctMTAwIHtcbiAgd2lkdGg6IDEwMCU7XG59Il19 */");
 
 /***/ }),
 
@@ -152,13 +152,17 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                //this.getWorkApprovalList();
+                this.getBookingList();
             }
         });
     }
     editBooking(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         this.router.navigate(['ams/facility/edit-booking', dataRecord.apartmentFacilityBookingId]);
+    }
+    viewBooking(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.router.navigate(['ams/facility/view-booking', dataRecord.apartmentFacilityBookingId]);
     }
     ondeleteSlot(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -169,11 +173,18 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
     }
     resetField() {
         this.filterFacility = {
-            facilityBookingStatusID: '',
-            eventName: '',
-            apartmentFacilityID: '',
-            bookedOn: ''
+            facilityBookingStatusID: null,
+            eventName: null,
+            apartmentFacilityID: null,
+            bookedOn_From: null,
+            bookedOn_To: null,
+            eventDate_From: null,
+            eventDate_To: null,
         };
+        if (this.urlType == 'bookings-history') {
+            let yesterday = moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).subtract(1, 'days').utc().format();
+            this.filterFacility.eventDate_From = moment__WEBPACK_IMPORTED_MODULE_5__(yesterday).subtract(2, 'month').utc().format();
+        }
         this.getBookingList();
     }
     searchData() {
@@ -198,7 +209,7 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'facilitybooking');
+        this.datagrid.exportdata(event, this.urlType);
     }
     getBookingList() {
         this.isBookingDataLoaded = false;
@@ -206,9 +217,14 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
             eventName: this.filterFacility.eventName,
             apartmentFacilityID: this.filterFacility.apartmentFacilityID,
-            bookedOn: this.filterFacility.bookedOn
+            eventDate_From: this.filterFacility.eventDate_From,
+            eventDate_To: this.filterFacility.eventDate_To,
+            bookedOn_From: this.filterFacility.bookedOn_From,
+            bookedOn_To: this.filterFacility.bookedOn_To,
         };
-        if (this.urlType == 'all-bookings') {
+        if (this.urlType == 'bookings-history') {
+            this.filterFacility.eventDate_To = moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).subtract(1, 'days').utc().format();
+            bookingListParams.eventDate_To = this.filterFacility.eventDate_To;
             bookingListParams.facilityBookingStatusID = this.filterFacility.facilityBookingStatusID;
         }
         else if (this.urlType == 'bookings-confirmed') {
@@ -216,6 +232,9 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
         }
         else if (this.urlType == 'bookings-pending') {
             bookingListParams.facilityBookingStatusID = 189;
+        }
+        else if (this.urlType == 'bookings-cancelled') {
+            bookingListParams.facilityBookingStatusID = 208;
         }
         else {
             bookingListParams.facilityBookingStatusID = 385;
@@ -244,6 +263,12 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.columnData = [{
+                text: 'Booking Id',
+                datafield: 'serialNo',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
                 text: 'Facility Name',
                 datafield: 'apartmentFacilityName',
                 cellsrenderer: cellsrenderer,
@@ -339,12 +364,15 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
                 renderer: columnrenderer
             }, {
                 text: 'Status',
-                datafield: 'facilityBookingStatusId',
-                cellsrenderer: (row, column, value) => {
-                    let label, className;
-                    label = this.bookingListData.loadedData[row].facilityBookingStatusId_Label;
-                    className = label == 'Rejected' ? 'cancelled' : label.toLowerCase();
-                    return '<div class="jqx-custom-inner-cell"><span onClick="statusFacilityBooking(' + row + ')" class="badge small min text-capitalize link ' + className + '">' + label + '</span></div>';
+                datafield: 'facilityBookingStatusId_Label',
+                cellsrenderer: (row, column, label) => {
+                    let className = label == 'Rejected' ? 'cancelled' : label.toLowerCase();
+                    if (this.urlType == 'bookings-history') {
+                        return '<div class="jqx-custom-inner-cell"><span class="w-100 badge small min text-capitalize ' + className + '">' + label + '</span></div>';
+                    }
+                    else {
+                        return '<div class="jqx-custom-inner-cell"><span onClick="statusFacilityBooking(' + row + ')" class="w-100 badge small min text-capitalize link ' + className + '">' + label + '</span></div>';
+                    }
                 },
                 cellsalign: 'center',
                 align: 'center',
@@ -353,11 +381,16 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
             }, {
                 text: 'Actions',
                 cellsalign: 'center',
-                align: 'center',
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions">'
-                        + '<a href="javascript:void(0)" class="mr-3" onClick="editFacilityBooking(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
-                        + '<a href="javascript:void(0)" class="mr-2" onClick="showConfirmDelete(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>';
+                    if (this.urlType == 'bookings-history') {
+                        return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-3" onClick="viewFacilityBooking(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a></div>';
+                    }
+                    else {
+                        return '<div class="simple-actions">'
+                            + '<a href="javascript:void(0)" class="mr-3" onClick="editFacilityBooking(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
+                            + '<a href="javascript:void(0)" class="mr-2" onClick="showConfirmDelete(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>'
+                            + '</div>';
+                    }
                 },
                 minwidth: 80,
                 renderer: columnrenderer
@@ -372,7 +405,9 @@ let FacilityBookingActionsComponent = class FacilityBookingActionsComponent {
             });
         });
         //facility status
-        if (this.urlType == 'all-bookings') {
+        if (this.urlType == 'bookings-history') {
+            let yesterday = moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).subtract(1, 'days').utc().format();
+            this.filterFacility.eventDate_From = moment__WEBPACK_IMPORTED_MODULE_5__(yesterday).subtract(2, 'month').utc().format();
             let statusParams = {
                 LookupTypeId: 40
             };
@@ -424,6 +459,12 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
 ], FacilityBookingActionsComponent.prototype, "editBooking", null);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onViewFacilityBooking', ['$event.detail']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], FacilityBookingActionsComponent.prototype, "viewBooking", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:ondeleteMeeting', ['$event.detail']),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
@@ -463,6 +504,15 @@ function editFacilityBooking(row) {
     window.dispatchEvent(event);
 }
 window.editFacilityBooking = editFacilityBooking;
+function viewFacilityBooking(row) {
+    var event = new CustomEvent('onViewFacilityBooking', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.viewFacilityBooking = viewFacilityBooking;
 function showConfirmDelete(row) {
     var event = new CustomEvent('ondeleteMeeting', {
         detail: {
@@ -1141,11 +1191,13 @@ const routes = [
     { path: 'setup', component: _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_8__["FacilityCreateComponent"] },
     { path: 'create-booking', component: _shared_components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_4__["FacilityCreateBookingComponent"] },
     { path: 'edit-booking/:id', component: _shared_components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_4__["FacilityCreateBookingComponent"] },
+    { path: 'view-booking/:id', component: _shared_components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_4__["FacilityCreateBookingComponent"] },
     { path: 'view-facility-calendar', component: _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_6__["FacilityCalenderComponent"] },
-    { path: 'all-bookings', component: _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingActionsComponent"] },
     { path: 'bookings-pending', component: _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingActionsComponent"] },
     { path: 'bookings-confirmed', component: _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingActionsComponent"] },
     { path: 'bookings-cancelled', component: _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingActionsComponent"] },
+    { path: 'bookings-rejected', component: _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingActionsComponent"] },
+    { path: 'bookings-history', component: _components_facility_booking_actions_facility_booking_actions_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingActionsComponent"] },
     { path: 'reports', component: _components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_3__["FacilityReportsComponent"] },
     { path: '**', redirectTo: 'list', pathMatch: 'full' }
 ];

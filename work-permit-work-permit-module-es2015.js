@@ -9,20 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-approvalview-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"text-right\" *ngIf=\"isDataLoaded\">\n\t\t<i-feather class=\"icon success-indicator\" name=\"check-circle\"></i-feather>&nbsp; Approve\n\t</div>\n\t<div class=\"card card-table\">\n\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>WorkPermit Approval List <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"wpData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item create-btn-permit\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\" routerLink=\"/ams/work-permit/create\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Work Permit</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item add-icon-permit\">\n\t\t\t\t\t<a class=\"lime-green mt_5\" routerLink=\"/ams/work-permit/create\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t</a>\n\t\t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"workPermitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid> \n\t\t</div>\n\t</div>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.html":
-/*!***************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.html ***!
-  \***************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-approvalview-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<!-- <div class=\"text-right\" *ngIf=\"isDataLoaded\">\n\t\t<i-feather class=\"icon success-indicator\" name=\"check-circle\"></i-feather>&nbsp; Approve\n\t</div> -->\n\t<div class=\"card card-table\">\n\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>WorkPermit Approved List <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"wpData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t<li class=\"list-inline-item\"></li>  <!-- This Line is Must, If you removed console error occurred -->\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"workPermitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid> \n\t\t</div>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-approvalview-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"text-right\" *ngIf=\"urlType=='pending' && isDataLoaded\">\n\t\t<i-feather class=\"icon success-indicator\" name=\"check-circle\"></i-feather>&nbsp; Approve\n\t</div>\n\t<div class=\"card card-table\">\n\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n\t\t\t\t<h5>\n\t\t\t\t\t<span *ngIf=\"urlType=='pending'\">WorkPermit Approval List </span>\n\t\t\t\t\t<span *ngIf=\"urlType=='approved'\">WorkPermit Approved List </span>\n\t\t\t\t\t<span class=\"badge lime-green\">{{totalItems}}</span>\n\t\t\t\t</h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"wpData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t<li class=\"list-inline-item\"></li>  <!-- This Line is Must, If you removed console error occurred -->\n    \t\t\t<li class=\"list-inline-item create-btn-permit\" *ngIf=\"urlType=='pending'\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\" routerLink=\"/ams/work-permit/create\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Work Permit</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item add-icon-permit\">\n\t\t\t\t\t<a class=\"lime-green mt_5\" routerLink=\"/ams/work-permit/create\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t</a>\n\t\t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"workPermitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid> \n\t\t</div>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -134,9 +121,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
-    constructor(router, route, cookieService, workPermit, dialog) {
+    constructor(router, activeRouter, cookieService, workPermit, dialog) {
         this.router = router;
-        this.route = route;
+        this.activeRouter = activeRouter;
         this.cookieService = cookieService;
         this.workPermit = workPermit;
         this.dialog = dialog;
@@ -146,8 +133,13 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
     getWorkApprovalList() {
         let params = {
             apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            statusIds: '353,354,356,357,358,359'
         };
+        if (this.urlType == 'pending') {
+            params.statusIds = '353,354,356,357,358,359';
+        }
+        else {
+            params.statusIds = '355';
+        }
         this.workPermit.getAllWorkPermitsByStatues(params).subscribe((res) => {
             this.workPermitListData = res;
             this.totalItems = this.workPermitListData.length;
@@ -211,6 +203,9 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
         this.datagrid.exportdata(event, 'ApprovalList');
     }
     ngOnInit() {
+        this.activeRouter.url.subscribe((data) => {
+            this.urlType = data[0].path;
+        });
         this.getWorkApprovalList();
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -293,10 +288,15 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
                 align: 'center',
                 width: 120,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions">'
-                        + '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>'
-                        + '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
-                        + '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a></div>';
+                    let view = '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>';
+                    if (this.urlType == 'pending') {
+                        return '<div class="simple-actions">'
+                            + view + '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
+                            + '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a></div>';
+                    }
+                    else {
+                        return '<div class="simple-actions">' + view + '</div>';
+                    }
                 },
                 renderer: columnrenderer
             }];
@@ -362,215 +362,6 @@ function editPermitEvent(row) {
     window.dispatchEvent(event);
 }
 window.editPermitEvent = editPermitEvent;
-function viewPermitEvent(row) {
-    var event = new CustomEvent('onviewPermit', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.viewPermitEvent = viewPermitEvent;
-
-
-/***/ }),
-
-/***/ "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.scss":
-/*!*************************************************************************************************************!*\
-  !*** ./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.scss ***!
-  \*************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@media (max-width: 767px) {\n  .create-btn-permit {\n    display: none;\n  }\n}\n\n@media (min-width: 767px) {\n  .add-icon-permit {\n    display: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWFwcHJvdmVkLWxpc3Qvd29ya3Blcm1pdC1hcHByb3ZlZC1saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWFwcHJvdmVkLWxpc3Qvd29ya3Blcm1pdC1hcHByb3ZlZC1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBREo7SUFFTyxhQUFBO0VDQ0w7QUFDRjs7QURHSTtFQURKO0lBRVEsYUFBQTtFQ0NOO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWFwcHJvdmVkLWxpc3Qvd29ya3Blcm1pdC1hcHByb3ZlZC1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNyZWF0ZS1idG4tcGVybWl0IHtcbiAgICBAbWVkaWEgKG1heC13aWR0aDogIDc2N3B4KSB7XG4gICAgICAgZGlzcGxheTogbm9uZTtcbiAgICB9XG59XG5cbi5hZGQtaWNvbi1wZXJtaXQge1xuICAgIEBtZWRpYSAobWluLXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgZGlzcGxheTogbm9uZTtcbiAgICAgfVxufSIsIkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuY3JlYXRlLWJ0bi1wZXJtaXQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cbn1cblxuQG1lZGlhIChtaW4td2lkdGg6IDc2N3B4KSB7XG4gIC5hZGQtaWNvbi1wZXJtaXQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cbn0iXX0= */");
-
-/***/ }),
-
-/***/ "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.ts":
-/*!***********************************************************************************************************!*\
-  !*** ./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.ts ***!
-  \***********************************************************************************************************/
-/*! exports provided: WorkpermitApprovedListComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkpermitApprovedListComponent", function() { return WorkpermitApprovedListComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/WorkPermit */ "./src/app/api/controllers/WorkPermit.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-
-
-
-
-
-
-
-let WorkpermitApprovedListComponent = class WorkpermitApprovedListComponent {
-    constructor(router, cookieService, workPermit) {
-        this.router = router;
-        this.cookieService = cookieService;
-        this.workPermit = workPermit;
-        this.wpData = "";
-        this.isDataLoaded = false;
-    }
-    onGlSearchFilter() {
-        if (this.wpData != "") {
-            let filtergroup = new jqx.filter();
-            let filter_or_operator = 1;
-            let filtervalue = this.wpData;
-            let filtercondition = 'contains';
-            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-            filtergroup.operator = 'or';
-            filtergroup.addfilter(filter_or_operator, filterData);
-            this.datagrid.showfiltercolumnbackground(false);
-            this.columnData.forEach(item => {
-                if (item.datafield != 'Actions') {
-                    this.datagrid.addfilter(item.datafield, filtergroup, true);
-                }
-            });
-            this.datagrid.applyfilters();
-        }
-        else {
-            this.datagrid.clearfilters();
-        }
-    }
-    onViewTicket(detail) {
-        let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let permitId = dataRecord.workPermitId;
-        this.router.navigate(['/ams/work-permit/create'], { queryParams: { id: permitId, type: 'view' } });
-    }
-    getPrintParams(event) {
-        this.datagrid.exportdata(event, 'ApprovedList');
-    }
-    ngOnInit() {
-        let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            statusIds: '355'
-        };
-        this.workPermit.getAllWorkPermitsByStatues(params).subscribe((res) => {
-            this.workPermitListData = res;
-            this.totalItems = this.workPermitListData.length;
-            this.gridSourceData = {
-                localdata: this.workPermitListData,
-                datatype: "array"
-            };
-            this.workPermitListData = new jqx.dataAdapter(this.gridSourceData);
-            this.isDataLoaded = true;
-        });
-        var cellsrenderer = (row, column, value) => {
-            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-        };
-        var columnrenderer = (value) => {
-            return '<div style="padding: 14px">' + value + '</div>';
-        };
-        this.columnData = [{
-                text: 'WP ID',
-                datafield: 'workPermitId',
-                width: 80,
-                pinned: true,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'BLOCK',
-                datafield: 'apartmentBlockNumber',
-                minwidth: 130,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer,
-            }, {
-                text: 'UNIT',
-                datafield: 'apartmentBlockUnitNumber',
-                cellsrenderer: cellsrenderer,
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'ENDORSED BY',
-                datafield: 'endorsedBy',
-                cellsrenderer: cellsrenderer,
-                minwidth: 140,
-                renderer: columnrenderer
-            }, {
-                text: 'WP TYPE',
-                datafield: 'workPermitType',
-                cellsrenderer: cellsrenderer,
-                minwidth: 150,
-                renderer: columnrenderer
-            }, {
-                text: 'NATURE OF WORK',
-                datafield: 'natureOfWork',
-                cellsrenderer: cellsrenderer,
-                minwidth: 150,
-                renderer: columnrenderer
-            }, {
-                text: '	START DATE',
-                datafield: 'startDate',
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
-                },
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'END DATE',
-                datafield: 'endDate',
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
-                },
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'PERSONNELS',
-                datafield: 'noOfPersonnels',
-                cellsalign: 'center',
-                align: 'center',
-                cellsrenderer: cellsrenderer,
-                minwidth: 80,
-                renderer: columnrenderer,
-            }, {
-                text: 'Actions',
-                cellsalign: 'center',
-                align: 'center',
-                width: 120,
-                cellsrenderer: (row) => {
-                    return '<div class="simple-actions">'
-                        + '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>';
-                },
-                renderer: columnrenderer
-            }];
-    }
-};
-WorkpermitApprovedListComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"] }
-];
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__["jqxGridComponent"])
-], WorkpermitApprovedListComponent.prototype, "datagrid", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onviewPermit', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], WorkpermitApprovedListComponent.prototype, "onViewTicket", null);
-WorkpermitApprovedListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-workpermit-approved-list',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./workpermit-approved-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./workpermit-approved-list.component.scss */ "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"]])
-], WorkpermitApprovedListComponent);
-
 function viewPermitEvent(row) {
     var event = new CustomEvent('onviewPermit', {
         detail: {
@@ -1000,7 +791,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
                     else {
                         this.sharedService.setAlertMessage(`Work Permit added successfully`);
                     }
-                    this.router.navigate(['/ams/work-permit/approval']);
+                    this.router.navigate(['/ams/work-permit/pending']);
                 }
             }
             else {
@@ -1534,8 +1325,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/workpermit-setup/workpermit-setup.component */ "./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.ts");
 /* harmony import */ var _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/workpermit-approval/workpermit-approval.component */ "./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.ts");
 /* harmony import */ var _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/workpermit-create/workpermit-create.component */ "./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.ts");
-/* harmony import */ var _components_workpermit_approved_list_workpermit_approved_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/workpermit-approved-list/workpermit-approved-list.component */ "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.ts");
-
 
 
 
@@ -1545,9 +1334,9 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: '', redirectTo: 'setup', pathMatch: 'full' },
     { path: 'setup', component: _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_3__["WorkpermitSetupComponent"] },
-    { path: 'approval', component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__["WorkpermitApprovalComponent"] },
     { path: 'create', component: _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_5__["WorkpermitCreateComponent"] },
-    { path: 'approved', component: _components_workpermit_approved_list_workpermit_approved_list_component__WEBPACK_IMPORTED_MODULE_6__["WorkpermitApprovedListComponent"] },
+    { path: 'pending', component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__["WorkpermitApprovalComponent"] },
+    { path: 'approved', component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__["WorkpermitApprovalComponent"] },
     { path: '**', redirectTo: 'setup', pathMatch: 'full' }
 ];
 let WorkPermitRoutingModule = class WorkPermitRoutingModule {
@@ -1630,8 +1419,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/workpermit-create/workpermit-create.component */ "./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.ts");
 /* harmony import */ var _components_workpermit_setting_workpermit_setting_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/workpermit-setting/workpermit-setting.component */ "./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.ts");
 /* harmony import */ var _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/workpermit-status/workpermit-status.component */ "./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.ts");
-/* harmony import */ var _components_workpermit_approved_list_workpermit_approved_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/workpermit-approved-list/workpermit-approved-list.component */ "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.ts");
-
 
 
 
@@ -1648,7 +1435,7 @@ let WorkPermitModule = class WorkPermitModule {
 };
 WorkPermitModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_work_permit_component__WEBPACK_IMPORTED_MODULE_6__["WorkPermitComponent"], _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_7__["WorkpermitSetupComponent"], _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_8__["WorkpermitApprovalComponent"], _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitCreateComponent"], _components_workpermit_setting_workpermit_setting_component__WEBPACK_IMPORTED_MODULE_10__["WorkpermitSettingComponent"], _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_11__["WorkpermitStatusComponent"], _components_workpermit_approved_list_workpermit_approved_list_component__WEBPACK_IMPORTED_MODULE_12__["WorkpermitApprovedListComponent"]],
+        declarations: [_work_permit_component__WEBPACK_IMPORTED_MODULE_6__["WorkPermitComponent"], _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_7__["WorkpermitSetupComponent"], _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_8__["WorkpermitApprovalComponent"], _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitCreateComponent"], _components_workpermit_setting_workpermit_setting_component__WEBPACK_IMPORTED_MODULE_10__["WorkpermitSettingComponent"], _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_11__["WorkpermitStatusComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
