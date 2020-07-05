@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poiManagement\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower{{selectedTower}}</label>\n          <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n            <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n            <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      </div>\n      <div class=\"col-md-6 d-flex justify-content-end align-items-center\">\n        <button class=\"btn blue\" *ngIf=\"isShowBuilder\" (click)=\"updateProperty()\" >\n          Publish\n        </button>\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" (click)=\"browseFile()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" (change)=\"mapUpload($event)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poiManagement\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower</label>\n          <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n            <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n            <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      </div>\n      <div class=\"col-md-6 d-flex justify-content-end align-items-center\">\n        <button class=\"btn blue\" *ngIf=\"isShowBuilder\" (click)=\"updateProperty()\" >\n          Publish\n        </button>\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" [appDragAndDrop] (click)=\"fileInput.click()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>");
 
 /***/ }),
 
@@ -49,6 +49,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"document-setup-wrapper\">\n\t<h5 class=\"mb-3\">Configuration - Towers, Floors and Units</h5>\n\t<div class=\"card mb-3\">\n\t\t<div class=\"card-body\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>No of Towers*</label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"No of Towers\" name=\"noOfTower\" [(ngModel)]=\"noOfTowers\" (ngModelChange)=\"towerSubject.next($event)\" [disabled]=\"pageType == 'edit' ? true : false\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div class=\"card\" *ngIf=\"tableInfo\">\n\t\t<div class=\"card-body\">\n\t\t\t<form [formGroup]=\"floorTable\">\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\"></th>\n\t\t\t\t\t\t\t<th scope=\"col\">Tower Name</th>\n\t\t\t\t\t\t\t<th scope=\"col\">No of Floors</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Total of Units</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container formArrayName=\"floor\" *ngFor=\"let group of floorControlArray.controls ; let i=index\">\n\t\t\t\t\t\t\t<tr [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t<td>{{group.get('apartmentBlock').value}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalnofloors\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalNounits\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType == 'create'\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"towerSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"action-container\" *ngIf=\"pageType == 'edit'\">\n\t\t\t\t\t<button mat-raised-button type=\"submit\" (click)=\"addNewTower()\">Add row</button>\n\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"towerSubmit()\">Update</button>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"newTower\">\n\t\t\t\t\t<table class=\"table mt-3\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\"></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">Tower Name</th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">No of Floors</th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">Total of Units</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<ng-container formArrayName=\"addFloor\" *ngFor=\"let group of floorTable.get('addFloor')['controls'] ; let i=index\">\n\t\t\t\t\t\t\t\t<tr [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t\t<td>{{group.get('apartmentBlock').value}}</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalnofloors\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalNounits\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<div class=\"action-container float-right\">\n\t\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"newTowerSubmit()\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t<div class=\"mt-5\" *ngFor=\"let data of formData;let i=index\">\n\t\t\t\t<h5 class=\"mb-5 font-weight-bold\" *ngIf=\"data\"><span>{{data[0].apartmentBlockNumber}}</span></h5>\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th class=\"floor-no-width \">Floor No</th>\n\t\t\t\t\t\t\t<th class=\"floor-name-width\">Floor Name</th>\n\t\t\t\t\t\t\t<th class=\"floor-no-width\">Unit</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Unit No</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container *ngFor=\"let child of data;let j=index;\">\n\t\t\t\t\t\t\t<tr *ngIf=\"!data[0].edit\">\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width \">Floor {{child.floorno}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-name-width\">\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.floorLabel\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width\">{{child.unit}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.apartmentBlockUnitNumber\" (keyup)=\"calculateUnit(child.apartmentBlockUnitNumber,i,j)\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr *ngIf=\"data[0].edit\">\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width \">Floor {{child.floorno}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-name-width\">{{child.floorLabel}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width\">{{child.unit}}</td>\n\t\t\t\t\t\t\t\t<td>{{child.apartmentBlockUnitNumber}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType=='create'\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"data[0].button\" type=\"submit\" (click)=\"floorSubmit(data)\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType=='edit'\">\n\t\t\t\t\t<button mat-raised-button class=\"mr-2\" type=\"submit\" (click)=\"editMode(data[0].edit,i)\">\n\t\t\t\t\t\t<span *ngIf=\"data[0].edit\">Edit</span>\n\t\t\t\t\t\t<span *ngIf=\"!data[0].edit\">Non Edit</span>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button mat-raised-button [disabled]=\"data[0].button\" type=\"submit\" (click)=\"floorSubmit(data)\">Update</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html ***!
+  \**********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<h2 mat-dialog-title>Add Property</h2>\n<mat-divider></mat-divider>\n<mat-dialog-content class=\"mat-typography\">\n    <div class=\"row mt-4 mb-4\">\n        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n            <div class=\"input-box\">\n                <label>Node Id</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\">\n            </div>\n        </div>\n        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n            <div class=\"input-box\">\n                <label>POI Id</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\">\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 \">\n            <div class=\"select-box\">\n                <label>Property Type</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Units</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Facility Type</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset Category</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset Sub Category</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        </div>\n</mat-dialog-content>\n<mat-dialog-actions align=\"end\">\n  <button mat-button mat-dialog-close>Cancel</button>\n  <button mat-button [mat-dialog-close]=\"true\" cdkFocusInitial>Submit</button>\n</mat-dialog-actions>");
 
 /***/ }),
 
@@ -304,6 +317,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
 /* harmony import */ var _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../api/controllers/Document */ "./src/app/api/controllers/Document.ts");
+/* harmony import */ var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
+/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../add-property-dialog/add-property-dialog.component */ "./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
+
+
+
+
+
 
 
 
@@ -312,11 +335,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var graph;
 let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
-    constructor(element, apartmentService, documentService, cookieService, fileDetailService) {
+    constructor(element, apartmentService, documentService, cookieService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
         this.element = element;
         this.apartmentService = apartmentService;
         this.documentService = documentService;
         this.cookieService = cookieService;
+        this.fileUploadService = fileUploadService;
+        this.fileDownloadService = fileDownloadService;
+        this.sanitizer = sanitizer;
+        this.dialog = dialog;
         this.fileDetailService = fileDetailService;
         this.loading = true;
         this.isShowBuilder = false;
@@ -330,6 +357,20 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         if (e.shiftKey && e.keyCode === 46) {
             graph.deleteSelected();
             // this.updateGraph();
+        }
+    }
+    closePopup(event) {
+        if (localStorage.getItem('onchange')) {
+            this.onChangeVal = JSON.parse(localStorage.getItem('onchange'));
+            if (this.onChangeVal.nodeId >= 0 && this.onChangeVal.poiId) {
+                localStorage.removeItem('onchange');
+                this.currentPOIId = this.onChangeVal.poiId;
+                this.addPorperty('edit');
+            }
+            else if (this.onChangeVal.nodeId >= 0) {
+                localStorage.removeItem('onchange');
+                this.addPorperty('add');
+            }
         }
     }
     ngOnInit() {
@@ -353,28 +394,60 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
             apartmentblockId: this.selectedTower
         };
         this.apartmentService.getApartmentBlockFloorByApartmentIdBlockId(getFloorParam).subscribe((resp) => {
-            this.floorList = resp;
-            this.selectedFloor = this.floorList[0].apartmentBlockFloorId;
-            this.getPropertyMap(this.floorList[0].PropertymapfileID);
+            if (resp && resp.length) {
+                this.floorList = resp;
+                this.selectedFloor = this.floorList[0].apartmentBlockFloorId;
+                this.selectFloor();
+                // this.getPropertyMap(this.floorList[0].propertyMapFileId);
+            }
         }, error => {
         });
     }
     selectFloor() {
         if (this.selectedFloor) {
             this.floorList.filter(key => {
-                if (key.FloorID == this.selectedFloor) {
-                    this.getPropertyMap(key.PropertymapfileID);
+                if (key.apartmentBlockFloorId == this.selectedFloor) {
+                    this.getPropertyMap(key.propertyMapFileId);
                 }
             });
         }
+    }
+    addPorperty(type) {
+        let data;
+        const dialogRef = this.dialog.open(_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__["AddPropertyDialogComponent"], {
+            width: '20%',
+            position: {
+                right: '10%'
+            },
+            data: data
+        });
+        dialogRef.afterClosed().subscribe(result => {
+        });
+    }
+    isUploadCompleted() {
+        return this.uploadResponse.status == "completed" ? true : false;
+    }
+    uploadFile(event) {
+        let file = event[0];
+        let userId = parseInt(this.cookieService.get('userId'));
+        this.fileUploadService.upload(file, userId).subscribe((res) => {
+            if (res != undefined) {
+                this.uploadResponse = res;
+            }
+            if (this.isUploadCompleted()) {
+                this.addPropertyMap(this.uploadResponse.fileId);
+            }
+        });
     }
     getPropertyMap(propertyId) {
         let getFloorProperty = {
             propertyMapFileId: propertyId
         };
         this.apartmentService.getPropertyMapFileById(getFloorProperty).subscribe((resp) => {
-            this.floorPropertyData = resp;
-            this.assignData(this.floorPropertyData);
+            if (resp && resp.length) {
+                this.floorPropertyData = resp[0];
+                this.assignData(this.floorPropertyData);
+            }
         }, error => {
         });
     }
@@ -382,7 +455,8 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0 && data.mapJsonFile != "") {
             this.isShowBuilder = true;
             setTimeout(() => {
-                graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
+                this.getFileDetails(data.floorPictureFileDetailsId);
+                // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
                 graph.deleteGraph();
                 localStorage.setItem('graphData', data.mapJsonFile);
                 graph.customGraphUpdate();
@@ -391,12 +465,30 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         else if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0) {
             this.isShowBuilder = true;
             setTimeout(() => {
-                graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
+                this.getFileDetails(data.floorPictureFileDetailsId);
+                // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
             }, 1);
         }
         else {
             this.isShowBuilder = false;
         }
+    }
+    getFileDetails(imageId) {
+        let newParams = {
+            fileDetailsId: imageId,
+            apartmentId: Number(this.cookieService.get('apartmentId'))
+        };
+        this.fileDetailService.getFileDetailsById(newParams).subscribe((res) => {
+            this.downloadFile(res[0].filePath);
+        });
+    }
+    downloadFile(filePath) {
+        this.fileDownloadService.downloadFile(filePath).subscribe((res) => {
+            const blob = res.body;
+            let objectURL = URL.createObjectURL(blob);
+            let sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+            graph.customImageUpdalod(sanitizeUrl.changingThisBreaksApplicationSecurity);
+        });
     }
     getImage(floorPictureFileDetailsId) {
         let downloadParam = {
@@ -422,57 +514,6 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         graph.setIdCt(0);
         // this.graph.updateGraph();
     }
-    mapUpload(event) {
-        // if(event && event[0] && event[0].name && (event[0].type == 'image/png' || event[0].type == 'image/jpeg')){
-        var reader = new FileReader();
-        reader.onload = (e) => {
-            graph.customImageUpdalod(reader.result);
-        };
-        reader.readAsDataURL(event.target.files[0]);
-        console.log('files', event.target.files);
-        this.uploadImage(event.target.files[0]);
-        this.isShowBuilder = true;
-        // }
-    }
-    uploadImage(event) {
-        let file = event;
-        console.log('file', file);
-        let uploadParam = {
-            file: file,
-            Description: 'FileName',
-            InsertedBy: parseInt(this.cookieService.get('userId')),
-            ApartmentID: parseInt(this.cookieService.get('apartmentId'))
-        };
-        console.log('formdata', uploadParam);
-        this.fileDetailService.addFileDetailsWithFileOption(uploadParam).subscribe((resp) => {
-            if (resp && resp.error) {
-            }
-            else {
-                this.addPropertyMap(resp);
-            }
-        }, error => {
-        });
-        // let uploadDetails = {
-        //   "ApartmentId" : parseInt(this.cookieService.get('apartmentId')),
-        //   "ApartmentBlockUnitId" : 20,
-        //   "UserDocumentCategoryId" : 222,
-        //   "UserDocumentTypeId" : 1,
-        //   "UserDocumentAccessibleToId" :1,
-        //   "UserId" : null,
-        //   "UserDocumentName" : 'test',
-        //   "Description" : "test document",
-        //   "IsActive":true,
-        //   "InsertedBy":1,
-        //   "IsPublic" : true,
-        //   "files" : event
-        // }
-        // this.documentService.addUserDocument(uploadDetails).subscribe((res:any) => {       
-        //   // this.getCategoryData(this.uploadcategoryId)
-        // },
-        // error => {
-        //   console.log(error)
-        // });    
-    }
     addPropertyMap(imageId) {
         this.downloadGraph();
         let addPropertyMap = {
@@ -495,7 +536,6 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
             }
         };
         this.apartmentService.addPropertyMapFile(addPropertyMap).subscribe((resp) => {
-            console.log('resp', resp);
             this.floorPropertyData = resp;
             this.assignData(this.floorPropertyData);
         }, error => {
@@ -589,6 +629,10 @@ AddFloorUnitGraphicComponent.ctorParameters = () => [
     { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
     { type: _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
+    { type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"] },
+    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"] },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
     { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -609,6 +653,12 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
 ], AddFloorUnitGraphicComponent.prototype, "onKeyDown", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('document:click', ['$event']),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+], AddFloorUnitGraphicComponent.prototype, "closePopup", null);
 AddFloorUnitGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-add-floor-unit-graphic',
@@ -619,6 +669,10 @@ AddFloorUnitGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
         _api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
+        src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"],
+        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"],
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
         src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"]])
 ], AddFloorUnitGraphicComponent);
 
@@ -911,6 +965,61 @@ AddFloorUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
 ], AddFloorUnitComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy9wcm9maWxlLXNldHRpbmdzL2NvbXBvbmVudHMvYWRkLXByb3BlcnR5LWRpYWxvZy9hZGQtcHJvcGVydHktZGlhbG9nLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts ***!
+  \******************************************************************************************************/
+/*! exports provided: AddPropertyDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPropertyDialogComponent", function() { return AddPropertyDialogComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+
+
+
+let AddPropertyDialogComponent = class AddPropertyDialogComponent {
+    constructor(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ngOnInit() {
+    }
+};
+AddPropertyDialogComponent.ctorParameters = () => [
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
+];
+AddPropertyDialogComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-add-property-dialog',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-property-dialog.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-property-dialog.component.scss */ "./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])
+], AddPropertyDialogComponent);
 
 
 
@@ -1258,6 +1367,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit/add-unit.component */ "./src/app/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.ts");
 /* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
 /* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
+/* harmony import */ var _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/add-property-dialog/add-property-dialog.component */ "./src/app/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
+
 
 
 
@@ -1281,7 +1392,11 @@ ProfileSettingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
             _profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"],
             _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_8__["AddBlockComponent"],
             _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__["AddFloorUnitComponent"],
-            _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__["AddFloorUnitGraphicComponent"]
+            _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__["AddFloorUnitGraphicComponent"],
+            _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__["AddPropertyDialogComponent"]
+        ],
+        entryComponents: [
+            _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__["AddPropertyDialogComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
