@@ -1,0 +1,2403 @@
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ams-work-permit-work-permit-module"], {
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.html":
+  /*!*****************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.html ***!
+    \*****************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsWorkPermitComponentsWorkpermitApprovalWorkpermitApprovalComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"workpermit-approvalview-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"text-right\" *ngIf=\"isDataLoaded\">\n\t\t<i-feather class=\"icon success-indicator\" name=\"check-circle\"></i-feather>&nbsp; Approve\n\t</div>\n\t<div class=\"card card-table\">\n\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>WorkPermit Approval List <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"wpData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<li class=\"list-inline-item create-btn-permit\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\" routerLink=\"/ams/work-permit/create\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Work Permit</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item add-icon-permit\">\n\t\t\t\t\t<a class=\"lime-green mt_5\" routerLink=\"/ams/work-permit/create\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t</a>\n\t\t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"workPermitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid> \n\t\t</div>\n\t</div>\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.html":
+  /*!***************************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.html ***!
+    \***************************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsWorkPermitComponentsWorkpermitApprovedListWorkpermitApprovedListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"workpermit-approvalview-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<!-- <div class=\"text-right\" *ngIf=\"isDataLoaded\">\n\t\t<i-feather class=\"icon success-indicator\" name=\"check-circle\"></i-feather>&nbsp; Approve\n\t</div> -->\n\t<div class=\"card card-table\">\n\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>WorkPermit Approved List <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"wpData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</li>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t<li class=\"list-inline-item\"></li>  <!-- This Line is Must, If you removed console error occurred -->\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"workPermitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid> \n\t\t</div>\n\t</div>\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.html":
+  /*!*************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.html ***!
+    \*************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsWorkPermitComponentsWorkpermitCreateWorkpermitCreateComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"workpermit-Create-wrapper\" id=\"my-canvas\">\n  <div class=\"card clear\">\n    <div class=\"card-header\">\n      <div class=\"row header\">\n        <div class=\"col-sm-4 col-12\">\n          <h6>\n            <span *ngIf=\"pageType=='create'\">Create WorkPermit</span>\n            <span *ngIf=\"pageType=='edit'\">Edit WorkPermit</span>\n            <span *ngIf=\"pageType=='view' && !showPrintData\">View WorkPermit</span>\n            <p *ngIf=\"pageType=='view' && apartmentInfo && showPrintData\">WorkPermit No: {{workpermit.workPermitId}}</p>\n          </h6>\n        </div>\n        <div class=\"col-sm-4 col-12\">\n          <div *ngIf=\"pageType=='view' && apartmentInfo && showPrintData\"> \n            <h6>{{apartmentInfo.apartmentName}} Apartments</h6>\n            <p>{{apartmentInfo.address1}},{{apartmentInfo.city}}</p>\n          </div>\n        </div>\n        <div class=\"col-sm-4 col-12 text-right\" *ngIf=\"pageType =='view'\">\n            <i-feather class=\"icon print link\" (click)=\"print()\" name=\"printer\"></i-feather>\n        </div>\n      </div>\n    </div>\n    <div class=\"card-body\">\n      <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n      <app-loader *ngIf=\"isWorkpermitSubmitted\"></app-loader>\n      <ng-container *ngIf=\"!isWorkpermitSubmitted\">\n        <form #createWorkPermitForm=\"ngForm\" name=\"createWorkPermitForm\" (ngSubmit)=\"submitCreateWorkPermitForm(addWorkPermitForm)\" novalidate>\n          <div class=\"row\">\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n              <div class=\"input-box\">\n                <label>Tower*</label>\n                <select name=\"WPTower\" id=\"Tower\" class=\"form-control\" [(ngModel)]=\"workpermit.WPTower\" (ngModelChange)=\"getUnits('')\" required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let tower of allTowers;\" [value]=\"tower.apartmentBlockId\">\n                    {{tower.apartmentBlockNumber}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin() && workpermit.WPTower\">\n              <div class=\"select-box\">\n                <label>Unit No*</label>\n                <select name=\"WPApartment\" id=\"Apartment\" class=\"form-control\" [(ngModel)]=\"selectedUnit\" required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let unit of unitData;\" [value]=\"unit.apartmentBlockUnitId\">\n                    {{unit.apartmentBlockUnitNumber}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n              <div class=\"input-box\">\n                <label>Primary Contact*</label>\n                <select name=\"WPUnitUser\" id=\"UnitUser\" class=\"form-control\" [(ngModel)]=\"workpermit.WPUnitUser\" required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let user of allUsers;\" [value]=\"user.userId\">{{user.firstName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>WorkPermit Type*</label>\n                <!-- <angular2-multiselect \n              name=\"WPNatureWork\"\n              [data]=\"itemList\" \n              [(ngModel)]=\"selectedItems\" \n              [settings]=\"settings\" \n              (onSelect)=\"onItemSelect($event)\"\n              (onDeSelect)=\"OnItemDeSelect($event)\" \n              (onSelectAll)=\"onSelectAll($event)\" \n              (onDeSelectAll)=\"onDeSelectAll($event)\">\n            </angular2-multiselect> -->\n                <select name=\"WPPermitType\" id=\"PermitType\" class=\"form-control\" [(ngModel)]=\"workpermit.WPPermitType\"\n                  required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let worktype of allWorkType;\" [value]=\"worktype.lookupValueId\">\n                    {{worktype.lookupValueName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Nature of work*</label>\n                <select name=\"WPNatureWork\" id=\"NatureWork\" class=\"form-control\" [(ngModel)]=\"workpermit.WPNatureWork\"\n                  required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let natureworktype of allNatureWorkType;\" [value]=\"natureworktype.lookupValueId\">\n                    {{natureworktype.lookupValueName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Contact Number*</label>\n                <input type=\"number\" class=\"form-control\" placeholder=\"Enter\" name=\"WPContact\"\n                  [(ngModel)]=\"workpermit.WPContact\" required [disabled]=\"pageType=='view' ? true : false\">\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Name of Vendor/Contractor*</label>\n                <select name=\"WPVendor\" id=\"vendor\" class=\"form-control\" [(ngModel)]=\"workpermit.WPVendor\" required [disabled]=\"pageType=='view' ? true : false\">\n                  <option value=\"\" disabled selected hidden>Select</option>\n                  <option *ngFor=\"let vendor of allVendors;\" [value]=\"vendor.vendorId\">{{vendor.vendorName}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Name of Person In Charge*</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"WPIncharge\"\n                  [(ngModel)]=\"workpermit.WPIncharge\" required [disabled]=\"pageType=='view' ? true : false\">\n              </div>\n            </div>\n            <div class=\"col-sm-4\"></div>\n            <div class=\"col-sm-4\" *ngIf=\"isAdmin() && !workpermit.WPTower\"></div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Start Date</label>\n                <input class=\"form-control\" name=\"WPStartdate\" [owlDateTime]=\"WPStartdate\"\n                  [owlDateTimeTrigger]=\"WPStartdate\" placeholder=\"Date\" [(ngModel)]=\"workpermit.WPStartdate\" required [disabled]=\"pageType=='view' ? true : false\">\n                <owl-date-time #WPStartdate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>End Date</label>\n                <input class=\"form-control\" name=\"WPEnddate\" [owlDateTime]=\"WPEnddate\" [owlDateTimeTrigger]=\"WPEnddate\"\n                  placeholder=\"Date\" [(ngModel)]=\"workpermit.WPEnddate\" required [disabled]=\"pageType=='view' ? true : false\">\n                <owl-date-time #WPEnddate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>Start Time</label>\n                <input class=\"form-control\" name=\"WPStarttime\" [owlDateTime]=\"WPStarttime\"\n                  [owlDateTimeTrigger]=\"WPStarttime\" placeholder=\"Time\" [(ngModel)]=\"workpermit.WPStarttime\" required [disabled]=\"pageType=='view' ? true : false\">\n                <owl-date-time #WPStarttime [pickerType]=\"'timer'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"clock\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>End Time</label>\n                <input class=\"form-control\" name=\"WPEndtime\" [owlDateTime]=\"WPEndtime\" [owlDateTimeTrigger]=\"WPEndtime\"\n                  placeholder=\"Time\" [(ngModel)]=\"workpermit.WPEndtime\" required [disabled]=\"pageType=='view' ? true : false\">\n                <owl-date-time #WPEndtime [pickerType]=\"'timer'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <i-feather class=\"icon date float-left\" name=\"clock\" width=\"18\"></i-feather>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6 mb-30\">\n              <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Workers/Personnels</b></p>\n              <table *ngIf=\"pageType!='view'\" class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th width=\"35%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"WorkerName\"\n                        [(ngModel)]=\"Workers.WorkerName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"60%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"WorkerDescription\"\n                        [(ngModel)]=\"Workers.WorkerDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addWorkers()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <div class=\"card clear\" id=\"accordion1\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item\" #accordion1 data-toggle=\"collapse\" data-target=\"#workersCollapseOne\"\n                      aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                      <span class=\"font-med\">Workers List</span>&nbsp;<span *ngIf=\"listWorkers.length!==0\">({{listWorkers.length}})</span>\n                    </li>\n                    <div id=\"workersCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion1\">\n                      <div class=\"details\">\n                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th class=\"name\">Name</th>\n                              <th class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">Description</th>\n                              <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listWorkers.length!=0\">\n                            <tr *ngFor=\"let worker of listWorkers;index as i;\">\n                              <td class=\"name\">{{worker.name}}</td>\n                              <td class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">{{worker.description}}</td>\n                              <td class=\"action\" *ngIf=\"pageType!='view'\">\n                                <a class=\"pr-2\" (click)=\"editlistItems(i, 'listofWorker',worker)\">\n                                  <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                </a>\n                                <a (click)=\"deletelistItems(i, 'listofWorker')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6 mb-30\">\n              <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Materials</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"MaterialName\"\n                        [(ngModel)]=\"Materials.MaterialName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"MaterialQuantity\"\n                        [(ngModel)]=\"Materials.MaterialQuantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"MaterialDescription\"\n                        [(ngModel)]=\"Materials.MaterialDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addMaterials()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n\n              <div class=\"card clear\" id=\"accordion2\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item font-med\" #accordion2 data-toggle=\"collapse\" data-target=\"#materialCollapseTwo\"\n                      aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                      <span class=\"font-med\">Material List</span> &nbsp;<span *ngIf=\"listMaterials.length!=0\">({{listMaterials.length}})</span>\n                    </li>\n                    <div id=\"materialCollapseTwo\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion2\">\n                      <div class=\"details\">\n                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th class=\"name\">Name</th>\n                              <th class=\"action\">Qty</th>\n                              <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                              <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listMaterials.length!=0\">\n                            <tr *ngFor=\"let material of listMaterials;index as i;\">\n                              <td class=\"name\">{{material.name}}</td>\n                              <td class=\"action\">{{material.qty}}</td>\n                              <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{material.description}}</td>\n                              <td class=\"action\" *ngIf=\"pageType!='view'\">\n                                <a class=\"pr-2\" (click)=\"editlistItems(i, 'materialList',material)\">\n                                  <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                </a>\n                                <a class=\"\" (click)=\"deletelistItems(i, 'materialList')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6 mb-30\">\n              <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Tools</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"ToolName\"\n                        [(ngModel)]=\"Tools.ToolName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"ToolQuantity\"\n                        [(ngModel)]=\"Tools.ToolQuantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"ToolDescription\"\n                        [(ngModel)]=\"Tools.ToolDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addTools()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n\n              <div class=\"card clear\" id=\"accordion3\">\n                <div class=\"card-body p-0\">\n                  <ul class=\"list-group tabs clear\">\n                    <li class=\"list-group-item font-med\" #accordion3 data-toggle=\"collapse\" data-target=\"#toolCollapseOne\"\n                      aria-expanded=\"false\" aria-controls=\"collapseOne\">\n                      <span class=\"font-med\">Tools List</span> &nbsp;<span *ngIf=\"listTools.length!=0\">({{listTools.length}})</span>\n                    </li>\n                    <div id=\"toolCollapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion3\">\n                      <div class=\"details\">\n                        <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                          <thead>\n                            <tr>\n                              <th class=\"name\">Name</th>\n                              <th class=\"action\">Qty</th>\n                              <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                              <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                            </tr>\n                          </thead>\n                          <tbody *ngIf=\"listTools.length!=0\">\n                            <tr *ngFor=\"let tool of listTools;index as i;\">\n                              <td class=\"name\">{{tool.name}}</td>\n                              <td class=\"action\">{{tool.qty}}</td>\n                              <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{tool.description}}</td>\n                              <td class=\"action\" *ngIf=\"pageType!='view'\">\n                                <a class=\"pr-2\" (click)=\"editlistItems(i, 'toolList',tool)\">\n                                  <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                </a>\n                                <a class=\"\" (click)=\"deletelistItems(i, 'toolList')\">\n                                  <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                </a>\n                              </td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </div>\n                    </div>\n                  </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"row mt-5\">\n            <div class=\"col-sm-6\">\n              <p class=\"font-med\">Terms and Condition</p>\n              <p class=\"text-muted\">{{workpermit.terms}}</p>\n            </div>\n            <div class=\"col-sm-6 text-right\" *ngIf=\"pageType!='view'\">\n              <button class=\"btn blue\" [disabled]=\"createWorkPermitForm.invalid\">Submit</button>\n            </div>\n          </div>\n        </form>\n      </ng-container>\n    </div>\n  </div>\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.html":
+  /*!***************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.html ***!
+    \***************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsWorkPermitComponentsWorkpermitSettingWorkpermitSettingComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"general-workpermit-wrapper\">\n\t\n\t<app-nav-pills-tabs [navArray] =\"navArray\"></app-nav-pills-tabs>\n\n\t<div class=\"d-block mt-5\">\n\t\t<div class=\"pt-3\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n\n</div>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.html":
+  /*!***********************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.html ***!
+    \***********************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsWorkPermitComponentsWorkpermitSetupWorkpermitSetupComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"document-setup-wrapper\">\n\t<ul class=\"icon-tabs btn-group\">\n\t\t<li class=\"nav-item\">\n\t\t\t<a class=\"nav-link\" href=\"javascript:void(0)\" role=\"tab\" (click)=\"showTab('WorkPermit')\" [ngClass]=\"selectedTab == 'WorkPermit' ? 'active' : ''\">    \n\t\t\t\tCreate WorkPermit Type\n\t\t\t</a> \n\t\t</li>\n\t\t<li class=\"nav-item\">\n\t\t\t<a class=\"nav-link \" href=\"javascript:void(0)\" role=\"tab\" (click)=\"showTab('Nature')\" [ngClass]=\"selectedTab == 'Nature' ? 'active' : ''\" >      \n\t\t\t\tCreate Nature of Work \n\t\t\t</a>\n\t\t</li>\n\t</ul>\n\t<div class=\"tab-content\">\n\t\t<div class=\"tab-pane\" id=\"dues\" [ngClass]=\"selectedTab == 'WorkPermit' ? 'active' : ''\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<form #createWorkPermitTypeForm = \"ngForm\" name=\"createWorkPermitTypeForm\" novalidate>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>WorkPermit Type*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Workpermit Type\" name=\"WPType\" [(ngModel)]=\"workpermit.WPtype\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-5\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>WorkPermit Description</label>\n\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" placeholder=\"Description\" name=\"WPDescription\" [(ngModel)]=\"workpermit.WPdescription\" required></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-2 mt-4\" *ngIf=\"!workpermitEditmode\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2 mt-3\" [disabled]=\"createWorkPermitTypeForm.invalid\" (click)=\"submitCreateWorkPermitTypeForm()\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-3 mt-4\" *ngIf=\"workpermitEditmode\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2 mt-3\" [disabled]=\"createWorkPermitTypeForm.invalid\" (click)=\"updateCreateWorkPermitTypeForm()\">Update</button>\n\t\t\t\t\t\t\t\t<button class=\"btn mt-3\" [disabled]=\"createWorkPermitTypeForm.invalid\" (click)=\"cancelEditMode('work')\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t\t<table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">WorkPermit Type <span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th>\n\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('description')\">WorkPermit Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr *ngFor=\"let worktype of allWorkType | sort : unitFieldType: unitOrder | \n\t\t\t\t\t\t\tsimpleSearch: wpData  | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\t\t<td class=\"grey\">{{worktype.lookupValueName}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{worktype.description}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">\n\t\t\t\t\t\t\t\t<a class=\"link\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"editWork(worktype,'work')\"></i-feather></a>&nbsp;\n\t\t\t\t\t\t\t\t<a class=\"link\"><i-feather class=\"icon delete\" name=\"trash\" (click)=\"deleteWork(worktype,'work')\"></i-feather></a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<app-pagination \n\t\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t\t</app-pagination>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<div class=\"tab-pane\" id=\"advance\" [ngClass]=\"selectedTab == 'Nature' ? 'active' : ''\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<form #createNatureofWorkForm = \"ngForm\" name=\"createNatureofWorkForm\" novalidate>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Nature of Work*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Nature of Work\" name=\"WPNature\" [(ngModel)]=\"naturework.WPtype\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-5\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" placeholder=\"Description\" name=\"WPDescription\" [(ngModel)]=\"naturework.WPdescription\" required></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-2 mt-4\" *ngIf=\"!natureEditMode\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2 mt-3 link\" [disabled]=\"createNatureofWorkForm.invalid\" (click)=\"submitCreateNatureofWorkForm()\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-3 mt-4\" *ngIf=\"natureEditMode\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2 mt-3 link\" [disabled]=\"createNatureofWorkForm.invalid\" (click)=\"updateCreateNatureofWorkForm()\">Update</button>\n\t\t\t\t\t\t\t\t<button class=\"btn mt-3 link\" [disabled]=\"createNatureofWorkForm.invalid\" (click)=\"cancelEditMode('nature')\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t\t<table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Nature of Work Type<span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th>\n\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('description')\">Nature of Work Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr *ngFor=\"let naturework of allNatureWork | sort : NWunitFieldType: NWunitOrder | simpleSearch: nwData | slice:NWItemStartIndex:NWItemEndIndex ; let i = index\">\n\t\t\t\t\t\t\t<td class=\"grey\">{{naturework.lookupValueName}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{naturework.description}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">\n\t\t\t\t\t\t\t\t<a class=\"link\"><i-feather class=\"icon edit\" name=\"edit\" (click)=\"editWork(naturework,'nature')\"></i-feather></a>&nbsp;\n\t\t\t\t\t\t\t\t<a class=\"link\"><i-feather class=\"icon delete\" name=\"trash\" (click)=\"deleteWork(naturework,'nature')\"></i-feather></a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<app-pagination \n\t\t\t\t\t\t[totalItems]=\"NWtotalItems\"  \n\t\t\t\t\t\t[ItemStartIndex]=\"NWItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex] = \"NWItemEndIndex\"\n\t\t\t\t\t\t[itemLimit] = \"NWitemLimit\"\n\t\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t\t</app-pagination>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n\n\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.html":
+  /*!*************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.html ***!
+    \*************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsWorkPermitComponentsWorkpermitStatusWorkpermitStatusComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"status-modal-wrapper\">\n    <form>\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <div class=\"input-box radio-box\">\n                    <label>Status</label>\n                    <div class=\"form-group\" *ngFor=\"let data of statusTypeData;let i=index\">\n                        <input name=\"assetConditionId\" [id]=\"i\" [(ngModel)]=\"status\" [value]=\"data.lookupValueId\" type=\"radio\">\n                        <label class=\"radio-inline\" [for]=\"i\">{{data.lookupValueName}}</label>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\" [ngClass]=\"status == 357 ? '' : 'space-field'\">\n            <div class=\"col-sm-12\" *ngIf=\"status == 357\">\n                <div class=\"input-box\">\n                    <label>Reason</label>\n                    <textarea placeholder=\"some text here\" rows=\"2\" name=\"comments\"></textarea>\n                </div>\n            </div>\n        </div>\n        <div class=\"row btn-wrapper\">\n            <div class=\"col-sm-12 text-right\">\n                <a href=\"javascript:void(0)\" class=\"btn blue mr-3\" (click)=\"onConfirm()\">Submit</a>\n                <a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"onDismiss()\">Cancel</a>\n            </div>\n        </div>\n    </form>\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/work-permit.component.html":
+  /*!**************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/work-permit.component.html ***!
+    \**************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAmsWorkPermitWorkPermitComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<router-outlet></router-outlet>\n";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.scss":
+  /*!***************************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.scss ***!
+    \***************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitApprovalWorkpermitApprovalComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "@media (max-width: 767px) {\n  .create-btn-permit {\n    display: none;\n  }\n}\n\n@media (min-width: 767px) {\n  .add-icon-permit {\n    display: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWFwcHJvdmFsL3dvcmtwZXJtaXQtYXBwcm92YWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy93b3JrLXBlcm1pdC9jb21wb25lbnRzL3dvcmtwZXJtaXQtYXBwcm92YWwvd29ya3Blcm1pdC1hcHByb3ZhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDSTtFQURKO0lBRU8sYUFBQTtFQ0NMO0FBQ0Y7O0FER0k7RUFESjtJQUVRLGFBQUE7RUNDTjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1hcHByb3ZhbC93b3JrcGVybWl0LWFwcHJvdmFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNyZWF0ZS1idG4tcGVybWl0IHtcbiAgICBAbWVkaWEgKG1heC13aWR0aDogIDc2N3B4KSB7XG4gICAgICAgZGlzcGxheTogbm9uZTtcbiAgICB9XG59XG5cbi5hZGQtaWNvbi1wZXJtaXQge1xuICAgIEBtZWRpYSAobWluLXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgZGlzcGxheTogbm9uZTtcbiAgICAgfVxufSIsIkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuY3JlYXRlLWJ0bi1wZXJtaXQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cbn1cblxuQG1lZGlhIChtaW4td2lkdGg6IDc2N3B4KSB7XG4gIC5hZGQtaWNvbi1wZXJtaXQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cbn0iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.ts":
+  /*!*************************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.ts ***!
+    \*************************************************************************************************/
+
+  /*! exports provided: WorkpermitApprovalComponent */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitApprovalWorkpermitApprovalComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkpermitApprovalComponent", function () {
+      return WorkpermitApprovalComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/WorkPermit */
+    "./src/app/api/controllers/WorkPermit.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var _workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../workpermit-status/workpermit-status.component */
+    "./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.ts");
+
+    var WorkpermitApprovalComponent =
+    /*#__PURE__*/
+    function () {
+      function WorkpermitApprovalComponent(router, route, cookieService, workPermit, dialog) {
+        _classCallCheck(this, WorkpermitApprovalComponent);
+
+        this.router = router;
+        this.route = route;
+        this.cookieService = cookieService;
+        this.workPermit = workPermit;
+        this.dialog = dialog;
+        this.wpData = "";
+        this.isDataLoaded = false;
+      }
+
+      _createClass(WorkpermitApprovalComponent, [{
+        key: "getWorkApprovalList",
+        value: function getWorkApprovalList() {
+          var _this = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            statusIds: '353,354,356,357,358,359'
+          };
+          this.workPermit.getAllWorkPermitsByStatues(params).subscribe(function (res) {
+            _this.workPermitListData = res;
+            _this.totalItems = _this.workPermitListData.length;
+            _this.gridSourceData = {
+              localdata: _this.workPermitListData,
+              datatype: "array"
+            };
+            _this.workPermitListData = new jqx.dataAdapter(_this.gridSourceData);
+            _this.isDataLoaded = true;
+          });
+        }
+      }, {
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this2 = this;
+
+          if (this.wpData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.wpData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this2.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "onEditTicket",
+        value: function onEditTicket(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var permitId = dataRecord.workPermitId;
+          this.router.navigate(['/ams/work-permit/create'], {
+            queryParams: {
+              id: permitId,
+              type: 'edit'
+            }
+          });
+        }
+      }, {
+        key: "onViewTicket",
+        value: function onViewTicket(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var permitId = dataRecord.workPermitId;
+          this.router.navigate(['/ams/work-permit/create'], {
+            queryParams: {
+              id: permitId,
+              type: 'view'
+            }
+          });
+        }
+      }, {
+        key: "onstatusPermit",
+        value: function onstatusPermit(detail) {
+          var _this3 = this;
+
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var entity = {
+            workpermitId: dataRecord.workPermitId,
+            statusId: dataRecord.statusId
+          };
+          var dialogRef = this.dialog.open(_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_8__["WorkpermitStatusComponent"], {
+            width: '600px',
+            height: '350px',
+            data: entity
+          });
+          dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+              _this3.getWorkApprovalList();
+            }
+          });
+        }
+      }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'ApprovalList');
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.getWorkApprovalList();
+
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'WP ID',
+            datafield: 'workPermitId',
+            width: 80,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'BLOCK',
+            datafield: 'apartmentBlockNumber',
+            minwidth: 130,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'UNIT',
+            datafield: 'apartmentBlockUnitNumber',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'ENDORSED BY',
+            datafield: 'endorsedBy',
+            cellsrenderer: cellsrenderer,
+            minwidth: 140,
+            renderer: columnrenderer
+          }, {
+            text: 'WP TYPE',
+            datafield: 'workPermitType',
+            cellsrenderer: cellsrenderer,
+            minwidth: 150,
+            renderer: columnrenderer
+          }, {
+            text: 'NATURE OF WORK',
+            datafield: 'natureOfWork',
+            cellsrenderer: cellsrenderer,
+            minwidth: 150,
+            renderer: columnrenderer
+          }, {
+            text: '	START DATE',
+            datafield: 'startDate',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
+            },
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'END DATE',
+            datafield: 'endDate',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
+            },
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'PERSONNELS',
+            datafield: 'noOfPersonnels',
+            cellsalign: 'center',
+            align: 'center',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Status',
+            datafield: 'status',
+            cellsalign: 'center',
+            align: 'center',
+            cellsrenderer: cellsrenderer,
+            minwidth: 160,
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a></div>';
+            },
+            renderer: columnrenderer
+          }];
+        }
+      }]);
+
+      return WorkpermitApprovalComponent;
+    }();
+
+    WorkpermitApprovalComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }, {
+        type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__["jqxGridComponent"])], WorkpermitApprovalComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:oneditPermit', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], WorkpermitApprovalComponent.prototype, "onEditTicket", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onviewPermit', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], WorkpermitApprovalComponent.prototype, "onViewTicket", null);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onstatusPermit', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], WorkpermitApprovalComponent.prototype, "onstatusPermit", null);
+    WorkpermitApprovalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-workpermit-approval',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./workpermit-approval.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./workpermit-approval.component.scss */
+      "./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])], WorkpermitApprovalComponent);
+
+    function statusPermitEvent(row) {
+      var event = new CustomEvent('onstatusPermit', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.statusPermitEvent = statusPermitEvent;
+
+    function editPermitEvent(row) {
+      var event = new CustomEvent('oneditPermit', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.editPermitEvent = editPermitEvent;
+
+    function viewPermitEvent(row) {
+      var event = new CustomEvent('onviewPermit', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.viewPermitEvent = viewPermitEvent;
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.scss":
+  /*!*************************************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.scss ***!
+    \*************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitApprovedListWorkpermitApprovedListComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "@media (max-width: 767px) {\n  .create-btn-permit {\n    display: none;\n  }\n}\n\n@media (min-width: 767px) {\n  .add-icon-permit {\n    display: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWFwcHJvdmVkLWxpc3Qvd29ya3Blcm1pdC1hcHByb3ZlZC1saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWFwcHJvdmVkLWxpc3Qvd29ya3Blcm1pdC1hcHByb3ZlZC1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBREo7SUFFTyxhQUFBO0VDQ0w7QUFDRjs7QURHSTtFQURKO0lBRVEsYUFBQTtFQ0NOO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWFwcHJvdmVkLWxpc3Qvd29ya3Blcm1pdC1hcHByb3ZlZC1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNyZWF0ZS1idG4tcGVybWl0IHtcbiAgICBAbWVkaWEgKG1heC13aWR0aDogIDc2N3B4KSB7XG4gICAgICAgZGlzcGxheTogbm9uZTtcbiAgICB9XG59XG5cbi5hZGQtaWNvbi1wZXJtaXQge1xuICAgIEBtZWRpYSAobWluLXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgZGlzcGxheTogbm9uZTtcbiAgICAgfVxufSIsIkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAuY3JlYXRlLWJ0bi1wZXJtaXQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cbn1cblxuQG1lZGlhIChtaW4td2lkdGg6IDc2N3B4KSB7XG4gIC5hZGQtaWNvbi1wZXJtaXQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cbn0iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.ts":
+  /*!***********************************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.ts ***!
+    \***********************************************************************************************************/
+
+  /*! exports provided: WorkpermitApprovedListComponent */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitApprovedListWorkpermitApprovedListComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkpermitApprovedListComponent", function () {
+      return WorkpermitApprovedListComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/WorkPermit */
+    "./src/app/api/controllers/WorkPermit.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+    "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_6___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+
+    var WorkpermitApprovedListComponent =
+    /*#__PURE__*/
+    function () {
+      function WorkpermitApprovedListComponent(router, cookieService, workPermit) {
+        _classCallCheck(this, WorkpermitApprovedListComponent);
+
+        this.router = router;
+        this.cookieService = cookieService;
+        this.workPermit = workPermit;
+        this.wpData = "";
+        this.isDataLoaded = false;
+      }
+
+      _createClass(WorkpermitApprovedListComponent, [{
+        key: "onGlSearchFilter",
+        value: function onGlSearchFilter() {
+          var _this4 = this;
+
+          if (this.wpData != "") {
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.wpData;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this4.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          } else {
+            this.datagrid.clearfilters();
+          }
+        }
+      }, {
+        key: "onViewTicket",
+        value: function onViewTicket(detail) {
+          var dataRecord = this.datagrid.getrowdata(detail.rowId);
+          var permitId = dataRecord.workPermitId;
+          this.router.navigate(['/ams/work-permit/create'], {
+            queryParams: {
+              id: permitId,
+              type: 'view'
+            }
+          });
+        }
+      }, {
+        key: "getPrintParams",
+        value: function getPrintParams(event) {
+          this.datagrid.exportdata(event, 'ApprovedList');
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this5 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            statusIds: '355'
+          };
+          this.workPermit.getAllWorkPermitsByStatues(params).subscribe(function (res) {
+            _this5.workPermitListData = res;
+            _this5.totalItems = _this5.workPermitListData.length;
+            _this5.gridSourceData = {
+              localdata: _this5.workPermitListData,
+              datatype: "array"
+            };
+            _this5.workPermitListData = new jqx.dataAdapter(_this5.gridSourceData);
+            _this5.isDataLoaded = true;
+          });
+
+          var cellsrenderer = function cellsrenderer(row, column, value) {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+          };
+
+          var columnrenderer = function columnrenderer(value) {
+            return '<div style="padding: 14px">' + value + '</div>';
+          };
+
+          this.columnData = [{
+            text: 'WP ID',
+            datafield: 'workPermitId',
+            width: 80,
+            pinned: true,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'BLOCK',
+            datafield: 'apartmentBlockNumber',
+            minwidth: 130,
+            cellsrenderer: cellsrenderer,
+            renderer: columnrenderer
+          }, {
+            text: 'UNIT',
+            datafield: 'apartmentBlockUnitNumber',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'ENDORSED BY',
+            datafield: 'endorsedBy',
+            cellsrenderer: cellsrenderer,
+            minwidth: 140,
+            renderer: columnrenderer
+          }, {
+            text: 'WP TYPE',
+            datafield: 'workPermitType',
+            cellsrenderer: cellsrenderer,
+            minwidth: 150,
+            renderer: columnrenderer
+          }, {
+            text: 'NATURE OF WORK',
+            datafield: 'natureOfWork',
+            cellsrenderer: cellsrenderer,
+            minwidth: 150,
+            renderer: columnrenderer
+          }, {
+            text: '	START DATE',
+            datafield: 'startDate',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
+            },
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'END DATE',
+            datafield: 'endDate',
+            cellsrenderer: function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
+            },
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'PERSONNELS',
+            datafield: 'noOfPersonnels',
+            cellsalign: 'center',
+            align: 'center',
+            cellsrenderer: cellsrenderer,
+            minwidth: 80,
+            renderer: columnrenderer
+          }, {
+            text: 'Actions',
+            cellsalign: 'center',
+            align: 'center',
+            width: 120,
+            cellsrenderer: function cellsrenderer(row) {
+              return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>';
+            },
+            renderer: columnrenderer
+          }];
+        }
+      }]);
+
+      return WorkpermitApprovedListComponent;
+    }();
+
+    WorkpermitApprovedListComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+      }, {
+        type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', {
+      "static": false
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__["jqxGridComponent"])], WorkpermitApprovedListComponent.prototype, "datagrid", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onviewPermit', ['$event.detail']), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)], WorkpermitApprovedListComponent.prototype, "onViewTicket", null);
+    WorkpermitApprovedListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-workpermit-approved-list',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./workpermit-approved-list.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./workpermit-approved-list.component.scss */
+      "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"]])], WorkpermitApprovedListComponent);
+
+    function viewPermitEvent(row) {
+      var event = new CustomEvent('onviewPermit', {
+        detail: {
+          rowId: row
+        }
+      });
+      window.dispatchEvent(event);
+    }
+
+    window.viewPermitEvent = viewPermitEvent;
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.scss":
+  /*!***********************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.scss ***!
+    \***********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitCreateWorkpermitCreateComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".font-med {\n  font-size: 1.4rem;\n}\n\n.lime-green {\n  color: #5cd694;\n}\n\n.header p {\n  padding-top: 0 !important;\n}\n\n@media (max-width: 767px) {\n  .header div:nth-of-type(2) {\n    padding-top: 10px !important;\n  }\n}\n\n.mini-table-1 {\n  width: 100%;\n}\n\n.mini-table-1 th {\n  font-size: 1.3rem;\n}\n\n.mini-table-1 td {\n  font-size: 1.3rem;\n}\n\n.mini-table-1 .name {\n  width: 30%;\n  max-width: 30%;\n  min-width: 30%;\n}\n\n.mini-table-1 .action {\n  width: 10%;\n  max-width: 10%;\n  min-width: 10%;\n}\n\n.mini-table-1 .desc {\n  width: 50%;\n  max-width: 50%;\n  min-width: 50%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .desc {\n    display: none !important;\n  }\n}\n\n.mini-table-1 .inc-desc {\n  width: 60%;\n  max-width: 60%;\n  min-width: 60%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .inc-desc {\n    display: none !important;\n  }\n}\n\n.mini-table-1 .inc-wdesc {\n  width: 70%;\n  max-width: 70%;\n  min-width: 70%;\n}\n\n@media (max-width: 767px) {\n  .mini-table-1 .inc-wdesc {\n    display: none !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LWNyZWF0ZS93b3JrcGVybWl0LWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvZm9udHMuc2NzcyIsInNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1jcmVhdGUvd29ya3Blcm1pdC1jcmVhdGUuY29tcG9uZW50LnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlBO0VDbUZFLGlCQUFBO0FDckZGOztBRk1BO0VBQ0ksY0cwQ1M7QUQ3Q2I7O0FGUUk7RUFDSSx5QkFBQTtBRUxSOztBRlFRO0VBREo7SUFFUSw0QkFBQTtFRUxWO0FBQ0Y7O0FGVUE7RUFDSSxXQUFBO0FFUEo7O0FGUUk7RUM0REYsaUJBQUE7QUNqRUY7O0FGUUk7RUN5REYsaUJBQUE7QUM5REY7O0FGUUk7RUFDSSxVQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7QUVOUjs7QUZRSTtFQUNJLFVBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBRU5SOztBRlFJO0VBQ0ksVUFBQTtFQUNBLGNBQUE7RUFDQSxjQUFBO0FFTlI7O0FGT1E7RUFKSjtJQUtRLHdCQUFBO0VFSlY7QUFDRjs7QUZNSTtFQUNJLFVBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBRUpSOztBRktRO0VBSko7SUFLUSx3QkFBQTtFRUZWO0FBQ0Y7O0FGSUk7RUFDSSxVQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7QUVGUjs7QUZHUTtFQUpKO0lBS1Esd0JBQUE7RUVBVjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1jcmVhdGUvd29ya3Blcm1pdC1jcmVhdGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9taXhpbnNcIjtcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvZm9udHNcIjtcblxuLmZvbnQtbWVkIHtcbiAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsKTtcbn1cblxuLmxpbWUtZ3JlZW4ge1xuICAgIGNvbG9yOiRsaW1lLWdyZWVuXG59XG5cblxuLmhlYWRlciB7XG4gICAgcCB7XG4gICAgICAgIHBhZGRpbmctdG9wOiAwICFpbXBvcnRhbnQ7XG4gICAgfVxuICAgIGRpdjpudGgtb2YtdHlwZSgyKSB7XG4gICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgICAgIHBhZGRpbmctdG9wOiAxMHB4ICFpbXBvcnRhbnQ7XG4gICAgICAgIH1cbiAgICB9XG59XG5cblxuLm1pbmktdGFibGUtMSB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgdGgge1xuICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LXNtYWxsZXIpO1xuICAgIH1cbiAgICB0ZCB7XG4gICAgICAgIEBpbmNsdWRlIGZ0LWNhbGMoJGZvbnQtc21hbGxlcik7IFxuICAgIH1cbiAgICAubmFtZSB7XG4gICAgICAgIHdpZHRoOjMwJTtcbiAgICAgICAgbWF4LXdpZHRoOjMwJTtcbiAgICAgICAgbWluLXdpZHRoOjMwJTtcbiAgICB9XG4gICAgLmFjdGlvbiB7XG4gICAgICAgIHdpZHRoOiAxMCU7XG4gICAgICAgIG1heC13aWR0aDoxMCU7XG4gICAgICAgIG1pbi13aWR0aDoxMCU7XG4gICAgfVxuICAgIC5kZXNjIHtcbiAgICAgICAgd2lkdGg6NTAlO1xuICAgICAgICBtYXgtd2lkdGg6NTAlO1xuICAgICAgICBtaW4td2lkdGg6NTAlO1xuICAgICAgICBAbWVkaWEgKG1heC13aWR0aDogIDc2N3B4KSB7XG4gICAgICAgICAgICBkaXNwbGF5IDogbm9uZSAhaW1wb3J0YW50O1xuICAgICAgICB9XG4gICAgfVxuICAgIC5pbmMtZGVzYyB7XG4gICAgICAgIHdpZHRoOjYwJTtcbiAgICAgICAgbWF4LXdpZHRoOjYwJTtcbiAgICAgICAgbWluLXdpZHRoOjYwJTsgXG4gICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiAgNzY3cHgpIHtcbiAgICAgICAgICAgIGRpc3BsYXkgOiBub25lICFpbXBvcnRhbnQ7XG4gICAgICAgIH1cbiAgICB9XG4gICAgLmluYy13ZGVzYyB7XG4gICAgICAgIHdpZHRoOjcwJTtcbiAgICAgICAgbWF4LXdpZHRoOjcwJTtcbiAgICAgICAgbWluLXdpZHRoOjcwJTtcbiAgICAgICAgQG1lZGlhIChtYXgtd2lkdGg6ICA3NjdweCkge1xuICAgICAgICAgICAgZGlzcGxheSA6IG5vbmUgIWltcG9ydGFudDtcbiAgICAgICAgfVxuICAgIH1cbn1cblxuIiwiXG5AaW1wb3J0IFwidmFyaWFibGVzXCI7XG5cbkBtaXhpbiBwdWJsaWMtbGlnaHQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogMzAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBwdWJsaWMtYm9sZCB7XG4gIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG59XG5cbkBtaXhpbiBoZWFkLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBoZWFkLXJlZ3VsYXIge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4ycHg7XG59XG5cbkBtaXhpbiBoZWFkLWJvbGQge1xuICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdJbnRlcicsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDsgICBcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG59XG5cbkBtaXhpbiBkZXNwLXNlbWkge1xuICBmb250LWZhbWlseTogJ0ludGVyJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbiAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTtcbn1cblxuQG1peGluIGRlc3AtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdJbnRlcicsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBmdC1jYWxjKCRwaXhlbHMpIHtcbiAgZm9udC1zaXplOiAoICRwaXhlbHMgLyAkZnQtYmFzZSApICsgcmVtO1xufVxuIiwiLmZvbnQtbWVkIHtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG5cbi5saW1lLWdyZWVuIHtcbiAgY29sb3I6ICM1Y2Q2OTQ7XG59XG5cbi5oZWFkZXIgcCB7XG4gIHBhZGRpbmctdG9wOiAwICFpbXBvcnRhbnQ7XG59XG5AbWVkaWEgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgLmhlYWRlciBkaXY6bnRoLW9mLXR5cGUoMikge1xuICAgIHBhZGRpbmctdG9wOiAxMHB4ICFpbXBvcnRhbnQ7XG4gIH1cbn1cblxuLm1pbmktdGFibGUtMSB7XG4gIHdpZHRoOiAxMDAlO1xufVxuLm1pbmktdGFibGUtMSB0aCB7XG4gIGZvbnQtc2l6ZTogMS4zcmVtO1xufVxuLm1pbmktdGFibGUtMSB0ZCB7XG4gIGZvbnQtc2l6ZTogMS4zcmVtO1xufVxuLm1pbmktdGFibGUtMSAubmFtZSB7XG4gIHdpZHRoOiAzMCU7XG4gIG1heC13aWR0aDogMzAlO1xuICBtaW4td2lkdGg6IDMwJTtcbn1cbi5taW5pLXRhYmxlLTEgLmFjdGlvbiB7XG4gIHdpZHRoOiAxMCU7XG4gIG1heC13aWR0aDogMTAlO1xuICBtaW4td2lkdGg6IDEwJTtcbn1cbi5taW5pLXRhYmxlLTEgLmRlc2Mge1xuICB3aWR0aDogNTAlO1xuICBtYXgtd2lkdGg6IDUwJTtcbiAgbWluLXdpZHRoOiA1MCU7XG59XG5AbWVkaWEgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgLm1pbmktdGFibGUtMSAuZGVzYyB7XG4gICAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O1xuICB9XG59XG4ubWluaS10YWJsZS0xIC5pbmMtZGVzYyB7XG4gIHdpZHRoOiA2MCU7XG4gIG1heC13aWR0aDogNjAlO1xuICBtaW4td2lkdGg6IDYwJTtcbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAubWluaS10YWJsZS0xIC5pbmMtZGVzYyB7XG4gICAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O1xuICB9XG59XG4ubWluaS10YWJsZS0xIC5pbmMtd2Rlc2Mge1xuICB3aWR0aDogNzAlO1xuICBtYXgtd2lkdGg6IDcwJTtcbiAgbWluLXdpZHRoOiA3MCU7XG59XG5AbWVkaWEgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgLm1pbmktdGFibGUtMSAuaW5jLXdkZXNjIHtcbiAgICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7XG4gIH1cbn0iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiRkLWN5YW4tMDM6IzAwZDFmYTtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LW1lZGl1bS0wNDozMDtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LWJhc2UtMDI6MTE7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiJdfQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.ts":
+  /*!*********************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.ts ***!
+    \*********************************************************************************************/
+
+  /*! exports provided: WorkpermitCreateComponent */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitCreateWorkpermitCreateComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkpermitCreateComponent", function () {
+      return WorkpermitCreateComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/WorkPermit */
+    "./src/app/api/controllers/WorkPermit.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/Apartment */
+    "./src/app/api/controllers/Apartment.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/api/controllers/User */
+    "./src/app/api/controllers/User.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/api/controllers/Vendor */
+    "./src/app/api/controllers/Vendor.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_10___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+    /* harmony import */
+
+
+    var html2canvas__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! html2canvas */
+    "./node_modules/html2canvas/dist/html2canvas.js");
+    /* harmony import */
+
+
+    var html2canvas__WEBPACK_IMPORTED_MODULE_11___default =
+    /*#__PURE__*/
+    __webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_11__);
+    /* harmony import */
+
+
+    var jspdf__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! jspdf */
+    "./node_modules/jspdf/dist/jspdf.min.js");
+    /* harmony import */
+
+
+    var jspdf__WEBPACK_IMPORTED_MODULE_12___default =
+    /*#__PURE__*/
+    __webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_12__);
+
+    var WorkpermitCreateComponent =
+    /*#__PURE__*/
+    function () {
+      function WorkpermitCreateComponent(router, route, vendor, apartmentService, workPermitService, userService, lookupService, sharedService, cookieService) {
+        _classCallCheck(this, WorkpermitCreateComponent);
+
+        this.router = router;
+        this.route = route;
+        this.vendor = vendor;
+        this.apartmentService = apartmentService;
+        this.workPermitService = workPermitService;
+        this.userService = userService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.pageType = 'create';
+        this.selectedUnit = '';
+        this.showPrintData = false; //Sub Form
+
+        this.Workers = {
+          WorkerName: '',
+          WorkerDescription: ''
+        };
+        this.Materials = {
+          MaterialName: '',
+          MaterialQuantity: '',
+          MaterialDescription: ''
+        };
+        this.Tools = {
+          ToolName: '',
+          ToolQuantity: '',
+          ToolDescription: ''
+        }; //List Sub form
+
+        this.listWorkers = [];
+        this.listMaterials = [];
+        this.listTools = []; //For Multiselect
+
+        this.itemList = [];
+        this.selectedItems = [];
+        this.settings = {}; //Extra Parameters
+
+        this.isWorkpermitSubmitted = false;
+        this.isError = false;
+        this.errorMessage = "";
+      }
+
+      _createClass(WorkpermitCreateComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this6 = this;
+
+          this.workpermit = {};
+          this.getTowers();
+          this.getUnitUsers();
+          this.getWorktype();
+          this.getNatureWorktype();
+          this.getAllWorkPermitVendors();
+          this.route.queryParams.subscribe(function (params) {
+            if (params.id && params.type) {
+              var entity = {
+                workPermitId: parseInt(params.id),
+                apartmentId: Number(_this6.cookieService.get('apartmentId'))
+              };
+              _this6.pageType = params.type;
+
+              _this6.getApartmentDetails(params.type);
+
+              _this6.workPermitService.getWorkPermitById(entity).subscribe(function (res) {
+                _this6.workpermit.workPermitId = parseInt(params.id);
+                _this6.workpermit.WPUnitUser = res[0].userId;
+                _this6.workpermit.WPPermitType = res[0].workPermitTypeId;
+                _this6.workpermit.WPNatureWork = res[0].workNatureId;
+                _this6.workpermit.WPVendor = res[0].vendorId;
+                _this6.workpermit.WPIncharge = res[0].inChargePerson;
+                _this6.workpermit.WPContact = res[0].contactNumber;
+                _this6.workpermit.WPStartdate = res[0].startDate;
+                _this6.workpermit.WPEnddate = res[0].endDate;
+                _this6.workpermit.workPermitStatusId = res[0].workPermitStatusId, _this6.workpermit.WPStarttime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].startTime, 'HH:mm').format();
+                _this6.workpermit.WPEndtime = moment__WEBPACK_IMPORTED_MODULE_10__(res[0].endTime, 'HH:mm').format();
+                _this6.workpermit.serialNo = res[0].serialNo;
+                _this6.workpermit.terms = res[0].termsConditions;
+
+                _this6.apartmentService.getApartmentBlockUnitById(res[0].apartmentUnitId).subscribe(function (data) {
+                  _this6.workpermit.WPTower = data[0].apartmentBlockId;
+
+                  _this6.getUnits(res[0].apartmentUnitId);
+                });
+              });
+
+              _this6.workPermitService.getWorkPermitWorkersByWorkPermitId(entity).subscribe(function (res) {
+                if (res.length > 0) {
+                  res.forEach(function (data) {
+                    var entity = {
+                      "id": data.workPermitWorkersId,
+                      "name": data.workerName,
+                      "description": data.workDescription
+                    };
+
+                    _this6.listWorkers.push(entity);
+                  });
+                }
+              });
+
+              _this6.workPermitService.getWorkPermitMaterialsByWorkPermitId(entity).subscribe(function (res) {
+                if (res.length > 0) {
+                  res.forEach(function (data) {
+                    var entity = {
+                      "id": data.workPermitMaterialsId,
+                      "name": data.material,
+                      "qty": data.quantity,
+                      "description": data.description
+                    };
+
+                    _this6.listMaterials.push(entity);
+                  });
+                }
+              });
+
+              _this6.workPermitService.getWorkPermitToolsByWorkPermitId(entity).subscribe(function (res) {
+                if (res.length > 0) {
+                  res.forEach(function (data) {
+                    var entity = {
+                      "id": data.workPermitToolsId,
+                      "name": data.tool,
+                      "qty": data.quantity,
+                      "description": data.description
+                    };
+
+                    _this6.listTools.push(entity);
+                  });
+                }
+              });
+            } else {
+              _this6.termsAndCondition();
+            }
+          });
+        }
+      }, {
+        key: "isAdmin",
+        value: function isAdmin() {
+          return this.cookieService.get('userRoleType') == "Admin";
+        }
+      }, {
+        key: "isMobileView",
+        value: function isMobileView() {
+          return window.innerWidth <= 767 ? 'table-responsive' : '';
+        } // Apartment Info for View Mode 
+
+      }, {
+        key: "getApartmentDetails",
+        value: function getApartmentDetails(mode) {
+          var _this7 = this;
+
+          if (mode == 'view') {
+            var apartment = {
+              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              active: 1
+            };
+            this.apartmentService.getApartmentByApartmentId(apartment).subscribe(function (apart) {
+              _this7.apartmentInfo = apart[0];
+            });
+          }
+        } //Get All workpermit vendors list
+
+      }, {
+        key: "getAllWorkPermitVendors",
+        value: function getAllWorkPermitVendors() {
+          var _this8 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.vendor.getAllWorkPermitVendorByApartmentId(params).subscribe(function (res) {
+            _this8.allVendors = res;
+          });
+        } //Get Towers List
+
+      }, {
+        key: "getTowers",
+        value: function getTowers() {
+          var _this9 = this;
+
+          var params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+          };
+          this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
+            _this9.allTowers = res;
+          });
+        }
+      }, {
+        key: "getUnits",
+        value: function getUnits(id) {
+          var _this10 = this;
+
+          var params = {
+            apartmentBlockId: parseInt(this.workpermit.WPTower)
+          };
+          this.selectedUnit = id;
+          this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
+            _this10.unitData = res;
+          });
+        } //Get Apartments List
+
+      }, {
+        key: "getUnitUsers",
+        value: function getUnitUsers() {
+          var _this11 = this;
+
+          this.userService.getAllUsers().subscribe(function (res) {
+            _this11.allUsers = res;
+          });
+        } //Get Work Type
+
+      }, {
+        key: "getWorktype",
+        value: function getWorktype() {
+          var _this12 = this;
+
+          var params = {
+            LookupTypeId: 90
+          };
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            _this12.allWorkType = res;
+          });
+        } //Get Nature work Type
+
+      }, {
+        key: "getNatureWorktype",
+        value: function getNatureWorktype() {
+          var _this13 = this;
+
+          var params = {
+            LookupTypeId: 89
+          };
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            _this13.allNatureWorkType = res;
+          });
+        } //Add Sub Form
+        //Workers
+
+      }, {
+        key: "addWorkers",
+        value: function addWorkers() {
+          var name = this.Workers.WorkerName;
+          var description = this.Workers.WorkerDescription;
+
+          if (name.length > 0) {
+            this.listWorkers.push({
+              name: name,
+              description: description
+            });
+            this.Workers.WorkerName = "";
+            this.Workers.WorkerDescription = "";
+          }
+        } //Materials
+
+      }, {
+        key: "addMaterials",
+        value: function addMaterials() {
+          var name = this.Materials.MaterialName;
+          var qty = this.Materials.MaterialQuantity;
+          var description = this.Materials.MaterialDescription;
+
+          if (name.length > 0) {
+            this.listMaterials.push({
+              name: name,
+              qty: qty,
+              description: description
+            });
+            this.Materials.MaterialName = "";
+            this.Materials.MaterialQuantity = "";
+            this.Materials.MaterialDescription = "";
+          }
+        } //Tools
+
+      }, {
+        key: "addTools",
+        value: function addTools() {
+          var name = this.Tools.ToolName;
+          var qty = this.Tools.ToolQuantity;
+          var description = this.Tools.ToolDescription;
+
+          if (name.length > 0) {
+            this.listTools.push({
+              name: name,
+              qty: qty,
+              description: description
+            });
+            this.Tools.ToolName = "";
+            this.Tools.ToolQuantity = "";
+            this.Tools.ToolDescription = "";
+          }
+        } // delete listWorkers
+
+      }, {
+        key: "deletelistItems",
+        value: function deletelistItems(index, listName) {
+          if (listName === 'listofWorker') {
+            this.listWorkers.splice(index, 1);
+          } else if (listName === 'materialList') {
+            this.listMaterials.splice(index, 1);
+          } else {
+            this.listTools.splice(index, 1);
+          }
+        } //edit listWorkers 
+
+      }, {
+        key: "editlistItems",
+        value: function editlistItems(index, listName, data) {
+          if (listName === 'listofWorker') {
+            this.Workers.WorkerName = data.name;
+            this.Workers.WorkerDescription = data.description;
+            this.listWorkers.splice(index, 1);
+          } else if (listName === 'materialList') {
+            this.Materials.MaterialName = data.name;
+            this.Materials.MaterialQuantity = data.qty;
+            this.Materials.MaterialDescription = data.description;
+            this.listMaterials.splice(index, 1);
+          } else {
+            this.Tools.ToolName = data.name;
+            this.Tools.ToolQuantity = data.qty;
+            this.Tools.ToolDescription = data.description;
+            this.listTools.splice(index, 1);
+          }
+        }
+      }, {
+        key: "termsAndCondition",
+        value: function termsAndCondition() {
+          var _this14 = this;
+
+          this.apartmentService.getAllTermsConditionsByApartmentIdTermsNo({
+            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            TermsNo: "1"
+          }).subscribe(function (res) {
+            _this14.workpermit.terms = res[0].termsTemplate;
+          });
+        } //create work permit
+
+      }, {
+        key: "submitCreateWorkPermitForm",
+        value: function submitCreateWorkPermitForm(form) {
+          var _this15 = this;
+
+          this.isWorkpermitSubmitted = true;
+          this.isError = false;
+          var params = {};
+          params.workPermit = {
+            'workpermitId': this.pageType == 'edit' ? this.workpermit.workPermitId : 0,
+            "apartmentId": Number(this.cookieService.get('apartmentId')),
+            "apartmentUnitId": Number(this.selectedUnit),
+            "userId": Number(this.workpermit.WPUnitUser),
+            "workPermitTypeId": Number(this.workpermit.WPPermitType),
+            "workNatureId": Number(this.workpermit.WPNatureWork),
+            "vendorId": Number(this.workpermit.WPVendor),
+            "inChargePerson": this.workpermit.WPIncharge,
+            "contactNumber": this.workpermit.WPContact,
+            "startDate": this.workpermit.WPStartdate,
+            "endDate": this.workpermit.WPEnddate,
+            "startTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPStarttime).format('HH:mm'),
+            "endTime": moment__WEBPACK_IMPORTED_MODULE_10__(this.workpermit.WPEndtime).format('HH:mm'),
+            "workPermitStatusId": this.pageType == 'edit' ? this.workpermit.workPermitStatusId : 354,
+            "isApproved": true,
+            "approvedBy": null,
+            "approvedOn": null,
+            "termsConditions": this.workpermit.terms,
+            "description": "string",
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null,
+            "serialNo": this.pageType == 'edit' ? this.workpermit.serialNo : 0
+          };
+          var parentMethod = this.pageType == 'edit' ? 'updateWorkPermit' : 'addWorkPermit';
+          this.workPermitService[parentMethod](params).subscribe(function (res) {
+            if (res.message) {
+              var workPermitId = res.message;
+
+              if (_this15.listWorkers.length != 0) {
+                var childWork = _this15.pageType == 'edit' ? 'updateWorkPermitWorkers' : 'addWorkPermitWorkers';
+
+                for (var i = 0; i < _this15.listWorkers.length; i++) {
+                  var workpermitworkers = {
+                    "workPermitWorkersId": _this15.pageType == 'edit' ? _this15.listWorkers[i].id ? _this15.listWorkers[i].id : 0 : 0,
+                    "apartmentId": Number(_this15.cookieService.get('apartmentId')),
+                    "workPermitId": _this15.pageType == 'edit' ? _this15.workpermit.workPermitId : workPermitId,
+                    "workerName": _this15.listWorkers[i].name,
+                    "workDescription": _this15.listWorkers[i].description,
+                    "isActive": true,
+                    "insertedBy": parseInt(_this15.cookieService.get('userId')),
+                    "insertedOn": new Date().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null
+                  };
+
+                  _this15.workPermitService[childWork](workpermitworkers).subscribe(function (res) {});
+                }
+              }
+
+              if (_this15.listMaterials.length != 0) {
+                var childMaterial = _this15.pageType == 'edit' ? 'updateWorkPermitMaterials' : 'addWorkPermitMaterials';
+
+                for (var i = 0; i < _this15.listMaterials.length; i++) {
+                  var workpermitmaterials = {
+                    "workPermitMaterialsId": _this15.pageType == 'edit' ? _this15.listMaterials[i].id ? _this15.listMaterials[i].id : 0 : 0,
+                    "apartmentId": Number(_this15.cookieService.get('apartmentId')),
+                    "workPermitId": _this15.pageType == 'edit' ? _this15.workpermit.workPermitId : workPermitId,
+                    "material": _this15.listMaterials[i].name,
+                    "quantity": _this15.listMaterials[i].qty,
+                    "description": _this15.listMaterials[i].description,
+                    "isActive": true,
+                    "insertedBy": parseInt(_this15.cookieService.get('userId')),
+                    "insertedOn": new Date().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null
+                  };
+
+                  _this15.workPermitService[childMaterial](workpermitmaterials).subscribe(function (res) {});
+                }
+              }
+
+              if (_this15.listTools.length != 0) {
+                var childTool = _this15.pageType == 'edit' ? 'updateWorkPermitTools' : 'addWorkPermitTools';
+
+                for (var i = 0; i < _this15.listTools.length; i++) {
+                  var workpermittools = {
+                    "workPermitToolsId": _this15.pageType == 'edit' ? _this15.listTools[i].id ? _this15.listTools[i].id : 0 : 0,
+                    "apartmentId": Number(_this15.cookieService.get('apartmentId')),
+                    "workPermitId": _this15.pageType == 'edit' ? _this15.workpermit.workPermitId : workPermitId,
+                    "tool": _this15.listTools[i].name,
+                    "quantity": _this15.listTools[i].qty,
+                    "description": _this15.listTools[i].description,
+                    "isActive": true,
+                    "insertedBy": parseInt(_this15.cookieService.get('userId')),
+                    "insertedOn": new Date().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null
+                  };
+
+                  _this15.workPermitService[childTool](workpermittools).subscribe(function (res) {});
+                }
+              }
+
+              if (res.message) {
+                if (_this15.pageType == 'edit') {
+                  _this15.sharedService.setAlertMessage("".concat(workPermitId, " Work Permit added successfully"));
+                } else {
+                  _this15.sharedService.setAlertMessage("Work Permit added successfully");
+                }
+
+                _this15.router.navigate(['/ams/work-permit/approval']);
+              }
+            } else {
+              _this15.isWorkpermitSubmitted = false;
+              _this15.isError = true;
+              _this15.errorMessage = res.errorMessage;
+            }
+          }, function (error) {});
+        }
+      }, {
+        key: "print",
+        value: function print() {
+          var _this16 = this;
+
+          this.showPrintData = true;
+
+          if (this.accordion1.nativeElement.getAttribute('aria-expanded') == 'false') {
+            this.accordion1.nativeElement.click();
+          }
+
+          if (this.accordion2.nativeElement.getAttribute('aria-expanded') == 'false') {
+            this.accordion2.nativeElement.click();
+          }
+
+          if (this.accordion3.nativeElement.getAttribute('aria-expanded') == 'false') {
+            this.accordion3.nativeElement.click();
+          }
+
+          setTimeout(function () {
+            var data = document.getElementById('my-canvas');
+            html2canvas__WEBPACK_IMPORTED_MODULE_11___default()(data).then(function (canvas) {
+              // Few necessary setting options  
+              var imgWidth = 208;
+              var pageHeight = 295;
+              var imgHeight = canvas.height * imgWidth / canvas.width;
+              var heightLeft = imgHeight;
+              var contentDataURL = canvas.toDataURL('image/png');
+              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_12__('p', 'mm', 'a4'); // A4 size page of PDF  
+
+              var position = 0;
+              pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+              pdf.save('work-permit.pdf');
+              _this16.showPrintData = false;
+            });
+          }, 1000);
+        }
+      }]);
+
+      return WorkpermitCreateComponent;
+    }();
+
+    WorkpermitCreateComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
+      }, {
+        type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+      }, {
+        type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"]
+      }, {
+        type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('accordion1'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])], WorkpermitCreateComponent.prototype, "accordion1", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('accordion2'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])], WorkpermitCreateComponent.prototype, "accordion2", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('accordion3'), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])], WorkpermitCreateComponent.prototype, "accordion3", void 0);
+    WorkpermitCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-workpermit-create',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./workpermit-create.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./workpermit-create.component.scss */
+      "./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]])], WorkpermitCreateComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.scss":
+  /*!*************************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.scss ***!
+    \*************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitSettingWorkpermitSettingComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy93b3JrLXBlcm1pdC9jb21wb25lbnRzL3dvcmtwZXJtaXQtc2V0dGluZy93b3JrcGVybWl0LXNldHRpbmcuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.ts":
+  /*!***********************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.ts ***!
+    \***********************************************************************************************/
+
+  /*! exports provided: WorkpermitSettingComponent */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitSettingWorkpermitSettingComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkpermitSettingComponent", function () {
+      return WorkpermitSettingComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var WorkpermitSettingComponent =
+    /*#__PURE__*/
+    function () {
+      function WorkpermitSettingComponent() {
+        _classCallCheck(this, WorkpermitSettingComponent);
+      }
+
+      _createClass(WorkpermitSettingComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.navArray = [{
+            link: 'setup',
+            name: 'Setup'
+          }, {
+            link: 'approval',
+            name: 'Approval List'
+          }, {
+            link: 'create',
+            name: 'Create work Permit'
+          }];
+        }
+      }]);
+
+      return WorkpermitSettingComponent;
+    }();
+
+    WorkpermitSettingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-workpermit-setting',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./workpermit-setting.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./workpermit-setting.component.scss */
+      "./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], WorkpermitSettingComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.scss":
+  /*!*********************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.scss ***!
+    \*********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitSetupWorkpermitSetupComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".icon-tabs {\n  display: flex;\n  justify-content: center;\n}\n.icon-tabs li {\n  width: 100%;\n  text-align: center;\n  margin-bottom: 20px;\n  padding: 0;\n  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);\n  border-radius: 6px !important;\n}\n.icon-tabs li a {\n  color: #585858;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  letter-spacing: 0.2px;\n  font-size: 1.6rem;\n  padding: 10px 25px;\n  position: relative;\n  background-color: #ffffff;\n}\n.icon-tabs li a.active {\n  background-color: #3f51b5;\n  color: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LXNldHVwL3dvcmtwZXJtaXQtc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Ftcy93b3JrLXBlcm1pdC9jb21wb25lbnRzL3dvcmtwZXJtaXQtc2V0dXAvd29ya3Blcm1pdC1zZXR1cC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL3Njc3MvbWl4aW5zLnNjc3MiLCIvVXNlcnMvc2VudGhpbGt1bWFyc2VldGhhcmFtYW4vRG9jdW1lbnRzL3dvcmtzL2NsaWNrbXljb25kby9hcHAtbmc5L3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIiwiL1VzZXJzL3NlbnRoaWxrdW1hcnNlZXRoYXJhbWFuL0RvY3VtZW50cy93b3Jrcy9jbGlja215Y29uZG8vYXBwLW5nOS9zcmMvc2Nzcy9mb250cy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlBO0VBQ0ksYUFBQTtFQUNBLHVCQUFBO0FDSEo7QURJSTtFQUNJLFdBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsVUFBQTtFRVlOLDZDRlhNO0VFWU4sa0RGWk07RUVhTixxREZiTTtFRUxQLDZCQUFBO0FEUUQ7QUREUTtFQUNJLGNHa0ZEO0VDbERULHFDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQkFBQTtFQXNDQSxpQkFBQTtFSnJFVSxrQkFBQTtFQUNBLGtCR2RQO0VIZU8seUJHa0dKO0FGN0ZSO0FESlk7RUFDSSx5Qkd1Q1A7RUh0Q08sY0crRlI7QUZ6RlIiLCJmaWxlIjoic3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LXNldHVwL3dvcmtwZXJtaXQtc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5AaW1wb3J0IFwifnNyYy9zY3NzL21peGluc1wiO1xuQGltcG9ydCBcIn5zcmMvc2Nzcy9mb250c1wiO1xuLmljb24tdGFic3tcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGxpIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgQGluY2x1ZGUgYm94LXNoYWRvdygwIDJweCAzcHggLTFweCByZ2JhKCRibGFjaywgMC4xKSk7XG4gICAgICAgIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoNnB4KTtcbiAgICAgICAgYSB7XG4gICAgICAgICAgICBjb2xvcjogJGdyZXktNzAwO1xuICAgICAgICAgICAgQGluY2x1ZGUgaGVhZC1tZWRpdW07XG4gICAgICAgICAgICBAaW5jbHVkZSBmdC1jYWxjKCRmb250LW5vcm1hbCk7XG4gICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDI1cHg7ICAgICAgICAgICAgICBcbiAgICAgICAgICAgIHBvc2l0aW9uOiAkcmVsO1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJHdoaXRlO1xuICAgICAgICAgICAgJi5hY3RpdmUge1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICRtLWJsdWU7XG4gICAgICAgICAgICAgICAgY29sb3I6ICR3aGl0ZTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgXG4gICAgICAgIH1cbiAgICB9XG59IiwiLmljb24tdGFicyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuLmljb24tdGFicyBsaSB7XG4gIHdpZHRoOiAxMDAlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIHBhZGRpbmc6IDA7XG4gIGJveC1zaGFkb3c6IDAgMnB4IDNweCAtMXB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgLW1vei1ib3gtc2hhZG93OiAwIDJweCAzcHggLTFweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogMCAycHggM3B4IC0xcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDZweCAhaW1wb3J0YW50O1xuICBib3JkZXItcmFkaXVzOiA2cHggIWltcG9ydGFudDtcbn1cbi5pY29uLXRhYnMgbGkgYSB7XG4gIGNvbG9yOiAjNTg1ODU4O1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjJweDtcbiAgZm9udC1zaXplOiAxLjZyZW07XG4gIHBhZGRpbmc6IDEwcHggMjVweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xufVxuLmljb24tdGFicyBsaSBhLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMzZjUxYjU7XG4gIGNvbG9yOiAjZmZmZmZmO1xufSIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5cbkBtaXhpbiBib3JkZXItcmFkaXVzICgkcmFkaXVzKSB7XG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xuXHQtbW96LWJvcmRlci1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogJHJhZGl1cyAhaW1wb3J0YW50O1xufVxuXG5AbWl4aW4gYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1cyAoJHJhZGl1cykge1xuICAtd2Via2l0LWJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbiAgLW1vei1ib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAkcmFkaXVzICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6ICRyYWRpdXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIG9wYWNpdHkgKCR2YWx1ZSkge1xuICBvcGFjaXR5OiAkdmFsdWU7XG4gIC1tb3otb3BhY2l0eTogJHZhbHVlO1xuICAtd2Via2l0LW9wYWNpdHk6ICR2YWx1ZTtcbn1cblxuQG1peGluIGJveC1zaGFkb3cgKCRydWxlcy4uLikge1xuICBib3gtc2hhZG93OiAkcnVsZXM7XG4gIC1tb3otYm94LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LWJveC1zaGFkb3c6ICRydWxlcztcbn1cblxuQG1peGluIHRleHQtc2hhZG93ICgkcnVsZXMpIHtcbiAgdGV4dC1zaGFkb3c6ICRydWxlcztcbiAgLW1vei10ZXh0LXNoYWRvdzogJHJ1bGVzO1xuICAtd2Via2l0LXRleHQtc2hhZG93OiAkcnVsZXM7XG59XG5cbkBtaXhpbiB0cmFuc2Zvcm0gKCRydWxlcykge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogJHJ1bGVzICFpbXBvcnRhbnQ7XG5cdC1tb3otdHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcblx0dHJhbnNmb3JtOiAkcnVsZXMgIWltcG9ydGFudDtcbn1cblxuQG1peGluIHRyYW5zaXRpb24gKCRydWxlcy4uLikge1xuXHQtd2Via2l0LXRyYW5zaXRpb246ICRydWxlcztcblx0LW1vei10cmFuc2l0aW9uOiAkcnVsZXM7XG5cdHRyYW5zaXRpb246ICRydWxlcztcbn1cblxuQG1peGluIGFuaW1hdGlvbi1kZWxheSAoJHZhbHVlKSB7XG4gIC13ZWJraXQtYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIC1tb3otYW5pbWF0aW9uLWRlbGF5OiAkdmFsdWU7XG4gIGFuaW1hdGlvbi1kZWxheTogJHZhbHVlO1xufVxuXG5AbWl4aW4gYm94LXNpemluZyAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYm94LXNpemluZzogJHJ1bGVzO1xuICAtbW96LWJveC1zaXppbmc6ICRydWxlcztcbiAgYm94LXNpemluZzogJHJ1bGVzO1xufVxuXG5AbWl4aW4gYXBwZWFyYW5jZSAoJHJ1bGVzLi4uKSB7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogJHJ1bGVzO1xuICAtbW96LWFwcGVhcmFuY2U6ICRydWxlcztcbn1cblxuQG1peGluIGRlc2VsZWN0ICgpIHtcbiAgLW1vei11c2VyLXNlbGVjdDogLW1vei1ub25lO1xuXHQta2h0bWwtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1vLXVzZXItc2VsZWN0OiBub25lO1xuXHR1c2VyLXNlbGVjdDogbm9uZTtcbn1cblxuQG1peGluIHZpc2liaWxpdHkgKCRydWxlcykge1xuICB2aXNpYmlsaXR5OiAkcnVsZXM7XG59XG5cbkBtaXhpbiBuby1tcCAoKSB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG59XG5cbkBtaXhpbiBjaXJjbGVzKCRyLCAkYmc6bnVsbCwgJHRjOm51bGwpIHtcbiAgd2lkdGg6ICRyO1xuICBoZWlnaHQ6ICRyO1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAganVzdGlmeS1jb250ZW50OmNlbnRlcjtcbiAgYWxpZ24taXRlbXM6Y2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAkYmc7XG4gIGNvbG9yOiAkdGM7XG4gIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoJHIpO1xufVxuXG5AbWl4aW4gbGluZWFyLWdyYWRpZW50KCRkaXJlY3Rpb24sICRjb2xvci1zdG9wcy4uLikge1xuICAvLyBEaXJlY3Rpb24gaGFzIGJlZW4gb21pdHRlZCBhbmQgaGFwcGVucyB0byBiZSBhIGNvbG9yLXN0b3BcbiAgQGlmIGlzLWRpcmVjdGlvbigkZGlyZWN0aW9uKSA9PSBmYWxzZSB7XG4gICAgJGNvbG9yLXN0b3BzOiAkZGlyZWN0aW9uLCAkY29sb3Itc3RvcHM7XG4gICAgJGRpcmVjdGlvbjogMTgwZGVnO1xuICB9XG5cbiAgYmFja2dyb3VuZDogbnRoKG50aCgkY29sb3Itc3RvcHMsIDEpLCAxKTtcbiAgYmFja2dyb3VuZDogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQobGVnYWN5LWRpcmVjdGlvbigkZGlyZWN0aW9uKSwgJGNvbG9yLXN0b3BzKTtcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KCRkaXJlY3Rpb24sICRjb2xvci1zdG9wcyk7XG59XG5cbkBtaXhpbiBmbGlwKCRkaXJlY3Rpb24pIHtcbiAgdHJhbnNmb3JtIDogcm90YXRlWSgkZGlyZWN0aW9uKTtcbn1cblxuQG1peGluIHBsYWNlaG9sZGVyIHtcbiAgJjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7QGNvbnRlbnR9XG4gICY6LW1vei1wbGFjZWhvbGRlciAgICAgICAgICAge0Bjb250ZW50fVxuICAmOjotbW96LXBsYWNlaG9sZGVyICAgICAgICAgIHtAY29udGVudH1cbiAgJjotbXMtaW5wdXQtcGxhY2Vob2xkZXIgICAgICB7QGNvbnRlbnR9ICBcbn1cblxuXG4iLCJcbiRmdGE6IEZvbnRBd2Vzb21lO1xuXG4kZmQ6Zml4ZWQ7XG4kYWJzOmFic29sdXRlO1xuJHJlbDpyZWxhdGl2ZTtcbiRzdDpzdGF0aWM7XG5cbiRkYXJrLWJsdWU6ICMwODNkNzE7XG4kZGFyay1ibHVlLTAyOiAjMjM2YWFmO1xuJGRhcmstYmx1ZS0wMzogIzEzNGI4MjtcbiRsaWdodC1ibHVlOiAjODM5MWExO1xuJGxpZ2h0LWJsdWUtMDI6ICNlZWYwZjM7XG4kZ3JleS1ibHVlOiAjZjNmOGZmO1xuJHMtYmx1ZTogIzAzYTlmNDtcbiRsaWdodC1yZWQ6ICNmZjU0N2I7XG4kbS1saWdodC1yZWQ6ICNmZjc2ODg7XG4kYnJpZ2h0LXJlZDogI2UyMzg1ZTtcbiRzLXJlZDogI2VhNzk2MjtcbiRzLXJlZC0wMjogI2ZmMzYzODtcbiRzLXJlZC0wMzogI2Y0NDMzNjtcbiRtLXJlZDogI2Q3NTczZDtcbiRkbS1yZWQ6ICM4ZTRkNDA7XG4kbC1wYWxlLXJlZDogI2ZmZjNmNTtcbiRoLXBhbGUtcmVkOiAjZmZmYmZiO1xuJGdyZXktcmVkIDogI2YxZGRkZDtcbiRzLWN5YW46ICMwMGJjZDQ7XG4kZC1jeWFuOiAjMDIyOTI1O1xuJGQtY3lhbi0wMjogIzA5YTU5NjtcbiRkLWN5YW4tMDM6IzAwZDFmYTtcbiR2ZC1jeWFuOiAjMDA2ZDZkO1xuJHBhbGUtY3lhbjogI2Q4ZmZmYjtcbiRzLWdyZXk6ICNjY2NjY2M7XG4kbC1ncmV5OiAjZDhlMGU2O1xuXG4kbGgtcmVkOiNlMjNmMDZjNDtcbiRsaC15ZWxsb3c6I2RjYmUwODtcbiRzLW9yYW5nZTogI2ZmOTgwMDtcbiRkLW9yYW5nZTogIzdkNjUyMDtcbiRkLW9yYW5nZS0wMjogIzUyNDcyODtcbiRzLXllbGxvdzogI2ZmZWIzYjtcbiRtLXllbGxvdzogI2ZmYzEwNztcbiRzLXZpb2xldDogIzY3M2FiNztcblxuJGdyZXktMzAwOiAjZjBmM2YzO1xuJGdyZXktMjAwOiAjZjZmOGY4O1xuJGdyZXktNTAwOiAjZTZlNmU2O1xuJGgtY3lhbjogIzAzY2NhNjtcbiRkcy1jeWFuOiAjODFiMjlhO1xuJGhkLWJsdWU6ICMwNDI4NTQ7XG5cbiRsaW1lLWdyZWVuOiAjNWNkNjk0OyAvLyM1YmNjNzNcbiRsaW1lLWdyZWVuLTAyOiAjNWNkNjdjO1xuJGxpbWUtZ3JlZW4tMDM6ICM1MmM1NzA7XG4kbGlnaHQtZ3JlZW46ICNlZGY1ZTA7XG4kbS1ncmVlbjogIzU0Yjk0MTtcbiRkLWdyZWVuOiAjMzg5NTgzO1xuJGQtZ3JlZW4tMDI6ICNkYWUwY2Q7XG4kZHMtZ3JlZW46ICNlNGU3ZGY7XG4kZHMtZ3JlZW4tMDI6ICNmNGY3ZWY7XG5cbiRtLWJsdWU6ICMzZjUxYjU7XG4kcy1ibHVlOiAjNTI5ZWZmO1xuJGRzLWJsdWU6ICM2MDdkOGI7XG4kbWRzLWJsdWU6ICM2MDdkOGI7XG4kbC1ibHVlOiAjZWFlZmZkO1xuJGxnLWJsdWU6ICNlMGUzZWM7XG4kbGctYmx1ZS0wMjogI2Y0ZjRmNztcbiRsZy1ibHVlLTAzOiNkYWUyZTY7XG4kbGctYmx1ZS0wNDogIzcyN2Y4ZTtcbiRsZy1ibHVlLTA1OiAjZTdlY2VjO1xuJGxnLWJsdWUtMDY6ICNlOWVjZWY7XG4kbGctYmx1ZS0wNzogI2UxZjVmZTtcblxuLy9lbWVnZW5jeSBjb2xvcnM6XG4kZS1tZWQtMDE6ICMwMGJjZDQ7XG4kZS1tZWQtMDI6ICMyMTk2ZjM7XG5cbiRlLXRoLTAxOiAjZjdkMDYxO1xuJGUtdGgtMDI6ICNlZjYwYTU7XG5cbiRlLWZlLTAxOiAjRkY5ODAwO1xuJGUtZmUtMDI6ICNFOTFFNjM7XG5cbiRlLXNoci0wMTogIzY0YTFmZDtcbiRlLXNoci0wMjogIzkxMDBmZjtcblxuJGUtcGMtMDE6ICM2MWExZTE7XG4kZS1wYy0wMjogIzA2YmY1ODtcblxuJGUtb3QtMDE6ICM2MWExZTE7XG4kZS1vdC0wMjogIzM3ZTc4NTtcblxuJGdyZXktOTAwOiAjMTkxYzFlO1xuJGdyZXktODUwOiAjNjg2OTZiO1xuJGdyZXktODAwOiAjMzczOTQ2OyAvLyM0MjQ4NTY7XG4kZ3JleS03NTA6ICM3OTc5Nzk7XG4kZ3JleS03MDA6ICM1ODU4NTg7XG4kZ3JleS02MDA6ICNkZWRlZGU7XG4kZ3JleS02NTA6ICM1ZjVmNWY7XG4kZ3JleS01NTA6ICNiMWIxYjE7XG4kZ3JleS00ODA6ICNjNWM2Yzc7XG4kZ3JleS00NjA6ICNkZWUyZTY7XG4kZ3JleS00NzA6ICNlNWU1ZTU7XG4kZ3JleS00NTA6ICNlYWVhZWE7IC8vI2RlZTBlNDtcbiRncmV5LTQ0MDogI0M5RDBERjtcbiRncmV5LTQzMDogI2U0ZTRlNDtcbiRncmV5LTQxMDogI2VjZjBmNTtcbiRncmV5LTQwMDogI2VhZWFlYTtcbiRncmV5LTM1MDogIzhlOGU4ZTtcbiRncmV5LTI1MDogI2Y1ZjVmNTtcbiRncmV5LTIyMDogI2ZhZmFmYTtcbiRncmV5LTIxMDogI2YzZjVmNztcbiRncmV5LTE1MDogI2Y5ZjlmOTtcbiRncmV5LTEyMDogI2Y3ZjdmNztcbiRncmV5LTEzMDogI2Y2ZjZmNztcbiRncmV5LTEwMDogI2ZkZmRmZDtcblxuJHdoaXRlOiAjZmZmZmZmO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHRyYW5zOiB0cmFuc3BhcmVudDtcblxuXG4vL3B1YmxpYyBwYWdlcyBjb2xvcnNcbiRkcy12OiMzNDI2M2M7XG4kbC1ncmV5LTAxOiNmMmYyZjI7XG4kbC1ncmV5LTAyOiNkZGRkZGQ7XG4kZ3JleS12OiAjNmU2NzczO1xuJGQtZ3JleS0wMTojOGE4YThhO1xuJHN0LWJsdWU6IzA1ODJjODtcbiRzdC1ibHVlLTAxOiAjMWNhMGQ1O1xuJHN0LWJsdWUtMDI6ICMwMTk3ZDQ7XG4kcG0tYmx1ZTojMjI5NmVmO1xuJGdyZXktcDojZjZlZWYzO1xuJHAtcmVkOiAjZmY0ZjVhO1xuJHAtZ3JleS0wMTogIzJmMmYyZjtcbiRwLWdyZXktMDI6ICM0ZDRhNGE7XG4kcC1ncmV5LTAzOiAjNjM2MTYxO1xuXG5cbi8vZm9udC1zaXplc1xuJGZ0LWJhc2U6MTA7XG4kZm9udC1iaWctMDM6NTA7XG4kZm9udC1iaWc6Mzg7XG4kZm9udC1iaWctMDI6MzY7XG4kZm9udC1oMjozNDtcbiRmb250LW1lZGl1bS0wMjoyNDtcbiRmb250LW1lZGl1bS0wMzoyNjtcbiRmb250LW1lZGl1bS0wNDozMDtcbiRmb250LWgzOjI4O1xuJGZvbnQtaDMtMDI6MzI7XG4kZm9udC1oNDogMjI7XG4kZm9udC1tZWRpdW06MjA7XG4kZm9udC1iYXNlOjE4O1xuJGZvbnQtbm9ybWFsLTAyOjE1O1xuJGZvbnQtbm9ybWFsOjE2O1xuJGZvbnQtc21hbGw6MTQ7XG4kZm9udC1zbWFsbGVyOjEzO1xuJGZvbnQtdGlueToxMjtcbiRmb250LWJhc2UtMDI6MTE7XG4kZm9udC10aW5pZXI6MTA7XG4kZm9udC1taWNybzo5O1xuXG4vLyBvdGhlcnNcbiRmdWxsOjEwMCUgIWltcG9ydGFudDtcblxuXG4vLyBpbWFnZXNcbiRpbWFnZXM6IFwiL2Fzc2V0cy9pbWFnZXNcIjtcblxuJGhlYWRlci1oZWlnaHQ6IDcwcHg7XG5cbiIsIlxuQGltcG9ydCBcInZhcmlhYmxlc1wiO1xuXG5AbWl4aW4gcHVibGljLWxpZ2h0IHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdQb3BwaW5zJywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbn1cblxuQG1peGluIHB1YmxpYy1tZWRpdW0ge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gcHVibGljLWJvbGQge1xuICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNjAwO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xufVxuXG5AbWl4aW4gaGVhZC1saWdodCB7XG4gIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCcsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiAzMDA7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gaGVhZC1yZWd1bGFyIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGhlYWQtbWVkaXVtIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xufVxuXG5AbWl4aW4gaGVhZC1ib2xkIHtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDAuM3B4O1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogaW5oZXJpdDtcbn1cblxuQG1peGluIGRlc3AtcmVndWxhciB7XG4gIGZvbnQtZmFtaWx5OiAnSW50ZXInLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7ICAgXG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGluaGVyaXQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBpbmhlcml0O1xufVxuXG5AbWl4aW4gZGVzcC1zZW1pIHtcbiAgZm9udC1mYW1pbHk6ICdJbnRlcicsIHNhbnMtc2VyaWY7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwLjNweDtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIHRleHQtcmVuZGVyaW5nOiBvcHRpbWl6ZUxlZ2liaWxpdHk7XG59XG5cbkBtaXhpbiBkZXNwLW1lZGl1bSB7XG4gIGZvbnQtZmFtaWx5OiAnSW50ZXInLCBzYW5zLXNlcmlmO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMC4zcHg7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xuICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5O1xufVxuXG5AbWl4aW4gZnQtY2FsYygkcGl4ZWxzKSB7XG4gIGZvbnQtc2l6ZTogKCAkcGl4ZWxzIC8gJGZ0LWJhc2UgKSArIHJlbTtcbn1cbiJdfQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.ts":
+  /*!*******************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.ts ***!
+    \*******************************************************************************************/
+
+  /*! exports provided: WorkpermitSetupComponent */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitSetupWorkpermitSetupComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkpermitSetupComponent", function () {
+      return WorkpermitSetupComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+    var WorkpermitSetupComponent =
+    /*#__PURE__*/
+    function () {
+      function WorkpermitSetupComponent(router, route, lookupService, sharedService, cookieService) {
+        _classCallCheck(this, WorkpermitSetupComponent);
+
+        this.router = router;
+        this.route = route;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.cookieService = cookieService;
+        this.workpermitEditmode = false;
+        this.natureEditMode = false;
+        this.isDataLoaded = false;
+        this.wpData = "";
+        this.nwData = "";
+        this.unitFieldType = "unitno";
+        this.unitOrder = true;
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10; //Nature Pagination
+
+        this.NWunitFieldType = "unitno";
+        this.NWunitOrder = true;
+        this.NWItemStartIndex = 0;
+        this.NWitemLimit = 10;
+      } // Tab
+
+
+      _createClass(WorkpermitSetupComponent, [{
+        key: "showTab",
+        value: function showTab(type) {
+          this.selectedTab = type;
+        } // Tab
+
+      }, {
+        key: "isActive",
+        value: function isActive(type) {
+          return this.selectedTab == type ? true : false;
+        }
+      }, {
+        key: "getIndexParams",
+        value: function getIndexParams(event) {
+          this.ItemStartIndex = event.ItemStartIndex;
+          this.ItemEndIndex = event.ItemEndIndex;
+        }
+      }, {
+        key: "sortUnitData",
+        value: function sortUnitData(type) {
+          this.unitFieldType = type;
+          this.unitOrder = !this.unitOrder;
+        }
+      }, {
+        key: "getFieldOrderBy",
+        value: function getFieldOrderBy(type) {
+          if (this.unitFieldType == type) {
+            return this.unitOrder ? 'asc' : 'desc';
+          } else return '';
+        }
+      }, {
+        key: "isMobileView",
+        value: function isMobileView() {
+          return window.innerWidth <= 767 ? 'table-responsive' : '';
+        } //Get Work Type
+
+      }, {
+        key: "getWorktype",
+        value: function getWorktype() {
+          var _this17 = this;
+
+          var params = {
+            LookupTypeId: 90
+          };
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            _this17.allWorkType = res;
+            _this17.isDataLoaded = true;
+            _this17.totalItems = _this17.allWorkType.length;
+
+            if (_this17.totalItems > _this17.itemLimit) {
+              _this17.ItemEndIndex = _this17.itemLimit;
+            } else {
+              _this17.ItemEndIndex = _this17.totalItems;
+            }
+          });
+        } //Get Work Type
+
+      }, {
+        key: "getNaturework",
+        value: function getNaturework() {
+          var _this18 = this;
+
+          var params = {
+            LookupTypeId: 89
+          };
+          this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+            _this18.allNatureWork = res;
+            _this18.isDataLoaded = true;
+            _this18.NWtotalItems = _this18.allNatureWork.length;
+
+            if (_this18.NWtotalItems > _this18.NWitemLimit) {
+              _this18.NWItemEndIndex = _this18.NWitemLimit;
+            } else {
+              _this18.NWItemEndIndex = _this18.NWtotalItems;
+            }
+          });
+        }
+      }, {
+        key: "editWork",
+        value: function editWork(data, type) {
+          if (type == 'work') {
+            this.workpermitEditmode = true;
+            this.workpermit.WPtype = data.lookupValueName;
+            this.workpermit.WPdescription = data.description;
+            this.workpermit.lookupValueId = data.lookupValueId;
+          } else {
+            this.natureEditMode = true;
+            this.naturework.WPtype = data.lookupValueName;
+            this.naturework.WPdescription = data.description;
+            this.naturework.lookupValueId = data.lookupValueId;
+          }
+        }
+      }, {
+        key: "cancelEditMode",
+        value: function cancelEditMode(type) {
+          if (type == 'work') {
+            this.workpermitEditmode = false;
+            this.workpermit.WPtype = '';
+            this.workpermit.WPdescription = '';
+            this.workpermit.lookupValueId = '';
+          } else {
+            this.natureEditMode = false;
+            this.naturework.WPtype = '';
+            this.naturework.WPdescription = '';
+            this.naturework.lookupValueId = '';
+          }
+        }
+      }, {
+        key: "submitCreateWorkPermitTypeForm",
+        value: function submitCreateWorkPermitTypeForm() {
+          var _this19 = this;
+
+          var workpermittypes = {
+            "lookupValueId": 0,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "lookupTypeId": 90,
+            "lookupValueName": this.workpermit.WPtype,
+            "description": this.workpermit.WPdescription,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null
+          };
+          var params = {
+            lookupvalue: workpermittypes
+          };
+          this.lookupService.addLookupValue(params).subscribe(function (res) {
+            if (res.message) {
+              _this19.sharedService.setAlertMessage("WorkPermit Type added successfully");
+
+              _this19.getWorktype();
+            }
+          });
+        }
+      }, {
+        key: "submitCreateNatureofWorkForm",
+        value: function submitCreateNatureofWorkForm() {
+          var _this20 = this;
+
+          var workpermittypes = {
+            "lookupValueId": 0,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "lookupTypeId": 89,
+            "lookupValueName": this.naturework.WPtype,
+            "description": this.naturework.WPdescription,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null
+          };
+          var params = {
+            lookupvalue: workpermittypes
+          };
+          this.lookupService.addLookupValue(params).subscribe(function (res) {
+            if (res.message) {
+              _this20.sharedService.setAlertMessage("WorkPermit Nature of work added successfully");
+
+              _this20.getNaturework();
+            }
+          });
+        }
+      }, {
+        key: "updateCreateWorkPermitTypeForm",
+        value: function updateCreateWorkPermitTypeForm() {
+          var _this21 = this;
+
+          var workpermittypes = {
+            "lookupValueId": this.workpermit.lookupValueId,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "lookupTypeId": 90,
+            "lookupValueName": this.workpermit.WPtype,
+            "description": this.workpermit.WPdescription,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null
+          };
+          var params = {
+            lookupvalue: workpermittypes
+          };
+          this.lookupService.updateLookupValue(params).subscribe(function (res) {
+            if (res.message) {
+              _this21.workpermitEditmode = false;
+
+              _this21.sharedService.setAlertMessage("WorkPermit Type added successfully");
+
+              _this21.getWorktype();
+            }
+          });
+        }
+      }, {
+        key: "updateCreateNatureofWorkForm",
+        value: function updateCreateNatureofWorkForm() {
+          var _this22 = this;
+
+          var workpermittypes = {
+            "lookupValueId": this.naturework.lookupValueId,
+            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "lookupTypeId": 89,
+            "lookupValueName": this.naturework.WPtype,
+            "description": this.naturework.WPdescription,
+            "isActive": true,
+            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null
+          };
+          var params = {
+            lookupvalue: workpermittypes
+          };
+          this.lookupService.updateLookupValue(params).subscribe(function (res) {
+            if (res.message) {
+              _this22.natureEditMode = false;
+
+              _this22.sharedService.setAlertMessage("WorkPermit Nature of work added successfully");
+
+              _this22.getNaturework();
+            }
+          });
+        }
+      }, {
+        key: "deleteWork",
+        value: function deleteWork(data, type) {
+          var _this23 = this;
+
+          var params = {
+            lookupValueId: data.lookupValueId,
+            updateUserId: parseInt(this.cookieService.get('userId'))
+          };
+          this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+            if (res) {
+              if (type == 'work') {
+                _this23.getWorktype();
+              } else {
+                _this23.getNaturework();
+              }
+            }
+          });
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.workpermit = {};
+          this.naturework = {};
+          this.getWorktype();
+          this.getNaturework();
+          this.selectedTab = 'WorkPermit'; //Default selected tab
+        }
+      }]);
+
+      return WorkpermitSetupComponent;
+    }();
+
+    WorkpermitSetupComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+      }, {
+        type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+      }];
+    };
+
+    WorkpermitSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-workpermit-setup',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./workpermit-setup.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./workpermit-setup.component.scss */
+      "./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], WorkpermitSetupComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.scss":
+  /*!***********************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.scss ***!
+    \***********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitStatusWorkpermitStatusComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".input-box textarea {\n  height: auto;\n}\n\n.space-field {\n  margin-top: 114px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9hbXMvd29yay1wZXJtaXQvY29tcG9uZW50cy93b3JrcGVybWl0LXN0YXR1cy93b3JrcGVybWl0LXN0YXR1cy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1zdGF0dXMvd29ya3Blcm1pdC1zdGF0dXMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0k7RUFDSSxZQUFBO0FDQVI7O0FESUE7RUFDSSxpQkFBQTtBQ0RKIiwiZmlsZSI6InNyYy9hcHAvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1zdGF0dXMvd29ya3Blcm1pdC1zdGF0dXMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW5wdXQtYm94IHtcbiAgICB0ZXh0YXJlYSB7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICB9XG59XG5cbi5zcGFjZS1maWVsZHtcbiAgICBtYXJnaW4tdG9wOiAxMTRweDtcbn0iLCIuaW5wdXQtYm94IHRleHRhcmVhIHtcbiAgaGVpZ2h0OiBhdXRvO1xufVxuXG4uc3BhY2UtZmllbGQge1xuICBtYXJnaW4tdG9wOiAxMTRweDtcbn0iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.ts":
+  /*!*********************************************************************************************!*\
+    !*** ./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.ts ***!
+    \*********************************************************************************************/
+
+  /*! exports provided: WorkpermitStatusComponent */
+
+  /***/
+  function srcAppAmsWorkPermitComponentsWorkpermitStatusWorkpermitStatusComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkpermitStatusComponent", function () {
+      return WorkpermitStatusComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/api/controllers/Lookup */
+    "./src/app/api/controllers/Lookup.ts");
+    /* harmony import */
+
+
+    var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/api/controllers/WorkPermit */
+    "./src/app/api/controllers/WorkPermit.ts");
+    /* harmony import */
+
+
+    var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ngx-cookie-service */
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+
+    var WorkpermitStatusComponent =
+    /*#__PURE__*/
+    function () {
+      function WorkpermitStatusComponent(dialogRef, data, lookupService, workPermitService, cookieService) {
+        _classCallCheck(this, WorkpermitStatusComponent);
+
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.lookupService = lookupService;
+        this.workPermitService = workPermitService;
+        this.cookieService = cookieService;
+      }
+
+      _createClass(WorkpermitStatusComponent, [{
+        key: "onConfirm",
+        value: function onConfirm() {
+          var _this24 = this;
+
+          var params = {
+            workPermit: {
+              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              workPermitStatusId: this.status,
+              workPermitId: this.data.workpermitId,
+              insertedBy: parseInt(this.cookieService.get('userId')),
+              insertedOn: new Date().toISOString(),
+              isApproved: true,
+              approvedBy: parseInt(this.cookieService.get('userId')),
+              approvedOn: new Date().toISOString()
+            }
+          };
+          this.workPermitService.updateWorkPermitStatusById(params).subscribe(function (data) {
+            _this24.dialogRef.close(true);
+          });
+        }
+      }, {
+        key: "onDismiss",
+        value: function onDismiss() {
+          // Close the dialog, return false
+          this.dialogRef.close(false);
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this25 = this;
+
+          var statusParams = {
+            LookupTypeId: 91
+          };
+          this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
+            _this25.statusTypeData = res;
+            _this25.status = _this25.data.statusId;
+          });
+        }
+      }]);
+
+      return WorkpermitStatusComponent;
+    }();
+
+    WorkpermitStatusComponent.ctorParameters = function () {
+      return [{
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
+      }, {
+        type: undefined,
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+          args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
+        }]
+      }, {
+        type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+      }, {
+        type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"]
+      }, {
+        type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+      }];
+    };
+
+    WorkpermitStatusComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-workpermit-status',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./workpermit-status.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./workpermit-status.component.scss */
+      "./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], WorkpermitStatusComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/work-permit-routing.module.ts":
+  /*!***************************************************************!*\
+    !*** ./src/app/ams/work-permit/work-permit-routing.module.ts ***!
+    \***************************************************************/
+
+  /*! exports provided: WorkPermitRoutingModule */
+
+  /***/
+  function srcAppAmsWorkPermitWorkPermitRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkPermitRoutingModule", function () {
+      return WorkPermitRoutingModule;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./components/workpermit-setup/workpermit-setup.component */
+    "./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./components/workpermit-approval/workpermit-approval.component */
+    "./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./components/workpermit-create/workpermit-create.component */
+    "./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_approved_list_workpermit_approved_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./components/workpermit-approved-list/workpermit-approved-list.component */
+    "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.ts");
+
+    var routes = [{
+      path: '',
+      redirectTo: 'setup',
+      pathMatch: 'full'
+    }, {
+      path: 'setup',
+      component: _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_3__["WorkpermitSetupComponent"]
+    }, {
+      path: 'approval',
+      component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__["WorkpermitApprovalComponent"]
+    }, {
+      path: 'create',
+      component: _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_5__["WorkpermitCreateComponent"]
+    }, {
+      path: 'approved',
+      component: _components_workpermit_approved_list_workpermit_approved_list_component__WEBPACK_IMPORTED_MODULE_6__["WorkpermitApprovedListComponent"]
+    }, {
+      path: '**',
+      redirectTo: 'setup',
+      pathMatch: 'full'
+    }];
+
+    var WorkPermitRoutingModule = function WorkPermitRoutingModule() {
+      _classCallCheck(this, WorkPermitRoutingModule);
+    };
+
+    WorkPermitRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+      exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+    })], WorkPermitRoutingModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/work-permit.component.scss":
+  /*!************************************************************!*\
+    !*** ./src/app/ams/work-permit/work-permit.component.scss ***!
+    \************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAmsWorkPermitWorkPermitComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Ftcy93b3JrLXBlcm1pdC93b3JrLXBlcm1pdC5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/work-permit.component.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/ams/work-permit/work-permit.component.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: WorkPermitComponent */
+
+  /***/
+  function srcAppAmsWorkPermitWorkPermitComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkPermitComponent", function () {
+      return WorkPermitComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var WorkPermitComponent =
+    /*#__PURE__*/
+    function () {
+      function WorkPermitComponent() {
+        _classCallCheck(this, WorkPermitComponent);
+      }
+
+      _createClass(WorkPermitComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return WorkPermitComponent;
+    }();
+
+    WorkPermitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-work-permit',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./work-permit.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/ams/work-permit/work-permit.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./work-permit.component.scss */
+      "./src/app/ams/work-permit/work-permit.component.scss"))["default"]]
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], WorkPermitComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/ams/work-permit/work-permit.module.ts":
+  /*!*******************************************************!*\
+    !*** ./src/app/ams/work-permit/work-permit.module.ts ***!
+    \*******************************************************/
+
+  /*! exports provided: WorkPermitModule */
+
+  /***/
+  function srcAppAmsWorkPermitWorkPermitModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "WorkPermitModule", function () {
+      return WorkPermitModule;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _work_permit_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./work-permit-routing.module */
+    "./src/app/ams/work-permit/work-permit-routing.module.ts");
+    /* harmony import */
+
+
+    var _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../shared/shared.module */
+    "./src/app/shared/shared.module.ts");
+    /* harmony import */
+
+
+    var angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! angular2-multiselect-dropdown */
+    "./node_modules/angular2-multiselect-dropdown/__ivy_ngcc__/fesm2015/angular2-multiselect-dropdown.js");
+    /* harmony import */
+
+
+    var _work_permit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./work-permit.component */
+    "./src/app/ams/work-permit/work-permit.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./components/workpermit-setup/workpermit-setup.component */
+    "./src/app/ams/work-permit/components/workpermit-setup/workpermit-setup.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./components/workpermit-approval/workpermit-approval.component */
+    "./src/app/ams/work-permit/components/workpermit-approval/workpermit-approval.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./components/workpermit-create/workpermit-create.component */
+    "./src/app/ams/work-permit/components/workpermit-create/workpermit-create.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_setting_workpermit_setting_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./components/workpermit-setting/workpermit-setting.component */
+    "./src/app/ams/work-permit/components/workpermit-setting/workpermit-setting.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./components/workpermit-status/workpermit-status.component */
+    "./src/app/ams/work-permit/components/workpermit-status/workpermit-status.component.ts");
+    /* harmony import */
+
+
+    var _components_workpermit_approved_list_workpermit_approved_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! ./components/workpermit-approved-list/workpermit-approved-list.component */
+    "./src/app/ams/work-permit/components/workpermit-approved-list/workpermit-approved-list.component.ts");
+
+    var WorkPermitModule = function WorkPermitModule() {
+      _classCallCheck(this, WorkPermitModule);
+    };
+
+    WorkPermitModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_work_permit_component__WEBPACK_IMPORTED_MODULE_6__["WorkPermitComponent"], _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_7__["WorkpermitSetupComponent"], _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_8__["WorkpermitApprovalComponent"], _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitCreateComponent"], _components_workpermit_setting_workpermit_setting_component__WEBPACK_IMPORTED_MODULE_10__["WorkpermitSettingComponent"], _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_11__["WorkpermitStatusComponent"], _components_workpermit_approved_list_workpermit_approved_list_component__WEBPACK_IMPORTED_MODULE_12__["WorkpermitApprovedListComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _work_permit_routing_module__WEBPACK_IMPORTED_MODULE_3__["WorkPermitRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_5__["AngularMultiSelectModule"]],
+      bootstrap: [_work_permit_component__WEBPACK_IMPORTED_MODULE_6__["WorkPermitComponent"]]
+    })], WorkPermitModule);
+    /***/
+  }
+}]);
+//# sourceMappingURL=ams-work-permit-work-permit-module-es5.js.map

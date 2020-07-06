@@ -636,7 +636,7 @@ GraphCreator.prototype.updateGraph = function() {
             $("#poiId").val(d.poiId);
             $('#nodeKind').val(d.kind);
           let poiInfo = {poiId:d.poiId,nodeId:d.id,nodeKind:d.kind}
-          localStorage.setItem('onchange',JSON.stringify(poiInfo))
+        //   localStorage.setItem('onchange',JSON.stringify(poiInfo))
         //   localStorage.setItem('deletedNode',JSON.stringify(d))
         })
         // .on("dblclick",function (d) {
