@@ -890,13 +890,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               if (type == 'Planned Visitor') {
                 var params = {
-                  expectedVisitorId: data.expectedVisitorId,
+                  expectedVisitorId: parseInt(data.expectedVisitorId),
                   deleteBy: parseInt(_this4.cookieService.get('userId'))
                 };
                 serviceName = _this4.visitorService.deleteExpectedVisitorById(params);
               } else if (type == 'UnPlanned Visitor') {
                 var params_ = {
-                  visitorId: data.visitorId,
+                  visitorId: parseInt(data.visitorId),
                   deleteBy: parseInt(_this4.cookieService.get('userId'))
                 };
                 serviceName = _this4.visitorService.deleteVisitorById(params_);
@@ -1054,6 +1054,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this5.visitorService.getAllUnplannedVisitors().subscribe(function (res) {
               var data1 = res.filter(function (data) {
                 data.type = 'UnPlanned Visitor';
+                data.visitorId = data.visitorId;
                 return data.isActive && data.apartmentUnitId == _this5.apartmentUnitId;
               });
 

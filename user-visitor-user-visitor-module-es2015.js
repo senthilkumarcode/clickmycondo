@@ -609,14 +609,14 @@ let MyVisitorComponent = class MyVisitorComponent {
                 let serviceName;
                 if (type == 'Planned Visitor') {
                     var params = {
-                        expectedVisitorId: data.expectedVisitorId,
+                        expectedVisitorId: parseInt(data.expectedVisitorId),
                         deleteBy: parseInt(this.cookieService.get('userId'))
                     };
                     serviceName = this.visitorService.deleteExpectedVisitorById(params);
                 }
                 else if (type == 'UnPlanned Visitor') {
                     var params_ = {
-                        visitorId: data.visitorId,
+                        visitorId: parseInt(data.visitorId),
                         deleteBy: parseInt(this.cookieService.get('userId'))
                     };
                     serviceName = this.visitorService.deleteVisitorById(params_);
@@ -764,6 +764,7 @@ let MyVisitorComponent = class MyVisitorComponent {
             this.visitorService.getAllUnplannedVisitors().subscribe((res) => {
                 let data1 = res.filter(data => {
                     data.type = 'UnPlanned Visitor';
+                    data.visitorId = data.visitorId;
                     return data.isActive && data.apartmentUnitId == this.apartmentUnitId;
                 });
                 this.visitorService.getAllPlannedVisitors().subscribe((res) => {
