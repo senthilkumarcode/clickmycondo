@@ -516,19 +516,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var ngx_malihu_scrollbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! ngx-malihu-scrollbar */
-    "./node_modules/ngx-malihu-scrollbar/__ivy_ngcc__/fesm2015/ngx-malihu-scrollbar.js");
-    /* harmony import */
-
-
-    var _profile_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _profile_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./profile.component */
     "./src/app/modules/profile/profile.component.ts");
     /* harmony import */
 
 
-    var _components_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _components_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./components/reset-password/reset-password.component */
     "./src/app/modules/profile/components/reset-password/reset-password.component.ts");
 
@@ -537,10 +531,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     };
 
     ProfileModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_profile_component__WEBPACK_IMPORTED_MODULE_10__["ProfileComponent"], _components_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_11__["ResetPasswordComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["routes"]), _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], src_app_modules_icons_icons_module__WEBPACK_IMPORTED_MODULE_8__["IconsModule"], ngx_malihu_scrollbar__WEBPACK_IMPORTED_MODULE_9__["MalihuScrollbarModule"].forRoot(), src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"]],
+      declarations: [_profile_component__WEBPACK_IMPORTED_MODULE_9__["ProfileComponent"], _components_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_10__["ResetPasswordComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["routes"]), _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"], src_app_modules_icons_icons_module__WEBPACK_IMPORTED_MODULE_8__["IconsModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"]],
       providers: [],
-      bootstrap: [_profile_component__WEBPACK_IMPORTED_MODULE_10__["ProfileComponent"]]
+      bootstrap: [_profile_component__WEBPACK_IMPORTED_MODULE_9__["ProfileComponent"]]
     })], ProfileModule);
     /***/
   }

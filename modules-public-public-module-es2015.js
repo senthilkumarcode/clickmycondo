@@ -1369,7 +1369,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container card-container\">\n        <div class=\"row\">\n        \t<ng-container  *ngFor=\"let item of itemCards; let i = index\">\n\t        \t<div class=\"col-lg-4 col-md-6 col-sm-12 column\">\n\t                <div class=\"card h-100\">\n\t                    <div class=\"icon {{type}} {{type}}{{i}}\"></div>\n\t                    <h4>{{item.name}}</h4>\n\t                    <p>{{item.desp}}</p>\n\t                </div>\n\t            </div>\n        \t</ng-container>\n        </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container card-container\">\n        <div class=\"row\">\n        \t<ng-container  *ngFor=\"let item of itemCards; let i = index\">\n\t        \t<div class=\"col-lg-4 col-md-6 col-sm-12 column\">\n\t                <div class=\"card h-100 no-border\">\n\t                    <div class=\"icon {{type}} {{type}}{{i}}\"></div>\n\t                    <h4>{{item.name}}</h4>\n\t                    <p>{{item.desp}}</p>\n\t                </div>\n\t            </div>\n        \t</ng-container>\n        </div>\n</div>\n");
 
 /***/ }),
 
