@@ -2106,7 +2106,7 @@ let ExpenseSubLedgerComponent = class ExpenseSubLedgerComponent {
                         + '</svg>'
                         + '</span>'
                         + '</a>'
-                        + '<div class="dropdown-menu action-menu dropdown-menu-right invoice-dropdown-menu' + row + '" aria-labelledby="invoiceDropDown">'
+                        + '<div class="dropdown-menu table-action-menu dropdown-menu-right invoice-dropdown-menu' + row + '" aria-labelledby="invoiceDropDown">'
                         + '<a href="javascript:void(0)" onClick="showSingleInvoiceEvent(' + row + ')">Post Single Invoice</a>'
                         + '<a href="javascript:void(0)" onClick="showMultiInvoiceEvent(' + row + ')">Post Multi Invoice</a>'
                         + '</div>'
@@ -2116,7 +2116,7 @@ let ExpenseSubLedgerComponent = class ExpenseSubLedgerComponent {
                         + '</div>';
                 },
                 /*cellsrenderer: (row: number,column,value): string => {
-                  return    '<div class="simple-actions"> <a href="javascript:void(0)" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false"> <span class="action-dot"></span> <span class="action-dot"></span> <span class="action-dot"></span> </a> <div class="dropdown-menu action-menu dropdown-menu-right" aria-labelledby="invoiceDropDown"> <a href="javascript:void(0)" onClick="viewHistory('+ row + ')">View History</a> <a href="javascript:void(0)" onClick="showInvoiceTypes('+ row +')">Post Invoice</a> <a href="javascript:void(0)" onClick="viewPayment('+ row +')" >Payment</a> </div> </div>'
+                  return    '<div class="simple-actions"> <a href="javascript:void(0)" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false"> <span class="action-dot"></span> <span class="action-dot"></span> <span class="action-dot"></span> </a> <div class="dropdown-menu table-action-menu dropdown-menu-right" aria-labelledby="invoiceDropDown"> <a href="javascript:void(0)" onClick="viewHistory('+ row + ')">View History</a> <a href="javascript:void(0)" onClick="showInvoiceTypes('+ row +')">Post Invoice</a> <a href="javascript:void(0)" onClick="viewPayment('+ row +')" >Payment</a> </div> </div>'
                 },*/
                 renderer: columnrenderer
             }];
