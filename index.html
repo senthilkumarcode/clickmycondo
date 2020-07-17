@@ -11,9 +11,110 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="http://maps.googleapis.com/maps/api/js"></script>
+  <!-- Splash screen styles -->
+  <style>
+    body condo-splash-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #1A202E;
+        color: #FBFDFE;
+        z-index: 999999;
+        pointer-events: none;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body condo-splash-screen img {
+        width: 120px;
+        max-width: 120px;
+    }
+
+    body condo-splash-screen .spinner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 40px;
+        width: 56px;
+    }
+
+    body condo-splash-screen .spinner > div {
+        width: 12px;
+        height: 12px;
+        background-color: #ff4f5a;
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: condo-bouncedelay 1s infinite ease-in-out both;
+        animation: condo-bouncedelay 1s infinite ease-in-out both;
+    }
+
+    body condo-splash-screen .spinner .bounce1 {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    body condo-splash-screen .spinner .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+
+    @-webkit-keyframes condo-bouncedelay {
+        0%, 80%, 100% {
+            -webkit-transform: scale(0)
+        }
+        40% {
+            -webkit-transform: scale(1.0)
+        }
+    }
+
+    @keyframes condo-bouncedelay {
+        0%, 80%, 100% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        40% {
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+        }
+    }
+
+    body:not(.condo-splash-screen-hidden) {
+        overflow: hidden;
+    }
+
+    body.condo-splash-screen-hidden condo-splash-screen {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    body.public condo-splash-screen {
+      display: none;
+    }
+
+</style>
 </head>
 <body>
+
+  <!-- Splash screen -->
+  <condo-splash-screen>
+      <img src="assets/images/logo-cmc-brand.svg"
+            alt="Condo logo">
+      <div class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+      </div>
+  </condo-splash-screen>
+
   <app-root></app-root>
+
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="scripts.js" defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
 </html>
