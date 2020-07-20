@@ -1616,7 +1616,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             align: 'center',
             minwidth: 120,
             cellsrenderer: function cellsrenderer(row, coloumn, value) {
-              return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2" onClick="editAttendenceStaff(' + row + ')">' + '<i class="icon fa fa-pencil edit" aria-hidden="true"></i>' + '</a>' + '</div>';
+              return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2" onClick="editAttendenceStaff(' + row + ')">' + '<i class="icon fa fa-pencil" aria-hidden="true"></i>' + '</a>' + '</div>';
             },
             renderer: columnrenderer
           }];
@@ -2321,7 +2321,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             align: 'center',
             width: 120,
             cellsrenderer: function cellsrenderer(row) {
-              return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
+              return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i></a></div>';
             },
             renderer: columnrenderer
           }];
@@ -2744,7 +2744,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             align: 'center',
             width: 120,
             cellsrenderer: function cellsrenderer(row) {
-              return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil edit" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
+              return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
             },
             renderer: columnrenderer
           }];

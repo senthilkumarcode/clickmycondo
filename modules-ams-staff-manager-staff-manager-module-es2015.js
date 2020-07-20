@@ -1276,7 +1276,7 @@ let StaffAttendanceComponent = class StaffAttendanceComponent {
                 cellsrenderer: (row, coloumn, value) => {
                     return '<div class="simple-actions">'
                         + '<a href="javascript:void(0)" class="mr-2" onClick="editAttendenceStaff(' + row + ')">'
-                        + '<i class="icon fa fa-pencil edit" aria-hidden="true"></i>'
+                        + '<i class="icon fa fa-pencil" aria-hidden="true"></i>'
                         + '</a>'
                         + '</div>';
                 },
@@ -1812,7 +1812,7 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
                 align: 'center',
                 width: 120,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a></div>';
+                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i></a></div>';
                 },
                 renderer: columnrenderer
             }];
@@ -2138,7 +2138,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
                 align: 'center',
                 width: 120,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil edit" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
+                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
                 },
                 renderer: columnrenderer
             }];

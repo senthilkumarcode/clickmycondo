@@ -2962,7 +2962,7 @@ let ExpenseViewInvoiceComponent = class ExpenseViewInvoiceComponent {
                 align: 'center',
                 width: 120,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent(' + row + ')"><i class="icon fa fa-pencil edit" aria-hidden="true"></i></a> </a> </div>';
+                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editInvoiceEvent(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i></a> </a> </div>';
                 },
                 renderer: columnrenderer
             }];
