@@ -177,7 +177,6 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
     }
     onActions(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        console.log(dataRecord.apartmentBlockUnitId);
         this.sharedService.setActionIncomeTrackerIndex(dataRecord.apartmentBlockUnitId);
         this.router.navigateByUrl('/ams/income/actions/pay-invoice/' + dataRecord.apartmentBlockUnitId);
     }

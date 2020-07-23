@@ -315,7 +315,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "onActions",
         value: function onActions(detail) {
           var dataRecord = this.datagrid.getrowdata(detail.rowId);
-          console.log(dataRecord.apartmentBlockUnitId);
           this.sharedService.setActionIncomeTrackerIndex(dataRecord.apartmentBlockUnitId);
           this.router.navigateByUrl('/ams/income/actions/pay-invoice/' + dataRecord.apartmentBlockUnitId);
         }

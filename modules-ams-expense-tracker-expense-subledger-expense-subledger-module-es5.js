@@ -330,7 +330,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "onActions",
         value: function onActions(detail) {
           var ledger = this.datagrid.getrowdata(detail.rowId);
-          this.router.navigateByUrl('/ams/expense/actions/view-invoice-history/' + ledger.vendorId);
+          this.sharedService.setActionIncomeTrackerIndex(ledger.vendorId);
+          this.router.navigateByUrl('/ams/expense/actions/account-history/view/' + ledger.vendorId);
         }
       }, {
         key: "onInvoiceDropDown",

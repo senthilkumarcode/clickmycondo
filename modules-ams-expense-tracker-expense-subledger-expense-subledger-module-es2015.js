@@ -196,7 +196,8 @@ let ExpenseSubledgerComponent = class ExpenseSubledgerComponent {
     }
     onActions(detail) {
         let ledger = this.datagrid.getrowdata(detail.rowId);
-        this.router.navigateByUrl('/ams/expense/actions/view-invoice-history/' + ledger.vendorId);
+        this.sharedService.setActionIncomeTrackerIndex(ledger.vendorId);
+        this.router.navigateByUrl('/ams/expense/actions/account-history/view/' + ledger.vendorId);
     }
     onInvoiceDropDown(detail) {
         var datainfo = this.datagrid.getdatainformation();
