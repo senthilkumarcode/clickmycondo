@@ -364,18 +364,11 @@ AddVisitorComponent.ctorParameters = () => [
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] },
     { type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_7__["SharedToasterService"] }
 ];
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('index'),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], AddVisitorComponent.prototype, "index", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('array'),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], AddVisitorComponent.prototype, "visitorArray", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], AddVisitorComponent.prototype, "outputParams", void 0);
+AddVisitorComponent.propDecorators = {
+    index: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['index',] }],
+    visitorArray: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['array',] }],
+    outputParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
 AddVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-add-visitor',
@@ -820,22 +813,11 @@ MyVisitorComponent.ctorParameters = () => [
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"] }
 ];
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__["jqxGridComponent"])
-], MyVisitorComponent.prototype, "datagrid", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:showConfirmModal', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], MyVisitorComponent.prototype, "showConfirmModal", null);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:navigateTo', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], MyVisitorComponent.prototype, "navigateTo", null);
+MyVisitorComponent.propDecorators = {
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    showConfirmModal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:showConfirmModal', ['$event.detail'],] }],
+    navigateTo: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:navigateTo', ['$event.detail'],] }]
+};
 MyVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-my-visitor',
@@ -947,6 +929,7 @@ let UserVisitorComponent = class UserVisitorComponent {
     ngOnInit() {
     }
 };
+UserVisitorComponent.ctorParameters = () => [];
 UserVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-user-visitor',

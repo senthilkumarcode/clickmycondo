@@ -232,8 +232,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
                 width: 120,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-            },
-            {
+            }, {
                 text: 'Bill Date',
                 datafield: 'custInvoiceDate',
                 width: 120,
@@ -250,8 +249,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
                     return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.constantsService.dateFormat) + '</div>';
                 },
                 renderer: columnrenderer
-            },
-            {
+            }, {
                 text: 'Comments',
                 datafield: 'comments',
                 minwidth: 180,
@@ -317,22 +315,11 @@ IncomePayInvoiceComponent.ctorParameters = () => [
     { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
 ];
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])
-], IncomePayInvoiceComponent.prototype, "datagrid", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckInvoiceHeader', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], IncomePayInvoiceComponent.prototype, "onCheckInvoiceHeader", null);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCheckInvoiceRow', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], IncomePayInvoiceComponent.prototype, "onCheckInvoiceRow", null);
+IncomePayInvoiceComponent.propDecorators = {
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    onCheckInvoiceHeader: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCheckInvoiceHeader', ['$event.detail'],] }],
+    onCheckInvoiceRow: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCheckInvoiceRow', ['$event.detail'],] }]
+};
 IncomePayInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-pay-invoice',
@@ -632,18 +619,11 @@ IncomePostCollectionComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
 ];
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], IncomePostCollectionComponent.prototype, "totalAmountArray", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], IncomePostCollectionComponent.prototype, "invoiceIdArray", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], IncomePostCollectionComponent.prototype, "collectionParams", void 0);
+IncomePostCollectionComponent.propDecorators = {
+    totalAmountArray: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    invoiceIdArray: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    collectionParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
 IncomePostCollectionComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-post-collection',

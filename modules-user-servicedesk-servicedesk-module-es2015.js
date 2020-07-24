@@ -71,6 +71,7 @@ let CreateTicketComponent = class CreateTicketComponent {
     ngOnInit() {
     }
 };
+CreateTicketComponent.ctorParameters = () => [];
 CreateTicketComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-create-ticket',
@@ -116,6 +117,7 @@ let MyTicketsComponent = class MyTicketsComponent {
     ngOnInit() {
     }
 };
+MyTicketsComponent.ctorParameters = () => [];
 MyTicketsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-my-tickets',
@@ -204,6 +206,7 @@ let ServicedeskComponent = class ServicedeskComponent {
     ngOnInit() {
     }
 };
+ServicedeskComponent.ctorParameters = () => [];
 ServicedeskComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-servicedesk',

@@ -26,6 +26,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.html":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.html ***!
+  \*************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-ticket-cateory-wrapper\">\n    <h6 class=\"mb-3 text-center font-weight-bold\" *ngIf=\"data.type == 'common'\">COMMON TICKET CATEGORY</h6>\n    <h6 class=\"mb-3 text-center font-weight-bold\" *ngIf=\"data.type == 'private'\">PRIVATE TICKET CATEGORY</h6>\n    <p class=\"mt-2 mb-2 error\" *ngIf=\"errorMessage?.length > 0\">{{errorMessage}}</p>\n    <form>\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Category Name<span class=\"mandatory\">*</span></label>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Category Name\" name=\"categoryName\" [(ngModel)]=\"ticketCategoryData.categoryName\" (input)=\"errorMessage=''\" required>\n                </div>\n            </div>\n            <div class=\"col-sm-12\">\n                <div class=\"select-box\">\n                    <label>Default Supervisor</label>\n                    <angular2-multiselect [data]=\"staffsList.dropdownList\" name=\"staffsdropdown\" [(ngModel)]=\"staffsList.selectedItems\" \n                    (onSelect)=\"isExistUser()\" [settings]=\"staffsdropdownSettings\">\n                    </angular2-multiselect>\n                </div> \n            </div>\n            <div class=\"col-sm-12 mb-5\">\n                <h6 class=\"font-weight-bold heading-bg-color pt-3 pb-3 pl-1\">Esclation Setup (Optional)</h6>\n            </div>\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label class=\"mr-4\">Auto Esclate to Level 1 After</label>\n                    <input type=\"text\" class=\"form-control d-inline-block w-40\" placeholder=\"Days\" name=\"escdayone\" [(ngModel)]=\"ticketCategoryData.escalationDaysOne\">\n                    <label class=\"ml-4\">Days</label>\n                </div>\n            </div>\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Select Level-1 Manager</label>\n                    <angular2-multiselect [data]=\"staffsFirstList.dropdownList\" name=\"staffsdropdownOne\" [(ngModel)]=\"staffsFirstList.selectedItems\" \n                        (onSelect)=\"isExistUser()\" [settings]=\"staffsdropdownSettings\">\n                    </angular2-multiselect>\n                </div>\n            </div>\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label class=\"mr-4\">Auto Esclate to Level 2 After</label>\n                    <input type=\"text\" class=\"form-control d-inline-block w-40\" placeholder=\"Days\" name=\"escdaytwo\" [(ngModel)]=\"ticketCategoryData.escalationDaysTwo\">\n                    <label class=\"ml-4\">Days</label>\n                </div>\n            </div>\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Select Level-2 Manager</label>\n                    <angular2-multiselect [data]=\"staffsSecondList.dropdownList\" name=\"staffsdropdownTwo\" [(ngModel)]=\"staffsSecondList.selectedItems\"\n                        (onSelect)=\"isExistUser()\"  [settings]=\"staffsdropdownSettings\">\n                    </angular2-multiselect>\n                </div>\n            </div>\n        </div>\n        <div class=\"row btn-wrapper\">\n            <div class=\"col-sm-12 text-right\">\n                <a href=\"javascript:void(0)\" class=\"btn blue mr-3\" *ngIf=\"data.mode == 'create'\" [disabled]=\"errorMessage?.length > 0\" (click)=\"createCategory()\">Submit</a>\n                <a href=\"javascript:void(0)\" class=\"btn blue mr-3\" *ngIf=\"data.mode == 'edit'\" [disabled]=\"errorMessage?.length > 0\" (click)=\"updateCategory()\">Update</a>\n                <a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"onDismiss()\">Cancel</a>\n            </div>\n        </div>\n    </form>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.html":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.html ***!
+  \*****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"common-category-wrapper\">\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Common Category</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"commonFilter\"  (ngModelChange)=\"commonSearch()\">\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addTicket('create','')\">Add Common Ticket Category</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid \n                [theme]=\"'material'\"\n                [width]=\"'100%'\"\n                [rowsheight]=\"48\"\n                [autoheight]=\"true\"\n                [pageable]=\"true\"\n                [filterable]=\"true\"\n                [sortable]=\"true\"\n                [source]=\"commonListData\"\n                [columns]=\"commonColumns\"\n                [columnsresize]=\"true\"\n                [enablehover]=\"false\"\n                #commondatagrid>\n            </jqxGrid> \n        </div>\n    </condo-card>\n</div>\n        ");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.html":
 /*!*************************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.html ***!
@@ -48,7 +74,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"helpdesk-setup-wrapper\">\n\n\t<h5 class=\"mb-4\">Add Ticket Category</h5>\n\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\n\t\t\t<!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n\n\t\t\t<app-loader *ngIf=\"!isTicketAddLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isTicketAddLoaded\">\n\n\t\t\t\t<form #addCategoryForm=\"ngForm\" name=\"addCategoryForm\" (ngSubmit)=\"submitTicketCategoryForm(addCategoryForm)\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Ticket Type<span class=\"mandatory\">*</span></label>\n\t\t\t                    <select\n\t\t\t\t\t\t\t        name=\"ticketType\"\n\t\t\t\t\t\t\t        id=\"ticketType\"\n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"ticketType\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngIf = \"isError\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of ticketTypeData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Ticket Category<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"ticketCategory\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"ticketCategory\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<ul class=\"list-inline mt-25\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn lime-green mr-2\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"addCategoryForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>Private Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\"\n\t\t\t[(ngModel)]=\"categoryPrivateData\"\n\t\t\t(ngModelChange)=\"onGlSearchFilterPrivate()\">\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid\n\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\"\n\t\t\t\t[source]=\"categoryPrivateListData\"\n\t\t\t\t[columns]=\"privateData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#privatedatagrid>\n\t\t\t</jqxGrid>\n\n\t\t<!-- <table class=\"table table-resizable table-checker\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Category <span (click)=\"sortUnitData('status')\" [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Supervisor <span (click)=\"sortUnitData('subcategory')\" [ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-1 <span (click)=\"sortUnitData('level1')\" [ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Level-2 <span (click)=\"sortUnitData('level2')\" [ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L1 Escdays<span (click)=\"sortUnitData('l1day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t      <th scope=\"col\">L2 Escdays<span (click)=\"sortUnitData('l2day')\" [ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let category of categoryPrivateListData | simpleSearch: categoryPrivateData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td>{{category.lookupValueName}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.supervisor_name}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level1}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.level2}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l1escdays}}</td>\n\t\t\t\t      <td class=\"grey\">{{category.l2escdays}}</td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t      \trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\"\n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t  </a>\n\t\t\t\t\t\t  <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"openDialog(category);\">\n\t\t\t\t      \t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t      \t</a>\n\t\t\t\t      \t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=27;showConfirmModal(i);\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table> -->\n\n\t\t</div>\n\n\t</div>\n\n\n\t<div class=\"card table-card mb-30\" *ngIf=\"isCategoryDataLoaded\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>Common Category</h5>\n\t\t\t</div>\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search\"\n\t\t\t[(ngModel)]=\"categoryCommonData\"\n\t\t\t(ngModelChange)=\"onGlSearchFilterCommon()\">\n\t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t\t<jqxGrid\n\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\"\n\t\t\t\t[source]=\"categoryCommonListData\"\n\t\t\t\t[columns]=\"commonData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#commondatagrid>\n\t\t\t</jqxGrid>\n\t\t<!-- <table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('status')\">Category <span\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('subcategory')\">Supervisor <span\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('subcategory')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('level1')\">Level-1 <span\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('level1')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('level2')\">Level-2 <span\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('level2')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('l1day')\">Escalation to L1 day<span\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('l2day')\">Escalation to L2day<span\n\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('l1day')\"></span></th>\n\n\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr\n\t\t\t\t\t\t*ngFor=\"let category of categoryCommonListData | orderBy : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex | simpleSearch: categoryCommonData ; let i = index\">\n\t\t\t\t\t\t<td>{{category.lookupValueName}}</td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"mr-2\"\n\t\t\t\t\t\t\t\trouterLink=\"/ams/helpdesk/edit-staff/{{category.lookupValueId}}\"\n\t\t\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"staffDeleteTypeId=26;showConfirmModal(i)\">\n\t\t\t\t\t\t\t\t<i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table> -->\n\n\t\t</div>\n\n\t</div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"helpdesk-setup-wrapper\">  \n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Settings</h4>\n\t\t<!-- Tips -->\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t<mat-accordion>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Tips</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"text-hint\">\n\t\t\t\t\t\t\t<p>Tips :  You have two types of Ticket Category to setup.</p>\n\t\t\t\t\t\t\t<p>Common category refer to the issues related to condo which is at common to all units (For Example : Swimming pool not clean)</p>\n\t\t\t\t\t\t\t<p>Private category refer to the issues inside  the units ( For Example : Plumbing inside the Condo)</p>\n\t\t\t\t\t\t\t<p class=\"mt-4\">We have some standard Common Categories created for you, you can assign a supervisor and assign escalation if you required.</p>\n\t\t\t\t\t\t\t<p>If you have supervisor assigned to a Category , tickets will get assigned to Supervisor automatically. Supervisor will have to re-assign the ticket to Staff.</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t</div>\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t<nav mat-tab-nav-bar>\n\t\t\t\t<a mat-tab-link *ngFor=\"let link of navArray\" [routerLink]=\"link.link\" \n\t\t\t\t\trouterLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n\t\t\t\t{{link.name}}\n\t\t\t\t</a>\n\t\t\t</nav>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.html":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.html ***!
+  \*******************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"private-category-wrapper\">\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Private Category</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"privateFilter\"  (ngModelChange)=\"privateSearch()\">\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addTicket('create','')\">Add Private Ticket Category</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid \n                [theme]=\"'material'\"\n                [width]=\"'100%'\"\n                [rowsheight]=\"48\"\n                [autoheight]=\"true\"\n                [pageable]=\"true\"\n                [filterable]=\"true\"\n                [sortable]=\"true\"\n                [source]=\"privateListData\"\n                [columns]=\"privateColumns\"\n                [columnsresize]=\"true\"\n                [enablehover]=\"false\"\n                #privatedatagrid>\n            </jqxGrid> \n        </div>\n    </condo-card>\n</div>\n    ");
 
 /***/ }),
 
@@ -61,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("›<div class=\"helpdesk-all-tickets-wrapper\">\n\n\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t<ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots common\"></span><span>Common</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots private\"></span>Private</li>\n\t</ul>\n\n\t<ul class=\"legends ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t<li class=\"list-inline-item\"><span class=\"dots bg-red-900\"></span><span>High</span></li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots bg-orange-900\"></span>Medium</li>\n\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots bg-green-900\"></span>Low</li>\n\t</ul>\n\n\n\t<div class=\"card clear table-card\" *ngIf=\"isTicketDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Unassigned Tickets <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n    \t\t\t\t(ngModelChange)=\"onGlSearchFilter()\" >\n    \t\t\t</li>\n    \t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n    \t\t\t<!-- <li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/helpdesk/add-ticket\"\n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Ticket</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li> -->\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t  <jqxGrid\n\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\"\n\t\t\t\t[sortable]=\"true\"\n\t\t\t\t[source]=\"ticketListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid>\n\n\n  \t\t</div>\n\n\t</div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"helpdesk-unassigned-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t\t<!-- Indicator -->\n\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t<ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/common-ticket-icon.svg\"><span>Common</span></li>\n\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/private-ticket-icon.svg\"><span>Private</span></li>\n\t\t\t</ul>\n\t\t\n\t\t\t<ul class=\"legends ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-red-900\"></span><span>High</span></li>\n\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-orange-900\"></span>Medium</li>\n\t\t\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots bg-green-900\"></span>Low</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"isTicketDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unassigned Tickets</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" (ngModelChange)=\"onGlSearchFilter()\" >\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid\n\t\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t[sortable]=\"true\"\n\t\t\t\t\t[source]=\"ticketListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>\n\t\t\n\t\n");
 
 /***/ }),
 
@@ -356,6 +395,520 @@ OpenTicketsReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
 
 /***/ }),
 
+/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.scss":
+/*!***********************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.scss ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2hlbHBkZXNrL2NvbXBvbmVudHMvaGVscGRlc2stc2V0dXAvYWRkLXRpY2tldC1jYXRlZ29yeS9hZGQtdGlja2V0LWNhdGVnb3J5LmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.ts":
+/*!*********************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.ts ***!
+  \*********************************************************************************************************************/
+/*! exports provided: AddTicketCategoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddTicketCategoryComponent", function() { return AddTicketCategoryComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
+
+
+
+
+
+
+let AddTicketCategoryComponent = class AddTicketCategoryComponent {
+    constructor(dialogRef, staffService, cookieService, lookupService, ticketService, sharedService, data) {
+        this.dialogRef = dialogRef;
+        this.staffService = staffService;
+        this.cookieService = cookieService;
+        this.lookupService = lookupService;
+        this.ticketService = ticketService;
+        this.sharedService = sharedService;
+        this.data = data;
+        this.ticketCategoryData = {};
+        this.staffsdropdownSettings = {};
+        this.staffsList = {
+            "dropdownList": [],
+            "selectedItems": []
+        };
+        this.staffsFirstList = {
+            "dropdownList": [],
+            "selectedItems": []
+        };
+        this.staffsSecondList = {
+            "dropdownList": [],
+            "selectedItems": []
+        };
+        this.editData = {};
+    }
+    onDismiss() {
+        this.dialogRef.close(false);
+    }
+    isExistUser() {
+        let selectedUser = [];
+        this.errorMessage = "";
+        if (this.staffsList.selectedItems.length > 0) {
+            selectedUser.push(this.staffsList.selectedItems[0].userId);
+        }
+        if (this.staffsFirstList.selectedItems.length > 0) {
+            selectedUser.push(this.staffsFirstList.selectedItems[0].userId);
+        }
+        if (this.staffsSecondList.selectedItems.length > 0) {
+            selectedUser.push(this.staffsSecondList.selectedItems[0].userId);
+        }
+        for (let i = 0; i < selectedUser.length; i++) {
+            if (this.errorMessage == "Enter Different Staff/Manager")
+                break;
+            else {
+                for (let j = 0; j < selectedUser.length; j++) {
+                    if (i != j && selectedUser[i] == selectedUser[j]) {
+                        this.errorMessage = "Enter Different Staff/Manager";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    createCategory() {
+        let entity = {
+            description: this.ticketCategoryData.categoryName,
+            lookupTypeId: this.data.type == 'private' ? 16 : 17,
+            lookupValueName: this.ticketCategoryData.categoryName,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            insertedBy: parseInt(this.cookieService.get('userId')),
+            insertedOn: new Date().toISOString(),
+            isActive: true,
+            updatedBy: 0,
+            updatedOn: null
+        };
+        let lookupvalue = {
+            lookupvalue: entity
+        };
+        this.lookupService.addLookupValue(lookupvalue).subscribe((res) => {
+            if (!isNaN(res.message))
+                this.createEsclation(res.message);
+            else
+                this.errorMessage = res.errorMessage;
+        });
+    }
+    createEsclation(ticketCategoryId) {
+        let addTicket = [];
+        let esclator = {
+            ticketCategoryId: ticketCategoryId,
+            ticketTypeId: this.data.type == 'private' ? 27 : 24,
+            isDefault: true,
+            isActive: true,
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            insertedBy: parseInt(this.cookieService.get('userId')),
+            insertedOn: new Date().toISOString(),
+            updatedBy: this.data.mode == 'edit' ? parseInt(this.cookieService.get('userId')) : 0,
+            updatedOn: this.data.mode == 'edit' ? new Date().toISOString() : null
+        };
+        for (let i = 0; i < 3; i++) {
+            if (i == 0) {
+                let esclatorMain = {
+                    ticketManagerId: this.data.mode == 'edit' ? this.ticketCategoryData.ticketManagerId : 0,
+                    userId: this.staffsList.selectedItems.length > 0 ? this.staffsList.selectedItems[0].userId : null,
+                    escalationLevelId: 0,
+                    escalationDays: 0,
+                };
+                addTicket.push(Object.assign(Object.assign({}, esclator), esclatorMain));
+            }
+            else if (i == 1 && this.staffsFirstList.selectedItems.length > 0 && this.ticketCategoryData.escalationDaysOne) {
+                let esclatorMain = {
+                    ticketManagerId: this.data.mode == 'edit' ? this.ticketCategoryData.ticketManagerIdOne : 0,
+                    userId: this.staffsFirstList.selectedItems[0].userId,
+                    escalationLevelId: 1,
+                    escalationDays: this.ticketCategoryData.escalationDaysOne,
+                };
+                addTicket.push(Object.assign(Object.assign({}, esclator), esclatorMain));
+            }
+            else if (i == 2 && this.staffsSecondList.selectedItems.length && this.ticketCategoryData.escalationDaysTwo) {
+                let esclatorMain = {
+                    ticketManagerId: this.data.mode == 'edit' ? this.ticketCategoryData.ticketManagerIdTwo : 0,
+                    userId: this.staffsSecondList.selectedItems[0].userId,
+                    escalationLevelId: 2,
+                    escalationDays: this.ticketCategoryData.escalationDaysTwo,
+                };
+                addTicket.push(Object.assign(Object.assign({}, esclator), esclatorMain));
+            }
+        }
+        let params = {
+            ticketManagers: addTicket
+        };
+        this.ticketService.addTicketManagerMultiple(params).subscribe((res) => {
+            if (!isNaN(res.message))
+                this.sharedService.setAlertMessage("Created Successfully");
+            else if (res.message)
+                this.sharedService.setAlertMessage("Updated Successfully");
+            else
+                this.sharedService.setAlertMessage(res.errorMessage);
+            this.dialogRef.close(true);
+        });
+    }
+    updateCategory() {
+        if (this.ticketCategoryData.categoryName != this.editData.ticketCategoryName) {
+            let entity = {
+                lookupValueId: this.editData.ticketCategoryId,
+                description: this.ticketCategoryData.categoryName,
+                lookupTypeId: this.data.type == 'private' ? 16 : 17,
+                lookupValueName: this.ticketCategoryData.categoryName,
+                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                insertedBy: parseInt(this.cookieService.get('userId')),
+                insertedOn: new Date().toISOString(),
+                isActive: true,
+                updatedBy: parseInt(this.cookieService.get('userId')),
+                updatedOn: new Date().toISOString(),
+            };
+            let lookupvalue = {
+                lookupvalue: entity
+            };
+            this.lookupService.updateLookupValue(lookupvalue).subscribe((res) => {
+                if (res.message)
+                    this.createEsclation(this.editData.ticketCategoryId);
+                else
+                    this.errorMessage = res.errorMessage;
+            });
+        }
+        else {
+            this.createEsclation(this.editData.ticketCategoryId);
+        }
+    }
+    patchData() {
+        if (this.data.mode == 'edit' && this.data.categoryId) {
+            let queryParamBase = {
+                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                ticketCategoryId: this.data.categoryId,
+                ticketTypeId: this.data.type == 'private' ? 27 : 24,
+            };
+            this.ticketService.getTicketManagerByTicketCategoryId(queryParamBase).subscribe((res) => {
+                this.editData = res[0];
+                this.ticketCategoryData.categoryName = res[0].ticketCategoryName;
+                this.ticketCategoryData.ticketManagerId = res[0].escalationLevelId0.ticketManagerId;
+                this.staffsList.selectedItems = this.staffsList.dropdownList.filter((data) => data.userId == res[0].escalationLevelId0.userId);
+                if (res[0].escalationLevelId1) {
+                    this.ticketCategoryData.escalationDaysOne = res[0].escalationLevelId1.escalationDays;
+                    this.ticketCategoryData.ticketManagerIdOne = res[0].escalationLevelId1.ticketManagerId;
+                    this.staffsFirstList.selectedItems = this.staffsFirstList.dropdownList.filter((data) => data.userId == res[0].escalationLevelId1.userId);
+                }
+                if (res[0].escalationLevelId2) {
+                    this.ticketCategoryData.escalationDaysTwo = res[0].escalationLevelId2.escalationDays;
+                    this.ticketCategoryData.ticketManagerIdTwo = res[0].escalationLevelId2.ticketManagerId;
+                    this.staffsSecondList.selectedItems = this.staffsSecondList.dropdownList.filter((data) => data.userId == res[0].escalationLevelId2.userId);
+                }
+            });
+        }
+    }
+    ngOnInit() {
+        this.staffsdropdownSettings = {
+            singleSelection: true,
+            primaryKey: 'userId',
+            labelKey: 'customLabel',
+            enableSearchFilter: true,
+            enableFilterSelectAll: false,
+            autoPosition: false,
+            maxHeight: 130
+        };
+        this.staffService.getAllStaffs().subscribe((res) => {
+            if (res.length) {
+                res.forEach((ele) => {
+                    ele.customLabel = `${ele.firstName} ${ele.lastName} ${ele.staffCategory_Label}`;
+                });
+                this.staffsList.dropdownList = res;
+                this.staffsFirstList.dropdownList = res;
+                this.staffsSecondList.dropdownList = res;
+                //EditMode
+                this.patchData();
+            }
+        }, error => {
+            console.log(error);
+        });
+    }
+};
+AddTicketCategoryComponent.ctorParameters = () => [
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
+    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
+];
+AddTicketCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-add-ticket-category',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-ticket-category.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-ticket-category.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], Object])
+], AddTicketCategoryComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.scss":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.scss ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2hlbHBkZXNrL2NvbXBvbmVudHMvaGVscGRlc2stc2V0dXAvY29tbW9uLWNhdGVnb3J5L2NvbW1vbi1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.ts":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.ts ***!
+  \*************************************************************************************************************/
+/*! exports provided: CommonCategoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommonCategoryComponent", function() { return CommonCategoryComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../add-ticket-category/add-ticket-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.ts");
+/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+
+
+
+
+
+
+
+
+let CommonCategoryComponent = class CommonCategoryComponent {
+    constructor(router, dialog, ticketService, cookieService) {
+        this.router = router;
+        this.dialog = dialog;
+        this.ticketService = ticketService;
+        this.cookieService = cookieService;
+        this.commonFilter = "";
+        this.isDataLoaded = true;
+        this.totalItems = 0;
+    }
+    addTicket(mode, categoryId) {
+        let data = { type: 'common', mode, categoryId };
+        const dialogRef = this.dialog.open(_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_6__["AddTicketCategoryComponent"], {
+            width: '500px',
+            height: 'auto',
+            data: data
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getCommonCategoryList();
+            }
+        });
+    }
+    onCommonCatEdit(detail) {
+        let dataRecord = this.commondatagrid.getrowdata(detail.rowId);
+        this.addTicket('edit', dataRecord.ticketCategoryId);
+    }
+    onCommonCatDelete(detail) {
+        let dataRecord = this.commondatagrid.getrowdata(detail.rowId);
+        let lookupValueId = dataRecord.lookupValueId;
+        // this.modalService.showConfirmModal(lookupValueId);
+    }
+    commonSearch() {
+        if (this.commonFilter != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.commonFilter;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.commondatagrid.showfiltercolumnbackground(false);
+            this.commonColumns.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.commondatagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.commondatagrid.applyfilters();
+        }
+        else {
+            this.commondatagrid.clearfilters();
+        }
+    }
+    getCommonCategoryList() {
+        this.isDataLoaded = true;
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            ticketTypeId: 24,
+        };
+        this.ticketService.getAllTicketManagerByApartmentId(params).subscribe((res) => {
+            if (res.length > 0) {
+                this.totalItems = res.length;
+                let data = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.commonListData = new jqx.dataAdapter(data);
+            }
+            this.isDataLoaded = false;
+        });
+    }
+    ngOnInit() {
+        this.getCommonCategoryList();
+        var cellsrendererCommon = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrendererCommon = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.commonColumns = [{
+                text: 'Category',
+                datafield: 'ticketCategoryName',
+                width: 200,
+                pinned: true,
+                cellsrenderer: cellsrendererCommon,
+                renderer: columnrendererCommon
+            }, {
+                text: 'Supervisor',
+                datafield: "escalationLevelId0",
+                cellsrenderer: (row, column, value) => {
+                    if (value)
+                        value = this.commonListData.loadedData[row].escalationLevelId0.userName;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
+                minwidth: 80,
+                renderer: columnrendererCommon
+            }, {
+                text: 'Level-1',
+                datafield: 'escalationLevelId1',
+                cellsrenderer: (row, column, value) => {
+                    if (value)
+                        value = this.commonListData.loadedData[row].escalationLevelId1.userName;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
+                minwidth: 170,
+                renderer: columnrendererCommon
+            }, {
+                text: 'L1 escdays',
+                cellsrenderer: (row, column, value) => {
+                    if (this.commonListData.loadedData[row].escalationLevelId1)
+                        value = this.commonListData.loadedData[row].escalationLevelId1.escalationDays;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
+                minwidth: 80,
+                renderer: columnrendererCommon
+            }, {
+                text: 'Level-2',
+                datafield: 'escalationLevelId2',
+                cellsrenderer: (row, column, value) => {
+                    if (value)
+                        value = this.commonListData.loadedData[row].escalationLevelId2.userName;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
+                minwidth: 170,
+                renderer: columnrendererCommon
+            }, {
+                text: 'L2 escdays',
+                cellsrenderer: (row, column, value) => {
+                    if (this.commonListData.loadedData[row].escalationLevelId2)
+                        value = this.commonListData.loadedData[row].escalationLevelId2.escalationDays;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
+                minwidth: 170,
+                renderer: columnrendererCommon
+            }, {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                width: 120,
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editCommonCatEvent(' + row + ')"><i class="fa fa-pencil icon edit" title="Edit Ticket Details" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEventCommon(' + row + ')"><i class="fa fa-trash icon delete" title="Delete" aria-hidden="true"></i></a></div>';
+                },
+                renderer: columnrendererCommon
+            }];
+    }
+};
+CommonCategoryComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
+    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] }
+];
+CommonCategoryComponent.propDecorators = {
+    commondatagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['commondatagrid', { static: false },] }],
+    onCommonCatEdit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCommonCatEdit', ['$event.detail'],] }],
+    onCommonCatDelete: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCommonCatDelete', ['$event.detail'],] }]
+};
+CommonCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-common-category',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./common-category.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./common-category.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
+        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
+], CommonCategoryComponent);
+
+function showConfirmDeleteEventCommon(row) {
+    var event = new CustomEvent('onCommonCatDelete', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.showConfirmDeleteEventCommon = showConfirmDeleteEventCommon;
+function editCommonCatEvent(row) {
+    var event = new CustomEvent('onCommonCatEdit', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.editCommonCatEvent = editCommonCatEvent;
+
+
+/***/ }),
+
 /***/ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.scss":
 /*!***********************************************************************************************************************!*\
   !*** ./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.scss ***!
@@ -456,7 +1009,7 @@ HelpdeskEditStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".mandatory {\n  color: red;\n  font-size: 16px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zZW50aGlsa3VtYXJzZWV0aGFyYW1hbi9Eb2N1bWVudHMvd29ya3MvY2xpY2tteWNvbmRvL2FwcC1uZzkvc3JjL2FwcC9tb2R1bGVzL2Ftcy9oZWxwZGVzay9jb21wb25lbnRzL2hlbHBkZXNrLXNldHVwL2hlbHBkZXNrLXNldHVwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9tb2R1bGVzL2Ftcy9oZWxwZGVzay9jb21wb25lbnRzL2hlbHBkZXNrLXNldHVwL2hlbHBkZXNrLXNldHVwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsVUFBQTtFQUNBLGVBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2hlbHBkZXNrL2NvbXBvbmVudHMvaGVscGRlc2stc2V0dXAvaGVscGRlc2stc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFuZGF0b3J5e1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE2cHg7XG59XG4iLCIubWFuZGF0b3J5IHtcbiAgY29sb3I6IHJlZDtcbiAgZm9udC1zaXplOiAxNnB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".mandatory {\n  color: red;\n  font-size: 16px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvaGVscGRlc2svY29tcG9uZW50cy9oZWxwZGVzay1zZXR1cC9oZWxwZGVzay1zZXR1cC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFVBQUE7RUFDQSxlQUFBO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL2Ftcy9oZWxwZGVzay9jb21wb25lbnRzL2hlbHBkZXNrLXNldHVwL2hlbHBkZXNrLXNldHVwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hbmRhdG9yeXtcbiAgY29sb3I6IHJlZDtcbiAgZm9udC1zaXplOiAxNnB4O1xufVxuIl19 */");
 
 /***/ }),
 
@@ -472,246 +1025,112 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpdeskSetupComponent", function() { return HelpdeskSetupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-
-
-
-
-
-
-
-
-
 
 
 let HelpdeskSetupComponent = class HelpdeskSetupComponent {
-    constructor(injector, dialog, userService, lookupService, sharedService, cookieService, router) {
-        this.injector = injector;
-        this.dialog = dialog;
-        this.userService = userService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.cookieService = cookieService;
+    constructor() { }
+    ngOnInit() {
+        this.navArray = [
+            { link: 'private-category', name: 'Private Category' },
+            { link: 'common-category', name: 'Common Category' }
+        ];
+    }
+};
+HelpdeskSetupComponent.ctorParameters = () => [];
+HelpdeskSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-helpdesk-setup',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./helpdesk-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./helpdesk-setup.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], HelpdeskSetupComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.scss":
+/*!*****************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.scss ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2hlbHBkZXNrL2NvbXBvbmVudHMvaGVscGRlc2stc2V0dXAvcHJpdmF0ZS1jYXRlZ29yeS9wcml2YXRlLWNhdGVnb3J5LmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.ts":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.ts ***!
+  \***************************************************************************************************************/
+/*! exports provided: PrivateCategoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivateCategoryComponent", function() { return PrivateCategoryComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../add-ticket-category/add-ticket-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.ts");
+/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+
+
+
+
+
+
+
+
+let PrivateCategoryComponent = class PrivateCategoryComponent {
+    constructor(router, dialog, ticketService, cookieService) {
         this.router = router;
-        this.categoryPrivateData = "";
-        this.categoryCommonData = "";
-        this.isCategoryDataLoaded = false;
-        this.unitFieldType = "unitno";
-        this.unitOrder = true;
-        this.isTicketAddLoaded = false;
-        this.ticketType = "";
-        this.ticketCategory = "";
-        this.staffDeleteTypeId = "";
-        this.errorMessage = "";
-        this.isError = false;
-        this.selectedInput = "";
-        this.result = '';
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.dialog = dialog;
+        this.ticketService = ticketService;
+        this.cookieService = cookieService;
+        this.isDataLoaded = true;
+        this.totalItems = 0;
     }
-    openDialog(data) {
-        this.modalService.showTicketEditModal(data);
-    }
-    sortUnitData(type) {
-        this.unitFieldType = type;
-        this.unitOrder = !this.unitOrder;
-    }
-    getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-        }
-        else
-            return '';
-    }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    showConfirmModal(index) {
-        this.modalService.showConfirmModal(index);
-    }
-    submitTicketCategoryForm(form) {
-        this.isError = false;
-        const message = `Are you sure you want to save this Ticket Category?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
-            panelClass: 'material',
-            disableClose: true,
-            data: dialogData
+    addTicket(mode, categoryId) {
+        let data = { type: 'private', mode, categoryId };
+        const dialogRef = this.dialog.open(_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_6__["AddTicketCategoryComponent"], {
+            width: '500px',
+            height: 'auto',
+            data: data
         });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            this.result = dialogResult;
-            if (this.result) {
-                //common category
-                if (this.ticketType == "24") {
-                    this.ticketTypeId = 17;
-                    let categoryAvailable = this.commonCategory.find(x => x.lookupValueName == this.ticketCategory);
-                    if (categoryAvailable) {
-                        this.isError = true;
-                        this.errorMessage = 'Ticket Category already available';
-                        var errorDetails = {
-                            msg: this.errorMessage,
-                            type: "Error"
-                        };
-                        this.sharedService.setCustomAlertMessage(errorDetails);
-                        form.reset();
-                        this.isTicketAddLoaded = true;
-                    }
-                    else {
-                        this.isTicketAddLoaded = false;
-                        var details = {
-                            "lookupTypeId": this.ticketTypeId,
-                            "lookupValueName": this.ticketCategory,
-                            "description": this.ticketCategory,
-                            "isActive": true,
-                            "insertedBy": parseInt(this.cookieService.get('userId')),
-                            "insertedOn": "2019-11-16T14:50:08.217Z",
-                            "updatedBy": 0,
-                            "updatedOn": "2019-11-16T14:50:08.217Z"
-                        };
-                        let params = {
-                            lookupvalue: details
-                        };
-                        this.lookupService.addLookupValue(params).subscribe((res) => {
-                            this.isTicketAddLoaded = true;
-                            this.isCategoryDataLoaded = false;
-                            if (res.message) {
-                                var errorDetails = {
-                                    msg: 'Ticket Category added succesfully',
-                                    type: "Success"
-                                };
-                                this.sharedService.setCustomAlertMessage(errorDetails);
-                                let params = {
-                                    LookupTypeId: this.ticketTypeId
-                                };
-                                this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
-                                    var categoryCommonListData = res.filter(item => {
-                                        return item.isActive;
-                                    });
-                                    this.categoryCommonListData = categoryCommonListData;
-                                    this.categoryCommonListData.sort((a, b) => a.lookupValueName.localeCompare(b.lookupValueName));
-                                    this.gridSourceDataCommon = {
-                                        localdata: this.categoryCommonListData,
-                                        datatype: "array"
-                                    };
-                                    this.categoryCommonListData = new jqx.dataAdapter(this.gridSourceDataCommon);
-                                    this.isCategoryDataLoaded = true;
-                                }, error => {
-                                });
-                            }
-                            else {
-                                this.errorMessage = res.errorMessage;
-                                var errorDetails = {
-                                    msg: this.errorMessage,
-                                    type: "Error"
-                                };
-                                this.sharedService.setCustomAlertMessage(errorDetails);
-                            }
-                        }, error => {
-                        });
-                    }
-                    form.reset();
-                    this.isError = true;
-                    this.isTicketAddLoaded = true;
-                }
-                else {
-                    this.ticketTypeId = 16;
-                    let categoryAvailable = this.privateCategory.find(x => x.lookupValueName == this.ticketCategory);
-                    if (categoryAvailable) {
-                        this.isError = true;
-                        this.errorMessage = 'Ticket Category already available';
-                        var errorDetails = {
-                            msg: this.errorMessage,
-                            type: "Error"
-                        };
-                        this.sharedService.setCustomAlertMessage(errorDetails);
-                        form.reset();
-                        this.isTicketAddLoaded = true;
-                    }
-                    else {
-                        this.isTicketAddLoaded = false;
-                        var details = {
-                            "lookupTypeId": this.ticketTypeId,
-                            "lookupValueName": this.ticketCategory,
-                            "description": this.ticketCategory,
-                            "isActive": true,
-                            "insertedBy": parseInt(this.cookieService.get('userId')),
-                            "insertedOn": "2019-11-16T14:50:08.217Z",
-                            "updatedBy": 0,
-                            "updatedOn": "2019-11-16T14:50:08.217Z"
-                        };
-                        let params = {
-                            lookupvalue: details
-                        };
-                        this.lookupService.addLookupValue(params).subscribe((res) => {
-                            this.isTicketAddLoaded = true;
-                            this.isCategoryDataLoaded = false;
-                            let params = {
-                                LookupTypeId: this.ticketTypeId
-                            };
-                            if (res.message) {
-                                var errorDetails = {
-                                    msg: 'Ticket Category added succesfully',
-                                    type: "Success"
-                                };
-                                this.sharedService.setCustomAlertMessage(errorDetails);
-                                this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
-                                    var categoryPrivateListData = res.filter(item => {
-                                        return item.isActive;
-                                    });
-                                    this.categoryPrivateListData = categoryPrivateListData;
-                                    this.categoryPrivateListData.sort((a, b) => a.lookupValueName.localeCompare(b.lookupValueName));
-                                    this.gridSourceDataPrivate = {
-                                        localdata: this.categoryPrivateListData,
-                                        datatype: "array"
-                                    };
-                                    this.categoryPrivateListData = new jqx.dataAdapter(this.gridSourceDataPrivate);
-                                    this.isCategoryDataLoaded = true;
-                                }, error => {
-                                });
-                            }
-                            else {
-                                this.errorMessage = res.errorMessage;
-                                if (this.errorMessage == 'addLookupValue Not Added as it already exist.')
-                                    var errorDetails = {
-                                        msg: 'Ticket Category not added as it already exist',
-                                        type: "Error"
-                                    };
-                                this.sharedService.setCustomAlertMessage(errorDetails);
-                            }
-                        }, error => {
-                        });
-                        form.reset();
-                        this.isError = true;
-                        this.isTicketAddLoaded = true;
-                    }
-                }
-            }
-            else {
-                this.isTicketAddLoaded = true;
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getPrivateCategoryList();
             }
         });
     }
-    selectColInput(type) {
-        this.selectedInput = type;
+    onPrivateCatEdit(detail) {
+        let dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
+        this.addTicket('edit', dataRecord.ticketCategoryId);
     }
-    onGlSearchFilterPrivate() {
-        if (this.categoryPrivateData != "") {
+    onPrivateCatDelete(detail) {
+        let dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
+        let lookupValueId = dataRecord.lookupValueId;
+        //this.modalService.showConfirmModal(lookupValueId);
+    }
+    privateSearch() {
+        if (this.privateFilter != "") {
             let filtergroup = new jqx.filter();
             let filter_or_operator = 1;
-            let filtervalue = this.categoryPrivateData;
+            let filtervalue = this.privateFilter;
             let filtercondition = 'contains';
             let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.operator = 'or';
             filtergroup.addfilter(filter_or_operator, filterData);
             this.privatedatagrid.showfiltercolumnbackground(false);
-            this.privateData.forEach(item => {
+            this.privateColumns.forEach(item => {
                 if (item.datafield != 'Actions') {
                     this.privatedatagrid.addfilter(item.datafield, filtergroup, true);
                 }
@@ -722,91 +1141,95 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
             this.privatedatagrid.clearfilters();
         }
     }
-    onGlSearchFilterCommon() {
-        if (this.categoryCommonData != "") {
-            let filtergroup = new jqx.filter();
-            let filter_or_operator = 1;
-            let filtervalue = this.categoryCommonData;
-            let filtercondition = 'contains';
-            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-            filtergroup.operator = 'or';
-            filtergroup.addfilter(filter_or_operator, filterData);
-            this.commondatagrid.showfiltercolumnbackground(false);
-            this.commonData.forEach(item => {
-                if (item.datafield != 'Actions') {
-                    this.commondatagrid.addfilter(item.datafield, filtergroup, true);
-                }
-            });
-            this.commondatagrid.applyfilters();
-        }
-        else {
-            this.commondatagrid.clearfilters();
-        }
-    }
-    onPrivateCatEdit(detail) {
-        let dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
-        let lookupValueId = dataRecord.lookupValueId;
-        this.router.navigateByUrl('/ams/helpdesk/edit-staff/' + lookupValueId);
-    }
-    onCommonCatEdit(detail) {
-        let dataRecord = this.commondatagrid.getrowdata(detail.rowId);
-        let lookupValueId = dataRecord.lookupValueId;
-        this.router.navigateByUrl('/ams/helpdesk/edit-staff/' + lookupValueId);
-    }
-    onPrivateCatDelete(detail) {
-        let dataRecord = this.privatedatagrid.getrowdata(detail.rowId);
-        let lookupValueId = dataRecord.lookupValueId;
-        this.modalService.showConfirmModal(lookupValueId);
-    }
-    onCommonCatDelete(detail) {
-        let dataRecord = this.commondatagrid.getrowdata(detail.rowId);
-        let lookupValueId = dataRecord.lookupValueId;
-        this.modalService.showConfirmModal(lookupValueId);
+    getPrivateCategoryList() {
+        this.isDataLoaded = true;
+        let params = {
+            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            ticketTypeId: 27,
+        };
+        this.ticketService.getAllTicketManagerByApartmentId(params).subscribe((res) => {
+            if (res.length > 0) {
+                this.totalItems = res.length;
+                let data = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.privateListData = new jqx.dataAdapter(data);
+            }
+            this.isDataLoaded = false;
+        });
     }
     ngOnInit() {
-        //private
+        this.getPrivateCategoryList();
         var cellsrendererPrivate = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
         var columnrendererPrivate = (value) => {
             return '<div style="padding: 14px">' + value + '</div>';
         };
-        //private
-        this.privateData = [{
+        this.privateColumns = [{
                 text: 'Category',
-                datafield: 'description',
+                datafield: 'ticketCategoryName',
                 width: 200,
                 pinned: true,
                 cellsrenderer: cellsrendererPrivate,
                 renderer: columnrendererPrivate
             }, {
                 text: 'Supervisor',
-                datafield: 'ticketTypeId_Label',
-                cellsrenderer: cellsrendererPrivate,
+                datafield: "escalationLevelId0",
+                cellsrenderer: (row, column, value) => {
+                    if (value)
+                        value = this.privateListData.loadedData[row].escalationLevelId0.userName;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
                 minwidth: 80,
                 renderer: columnrendererPrivate
             }, {
                 text: 'Level-1',
-                datafield: 'level1',
-                cellsrenderer: cellsrendererPrivate,
-                minwidth: 170,
-                renderer: columnrendererPrivate
-            }, {
-                text: 'Level-2',
-                datafield: 'level12',
-                cellsrenderer: cellsrendererPrivate,
+                datafield: 'escalationLevelId1',
+                cellsrenderer: (row, column, value) => {
+                    if (value)
+                        value = this.privateListData.loadedData[row].escalationLevelId1.userName;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
                 minwidth: 170,
                 renderer: columnrendererPrivate
             }, {
                 text: 'L1 escdays',
-                datafield: 'l1escdays',
-                cellsrenderer: cellsrendererPrivate,
+                cellsrenderer: (row, column, value) => {
+                    if (this.privateListData.loadedData[row].escalationLevelId1)
+                        value = this.privateListData.loadedData[row].escalationLevelId1.escalationDays;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
                 minwidth: 80,
                 renderer: columnrendererPrivate
             }, {
+                text: 'Level-2',
+                datafield: 'escalationLevelId2',
+                cellsrenderer: (row, column, value) => {
+                    if (value)
+                        value = this.privateListData.loadedData[row].escalationLevelId2.userName;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
+                minwidth: 170,
+                renderer: columnrendererPrivate
+            }, {
                 text: 'L2 escdays',
-                datafield: 'l2escdays',
-                cellsrenderer: cellsrendererPrivate,
+                cellsrenderer: (row, column, value) => {
+                    if (this.privateListData.loadedData[row].escalationLevelId2)
+                        value = this.privateListData.loadedData[row].escalationLevelId2.escalationDays;
+                    else
+                        value = "";
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
                 minwidth: 170,
                 renderer: columnrendererPrivate
             }, {
@@ -819,186 +1242,29 @@ let HelpdeskSetupComponent = class HelpdeskSetupComponent {
                 },
                 renderer: columnrendererPrivate
             }];
-        //common
-        var cellsrendererCommon = (row, column, value) => {
-            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-        };
-        var columnrendererCommon = (value) => {
-            return '<div style="padding: 14px">' + value + '</div>';
-        };
-        // common
-        this.commonData = [{
-                text: 'Category',
-                datafield: 'lookupValueName',
-                width: 200,
-                pinned: true,
-                cellsrenderer: cellsrendererCommon,
-                renderer: columnrendererCommon
-            }, {
-                text: 'Supervisor',
-                datafield: 'ticketTypeId_Label',
-                cellsrenderer: cellsrendererCommon,
-                minwidth: 80,
-                renderer: columnrendererCommon
-            }, {
-                text: 'Level-1',
-                datafield: 'level1',
-                cellsrenderer: cellsrendererCommon,
-                minwidth: 170,
-                renderer: columnrendererCommon
-            }, {
-                text: 'Level-2',
-                datafield: 'level12',
-                cellsrenderer: cellsrendererCommon,
-                minwidth: 170,
-                renderer: columnrendererCommon
-            }, {
-                text: 'Escalation to l1 day',
-                datafield: 'l1escdays',
-                cellsrenderer: cellsrendererCommon,
-                minwidth: 80,
-                renderer: columnrendererCommon
-            }, {
-                text: 'Escalation to l1 day',
-                datafield: 'l2escdays',
-                cellsrenderer: cellsrendererCommon,
-                minwidth: 170,
-                renderer: columnrendererCommon
-            }, {
-                text: 'Actions',
-                cellsalign: 'center',
-                align: 'center',
-                width: 120,
-                cellsrenderer: (row) => {
-                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editCommonCatEvent(' + row + ')"><i class="fa fa-pencil icon edit" title="Edit Ticket Details" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEventCommon(' + row + ')"><i class="fa fa-trash icon delete" title="Delete" aria-hidden="true"></i></a></div>';
-                },
-                renderer: columnrendererCommon
-            }];
-        //get all ticketType type
-        let ticketType = {
-            LookupTypeId: 7
-        };
-        this.lookupService.getLookupValueByLookupTypeId(ticketType).subscribe((res) => {
-            this.ticketTypeData = res;
-            this.isTicketAddLoaded = true;
-        }, error => {
-        });
-        //get all category
-        this.getTicketListByCategory();
-        // delete lookupvalue
-        this.sharedService.unitlistdeleteindexcast.subscribe(lookupValue => {
-            this.isCategoryDataLoaded = false;
-            if (lookupValue != null) {
-                let deleteParam = {
-                    "lookupValueId": lookupValue,
-                    "updateUserId": parseInt(this.cookieService.get('userId'))
-                };
-                this.lookupService.deleteLookupvalue(deleteParam).subscribe((res) => {
-                    this.getTicketListByCategory();
-                }, error => {
-                    this.isError = true;
-                    this.errorMessage = 'Could not delete ticket category ';
-                });
-            }
-        });
-    }
-    getTicketListByCategory() {
-        let categoryParams = {
-            LookupTypeId: 16
-        };
-        this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
-            this.privateCategory = res.filter((item) => item['isActive'] === true);
-            let categoryPrivateListData = res.filter((item) => item['isActive'] === true);
-            categoryPrivateListData.forEach(element => {
-                element.lookupValueName === "Electrical" ? (element.supervisor_name = "David", element.level1 = "john", element.level2 = "daniel", element.l1escdays = 8, element.l2escdays = 5) :
-                    element.lookupValueName === "Painting" ? element.supervisor_name = "John" :
-                        element.lookupValueName === "Refrigerator" ? element.supervisor_name = "Sam" : '';
-            });
-            this.categoryPrivateListData = categoryPrivateListData;
-            this.categoryPrivateListData.sort((a, b) => a.lookupValueName.localeCompare(b.lookupValueName));
-            this.gridSourceDataPrivate = {
-                localdata: this.categoryPrivateListData,
-                datatype: "array"
-            };
-            this.categoryPrivateListData = new jqx.dataAdapter(this.gridSourceDataPrivate);
-            //get all common category
-            let commonListParams = {
-                LookupTypeId: 17
-            };
-            this.lookupService.getLookupValueByLookupTypeId(commonListParams).subscribe((res) => {
-                this.commonCategory = res.filter((item) => item['isActive'] === true);
-                var categoryCommonListData = res.filter(item => {
-                    return item.isActive;
-                });
-                this.categoryCommonListData = categoryCommonListData;
-                this.categoryCommonListData.sort((a, b) => a.lookupValueName.localeCompare(b.lookupValueName));
-                this.gridSourceDataCommon = {
-                    localdata: this.categoryCommonListData,
-                    datatype: "array"
-                };
-                this.categoryCommonListData = new jqx.dataAdapter(this.gridSourceDataCommon);
-                this.isCategoryDataLoaded = true;
-            }, error => {
-            });
-        }, error => {
-        });
     }
 };
-HelpdeskSetupComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] }
+PrivateCategoryComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
+    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] }
 ];
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('privatedatagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])
-], HelpdeskSetupComponent.prototype, "privatedatagrid", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('commondatagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__["jqxGridComponent"])
-], HelpdeskSetupComponent.prototype, "commondatagrid", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onPrivateCatEdit', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], HelpdeskSetupComponent.prototype, "onPrivateCatEdit", null);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCommonCatEdit', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], HelpdeskSetupComponent.prototype, "onCommonCatEdit", null);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onPrivateCatDelete', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], HelpdeskSetupComponent.prototype, "onPrivateCatDelete", null);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onCommonCatDelete', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], HelpdeskSetupComponent.prototype, "onCommonCatDelete", null);
-HelpdeskSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+PrivateCategoryComponent.propDecorators = {
+    privatedatagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['privatedatagrid', { static: false },] }],
+    onPrivateCatEdit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onPrivateCatEdit', ['$event.detail'],] }],
+    onPrivateCatDelete: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onPrivateCatDelete', ['$event.detail'],] }]
+};
+PrivateCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-helpdesk-setup',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./helpdesk-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./helpdesk-setup.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.scss")).default]
+        selector: 'app-private-category',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./private-category.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./private-category.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])
-], HelpdeskSetupComponent);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
+        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
+], PrivateCategoryComponent);
 
 function showConfirmDeleteEventPrivate(row) {
     var event = new CustomEvent('onPrivateCatDelete', {
@@ -1009,24 +1275,6 @@ function showConfirmDeleteEventPrivate(row) {
     window.dispatchEvent(event);
 }
 window.showConfirmDeleteEventPrivate = showConfirmDeleteEventPrivate;
-function showConfirmDeleteEventCommon(row) {
-    var event = new CustomEvent('onCommonCatDelete', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.showConfirmDeleteEventCommon = showConfirmDeleteEventCommon;
-function editCommonCatEvent(row) {
-    var event = new CustomEvent('onCommonCatEdit', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.editCommonCatEvent = editCommonCatEvent;
 function editPrivateCatEvent(row) {
     var event = new CustomEvent('onPrivateCatEdit', {
         detail: {
@@ -1074,6 +1322,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
+
 
 
 
@@ -1150,9 +1401,14 @@ let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
                 renderer: columnrenderer
             }, {
                 text: 'Type',
-                datafield: 'ticketTypeId_Label',
+                datafield: 'ticketTypeId',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
+                    if (value == 24) {
+                        return '<div class="jqx-custom-inner-cell"><img src="assets/images/common-ticket-icon.svg"></div>';
+                    }
+                    else {
+                        return '<div class="jqx-custom-inner-cell"><img src="assets/images/private-ticket-icon.svg"></div>';
+                    }
                 },
                 minwidth: 80,
                 renderer: columnrenderer
@@ -1199,7 +1455,9 @@ let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
             }, {
                 text: 'Date Requested',
                 datafield: 'insertedOn',
-                cellsrenderer: cellsrenderer,
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_11__(value).format("DD-MM-YYYY hh:mm A") + '</div>';
+                },
                 minwidth: 170,
                 renderer: columnrenderer
             }, {
@@ -1292,22 +1550,11 @@ HelpdeskUnassignedComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
 ];
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('datagrid', { static: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__["jqxGridComponent"])
-], HelpdeskUnassignedComponent.prototype, "datagrid", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onEditTicket', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], HelpdeskUnassignedComponent.prototype, "onEditTicket", null);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:onTicketDelete', ['$event.detail']),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
-], HelpdeskUnassignedComponent.prototype, "onTicketDelete", null);
+HelpdeskUnassignedComponent.propDecorators = {
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    onEditTicket: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditTicket', ['$event.detail'],] }],
+    onTicketDelete: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onTicketDelete', ['$event.detail'],] }]
+};
 HelpdeskUnassignedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-helpdesk-unassigned',
@@ -1444,6 +1691,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_components_add_ticket_add_ticket_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/add-ticket/add-ticket.component */ "./src/app/shared/components/add-ticket/add-ticket.component.ts");
 /* harmony import */ var _components_helpdesk_setup_helpdesk_edit_staff_helpdesk_edit_staff_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.ts");
 /* harmony import */ var _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/helpdesk-reports/open-tickets-report/open-tickets-report.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/open-tickets-report/open-tickets-report.component.ts");
+/* harmony import */ var _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/helpdesk-setup/private-category/private-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.ts");
+/* harmony import */ var _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/helpdesk-setup/common-category/common-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.ts");
+
+
 
 
 
@@ -1457,7 +1708,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
-    { path: 'settings', component: _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_3__["HelpdeskSetupComponent"] },
+    { path: 'settings', component: _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_3__["HelpdeskSetupComponent"],
+        children: [
+            { path: '', redirectTo: 'private-category', pathMatch: 'full' },
+            { path: 'private-category', component: _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_11__["PrivateCategoryComponent"] },
+            { path: 'common-category', component: _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_12__["CommonCategoryComponent"] },
+            { path: '**', redirectTo: 'private-category', pathMatch: 'full' }
+        ]
+    },
     { path: 'edit-staff/:id', component: _components_helpdesk_setup_helpdesk_edit_staff_helpdesk_edit_staff_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskEditStaffComponent"] },
     { path: 'add-ticket', component: _components_helpdesk_update_ticket_helpdesk_update_ticket_component__WEBPACK_IMPORTED_MODULE_4__["HelpdeskUpdateTicketComponent"] },
     { path: 'edit-ticket/:id', component: src_app_shared_components_add_ticket_add_ticket_component__WEBPACK_IMPORTED_MODULE_8__["AddTicketComponent"] },
@@ -1512,6 +1770,7 @@ let HelpdeskComponent = class HelpdeskComponent {
     ngOnInit() {
     }
 };
+HelpdeskComponent.ctorParameters = () => [];
 HelpdeskComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-helpdesk',
@@ -1540,13 +1799,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _helpdesk_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpdesk-routing.module */ "./src/app/modules/ams/helpdesk/helpdesk-routing.module.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _helpdesk_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpdesk.component */ "./src/app/modules/ams/helpdesk/helpdesk.component.ts");
-/* harmony import */ var _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/helpdesk-setup/helpdesk-setup.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.ts");
-/* harmony import */ var _components_helpdesk_update_ticket_helpdesk_update_ticket_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/helpdesk-update-ticket/helpdesk-update-ticket.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.ts");
-/* harmony import */ var _components_helpdesk_unassigned_helpdesk_unassigned_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/helpdesk-unassigned/helpdesk-unassigned.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.ts");
-/* harmony import */ var _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/helpdesk-reports/helpdesk-reports.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.ts");
-/* harmony import */ var _components_helpdesk_setup_helpdesk_edit_staff_helpdesk_edit_staff_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.ts");
-/* harmony import */ var _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/helpdesk-reports/open-tickets-report/open-tickets-report.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/open-tickets-report/open-tickets-report.component.ts");
+/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var _helpdesk_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpdesk.component */ "./src/app/modules/ams/helpdesk/helpdesk.component.ts");
+/* harmony import */ var _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/helpdesk-setup/helpdesk-setup.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.ts");
+/* harmony import */ var _components_helpdesk_update_ticket_helpdesk_update_ticket_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/helpdesk-update-ticket/helpdesk-update-ticket.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.ts");
+/* harmony import */ var _components_helpdesk_unassigned_helpdesk_unassigned_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/helpdesk-unassigned/helpdesk-unassigned.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.ts");
+/* harmony import */ var _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/helpdesk-reports/helpdesk-reports.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.ts");
+/* harmony import */ var _components_helpdesk_setup_helpdesk_edit_staff_helpdesk_edit_staff_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.ts");
+/* harmony import */ var _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/helpdesk-reports/open-tickets-report/open-tickets-report.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/open-tickets-report/open-tickets-report.component.ts");
+/* harmony import */ var _components_helpdesk_setup_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/helpdesk-setup/add-ticket-category/add-ticket-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.ts");
+/* harmony import */ var _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/helpdesk-setup/common-category/common-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.ts");
+/* harmony import */ var _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/helpdesk-setup/private-category/private-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.ts");
+
+
+
+
 
 
 
@@ -1564,20 +1831,24 @@ let HelpdeskModule = class HelpdeskModule {
 HelpdeskModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _helpdesk_component__WEBPACK_IMPORTED_MODULE_5__["HelpdeskComponent"],
-            _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_6__["HelpdeskSetupComponent"],
-            _components_helpdesk_update_ticket_helpdesk_update_ticket_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskUpdateTicketComponent"],
-            _components_helpdesk_unassigned_helpdesk_unassigned_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskUnassignedComponent"],
-            _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskReportsComponent"],
-            _components_helpdesk_setup_helpdesk_edit_staff_helpdesk_edit_staff_component__WEBPACK_IMPORTED_MODULE_10__["HelpdeskEditStaffComponent"],
-            _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_11__["OpenTicketsReportComponent"],
+            _helpdesk_component__WEBPACK_IMPORTED_MODULE_6__["HelpdeskComponent"],
+            _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskSetupComponent"],
+            _components_helpdesk_update_ticket_helpdesk_update_ticket_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskUpdateTicketComponent"],
+            _components_helpdesk_unassigned_helpdesk_unassigned_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskUnassignedComponent"],
+            _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_10__["HelpdeskReportsComponent"],
+            _components_helpdesk_setup_helpdesk_edit_staff_helpdesk_edit_staff_component__WEBPACK_IMPORTED_MODULE_11__["HelpdeskEditStaffComponent"],
+            _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_12__["OpenTicketsReportComponent"],
+            _components_helpdesk_setup_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_13__["AddTicketCategoryComponent"],
+            _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_14__["CommonCategoryComponent"],
+            _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_15__["PrivateCategoryComponent"],
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
-            _helpdesk_routing_module__WEBPACK_IMPORTED_MODULE_3__["HelpdeskRoutingModule"]
+            _helpdesk_routing_module__WEBPACK_IMPORTED_MODULE_3__["HelpdeskRoutingModule"],
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"],
         ],
-        bootstrap: [_helpdesk_component__WEBPACK_IMPORTED_MODULE_5__["HelpdeskComponent"]]
+        bootstrap: [_helpdesk_component__WEBPACK_IMPORTED_MODULE_6__["HelpdeskComponent"]]
     })
 ], HelpdeskModule);
 

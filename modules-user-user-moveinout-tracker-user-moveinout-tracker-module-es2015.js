@@ -87,6 +87,7 @@ let UserMoveinoutTrackerComponent = class UserMoveinoutTrackerComponent {
     ngOnInit() {
     }
 };
+UserMoveinoutTrackerComponent.ctorParameters = () => [];
 UserMoveinoutTrackerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-user-moveinout-tracker',

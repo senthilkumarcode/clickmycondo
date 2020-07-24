@@ -71,6 +71,7 @@ let NoticeReportsComponent = class NoticeReportsComponent {
     ngOnInit() {
     }
 };
+NoticeReportsComponent.ctorParameters = () => [];
 NoticeReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-notice-reports',
@@ -116,6 +117,7 @@ let NoticeSetupComponent = class NoticeSetupComponent {
     ngOnInit() {
     }
 };
+NoticeSetupComponent.ctorParameters = () => [];
 NoticeSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-notice-setup',
@@ -200,6 +202,7 @@ let NoticeComponent = class NoticeComponent {
     ngOnInit() {
     }
 };
+NoticeComponent.ctorParameters = () => [];
 NoticeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-notice',
