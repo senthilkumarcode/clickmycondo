@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptSubmitted\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"reverseIncomeHistoryForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptSubmitted\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button> \n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n");
 
 /***/ }),
 
@@ -501,7 +501,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
                 cellclassname: 'text-center',
                 cellsrenderer: (row, column, value) => {
                     return '<div class="jqx-custom-inner-cell">'
-                        + '<span class="squares medium ml-1 ' + getStatusClassName(value) + '">R</span>'
+                        + '<span class="squares text-white ' + getStatusClassName(value) + '">R</span>'
                         + '</div>';
                 },
                 renderer: columnrenderer
@@ -513,7 +513,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
                     let elemId = 'invoiceHistory' + row;
                     return '<div class="simple-actions">'
                         + '<a href="javascript:void(0)" class="mr-3 text-red-900 ' + getReverseStatus(value) + '" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">'
-                        + '<i class="fa fa-undo" aria-hidden="true"></i>'
+                        + '<i class="fa fa-undo text-red-900" aria-hidden="true"></i>'
                         + '</a>'
                         + '<a href="javascript:void(0)" class="text-secondary" onClick="editAccHistroyEvent(' + row + ')">'
                         + '<i class="fa fa-pencil" aria-hidden="true"></i>'
@@ -555,7 +555,7 @@ IncomeInvoiceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 ], IncomeInvoiceHistoryComponent);
 
 let getStatusClassName = value => {
-    return value ? 'red' : 'd-none';
+    return value ? 'bg-red-800' : 'd-none';
 };
 let getReverseStatus = value => {
     return value ? 'disabled' : '';

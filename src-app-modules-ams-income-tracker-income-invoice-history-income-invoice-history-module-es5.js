@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptSubmitted\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"reverseIncomeHistoryForm.invalid\">Submit</button>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n";
+      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptSubmitted\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button> \n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n";
       /***/
     },
 
@@ -734,7 +734,7 @@
               minwidth: 150,
               cellclassname: 'text-center',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + '<span class="squares medium ml-1 ' + getStatusClassName(value) + '">R</span>' + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + '<span class="squares text-white ' + getStatusClassName(value) + '">R</span>' + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -743,7 +743,7 @@
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, coloumn, value) {
                 var elemId = 'invoiceHistory' + row;
-                return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-3 text-red-900 ' + getReverseStatus(value) + '" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">' + '<i class="fa fa-undo" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" class="text-secondary" onClick="editAccHistroyEvent(' + row + ')">' + '<i class="fa fa-pencil" aria-hidden="true"></i>' + '</a>' + '</div>';
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-3 text-red-900 ' + getReverseStatus(value) + '" id="' + elemId + '" onClick="editReverseEvent(' + row + ')">' + '<i class="fa fa-undo text-red-900" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" class="text-secondary" onClick="editAccHistroyEvent(' + row + ')">' + '<i class="fa fa-pencil" aria-hidden="true"></i>' + '</a>' + '</div>';
               },
               renderer: columnrenderer
             }];
@@ -802,7 +802,7 @@
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], IncomeInvoiceHistoryComponent);
 
       var getStatusClassName = function getStatusClassName(value) {
-        return value ? 'red' : 'd-none';
+        return value ? 'bg-red-800' : 'd-none';
       };
 
       var getReverseStatus = function getReverseStatus(value) {

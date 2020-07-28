@@ -384,6 +384,7 @@
           value: function getSelectedBlock(event) {
             this.report.apartmentBlockId = event[0].apartmentBlockId;
             this.getUnits(this.report.apartmentBlockId);
+            console.log(this.report.apartmentBlockId);
           }
         }, {
           key: "getUnits",
@@ -521,6 +522,7 @@
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./income-tracker-reports-customer.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/income-tracker/income-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-tracker-reports-customer.component.scss */
         "./src/app/modules/ams/income-tracker/income-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.scss"))["default"]]
