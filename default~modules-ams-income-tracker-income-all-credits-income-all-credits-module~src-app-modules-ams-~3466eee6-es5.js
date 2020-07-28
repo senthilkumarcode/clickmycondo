@@ -150,12 +150,12 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var IncomeAddCreditComponent = /*#__PURE__*/function () {
-        function IncomeAddCreditComponent(_activatedRoute, _router, el, _changeDetectorRef, _incomeCreditListComponent, accountsService, apartmentService, sharedService, cookieService) {
+        function IncomeAddCreditComponent(_activatedRoute, _router, el, _changeDetectorRef, _incomeCreditListComponent, accountsService, apartmentService, sharedService, sessionService) {
           _classCallCheck(this, IncomeAddCreditComponent);
 
           this._activatedRoute = _activatedRoute;
@@ -166,7 +166,7 @@
           this.accountsService = accountsService;
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isCreditSubmitted = false;
           this.isError = false;
           this.alertMessage = "";
@@ -208,7 +208,7 @@
             var _this2 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               apartmentBlockUnitId: parseInt(id)
             };
             this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe(function (res) {
@@ -231,7 +231,7 @@
 
             this.isCreditSubmitted = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               creditNoteId: id
             };
             this.accountsService.getCreditNoteById(params).subscribe(function (res) {
@@ -257,7 +257,7 @@
             if (form.valid) {
               if (!this.isEdit) {
                 var details = {
-                  "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                  "apartmentId": this.sessionService.apartmentId,
                   "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                   "blockUnitUserId": null,
                   "custCreditNoteId": null,
@@ -269,7 +269,7 @@
                   "comment": this.credit.comment,
                   "comment2": this.credit.comment,
                   "active": true,
-                  "insertedBy": parseInt(this.cookieService.get('userId')),
+                  "insertedBy": parseInt(this.sessionService.userId),
                   "insertedOn": new Date().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
@@ -299,7 +299,7 @@
               } else {
                 var _details = {
                   "id": this.credit.creditNoteId,
-                  "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                  "apartmentId": this.sessionService.apartmentId,
                   "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                   "blockUnitUserId": this.credit.blockUnitUserId,
                   "custCreditNoteId": this.credit.creditNoteId,
@@ -313,7 +313,7 @@
                   "active": this.credit.active,
                   "insertedBy": this.credit.insertedBy,
                   "insertedOn": this.credit.insertedOn,
-                  "updatedBy": parseInt(this.cookieService.get('userId')),
+                  "updatedBy": parseInt(this.sessionService.userId),
                   "updatedOn": new Date().toISOString()
                 };
                 var _params = {
@@ -373,7 +373,7 @@
               this.credit = {};
               this.credit.collectionId = "";
               var params = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                apartmentId: this.sessionService.apartmentId
               }; //get apartment blocks
 
               this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
@@ -426,7 +426,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -466,7 +466,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-add-credit.component.scss */
         "./src/app/modules/ams/income-tracker/income-all-credits/income-add-credit/income-add-credit.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_modules_ams_income_tracker_income_all_credits_income_credit_list_income_credit_list_component__WEBPACK_IMPORTED_MODULE_3__["IncomeCreditListComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], IncomeAddCreditComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_modules_ams_income_tracker_income_all_credits_income_credit_list_income_credit_list_component__WEBPACK_IMPORTED_MODULE_3__["IncomeCreditListComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], IncomeAddCreditComponent);
       /***/
     },
 
@@ -959,9 +959,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -970,7 +970,7 @@
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
       var IncomeCreditListComponent = /*#__PURE__*/function () {
-        function IncomeCreditListComponent(_changeDetectorRef, _activatedRoute, _router, accountsService, sharedService, cookieService) {
+        function IncomeCreditListComponent(_changeDetectorRef, _activatedRoute, _router, accountsService, sharedService, sessionService) {
           _classCallCheck(this, IncomeCreditListComponent);
 
           this._changeDetectorRef = _changeDetectorRef;
@@ -978,7 +978,7 @@
           this._router = _router;
           this.accountsService = accountsService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isCreditNoteLoaded = false;
           this.creditNoteData = "";
           this.isEditCredit = false;
@@ -1104,7 +1104,7 @@
 
             this.isCreditNoteLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getCreditNotesByApartmentId(params).subscribe(function (res) {
               var creditNoteDataList = res;
@@ -1128,7 +1128,7 @@
 
             this.isCreditNoteLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               blockUnitId: parseInt(id)
             };
             this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe(function (res) {
@@ -1278,7 +1278,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -1309,7 +1309,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-credit-list.component.scss */
         "./src/app/modules/ams/income-tracker/income-all-credits/income-credit-list/income-credit-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], IncomeCreditListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], IncomeCreditListComponent);
 
       var editCreditNoteEvent = function editCreditNoteEvent(row) {
         var event = new CustomEvent('onEditCreditNote', {

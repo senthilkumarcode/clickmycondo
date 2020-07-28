@@ -201,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -209,12 +209,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddBlockComponent = class AddBlockComponent {
-    constructor(router, route, apartmentService, sharedService, cookieService) {
+    constructor(router, route, apartmentService, sharedService, sessionService) {
         this.router = router;
         this.route = route;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.blockNo = "";
         this.blockDescription = "";
         this.isBlockSubmitted = false;
@@ -236,7 +236,7 @@ let AddBlockComponent = class AddBlockComponent {
         this.apartmentBlock = {
             apartmentBlockNumber: this.blockNo,
             description: this.blockDescription,
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             isActive: true,
             insertedBy: 1
         };
@@ -257,7 +257,7 @@ AddBlockComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 AddBlockComponent.propDecorators = {
     index: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['index',] }],
@@ -274,7 +274,7 @@ AddBlockComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], AddBlockComponent);
 
 
@@ -307,7 +307,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
 /* harmony import */ var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Document */ "./src/app/api/controllers/Document.ts");
 /* harmony import */ var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
@@ -328,11 +328,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var graph;
 let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
-    constructor(element, apartmentService, documentService, cookieService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
+    constructor(element, apartmentService, documentService, sessionService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
         this.element = element;
         this.apartmentService = apartmentService;
         this.documentService = documentService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.fileUploadService = fileUploadService;
         this.fileDownloadService = fileDownloadService;
         this.sanitizer = sanitizer;
@@ -372,7 +372,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     }
     getBlockList() {
         let param = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(param).subscribe((resp) => {
             this.towerList = resp;
@@ -383,7 +383,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     }
     getFloorList() {
         let getFloorParam = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             apartmentblockId: this.selectedTower
         };
         this.apartmentService.getApartmentBlockFloorByApartmentIdBlockId(getFloorParam).subscribe((resp) => {
@@ -422,7 +422,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     }
     uploadFile(event) {
         let file = event[0];
-        let userId = parseInt(this.cookieService.get('userId'));
+        let userId = parseInt(this.sessionService.userId);
         this.fileUploadService.upload(file, userId).subscribe((res) => {
             if (res != undefined) {
                 this.uploadResponse = res;
@@ -469,7 +469,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     getFileDetails(imageId) {
         let newParams = {
             fileDetailsId: imageId,
-            apartmentId: Number(this.cookieService.get('apartmentId'))
+            apartmentId: Number(this.sessionService.apartmentId)
         };
         this.fileDetailService.getFileDetailsById(newParams).subscribe((res) => {
             this.downloadFile(res[0].filePath);
@@ -512,7 +512,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         let addPropertyMap = {
             propertyMapFile: {
                 "propertyMapFileId": 0,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockId": 0,
                 "description": "",
                 "isIndoor": true,
@@ -521,7 +521,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
                 "floorPictureFileDetailsId": imageId,
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString(),
@@ -539,7 +539,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         let updatePropertyMap = {
             propertyMapFile: {
                 "propertyMapFileId": this.floorPropertyData.propertyMapFileId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockId": 0,
                 "description": "",
                 "isIndoor": true,
@@ -550,7 +550,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString(),
                 "apartmentBlockFloorId": 0
             }
@@ -621,7 +621,7 @@ AddFloorUnitGraphicComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
     { type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
     { type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"] },
     { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"] },
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"] },
@@ -644,7 +644,7 @@ AddFloorUnitGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
         src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
         src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"],
         src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"],
@@ -684,7 +684,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 
 
@@ -694,9 +694,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddFloorUnitComponent = class AddFloorUnitComponent {
-    constructor(apartmentService, cookieService) {
+    constructor(apartmentService, sessionService) {
         this.apartmentService = apartmentService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.towerSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.tableInfo = false;
         this.pageType = 'create';
@@ -763,7 +763,7 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
     }
     getApartmentTowerAndFloor(pagetype) {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             if (res.length > 0) {
@@ -780,7 +780,7 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
                         'totalnofloors': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](res[i].totalnofloors, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
                     }));
                     let blockId = {
-                        apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                        apartmentId: this.sessionService.apartmentId,
                         apartmentBlockId: res[i].apartmentBlockId
                     };
                     this.initalFloor(blockId, res[i], i);
@@ -849,10 +849,10 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
                 "totalNounits": this.floorControlArray.at(i).get('totalNounits').value,
                 "totalnofloors": this.floorControlArray.at(i).get('totalnofloors').value,
                 "description": this.floorControlArray.at(i).get('apartmentBlockNumber').value,
-                "apartmentId": Number(this.cookieService.get('apartmentId')),
+                "apartmentId": Number(this.sessionService.apartmentId),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
-                "updatedBy": this.pageType == 'edit' ? parseInt(this.cookieService.get('userId')) : null,
+                "insertedBy": parseInt(this.sessionService.userId),
+                "updatedBy": this.pageType == 'edit' ? parseInt(this.sessionService.userId) : null,
             };
             params.apartmentBlocks.push(createTowers);
         }
@@ -871,7 +871,7 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
                 floorno: data[i].floorno,
                 floorLabel: data[i].floorLabel,
                 isActive: true,
-                insertedBy: parseInt(this.cookieService.get('userId')),
+                insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: new Date().toISOString(),
             };
             params.apartmentBlockUnits.push(entity);
@@ -892,9 +892,9 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
                 "totalNounits": addNewTower.at(i).get('totalNounits').value,
                 "totalnofloors": addNewTower.at(i).get('totalnofloors').value,
                 "description": addNewTower.at(i).get('apartmentBlockNumber').value,
-                "apartmentId": Number(this.cookieService.get('apartmentId')),
+                "apartmentId": Number(this.sessionService.apartmentId),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
             };
             params.apartmentBlocks.push(createTowers);
         }
@@ -931,7 +931,7 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
 };
 AddFloorUnitComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 AddFloorUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -939,7 +939,7 @@ AddFloorUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-floor-unit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-floor-unit.component.scss */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], AddFloorUnitComponent);
 
 
@@ -1026,15 +1026,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
 
 let AddUnitWrapperComponent = class AddUnitWrapperComponent {
-    constructor(apartmentService, cookieService) {
+    constructor(apartmentService, sessionService) {
         this.apartmentService = apartmentService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.blockId = "";
         this.isBlockSelected = false;
         this.unitCount = 1;
@@ -1058,7 +1058,7 @@ let AddUnitWrapperComponent = class AddUnitWrapperComponent {
     }
     ngOnInit() {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.unitBlocksData = res;
@@ -1068,7 +1068,7 @@ let AddUnitWrapperComponent = class AddUnitWrapperComponent {
 };
 AddUnitWrapperComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
 ];
 AddUnitWrapperComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1077,7 +1077,7 @@ AddUnitWrapperComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-unit-wrapper.component.scss */ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
 ], AddUnitWrapperComponent);
 
 
@@ -1111,17 +1111,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
 
 
 let AddUnitComponent = class AddUnitComponent {
-    constructor(apartmentService, lookupService, cookieService) {
+    constructor(apartmentService, lookupService, sessionService) {
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.unitType = "";
         this.isUnitSubmitted = false;
         this.isUnitAdded = false;
@@ -1181,7 +1181,7 @@ let AddUnitComponent = class AddUnitComponent {
     ngOnInit() {
         this.unit = {};
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.unitBlocksData = res;
@@ -1197,7 +1197,7 @@ let AddUnitComponent = class AddUnitComponent {
 AddUnitComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
 AddUnitComponent.propDecorators = {
     index: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['index',] }],
@@ -1213,7 +1213,7 @@ AddUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], AddUnitComponent);
 
 

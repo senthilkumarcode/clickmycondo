@@ -92,7 +92,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Vendor */ "./src/app/api/controllers/Vendor.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
@@ -107,13 +107,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ExpensePayInvoiceComponent = class ExpensePayInvoiceComponent {
-    constructor(route, userService, lookupService, accountsService, vendorService, cookieService) {
+    constructor(route, userService, lookupService, accountsService, vendorService, sessionService) {
         this.route = route;
         this.userService = userService;
         this.lookupService = lookupService;
         this.accountsService = accountsService;
         this.vendorService = vendorService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isInvoiceDataLoaded = false;
         this.invoiceData = "";
         this.ItemStartIndex = 0;
@@ -236,7 +236,7 @@ let ExpensePayInvoiceComponent = class ExpensePayInvoiceComponent {
     }
     getCustInvoices() {
         var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             vendorId: this.route.params['value'].id
         };
         this.accountsService.getVendorInvoiceByVendorId(params).subscribe((res) => {
@@ -254,7 +254,7 @@ let ExpensePayInvoiceComponent = class ExpensePayInvoiceComponent {
     ngOnInit() {
         this.getCustInvoices();
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.vendorService.getVendorByApartmentId(params).subscribe((res) => {
             this.vendorDataList = res.filter(item => {
@@ -271,7 +271,7 @@ let ExpensePayInvoiceComponent = class ExpensePayInvoiceComponent {
             });
         });
         var accountParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             groupId: 3
         };
         this.accountsService.getGlAccountsByGroupId(accountParams).subscribe((res) => {
@@ -285,7 +285,7 @@ ExpensePayInvoiceComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
     { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 ExpensePayInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -298,7 +298,7 @@ ExpensePayInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
         src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], ExpensePayInvoiceComponent);
 
 
@@ -390,7 +390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
@@ -400,11 +400,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ExpensePostPaymentComponent = class ExpensePostPaymentComponent {
-    constructor(accountsService, lookupService, sharedService, cookieService) {
+    constructor(accountsService, lookupService, sharedService, sessionService) {
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.collection = {};
         this.isCollectionSubmitted = false;
         this.isError = false;
@@ -418,13 +418,13 @@ let ExpensePostPaymentComponent = class ExpensePostPaymentComponent {
         var custInvoiceObjArray = [];
         underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, (item, index) => {
             var details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "paymentId": 11,
                 "invoiceId": item,
                 "amount": this.totalAmountArray[index],
                 "comment": "",
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": "2020-01-10T06:59:54.422Z",
                 "updatedBy": 0,
                 "updatedOn": "2020-01-10T06:59:54.422Z"
@@ -433,7 +433,7 @@ let ExpensePostPaymentComponent = class ExpensePostPaymentComponent {
         });
         this.isCollectionSubmitted = false;
         let collectionDetails = {
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentId": this.sessionService.apartmentId,
             "paymentAmount": parseInt(this.collection.paymentAmount),
             "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
             "instrumentNumber": "",
@@ -442,7 +442,7 @@ let ExpensePostPaymentComponent = class ExpensePostPaymentComponent {
             "vendorPaymentAccountTypeId": 23,
             "comments": "",
             "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": "2019-12-15T19:36:14.09",
             "updatedBy": null,
             "updatedOn": null,
@@ -483,7 +483,7 @@ let ExpensePostPaymentComponent = class ExpensePostPaymentComponent {
         }, error => {
         });
         var accountParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             groupId: 3
         };
         this.accountsService.getGlAccountsByGroupId(accountParams).subscribe((res) => {
@@ -512,7 +512,7 @@ ExpensePostPaymentComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 ExpensePostPaymentComponent.propDecorators = {
     totalAmountArray: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -528,7 +528,7 @@ ExpensePostPaymentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], ExpensePostPaymentComponent);
 
 

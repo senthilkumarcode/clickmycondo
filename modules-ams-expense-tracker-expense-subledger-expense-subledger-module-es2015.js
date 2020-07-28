@@ -79,7 +79,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Vendor */ "./src/app/api/controllers/Vendor.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ExpenseSubledgerComponent = class ExpenseSubledgerComponent {
-    constructor(injector, dialog, apartmentService, lookupService, vendorService, accountsService, sharedService, cookieService, router) {
+    constructor(injector, dialog, apartmentService, lookupService, vendorService, accountsService, sharedService, sessionService, router) {
         this.injector = injector;
         this.dialog = dialog;
         this.apartmentService = apartmentService;
@@ -106,7 +106,7 @@ let ExpenseSubledgerComponent = class ExpenseSubledgerComponent {
         this.vendorService = vendorService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.router = router;
         this.isSubLedgerDataLoaded = false;
         this.subLedgerData = "";
@@ -122,7 +122,7 @@ let ExpenseSubledgerComponent = class ExpenseSubledgerComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__["ModalService"]);
     }
@@ -330,7 +330,7 @@ ExpenseSubledgerComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] }
 ];
 ExpenseSubledgerComponent.propDecorators = {
@@ -356,7 +356,7 @@ ExpenseSubledgerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])
 ], ExpenseSubledgerComponent);
 

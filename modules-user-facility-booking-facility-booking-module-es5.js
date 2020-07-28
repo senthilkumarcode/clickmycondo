@@ -156,9 +156,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -177,7 +177,7 @@
       var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
       var AllFacilityBookingsComponent = /*#__PURE__*/function () {
-        function AllFacilityBookingsComponent(router, route, injector, userService, facilityService, lookupService, sharedService, cookieService) {
+        function AllFacilityBookingsComponent(router, route, injector, userService, facilityService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, AllFacilityBookingsComponent);
 
           this.router = router;
@@ -187,7 +187,7 @@
           this.facilityService = facilityService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isBookingDataLoaded = false;
           this.unitFieldType = "unitno";
           this.unitOrder = true;
@@ -308,7 +308,7 @@
             var _this = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
               _this.facilityCategoryData = res.filter(function (item) {
@@ -326,7 +326,7 @@
               });
             }, function (error) {});
             var facilityParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilitySlotsByApartmentId(facilityParams).subscribe(function (res) {
               _this.facilitySlotData = res.filter(function (item) {
@@ -334,7 +334,7 @@
               });
             }, function (error) {});
             var userListParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.userService.getAllUsersByApartmentId(userListParams).subscribe(function (res) {
               _this.userListData = res.filter(function (data) {
@@ -342,13 +342,13 @@
               });
             }, function (error) {});
             var bookingListParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilityBookingsByApartmentId(bookingListParams).subscribe(function (res) {
-              console.log(_this.cookieService.get('apartmentId')); //filter active true items and booking related this user
+              console.log(_this.sessionService.apartmentId); //filter active true items and booking related this user
 
               _this.bookingListData = res.filter(function (data) {
-                return data.isActive && data.neededUserId == parseInt(_this.cookieService.get('userId'));
+                return data.isActive && data.neededUserId == parseInt(_this.sessionService.userId);
               });
 
               if (_this.bookingListData.length == 0 || _this.bookingListData == undefined) {
@@ -370,7 +370,7 @@
               if (index != null) {
                 var params = {
                   apartmentFacilityBookingId: _this.bookingListData[index].apartmentFacilityBookingId,
-                  deleteBy: parseInt(_this.cookieService.get('userId'))
+                  deleteBy: parseInt(_this.sessionService.userId)
                 };
                 _this.isBookingDataLoaded = false;
 
@@ -409,7 +409,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }];
       };
 
@@ -421,7 +421,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./all-facility-bookings.component.scss */
         "./src/app/modules/user/facility-booking/components/all-facility-bookings/all-facility-bookings.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], AllFacilityBookingsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], AllFacilityBookingsComponent);
       /***/
     },
 
@@ -503,9 +503,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -530,7 +530,7 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var UserFacilityCalendarComponent = /*#__PURE__*/function () {
-        function UserFacilityCalendarComponent(router, route, facilityService, lookupService, sharedService, cookieService) {
+        function UserFacilityCalendarComponent(router, route, facilityService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, UserFacilityCalendarComponent);
 
           this.router = router;
@@ -538,7 +538,7 @@
           this.facilityService = facilityService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.calendarPlugins = [_fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_7__["default"]]; // important!
 
           this.calendarEvents = [];
@@ -557,7 +557,7 @@
             var _this2 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilitySlotsByApartmentId(params).subscribe(function (res) {
               _this2.facilitySlotData = res.filter(function (item) {
@@ -565,19 +565,19 @@
               });
             }, function (error) {});
             var categoryParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilitiesByApartmentId(categoryParams).subscribe(function (res) {
               _this2.facilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
               var bookingParams = {
-                apartmentId: parseInt(_this2.cookieService.get('apartmentId'))
+                apartmentId: _this2.sessionService.apartmentId
               };
 
               _this2.facilityService.getApartmentFacilityBookingsByApartmentId(bookingParams).subscribe(function (res) {
                 _this2.facilityBookingData = res.filter(function (item) {
-                  return item.isActive && item.neededUserId == parseInt(_this2.cookieService.get('userId'));
+                  return item.isActive && item.neededUserId == parseInt(_this2.sessionService.userId);
                 });
                 underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this2.facilityBookingData, function (booking) {
                   var date = moment__WEBPACK_IMPORTED_MODULE_8__(booking.bookedForDate).format("YYYY-MM-DD");
@@ -629,7 +629,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -641,7 +641,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./user-facility-calendar.component.scss */
         "./src/app/modules/user/facility-booking/components/user-facility-calendar/user-facility-calendar.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], UserFacilityCalendarComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], UserFacilityCalendarComponent);
       /***/
     },
 

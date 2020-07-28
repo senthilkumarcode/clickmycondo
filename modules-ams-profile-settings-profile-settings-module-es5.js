@@ -358,19 +358,19 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var AddBlockComponent = /*#__PURE__*/function () {
-        function AddBlockComponent(router, route, apartmentService, sharedService, cookieService) {
+        function AddBlockComponent(router, route, apartmentService, sharedService, sessionService) {
           _classCallCheck(this, AddBlockComponent);
 
           this.router = router;
           this.route = route;
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.blockNo = "";
           this.blockDescription = "";
           this.isBlockSubmitted = false;
@@ -403,7 +403,7 @@
             this.apartmentBlock = {
               apartmentBlockNumber: this.blockNo,
               description: this.blockDescription,
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               isActive: true,
               insertedBy: 1
             };
@@ -434,7 +434,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -459,7 +459,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-block.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block/add-block.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], AddBlockComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], AddBlockComponent);
       /***/
     },
 
@@ -523,9 +523,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -572,13 +572,13 @@
       var graph;
 
       var AddFloorUnitGraphicComponent = /*#__PURE__*/function () {
-        function AddFloorUnitGraphicComponent(element, apartmentService, documentService, cookieService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
+        function AddFloorUnitGraphicComponent(element, apartmentService, documentService, sessionService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
           _classCallCheck(this, AddFloorUnitGraphicComponent);
 
           this.element = element;
           this.apartmentService = apartmentService;
           this.documentService = documentService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.fileUploadService = fileUploadService;
           this.fileDownloadService = fileDownloadService;
           this.sanitizer = sanitizer;
@@ -629,7 +629,7 @@
             var _this2 = this;
 
             var param = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(param).subscribe(function (resp) {
               _this2.towerList = resp;
@@ -644,7 +644,7 @@
             var _this3 = this;
 
             var getFloorParam = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               apartmentblockId: this.selectedTower
             };
             this.apartmentService.getApartmentBlockFloorByApartmentIdBlockId(getFloorParam).subscribe(function (resp) {
@@ -694,7 +694,7 @@
             var _this5 = this;
 
             var file = event[0];
-            var userId = parseInt(this.cookieService.get('userId'));
+            var userId = parseInt(this.sessionService.userId);
             this.fileUploadService.upload(file, userId).subscribe(function (res) {
               if (res != undefined) {
                 _this5.uploadResponse = res;
@@ -753,7 +753,7 @@
 
             var newParams = {
               fileDetailsId: imageId,
-              apartmentId: Number(this.cookieService.get('apartmentId'))
+              apartmentId: Number(this.sessionService.apartmentId)
             };
             this.fileDetailService.getFileDetailsById(newParams).subscribe(function (res) {
               _this8.downloadFile(res[0].filePath);
@@ -809,7 +809,7 @@
             var addPropertyMap = {
               propertyMapFile: {
                 "propertyMapFileId": 0,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockId": 0,
                 "description": "",
                 "isIndoor": true,
@@ -818,7 +818,7 @@
                 "floorPictureFileDetailsId": imageId,
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString(),
@@ -840,7 +840,7 @@
             var updatePropertyMap = {
               propertyMapFile: {
                 "propertyMapFileId": this.floorPropertyData.propertyMapFileId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockId": 0,
                 "description": "",
                 "isIndoor": true,
@@ -851,7 +851,7 @@
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString(),
                 "apartmentBlockFloorId": 0
               }
@@ -941,7 +941,7 @@
         }, {
           type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
         }, {
           type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"]
         }, {
@@ -985,7 +985,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-floor-unit-graphic.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"]])], AddFloorUnitGraphicComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"]])], AddFloorUnitGraphicComponent);
       /***/
     },
 
@@ -1061,9 +1061,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1072,11 +1072,11 @@
       "./src/app/api/controllers/Apartment.ts");
 
       var AddFloorUnitComponent = /*#__PURE__*/function () {
-        function AddFloorUnitComponent(apartmentService, cookieService) {
+        function AddFloorUnitComponent(apartmentService, sessionService) {
           _classCallCheck(this, AddFloorUnitComponent);
 
           this.apartmentService = apartmentService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.towerSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
           this.tableInfo = false;
           this.pageType = 'create';
@@ -1160,7 +1160,7 @@
             var _this12 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
@@ -1182,7 +1182,7 @@
                   }));
 
                   var blockId = {
-                    apartmentId: parseInt(_this12.cookieService.get('apartmentId')),
+                    apartmentId: _this12.sessionService.apartmentId,
                     apartmentBlockId: res[i].apartmentBlockId
                   };
 
@@ -1264,10 +1264,10 @@
                 "totalNounits": this.floorControlArray.at(i).get('totalNounits').value,
                 "totalnofloors": this.floorControlArray.at(i).get('totalnofloors').value,
                 "description": this.floorControlArray.at(i).get('apartmentBlockNumber').value,
-                "apartmentId": Number(this.cookieService.get('apartmentId')),
+                "apartmentId": Number(this.sessionService.apartmentId),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
-                "updatedBy": this.pageType == 'edit' ? parseInt(this.cookieService.get('userId')) : null
+                "insertedBy": parseInt(this.sessionService.userId),
+                "updatedBy": this.pageType == 'edit' ? parseInt(this.sessionService.userId) : null
               };
               params.apartmentBlocks.push(createTowers);
             }
@@ -1290,7 +1290,7 @@
                 floorno: data[i].floorno,
                 floorLabel: data[i].floorLabel,
                 isActive: true,
-                insertedBy: parseInt(this.cookieService.get('userId')),
+                insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: new Date().toISOString()
               };
               params.apartmentBlockUnits.push(entity);
@@ -1317,9 +1317,9 @@
                 "totalNounits": addNewTower.at(i).get('totalNounits').value,
                 "totalnofloors": addNewTower.at(i).get('totalnofloors').value,
                 "description": addNewTower.at(i).get('apartmentBlockNumber').value,
-                "apartmentId": Number(this.cookieService.get('apartmentId')),
+                "apartmentId": Number(this.sessionService.apartmentId),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId'))
+                "insertedBy": parseInt(this.sessionService.userId)
               };
               params.apartmentBlocks.push(createTowers);
             }
@@ -1374,7 +1374,7 @@
         return [{
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -1386,7 +1386,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-floor-unit.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], AddFloorUnitComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], AddFloorUnitComponent);
       /***/
     },
 
@@ -1548,16 +1548,16 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var AddUnitWrapperComponent = /*#__PURE__*/function () {
-        function AddUnitWrapperComponent(apartmentService, cookieService) {
+        function AddUnitWrapperComponent(apartmentService, sessionService) {
           _classCallCheck(this, AddUnitWrapperComponent);
 
           this.apartmentService = apartmentService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.blockId = "";
           this.isBlockSelected = false;
           this.unitCount = 1;
@@ -1598,7 +1598,7 @@
             var _this17 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               _this17.unitBlocksData = res;
@@ -1616,7 +1616,7 @@
         return [{
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
         }];
       };
 
@@ -1628,7 +1628,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-unit-wrapper.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], AddUnitWrapperComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], AddUnitWrapperComponent);
       /***/
     },
 
@@ -1698,17 +1698,17 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var AddUnitComponent = /*#__PURE__*/function () {
-        function AddUnitComponent(apartmentService, lookupService, cookieService) {
+        function AddUnitComponent(apartmentService, lookupService, sessionService) {
           _classCallCheck(this, AddUnitComponent);
 
           this.apartmentService = apartmentService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.unitType = "";
           this.isUnitSubmitted = false;
           this.isUnitAdded = false;
@@ -1782,7 +1782,7 @@
 
             this.unit = {};
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               _this19.unitBlocksData = res;
@@ -1805,7 +1805,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
       };
 
@@ -1833,7 +1833,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-unit.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], AddUnitComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], AddUnitComponent);
       /***/
     },
 

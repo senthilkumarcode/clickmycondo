@@ -80,7 +80,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Vendor */ "./src/app/api/controllers/Vendor.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -97,13 +97,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ExpenseInvoiceHistoryComponent = class ExpenseInvoiceHistoryComponent {
-    constructor(route, userService, vendorService, accountsService, lookupService, cookieService, router) {
+    constructor(route, userService, vendorService, accountsService, lookupService, sessionService, router) {
         this.route = route;
         this.userService = userService;
         this.vendorService = vendorService;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.router = router;
         this.isInvoiceDataLoaded = false;
         this.invoiceData = "";
@@ -116,7 +116,7 @@ let ExpenseInvoiceHistoryComponent = class ExpenseInvoiceHistoryComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getIndexParams(event) {
@@ -262,7 +262,7 @@ let ExpenseInvoiceHistoryComponent = class ExpenseInvoiceHistoryComponent {
             });
         });
         var accountParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             groupId: 3
         };
         this.accountsService.getGlAccountsByGroupId(accountParams).subscribe((res) => {
@@ -295,7 +295,7 @@ ExpenseInvoiceHistoryComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 ExpenseInvoiceHistoryComponent.propDecorators = {
@@ -313,7 +313,7 @@ ExpenseInvoiceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], ExpenseInvoiceHistoryComponent);
 

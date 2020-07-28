@@ -82,7 +82,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Package */ "./src/app/api/controllers/Package.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -95,24 +95,24 @@ __webpack_require__.r(__webpack_exports__);
 let CreatePackageComponent = class CreatePackageComponent {
     constructor(router, route, staffService, packageService, lookupService, apartmentService, 
     //private sharedService:SharedService,
-    cookieService) {
+    sessionService) {
         this.router = router;
         this.route = route;
         this.staffService = staffService;
         this.packageService = packageService;
         this.lookupService = lookupService;
         this.apartmentService = apartmentService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isEdit = false;
         this.isError = false;
         this.isPackageCreated = true;
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     submitPackageForm(form) {
         let package_data = {
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentId": this.sessionService.apartmentId,
             "apartmentBlockUnitId": this.packageData.BlockUnitId,
             "packageTypeId": this.packageData.Type,
             "slot": this.packageData.Slot,
@@ -120,10 +120,10 @@ let CreatePackageComponent = class CreatePackageComponent {
             "deliveryDate": new Date().toISOString(),
             "assignedTo": this.packageData.Staff,
             "description": this.packageData.Comments,
-            "receivedBy": parseInt(this.cookieService.get('userId')),
+            "receivedBy": parseInt(this.sessionService.userId),
             "deliveryStatusId": 986,
             "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": new Date().toISOString(),
             "updatedBy": 0,
             "updatedOn": null
@@ -200,7 +200,7 @@ CreatePackageComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_5__["PackageService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 CreatePackageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -214,7 +214,7 @@ CreatePackageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_5__["PackageService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], CreatePackageComponent);
 
 
@@ -249,7 +249,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -257,11 +257,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DeliveryHistoryComponent = class DeliveryHistoryComponent {
-    constructor(lookupService, sharedService, utilityTrackerService, cookieService) {
+    constructor(lookupService, sharedService, utilityTrackerService, sessionService) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.utilityTrackerService = utilityTrackerService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isDeliveryHistoryLoaded = true;
         this.unitFieldType = "deliveryName";
         this.unitOrder = true;
@@ -303,7 +303,7 @@ DeliveryHistoryComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 DeliveryHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -314,7 +314,7 @@ DeliveryHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], DeliveryHistoryComponent);
 
 
@@ -406,7 +406,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Package */ "./src/app/api/controllers/Package.ts");
 
 
@@ -416,12 +416,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PendingDeliveryComponent = class PendingDeliveryComponent {
-    constructor(lookupService, sharedService, packageService, utilityTrackerService, cookieService) {
+    constructor(lookupService, sharedService, packageService, utilityTrackerService, sessionService) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.packageService = packageService;
         this.utilityTrackerService = utilityTrackerService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isPendingDeliveryLoaded = true;
         this.unitFieldType = "deliveryName";
         this.unitOrder = true;
@@ -430,7 +430,7 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getIndexParams(event) {
@@ -470,7 +470,7 @@ PendingDeliveryComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_6__["PackageService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 PendingDeliveryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -482,7 +482,7 @@ PendingDeliveryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_6__["PackageService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], PendingDeliveryComponent);
 
 

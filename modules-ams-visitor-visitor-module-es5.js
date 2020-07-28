@@ -276,9 +276,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -297,7 +297,7 @@
       var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
       var CheckinVisitorComponent = /*#__PURE__*/function () {
-        function CheckinVisitorComponent(router, route, userService, apartmentService, visitorService, lookupService, sharedService, cookieService, SharedToaster) {
+        function CheckinVisitorComponent(router, route, userService, apartmentService, visitorService, lookupService, sharedService, sessionService, SharedToaster) {
           _classCallCheck(this, CheckinVisitorComponent);
 
           this.router = router;
@@ -307,7 +307,7 @@
           this.visitorService = visitorService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.SharedToaster = SharedToaster;
           this.isEditVisitor = false;
           this.isVisitorSubmitted = false;
@@ -360,7 +360,7 @@
             this.isError = false;
             var visitorDetails = {
               "apartmentUnitId": this.apartmentUnitId,
-              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentId": this.sessionService.apartmentId,
               "visitorName": this.visitor.expectedVisitorFirstName + ' ' + this.visitor.expectedVisitorLastName,
               "visitorCount": this.visitor.expectedVisitorCount,
               "visitorPhone": this.visitor.expectedVisitorPhone.toString(),
@@ -381,11 +381,11 @@
               "entryGateId": null,
               "exitGateId": null,
               "purpose": this.visitor.purpose,
-              "enteredBy": parseInt(this.cookieService.get('userId')),
+              "enteredBy": parseInt(this.sessionService.userId),
               "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": "2019-11-18T17:08:51.188Z",
-              "updatedBy": parseInt(this.cookieService.get('userId')),
+              "updatedBy": parseInt(this.sessionService.userId),
               "updatedOn": "2019-11-18T17:08:51.188Z",
               "expectedVisitorId": null,
               "expectedVisitorInTime": null,
@@ -423,7 +423,7 @@
             this.minoutDate = new Date();
             this.visitor = {};
             var visitParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 15
             }; //visit type
 
@@ -431,7 +431,7 @@
               _this2.visitByData = res;
             }, function (error) {});
             var visitCategoryParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 100
             }; //visit type
 
@@ -441,7 +441,7 @@
               });
             }, function (error) {});
             var cateogoryParams = {
-              userId: parseInt(this.cookieService.get('userId'))
+              userId: parseInt(this.sessionService.userId)
             };
             this.apartmentService.getApartmentBlockUnitByUserId(cateogoryParams).subscribe(function (res) {
               _this2.apartmentUnitId = res[0].apartmentBlockUnitId;
@@ -525,7 +525,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }, {
           type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]
         }];
@@ -539,7 +539,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./checkin-visitor.component.scss */
         "./src/app/modules/ams/visitor/components/checkin-visitor/checkin-visitor.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])], CheckinVisitorComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])], CheckinVisitorComponent);
       /***/
     },
 
@@ -633,9 +633,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -654,7 +654,7 @@
       var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
       var VisitorCheckinComponent = /*#__PURE__*/function () {
-        function VisitorCheckinComponent(router, route, userService, apartmentService, visitorService, lookupService, sharedService, cookieService, SharedToaster) {
+        function VisitorCheckinComponent(router, route, userService, apartmentService, visitorService, lookupService, sharedService, sessionService, SharedToaster) {
           _classCallCheck(this, VisitorCheckinComponent);
 
           this.router = router;
@@ -664,7 +664,7 @@
           this.visitorService = visitorService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.SharedToaster = SharedToaster;
           this.isVisitorSubmitted = true;
           this.isVisitorAdded = false;
@@ -727,7 +727,7 @@
               var visitorDetails = {
                 "expectedVisitorId": parseInt(this.route.params['value'].id),
                 "apartmentUnitId": this.apartmentUnitId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "visitorName": this.visitor.expectedVisitorName,
                 "visitorCount": this.visitor.expectedVisitorCount,
                 "visitorPhone": this.visitor.expectedVisitorPhone.toString(),
@@ -748,11 +748,11 @@
                 "entryGateId": null,
                 "exitGateId": null,
                 "purpose": this.visitor.purpose,
-                "enteredBy": parseInt(this.cookieService.get('userId')),
+                "enteredBy": parseInt(this.sessionService.userId),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString(),
                 "expectedVisitorInTime": this.visitor.expectedVisitorInTime,
                 "expectedVisitorOutTime": this.visitor.expectedVisitorOutTime,
@@ -781,7 +781,7 @@
               var _visitorDetails = {
                 "visitorId": parseInt(this.route.params['value'].id),
                 "checkOutTime": '2020-05-19T07:10:33.863',
-                "updatedBy": parseInt(this.cookieService.get('userId'))
+                "updatedBy": parseInt(this.sessionService.userId)
               };
               this.visitorService.checkOutVisitor(_visitorDetails).subscribe(function (res) {
                 if (res.message) {
@@ -850,7 +850,7 @@
             }
 
             var visitParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 15
             }; //visit type
 
@@ -858,7 +858,7 @@
               _this4.visitByData = res;
             }, function (error) {});
             var categoryParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 100
             }; //visit type
 
@@ -868,7 +868,7 @@
               });
             }, function (error) {});
             var apartmentParams = {
-              userId: parseInt(this.cookieService.get('userId'))
+              userId: parseInt(this.sessionService.userId)
             };
             this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe(function (res) {
               _this4.apartmentUnitId = res[0].apartmentBlockUnitId;
@@ -972,7 +972,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }, {
           type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]
         }];
@@ -986,7 +986,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-checkin.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-checkin/visitor-checkin.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])], VisitorCheckinComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_9__["SharedToasterService"]])], VisitorCheckinComponent);
       /***/
     },
 
@@ -1068,9 +1068,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1107,7 +1107,7 @@
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
       var VisitorCheckoutComponent = /*#__PURE__*/function () {
-        function VisitorCheckoutComponent(router, injector, apartmentService, visitorService, lookupService, cookieService, dialog) {
+        function VisitorCheckoutComponent(router, injector, apartmentService, visitorService, lookupService, sessionService, dialog) {
           _classCallCheck(this, VisitorCheckoutComponent);
 
           this.router = router;
@@ -1115,7 +1115,7 @@
           this.apartmentService = apartmentService;
           this.visitorService = visitorService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.dialog = dialog;
           this.visitorData = "";
           this.isVisitorDataLoaded = false;
@@ -1312,7 +1312,7 @@
               renderer: columnrenderer
             }];
             var visitParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 15
             }; //get visit type
 
@@ -1320,7 +1320,7 @@
               _this7.visitTypeData = res;
             }, function (error) {});
             var apartmentParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe(function (res) {
               //filter active true items
@@ -1379,7 +1379,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
         }];
@@ -1405,7 +1405,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-checkout.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-checkout/visitor-checkout.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], VisitorCheckoutComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], VisitorCheckoutComponent);
 
       function navigateTo(row) {
         var event = new CustomEvent('navigateTo', {
@@ -1498,9 +1498,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1543,7 +1543,7 @@
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
       var VisitorExpectedVisitorComponent = /*#__PURE__*/function () {
-        function VisitorExpectedVisitorComponent(router, injector, apartmentService, visitorService, lookupService, cookieService, dialog) {
+        function VisitorExpectedVisitorComponent(router, injector, apartmentService, visitorService, lookupService, sessionService, dialog) {
           _classCallCheck(this, VisitorExpectedVisitorComponent);
 
           this.router = router;
@@ -1551,7 +1551,7 @@
           this.apartmentService = apartmentService;
           this.visitorService = visitorService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.dialog = dialog;
           this.visitorData = "";
           this.isVisitorDataLoaded = false;
@@ -1701,7 +1701,7 @@
               renderer: columnrenderer
             }];
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe(function (res) {
               if (res.errorMessage) {
@@ -1724,7 +1724,7 @@
               }
 
               var visitParams = {
-                ApartmentId: parseInt(_this8.cookieService.get('apartmentId')),
+                ApartmentId: _this8.sessionService.apartmentId,
                 LookupTypeId: 15
               }; //get visit type
 
@@ -1819,7 +1819,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
         }];
@@ -1845,7 +1845,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-expected-visitor.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-expected-visitor/visitor-expected-visitor.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], VisitorExpectedVisitorComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], VisitorExpectedVisitorComponent);
 
       function navigateTo(row) {
         var event = new CustomEvent('navigateTo', {
@@ -1944,9 +1944,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1965,7 +1965,7 @@
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
       var VisitorHistoryComponent = /*#__PURE__*/function () {
-        function VisitorHistoryComponent(injector, apartmentService, visitorService, lookupService, sharedService, cookieService) {
+        function VisitorHistoryComponent(injector, apartmentService, visitorService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, VisitorHistoryComponent);
 
           this.injector = injector;
@@ -1973,7 +1973,7 @@
           this.visitorService = visitorService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.visitorData = "";
           this.isVisitorDataLoaded = false;
           this.unitFieldType = "unitno";
@@ -2141,7 +2141,7 @@
               renderer: columnrenderer
             }];
             var visitTypeParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 15
             }; //get visit type
 
@@ -2149,7 +2149,7 @@
               _this13.visitTypeData = res;
             }, function (error) {});
             var visitListParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.visitorService.getVisitorsByApartmentId(visitListParams).subscribe(function (res) {
               //filter active true items
@@ -2207,7 +2207,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -2227,7 +2227,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-history.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-history/visitor-history.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], VisitorHistoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], VisitorHistoryComponent);
       /***/
     },
 
@@ -2291,9 +2291,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2330,7 +2330,7 @@
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
       var VisitorReportsDataComponent = /*#__PURE__*/function () {
-        function VisitorReportsDataComponent(router, route, apartmentService, visitorService, lookupService, cookieService) {
+        function VisitorReportsDataComponent(router, route, apartmentService, visitorService, lookupService, sessionService) {
           _classCallCheck(this, VisitorReportsDataComponent);
 
           this.router = router;
@@ -2338,7 +2338,7 @@
           this.apartmentService = apartmentService;
           this.visitorService = visitorService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.pageName = "";
           this.isDataLoaded = false;
           this.blockId = null;
@@ -2368,7 +2368,7 @@
           key: "submitReportsFilterForm",
           value: function submitReportsFilterForm() {
             var params = {
-              ApartmentID: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentID: this.sessionService.apartmentId,
               ApartmentBlockID: parseInt(this.blockId),
               StartDate: this.getDate(this.start_date),
               EndDate: this.getDate(this.end_date),
@@ -2451,13 +2451,13 @@
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
               _this16.unitBlocksData = res;
             });
             var visitParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 15
             }; //visit type
 
@@ -2546,7 +2546,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
         }];
       };
 
@@ -2566,7 +2566,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-reports-data.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], VisitorReportsDataComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], VisitorReportsDataComponent);
       /***/
     },
 
@@ -2636,17 +2636,17 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var VisitorReportsComponent = /*#__PURE__*/function () {
-        function VisitorReportsComponent(lookupService, sharedService, cookieService) {
+        function VisitorReportsComponent(lookupService, sharedService, sessionService) {
           _classCallCheck(this, VisitorReportsComponent);
 
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isDataLoaded = false;
         }
 
@@ -2656,7 +2656,7 @@
             var _this17 = this;
 
             var details = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 87,
               MenuName: 'VisitorManagement'
             };
@@ -2689,7 +2689,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
       };
 
@@ -2701,7 +2701,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-reports.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], VisitorReportsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], VisitorReportsComponent);
       /***/
     },
 
@@ -2777,9 +2777,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2794,14 +2794,14 @@
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
       var VisitorSetupComponent = /*#__PURE__*/function () {
-        function VisitorSetupComponent(injector, lookupService, dialog, sharedService, cookieService) {
+        function VisitorSetupComponent(injector, lookupService, dialog, sharedService, sessionService) {
           _classCallCheck(this, VisitorSetupComponent);
 
           this.injector = injector;
           this.lookupService = lookupService;
           this.dialog = dialog;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isDataLoaded = false;
           this.isCategoryTypeSubmitted = true;
           this.ItemStartIndex = 0;
@@ -2892,7 +2892,7 @@
               if (_this18.result) {
                 var params = {
                   lookupValueId: item.lookupValueId,
-                  updateUserId: parseInt(_this18.cookieService.get('userId'))
+                  updateUserId: parseInt(_this18.sessionService.userId)
                 };
 
                 _this18.lookupService.deleteLookupvalue(params).subscribe(function (res) {
@@ -2906,7 +2906,7 @@
 
                     _this18.isDataLoaded = false;
                     var categoryParams = {
-                      ApartmentId: parseInt(_this18.cookieService.get('apartmentId')),
+                      ApartmentId: _this18.sessionService.apartmentId,
                       LookupTypeId: 100
                     };
 
@@ -2973,7 +2973,7 @@
                     "lookupValueName": _this19.categoryType,
                     "description": 'Visitor Category',
                     "isActive": true,
-                    "insertedBy": parseInt(_this19.cookieService.get('userId')),
+                    "insertedBy": parseInt(_this19.sessionService.userId),
                     "insertedOn": new Date().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null
@@ -2991,7 +2991,7 @@
                       _this19.categoryType = '';
                       _this19.isDataLoaded = false;
                       var categoryParams = {
-                        ApartmentId: parseInt(_this19.cookieService.get('apartmentId')),
+                        ApartmentId: _this19.sessionService.apartmentId,
                         LookupTypeId: 100
                       };
 
@@ -3027,12 +3027,12 @@
                 } else {
                   var _details = {
                     "lookupValueId": _this19.categoryUpdateId,
-                    "ApartmentId": parseInt(_this19.cookieService.get('apartmentId')),
+                    "ApartmentId": _this19.sessionService.apartmentId,
                     "lookupTypeId": 100,
                     "lookupValueName": _this19.categoryType,
                     "description": _this19.categoryType,
                     "isActive": true,
-                    "updatedBy": parseInt(_this19.cookieService.get('userId')),
+                    "updatedBy": parseInt(_this19.sessionService.userId),
                     "updatedOn": new Date().toISOString()
                   };
                   var _params = {
@@ -3042,7 +3042,7 @@
                   _this19.lookupService.updateLookupValue(_params).subscribe(function (res) {
                     if (res.message) {
                       var categoryParams = {
-                        ApartmentId: parseInt(_this19.cookieService.get('apartmentId')),
+                        ApartmentId: _this19.sessionService.apartmentId,
                         LookupTypeId: 100
                       };
 
@@ -3088,7 +3088,7 @@
             var _this20 = this;
 
             var categoryListParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe(function (res) {
@@ -3122,7 +3122,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -3134,7 +3134,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-setup.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-setup/visitor-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], VisitorSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], VisitorSetupComponent);
       /***/
     },
 

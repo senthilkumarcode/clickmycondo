@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-add-staff-wrapper\">\n\n\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" (ngSubmit)=\"submitAddStaffForm(addStaffForm)\" novalidate>\n\n\t\t<div class=\"card mb-30\">\n\n\t\t\t<div class=\"card-header d-flex justify-content-between align-items-center\">\n\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t<h5>\n\t\t\t\t\t\t<span *ngIf=\"!isEditStaff\">Add Staff</span>\n\t\t\t\t\t\t<span *ngIf=\"isEditStaff\">Edit Staff</span>\n\t\t\t\t\t</h5>\n\t\t\t\t</div>\n\t\t\t\t<!-- <div class=\"float-right\">\n\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/staff/maintain-staff\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t\t</a>\n\t\t\t\t</div> -->\n\t\t\t\t<ul class=\"list-inline float-right\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card-body p-0\" id=\"accordion\">\n\n\t\t\t\t<app-alert-message [message]=\"alertStaffMessage\" [isError]=\"isStaffError\" [isSuccess]=\"isStaffSuccess\">\n\t\t\t\t</app-alert-message>\n\n\t\t\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\n\t\t\t\t<ng-container *ngIf=\"!isStaffSubmitted\">\n\n\t\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#staffBasicInfo\"\n\t\t\t\t\t\taria-expanded=\"true\" aria-controls=\"staffBasicInfo\">Basic Info</li>\n\t\t\t\t\t\t<div id=\"staffBasicInfo\" class=\"collapse show\" aria-labelledby=\"staffBasicInfo\"\n\t\t\t\t\t\tdata-parent=\"#accordion\">\n\n\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let user of userTypeList\"\n\t\t\t\t\t\t\t\t\t\t\t[hidden]=\"user.value == 2 || user.value == 4\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\tid=\"{{user.name}}\" [(ngModel)]=\"userType\" value=\"{{user.value}}\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditStaff\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"password\" [(ngModel)]=\"staff.password\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isSuperAdmin\"  >\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Admin Role</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"userRole\" id=\"userRole\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Select Role\" [(ngModel)]=\"userRoleId\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.roleName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isSuperAdmin\" >\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Category*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"staffCategory\" id=\"staffCategory\" class=\"form-control\" [disabled]=\"userType == 1 ? true : false\" \n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getStaffType(staff.staffCategoryId)\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCategoryEnabled() && !isSuperAdmin\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Sub Category*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"staffSubCategory\" id=\"staffSubCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.staffSubCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffCategoryData\"\n\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#staffCollapseOne\"\n\t\t\t\t\t\t\taria-expanded=\"true\" aria-controls=\"CollapseOne\">Personal Info</li>\n\t\t\t\t\t\t<div id=\"staffCollapseOne\" class=\"collapse\" aria-labelledby=\"CollapseOne\"\n\t\t\t\t\t\t\tdata-parent=\"#accordion\">\n\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"firstName\" [(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"lastName\" [(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"address\" [(ngModel)]=\"staff.address\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"staffEmail\" [(ngModel)]=\"staff.emailId\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"contactNumber\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.contactNumber\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.bloodGroup\">\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" value=\"Yes\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" value=\"No\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isVendor()\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vendor Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<select name=\"vendorName\" id=\"vendorName\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vendorId\">\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorNameList\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-photo-selector\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderPhoto.click()\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderPhoto type=\"file\" name=\"fileUpload\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.file\" (change)=\"uploadPhoto($event)\">\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload\n\t\t\t\t\t\t\t\t\t\t\t\tPhoto</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isPhotoAdded\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfPhotos; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deletePhoto(i)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderFile.click()\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderFile type=\"file\" name=\"docUpload\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.multifile\" (change)=\"uploadFile($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tmultiple>\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload ID Card\n\t\t\t\t\t\t\t\t\t\t\t\tDocs</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#staffCollapseTwo\"\n\t\t\t\t\t\t\taria-expanded=\"true\" aria-controls=\"CollapseTwo\">Salary & Leave</li>\n\t\t\t\t\t\t<div id=\"staffCollapseTwo\" class=\"collapse\" aria-labelledby=\"CollapseTwo\"\n\t\t\t\t\t\t\tdata-parent=\"#accordion\">\n\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Base Pay*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\"\n\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#staffCollapseThree\"\n\t\t\t\t\t\t\taria-expanded=\"true\" aria-controls=\"CollapseThree\">Work Information</li>\n\t\t\t\t\t\t<div id=\"staffCollapseThree\" class=\"collapse\" aria-labelledby=\"CollapseThree\"\n\t\t\t\t\t\t\tdata-parent=\"#accordion\">\n\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Job Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobStartDate\" [owlDateTime]=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobStartDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #jobStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Job End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobEndDate\" [owlDateTime]=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobEndDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #jobEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"plannedEntryTime\" [owlDateTimeTrigger]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"staff.plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedEntryTime></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"plannedExitTime\" [owlDateTimeTrigger]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"staff.plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedExitTime></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</ul>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t\t<!-- <div class=\"row\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div> -->\n\n\t</form>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"staff-add-staff-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditStaff\">Add Staff</span>\n\t\t\t<span *ngIf=\"isEditStaff\">Edit Staff</span>\n\t\t</h4>\n\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\t\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" (ngSubmit)=\"submitAddStaffForm(addStaffForm)\" novalidate>\n\n\t\t\t<mat-accordion> \n\n\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Basic Info</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let user of userTypeList\"\n\t\t\t\t\t\t\t\t\t\t[hidden]=\"user.value == 2 || user.value == 4\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"{{user.name}}\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"{{user.value}}\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditStaff\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\tname=\"password\" [(ngModel)]=\"staff.password\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isSuperAdmin\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Admin Role</label>\n\t\t\t\t\t\t\t\t\t<select name=\"userRole\" id=\"userRole\" class=\"form-control\" placeholder=\"Select Role\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userRoleId\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.roleName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isSuperAdmin\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Category*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"staffCategory\" id=\"staffCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"userType == 1 ? true : false\" [(ngModel)]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getStaffType(staff.staffCategoryId)\" required>\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCategoryEnabled() && !isSuperAdmin\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Sub Category*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"staffSubCategory\" id=\"staffSubCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.staffSubCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Personal Info</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\" [(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffEmail\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.emailId\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Contact Number</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"contactNumber\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.contactNumber\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.bloodGroup\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\tname=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" value=\"Yes\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" value=\"No\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isVendor()\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Vendor Name*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"vendorName\" id=\"vendorName\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vendorId\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorNameList\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-photo-selector\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderPhoto.click()\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderPhoto type=\"file\" name=\"fileUpload\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.file\" (change)=\"uploadPhoto($event)\">\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload\n\t\t\t\t\t\t\t\t\t\tPhoto</label>\n\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isPhotoAdded\">\n\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfPhotos; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deletePhoto(i)\">\n\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderFile.click()\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderFile type=\"file\" name=\"docUpload\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.multifile\" (change)=\"uploadFile($event)\" multiple>\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload ID Card\n\t\t\t\t\t\t\t\t\t\tDocs</label>\n\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Salary & Leave</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Base Pay*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\" [(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\" [(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\" [(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\" [(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\" [(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\" [(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\" [(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Work Information</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Job Start Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobStartDate\" [owlDateTime]=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobStartDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobStartDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #jobStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Job End Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobEndDate\" [owlDateTime]=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobEndDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobEndDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #jobEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedEntryTime\" [owlDateTime]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedEntryTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #plannedEntryTime></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedExitTime\" [owlDateTime]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedExitTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedExitTime\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #plannedExitTime></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\n\t\t\t<button mat-flat-button [color]=\"'primary'\" class=\"mt-5\">Submit</button>\n\n\t\t</form>\n\n\t</div>\n\n</div>";
       /***/
     },
 
@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-attendance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isEntryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isEntryDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Entries <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"entryData\" \n\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-entry\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Attendance</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\"\n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"entryListData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName\n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tJob Title\n\t\t\t\t      \t<span (click)=\"sortUnitData('jobTitle')\" [ngClass]=\"getFieldOrderBy('jobTitle')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Job Title\" [(ngModel)]=\"columnField['jobTitle']\" (ngModelChange)=\"selectColInput('jobTitle')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">In Time <span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Time<span (click)=\"sortUnitData('outTime')\" [ngClass]=\"getFieldOrderBy('outTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">In Gate <span (click)=\"sortUnitData('inGateId')\" [ngClass]=\"getFieldOrderBy('inGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Gate <span (click)=\"sortUnitData('outGateId')\" [ngClass]=\"getFieldOrderBy('outGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">comments <span (click)=\"sortUnitData('notes')\" [ngClass]=\"getFieldOrderBy('notes')\"></span></th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let entry of entryListData | simpleSearch: staffData | \n\t\t\t\t    sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{getStaffName(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"name\">{{getJobTitle(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.inTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.outTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getInGateName(entry.inGateId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getOutGateName(entry.outGateId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{entry.notes}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-entry/{{entry.attendanceId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"staff-attendance-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isEntryDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isEntryDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Entries</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"entryData\"\n\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/staff/add-entry\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Add Attadance</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"entryListData\" [columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
       /***/
     },
 
@@ -102,7 +102,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-manager-inactive-staff-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isStaffDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Inactive Staffs <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t[(ngModel)]=\"staffData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"staffListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t\n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Staff Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Email ID\n\t\t\t\t      \t<span (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email ID\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('staffCategory')\" [ngClass]=\"getFieldOrderBy('staffCategory')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffCategory', 'lookupValueName')\">\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Sub Category\n\t\t\t\t       \t<span (click)=\"sortUnitData('staffSubCategory')\" [ngClass]=\"getFieldOrderBy('staffSubCategory')\"></span>\n\t\t\t\t       \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffSubCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffSubCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffOfficalCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffSubCategory', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Phone Number \n\t\t\t\t      \t<span (click)=\"sortUnitData('contactNumber')\" [ngClass]=\"getFieldOrderBy('contactNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone Number\" [(ngModel)]=\"columnField['contactNumber']\" (ngModelChange)=\"selectColInput('contactNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let staff of staffListData | simpleSearch: staffData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex; let i = index\">\n\t\t\t\t      <td class=\"name\">{{staff.firstName}}</td>\n\t\t\t\t      <td class=\"name\">{{staff.emailId}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getStaffCategory(staff, staff.staffCategoryId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getStaffSubCategory(staff, staff.staffSubCategoryId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{staff.contactNumber}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-staff/{{staff.staffId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"staff-manager-inactive-staff-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\t\n\t\t<condo-card *ngIf=\"isStaffDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Inactive Staffs</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t\t[(ngModel)]=\"staffData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"staffListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
       /***/
     },
 
@@ -122,7 +122,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-manager-maintain-staff-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isStaffDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Staffs <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\"\n\t\t\t\t\t [(ngModel)]=\"staffData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-staff\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Staff</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"staffListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t   \n\t\t\t\n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Staff Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Email ID\n\t\t\t\t      \t<span (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email ID\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('staffCategory_Label')\" [ngClass]=\"getFieldOrderBy('staffCategory_Label')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffCategory_Label\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffCategory_Label', 'lookupValueName')\">\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Sub Category\n\t\t\t\t       \t<span (click)=\"sortUnitData('staffSubcategory_Label')\" [ngClass]=\"getFieldOrderBy('staffSubcategory_Label')\"></span>\n\t\t\t\t       \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffSubcategory_Label\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffSubCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffOfficalCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffSubcategory_Label', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Phone Number \n\t\t\t\t      \t<span (click)=\"sortUnitData('contactNumber')\" [ngClass]=\"getFieldOrderBy('contactNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone Number\" [(ngModel)]=\"columnField['contactNumber']\" (ngModelChange)=\"selectColInput('contactNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let staff of staffListData | simpleSearch: staffData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex; let i = index\" [ngClass]=\"staff.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td class=\"name\">{{staff.firstName}}</td>\n\t\t\t\t      <td class=\"name\">{{staff.emailId}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{staff.staffCategory_Label}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{staff.staffSubcategory_Label}}</td>\n\t\t\t\t      <td class=\"grey\">{{staff.contactNumber}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-staff/{{staff.staffId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showConfirmModal(staff.staffId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>\n\n\n";
+      __webpack_exports__["default"] = "<div class=\"staff-manager-maintain-staff-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isStaffDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Staffs</h4>\n\t\t\t\t\t\t<p class=\"text-secondary\" >{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"staffData\"\n\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/staff/add-staff\"\n\t\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">Add Staff</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"staffListData\" [columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
       /***/
     },
 
@@ -324,12 +324,12 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var AddEntryComponent = /*#__PURE__*/function () {
-        function AddEntryComponent(router, route, staffService, lookupService, sharedService, cookieService) {
+        function AddEntryComponent(router, route, staffService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, AddEntryComponent);
 
           this.router = router;
@@ -337,7 +337,7 @@
           this.staffService = staffService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isEditEntry = false;
           this.isEntrySubmitted = true;
           this.isEntryError = false;
@@ -351,7 +351,7 @@
         _createClass(AddEntryComponent, [{
           key: "isAdmin",
           value: function isAdmin() {
-            return this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff' ? true : false;
+            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
           }
         }, {
           key: "isShiftSelected",
@@ -417,7 +417,7 @@
 
             if (!this.isEditEntry) {
               var details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "staffId": parseInt(this.entry.staffId),
                 "inTime": this.entry.inTime,
                 "inGateId": parseInt(this.entry.inGateId),
@@ -426,7 +426,7 @@
                 "shiftId": parseInt(this.entry.shiftId),
                 "notes": this.entryComments,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": "2019-12-04T05:43:41.299Z",
                 "updatedBy": 0,
                 "updatedOn": "2019-12-04T05:43:41.299Z"
@@ -454,7 +454,7 @@
             } else {
               var _details = {
                 "attendanceId": parseInt(this.route.params['value'].id),
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "staffId": parseInt(this.entry.staffId),
                 "inTime": this.entry.inTime,
                 "inGateId": parseInt(this.entry.inGateId),
@@ -465,7 +465,7 @@
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": "2019-12-04T05:43:41.299Z",
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": "2019-12-04T05:43:41.299Z"
               };
               var _params = {
@@ -518,7 +518,7 @@
             }
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllStaffsByApartmentId(params).subscribe(function (res) {
               _this4.staffDataList = res.filter(function (item) {
@@ -526,7 +526,7 @@
               });
             }, function (error) {});
             var gatesParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllGatesByApartmentId(gatesParams).subscribe(function (res) {
               _this4.gatesDataList = res.filter(function (item) {
@@ -534,7 +534,7 @@
               });
             }, function (error) {});
             var shiftParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllShiftsByApartmentId(shiftParams).subscribe(function (res) {
               _this4.shiftsDataList = res.filter(function (item) {
@@ -586,7 +586,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -598,7 +598,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-entry.component.scss */
         "./src/app/modules/ams/staff-manager/components/add-entry/add-entry.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], AddEntryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], AddEntryComponent);
       /***/
     },
 
@@ -686,9 +686,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -697,7 +697,7 @@
       "./src/app/api/controllers/EmailSend.ts");
 
       var AddStaffComponent = /*#__PURE__*/function () {
-        function AddStaffComponent(router, route, userService, staffService, lookupService, sharedService, cookieService, emailSendService) {
+        function AddStaffComponent(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService) {
           _classCallCheck(this, AddStaffComponent);
 
           this.router = router;
@@ -706,7 +706,7 @@
           this.staffService = staffService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.emailSendService = emailSendService;
           this.isEditStaff = false;
           this.isStaffSubmitted = false;
@@ -856,7 +856,7 @@
             if (!this.isEditStaff) {
               //add user
               var userDetails = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "firstName": this.staff.firstName,
                 "middleName": "",
                 "lastName": this.staff.lastName,
@@ -885,7 +885,7 @@
                 "isActive": true,
                 "isApproved": true,
                 "resetPassword": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "updatedBy": 0
               };
               var userParams = {
@@ -896,7 +896,7 @@
                 if (res.message) {
                   _this6.userId = res.message;
                   var staffDetails = {
-                    "apartmentId": parseInt(_this6.cookieService.get('apartmentId')),
+                    "apartmentId": _this6.sessionService.apartmentId,
                     "userId": _this6.userId,
                     "firstName": _this6.staff.firstName,
                     "middleName": "",
@@ -936,9 +936,9 @@
                     "shiftId": null,
                     "jobTitleId": parseInt(_this6.staff.staffSubCategoryId),
                     "isActive": true,
-                    "insertedBy": parseInt(_this6.cookieService.get('userId')),
+                    "insertedBy": parseInt(_this6.sessionService.userId),
                     "insertedOn": "2019-11-30T12:41:45.620Z",
-                    "updatedBy": parseInt(_this6.cookieService.get('userId')),
+                    "updatedBy": parseInt(_this6.sessionService.userId),
                     "updatedOn": "2019-11-30T12:41:45.620Z"
                   };
                   var staffParams = {
@@ -961,7 +961,7 @@
                         "userId": _this6.userId,
                         "roleId": roleId,
                         "isActive": true,
-                        "insertedBy": parseInt(_this6.cookieService.get('userId')),
+                        "insertedBy": parseInt(_this6.sessionService.userId),
                         "insertedOn": "2019-11-10T10:00:28.212Z",
                         "updatedBy": 0,
                         "updatedOn": "2019-11-10T10:00:28.212Z",
@@ -1012,7 +1012,7 @@
 
               var _userDetails = {
                 "userId": this.userId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "firstName": this.staff.firstName,
                 "middleName": "string",
                 "lastName": this.staff.lastName,
@@ -1042,7 +1042,7 @@
                 "isApproved": true,
                 "resetPassword": true,
                 "insertedBy": 0,
-                "updatedBy": parseInt(this.cookieService.get('userId'))
+                "updatedBy": parseInt(this.sessionService.userId)
               };
               var _userParams = {
                 user: _userDetails
@@ -1052,7 +1052,7 @@
                 if (res.message) {
                   var staffDetails = {
                     "staffId": _this6.route.params['value'].id,
-                    "apartmentId": parseInt(_this6.cookieService.get('apartmentId')),
+                    "apartmentId": _this6.sessionService.apartmentId,
                     "userId": _this6.userId,
                     "firstName": _this6.staff.firstName,
                     "middleName": "string",
@@ -1094,7 +1094,7 @@
                     "isActive": true,
                     "insertedBy": 0,
                     "insertedOn": "2019-11-30T12:41:45.620Z",
-                    "updatedBy": parseInt(_this6.cookieService.get('userId')),
+                    "updatedBy": parseInt(_this6.sessionService.userId),
                     "updatedOn": "2019-11-30T12:41:45.620Z"
                   };
                   var staffParams = {
@@ -1213,7 +1213,7 @@
             //Admin Role Type
             var paramsRoles = {
               RoleTypeId: this.userType,
-              ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+              ApartmentId: this.sessionService.apartmentId
             };
             this.userService.getAllRolesByRoleTypeIdByApartmentId(paramsRoles).subscribe(function (res) {
               console.log(res);
@@ -1239,7 +1239,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_8__["EmailSendService"]
         }];
@@ -1266,7 +1266,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-staff.component.scss */
         "./src/app/modules/ams/staff-manager/components/add-staff/add-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_8__["EmailSendService"]])], AddStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_8__["EmailSendService"]])], AddStaffComponent);
       /***/
     },
 
@@ -1336,9 +1336,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1375,12 +1375,12 @@
       "./src/app/shared/services/constants.service.ts");
 
       var StaffAttendanceComponent = /*#__PURE__*/function () {
-        function StaffAttendanceComponent(staffService, lookupService, cookieService, constantsService, router) {
+        function StaffAttendanceComponent(staffService, lookupService, sessionService, constantsService, router) {
           _classCallCheck(this, StaffAttendanceComponent);
 
           this.staffService = staffService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.constantsService = constantsService;
           this.router = router;
           this.isEntryDataLoaded = false;
@@ -1629,7 +1629,7 @@
             this.officalStaffsDataList = [];
             this.personalStaffsDataList = [];
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllAttendancesByApartmentId(params).subscribe(function (res) {
               //filter active true items
@@ -1648,7 +1648,7 @@
               };
               _this10.entryListData = new jqx.dataAdapter(_this10.gridSourceData);
               var dataListparams = {
-                apartmentId: parseInt(_this10.cookieService.get('apartmentId'))
+                apartmentId: _this10.sessionService.apartmentId
               }; //get all gates
 
               _this10.staffService.getAllGatesByApartmentId(dataListparams).subscribe(function (res) {
@@ -1697,7 +1697,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
           type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]
         }, {
@@ -1725,7 +1725,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-attendance.component.scss */
         "./src/app/modules/ams/staff-manager/components/staff-attendance/staff-attendance.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])], StaffAttendanceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])], StaffAttendanceComponent);
 
       function editAttendenceStaff(row) {
         var event = new CustomEvent('onEditAttendenceStaff', {
@@ -1818,19 +1818,19 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var StaffGatesComponent = /*#__PURE__*/function () {
-        function StaffGatesComponent(injector, dialog, staffService, sharedService, cookieService) {
+        function StaffGatesComponent(injector, dialog, staffService, sharedService, sessionService) {
           _classCallCheck(this, StaffGatesComponent);
 
           this.injector = injector;
           this.dialog = dialog;
           this.staffService = staffService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isGateLoaded = true;
           this.isGateTableLoaded = false;
           this.isAddGateLoaded = false;
@@ -1871,11 +1871,11 @@
 
             if (!this.isEditGate) {
               var details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "gateName": this.gate.gateName,
                 "comments": this.gate.comments,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString()
@@ -1895,13 +1895,13 @@
             } else {
               var _details2 = {
                 "gateId": parseInt(this.gate.gateId),
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "gateName": this.gate.gateName,
                 "comments": this.gate.comments,
                 "isActive": this.gate.isActive,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString()
               };
               var _params3 = {
@@ -1924,7 +1924,7 @@
             var _this12 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllGatesByApartmentId(params).subscribe(function (res) {
               _this12.isGateTableLoaded = true;
@@ -2006,7 +2006,7 @@
                 _this15.isGateTableLoaded = false;
                 var params = {
                   gateId: item.gateId,
-                  deleteBy: parseInt(_this15.cookieService.get('userId'))
+                  deleteBy: parseInt(_this15.sessionService.userId)
                 };
 
                 _this15.staffService.deleteGate(params).subscribe(function (res) {
@@ -2036,7 +2036,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -2048,7 +2048,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-gates.component.scss */
         "./src/app/modules/ams/staff-manager/components/staff-gates/staff-gates.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], StaffGatesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], StaffGatesComponent);
       /***/
     },
 
@@ -2130,9 +2130,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2147,13 +2147,13 @@
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
       var StaffInactiveStaffComponent = /*#__PURE__*/function () {
-        function StaffInactiveStaffComponent(staffService, lookupService, sharedService, cookieService, router) {
+        function StaffInactiveStaffComponent(staffService, lookupService, sharedService, sessionService, router) {
           _classCallCheck(this, StaffInactiveStaffComponent);
 
           this.staffService = staffService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.router = router;
           this.isStaffDataLoaded = false;
           this.unitFieldType = "unitno";
@@ -2164,7 +2164,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -2395,7 +2395,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }];
@@ -2421,7 +2421,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-inactive-staff.component.scss */
         "./src/app/modules/ams/staff-manager/components/staff-inactive-staff/staff-inactive-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffInactiveStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffInactiveStaffComponent);
 
       function editMainstaff(row) {
         var event = new CustomEvent('onEditMainstaff', {
@@ -2520,9 +2520,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2547,14 +2547,14 @@
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
       var StaffMaintainStaffComponent = /*#__PURE__*/function () {
-        function StaffMaintainStaffComponent(injector, staffService, lookupService, sharedService, cookieService, router) {
+        function StaffMaintainStaffComponent(injector, staffService, lookupService, sharedService, sessionService, router) {
           _classCallCheck(this, StaffMaintainStaffComponent);
 
           this.injector = injector;
           this.staffService = staffService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.router = router;
           this.isStaffDataLoaded = false;
           this.unitFieldType = "unitno";
@@ -2565,7 +2565,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
@@ -2813,7 +2813,7 @@
               if (id != null) {
                 var params = {
                   staffId: id,
-                  deleteBy: parseInt(_this19.cookieService.get('userId'))
+                  deleteBy: parseInt(_this19.sessionService.userId)
                 };
 
                 _this19.staffService.deleteStaff(params).subscribe(function (res) {
@@ -2853,7 +2853,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }];
@@ -2883,7 +2883,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-maintain-staff.component.scss */
         "./src/app/modules/ams/staff-manager/components/staff-maintain-staff/staff-maintain-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffMaintainStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffMaintainStaffComponent);
 
       function editMainstaff(row) {
         var event = new CustomEvent('onEditMainstaff', {
@@ -3230,9 +3230,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -3241,14 +3241,14 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var StaffSetupComponent = /*#__PURE__*/function () {
-        function StaffSetupComponent(injector, dialog, lookupService, sharedService, cookieService) {
+        function StaffSetupComponent(injector, dialog, lookupService, sharedService, sessionService) {
           _classCallCheck(this, StaffSetupComponent);
 
           this.injector = injector;
           this.dialog = dialog;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.categoryOffcialData = "";
           this.categoryPersonalData = "";
           this.isCategoryDataLoaded = false;
@@ -3320,7 +3320,7 @@
                     "lookupValueName": this.staffCategory,
                     "description": this.staffCategory,
                     "isActive": true,
-                    "insertedBy": parseInt(this.cookieService.get('userId')),
+                    "insertedBy": parseInt(this.sessionService.userId),
                     "insertedOn": "2019-11-16T14:50:08.217Z",
                     "updatedBy": 0,
                     "updatedOn": "2019-11-16T14:50:08.217Z"
@@ -3352,7 +3352,7 @@
                     "isActive": true,
                     "insertedBy": 0,
                     "insertedOn": "2019-11-16T14:50:08.217Z",
-                    "updatedBy": parseInt(this.cookieService.get('userId')),
+                    "updatedBy": parseInt(this.sessionService.userId),
                     "updatedOn": "2019-11-16T14:50:08.217Z"
                   };
                   var _params4 = {
@@ -3395,7 +3395,7 @@
                     "lookupValueName": this.staffCategory,
                     "description": this.staffCategory,
                     "isActive": true,
-                    "insertedBy": parseInt(this.cookieService.get('userId')),
+                    "insertedBy": parseInt(this.sessionService.userId),
                     "insertedOn": "2019-11-16T14:50:08.217Z",
                     "updatedBy": 0,
                     "updatedOn": "2019-11-16T14:50:08.217Z"
@@ -3427,7 +3427,7 @@
                     "isActive": true,
                     "insertedBy": 0,
                     "insertedOn": "2019-11-16T14:50:08.217Z",
-                    "updatedBy": parseInt(this.cookieService.get('userId')),
+                    "updatedBy": parseInt(this.sessionService.userId),
                     "updatedOn": "2019-11-16T14:50:08.217Z"
                   };
                   var _params6 = {
@@ -3493,12 +3493,12 @@
                 if (_this21.staffDeleteTypeId == "115") {
                   var params = {
                     lookupValueId: _this21.categoryOffcialListData[index].lookupValueId,
-                    updateUserId: parseInt(_this21.cookieService.get('userId'))
+                    updateUserId: parseInt(_this21.sessionService.userId)
                   };
                 } else {
                   var params = {
                     lookupValueId: _this21.categoryPersonalListData[index].lookupValueId,
-                    updateUserId: parseInt(_this21.cookieService.get('userId'))
+                    updateUserId: parseInt(_this21.sessionService.userId)
                   };
                 }
 
@@ -3535,7 +3535,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -3547,7 +3547,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-setup.component.scss */
         "./src/app/modules/ams/staff-manager/components/staff-setup/staff-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], StaffSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], StaffSetupComponent);
       /***/
     },
 
@@ -3635,9 +3635,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -3656,7 +3656,7 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var StaffShiftsComponent = /*#__PURE__*/function () {
-        function StaffShiftsComponent(injector, dialog, staffService, lookupService, sharedService, cookieService) {
+        function StaffShiftsComponent(injector, dialog, staffService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, StaffShiftsComponent);
 
           this.injector = injector;
@@ -3664,7 +3664,7 @@
           this.staffService = staffService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isShiftsLoaded = true;
           this.isShiftTableLoaded = false;
           this.shiftTypeId = "";
@@ -3729,12 +3729,12 @@
 
             if (!this.isEditShift) {
               var details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "shiftTypeId": parseInt(this.shiftTypeId),
                 "startTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.shiftStartTime).format('HH:mm'),
                 "totalHours": this.shiftTotalHrs,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": "2019-12-03T06:11:51.972Z"
@@ -3754,14 +3754,14 @@
             } else {
               var _details6 = {
                 "shiftId": this.shiftId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "shiftTypeId": parseInt(this.shiftTypeId),
                 "startTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.shiftStartTime).format('HH:mm'),
                 "totalHours": this.shiftTotalHrs,
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString()
               };
               var _params7 = {
@@ -3837,7 +3837,7 @@
 
             this.isShiftTableLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllShiftsByApartmentId(params).subscribe(function (res) {
               _this25.shiftsListData = res.filter(function (item) {
@@ -3875,7 +3875,7 @@
               if (item != null) {
                 var params = {
                   shiftId: item.shiftId,
-                  deleteBy: parseInt(_this26.cookieService.get('userId'))
+                  deleteBy: parseInt(_this26.sessionService.userId)
                 };
                 _this26.isShiftTableLoaded = false;
 
@@ -3910,7 +3910,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -3922,7 +3922,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-shifts.component.scss */
         "./src/app/modules/ams/staff-manager/components/staff-shifts/staff-shifts.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], StaffShiftsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], StaffShiftsComponent);
       /***/
     },
 
@@ -4274,6 +4274,12 @@
       var _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./components/add-entry/add-entry.component */
       "./src/app/modules/ams/staff-manager/components/add-entry/add-entry.component.ts");
+      /* harmony import */
+
+
+      var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      /*! ../../ui/card/card.module */
+      "./src/app/modules/ui/card/card.module.ts");
 
       var StaffManagerModule = function StaffManagerModule() {
         _classCallCheck(this, StaffManagerModule);
@@ -4281,7 +4287,7 @@
 
       StaffManagerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_staff_manager_component__WEBPACK_IMPORTED_MODULE_5__["StaffManagerComponent"], _components_staff_setup_staff_setup_component__WEBPACK_IMPORTED_MODULE_6__["StaffSetupComponent"], _components_staff_maintain_staff_staff_maintain_staff_component__WEBPACK_IMPORTED_MODULE_7__["StaffMaintainStaffComponent"], _components_staff_inactive_staff_staff_inactive_staff_component__WEBPACK_IMPORTED_MODULE_8__["StaffInactiveStaffComponent"], _components_staff_attendance_staff_attendance_component__WEBPACK_IMPORTED_MODULE_9__["StaffAttendanceComponent"], _components_staff_payroll_staff_payroll_component__WEBPACK_IMPORTED_MODULE_10__["StaffPayrollComponent"], _components_staff_overtime_staff_overtime_component__WEBPACK_IMPORTED_MODULE_11__["StaffOvertimeComponent"], _components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_12__["StaffReportsComponent"], _components_add_staff_add_staff_component__WEBPACK_IMPORTED_MODULE_13__["AddStaffComponent"], _components_staff_gates_staff_gates_component__WEBPACK_IMPORTED_MODULE_14__["StaffGatesComponent"], _components_staff_shifts_staff_shifts_component__WEBPACK_IMPORTED_MODULE_15__["StaffShiftsComponent"], _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_16__["AddEntryComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _staff_manager_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffManagerRoutingModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _ui_card_card_module__WEBPACK_IMPORTED_MODULE_17__["CondoCardModule"], _staff_manager_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffManagerRoutingModule"]],
         bootstrap: [_staff_manager_component__WEBPACK_IMPORTED_MODULE_5__["StaffManagerComponent"]]
       })], StaffManagerModule);
       /***/

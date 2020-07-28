@@ -184,7 +184,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -194,13 +194,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BankSettingsComponent = class BankSettingsComponent {
-    constructor(injector, dialog, bankAccountService, lookupService, sharedService, cookieService) {
+    constructor(injector, dialog, bankAccountService, lookupService, sharedService, sessionService) {
         this.injector = injector;
         this.dialog = dialog;
         this.bankAccountService = bankAccountService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isBankLoaded = false;
         this.isBankSubmitted = true;
         this.isBankNew = false;
@@ -234,7 +234,7 @@ let BankSettingsComponent = class BankSettingsComponent {
         this.isBankSubmitted = false;
         if (this.isBankNew) {
             let details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "bankName": this.bank.bankName,
                 "branchName": this.bank.branchName,
                 "accountNumber": this.bank.accountNumber,
@@ -242,7 +242,7 @@ let BankSettingsComponent = class BankSettingsComponent {
                 "ifsc": this.bank.ifsc,
                 "isPrimary": this.bank.isPrimary,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": "2020-03-13T09:38:46.772Z"
@@ -259,7 +259,7 @@ let BankSettingsComponent = class BankSettingsComponent {
                         this.isSuccess = true;
                         this.sharedService.setAlertMessage("Bank Account Added Successfully");
                         this.bankAccountData = res.filter(item => {
-                            return item.isActive && (item.apartmentId == parseInt(this.cookieService.get('apartmentId')));
+                            return item.isActive && (item.apartmentId == this.sessionService.apartmentId);
                         });
                     });
                 }
@@ -273,7 +273,7 @@ let BankSettingsComponent = class BankSettingsComponent {
         else {
             let details = {
                 "bankAccountDetailsId": this.bank.bankAccountDetailsId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "bankName": this.bank.bankName,
                 "branchName": this.bank.branchName,
                 "accountNumber": this.bank.accountNumber,
@@ -281,9 +281,9 @@ let BankSettingsComponent = class BankSettingsComponent {
                 "ifsc": this.bank.ifsc,
                 "isPrimary": this.bank.isPrimary,
                 "isActive": this.bank.isActive,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString()
             };
             let bankAccountDetails = {
@@ -298,7 +298,7 @@ let BankSettingsComponent = class BankSettingsComponent {
                         this.isSuccess = true;
                         this.sharedService.setAlertMessage("Bank Account Update Successfully");
                         this.bankAccountData = res.filter(item => {
-                            return item.isActive && (item.apartmentId == parseInt(this.cookieService.get('apartmentId')));
+                            return item.isActive && (item.apartmentId == this.sessionService.apartmentId);
                         });
                     });
                 }
@@ -315,7 +315,7 @@ let BankSettingsComponent = class BankSettingsComponent {
         this.bankAccountService.getAllBankAccountDetails().subscribe((res) => {
             this.isBankLoaded = true;
             this.bankAccountData = res.filter(item => {
-                return item.isActive && (item.apartmentId == parseInt(this.cookieService.get('apartmentId')));
+                return item.isActive && (item.apartmentId == this.sessionService.apartmentId);
             });
         });
         // delete account
@@ -324,7 +324,7 @@ let BankSettingsComponent = class BankSettingsComponent {
                 this.isBankLoaded = false;
                 var params = {
                     bankAccountDetailsId: id,
-                    deleteBy: parseInt(this.cookieService.get('userId'))
+                    deleteBy: parseInt(this.sessionService.userId)
                 };
                 this.bankAccountService.deleteBankAccountDetails(params).subscribe((res) => {
                     this.bankAccountData = this.bankAccountData.filter((type) => type.bankAccountDetailsId !== id);
@@ -344,7 +344,7 @@ BankSettingsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_BankAccount__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 BankSettingsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -357,7 +357,7 @@ BankSettingsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         src_app_api_controllers_BankAccount__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], BankSettingsComponent);
 
 

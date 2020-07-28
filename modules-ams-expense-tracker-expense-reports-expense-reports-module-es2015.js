@@ -89,7 +89,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpenseReportsVendorComponent", function() { return ExpenseReportsVendorComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
@@ -107,13 +107,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
-    constructor(apartmentService, vendorService, accountsService, sharedService, lookupService, cookieService) {
+    constructor(apartmentService, vendorService, accountsService, sharedService, lookupService, sessionService) {
         this.apartmentService = apartmentService;
         this.vendorService = vendorService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.lookupService = lookupService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.glAccountIndicator = "Liability";
         this.isBlockSelected = false;
         this.isUnitSelected = false;
@@ -179,7 +179,7 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
             VendorId: parseInt(this.report.vendorId),
             GLaccountID: parseInt(this.report.GLaccountID),
             GLDocumentTypeID: 149,
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe((res) => {
             this.reportsDataList = res;
@@ -203,20 +203,20 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
         this.report.GLaccountID = "";
         this.report.GLDocumentTypeID = "";
         let blockParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe((res) => {
             this.blockData = res;
         });
         let vendorParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.vendorService.getVendorByApartmentId(vendorParams).subscribe((res) => {
             this.vendorData = res;
         });
         this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
-                return item.isActive && parseInt(this.cookieService.get('apartmentId')) && item.indicator == this.glAccountIndicator;
+                return item.isActive && this.sessionService.apartmentId && item.indicator == this.glAccountIndicator;
             });
         });
         //Gl Document 
@@ -235,7 +235,7 @@ ExpenseReportsVendorComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] }
 ];
 ExpenseReportsVendorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -248,7 +248,7 @@ ExpenseReportsVendorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])
 ], ExpenseReportsVendorComponent);
 
 

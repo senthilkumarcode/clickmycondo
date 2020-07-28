@@ -238,9 +238,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -249,11 +249,11 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var IncomeViewDefaultersComponent = /*#__PURE__*/function () {
-        function IncomeViewDefaultersComponent(accountsService, cookieService) {
+        function IncomeViewDefaultersComponent(accountsService, sessionService) {
           _classCallCheck(this, IncomeViewDefaultersComponent);
 
           this.accountsService = accountsService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isDefaultersDataLoaded = false;
           this.defaultData = "";
           this.isDefaultSelected = false;
@@ -405,7 +405,7 @@
             var _this2 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getIncomeTrackerDefaulterByApartmentId(params).subscribe(function (res) {
               var gridDefaultDataList = res;
@@ -433,7 +433,7 @@
         return [{
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
       };
 
@@ -461,7 +461,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-view-defaulters.component.scss */
         "./src/app/modules/ams/income-tracker/income-defaulters/income-view-defaulters.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])], IncomeViewDefaultersComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], IncomeViewDefaultersComponent);
 
       function checkDefaulterHeaderEvent(event, isChecked) {
         event.stopPropagation();

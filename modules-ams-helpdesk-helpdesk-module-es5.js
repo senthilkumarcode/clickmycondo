@@ -266,16 +266,16 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var HelpdeskReportsComponent = /*#__PURE__*/function () {
-        function HelpdeskReportsComponent(lookupService, cookieService) {
+        function HelpdeskReportsComponent(lookupService, sessionService) {
           _classCallCheck(this, HelpdeskReportsComponent);
 
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isDataLoaded = false;
         }
 
@@ -283,7 +283,7 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             var details = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 87,
               MenuName: 'HelpdeskTracker'
             };
@@ -309,7 +309,7 @@
         return [{
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
         }];
       };
 
@@ -321,7 +321,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./helpdesk-reports.component.scss */
         "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])], HelpdeskReportsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], HelpdeskReportsComponent);
       /***/
     },
 
@@ -397,9 +397,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -424,7 +424,7 @@
       var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
       var OpenTicketsReportComponent = /*#__PURE__*/function () {
-        function OpenTicketsReportComponent(apartmentService, sharedService, staffService, ticketService, lookupService, cookieService) {
+        function OpenTicketsReportComponent(apartmentService, sharedService, staffService, ticketService, lookupService, sessionService) {
           _classCallCheck(this, OpenTicketsReportComponent);
 
           this.apartmentService = apartmentService;
@@ -432,7 +432,7 @@
           this.staffService = staffService;
           this.ticketService = ticketService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isBlockSelected = false;
           this.isUnitSelected = false;
           this.ItemStartIndex = 0;
@@ -451,7 +451,7 @@
             LookupTypeId: 14
           };
           this.apartmentParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -529,7 +529,7 @@
             this.isDataLoaded = false;
             this.ItemStartIndex = 0;
             var details = {
-              ApartmentID: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentID: this.sessionService.apartmentId,
               ApartmentBlockID: parseInt(this.report.apartmentBlockId),
               StartDate: this.getDateFormat(this.report.fromDate),
               EndDate: this.getDateFormat(this.report.toDate),
@@ -596,7 +596,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -608,7 +608,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./open-tickets-report.component.scss */
         "./src/app/modules/ams/helpdesk/components/helpdesk-reports/open-tickets-report/open-tickets-report.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], OpenTicketsReportComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], OpenTicketsReportComponent);
       /***/
     },
 
@@ -678,9 +678,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -701,12 +701,12 @@
       "./src/app/shared/services/shared.service.ts");
 
       var AddTicketCategoryComponent = /*#__PURE__*/function () {
-        function AddTicketCategoryComponent(dialogRef, staffService, cookieService, lookupService, ticketService, sharedService, data) {
+        function AddTicketCategoryComponent(dialogRef, staffService, sessionService, lookupService, ticketService, sharedService, data) {
           _classCallCheck(this, AddTicketCategoryComponent);
 
           this.dialogRef = dialogRef;
           this.staffService = staffService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.lookupService = lookupService;
           this.ticketService = ticketService;
           this.sharedService = sharedService;
@@ -771,8 +771,8 @@
               description: this.ticketCategoryData.categoryName,
               lookupTypeId: this.data.type == 'private' ? 16 : 17,
               lookupValueName: this.ticketCategoryData.categoryName,
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
-              insertedBy: parseInt(this.cookieService.get('userId')),
+              apartmentId: this.sessionService.apartmentId,
+              insertedBy: parseInt(this.sessionService.userId),
               insertedOn: new Date().toISOString(),
               isActive: true,
               updatedBy: 0,
@@ -796,10 +796,10 @@
               ticketTypeId: this.data.type == 'private' ? 27 : 24,
               isDefault: true,
               isActive: true,
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
-              insertedBy: parseInt(this.cookieService.get('userId')),
+              apartmentId: this.sessionService.apartmentId,
+              insertedBy: parseInt(this.sessionService.userId),
               insertedOn: new Date().toISOString(),
-              updatedBy: this.data.mode == 'edit' ? parseInt(this.cookieService.get('userId')) : 0,
+              updatedBy: this.data.mode == 'edit' ? parseInt(this.sessionService.userId) : 0,
               updatedOn: this.data.mode == 'edit' ? new Date().toISOString() : null
             };
 
@@ -851,11 +851,11 @@
                 description: this.ticketCategoryData.categoryName,
                 lookupTypeId: this.data.type == 'private' ? 16 : 17,
                 lookupValueName: this.ticketCategoryData.categoryName,
-                apartmentId: parseInt(this.cookieService.get('apartmentId')),
-                insertedBy: parseInt(this.cookieService.get('userId')),
+                apartmentId: this.sessionService.apartmentId,
+                insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: new Date().toISOString(),
                 isActive: true,
-                updatedBy: parseInt(this.cookieService.get('userId')),
+                updatedBy: parseInt(this.sessionService.userId),
                 updatedOn: new Date().toISOString()
               };
               var lookupvalue = {
@@ -875,7 +875,7 @@
 
             if (this.data.mode == 'edit' && this.data.categoryId) {
               var queryParamBase = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                apartmentId: this.sessionService.apartmentId,
                 ticketCategoryId: this.data.categoryId,
                 ticketTypeId: this.data.type == 'private' ? 27 : 24
               };
@@ -945,7 +945,7 @@
         }, {
           type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
         }, {
@@ -969,7 +969,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-ticket-category.component.scss */
         "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], Object])], AddTicketCategoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], Object])], AddTicketCategoryComponent);
       /***/
     },
 
@@ -1027,9 +1027,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1062,13 +1062,13 @@
       "./src/app/api/controllers/Ticket.ts");
 
       var CommonCategoryComponent = /*#__PURE__*/function () {
-        function CommonCategoryComponent(router, dialog, ticketService, cookieService) {
+        function CommonCategoryComponent(router, dialog, ticketService, sessionService) {
           _classCallCheck(this, CommonCategoryComponent);
 
           this.router = router;
           this.dialog = dialog;
           this.ticketService = ticketService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.commonFilter = "";
           this.isDataLoaded = true;
           this.totalItems = 0;
@@ -1138,7 +1138,7 @@
 
             this.isDataLoaded = true;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               ticketTypeId: 24
             };
             this.ticketService.getAllTicketManagerByApartmentId(params).subscribe(function (res) {
@@ -1243,7 +1243,7 @@
         }, {
           type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
         }];
       };
 
@@ -1271,7 +1271,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./common-category.component.scss */
         "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])], CommonCategoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])], CommonCategoryComponent);
 
       function showConfirmDeleteEventCommon(row) {
         var event = new CustomEvent('onCommonCatDelete', {
@@ -1375,12 +1375,12 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var HelpdeskEditStaffComponent = /*#__PURE__*/function () {
-        function HelpdeskEditStaffComponent(router, route, userService, staffService, lookupService, cookieService) {
+        function HelpdeskEditStaffComponent(router, route, userService, staffService, lookupService, sessionService) {
           _classCallCheck(this, HelpdeskEditStaffComponent);
 
           this.router = router;
@@ -1388,7 +1388,7 @@
           this.userService = userService;
           this.staffService = staffService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isStaffSubmitted = false;
           this.isStaffAdded = false;
           this.isError = false;
@@ -1430,7 +1430,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -1442,7 +1442,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./helpdesk-edit-staff.component.scss */
         "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-edit-staff/helpdesk-edit-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], HelpdeskEditStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], HelpdeskEditStaffComponent);
       /***/
     },
 
@@ -1589,9 +1589,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1624,13 +1624,13 @@
       "./src/app/api/controllers/Ticket.ts");
 
       var PrivateCategoryComponent = /*#__PURE__*/function () {
-        function PrivateCategoryComponent(router, dialog, ticketService, cookieService) {
+        function PrivateCategoryComponent(router, dialog, ticketService, sessionService) {
           _classCallCheck(this, PrivateCategoryComponent);
 
           this.router = router;
           this.dialog = dialog;
           this.ticketService = ticketService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isDataLoaded = true;
           this.totalItems = 0;
         }
@@ -1699,7 +1699,7 @@
 
             this.isDataLoaded = true;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               ticketTypeId: 27
             };
             this.ticketService.getAllTicketManagerByApartmentId(params).subscribe(function (res) {
@@ -1804,7 +1804,7 @@
         }, {
           type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
         }];
       };
 
@@ -1832,7 +1832,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./private-category.component.scss */
         "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])], PrivateCategoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])], PrivateCategoryComponent);
 
       function showConfirmDeleteEventPrivate(row) {
         var event = new CustomEvent('onPrivateCatDelete', {
@@ -1960,9 +1960,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1975,7 +1975,7 @@
       var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
 
       var HelpdeskUnassignedComponent = /*#__PURE__*/function () {
-        function HelpdeskUnassignedComponent(router, injector, userService, staffService, ticketService, lookupService, sharedService, cookieService) {
+        function HelpdeskUnassignedComponent(router, injector, userService, staffService, ticketService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, HelpdeskUnassignedComponent);
 
           this.router = router;
@@ -1985,7 +1985,7 @@
           this.ticketService = ticketService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.ticketData = "";
           this.isTicketDataLoaded = false;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
@@ -2011,7 +2011,7 @@
         }, {
           key: "isAdmin",
           value: function isAdmin() {
-            return this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff' ? true : false;
+            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
           }
         }, {
           key: "onGlSearchFilter",
@@ -2128,9 +2128,9 @@
               renderer: columnrenderer
             }];
 
-            if (this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff') {
+            if (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') {
               var params = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                apartmentId: this.sessionService.apartmentId
               };
               this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
                 //filter active true items
@@ -2151,9 +2151,9 @@
               }, function (error) {});
             }
 
-            if (this.cookieService.get('userRoleType') == 'Tenant' || this.cookieService.get('userRoleType') == 'Owner') {
+            if (this.sessionService.roleTypeName == 'Tenant' || this.sessionService.roleTypeName == 'Owner') {
               var _params = {
-                raisedUserId: parseInt(this.cookieService.get('userId'))
+                raisedUserId: parseInt(this.sessionService.userId)
               };
               this.ticketService.getTicketsByRaisedUserId(_params).subscribe(function (res) {
                 //filter active true items
@@ -2177,7 +2177,7 @@
                 var ticketId = dataRecord.ticketId;
                 var _params2 = {
                   ticketId: ticketId,
-                  deleteBy: parseInt(_this18.cookieService.get('userId'))
+                  deleteBy: parseInt(_this18.sessionService.userId)
                 };
 
                 _this18.ticketService.deleteTicket(_params2).subscribe(function (res) {
@@ -2223,7 +2223,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]
         }];
       };
 
@@ -2251,7 +2251,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./helpdesk-unassigned.component.scss */
         "./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])], HelpdeskUnassignedComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])], HelpdeskUnassignedComponent);
 
       function getClassName(value) {
         var name = value.split('-');

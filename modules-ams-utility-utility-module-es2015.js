@@ -199,7 +199,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -209,21 +209,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddInsuranceComponent = class AddInsuranceComponent {
-    constructor(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, cookieService) {
+    constructor(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, sessionService) {
         this.router = router;
         this.route = route;
         this.utilityTrackerService = utilityTrackerService;
         this.lookupService = lookupService;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.onCancel = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isInsuranceSubmitted = true;
         this.isEdit = false;
         this.isError = false;
         this.alertMessage = "";
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     Cancel() {
@@ -232,7 +232,7 @@ let AddInsuranceComponent = class AddInsuranceComponent {
     submitInsuranceChargeForm(form) {
         this.isInsuranceSubmitted = false;
         let details = {
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentId": this.sessionService.apartmentId,
             "apartmentUnitCount": this.insuranceCharge.AptunitCount,
             "insuranceNumber": this.insuranceCharge.InsuranceNo,
             "totalCost": this.insuranceCharge.TotalCost,
@@ -240,7 +240,7 @@ let AddInsuranceComponent = class AddInsuranceComponent {
             "dateEntered": this.insuranceCharge.DateEntered,
             "comments": this.insuranceCharge.Comments,
             "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": new Date().toISOString(),
             "updatedBy": null,
             "updatedOn": null
@@ -281,7 +281,7 @@ let AddInsuranceComponent = class AddInsuranceComponent {
         this.insuranceCharge = {};
         this.insuranceCharge.DateEntered = new Date().toISOString();
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
             this.insuranceCharge.AptunitCount = res.length;
@@ -299,7 +299,7 @@ AddInsuranceComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 AddInsuranceComponent.propDecorators = {
     onCancel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
@@ -316,7 +316,7 @@ AddInsuranceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], AddInsuranceComponent);
 
 
@@ -353,7 +353,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -363,14 +363,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ElectricityReadingComponent = class ElectricityReadingComponent {
-    constructor(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, cookieService) {
+    constructor(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, sessionService) {
         this.router = router;
         this.route = route;
         this.utilityTrackerService = utilityTrackerService;
         this.lookupService = lookupService;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.onCancel = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isReadingSubmitted = true;
         this.isEditReading = false;
@@ -378,7 +378,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
         this.isError = false;
         this.alertMessage = "";
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     Cancel() {
@@ -386,11 +386,11 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
     }
     submitReadingForm(form) {
         let electric_period = {
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentId": this.sessionService.apartmentId,
             "periodFrom": this.electricReading.fromDate,
             "periodTo": this.electricReading.toDate,
             "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": new Date().toISOString(),
             "updatedBy": 0,
             "updatedOn": null
@@ -407,7 +407,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
         this.isReadingSubmitted = false;
         if (!this.isEditReading) {
             let details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentUnitCount": this.electricReading.AptunitCount,
                 "utilityTrackerElectricityPeriodId": this.electricReading.ElectricityPeriodId,
                 "prevReading": this.electricReading.PrevReading,
@@ -417,7 +417,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
                 "dateTaken": this.electricReading.DateTaken,
                 "comments": this.electricReading.comments,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
@@ -444,7 +444,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
         }
         else {
             let details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentUnitCount": this.electricReading.AptunitCount,
                 "utilityTrackerElectricityPeriodId": this.electricReading.ElectricityPeriodId,
                 "prevReading": this.electricReading.PrevReading,
@@ -454,7 +454,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
                 "dateTaken": this.electricReading.DateTaken,
                 "comments": this.electricReading.Comments,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
@@ -511,7 +511,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
         this.electricReading = {};
         this.electricReading.dateTaken = new Date().toISOString();
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
             this.electricReading.AptunitCount = res.length;
@@ -529,7 +529,7 @@ ElectricityReadingComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 ElectricityReadingComponent.propDecorators = {
     onCancel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
@@ -546,7 +546,7 @@ ElectricityReadingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], ElectricityReadingComponent);
 
 
@@ -581,7 +581,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 
 
@@ -591,22 +591,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UtilityAddReadingComponent = class UtilityAddReadingComponent {
-    constructor(injector, utilityTrackerService, lookupService, sharedService, cookieService) {
+    constructor(injector, utilityTrackerService, lookupService, sharedService, sessionService) {
         this.injector = injector;
         this.utilityTrackerService = utilityTrackerService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isUtilityCategoryLoaded = false;
         this.selected_utility_type = false;
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     loadUtilityCategory() {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe((res) => {
             this.utilityCategoryData = res.filter(item => {
@@ -627,7 +627,7 @@ let UtilityAddReadingComponent = class UtilityAddReadingComponent {
         this.utility_selected_category = category;
     }
     ngOnInit() {
-        this.apartment_id = parseInt(this.cookieService.get('apartmentId'));
+        this.apartment_id = this.sessionService.apartmentId;
         this.loadUtilityCategory();
     }
 };
@@ -636,7 +636,7 @@ UtilityAddReadingComponent.ctorParameters = () => [
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 UtilityAddReadingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -648,7 +648,7 @@ UtilityAddReadingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], UtilityAddReadingComponent);
 
 
@@ -684,7 +684,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -693,12 +693,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let TowerReadingInfoComponent = class TowerReadingInfoComponent {
-    constructor(apartmentService, lookupService, utilityTrackerService, sharedService, cookieService) {
+    constructor(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.utilityTrackerService = utilityTrackerService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isEdit = false;
         this.isTowersLoaded = false;
         this.isUnitSold = false;
@@ -746,7 +746,7 @@ TowerReadingInfoComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 TowerReadingInfoComponent.propDecorators = {
     tower: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -764,7 +764,7 @@ TowerReadingInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], TowerReadingInfoComponent);
 
 
@@ -800,7 +800,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
@@ -811,12 +811,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UnitReadingInfoComponent = class UnitReadingInfoComponent {
-    constructor(apartmentService, lookupService, utilityTrackerService, sharedService, cookieService) {
+    constructor(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.utilityTrackerService = utilityTrackerService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isError = false;
         this.alertMessage = "";
         this.isEdit = false;
@@ -841,7 +841,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
     }
     submitWaterMeterReading(form) {
         let details = {
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentId": this.sessionService.apartmentId,
             "apartmentBlockId": this.tower.apartmentBlockId,
             "apartmentBlockUnitId": this.unit.apartmentBlockUnitId,
             "waterChargeTypeId": null,
@@ -854,7 +854,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
             "dateTaken": this.waterReading.dateTaken,
             "comments": this.waterReading.comments,
             "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": new Date().toISOString(),
             "updatedBy": null,
             "updatedOn": null
@@ -890,7 +890,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
     }
     ngOnInit() {
         this.waterReading = {};
-        //let apartment_id = parseInt(this.cookieService.get('apartmentId'));
+        //let apartment_id = this.sessionService.apartmentId;
         if (this.unit.water_charge == undefined) {
             this.unit.water_charge = {};
         }
@@ -923,7 +923,7 @@ UnitReadingInfoComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 UnitReadingInfoComponent.propDecorators = {
     tower: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -941,7 +941,7 @@ UnitReadingInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], UnitReadingInfoComponent);
 
 
@@ -977,7 +977,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -986,17 +986,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let WaterReadingComponent = class WaterReadingComponent {
-    constructor(apartmentService, lookupService, utilityTrackerService, sharedService, cookieService) {
+    constructor(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.utilityTrackerService = utilityTrackerService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.onCancel = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isDataLoaded = false;
         this.isSetPeriod = true;
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     cancel() {
@@ -1005,11 +1005,11 @@ let WaterReadingComponent = class WaterReadingComponent {
     submitReadingPeriodForm(form) {
         this.isSetPeriod = false;
         let water_reading_period = {
-            "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+            "apartmentId": this.sessionService.apartmentId,
             "periodFrom": this.waterReadingFromDate,
             "periodTo": this.waterReadingToDate,
             "isActive": true,
-            "insertedBy": parseInt(this.cookieService.get('userId')),
+            "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": new Date().toISOString(),
             "updatedBy": 0,
             "updatedOn": null
@@ -1025,7 +1025,7 @@ let WaterReadingComponent = class WaterReadingComponent {
     ngOnInit() {
         this.waterReadingPeriodID = undefined;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.propertyTowerData = res;
@@ -1041,7 +1041,7 @@ WaterReadingComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 WaterReadingComponent.propDecorators = {
     onCancel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
@@ -1057,7 +1057,7 @@ WaterReadingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], WaterReadingComponent);
 
 
@@ -1092,7 +1092,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 
 
@@ -1102,12 +1102,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UtilityHistoryComponent = class UtilityHistoryComponent {
-    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.apartmentService = apartmentService;
         this.utilityTrackerService = utilityTrackerService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.utilityCategoryData = "";
         this.isUtilityCategoryLoaded = false;
         this.isUltilityElectricHisLoaded = false;
@@ -1121,7 +1121,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getIndexParams(event) {
@@ -1203,7 +1203,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
     getAllElectricalUtiliy() {
         this.isUltilityElectricHisLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getElectricityChargesByApartmentId(params).subscribe((res) => {
             this.utilityElecteicalListData = res.filter(item => {
@@ -1211,7 +1211,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
             });
             this.utilityElecteicalListPeriods = [];
             for (let electrical_list of this.utilityElecteicalListData) {
-                let period_param = { "apartmentId": parseInt(this.cookieService.get('apartmentId')), "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId };
+                let period_param = { "apartmentId": this.sessionService.apartmentId, "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId };
                 this.utilityTrackerService.getUtilityTrackerElectricityPeriodsById(period_param).subscribe((res) => {
                     let period_data = { "periods": res, "period_id": electrical_list.utilityTrackerElectricityPeriodId };
                     this.utilityElecteicalListPeriods.push(period_data);
@@ -1231,7 +1231,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
         this.selectedTower = 'All';
         this.isUltilityWaterHisLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe((res) => {
             this.utilityWaterListData = res;
@@ -1249,7 +1249,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
     getAllInsuranceUtiliy() {
         this.isUltilityInsuranceHisLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getUtilityTrackerInsuranceChargesByApartmentId(params).subscribe((res) => {
             this.utilityInsuranceListData = res.filter(item => {
@@ -1272,7 +1272,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
     }
     ngOnInit() {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe((res) => {
             this.utilityCategoryData = res.filter(item => {
@@ -1291,7 +1291,7 @@ UtilityHistoryComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 UtilityHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1303,7 +1303,7 @@ UtilityHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], UtilityHistoryComponent);
 
 
@@ -1338,7 +1338,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 
 
@@ -1348,12 +1348,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ElectricityReportComponent = class ElectricityReportComponent {
-    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.apartmentService = apartmentService;
         this.utilityTrackerService = utilityTrackerService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isReportLoaded = false;
         this.utilitySearch = "";
         this.unitFieldType = "utilityName";
@@ -1363,7 +1363,7 @@ let ElectricityReportComponent = class ElectricityReportComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getIndexParams(event) {
@@ -1406,7 +1406,7 @@ let ElectricityReportComponent = class ElectricityReportComponent {
     getAllElectricalUtiliy() {
         this.isReportLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getElectricityChargesByApartmentId(params).subscribe((res) => {
             this.utilityElecteicalListData = res.filter(item => {
@@ -1414,7 +1414,7 @@ let ElectricityReportComponent = class ElectricityReportComponent {
             });
             this.utilityElecteicalListPeriods = [];
             for (let electrical_list of this.utilityElecteicalListData) {
-                let period_param = { "apartmentId": parseInt(this.cookieService.get('apartmentId')), "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId };
+                let period_param = { "apartmentId": this.sessionService.apartmentId, "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId };
                 this.utilityTrackerService.getUtilityTrackerElectricityPeriodsById(period_param).subscribe((res) => {
                     let period_data = { "periods": res, "period_id": electrical_list.utilityTrackerElectricityPeriodId };
                     this.utilityElecteicalListPeriods.push(period_data);
@@ -1439,7 +1439,7 @@ ElectricityReportComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 ElectricityReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1451,7 +1451,7 @@ ElectricityReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], ElectricityReportComponent);
 
 
@@ -1486,7 +1486,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 
 
@@ -1496,12 +1496,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let InsuranceReportComponent = class InsuranceReportComponent {
-    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.apartmentService = apartmentService;
         this.utilityTrackerService = utilityTrackerService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isReportLoaded = false;
         this.utilitySearch = "";
         this.unitFieldType = "utilityName";
@@ -1511,7 +1511,7 @@ let InsuranceReportComponent = class InsuranceReportComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getIndexParams(event) {
@@ -1554,7 +1554,7 @@ let InsuranceReportComponent = class InsuranceReportComponent {
     getAllInsuranceUtiliy() {
         this.isReportLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getUtilityTrackerInsuranceChargesByApartmentId(params).subscribe((res) => {
             this.utilityInsuranceListData = res.filter(item => {
@@ -1584,7 +1584,7 @@ InsuranceReportComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 InsuranceReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1596,7 +1596,7 @@ InsuranceReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], InsuranceReportComponent);
 
 
@@ -1628,13 +1628,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UtilityReportsComponent", function() { return UtilityReportsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
 let UtilityReportsComponent = class UtilityReportsComponent {
-    constructor(cookieService) {
-        this.cookieService = cookieService;
+    constructor(sessionService) {
+        this.sessionService = sessionService;
         this.isDataLoaded = false;
     }
     ngOnInit() {
@@ -1647,7 +1647,7 @@ let UtilityReportsComponent = class UtilityReportsComponent {
     }
 };
 UtilityReportsComponent.ctorParameters = () => [
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] }
 ];
 UtilityReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1655,7 +1655,7 @@ UtilityReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./utility-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./utility-reports.component.scss */ "./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])
 ], UtilityReportsComponent);
 
 
@@ -1690,7 +1690,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 
 
@@ -1700,12 +1700,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let WaterReportComponent = class WaterReportComponent {
-    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+    constructor(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.apartmentService = apartmentService;
         this.utilityTrackerService = utilityTrackerService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isReportLoaded = false;
         this.utilitySearch = "";
         this.unitFieldType = "utilityName";
@@ -1715,7 +1715,7 @@ let WaterReportComponent = class WaterReportComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getIndexParams(event) {
@@ -1769,7 +1769,7 @@ let WaterReportComponent = class WaterReportComponent {
         this.selectedTower = 'All';
         this.isReportLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe((res) => {
             this.utilityWaterListData = res;
@@ -1786,7 +1786,7 @@ let WaterReportComponent = class WaterReportComponent {
     }
     ngOnInit() {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.propertyTowerData = res;
@@ -1799,7 +1799,7 @@ WaterReportComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 WaterReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1811,7 +1811,7 @@ WaterReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], WaterReportComponent);
 
 
@@ -1846,7 +1846,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 
 
@@ -1856,12 +1856,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UtilitySetupComponent = class UtilitySetupComponent {
-    constructor(injector, utilityTrackerService, lookupService, sharedService, cookieService) {
+    constructor(injector, utilityTrackerService, lookupService, sharedService, sessionService) {
         this.injector = injector;
         this.utilityTrackerService = utilityTrackerService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isUtilityCategoryLoaded = false;
         this.isUtilityCategorySubmitted = true;
         this.isUtilityCategoryNew = false;
@@ -1871,7 +1871,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
         this.alertMessage = "";
         this.isError = false;
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
@@ -1894,7 +1894,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
         console.log(item);
         var params = {
             utilityId: item.utilityTrackerCategoryId,
-            deleteBy: parseInt(this.cookieService.get('userId'))
+            deleteBy: parseInt(this.sessionService.userId)
         };
         this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe((res) => {
             this.loadUtilityCategory();
@@ -1944,7 +1944,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
                 "ratePerUnit": this.UtilityRateUnit,
                 "comments": "",
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
@@ -1955,7 +1955,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
             this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe((res) => {
                 if (res.message) {
                     let params = {
-                        apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                        apartmentId: this.sessionService.apartmentId
                     };
                     this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe((res) => {
                         this.isUtilityCategorySubmitted = true;
@@ -1975,14 +1975,14 @@ let UtilitySetupComponent = class UtilitySetupComponent {
         else {
             let details = {
                 "utilityTrackerCategoryId": this.UtilityCategoryUpdateId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "category": this.UtilityCategory,
                 "ratePerUnit": this.UtilityRateUnit,
                 "comments": "",
                 "isActive": true,
                 "insertedBy": this.selectedItem.insertedBy,
                 "insertedOn": this.selectedItem.insertedOn,
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString(),
             };
             let params = {
@@ -1991,7 +1991,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
             this.utilityTrackerService.updateUtilityTrackerCategory(params).subscribe((res) => {
                 if (res.message) {
                     let params = {
-                        apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                        apartmentId: this.sessionService.apartmentId
                     };
                     this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe((res) => {
                         this.isUtilityCategorySubmitted = true;
@@ -2013,7 +2013,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
     }
     loadUtilityCategory() {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe((res) => {
             this.utilityCategoryData = res.filter(item => {
@@ -2024,7 +2024,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
         });
     }
     ngOnInit() {
-        this.apartment_id = parseInt(this.cookieService.get('apartmentId'));
+        this.apartment_id = this.sessionService.apartmentId;
         this.loadUtilityCategory();
         this.sharedService.newcategoryadd.subscribe(is_category_form => {
             if (is_category_form) {
@@ -2043,7 +2043,7 @@ UtilitySetupComponent.ctorParameters = () => [
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 UtilitySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2055,7 +2055,7 @@ UtilitySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], UtilitySetupComponent);
 
 

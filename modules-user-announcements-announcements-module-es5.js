@@ -143,9 +143,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -172,11 +172,11 @@
       "./node_modules/rxjs/_esm2015/operators/index.js");
 
       var AnnouncementsComponent = /*#__PURE__*/function () {
-        function AnnouncementsComponent(broadcastService, cookieService, userService) {
+        function AnnouncementsComponent(broadcastService, sessionService, userService) {
           _classCallCheck(this, AnnouncementsComponent);
 
           this.broadcastService = broadcastService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.userService = userService;
           this.imagePath = "assets/images/announcement_background.jpeg";
           this.filterGroupCategory = {
@@ -192,8 +192,8 @@
         _createClass(AnnouncementsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
-            this.loginUserId = parseInt(this.cookieService.get('userId'));
+            this.apartmentID = this.sessionService.apartmentId;
+            this.loginUserId = parseInt(this.sessionService.userId);
             this.getAllCategory();
             this.getAllGroupCategory();
             this.getAllBroadcastMessage();
@@ -255,7 +255,7 @@
             var _this = this;
 
             var queryParamBase = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
               _this.allCategory = res;
@@ -319,7 +319,7 @@
             var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["concatMap"])(function (users) {
               _this3.allUser = users;
               var queryParamBase = {
-                apartmentId: parseInt(_this3.cookieService.get('apartmentId'))
+                apartmentId: _this3.sessionService.apartmentId
               };
               return _this3.broadcastService.getAllBroadcastMessages(queryParamBase);
             }));
@@ -390,7 +390,7 @@
         return [{
           type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
         }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
         }];
@@ -404,7 +404,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./announcements.component.scss */
         "./src/app/modules/user/announcements/announcements.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]])], AnnouncementsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]])], AnnouncementsComponent);
       /***/
     },
 

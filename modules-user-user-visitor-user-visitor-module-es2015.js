@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
 /* harmony import */ var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
@@ -99,7 +99,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddVisitorComponent = class AddVisitorComponent {
-    constructor(router, route, userService, apartmentService, visitorService, lookupService, sharedService, cookieService, SharedToaster) {
+    constructor(router, route, userService, apartmentService, visitorService, lookupService, sharedService, sessionService, SharedToaster) {
         this.router = router;
         this.route = route;
         this.userService = userService;
@@ -107,7 +107,7 @@ let AddVisitorComponent = class AddVisitorComponent {
         this.visitorService = visitorService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.SharedToaster = SharedToaster;
         this.isEditVisitor = false;
         this.isVisitorSubmitted = false;
@@ -159,7 +159,7 @@ let AddVisitorComponent = class AddVisitorComponent {
         if (!this.isEditVisitor) {
             let visitorDetails = {
                 "apartmentUnitId": this.apartmentUnitId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "expectedVisitorName": this.visitor.expectedVisitorName,
                 "expectedVisitorCount": this.visitor.expectedVisitorCount,
                 "expectedVisitorPhone": this.visitor.expectedVisitorPhone.toString(),
@@ -176,9 +176,9 @@ let AddVisitorComponent = class AddVisitorComponent {
                 'apartmentUnitNumber': this.visitor.apartmentBlockUnitNumber,
                 "exitGateId": null,
                 "purpose": this.visitor.purpose,
-                "enteredBy": parseInt(this.cookieService.get('userId')),
+                "enteredBy": parseInt(this.sessionService.userId),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
@@ -208,7 +208,7 @@ let AddVisitorComponent = class AddVisitorComponent {
             let visitorDetails = {
                 "expectedVisitorId": parseInt(this.route.params['value'].id),
                 "apartmentUnitId": this.apartmentUnitId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "expectedVisitorName": this.visitor.expectedVisitorName,
                 "expectedVisitorCount": this.visitor.expectedVisitorCount,
                 "expectedVisitorPhone": this.visitor.expectedVisitorPhone.toString(),
@@ -224,11 +224,11 @@ let AddVisitorComponent = class AddVisitorComponent {
                 'apartmentUnitNumber': this.visitor.apartmentBlockUnitNumber,
                 "exitGateId": null,
                 "purpose": this.visitor.purpose,
-                "enteredBy": parseInt(this.cookieService.get('userId')),
+                "enteredBy": parseInt(this.sessionService.userId),
                 "isActive": true,
                 "insertedBy": this.visitor.insertedBy,
                 "insertedOn": this.visitor.insertedOn,
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString(),
                 "visitorCategoryId": parseInt(this.visitCategoryId)
             };
@@ -302,7 +302,7 @@ let AddVisitorComponent = class AddVisitorComponent {
         }, error => {
         });
         let apartmentUnitParams = {
-            userId: parseInt(this.cookieService.get('userId'))
+            userId: parseInt(this.sessionService.userId)
         };
         this.apartmentService.getApartmentBlockUnitByUserId(apartmentUnitParams).subscribe((res) => {
             this.apartmentUnitId = res[0].apartmentBlockUnitId;
@@ -361,7 +361,7 @@ AddVisitorComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_6__["VisitorService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] },
     { type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_7__["SharedToasterService"] }
 ];
 AddVisitorComponent.propDecorators = {
@@ -382,7 +382,7 @@ AddVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_6__["VisitorService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"],
         src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_7__["SharedToasterService"]])
 ], AddVisitorComponent);
 
@@ -492,7 +492,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -515,14 +515,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MyVisitorComponent = class MyVisitorComponent {
-    constructor(router, injector, apartmentService, visitorService, lookupService, sharedService, cookieService, dialog) {
+    constructor(router, injector, apartmentService, visitorService, lookupService, sharedService, sessionService, dialog) {
         this.router = router;
         this.injector = injector;
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.dialog = dialog;
         this.visitorData = "";
         this.isVisitorDataLoaded = false;
@@ -603,14 +603,14 @@ let MyVisitorComponent = class MyVisitorComponent {
                 if (type == 'Planned Visitor') {
                     var params = {
                         expectedVisitorId: data.expectedVisitorId,
-                        deleteBy: parseInt(this.cookieService.get('userId'))
+                        deleteBy: parseInt(this.sessionService.userId)
                     };
                     serviceName = this.visitorService.deleteExpectedVisitorById(params);
                 }
                 else if (type == 'UnPlanned Visitor') {
                     var params_ = {
                         visitorId: data.visitorId,
-                        deleteBy: parseInt(this.cookieService.get('userId'))
+                        deleteBy: parseInt(this.sessionService.userId)
                     };
                     serviceName = this.visitorService.deleteVisitorById(params_);
                 }
@@ -746,7 +746,7 @@ let MyVisitorComponent = class MyVisitorComponent {
                 renderer: columnrenderer
             }];
         let apartmentUnitParams = {
-            userId: parseInt(this.cookieService.get('userId'))
+            userId: parseInt(this.sessionService.userId)
         };
         this.apartmentService.getApartmentBlockUnitByUserId(apartmentUnitParams).subscribe((res) => {
             this.apartmentUnitId = res[0].apartmentBlockUnitId;
@@ -810,7 +810,7 @@ MyVisitorComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"] }
 ];
 MyVisitorComponent.propDecorators = {
@@ -830,7 +830,7 @@ MyVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"]])
 ], MyVisitorComponent);
 

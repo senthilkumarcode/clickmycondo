@@ -73,7 +73,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnnouncementsComponent", function() { return AnnouncementsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -86,9 +86,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AnnouncementsComponent = class AnnouncementsComponent {
-    constructor(broadcastService, cookieService, userService) {
+    constructor(broadcastService, sessionService, userService) {
         this.broadcastService = broadcastService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.userService = userService;
         this.imagePath = "assets/images/announcement_background.jpeg";
         this.filterGroupCategory = {
@@ -102,8 +102,8 @@ let AnnouncementsComponent = class AnnouncementsComponent {
         //this.modalService = this.injector.get(ModalService);
     }
     ngOnInit() {
-        this.apartmentID = parseInt(this.cookieService.get('apartmentId'));
-        this.loginUserId = parseInt(this.cookieService.get('userId'));
+        this.apartmentID = this.sessionService.apartmentId;
+        this.loginUserId = parseInt(this.sessionService.userId);
         this.getAllCategory();
         this.getAllGroupCategory();
         this.getAllBroadcastMessage();
@@ -131,7 +131,7 @@ let AnnouncementsComponent = class AnnouncementsComponent {
     //Get All Category
     getAllCategory() {
         let queryParamBase = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe((res) => {
             this.allCategory = res;
@@ -182,7 +182,7 @@ let AnnouncementsComponent = class AnnouncementsComponent {
         var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["concatMap"])((users) => {
             this.allUser = users;
             let queryParamBase = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                apartmentId: this.sessionService.apartmentId
             };
             return this.broadcastService.getAllBroadcastMessages(queryParamBase);
         }));
@@ -236,7 +236,7 @@ let AnnouncementsComponent = class AnnouncementsComponent {
 };
 AnnouncementsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] }
 ];
 AnnouncementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -246,7 +246,7 @@ AnnouncementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./announcements.component.scss */ "./src/app/modules/user/announcements/announcements.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
 ], AnnouncementsComponent);
 

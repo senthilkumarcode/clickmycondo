@@ -156,20 +156,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
 
 let HelpdeskReportsComponent = class HelpdeskReportsComponent {
-    constructor(lookupService, cookieService) {
+    constructor(lookupService, sessionService) {
         this.lookupService = lookupService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isDataLoaded = false;
     }
     ngOnInit() {
         let details = {
-            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 87,
             MenuName: 'HelpdeskTracker'
         };
@@ -188,7 +188,7 @@ let HelpdeskReportsComponent = class HelpdeskReportsComponent {
 };
 HelpdeskReportsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
 ];
 HelpdeskReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -197,7 +197,7 @@ HelpdeskReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./helpdesk-reports.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
 ], HelpdeskReportsComponent);
 
 
@@ -232,7 +232,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -247,13 +247,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let OpenTicketsReportComponent = class OpenTicketsReportComponent {
-    constructor(apartmentService, sharedService, staffService, ticketService, lookupService, cookieService) {
+    constructor(apartmentService, sharedService, staffService, ticketService, lookupService, sessionService) {
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.staffService = staffService;
         this.ticketService = ticketService;
         this.lookupService = lookupService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isBlockSelected = false;
         this.isUnitSelected = false;
         this.ItemStartIndex = 0;
@@ -272,7 +272,7 @@ let OpenTicketsReportComponent = class OpenTicketsReportComponent {
             LookupTypeId: 14
         };
         this.apartmentParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getIndexParams(event) {
@@ -324,7 +324,7 @@ let OpenTicketsReportComponent = class OpenTicketsReportComponent {
         this.isDataLoaded = false;
         this.ItemStartIndex = 0;
         let details = {
-            ApartmentID: parseInt(this.cookieService.get('apartmentId')),
+            ApartmentID: this.sessionService.apartmentId,
             ApartmentBlockID: parseInt(this.report.apartmentBlockId),
             StartDate: this.getDateFormat(this.report.fromDate),
             EndDate: this.getDateFormat(this.report.toDate),
@@ -375,7 +375,7 @@ OpenTicketsReportComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"] },
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 OpenTicketsReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -388,7 +388,7 @@ OpenTicketsReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"],
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], OpenTicketsReportComponent);
 
 
@@ -422,7 +422,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
@@ -435,10 +435,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddTicketCategoryComponent = class AddTicketCategoryComponent {
-    constructor(dialogRef, staffService, cookieService, lookupService, ticketService, sharedService, data) {
+    constructor(dialogRef, staffService, sessionService, lookupService, ticketService, sharedService, data) {
         this.dialogRef = dialogRef;
         this.staffService = staffService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.lookupService = lookupService;
         this.ticketService = ticketService;
         this.sharedService = sharedService;
@@ -492,8 +492,8 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
             description: this.ticketCategoryData.categoryName,
             lookupTypeId: this.data.type == 'private' ? 16 : 17,
             lookupValueName: this.ticketCategoryData.categoryName,
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            insertedBy: parseInt(this.cookieService.get('userId')),
+            apartmentId: this.sessionService.apartmentId,
+            insertedBy: parseInt(this.sessionService.userId),
             insertedOn: new Date().toISOString(),
             isActive: true,
             updatedBy: 0,
@@ -516,10 +516,10 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
             ticketTypeId: this.data.type == 'private' ? 27 : 24,
             isDefault: true,
             isActive: true,
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
-            insertedBy: parseInt(this.cookieService.get('userId')),
+            apartmentId: this.sessionService.apartmentId,
+            insertedBy: parseInt(this.sessionService.userId),
             insertedOn: new Date().toISOString(),
-            updatedBy: this.data.mode == 'edit' ? parseInt(this.cookieService.get('userId')) : 0,
+            updatedBy: this.data.mode == 'edit' ? parseInt(this.sessionService.userId) : 0,
             updatedOn: this.data.mode == 'edit' ? new Date().toISOString() : null
         };
         for (let i = 0; i < 3; i++) {
@@ -571,11 +571,11 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
                 description: this.ticketCategoryData.categoryName,
                 lookupTypeId: this.data.type == 'private' ? 16 : 17,
                 lookupValueName: this.ticketCategoryData.categoryName,
-                apartmentId: parseInt(this.cookieService.get('apartmentId')),
-                insertedBy: parseInt(this.cookieService.get('userId')),
+                apartmentId: this.sessionService.apartmentId,
+                insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: new Date().toISOString(),
                 isActive: true,
-                updatedBy: parseInt(this.cookieService.get('userId')),
+                updatedBy: parseInt(this.sessionService.userId),
                 updatedOn: new Date().toISOString(),
             };
             let lookupvalue = {
@@ -595,7 +595,7 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
     patchData() {
         if (this.data.mode == 'edit' && this.data.categoryId) {
             let queryParamBase = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                apartmentId: this.sessionService.apartmentId,
                 ticketCategoryId: this.data.categoryId,
                 ticketTypeId: this.data.type == 'private' ? 27 : 24,
             };
@@ -646,7 +646,7 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
 AddTicketCategoryComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
@@ -660,7 +660,7 @@ AddTicketCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], Object])
@@ -695,7 +695,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommonCategoryComponent", function() { return CommonCategoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
@@ -710,11 +710,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CommonCategoryComponent = class CommonCategoryComponent {
-    constructor(router, dialog, ticketService, cookieService) {
+    constructor(router, dialog, ticketService, sessionService) {
         this.router = router;
         this.dialog = dialog;
         this.ticketService = ticketService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.commonFilter = "";
         this.isDataLoaded = true;
         this.totalItems = 0;
@@ -765,7 +765,7 @@ let CommonCategoryComponent = class CommonCategoryComponent {
     getCommonCategoryList() {
         this.isDataLoaded = true;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             ticketTypeId: 24,
         };
         this.ticketService.getAllTicketManagerByApartmentId(params).subscribe((res) => {
@@ -869,7 +869,7 @@ CommonCategoryComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] }
 ];
 CommonCategoryComponent.propDecorators = {
     commondatagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['commondatagrid', { static: false },] }],
@@ -884,7 +884,7 @@ CommonCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])
 ], CommonCategoryComponent);
 
 function showConfirmDeleteEventCommon(row) {
@@ -938,7 +938,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -947,13 +947,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HelpdeskEditStaffComponent = class HelpdeskEditStaffComponent {
-    constructor(router, route, userService, staffService, lookupService, cookieService) {
+    constructor(router, route, userService, staffService, lookupService, sessionService) {
         this.router = router;
         this.route = route;
         this.userService = userService;
         this.staffService = staffService;
         this.lookupService = lookupService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isStaffSubmitted = false;
         this.isStaffAdded = false;
         this.isError = false;
@@ -980,7 +980,7 @@ HelpdeskEditStaffComponent.ctorParameters = () => [
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 HelpdeskEditStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -993,7 +993,7 @@ HelpdeskEditStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], HelpdeskEditStaffComponent);
 
 
@@ -1075,7 +1075,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivateCategoryComponent", function() { return PrivateCategoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
@@ -1090,11 +1090,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrivateCategoryComponent = class PrivateCategoryComponent {
-    constructor(router, dialog, ticketService, cookieService) {
+    constructor(router, dialog, ticketService, sessionService) {
         this.router = router;
         this.dialog = dialog;
         this.ticketService = ticketService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isDataLoaded = true;
         this.totalItems = 0;
     }
@@ -1144,7 +1144,7 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
     getPrivateCategoryList() {
         this.isDataLoaded = true;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             ticketTypeId: 27,
         };
         this.ticketService.getAllTicketManagerByApartmentId(params).subscribe((res) => {
@@ -1248,7 +1248,7 @@ PrivateCategoryComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] }
 ];
 PrivateCategoryComponent.propDecorators = {
     privatedatagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['privatedatagrid', { static: false },] }],
@@ -1263,7 +1263,7 @@ PrivateCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])
 ], PrivateCategoryComponent);
 
 function showConfirmDeleteEventPrivate(row) {
@@ -1321,7 +1321,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
 
@@ -1337,7 +1337,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
-    constructor(router, injector, userService, staffService, ticketService, lookupService, sharedService, cookieService) {
+    constructor(router, injector, userService, staffService, ticketService, lookupService, sharedService, sessionService) {
         this.router = router;
         this.injector = injector;
         this.userService = userService;
@@ -1345,7 +1345,7 @@ let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
         this.ticketService = ticketService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.ticketData = "";
         this.isTicketDataLoaded = false;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
@@ -1362,7 +1362,7 @@ let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
         this.datagrid.exportdata(event, 'helpdeskData');
     }
     isAdmin() {
-        return (this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff') ? true : false;
+        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
     }
     onGlSearchFilter() {
         if (this.ticketData != "") {
@@ -1470,9 +1470,9 @@ let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
                 },
                 renderer: columnrenderer
             }];
-        if (this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff') {
+        if (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') {
             let params = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                apartmentId: this.sessionService.apartmentId
             };
             this.ticketService.getAllTicketsByApartmentId(params).subscribe((res) => {
                 //filter active true items
@@ -1493,9 +1493,9 @@ let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
             }, error => {
             });
         }
-        if (this.cookieService.get('userRoleType') == 'Tenant' || this.cookieService.get('userRoleType') == 'Owner') {
+        if (this.sessionService.roleTypeName == 'Tenant' || this.sessionService.roleTypeName == 'Owner') {
             let params = {
-                raisedUserId: parseInt(this.cookieService.get('userId'))
+                raisedUserId: parseInt(this.sessionService.userId)
             };
             this.ticketService.getTicketsByRaisedUserId(params).subscribe((res) => {
                 //filter active true items
@@ -1518,7 +1518,7 @@ let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
                 let ticketId = dataRecord.ticketId;
                 let params = {
                     ticketId: ticketId,
-                    deleteBy: parseInt(this.cookieService.get('userId'))
+                    deleteBy: parseInt(this.sessionService.userId)
                 };
                 this.ticketService.deleteTicket(params).subscribe((res) => {
                     /*_.each(this.ticketListData, (type)=>{
@@ -1548,7 +1548,7 @@ HelpdeskUnassignedComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] }
 ];
 HelpdeskUnassignedComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -1568,7 +1568,7 @@ HelpdeskUnassignedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_10__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])
 ], HelpdeskUnassignedComponent);
 
 function getClassName(value) {

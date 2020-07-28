@@ -124,7 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
@@ -133,9 +133,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
-    constructor(accountsService, cookieService) {
+    constructor(accountsService, sessionService) {
         this.accountsService = accountsService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isDefaultersDataLoaded = false;
         this.defaultData = "";
         this.isDefaultSelected = false;
@@ -282,7 +282,7 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
     }
     ngOnInit() {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.accountsService.getIncomeTrackerDefaulterByApartmentId(params).subscribe((res) => {
             var gridDefaultDataList = res;
@@ -303,7 +303,7 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
 };
 IncomeViewDefaultersComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
 IncomeViewDefaultersComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -317,7 +317,7 @@ IncomeViewDefaultersComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-view-defaulters.component.scss */ "./src/app/modules/ams/income-tracker/income-defaulters/income-view-defaulters.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], IncomeViewDefaultersComponent);
 
 function checkDefaulterHeaderEvent(event, isChecked) {

@@ -164,9 +164,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -181,12 +181,12 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var ExpenseAllInvoicesComponent = /*#__PURE__*/function () {
-        function ExpenseAllInvoicesComponent(userService, accountsService, cookieService, router) {
+        function ExpenseAllInvoicesComponent(userService, accountsService, sessionService, router) {
           _classCallCheck(this, ExpenseAllInvoicesComponent);
 
           this.userService = userService;
           this.accountsService = accountsService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.router = router;
           this.isInvoiceDataLoaded = false;
           this.invoiceData = "";
@@ -287,14 +287,14 @@
               renderer: columnrenderer
             }];
             var accountParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               groupId: 3
             };
             this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
               _this2.glAccountListData = res;
             });
             var invoiceParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getExpenseTrackerInvoicesByApartmentId(invoiceParams).subscribe(function (res) {
               var invoiceDataList = res;
@@ -312,7 +312,7 @@
 
               _this2.isInvoiceDataLoaded = true;
               var dataParams = {
-                apartmentId: parseInt(_this2.cookieService.get('apartmentId'))
+                apartmentId: _this2.sessionService.apartmentId
               };
 
               _this2.userService.getAllUsersByApartmentId(dataParams).subscribe(function (res) {
@@ -331,7 +331,7 @@
         }, {
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }];
@@ -357,7 +357,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./expense-all-invoices.component.scss */
         "./src/app/modules/ams/expense-tracker/expense-all-invoices/expense-all-invoices.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], ExpenseAllInvoicesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], ExpenseAllInvoicesComponent);
 
       function editInvoiceEvent(row) {
         var event = new CustomEvent('onEditInvoice', {

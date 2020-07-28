@@ -199,9 +199,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -220,7 +220,7 @@
       var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
       var ExpensePayInvoiceComponent = /*#__PURE__*/function () {
-        function ExpensePayInvoiceComponent(route, userService, lookupService, accountsService, vendorService, cookieService) {
+        function ExpensePayInvoiceComponent(route, userService, lookupService, accountsService, vendorService, sessionService) {
           _classCallCheck(this, ExpensePayInvoiceComponent);
 
           this.route = route;
@@ -228,7 +228,7 @@
           this.lookupService = lookupService;
           this.accountsService = accountsService;
           this.vendorService = vendorService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isInvoiceDataLoaded = false;
           this.invoiceData = "";
           this.ItemStartIndex = 0;
@@ -385,7 +385,7 @@
             var _this3 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               vendorId: this.route.params['value'].id
             };
             this.accountsService.getVendorInvoiceByVendorId(params).subscribe(function (res) {
@@ -408,7 +408,7 @@
 
             this.getCustInvoices();
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
               _this4.vendorDataList = res.filter(function (item) {
@@ -426,7 +426,7 @@
               });
             });
             var accountParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               groupId: 3
             };
             this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
@@ -450,7 +450,7 @@
         }, {
           type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -462,7 +462,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./expense-pay-invoice.component.scss */
         "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-pay-invoice.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ExpensePayInvoiceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_6__["VendorService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ExpensePayInvoiceComponent);
       /***/
     },
 
@@ -636,9 +636,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -647,13 +647,13 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var ExpensePostPaymentComponent = /*#__PURE__*/function () {
-        function ExpensePostPaymentComponent(accountsService, lookupService, sharedService, cookieService) {
+        function ExpensePostPaymentComponent(accountsService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, ExpensePostPaymentComponent);
 
           this.accountsService = accountsService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.collection = {};
           this.isCollectionSubmitted = false;
           this.isError = false;
@@ -672,13 +672,13 @@
             var custInvoiceObjArray = [];
             underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, function (item, index) {
               var details = {
-                "apartmentId": parseInt(_this5.cookieService.get('apartmentId')),
+                "apartmentId": _this5.sessionService.apartmentId,
                 "paymentId": 11,
                 "invoiceId": item,
                 "amount": _this5.totalAmountArray[index],
                 "comment": "",
                 "isActive": true,
-                "insertedBy": parseInt(_this5.cookieService.get('userId')),
+                "insertedBy": parseInt(_this5.sessionService.userId),
                 "insertedOn": "2020-01-10T06:59:54.422Z",
                 "updatedBy": 0,
                 "updatedOn": "2020-01-10T06:59:54.422Z"
@@ -687,7 +687,7 @@
             });
             this.isCollectionSubmitted = false;
             var collectionDetails = {
-              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentId": this.sessionService.apartmentId,
               "paymentAmount": parseInt(this.collection.paymentAmount),
               "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
               "instrumentNumber": "",
@@ -696,7 +696,7 @@
               "vendorPaymentAccountTypeId": 23,
               "comments": "",
               "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": "2019-12-15T19:36:14.09",
               "updatedBy": null,
               "updatedOn": null,
@@ -741,7 +741,7 @@
               });
             }, function (error) {});
             var accountParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               groupId: 3
             };
             this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
@@ -779,7 +779,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -802,7 +802,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./expense-post-payment.component.scss */
         "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-post-payment/expense-post-payment.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], ExpensePostPaymentComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ExpensePostPaymentComponent);
       /***/
     }
   }]);

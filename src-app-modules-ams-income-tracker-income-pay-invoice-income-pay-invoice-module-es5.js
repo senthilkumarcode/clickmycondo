@@ -190,9 +190,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -211,14 +211,14 @@
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
       var IncomePayInvoiceComponent = /*#__PURE__*/function () {
-        function IncomePayInvoiceComponent(route, accountsService, sharedService, constantsService, cookieService) {
+        function IncomePayInvoiceComponent(route, accountsService, sharedService, constantsService, sessionService) {
           _classCallCheck(this, IncomePayInvoiceComponent);
 
           this.route = route;
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.constantsService = constantsService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isInvoiceDataLoaded = false;
           this.invoiceData = "";
           this.ItemStartIndex = 0;
@@ -417,7 +417,7 @@
 
             this.getCustInvoices();
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
               _this6.accountDataList = res.filter(function (item) {
@@ -426,7 +426,7 @@
               _this6.isAccountDataLoaded = true;
             });
             var accountParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               groupId: 3
             };
             this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
@@ -449,7 +449,7 @@
         }, {
           type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -477,7 +477,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-pay-invoice.component.scss */
         "./src/app/modules/ams/income-tracker/income-pay-invoice/income-pay-invoice.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], IncomePayInvoiceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], IncomePayInvoiceComponent);
 
       var checkInvoiceHeaderEvent = function checkInvoiceHeaderEvent(event, isChecked) {
         event.stopPropagation();
@@ -675,9 +675,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -686,13 +686,13 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var IncomePostCollectionComponent = /*#__PURE__*/function () {
-        function IncomePostCollectionComponent(accountsService, lookupService, sharedService, cookieService) {
+        function IncomePostCollectionComponent(accountsService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, IncomePostCollectionComponent);
 
           this.accountsService = accountsService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.collection = {};
           this.isCollectionSubmitted = false;
           this.isError = false;
@@ -728,7 +728,7 @@
             if (this.invoiceIdArray.length == 1) {
               underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, function (item, index) {
                 var details = {
-                  "apartmentId": parseInt(_this7.cookieService.get('apartmentId')),
+                  "apartmentId": _this7.sessionService.apartmentId,
                   "collectionId": 0,
                   "invoiceId": item,
                   "glAccountId": 0,
@@ -736,7 +736,7 @@
                   "amount": _this7.collection.amount,
                   "comment": "",
                   "isActive": true,
-                  "insertedBy": parseInt(_this7.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this7.sessionService.userId),
                   "insertedOn": "2020-01-10T06:59:54.422Z",
                   "updatedBy": 0,
                   "updatedOn": "2020-01-10T06:59:54.422Z"
@@ -746,7 +746,7 @@
             } else {
               underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, function (item, index) {
                 var details = {
-                  "apartmentId": parseInt(_this7.cookieService.get('apartmentId')),
+                  "apartmentId": _this7.sessionService.apartmentId,
                   "collectionId": 0,
                   "invoiceId": item,
                   "glAccountId": 0,
@@ -754,7 +754,7 @@
                   "amount": _this7.totalAmountArray[index],
                   "comment": "",
                   "isActive": true,
-                  "insertedBy": parseInt(_this7.cookieService.get('userId')),
+                  "insertedBy": parseInt(_this7.sessionService.userId),
                   "insertedOn": "2020-01-10T06:59:54.422Z",
                   "updatedBy": 0,
                   "updatedOn": "2020-01-10T06:59:54.422Z"
@@ -765,7 +765,7 @@
 
             this.isCollectionSubmitted = false;
             var collectionDetails = {
-              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentId": this.sessionService.apartmentId,
               "receiptNumber": 0,
               "receiptDate": new Date().toISOString(),
               "amount": parseInt(this.collection.amount),
@@ -780,7 +780,7 @@
               "isSmssent": true,
               "comment": this.collection.comment || "",
               "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": new Date().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
@@ -838,7 +838,7 @@
               });
             }, function (error) {});
             var accountParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               groupId: 3
             };
             this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
@@ -885,7 +885,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -908,7 +908,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-post-collection.component.scss */
         "./src/app/modules/ams/income-tracker/income-pay-invoice/income-post-collection/income-post-collection.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], IncomePostCollectionComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], IncomePostCollectionComponent);
       /***/
     }
   }]);

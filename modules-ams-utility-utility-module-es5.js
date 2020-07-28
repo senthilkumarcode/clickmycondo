@@ -356,12 +356,12 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var AddInsuranceComponent = /*#__PURE__*/function () {
-        function AddInsuranceComponent(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, cookieService) {
+        function AddInsuranceComponent(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, sessionService) {
           _classCallCheck(this, AddInsuranceComponent);
 
           this.router = router;
@@ -370,14 +370,14 @@
           this.lookupService = lookupService;
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.onCancel = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.isInsuranceSubmitted = true;
           this.isEdit = false;
           this.isError = false;
           this.alertMessage = "";
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -393,7 +393,7 @@
 
             this.isInsuranceSubmitted = false;
             var details = {
-              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentId": this.sessionService.apartmentId,
               "apartmentUnitCount": this.insuranceCharge.AptunitCount,
               "insuranceNumber": this.insuranceCharge.InsuranceNo,
               "totalCost": this.insuranceCharge.TotalCost,
@@ -401,7 +401,7 @@
               "dateEntered": this.insuranceCharge.DateEntered,
               "comments": this.insuranceCharge.Comments,
               "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": new Date().toISOString(),
               "updatedBy": null,
               "updatedOn": null
@@ -451,7 +451,7 @@
             this.insuranceCharge = {};
             this.insuranceCharge.DateEntered = new Date().toISOString();
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
               _this2.insuranceCharge.AptunitCount = res.length;
@@ -479,7 +479,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -496,7 +496,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-insurance.component.scss */
         "./src/app/modules/ams/utility/components/utility-add-reading/add-insurance/add-insurance.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_3__["UtilityTrackerService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], AddInsuranceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_3__["UtilityTrackerService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], AddInsuranceComponent);
       /***/
     },
 
@@ -584,12 +584,12 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var ElectricityReadingComponent = /*#__PURE__*/function () {
-        function ElectricityReadingComponent(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, cookieService) {
+        function ElectricityReadingComponent(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, sessionService) {
           _classCallCheck(this, ElectricityReadingComponent);
 
           this.router = router;
@@ -598,7 +598,7 @@
           this.lookupService = lookupService;
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.onCancel = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.isReadingSubmitted = true;
           this.isEditReading = false;
@@ -606,7 +606,7 @@
           this.isError = false;
           this.alertMessage = "";
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -621,11 +621,11 @@
             var _this3 = this;
 
             var electric_period = {
-              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentId": this.sessionService.apartmentId,
               "periodFrom": this.electricReading.fromDate,
               "periodTo": this.electricReading.toDate,
               "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": new Date().toISOString(),
               "updatedBy": 0,
               "updatedOn": null
@@ -648,7 +648,7 @@
 
             if (!this.isEditReading) {
               var details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentUnitCount": this.electricReading.AptunitCount,
                 "utilityTrackerElectricityPeriodId": this.electricReading.ElectricityPeriodId,
                 "prevReading": this.electricReading.PrevReading,
@@ -658,7 +658,7 @@
                 "dateTaken": this.electricReading.DateTaken,
                 "comments": this.electricReading.comments,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
@@ -685,7 +685,7 @@
               });
             } else {
               var _details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentUnitCount": this.electricReading.AptunitCount,
                 "utilityTrackerElectricityPeriodId": this.electricReading.ElectricityPeriodId,
                 "prevReading": this.electricReading.PrevReading,
@@ -695,7 +695,7 @@
                 "dateTaken": this.electricReading.DateTaken,
                 "comments": this.electricReading.Comments,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
@@ -763,7 +763,7 @@
             this.electricReading = {};
             this.electricReading.dateTaken = new Date().toISOString();
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
               _this5.electricReading.AptunitCount = res.length;
@@ -794,7 +794,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -811,7 +811,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./electricity-reading.component.scss */
         "./src/app/modules/ams/utility/components/utility-add-reading/electricity-reading/electricity-reading.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_3__["UtilityTrackerService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], ElectricityReadingComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_3__["UtilityTrackerService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ElectricityReadingComponent);
       /***/
     },
 
@@ -887,9 +887,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -898,18 +898,18 @@
       "./src/app/shared/services/modal.service.ts");
 
       var UtilityAddReadingComponent = /*#__PURE__*/function () {
-        function UtilityAddReadingComponent(injector, utilityTrackerService, lookupService, sharedService, cookieService) {
+        function UtilityAddReadingComponent(injector, utilityTrackerService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, UtilityAddReadingComponent);
 
           this.injector = injector;
           this.utilityTrackerService = utilityTrackerService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isUtilityCategoryLoaded = false;
           this.selected_utility_type = false;
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
@@ -920,7 +920,7 @@
             var _this6 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
               _this6.utilityCategoryData = res.filter(function (item) {
@@ -948,7 +948,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            this.apartment_id = parseInt(this.cookieService.get('apartmentId'));
+            this.apartment_id = this.sessionService.apartmentId;
             this.loadUtilityCategory();
           }
         }]);
@@ -966,7 +966,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -978,7 +978,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./utility-add-reading.component.scss */
         "./src/app/modules/ams/utility/components/utility-add-reading/utility-add-reading.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], UtilityAddReadingComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], UtilityAddReadingComponent);
       /***/
     },
 
@@ -1060,19 +1060,19 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var TowerReadingInfoComponent = /*#__PURE__*/function () {
-        function TowerReadingInfoComponent(apartmentService, lookupService, utilityTrackerService, sharedService, cookieService) {
+        function TowerReadingInfoComponent(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
           _classCallCheck(this, TowerReadingInfoComponent);
 
           this.apartmentService = apartmentService;
           this.lookupService = lookupService;
           this.utilityTrackerService = utilityTrackerService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isEdit = false;
           this.isTowersLoaded = false;
           this.isUnitSold = false;
@@ -1155,7 +1155,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -1181,7 +1181,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./tower-reading-info.component.scss */
         "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/tower-reading-info/tower-reading-info.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], TowerReadingInfoComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], TowerReadingInfoComponent);
       /***/
     },
 
@@ -1263,9 +1263,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1274,14 +1274,14 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var UnitReadingInfoComponent = /*#__PURE__*/function () {
-        function UnitReadingInfoComponent(apartmentService, lookupService, utilityTrackerService, sharedService, cookieService) {
+        function UnitReadingInfoComponent(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
           _classCallCheck(this, UnitReadingInfoComponent);
 
           this.apartmentService = apartmentService;
           this.lookupService = lookupService;
           this.utilityTrackerService = utilityTrackerService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isError = false;
           this.alertMessage = "";
           this.isEdit = false;
@@ -1316,7 +1316,7 @@
             var _this8 = this;
 
             var details = {
-              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentId": this.sessionService.apartmentId,
               "apartmentBlockId": this.tower.apartmentBlockId,
               "apartmentBlockUnitId": this.unit.apartmentBlockUnitId,
               "waterChargeTypeId": null,
@@ -1329,7 +1329,7 @@
               "dateTaken": this.waterReading.dateTaken,
               "comments": this.waterReading.comments,
               "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": new Date().toISOString(),
               "updatedBy": null,
               "updatedOn": null
@@ -1372,7 +1372,7 @@
           value: function ngOnInit() {
             var _this9 = this;
 
-            this.waterReading = {}; //let apartment_id = parseInt(this.cookieService.get('apartmentId'));
+            this.waterReading = {}; //let apartment_id = this.sessionService.apartmentId;
 
             if (this.unit.water_charge == undefined) {
               this.unit.water_charge = {};
@@ -1415,7 +1415,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -1441,7 +1441,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./unit-reading-info.component.scss */
         "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/tower-reading-info/unit-reading-info/unit-reading-info.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], UnitReadingInfoComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], UnitReadingInfoComponent);
       /***/
     },
 
@@ -1523,24 +1523,24 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var WaterReadingComponent = /*#__PURE__*/function () {
-        function WaterReadingComponent(apartmentService, lookupService, utilityTrackerService, sharedService, cookieService) {
+        function WaterReadingComponent(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
           _classCallCheck(this, WaterReadingComponent);
 
           this.apartmentService = apartmentService;
           this.lookupService = lookupService;
           this.utilityTrackerService = utilityTrackerService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.onCancel = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.isDataLoaded = false;
           this.isSetPeriod = true;
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -1556,11 +1556,11 @@
 
             this.isSetPeriod = false;
             var water_reading_period = {
-              "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+              "apartmentId": this.sessionService.apartmentId,
               "periodFrom": this.waterReadingFromDate,
               "periodTo": this.waterReadingToDate,
               "isActive": true,
-              "insertedBy": parseInt(this.cookieService.get('userId')),
+              "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": new Date().toISOString(),
               "updatedBy": 0,
               "updatedOn": null
@@ -1580,7 +1580,7 @@
 
             this.waterReadingPeriodID = undefined;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               _this11.propertyTowerData = res;
@@ -1605,7 +1605,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -1625,7 +1625,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./water-reading.component.scss */
         "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/water-reading.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], WaterReadingComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], WaterReadingComponent);
       /***/
     },
 
@@ -1701,9 +1701,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -1712,14 +1712,14 @@
       "./src/app/api/controllers/Apartment.ts");
 
       var UtilityHistoryComponent = /*#__PURE__*/function () {
-        function UtilityHistoryComponent(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+        function UtilityHistoryComponent(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
           _classCallCheck(this, UtilityHistoryComponent);
 
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.apartmentService = apartmentService;
           this.utilityTrackerService = utilityTrackerService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.utilityCategoryData = "";
           this.isUtilityCategoryLoaded = false;
           this.isUltilityElectricHisLoaded = false;
@@ -1733,7 +1733,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -1848,7 +1848,7 @@
 
             this.isUltilityElectricHisLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getElectricityChargesByApartmentId(params).subscribe(function (res) {
               _this13.utilityElecteicalListData = res.filter(function (item) {
@@ -1863,7 +1863,7 @@
                 var _loop2 = function _loop2() {
                   var electrical_list = _step2.value;
                   var period_param = {
-                    "apartmentId": parseInt(_this13.cookieService.get('apartmentId')),
+                    "apartmentId": _this13.sessionService.apartmentId,
                     "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId
                   };
 
@@ -1905,7 +1905,7 @@
             this.selectedTower = 'All';
             this.isUltilityWaterHisLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe(function (res) {
               _this14.utilityWaterListData = res;
@@ -1928,7 +1928,7 @@
 
             this.isUltilityInsuranceHisLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerInsuranceChargesByApartmentId(params).subscribe(function (res) {
               _this15.utilityInsuranceListData = res.filter(function (item) {
@@ -1958,7 +1958,7 @@
             var _this16 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
               _this16.utilityCategoryData = res.filter(function (item) {
@@ -1985,7 +1985,7 @@
         }, {
           type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -1997,7 +1997,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./utility-history.component.scss */
         "./src/app/modules/ams/utility/components/utility-history/utility-history.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], UtilityHistoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], UtilityHistoryComponent);
       /***/
     },
 
@@ -2073,9 +2073,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2084,14 +2084,14 @@
       "./src/app/api/controllers/Apartment.ts");
 
       var ElectricityReportComponent = /*#__PURE__*/function () {
-        function ElectricityReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+        function ElectricityReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
           _classCallCheck(this, ElectricityReportComponent);
 
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.apartmentService = apartmentService;
           this.utilityTrackerService = utilityTrackerService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isReportLoaded = false;
           this.utilitySearch = "";
           this.unitFieldType = "utilityName";
@@ -2101,7 +2101,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -2169,7 +2169,7 @@
 
             this.isReportLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getElectricityChargesByApartmentId(params).subscribe(function (res) {
               _this17.utilityElecteicalListData = res.filter(function (item) {
@@ -2184,7 +2184,7 @@
                 var _loop3 = function _loop3() {
                   var electrical_list = _step3.value;
                   var period_param = {
-                    "apartmentId": parseInt(_this17.cookieService.get('apartmentId')),
+                    "apartmentId": _this17.sessionService.apartmentId,
                     "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId
                   };
 
@@ -2238,7 +2238,7 @@
         }, {
           type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -2250,7 +2250,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./electricity-report.component.scss */
         "./src/app/modules/ams/utility/components/utility-reports/electricity-report/electricity-report.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], ElectricityReportComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ElectricityReportComponent);
       /***/
     },
 
@@ -2326,9 +2326,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2337,14 +2337,14 @@
       "./src/app/api/controllers/Apartment.ts");
 
       var InsuranceReportComponent = /*#__PURE__*/function () {
-        function InsuranceReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+        function InsuranceReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
           _classCallCheck(this, InsuranceReportComponent);
 
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.apartmentService = apartmentService;
           this.utilityTrackerService = utilityTrackerService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isReportLoaded = false;
           this.utilitySearch = "";
           this.unitFieldType = "utilityName";
@@ -2354,7 +2354,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -2422,7 +2422,7 @@
 
             this.isReportLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerInsuranceChargesByApartmentId(params).subscribe(function (res) {
               _this18.utilityInsuranceListData = res.filter(function (item) {
@@ -2466,7 +2466,7 @@
         }, {
           type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -2478,7 +2478,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./insurance-report.component.scss */
         "./src/app/modules/ams/utility/components/utility-reports/insurance-report/insurance-report.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], InsuranceReportComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], InsuranceReportComponent);
       /***/
     },
 
@@ -2536,15 +2536,15 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var UtilityReportsComponent = /*#__PURE__*/function () {
-        function UtilityReportsComponent(cookieService) {
+        function UtilityReportsComponent(sessionService) {
           _classCallCheck(this, UtilityReportsComponent);
 
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isDataLoaded = false;
         }
 
@@ -2576,7 +2576,7 @@
 
       UtilityReportsComponent.ctorParameters = function () {
         return [{
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
         }];
       };
 
@@ -2588,7 +2588,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./utility-reports.component.scss */
         "./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])], UtilityReportsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])], UtilityReportsComponent);
       /***/
     },
 
@@ -2664,9 +2664,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2675,14 +2675,14 @@
       "./src/app/api/controllers/Apartment.ts");
 
       var WaterReportComponent = /*#__PURE__*/function () {
-        function WaterReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, cookieService) {
+        function WaterReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
           _classCallCheck(this, WaterReportComponent);
 
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.apartmentService = apartmentService;
           this.utilityTrackerService = utilityTrackerService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isReportLoaded = false;
           this.utilitySearch = "";
           this.unitFieldType = "utilityName";
@@ -2692,7 +2692,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -2778,7 +2778,7 @@
             this.selectedTower = 'All';
             this.isReportLoaded = false;
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe(function (res) {
               _this20.utilityWaterListData = res;
@@ -2800,7 +2800,7 @@
             var _this21 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               _this21.propertyTowerData = res;
@@ -2822,7 +2822,7 @@
         }, {
           type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -2834,7 +2834,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./water-report.component.scss */
         "./src/app/modules/ams/utility/components/utility-reports/water-report/water-report.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], WaterReportComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], WaterReportComponent);
       /***/
     },
 
@@ -2910,9 +2910,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2921,14 +2921,14 @@
       "./src/app/shared/services/modal.service.ts");
 
       var UtilitySetupComponent = /*#__PURE__*/function () {
-        function UtilitySetupComponent(injector, utilityTrackerService, lookupService, sharedService, cookieService) {
+        function UtilitySetupComponent(injector, utilityTrackerService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, UtilitySetupComponent);
 
           this.injector = injector;
           this.utilityTrackerService = utilityTrackerService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isUtilityCategoryLoaded = false;
           this.isUtilityCategorySubmitted = true;
           this.isUtilityCategoryNew = false;
@@ -2938,7 +2938,7 @@
           this.alertMessage = "";
           this.isError = false;
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
@@ -2970,7 +2970,7 @@
             console.log(item);
             var params = {
               utilityId: item.utilityTrackerCategoryId,
-              deleteBy: parseInt(this.cookieService.get('userId'))
+              deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
               _this22.loadUtilityCategory();
@@ -3034,7 +3034,7 @@
                 "ratePerUnit": this.UtilityRateUnit,
                 "comments": "",
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -3045,7 +3045,7 @@
               this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe(function (res) {
                 if (res.message) {
                   var _params2 = {
-                    apartmentId: parseInt(_this23.cookieService.get('apartmentId'))
+                    apartmentId: _this23.sessionService.apartmentId
                   };
 
                   _this23.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
@@ -3066,14 +3066,14 @@
             } else {
               var _details2 = {
                 "utilityTrackerCategoryId": this.UtilityCategoryUpdateId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "category": this.UtilityCategory,
                 "ratePerUnit": this.UtilityRateUnit,
                 "comments": "",
                 "isActive": true,
                 "insertedBy": this.selectedItem.insertedBy,
                 "insertedOn": this.selectedItem.insertedOn,
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString()
               };
               var _params3 = {
@@ -3082,7 +3082,7 @@
               this.utilityTrackerService.updateUtilityTrackerCategory(_params3).subscribe(function (res) {
                 if (res.message) {
                   var _params4 = {
-                    apartmentId: parseInt(_this23.cookieService.get('apartmentId'))
+                    apartmentId: _this23.sessionService.apartmentId
                   };
 
                   _this23.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
@@ -3110,7 +3110,7 @@
             var _this24 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
               _this24.utilityCategoryData = res.filter(function (item) {
@@ -3124,7 +3124,7 @@
           value: function ngOnInit() {
             var _this25 = this;
 
-            this.apartment_id = parseInt(this.cookieService.get('apartmentId'));
+            this.apartment_id = this.sessionService.apartmentId;
             this.loadUtilityCategory();
             this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
               if (is_category_form) {
@@ -3152,7 +3152,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -3164,7 +3164,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./utility-setup.component.scss */
         "./src/app/modules/ams/utility/components/utility-setup/utility-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], UtilitySetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_2__["UtilityTrackerService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], UtilitySetupComponent);
       /***/
     },
 

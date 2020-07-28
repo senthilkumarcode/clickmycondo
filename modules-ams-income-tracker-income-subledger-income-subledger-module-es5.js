@@ -182,9 +182,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -193,7 +193,7 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var IncomeSubledgerComponent = /*#__PURE__*/function () {
-        function IncomeSubledgerComponent(router, dialog, sharedService, apartmentService, accountsService, cookieService) {
+        function IncomeSubledgerComponent(router, dialog, sharedService, apartmentService, accountsService, sessionService) {
           _classCallCheck(this, IncomeSubledgerComponent);
 
           this.router = router;
@@ -201,7 +201,7 @@
           this.sharedService = sharedService;
           this.apartmentService = apartmentService;
           this.accountsService = accountsService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isSubLedgerDataLoaded = false;
           this.subLedgerData = "";
           this.totalDueAmount = 0;
@@ -209,7 +209,7 @@
           this.filterSelected = "all";
           this.singleBlock = "Select Tower";
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -241,7 +241,7 @@
             this.filterSelected = 'all';
             this.singleBlock = "Select Block";
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
               var subLedgerDataList = res;
@@ -428,12 +428,12 @@
             var _this5 = this;
 
             var params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               _this5.blockListData = res;
               var params = {
-                apartmentId: parseInt(_this5.cookieService.get('apartmentId'))
+                apartmentId: _this5.sessionService.apartmentId
               };
 
               _this5.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
@@ -470,7 +470,7 @@
         }, {
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }];
       };
 
@@ -517,7 +517,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-subledger.component.scss */
         "./src/app/modules/ams/income-tracker/income-subledger/income-subledger.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])], IncomeSubledgerComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], IncomeSubledgerComponent);
 
       var getClassName = function getClassName(value) {
         return value != 'Due' ? 'bg-red-900' : 'bg-green-900';

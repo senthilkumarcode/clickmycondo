@@ -183,9 +183,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -210,7 +210,7 @@
       var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
       var ExpenseInvoiceHistoryComponent = /*#__PURE__*/function () {
-        function ExpenseInvoiceHistoryComponent(route, userService, vendorService, accountsService, lookupService, cookieService, router) {
+        function ExpenseInvoiceHistoryComponent(route, userService, vendorService, accountsService, lookupService, sessionService, router) {
           _classCallCheck(this, ExpenseInvoiceHistoryComponent);
 
           this.route = route;
@@ -218,7 +218,7 @@
           this.vendorService = vendorService;
           this.accountsService = accountsService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.router = router;
           this.isInvoiceDataLoaded = false;
           this.invoiceData = "";
@@ -231,7 +231,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
         }
 
@@ -404,7 +404,7 @@
               });
             });
             var accountParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               groupId: 3
             };
             this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
@@ -448,7 +448,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }];
@@ -474,7 +474,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./expense-invoice-history.component.scss */
         "./src/app/modules/ams/expense-tracker/expense-invoice-history/expense-invoice-history.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], ExpenseInvoiceHistoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], ExpenseInvoiceHistoryComponent);
 
       function editTicketEvent(row) {
         var event = new CustomEvent('onEditInvoiceHist', {

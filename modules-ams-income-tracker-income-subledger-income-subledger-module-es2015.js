@@ -79,7 +79,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
@@ -92,13 +92,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeSubledgerComponent = class IncomeSubledgerComponent {
-    constructor(router, dialog, sharedService, apartmentService, accountsService, cookieService) {
+    constructor(router, dialog, sharedService, apartmentService, accountsService, sessionService) {
         this.router = router;
         this.dialog = dialog;
         this.sharedService = sharedService;
         this.apartmentService = apartmentService;
         this.accountsService = accountsService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isSubLedgerDataLoaded = false;
         this.subLedgerData = "";
         this.totalDueAmount = 0;
@@ -106,7 +106,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
         this.filterSelected = "all";
         this.singleBlock = "Select Tower";
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getDueAmount(value) {
@@ -125,7 +125,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
         this.filterSelected = 'all';
         this.singleBlock = "Select Block";
         var params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe((res) => {
             var subLedgerDataList = res;
@@ -299,12 +299,12 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
     }
     ngOnInit() {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.blockListData = res;
             var params = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe((res) => {
                 this.isSubLedgerDataLoaded = true;
@@ -328,7 +328,7 @@ IncomeSubledgerComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] }
 ];
 IncomeSubledgerComponent.propDecorators = {
     viewInvoiceTypeRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["viewInvoiceTypeRef", { static: false },] }],
@@ -351,7 +351,7 @@ IncomeSubledgerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])
 ], IncomeSubledgerComponent);
 
 let getClassName = value => {

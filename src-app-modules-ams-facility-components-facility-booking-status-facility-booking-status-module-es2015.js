@@ -67,7 +67,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../facility-booking-list/facility-booking-list.component */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-list/facility-booking-list.component.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 
@@ -79,10 +79,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let FacilityBookingConfirmationComponent = class FacilityBookingConfirmationComponent {
-    constructor(sharedService, activeRouter, cookieService, facilityService, changeDetectorRef, lookupService, router, facilityBookingListComponent) {
+    constructor(sharedService, activeRouter, sessionService, facilityService, changeDetectorRef, lookupService, router, facilityBookingListComponent) {
         this.sharedService = sharedService;
         this.activeRouter = activeRouter;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.facilityService = facilityService;
         this.changeDetectorRef = changeDetectorRef;
         this.lookupService = lookupService;
@@ -104,7 +104,7 @@ let FacilityBookingConfirmationComponent = class FacilityBookingConfirmationComp
                 "bookedFromTime": this.facility.bookedFromTime,
                 "bookedToTime": this.facility.bookedToTime
             }];
-        this.facility.updatedBy = parseInt(this.cookieService.get('userId'));
+        this.facility.updatedBy = parseInt(this.sessionService.userId);
         this.facility.updatedOn = new Date().toISOString();
         let params = {
             apartmentFacilityBooking: this.facility
@@ -151,7 +151,7 @@ let FacilityBookingConfirmationComponent = class FacilityBookingConfirmationComp
 FacilityBookingConfirmationComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
     { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__["FacilityService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
@@ -166,7 +166,7 @@ FacilityBookingConfirmationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
         src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__["FacilityService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
@@ -205,7 +205,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
@@ -227,9 +227,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let FacilityBookingListComponent = class FacilityBookingListComponent {
-    constructor(facilityService, cookieService, lookupService, router, activeRouter, sharedService, changeDetectorRef, dialog) {
+    constructor(facilityService, sessionService, lookupService, router, activeRouter, sharedService, changeDetectorRef, dialog) {
         this.facilityService = facilityService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.lookupService = lookupService;
         this.router = router;
         this.activeRouter = activeRouter;
@@ -315,7 +315,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
         this.modalService.showConfirmModal(dataRecord.apartmentFacilityBookingId);
     }
     isAdmin() {
-        this.isAdminLogin = (this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff') ? true : false;
+        this.isAdminLogin = (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
     }
     resetField() {
         for (let facKey in this.filterFacility) {
@@ -354,7 +354,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
     getBookingList() {
         this.isBookingDataLoaded = false;
         let bookingListParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             eventName: this.filterFacility.eventName,
             apartmentFacilityID: this.filterFacility.apartmentFacilityID,
             eventDate_From: this.filterFacility.eventDate_From,
@@ -397,7 +397,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
         });
         //facility List
         let categoryParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.facilityService.getApartmentFacilitiesByApartmentId(categoryParams).subscribe((res) => {
             this.facilityListData = res;
@@ -558,7 +558,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
             if (item != null) {
                 var params = {
                     apartmentFacilityBookingId: item,
-                    deleteBy: parseInt(this.cookieService.get('userId'))
+                    deleteBy: parseInt(this.sessionService.userId)
                 };
                 this.facilityService.deleteApartmentFacilityBooking(params).subscribe((res) => {
                     this.sharedService.setUnitListDeleteIndex(null);
@@ -570,7 +570,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
 };
 FacilityBookingListComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
@@ -594,7 +594,7 @@ FacilityBookingListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./facility-booking-list.component.scss */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-list/facility-booking-list.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],

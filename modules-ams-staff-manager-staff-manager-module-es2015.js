@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-add-staff-wrapper\">\n\n\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" (ngSubmit)=\"submitAddStaffForm(addStaffForm)\" novalidate>\n\n\t\t<div class=\"card mb-30\">\n\n\t\t\t<div class=\"card-header d-flex justify-content-between align-items-center\">\n\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t<h5>\n\t\t\t\t\t\t<span *ngIf=\"!isEditStaff\">Add Staff</span>\n\t\t\t\t\t\t<span *ngIf=\"isEditStaff\">Edit Staff</span>\n\t\t\t\t\t</h5>\n\t\t\t\t</div>\n\t\t\t\t<!-- <div class=\"float-right\">\n\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/staff/maintain-staff\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t\t</a>\n\t\t\t\t</div> -->\n\t\t\t\t<ul class=\"list-inline float-right\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\n\n\t\t\t<div class=\"card-body p-0\" id=\"accordion\">\n\n\t\t\t\t<app-alert-message [message]=\"alertStaffMessage\" [isError]=\"isStaffError\" [isSuccess]=\"isStaffSuccess\">\n\t\t\t\t</app-alert-message>\n\n\t\t\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\n\t\t\t\t<ng-container *ngIf=\"!isStaffSubmitted\">\n\n\t\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\t<li class=\"list-group-item\" data-toggle=\"collapse\" data-target=\"#staffBasicInfo\"\n\t\t\t\t\t\taria-expanded=\"true\" aria-controls=\"staffBasicInfo\">Basic Info</li>\n\t\t\t\t\t\t<div id=\"staffBasicInfo\" class=\"collapse show\" aria-labelledby=\"staffBasicInfo\"\n\t\t\t\t\t\tdata-parent=\"#accordion\">\n\n\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let user of userTypeList\"\n\t\t\t\t\t\t\t\t\t\t\t[hidden]=\"user.value == 2 || user.value == 4\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\tid=\"{{user.name}}\" [(ngModel)]=\"userType\" value=\"{{user.value}}\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditStaff\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"password\" [(ngModel)]=\"staff.password\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isSuperAdmin\"  >\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Admin Role</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"userRole\" id=\"userRole\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Select Role\" [(ngModel)]=\"userRoleId\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.roleName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isSuperAdmin\" >\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Category*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"staffCategory\" id=\"staffCategory\" class=\"form-control\" [disabled]=\"userType == 1 ? true : false\" \n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getStaffType(staff.staffCategoryId)\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCategoryEnabled() && !isSuperAdmin\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Sub Category*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"staffSubCategory\" id=\"staffSubCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.staffSubCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffCategoryData\"\n\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#staffCollapseOne\"\n\t\t\t\t\t\t\taria-expanded=\"true\" aria-controls=\"CollapseOne\">Personal Info</li>\n\t\t\t\t\t\t<div id=\"staffCollapseOne\" class=\"collapse\" aria-labelledby=\"CollapseOne\"\n\t\t\t\t\t\t\tdata-parent=\"#accordion\">\n\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"firstName\" [(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"lastName\" [(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"address\" [(ngModel)]=\"staff.address\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"staffEmail\" [(ngModel)]=\"staff.emailId\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"contactNumber\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.contactNumber\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.bloodGroup\">\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" value=\"Yes\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" value=\"No\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isVendor()\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vendor Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<select name=\"vendorName\" id=\"vendorName\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vendorId\">\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorNameList\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-photo-selector\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderPhoto.click()\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderPhoto type=\"file\" name=\"fileUpload\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.file\" (change)=\"uploadPhoto($event)\">\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload\n\t\t\t\t\t\t\t\t\t\t\t\tPhoto</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isPhotoAdded\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfPhotos; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deletePhoto(i)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderFile.click()\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderFile type=\"file\" name=\"docUpload\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.multifile\" (change)=\"uploadFile($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tmultiple>\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload ID Card\n\t\t\t\t\t\t\t\t\t\t\t\tDocs</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#staffCollapseTwo\"\n\t\t\t\t\t\t\taria-expanded=\"true\" aria-controls=\"CollapseTwo\">Salary & Leave</li>\n\t\t\t\t\t\t<div id=\"staffCollapseTwo\" class=\"collapse\" aria-labelledby=\"CollapseTwo\"\n\t\t\t\t\t\t\tdata-parent=\"#accordion\">\n\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Base Pay*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\"\n\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<li class=\"list-group-item collapsed\" data-toggle=\"collapse\" data-target=\"#staffCollapseThree\"\n\t\t\t\t\t\t\taria-expanded=\"true\" aria-controls=\"CollapseThree\">Work Information</li>\n\t\t\t\t\t\t<div id=\"staffCollapseThree\" class=\"collapse\" aria-labelledby=\"CollapseThree\"\n\t\t\t\t\t\t\tdata-parent=\"#accordion\">\n\n\t\t\t\t\t\t\t<div class=\"details\">\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Job Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobStartDate\" [owlDateTime]=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobStartDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #jobStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Job End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobEndDate\" [owlDateTime]=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobEndDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #jobEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"plannedEntryTime\" [owlDateTimeTrigger]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"staff.plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedEntryTime></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTime]=\"plannedExitTime\" [owlDateTimeTrigger]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"staff.plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedExitTime></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</ul>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t\t<!-- <div class=\"row\" *ngIf=\"!isStaffSubmitted\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div> -->\n\n\t</form>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-add-staff-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditStaff\">Add Staff</span>\n\t\t\t<span *ngIf=\"isEditStaff\">Edit Staff</span>\n\t\t</h4>\n\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\t\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" (ngSubmit)=\"submitAddStaffForm(addStaffForm)\" novalidate>\n\n\t\t\t<mat-accordion> \n\n\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Basic Info</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let user of userTypeList\"\n\t\t\t\t\t\t\t\t\t\t[hidden]=\"user.value == 2 || user.value == 4\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"{{user.name}}\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"{{user.value}}\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditStaff\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\tname=\"password\" [(ngModel)]=\"staff.password\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isSuperAdmin\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Admin Role</label>\n\t\t\t\t\t\t\t\t\t<select name=\"userRole\" id=\"userRole\" class=\"form-control\" placeholder=\"Select Role\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userRoleId\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.roleName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isSuperAdmin\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Category*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"staffCategory\" id=\"staffCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"userType == 1 ? true : false\" [(ngModel)]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getStaffType(staff.staffCategoryId)\" required>\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCategoryEnabled() && !isSuperAdmin\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Sub Category*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"staffSubCategory\" id=\"staffSubCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.staffSubCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Personal Info</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\" [(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffEmail\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.emailId\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Contact Number</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"contactNumber\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.contactNumber\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.bloodGroup\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\tname=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" value=\"Yes\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" value=\"No\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isVendor()\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Vendor Name*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"vendorName\" id=\"vendorName\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vendorId\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorNameList\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-photo-selector\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderPhoto.click()\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderPhoto type=\"file\" name=\"fileUpload\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.file\" (change)=\"uploadPhoto($event)\">\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload\n\t\t\t\t\t\t\t\t\t\tPhoto</label>\n\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isPhotoAdded\">\n\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfPhotos; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deletePhoto(i)\">\n\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderFile.click()\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderFile type=\"file\" name=\"docUpload\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.multifile\" (change)=\"uploadFile($event)\" multiple>\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload ID Card\n\t\t\t\t\t\t\t\t\t\tDocs</label>\n\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Salary & Leave</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Base Pay*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\" [(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\" [(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\" [(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\" [(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\" [(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\" [(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\" [(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Work Information</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Job Start Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobStartDate\" [owlDateTime]=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobStartDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobStartDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #jobStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Job End Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobEndDate\" [owlDateTime]=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobEndDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobEndDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #jobEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedEntryTime\" [owlDateTime]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedEntryTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #plannedEntryTime></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedExitTime\" [owlDateTime]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedExitTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedExitTime\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #plannedExitTime></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\n\t\t\t<button mat-flat-button [color]=\"'primary'\" class=\"mt-5\">Submit</button>\n\n\t\t</form>\n\n\t</div>\n\n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-attendance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isEntryDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isEntryDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Entries <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"entryData\" \n\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn l-blue mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-entry\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Attendance</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\"\n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"entryListData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tName\n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">\n\t\t\t\t      \tJob Title\n\t\t\t\t      \t<span (click)=\"sortUnitData('jobTitle')\" [ngClass]=\"getFieldOrderBy('jobTitle')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Job Title\" [(ngModel)]=\"columnField['jobTitle']\" (ngModelChange)=\"selectColInput('jobTitle')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">In Time <span (click)=\"sortUnitData('inTime')\" [ngClass]=\"getFieldOrderBy('inTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Time<span (click)=\"sortUnitData('outTime')\" [ngClass]=\"getFieldOrderBy('outTime')\"></span></th>\n\t\t\t\t      <th scope=\"col\">In Gate <span (click)=\"sortUnitData('inGateId')\" [ngClass]=\"getFieldOrderBy('inGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">Out Gate <span (click)=\"sortUnitData('outGateId')\" [ngClass]=\"getFieldOrderBy('outGateId')\"></span></th>\n\t\t\t\t      <th scope=\"col\">comments <span (click)=\"sortUnitData('notes')\" [ngClass]=\"getFieldOrderBy('notes')\"></span></th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let entry of entryListData | simpleSearch: staffData | \n\t\t\t\t    sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{getStaffName(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"name\">{{getJobTitle(entry.staffId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.inTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{entry.outTime}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getInGateName(entry.inGateId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getOutGateName(entry.outGateId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{entry.notes}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-entry/{{entry.attendanceId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-attendance-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isEntryDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isEntryDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Entries</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"entryData\"\n\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/staff/add-entry\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Add Attadance</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"entryListData\" [columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-manager-inactive-staff-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isStaffDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Inactive Staffs <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t[(ngModel)]=\"staffData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"staffListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t\n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Staff Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Email ID\n\t\t\t\t      \t<span (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email ID\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('staffCategory')\" [ngClass]=\"getFieldOrderBy('staffCategory')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffCategory', 'lookupValueName')\">\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Sub Category\n\t\t\t\t       \t<span (click)=\"sortUnitData('staffSubCategory')\" [ngClass]=\"getFieldOrderBy('staffSubCategory')\"></span>\n\t\t\t\t       \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffSubCategory\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffSubCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffOfficalCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffSubCategory', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Phone Number \n\t\t\t\t      \t<span (click)=\"sortUnitData('contactNumber')\" [ngClass]=\"getFieldOrderBy('contactNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone Number\" [(ngModel)]=\"columnField['contactNumber']\" (ngModelChange)=\"selectColInput('contactNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let staff of staffListData | simpleSearch: staffData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex; let i = index\">\n\t\t\t\t      <td class=\"name\">{{staff.firstName}}</td>\n\t\t\t\t      <td class=\"name\">{{staff.emailId}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getStaffCategory(staff, staff.staffCategoryId)}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{getStaffSubCategory(staff, staff.staffSubCategoryId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{staff.contactNumber}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-staff/{{staff.staffId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t  </td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-manager-inactive-staff-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\t\n\t\t<condo-card *ngIf=\"isStaffDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Inactive Staffs</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t\t[(ngModel)]=\"staffData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"staffListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-manager-maintain-staff-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\n\t\n\n\t<div class=\"card table-card\" *ngIf=\"isStaffDataLoaded\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Staffs <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\"\n\t\t\t\t\t [(ngModel)]=\"staffData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/staff/add-staff\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add Staff</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t  <jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"staffListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t\t</jqxGrid> \n\t\t\t   \n\t\t\t\n  \t\t\t<!-- <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Staff Name \n\t\t\t\t      \t<span (click)=\"sortUnitData('firstName')\" [ngClass]=\"getFieldOrderBy('firstName')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Staff Name\" [(ngModel)]=\"columnField['firstName']\" (ngModelChange)=\"selectColInput('firstName')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Email ID\n\t\t\t\t      \t<span (click)=\"sortUnitData('emailId')\" [ngClass]=\"getFieldOrderBy('emailId')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Email ID\" [(ngModel)]=\"columnField['emailId']\" (ngModelChange)=\"selectColInput('emailId')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\">Category \n\t\t\t\t      \t<span (click)=\"sortUnitData('staffCategory_Label')\" [ngClass]=\"getFieldOrderBy('staffCategory_Label')\"></span>\n\t\t\t\t      \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffCategory_Label\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffTypeData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffCategory_Label', 'lookupValueName')\">\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t      </th>\n\t\t\t\t       <th scope=\"col\">Sub Category\n\t\t\t\t       \t<span (click)=\"sortUnitData('staffSubcategory_Label')\" [ngClass]=\"getFieldOrderBy('staffSubcategory_Label')\"></span>\n\t\t\t\t       \t<app-simple-select-box\n\t\t\t\t\t\t\tfieldName = \"staffSubcategory_Label\" \n\t\t\t\t\t\t\tfieldText = \"\"\n\t\t\t\t\t\t\tfieldItemName=\"lookupValueName\"\n\t\t\t\t\t\t\tisLabel = \"false\"\n\t\t\t\t\t\t\t[fieldModel] = \"staffSubCategoryId\"\n\t\t\t\t\t\t\tfieldPlaceholder = \"Select\"\n\t\t\t\t\t\t\t[fieldRequired] = \"'required'\"\n\t\t\t\t\t\t\t[fieldList] = \"staffOfficalCategoryData\"\n\t\t\t\t\t\t\t(inputChange) = \"onSelectChange($event, 'staffSubcategory_Label', 'lookupValueName')\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</app-simple-select-box>\n\t\t\t\t       </th>\n\t\t\t\t      <th scope=\"col\">Phone Number \n\t\t\t\t      \t<span (click)=\"sortUnitData('contactNumber')\" [ngClass]=\"getFieldOrderBy('contactNumber')\"></span>\n\t\t\t\t      \t<input type=\"text\" class=\"form-control\" placeholder=\"Phone Number\" [(ngModel)]=\"columnField['contactNumber']\" (ngModelChange)=\"selectColInput('contactNumber')\" >\n\t\t\t\t      </th>\n\t\t\t\t      <th scope=\"col\" class=\"simple-actions\">\n\t\t\t\t      Actions\n\t\t\t\t      <input type=\"text\" class=\"form-control vis-h\" placeholder=\"Action\" [(ngModel)]=\"columnField['action']\" (ngModelChange)=\"selectColInput('action')\" >\n\t\t\t\t  \t </th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let staff of staffListData | simpleSearch: staffData | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex; let i = index\" [ngClass]=\"staff.isActive ? 'active' : 'notactive'\">\n\t\t\t\t      <td class=\"name\">{{staff.firstName}}</td>\n\t\t\t\t      <td class=\"name\">{{staff.emailId}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{staff.staffCategory_Label}}</td>\n\t\t\t\t      <td class=\"grey text-capitalize\">{{staff.staffSubcategory_Label}}</td>\n\t\t\t\t      <td class=\"grey\">{{staff.contactNumber}}</td>\n\t\t\t\t      <td class=\"simple-actions\">\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\" [ngbPopover]=\"popAddCheckInContent\" triggers=\"mouseenter:mouseleave\"\n\t\t\t\t      \trouterLink=\"/ams/staff/edit-staff/{{staff.staffId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showConfirmModal(staff.staffId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination> -->\n\n  \t\t</div>\n\n\t</div>\n\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-manager-maintain-staff-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isStaffDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isStaffDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Staffs</h4>\n\t\t\t\t\t\t<p class=\"text-secondary\" >{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"staffData\"\n\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/staff/add-staff\"\n\t\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">Add Staff</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"staffListData\" [columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -185,7 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -194,13 +194,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddEntryComponent = class AddEntryComponent {
-    constructor(router, route, staffService, lookupService, sharedService, cookieService) {
+    constructor(router, route, staffService, lookupService, sharedService, sessionService) {
         this.router = router;
         this.route = route;
         this.staffService = staffService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isEditEntry = false;
         this.isEntrySubmitted = true;
         this.isEntryError = false;
@@ -211,7 +211,7 @@ let AddEntryComponent = class AddEntryComponent {
         this.entryComments = "";
     }
     isAdmin() {
-        return (this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff') ? true : false;
+        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
     }
     isShiftSelected() {
         return this.shiftType != "" ? true : false;
@@ -263,7 +263,7 @@ let AddEntryComponent = class AddEntryComponent {
         this.isEntrySubmitted = false;
         if (!this.isEditEntry) {
             let details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "staffId": parseInt(this.entry.staffId),
                 "inTime": this.entry.inTime,
                 "inGateId": parseInt(this.entry.inGateId),
@@ -272,7 +272,7 @@ let AddEntryComponent = class AddEntryComponent {
                 "shiftId": parseInt(this.entry.shiftId),
                 "notes": this.entryComments,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": "2019-12-04T05:43:41.299Z",
                 "updatedBy": 0,
                 "updatedOn": "2019-12-04T05:43:41.299Z"
@@ -300,7 +300,7 @@ let AddEntryComponent = class AddEntryComponent {
         else {
             let details = {
                 "attendanceId": parseInt(this.route.params['value'].id),
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "staffId": parseInt(this.entry.staffId),
                 "inTime": this.entry.inTime,
                 "inGateId": parseInt(this.entry.inGateId),
@@ -311,7 +311,7 @@ let AddEntryComponent = class AddEntryComponent {
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": "2019-12-04T05:43:41.299Z",
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": "2019-12-04T05:43:41.299Z"
             };
             let params = {
@@ -356,7 +356,7 @@ let AddEntryComponent = class AddEntryComponent {
             });
         }
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.staffService.getAllStaffsByApartmentId(params).subscribe((res) => {
             this.staffDataList = res.filter(item => {
@@ -365,7 +365,7 @@ let AddEntryComponent = class AddEntryComponent {
         }, error => {
         });
         let gatesParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.staffService.getAllGatesByApartmentId(gatesParams).subscribe((res) => {
             this.gatesDataList = res.filter(item => {
@@ -374,7 +374,7 @@ let AddEntryComponent = class AddEntryComponent {
         }, error => {
         });
         let shiftParams = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.staffService.getAllShiftsByApartmentId(shiftParams).subscribe((res) => {
             this.shiftsDataList = res.filter(item => {
@@ -420,7 +420,7 @@ AddEntryComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 AddEntryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -433,7 +433,7 @@ AddEntryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], AddEntryComponent);
 
 
@@ -470,7 +470,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/EmailSend */ "./src/app/api/controllers/EmailSend.ts");
 
 
@@ -482,14 +482,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddStaffComponent = class AddStaffComponent {
-    constructor(router, route, userService, staffService, lookupService, sharedService, cookieService, emailSendService) {
+    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService) {
         this.router = router;
         this.route = route;
         this.userService = userService;
         this.staffService = staffService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.emailSendService = emailSendService;
         this.isEditStaff = false;
         this.isStaffSubmitted = false;
@@ -614,7 +614,7 @@ let AddStaffComponent = class AddStaffComponent {
         if (!this.isEditStaff) {
             //add user
             let userDetails = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "firstName": this.staff.firstName,
                 "middleName": "",
                 "lastName": this.staff.lastName,
@@ -643,7 +643,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "isActive": true,
                 "isApproved": true,
                 "resetPassword": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "updatedBy": 0
             };
             let userParams = {
@@ -654,7 +654,7 @@ let AddStaffComponent = class AddStaffComponent {
                 if (res.message) {
                     this.userId = res.message;
                     let staffDetails = {
-                        "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                        "apartmentId": this.sessionService.apartmentId,
                         "userId": this.userId,
                         "firstName": this.staff.firstName,
                         "middleName": "",
@@ -694,9 +694,9 @@ let AddStaffComponent = class AddStaffComponent {
                         "shiftId": null,
                         "jobTitleId": parseInt(this.staff.staffSubCategoryId),
                         "isActive": true,
-                        "insertedBy": parseInt(this.cookieService.get('userId')),
+                        "insertedBy": parseInt(this.sessionService.userId),
                         "insertedOn": "2019-11-30T12:41:45.620Z",
-                        "updatedBy": parseInt(this.cookieService.get('userId')),
+                        "updatedBy": parseInt(this.sessionService.userId),
                         "updatedOn": "2019-11-30T12:41:45.620Z"
                     };
                     let staffParams = {
@@ -716,7 +716,7 @@ let AddStaffComponent = class AddStaffComponent {
                                 "userId": this.userId,
                                 "roleId": roleId,
                                 "isActive": true,
-                                "insertedBy": parseInt(this.cookieService.get('userId')),
+                                "insertedBy": parseInt(this.sessionService.userId),
                                 "insertedOn": "2019-11-10T10:00:28.212Z",
                                 "updatedBy": 0,
                                 "updatedOn": "2019-11-10T10:00:28.212Z",
@@ -769,7 +769,7 @@ let AddStaffComponent = class AddStaffComponent {
             //edit user
             let userDetails = {
                 "userId": this.userId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "firstName": this.staff.firstName,
                 "middleName": "string",
                 "lastName": this.staff.lastName,
@@ -799,7 +799,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "isApproved": true,
                 "resetPassword": true,
                 "insertedBy": 0,
-                "updatedBy": parseInt(this.cookieService.get('userId'))
+                "updatedBy": parseInt(this.sessionService.userId)
             };
             let userParams = {
                 user: userDetails
@@ -809,7 +809,7 @@ let AddStaffComponent = class AddStaffComponent {
                 if (res.message) {
                     let staffDetails = {
                         "staffId": this.route.params['value'].id,
-                        "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                        "apartmentId": this.sessionService.apartmentId,
                         "userId": this.userId,
                         "firstName": this.staff.firstName,
                         "middleName": "string",
@@ -851,7 +851,7 @@ let AddStaffComponent = class AddStaffComponent {
                         "isActive": true,
                         "insertedBy": 0,
                         "insertedOn": "2019-11-30T12:41:45.620Z",
-                        "updatedBy": parseInt(this.cookieService.get('userId')),
+                        "updatedBy": parseInt(this.sessionService.userId),
                         "updatedOn": "2019-11-30T12:41:45.620Z"
                     };
                     let staffParams = {
@@ -959,7 +959,7 @@ let AddStaffComponent = class AddStaffComponent {
         //Admin Role Type
         var paramsRoles = {
             RoleTypeId: this.userType,
-            ApartmentId: parseInt(this.cookieService.get('apartmentId'))
+            ApartmentId: this.sessionService.apartmentId
         };
         this.userService.getAllRolesByRoleTypeIdByApartmentId(paramsRoles).subscribe((res) => {
             console.log(res);
@@ -974,7 +974,7 @@ AddStaffComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_8__["EmailSendService"] }
 ];
 AddStaffComponent.propDecorators = {
@@ -994,7 +994,7 @@ AddStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
         src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_8__["EmailSendService"]])
 ], AddStaffComponent);
 
@@ -1029,7 +1029,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -1047,10 +1047,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffAttendanceComponent = class StaffAttendanceComponent {
-    constructor(staffService, lookupService, cookieService, constantsService, router) {
+    constructor(staffService, lookupService, sessionService, constantsService, router) {
         this.staffService = staffService;
         this.lookupService = lookupService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.constantsService = constantsService;
         this.router = router;
         this.isEntryDataLoaded = false;
@@ -1278,7 +1278,7 @@ let StaffAttendanceComponent = class StaffAttendanceComponent {
         this.officalStaffsDataList = [];
         this.personalStaffsDataList = [];
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.staffService.getAllAttendancesByApartmentId(params).subscribe((res) => {
             //filter active true items
@@ -1297,7 +1297,7 @@ let StaffAttendanceComponent = class StaffAttendanceComponent {
             };
             this.entryListData = new jqx.dataAdapter(this.gridSourceData);
             let dataListparams = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                apartmentId: this.sessionService.apartmentId
             };
             //get all gates
             this.staffService.getAllGatesByApartmentId(dataListparams).subscribe((res) => {
@@ -1337,7 +1337,7 @@ let StaffAttendanceComponent = class StaffAttendanceComponent {
 StaffAttendanceComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
 ];
@@ -1353,7 +1353,7 @@ StaffAttendanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
 ], StaffAttendanceComponent);
@@ -1400,7 +1400,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -1409,12 +1409,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffGatesComponent = class StaffGatesComponent {
-    constructor(injector, dialog, staffService, sharedService, cookieService) {
+    constructor(injector, dialog, staffService, sharedService, sessionService) {
         this.injector = injector;
         this.dialog = dialog;
         this.staffService = staffService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isGateLoaded = true;
         this.isGateTableLoaded = false;
         this.isAddGateLoaded = false;
@@ -1445,11 +1445,11 @@ let StaffGatesComponent = class StaffGatesComponent {
         this.isGateLoaded = false;
         if (!this.isEditGate) {
             let details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "gateName": this.gate.gateName,
                 "comments": this.gate.comments,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString()
@@ -1469,13 +1469,13 @@ let StaffGatesComponent = class StaffGatesComponent {
         else {
             let details = {
                 "gateId": parseInt(this.gate.gateId),
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "gateName": this.gate.gateName,
                 "comments": this.gate.comments,
                 "isActive": this.gate.isActive,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString()
             };
             let params = {
@@ -1493,7 +1493,7 @@ let StaffGatesComponent = class StaffGatesComponent {
     }
     getAllGates() {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.staffService.getAllGatesByApartmentId(params).subscribe((res) => {
             this.isGateTableLoaded = true;
@@ -1561,7 +1561,7 @@ let StaffGatesComponent = class StaffGatesComponent {
                 this.isGateTableLoaded = false;
                 var params = {
                     gateId: item.gateId,
-                    deleteBy: parseInt(this.cookieService.get('userId'))
+                    deleteBy: parseInt(this.sessionService.userId)
                 };
                 this.staffService.deleteGate(params).subscribe((res) => {
                     this.gateListData = this.gateListData.filter((type) => type.gateId !== item.gateId);
@@ -1577,7 +1577,7 @@ StaffGatesComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 StaffGatesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1589,7 +1589,7 @@ StaffGatesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], StaffGatesComponent);
 
 
@@ -1625,7 +1625,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
@@ -1638,11 +1638,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
-    constructor(staffService, lookupService, sharedService, cookieService, router) {
+    constructor(staffService, lookupService, sharedService, sessionService, router) {
         this.staffService = staffService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.router = router;
         this.isStaffDataLoaded = false;
         this.unitFieldType = "unitno";
@@ -1653,7 +1653,7 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
     }
     getIndexParams(event) {
@@ -1857,7 +1857,7 @@ StaffInactiveStaffComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 StaffInactiveStaffComponent.propDecorators = {
@@ -1873,7 +1873,7 @@ StaffInactiveStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], StaffInactiveStaffComponent);
 
@@ -1920,7 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
@@ -1937,12 +1937,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
-    constructor(injector, staffService, lookupService, sharedService, cookieService, router) {
+    constructor(injector, staffService, lookupService, sharedService, sessionService, router) {
         this.injector = injector;
         this.staffService = staffService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.router = router;
         this.isStaffDataLoaded = false;
         this.unitFieldType = "unitno";
@@ -1953,7 +1953,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
@@ -2176,7 +2176,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
             if (id != null) {
                 var params = {
                     staffId: id,
-                    deleteBy: parseInt(this.cookieService.get('userId'))
+                    deleteBy: parseInt(this.sessionService.userId)
                 };
                 this.staffService.deleteStaff(params).subscribe((res) => {
                     underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.staffListData, (type) => {
@@ -2202,7 +2202,7 @@ StaffMaintainStaffComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 StaffMaintainStaffComponent.propDecorators = {
@@ -2220,7 +2220,7 @@ StaffMaintainStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], StaffMaintainStaffComponent);
 
@@ -2413,7 +2413,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 
 
@@ -2424,12 +2424,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffSetupComponent = class StaffSetupComponent {
-    constructor(injector, dialog, lookupService, sharedService, cookieService) {
+    constructor(injector, dialog, lookupService, sharedService, sessionService) {
         this.injector = injector;
         this.dialog = dialog;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.categoryOffcialData = "";
         this.categoryPersonalData = "";
         this.isCategoryDataLoaded = false;
@@ -2487,7 +2487,7 @@ let StaffSetupComponent = class StaffSetupComponent {
                         "lookupValueName": this.staffCategory,
                         "description": this.staffCategory,
                         "isActive": true,
-                        "insertedBy": parseInt(this.cookieService.get('userId')),
+                        "insertedBy": parseInt(this.sessionService.userId),
                         "insertedOn": "2019-11-16T14:50:08.217Z",
                         "updatedBy": 0,
                         "updatedOn": "2019-11-16T14:50:08.217Z"
@@ -2521,7 +2521,7 @@ let StaffSetupComponent = class StaffSetupComponent {
                         "isActive": true,
                         "insertedBy": 0,
                         "insertedOn": "2019-11-16T14:50:08.217Z",
-                        "updatedBy": parseInt(this.cookieService.get('userId')),
+                        "updatedBy": parseInt(this.sessionService.userId),
                         "updatedOn": "2019-11-16T14:50:08.217Z"
                     };
                     let params = {
@@ -2565,7 +2565,7 @@ let StaffSetupComponent = class StaffSetupComponent {
                         "lookupValueName": this.staffCategory,
                         "description": this.staffCategory,
                         "isActive": true,
-                        "insertedBy": parseInt(this.cookieService.get('userId')),
+                        "insertedBy": parseInt(this.sessionService.userId),
                         "insertedOn": "2019-11-16T14:50:08.217Z",
                         "updatedBy": 0,
                         "updatedOn": "2019-11-16T14:50:08.217Z"
@@ -2599,7 +2599,7 @@ let StaffSetupComponent = class StaffSetupComponent {
                         "isActive": true,
                         "insertedBy": 0,
                         "insertedOn": "2019-11-16T14:50:08.217Z",
-                        "updatedBy": parseInt(this.cookieService.get('userId')),
+                        "updatedBy": parseInt(this.sessionService.userId),
                         "updatedOn": "2019-11-16T14:50:08.217Z"
                     };
                     let params = {
@@ -2665,13 +2665,13 @@ let StaffSetupComponent = class StaffSetupComponent {
                 if (this.staffDeleteTypeId == "115") {
                     var params = {
                         lookupValueId: this.categoryOffcialListData[index].lookupValueId,
-                        updateUserId: parseInt(this.cookieService.get('userId'))
+                        updateUserId: parseInt(this.sessionService.userId)
                     };
                 }
                 else {
                     var params = {
                         lookupValueId: this.categoryPersonalListData[index].lookupValueId,
-                        updateUserId: parseInt(this.cookieService.get('userId'))
+                        updateUserId: parseInt(this.sessionService.userId)
                     };
                 }
                 this.isCategoryDataLoaded = false;
@@ -2696,7 +2696,7 @@ StaffSetupComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 StaffSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2708,7 +2708,7 @@ StaffSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], StaffSetupComponent);
 
 
@@ -2745,7 +2745,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
@@ -2760,13 +2760,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffShiftsComponent = class StaffShiftsComponent {
-    constructor(injector, dialog, staffService, lookupService, sharedService, cookieService) {
+    constructor(injector, dialog, staffService, lookupService, sharedService, sessionService) {
         this.injector = injector;
         this.dialog = dialog;
         this.staffService = staffService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isShiftsLoaded = true;
         this.isShiftTableLoaded = false;
         this.shiftTypeId = "";
@@ -2818,12 +2818,12 @@ let StaffShiftsComponent = class StaffShiftsComponent {
         this.isShiftsLoaded = false;
         if (!this.isEditShift) {
             let details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "shiftTypeId": parseInt(this.shiftTypeId),
                 "startTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.shiftStartTime).format('HH:mm'),
                 "totalHours": this.shiftTotalHrs,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": "2019-12-03T06:11:51.972Z"
@@ -2843,14 +2843,14 @@ let StaffShiftsComponent = class StaffShiftsComponent {
         else {
             let details = {
                 "shiftId": this.shiftId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "shiftTypeId": parseInt(this.shiftTypeId),
                 "startTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.shiftStartTime).format('HH:mm'),
                 "totalHours": this.shiftTotalHrs,
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString()
             };
             let params = {
@@ -2909,7 +2909,7 @@ let StaffShiftsComponent = class StaffShiftsComponent {
     getAllShifts() {
         this.isShiftTableLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.staffService.getAllShiftsByApartmentId(params).subscribe((res) => {
             this.shiftsListData = res.filter(item => {
@@ -2944,7 +2944,7 @@ let StaffShiftsComponent = class StaffShiftsComponent {
             if (item != null) {
                 var params = {
                     shiftId: item.shiftId,
-                    deleteBy: parseInt(this.cookieService.get('userId'))
+                    deleteBy: parseInt(this.sessionService.userId)
                 };
                 this.isShiftTableLoaded = false;
                 this.staffService.deleteShift(params).subscribe((res) => {
@@ -2964,7 +2964,7 @@ StaffShiftsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 StaffShiftsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2977,7 +2977,7 @@ StaffShiftsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], StaffShiftsComponent);
 
 
@@ -3119,6 +3119,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_staff_gates_staff_gates_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/staff-gates/staff-gates.component */ "./src/app/modules/ams/staff-manager/components/staff-gates/staff-gates.component.ts");
 /* harmony import */ var _components_staff_shifts_staff_shifts_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/staff-shifts/staff-shifts.component */ "./src/app/modules/ams/staff-manager/components/staff-shifts/staff-shifts.component.ts");
 /* harmony import */ var _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/add-entry/add-entry.component */ "./src/app/modules/ams/staff-manager/components/add-entry/add-entry.component.ts");
+/* harmony import */ var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+
 
 
 
@@ -3157,6 +3159,7 @@ StaffManagerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
+            _ui_card_card_module__WEBPACK_IMPORTED_MODULE_17__["CondoCardModule"],
             _staff_manager_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffManagerRoutingModule"]
         ],
         bootstrap: [_staff_manager_component__WEBPACK_IMPORTED_MODULE_5__["StaffManagerComponent"]]

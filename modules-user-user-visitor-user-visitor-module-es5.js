@@ -182,9 +182,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -197,7 +197,7 @@
       var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
       var AddVisitorComponent = /*#__PURE__*/function () {
-        function AddVisitorComponent(router, route, userService, apartmentService, visitorService, lookupService, sharedService, cookieService, SharedToaster) {
+        function AddVisitorComponent(router, route, userService, apartmentService, visitorService, lookupService, sharedService, sessionService, SharedToaster) {
           _classCallCheck(this, AddVisitorComponent);
 
           this.router = router;
@@ -207,7 +207,7 @@
           this.visitorService = visitorService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.SharedToaster = SharedToaster;
           this.isEditVisitor = false;
           this.isVisitorSubmitted = false;
@@ -275,7 +275,7 @@
             if (!this.isEditVisitor) {
               var visitorDetails = {
                 "apartmentUnitId": this.apartmentUnitId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "expectedVisitorName": this.visitor.expectedVisitorName,
                 "expectedVisitorCount": this.visitor.expectedVisitorCount,
                 "expectedVisitorPhone": this.visitor.expectedVisitorPhone.toString(),
@@ -292,9 +292,9 @@
                 'apartmentUnitNumber': this.visitor.apartmentBlockUnitNumber,
                 "exitGateId": null,
                 "purpose": this.visitor.purpose,
-                "enteredBy": parseInt(this.cookieService.get('userId')),
+                "enteredBy": parseInt(this.sessionService.userId),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -324,7 +324,7 @@
               var _visitorDetails = {
                 "expectedVisitorId": parseInt(this.route.params['value'].id),
                 "apartmentUnitId": this.apartmentUnitId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "expectedVisitorName": this.visitor.expectedVisitorName,
                 "expectedVisitorCount": this.visitor.expectedVisitorCount,
                 "expectedVisitorPhone": this.visitor.expectedVisitorPhone.toString(),
@@ -340,11 +340,11 @@
                 'apartmentUnitNumber': this.visitor.apartmentBlockUnitNumber,
                 "exitGateId": null,
                 "purpose": this.visitor.purpose,
-                "enteredBy": parseInt(this.cookieService.get('userId')),
+                "enteredBy": parseInt(this.sessionService.userId),
                 "isActive": true,
                 "insertedBy": this.visitor.insertedBy,
                 "insertedOn": this.visitor.insertedOn,
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString(),
                 "visitorCategoryId": parseInt(this.visitCategoryId)
               };
@@ -423,7 +423,7 @@
               });
             }, function (error) {});
             var apartmentUnitParams = {
-              userId: parseInt(this.cookieService.get('userId'))
+              userId: parseInt(this.sessionService.userId)
             };
             this.apartmentService.getApartmentBlockUnitByUserId(apartmentUnitParams).subscribe(function (res) {
               _this2.apartmentUnitId = res[0].apartmentBlockUnitId;
@@ -501,7 +501,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }, {
           type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_7__["SharedToasterService"]
         }];
@@ -528,7 +528,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-visitor.component.scss */
         "./src/app/modules/user/user-visitor/components/create-visitor/add-visitor/add-visitor.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_6__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_9__["CookieService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_7__["SharedToasterService"]])], AddVisitorComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_6__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_7__["SharedToasterService"]])], AddVisitorComponent);
       /***/
     },
 
@@ -739,9 +739,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -784,7 +784,7 @@
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
       var MyVisitorComponent = /*#__PURE__*/function () {
-        function MyVisitorComponent(router, injector, apartmentService, visitorService, lookupService, sharedService, cookieService, dialog) {
+        function MyVisitorComponent(router, injector, apartmentService, visitorService, lookupService, sharedService, sessionService, dialog) {
           _classCallCheck(this, MyVisitorComponent);
 
           this.router = router;
@@ -793,7 +793,7 @@
           this.visitorService = visitorService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.dialog = dialog;
           this.visitorData = "";
           this.isVisitorDataLoaded = false;
@@ -892,13 +892,13 @@
                 if (type == 'Planned Visitor') {
                   var params = {
                     expectedVisitorId: data.expectedVisitorId,
-                    deleteBy: parseInt(_this4.cookieService.get('userId'))
+                    deleteBy: parseInt(_this4.sessionService.userId)
                   };
                   serviceName = _this4.visitorService.deleteExpectedVisitorById(params);
                 } else if (type == 'UnPlanned Visitor') {
                   var params_ = {
                     visitorId: data.visitorId,
-                    deleteBy: parseInt(_this4.cookieService.get('userId'))
+                    deleteBy: parseInt(_this4.sessionService.userId)
                   };
                   serviceName = _this4.visitorService.deleteVisitorById(params_);
                 }
@@ -1043,7 +1043,7 @@
               renderer: columnrenderer
             }];
             var apartmentUnitParams = {
-              userId: parseInt(this.cookieService.get('userId'))
+              userId: parseInt(this.sessionService.userId)
             };
             this.apartmentService.getApartmentBlockUnitByUserId(apartmentUnitParams).subscribe(function (res) {
               _this5.apartmentUnitId = res[0].apartmentBlockUnitId;
@@ -1116,7 +1116,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"]
         }];
@@ -1146,7 +1146,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./my-visitor.component.scss */
         "./src/app/modules/user/user-visitor/components/my-visitor/my-visitor.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"]])], MyVisitorComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"]])], MyVisitorComponent);
 
       function navigateTo(row) {
         var event = new CustomEvent('navigateTo', {

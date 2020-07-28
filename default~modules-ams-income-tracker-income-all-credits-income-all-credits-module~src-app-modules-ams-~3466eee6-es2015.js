@@ -69,7 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -79,7 +79,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddCreditComponent = class IncomeAddCreditComponent {
-    constructor(_activatedRoute, _router, el, _changeDetectorRef, _incomeCreditListComponent, accountsService, apartmentService, sharedService, cookieService) {
+    constructor(_activatedRoute, _router, el, _changeDetectorRef, _incomeCreditListComponent, accountsService, apartmentService, sharedService, sessionService) {
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         this.el = el;
@@ -88,7 +88,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         this.accountsService = accountsService;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isCreditSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
@@ -119,7 +119,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
     }
     getAllCollection(id) {
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             apartmentBlockUnitId: parseInt(id)
         };
         this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
@@ -136,7 +136,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
     getCredit(id) {
         this.isCreditSubmitted = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             creditNoteId: id
         };
         this.accountsService.getCreditNoteById(params).subscribe((res) => {
@@ -157,7 +157,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         if (form.valid) {
             if (!this.isEdit) {
                 let details = {
-                    "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                    "apartmentId": this.sessionService.apartmentId,
                     "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                     "blockUnitUserId": null,
                     "custCreditNoteId": null,
@@ -169,7 +169,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                     "comment": this.credit.comment,
                     "comment2": this.credit.comment,
                     "active": true,
-                    "insertedBy": parseInt(this.cookieService.get('userId')),
+                    "insertedBy": parseInt(this.sessionService.userId),
                     "insertedOn": new Date().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null
@@ -200,7 +200,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             else {
                 let details = {
                     "id": this.credit.creditNoteId,
-                    "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                    "apartmentId": this.sessionService.apartmentId,
                     "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                     "blockUnitUserId": this.credit.blockUnitUserId,
                     "custCreditNoteId": this.credit.creditNoteId,
@@ -214,7 +214,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                     "active": this.credit.active,
                     "insertedBy": this.credit.insertedBy,
                     "insertedOn": this.credit.insertedOn,
-                    "updatedBy": parseInt(this.cookieService.get('userId')),
+                    "updatedBy": parseInt(this.sessionService.userId),
                     "updatedOn": new Date().toISOString()
                 };
                 let params = {
@@ -260,7 +260,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             this.credit = {};
             this.credit.collectionId = "";
             let params = {
-                apartmentId: parseInt(this.cookieService.get('apartmentId'))
+                apartmentId: this.sessionService.apartmentId
             };
             //get apartment blocks
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
@@ -297,7 +297,7 @@ IncomeAddCreditComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 IncomeAddCreditComponent.propDecorators = {
     credit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -324,7 +324,7 @@ IncomeAddCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], IncomeAddCreditComponent);
 
 
@@ -610,7 +610,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
 
@@ -622,13 +622,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeCreditListComponent = class IncomeCreditListComponent {
-    constructor(_changeDetectorRef, _activatedRoute, _router, accountsService, sharedService, cookieService) {
+    constructor(_changeDetectorRef, _activatedRoute, _router, accountsService, sharedService, sessionService) {
         this._changeDetectorRef = _changeDetectorRef;
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.isCreditNoteLoaded = false;
         this.creditNoteData = "";
         this.isEditCredit = false;
@@ -716,7 +716,7 @@ let IncomeCreditListComponent = class IncomeCreditListComponent {
     getCreditNotesData() {
         this.isCreditNoteLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.accountsService.getCreditNotesByApartmentId(params).subscribe((res) => {
             var creditNoteDataList = res;
@@ -736,7 +736,7 @@ let IncomeCreditListComponent = class IncomeCreditListComponent {
     getCreditById(id) {
         this.isCreditNoteLoaded = false;
         let params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             blockUnitId: parseInt(id)
         };
         this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe((res) => {
@@ -874,7 +874,7 @@ IncomeCreditListComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 IncomeCreditListComponent.propDecorators = {
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
@@ -893,7 +893,7 @@ IncomeCreditListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], IncomeCreditListComponent);
 
 let editCreditNoteEvent = row => {

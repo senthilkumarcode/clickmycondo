@@ -356,12 +356,12 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var BankSettingsComponent = /*#__PURE__*/function () {
-        function BankSettingsComponent(injector, dialog, bankAccountService, lookupService, sharedService, cookieService) {
+        function BankSettingsComponent(injector, dialog, bankAccountService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, BankSettingsComponent);
 
           this.injector = injector;
@@ -369,7 +369,7 @@
           this.bankAccountService = bankAccountService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.isBankLoaded = false;
           this.isBankSubmitted = true;
           this.isBankNew = false;
@@ -418,7 +418,7 @@
 
             if (this.isBankNew) {
               var details = {
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "bankName": this.bank.bankName,
                 "branchName": this.bank.branchName,
                 "accountNumber": this.bank.accountNumber,
@@ -426,7 +426,7 @@
                 "ifsc": this.bank.ifsc,
                 "isPrimary": this.bank.isPrimary,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": "2020-03-13T09:38:46.772Z"
@@ -445,7 +445,7 @@
                     _this.sharedService.setAlertMessage("Bank Account Added Successfully");
 
                     _this.bankAccountData = res.filter(function (item) {
-                      return item.isActive && item.apartmentId == parseInt(_this.cookieService.get('apartmentId'));
+                      return item.isActive && item.apartmentId == _this.sessionService.apartmentId;
                     });
                   });
                 } else {
@@ -457,7 +457,7 @@
             } else {
               var _details = {
                 "bankAccountDetailsId": this.bank.bankAccountDetailsId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "bankName": this.bank.bankName,
                 "branchName": this.bank.branchName,
                 "accountNumber": this.bank.accountNumber,
@@ -465,9 +465,9 @@
                 "ifsc": this.bank.ifsc,
                 "isPrimary": this.bank.isPrimary,
                 "isActive": this.bank.isActive,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString()
               };
               var _bankAccountDetails = {
@@ -484,7 +484,7 @@
                     _this.sharedService.setAlertMessage("Bank Account Update Successfully");
 
                     _this.bankAccountData = res.filter(function (item) {
-                      return item.isActive && item.apartmentId == parseInt(_this.cookieService.get('apartmentId'));
+                      return item.isActive && item.apartmentId == _this.sessionService.apartmentId;
                     });
                   });
                 } else {
@@ -504,7 +504,7 @@
             this.bankAccountService.getAllBankAccountDetails().subscribe(function (res) {
               _this2.isBankLoaded = true;
               _this2.bankAccountData = res.filter(function (item) {
-                return item.isActive && item.apartmentId == parseInt(_this2.cookieService.get('apartmentId'));
+                return item.isActive && item.apartmentId == _this2.sessionService.apartmentId;
               });
             }); // delete account
 
@@ -513,7 +513,7 @@
                 _this2.isBankLoaded = false;
                 var params = {
                   bankAccountDetailsId: id,
-                  deleteBy: parseInt(_this2.cookieService.get('userId'))
+                  deleteBy: parseInt(_this2.sessionService.userId)
                 };
 
                 _this2.bankAccountService.deleteBankAccountDetails(params).subscribe(function (res) {
@@ -548,7 +548,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -560,7 +560,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./bank-settings.component.scss */
         "./src/app/modules/ams/bank-cash/components/bank-settings/bank-settings.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_BankAccount__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])], BankSettingsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_BankAccount__WEBPACK_IMPORTED_MODULE_3__["BankAccountService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], BankSettingsComponent);
       /***/
     }
   }]);

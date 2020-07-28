@@ -138,9 +138,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -155,12 +155,12 @@
       "./src/app/api/controllers/Lookup.ts");
 
       var FacilityBookingConfirmationComponent = /*#__PURE__*/function () {
-        function FacilityBookingConfirmationComponent(sharedService, activeRouter, cookieService, facilityService, changeDetectorRef, lookupService, router, facilityBookingListComponent) {
+        function FacilityBookingConfirmationComponent(sharedService, activeRouter, sessionService, facilityService, changeDetectorRef, lookupService, router, facilityBookingListComponent) {
           _classCallCheck(this, FacilityBookingConfirmationComponent);
 
           this.sharedService = sharedService;
           this.activeRouter = activeRouter;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.facilityService = facilityService;
           this.changeDetectorRef = changeDetectorRef;
           this.lookupService = lookupService;
@@ -191,7 +191,7 @@
               "bookedFromTime": this.facility.bookedFromTime,
               "bookedToTime": this.facility.bookedToTime
             }];
-            this.facility.updatedBy = parseInt(this.cookieService.get('userId'));
+            this.facility.updatedBy = parseInt(this.sessionService.userId);
             this.facility.updatedOn = new Date().toISOString();
             var params = {
               apartmentFacilityBooking: this.facility
@@ -258,7 +258,7 @@
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
           type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__["FacilityService"]
         }, {
@@ -280,7 +280,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./facility-booking-confirmation.component.scss */
         "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-confirmation/facility-booking-confirmation.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__["FacilityService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__["FacilityBookingListComponent"]])], FacilityBookingConfirmationComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_6__["FacilityService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__["FacilityBookingListComponent"]])], FacilityBookingConfirmationComponent);
       /***/
     },
 
@@ -350,9 +350,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -401,11 +401,11 @@
       "./src/app/shared/components/modal-component/modal-component.component.ts");
 
       var FacilityBookingListComponent = /*#__PURE__*/function () {
-        function FacilityBookingListComponent(facilityService, cookieService, lookupService, router, activeRouter, sharedService, changeDetectorRef, dialog) {
+        function FacilityBookingListComponent(facilityService, sessionService, lookupService, router, activeRouter, sharedService, changeDetectorRef, dialog) {
           _classCallCheck(this, FacilityBookingListComponent);
 
           this.facilityService = facilityService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.lookupService = lookupService;
           this.router = router;
           this.activeRouter = activeRouter;
@@ -513,7 +513,7 @@
         }, {
           key: "isAdmin",
           value: function isAdmin() {
-            this.isAdminLogin = this.cookieService.get('userRoleType') == 'Admin' || this.cookieService.get('userRoleType') == 'Staff' ? true : false;
+            this.isAdminLogin = this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
           }
         }, {
           key: "resetField",
@@ -565,7 +565,7 @@
 
             this.isBookingDataLoaded = false;
             var bookingListParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               eventName: this.filterFacility.eventName,
               apartmentFacilityID: this.filterFacility.apartmentFacilityID,
               eventDate_From: this.filterFacility.eventDate_From,
@@ -611,7 +611,7 @@
             }); //facility List
 
             var categoryParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilitiesByApartmentId(categoryParams).subscribe(function (res) {
               _this6.facilityListData = res;
@@ -779,7 +779,7 @@
               if (item != null) {
                 var params = {
                   apartmentFacilityBookingId: item,
-                  deleteBy: parseInt(_this6.cookieService.get('userId'))
+                  deleteBy: parseInt(_this6.sessionService.userId)
                 };
 
                 _this6.facilityService.deleteApartmentFacilityBooking(params).subscribe(function (res) {
@@ -799,7 +799,7 @@
         return [{
           type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
         }, {
@@ -854,7 +854,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./facility-booking-list.component.scss */
         "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-list/facility-booking-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], FacilityBookingListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], FacilityBookingListComponent);
 
       function statusFacilityBooking(row) {
         var event = new CustomEvent('onStatusFacilityBooking', {

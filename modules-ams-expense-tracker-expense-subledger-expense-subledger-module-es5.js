@@ -182,9 +182,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -211,7 +211,7 @@
       "./node_modules/underscore/modules/index-all.js");
 
       var ExpenseSubledgerComponent = /*#__PURE__*/function () {
-        function ExpenseSubledgerComponent(injector, dialog, apartmentService, lookupService, vendorService, accountsService, sharedService, cookieService, router) {
+        function ExpenseSubledgerComponent(injector, dialog, apartmentService, lookupService, vendorService, accountsService, sharedService, sessionService, router) {
           _classCallCheck(this, ExpenseSubledgerComponent);
 
           this.injector = injector;
@@ -221,7 +221,7 @@
           this.vendorService = vendorService;
           this.accountsService = accountsService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.router = router;
           this.isSubLedgerDataLoaded = false;
           this.subLedgerData = "";
@@ -237,7 +237,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
           };
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__["ModalService"]);
         }
@@ -474,7 +474,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]
         }];
@@ -526,7 +526,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./expense-subledger.component.scss */
         "./src/app/modules/ams/expense-tracker/expense-subledger/expense-subledger.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_8__["CookieService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])], ExpenseSubledgerComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])], ExpenseSubledgerComponent);
 
       var getClassName = function getClassName(value) {
         return value != 'Due' ? 'bg-red-900' : 'bg-green-900';

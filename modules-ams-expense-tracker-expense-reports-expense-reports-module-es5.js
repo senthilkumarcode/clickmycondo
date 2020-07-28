@@ -175,9 +175,9 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -220,7 +220,7 @@
       "./src/app/api/controllers/Lookup.ts");
 
       var ExpenseReportsVendorComponent = /*#__PURE__*/function () {
-        function ExpenseReportsVendorComponent(apartmentService, vendorService, accountsService, sharedService, lookupService, cookieService) {
+        function ExpenseReportsVendorComponent(apartmentService, vendorService, accountsService, sharedService, lookupService, sessionService) {
           _classCallCheck(this, ExpenseReportsVendorComponent);
 
           this.apartmentService = apartmentService;
@@ -228,7 +228,7 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.glAccountIndicator = "Liability";
           this.isBlockSelected = false;
           this.isUnitSelected = false;
@@ -316,7 +316,7 @@
               VendorId: parseInt(this.report.vendorId),
               GLaccountID: parseInt(this.report.GLaccountID),
               GLDocumentTypeID: 149,
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe(function (res) {
               _this.reportsDataList = res;
@@ -344,20 +344,20 @@
             this.report.GLaccountID = "";
             this.report.GLDocumentTypeID = "";
             var blockParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
               _this2.blockData = res;
             });
             var vendorParams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
               _this2.vendorData = res;
             });
             this.accountsService.getAllGlAccounts().subscribe(function (res) {
               _this2.glAccountsDataList = res.filter(function (item) {
-                return item.isActive && parseInt(_this2.cookieService.get('apartmentId')) && item.indicator == _this2.glAccountIndicator;
+                return item.isActive && _this2.sessionService.apartmentId && item.indicator == _this2.glAccountIndicator;
               });
             }); //Gl Document 
 
@@ -385,7 +385,7 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
         }];
       };
 
@@ -397,7 +397,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./expense-reports-vendor.component.scss */
         "./src/app/modules/ams/expense-tracker/expense-reports/expense-reports-vendor/expense-reports-vendor.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])], ExpenseReportsVendorComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])], ExpenseReportsVendorComponent);
       /***/
     },
 
