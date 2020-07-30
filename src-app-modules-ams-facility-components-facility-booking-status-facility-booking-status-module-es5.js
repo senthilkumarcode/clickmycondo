@@ -393,12 +393,6 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-      /* harmony import */
-
-
-      var src_app_shared_components_modal_component_modal_component_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! src/app/shared/components/modal-component/modal-component.component */
-      "./src/app/shared/components/modal-component/modal-component.component.ts");
 
       var FacilityBookingListComponent = /*#__PURE__*/function () {
         function FacilityBookingListComponent(facilityService, sessionService, lookupService, router, activeRouter, sharedService, changeDetectorRef, dialog) {
@@ -465,44 +459,14 @@
         }, {
           key: "editBooking",
           value: function editBooking(detail) {
-            var _this3 = this;
-
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            var dialogRef = this.dialog.open(src_app_shared_components_modal_component_modal_component_component__WEBPACK_IMPORTED_MODULE_11__["ModalComponentComponent"], {
-              width: 'auto',
-              height: '700px',
-              data: {
-                type: 'edit-facility-booking',
-                info: {
-                  type: 'edit',
-                  dataFrom: 'table',
-                  bookingId: dataRecord.apartmentFacilityBookingId
-                }
-              }
-            });
-            dialogRef.afterClosed().subscribe(function (result) {
-              if (result) {
-                _this3.getBookingList();
-              }
-            });
+            this.router.navigate(['ams/facility/edit-booking', dataRecord.apartmentFacilityBookingId]);
           }
         }, {
           key: "viewBooking",
           value: function viewBooking(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            var dialogRef = this.dialog.open(src_app_shared_components_modal_component_modal_component_component__WEBPACK_IMPORTED_MODULE_11__["ModalComponentComponent"], {
-              width: 'auto',
-              height: '700px',
-              data: {
-                type: 'edit-facility-booking',
-                info: {
-                  type: 'view',
-                  dataFrom: 'table',
-                  bookingId: dataRecord.apartmentFacilityBookingId
-                }
-              }
-            });
-            dialogRef.afterClosed().subscribe(function (result) {});
+            this.router.navigate(['ams/facility/view-booking', dataRecord.apartmentFacilityBookingId]);
           }
         }, {
           key: "ondeleteSlot",
@@ -532,7 +496,7 @@
         }, {
           key: "searchData",
           value: function searchData() {
-            var _this4 = this;
+            var _this3 = this;
 
             if (this.bookingSearch != "") {
               var filtergroup = new jqx.filter();
@@ -545,7 +509,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this4.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this3.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -561,7 +525,7 @@
         }, {
           key: "getBookingList",
           value: function getBookingList() {
-            var _this5 = this;
+            var _this4 = this;
 
             this.isBookingDataLoaded = false;
             var bookingListParams = {
@@ -590,31 +554,31 @@
 
             this.facilityService.getApartmentFacilityBookingsByApartmentId(bookingListParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this5.totalItems = res.length;
-                _this5.gridSourceData = {
+                _this4.totalItems = res.length;
+                _this4.gridSourceData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this5.bookingListData = new jqx.dataAdapter(_this5.gridSourceData);
+                _this4.bookingListData = new jqx.dataAdapter(_this4.gridSourceData);
               }
 
-              _this5.isBookingDataLoaded = true;
+              _this4.isBookingDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this6 = this;
+            var _this5 = this;
 
             this.activeRouter.url.subscribe(function (data) {
-              _this6.urlType = data[0].path;
+              _this5.urlType = data[0].path;
             }); //facility List
 
             var categoryParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilitiesByApartmentId(categoryParams).subscribe(function (res) {
-              _this6.facilityListData = res;
+              _this5.facilityListData = res;
             }); //facility status
 
             if (this.urlType == 'history') {
@@ -624,7 +588,7 @@
                 LookupTypeId: 40
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this6.statusTypeData = res;
+                _this5.statusTypeData = res;
               });
             }
 
@@ -664,7 +628,7 @@
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var time,
                     fromTime,
-                    toTime = _this6.bookingListData.loadedData[row].bookedToTime;
+                    toTime = _this5.bookingListData.loadedData[row].bookedToTime;
 
                 if (value && toTime) {
                   fromTime = moment__WEBPACK_IMPORTED_MODULE_8__(value, 'HH:mm:ss').format('hh:mm A');
@@ -686,7 +650,7 @@
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var time,
                     toTime,
-                    fromTime = _this6.bookingListData.loadedData[row].bookedFromTime;
+                    fromTime = _this5.bookingListData.loadedData[row].bookedFromTime;
 
                 if (fromTime && value) {
                   fromTime = moment__WEBPACK_IMPORTED_MODULE_8__(fromTime, 'HH:mm:ss').format();
@@ -751,7 +715,7 @@
               cellsrenderer: function cellsrenderer(row, column, label) {
                 var className = label == 'Rejected' ? 'cancelled' : label.toLowerCase();
 
-                if (_this6.urlType == 'history') {
+                if (_this5.urlType == 'history') {
                   return '<div class="jqx-custom-inner-cell"><span class="w-100 badge small min text-capitalize ' + className + '">' + label + '</span></div>';
                 } else {
                   return '<div class="jqx-custom-inner-cell"><span onClick="statusFacilityBooking(' + row + ')" class="w-100 badge small min text-capitalize link ' + className + '">' + label + '</span></div>';
@@ -765,7 +729,7 @@
               text: 'Actions',
               cellsalign: 'center',
               cellsrenderer: function cellsrenderer(row) {
-                if (_this6.urlType == 'history') {
+                if (_this5.urlType == 'history') {
                   return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-3" onClick="viewFacilityBooking(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a></div>';
                 } else {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-3" onClick="editFacilityBooking(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" class="mr-2" onClick="showConfirmDelete(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>' + '</div>';
@@ -779,13 +743,13 @@
               if (item != null) {
                 var params = {
                   apartmentFacilityBookingId: item,
-                  deleteBy: parseInt(_this6.sessionService.userId)
+                  deleteBy: parseInt(_this5.sessionService.userId)
                 };
 
-                _this6.facilityService.deleteApartmentFacilityBooking(params).subscribe(function (res) {
-                  _this6.sharedService.setUnitListDeleteIndex(null);
+                _this5.facilityService.deleteApartmentFacilityBooking(params).subscribe(function (res) {
+                  _this5.sharedService.setUnitListDeleteIndex(null);
 
-                  _this6.getBookingList();
+                  _this5.getBookingList();
                 });
               }
             });

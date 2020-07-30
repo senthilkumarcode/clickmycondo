@@ -213,8 +213,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_shared_components_modal_component_modal_component_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/components/modal-component/modal-component.component */ "./src/app/shared/components/modal-component/modal-component.component.ts");
-
 
 
 
@@ -275,40 +273,11 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
     }
     editBooking(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        const dialogRef = this.dialog.open(src_app_shared_components_modal_component_modal_component_component__WEBPACK_IMPORTED_MODULE_11__["ModalComponentComponent"], {
-            width: 'auto',
-            height: '700px',
-            data: {
-                type: 'edit-facility-booking',
-                info: {
-                    type: 'edit',
-                    dataFrom: 'table',
-                    bookingId: dataRecord.apartmentFacilityBookingId
-                }
-            }
-        });
-        dialogRef.afterClosed().subscribe(result => {
-            if (result) {
-                this.getBookingList();
-            }
-        });
+        this.router.navigate(['ams/facility/edit-booking', dataRecord.apartmentFacilityBookingId]);
     }
     viewBooking(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        const dialogRef = this.dialog.open(src_app_shared_components_modal_component_modal_component_component__WEBPACK_IMPORTED_MODULE_11__["ModalComponentComponent"], {
-            width: 'auto',
-            height: '700px',
-            data: {
-                type: 'edit-facility-booking',
-                info: {
-                    type: 'view',
-                    dataFrom: 'table',
-                    bookingId: dataRecord.apartmentFacilityBookingId
-                }
-            }
-        });
-        dialogRef.afterClosed().subscribe(result => {
-        });
+        this.router.navigate(['ams/facility/view-booking', dataRecord.apartmentFacilityBookingId]);
     }
     ondeleteSlot(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
