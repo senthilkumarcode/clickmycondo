@@ -758,10 +758,10 @@
                 "glaccountId": parseInt(this.advance.glaccountId),
                 "invoiceId": 1,
                 "collectionId": null,
-                "transactionType": 1,
+                "transactionType": 0,
                 "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comment,
-                "comment2": this.advance.comment,
+                "comment": this.advance.comments,
+                "comment2": this.advance.comments,
                 "active": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
@@ -778,9 +778,8 @@
                   _this2.sharedService.setAlertMessage("Customer Advance added successfully");
 
                   _this2.outputParams.emit(true);
-                  /*this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-                  this.router.navigateByUrl('/ams/income/actions/view-creditnote/' + this.route.params['value'].id));*/
 
+                  _this2.goBack();
                 } else {
                   _this2.isAdvanceSubmitted = true;
                   _this2.isError = true;
@@ -792,7 +791,9 @@
                 _this2.alertMessage = "Some error occured";
               });
             } else {
+              console.log(this.advance);
               var _details = {
+                "id": this.advance.id,
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": this.advance.blockUnitUserId,
@@ -802,8 +803,8 @@
                 "collectionId": parseInt(this.advance.collectionId),
                 "transactionType": this.advance.transactionType,
                 "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comment,
-                "comment2": this.advance.comment,
+                "comment": this.advance.comments,
+                "comment2": this.advance.comments,
                 "active": this.advance.active,
                 "insertedBy": this.advance.insertedBy,
                 "insertedOn": this.advance.insertedOn,
@@ -813,22 +814,21 @@
               var _params = {
                 custAdvance: _details
               };
-              /*this.accountsService.addAdvance(params).subscribe((res:any) => {
-                            if(res.creditNoteId){
-                         this.isAdvanceSubmitted = true;
-                    this.sharedService.setAlertMessage("Customer Advance updated successfully");
-                       }
-                  else {
-                         this.isAdvanceSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
-                       }
-                        },
-              error => {
-                this.isAdvanceSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
-                });*/
+              this.accountsService.updateAdvance(_params).subscribe(function (res) {
+                if (res) {
+                  _this2.isAdvanceSubmitted = true;
+
+                  _this2.sharedService.setAlertMessage("Customer Advance updated successfully");
+                } else {
+                  _this2.isAdvanceSubmitted = true;
+                  _this2.isError = true;
+                  _this2.alertMessage = res.errorMessage;
+                }
+              }, function (error) {
+                _this2.isAdvanceSubmitted = true;
+                _this2.isError = true;
+                _this2.alertMessage = "Some error occured";
+              });
             }
           }
         }, {
@@ -1034,24 +1034,21 @@
                 custSecurity: details
               };
               this.accountsService.addSecurityDeposit(params).subscribe(function (res) {
-                if (res.creditNoteId) {
+                if (res.error = "Sucess") {
                   _this4.isDepositSubmitted = true;
-
-                  _this4.sharedService.setAlertMessage("Security Deposit added successfully");
 
                   _this4.outputParams.emit(true);
+
+                  _this4.goBack();
                 } else {
                   _this4.isDepositSubmitted = true;
-                  _this4.isError = true;
-                  _this4.alertMessage = res.errorMessage;
                 }
               }, function (error) {
                 _this4.isDepositSubmitted = true;
-                _this4.isError = true;
-                _this4.alertMessage = "Some error occured";
               });
             } else {
               var _details2 = {
+                "id": this.deposit.id,
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": this.deposit.blockUnitUserId,
@@ -1061,8 +1058,8 @@
                 "collectionId": parseInt(this.deposit.collectionId),
                 "transactionType": this.deposit.transactionType,
                 "amount": parseInt(this.deposit.amount),
-                "comment": this.deposit.comment,
-                "comment2": this.deposit.comment,
+                "comment": this.deposit.comments,
+                "comment2": this.deposit.comments,
                 "active": this.deposit.active,
                 "insertedBy": this.deposit.insertedBy,
                 "insertedOn": this.deposit.insertedOn,
@@ -1072,22 +1069,20 @@
               var _params2 = {
                 custSecurity: _details2
               };
-              /*this.accountsService.addAdvance(params).subscribe((res:any) => {
-                            if(res.creditNoteId){
-                         this.isAdvanceSubmitted = true;
-                    this.sharedService.setAlertMessage("Customer Advance updated successfully");
-                       }
-                  else {
-                         this.isAdvanceSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
-                       }
-                        },
-              error => {
-                this.isAdvanceSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
-                });*/
+              console.log(this.deposit);
+              this.accountsService.updateSecurityDeposit(_params2).subscribe(function (res) {
+                if (res) {
+                  _this4.isDepositSubmitted = true;
+
+                  _this4.outputParams.emit(true);
+
+                  _this4.goBack();
+                } else {
+                  _this4.isDepositSubmitted = true;
+                }
+              }, function (error) {
+                _this4.isDepositSubmitted = true;
+              });
             }
           }
         }, {
@@ -1459,7 +1454,7 @@
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Amount paid for bill',
+              text: 'Created aganist Bill Id',
               datafield: 'billId_CreatedAgainst',
               minwidth: 150,
               cellsrenderer: cellsrenderer,
@@ -2067,6 +2062,11 @@
             } else {
               this.datagrid.clearfilters();
             }
+          }
+        }, {
+          key: "getSecurityDepositParams",
+          value: function getSecurityDepositParams() {
+            this.getSecurityDepositData();
           }
         }, {
           key: "addSecurityDeposit",

@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-add-credit-wrapper\">\n\t\t\t\n\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\n\t<ng-container *ngIf=\"isCreditSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Credit Note</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Credit Note</span>\n\t\t\t</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-lg-6 ol-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tfieldName=\"blockNo\"\n\t\t\t\t\t\tlabelText=\"Block No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Block\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"blocksData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\"\n\t\t\t\t\t\t(fieldParams)=\"getBlockNo($event)\" \n                    ></condo-select>   \n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tfieldName=\"UnitNo\"\n\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"unitData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t[isDisabled]=\"!isBlockSelected\"\n\t\t\t\t\t\t(fieldParams)=\"getBlockUnitNo($event)\" \n                    ></condo-select>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tfieldName=\"collectionId\"\n\t\t\t\t\t\tlabelText=\"Select Bill No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select No\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"billData\"\n\t\t\t\t\t\tfieldValue=\"collectionId\"\n\t\t\t\t\t\t[isDisabled]=\"!isUnitSelected\"\n\t\t\t\t\t\t(fieldParams)=\"getBillNo($event)\" \n                    ></condo-select>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-add-credit-wrapper\">\n\t\t\t\n\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\n\t<ng-container *ngIf=\"isCreditSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Credit Note</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Credit Note</span>\n\t\t\t</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tfieldName=\"collectionId\"\n\t\t\t\t\t\tlabelText=\"Select Bill No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select No\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"billData\"\n\t\t\t\t\t\tfieldValue=\"collectionId\"\n\t\t\t\t\t\t(fieldParams)=\"getBillNo($event)\" \n                    ></condo-select>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n\t\n</div>";
       /***/
     },
 
@@ -172,49 +172,38 @@
           this.alertMessage = "";
           this.isBlockSelected = false;
           this.isUnitSelected = false;
-          this.apartmentBlockId = "";
-          this.apartmentBlockUnitId = "";
+          this.apartmentBlockUnitId = null;
           this.isPageCredit = false;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
 
         _createClass(IncomeAddCreditComponent, [{
-          key: "getBlockNo",
-          value: function getBlockNo(event) {
+          key: "getAllCollection",
+          value: function getAllCollection() {
             var _this = this;
 
-            this.apartmentBlockId = event[0].apartmentBlockId;
             var params = {
-              apartmentBlockId: parseInt(this.apartmentBlockId)
+              apartmentId: this.sessionService.apartmentId
             };
-            this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this.isBlockSelected = true;
-              _this.unitData = res; //Mark for check
+            this.accountsService.getCollectionInvoicesByApartmentId(params).subscribe(function (res) {
+              _this.billData = res;
+              _this.isCreditSubmitted = true; //Mark for check
 
               _this._changeDetectorRef.markForCheck();
-            }, function (error) {
-              console.log(error);
             });
           }
         }, {
-          key: "getBlockUnitNo",
-          value: function getBlockUnitNo(event) {
-            this.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
-            this.getAllCollection(this.apartmentBlockUnitId);
-          }
-        }, {
-          key: "getAllCollection",
-          value: function getAllCollection(id) {
+          key: "getAllCollectionByApartmentBlockUnitId",
+          value: function getAllCollectionByApartmentBlockUnitId() {
             var _this2 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              apartmentBlockUnitId: parseInt(id)
+              apartmentBlockUnitId: this.apartmentBlockUnitId
             };
             this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe(function (res) {
               _this2.billData = res;
-              _this2.isCreditSubmitted = true;
-              _this2.isUnitSelected = true; //Mark for check
+              _this2.isCreditSubmitted = true; //Mark for check
 
               _this2._changeDetectorRef.markForCheck();
             });
@@ -235,7 +224,6 @@
               creditNoteId: id
             };
             this.accountsService.getCreditNoteById(params).subscribe(function (res) {
-              console.log(res);
               _this3.isCreditSubmitted = true;
               _this3.isEdit = true;
 
@@ -243,10 +231,11 @@
                 _this3.credit = {};
               } else {
                 _this3.credit = res[0];
-              } //Mark for check
+              }
 
+              _this3.apartmentBlockUnitId = parseInt(_this3.credit.apartmentBlockUnitId);
 
-              _this3._changeDetectorRef.markForCheck();
+              _this3.getAllCollectionByApartmentBlockUnitId();
             });
           }
         }, {
@@ -258,7 +247,7 @@
               if (!this.isEdit) {
                 var details = {
                   "apartmentId": this.sessionService.apartmentId,
-                  "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                  "apartmentBlockUnitId": this.apartmentBlockUnitId,
                   "blockUnitUserId": null,
                   "custCreditNoteId": null,
                   "glaccountId": null,
@@ -300,7 +289,7 @@
                 var _details = {
                   "id": this.credit.creditNoteId,
                   "apartmentId": this.sessionService.apartmentId,
-                  "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                  "apartmentBlockUnitId": this.apartmentBlockUnitId,
                   "blockUnitUserId": this.credit.blockUnitUserId,
                   "custCreditNoteId": this.credit.creditNoteId,
                   "glaccountId": this.credit.glaccountId,
@@ -359,7 +348,8 @@
           value: function ngOnInit() {
             var _this5 = this;
 
-            //Open the drawer
+            this.getAllCollection(); //Open the drawer
+
             this.sharedService.matdraweridcast.subscribe(function (id) {
               if (id != null && id == _this5._activatedRoute.params['value'].id) {
                 _this5._incomeCreditListComponent.matDrawer.open();
@@ -372,17 +362,9 @@
             if (this._activatedRoute.params['value'].type == 'new') {
               this.credit = {};
               this.credit.collectionId = "";
-              var params = {
-                apartmentId: this.sessionService.apartmentId
-              }; //get apartment blocks
+              this.isCreditSubmitted = true; //Mark for check
 
-              this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-                _this5.blocksData = res;
-                _this5.isEdit = false;
-                _this5.isCreditSubmitted = true; //Mark for check
-
-                _this5._changeDetectorRef.markForCheck();
-              });
+              this._changeDetectorRef.markForCheck();
             } else {
               this.getCredit(this._activatedRoute.params['value'].id);
             }
@@ -392,16 +374,9 @@
             }
           }
         }, {
-          key: "ngAfterViewInit",
-          value: function ngAfterViewInit() {
-            this._incomeCreditListComponent.matDrawer.openedChange.subscribe(function () {});
-          }
-        }, {
           key: "ngOnChanges",
           value: function ngOnChanges(changes) {
-            if (this.isEdit) {
-              this.apartmentBlockUnitId = "".concat(this.credit.apartmentBlockUnitId);
-            }
+            if (this.isEdit) {}
           }
         }]);
 

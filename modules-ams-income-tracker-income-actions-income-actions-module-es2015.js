@@ -425,10 +425,10 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 "glaccountId": parseInt(this.advance.glaccountId),
                 "invoiceId": 1,
                 "collectionId": null,
-                "transactionType": 1,
+                "transactionType": 0,
                 "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comment,
-                "comment2": this.advance.comment,
+                "comment": this.advance.comments,
+                "comment2": this.advance.comments,
                 "active": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
@@ -443,8 +443,7 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                     this.isAdvanceSubmitted = true;
                     this.sharedService.setAlertMessage("Customer Advance added successfully");
                     this.outputParams.emit(true);
-                    /*this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-                    this.router.navigateByUrl('/ams/income/actions/view-creditnote/' + this.route.params['value'].id));*/
+                    this.goBack();
                 }
                 else {
                     this.isAdvanceSubmitted = true;
@@ -458,7 +457,9 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
             });
         }
         else {
+            console.log(this.advance);
             let details = {
+                "id": this.advance.id,
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": this.advance.blockUnitUserId,
@@ -468,8 +469,8 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 "collectionId": parseInt(this.advance.collectionId),
                 "transactionType": this.advance.transactionType,
                 "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comment,
-                "comment2": this.advance.comment,
+                "comment": this.advance.comments,
+                "comment2": this.advance.comments,
                 "active": this.advance.active,
                 "insertedBy": this.advance.insertedBy,
                 "insertedOn": this.advance.insertedOn,
@@ -479,30 +480,21 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
             let params = {
                 custAdvance: details
             };
-            /*this.accountsService.addAdvance(params).subscribe((res:any) => {
-    
-    
-                if(res.creditNoteId){
-    
-                  this.isAdvanceSubmitted = true;
-                  this.sharedService.setAlertMessage("Customer Advance updated successfully");
-    
+            this.accountsService.updateAdvance(params).subscribe((res) => {
+                if (res) {
+                    this.isAdvanceSubmitted = true;
+                    this.sharedService.setAlertMessage("Customer Advance updated successfully");
                 }
                 else {
-    
-                  this.isAdvanceSubmitted = true;
-                  this.isError = true;
-                  this.alertMessage = res.errorMessage;
-    
+                    this.isAdvanceSubmitted = true;
+                    this.isError = true;
+                    this.alertMessage = res.errorMessage;
                 }
-    
-    
-            },
-            error => {
-              this.isAdvanceSubmitted = true;
-              this.isError = true;
-              this.alertMessage = "Some error occured";
-              });*/
+            }, error => {
+                this.isAdvanceSubmitted = true;
+                this.isError = true;
+                this.alertMessage = "Some error occured";
+            });
         }
     }
     ngOnInit() {
@@ -631,24 +623,21 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 custSecurity: details
             };
             this.accountsService.addSecurityDeposit(params).subscribe((res) => {
-                if (res.creditNoteId) {
+                if (res.error = "Sucess") {
                     this.isDepositSubmitted = true;
-                    this.sharedService.setAlertMessage("Security Deposit added successfully");
                     this.outputParams.emit(true);
+                    this.goBack();
                 }
                 else {
                     this.isDepositSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
                 }
             }, error => {
                 this.isDepositSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
             });
         }
         else {
             let details = {
+                "id": this.deposit.id,
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": this.deposit.blockUnitUserId,
@@ -658,8 +647,8 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 "collectionId": parseInt(this.deposit.collectionId),
                 "transactionType": this.deposit.transactionType,
                 "amount": parseInt(this.deposit.amount),
-                "comment": this.deposit.comment,
-                "comment2": this.deposit.comment,
+                "comment": this.deposit.comments,
+                "comment2": this.deposit.comments,
                 "active": this.deposit.active,
                 "insertedBy": this.deposit.insertedBy,
                 "insertedOn": this.deposit.insertedOn,
@@ -669,30 +658,19 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
             let params = {
                 custSecurity: details
             };
-            /*this.accountsService.addAdvance(params).subscribe((res:any) => {
-    
-    
-                if(res.creditNoteId){
-    
-                  this.isAdvanceSubmitted = true;
-                  this.sharedService.setAlertMessage("Customer Advance updated successfully");
-    
+            console.log(this.deposit);
+            this.accountsService.updateSecurityDeposit(params).subscribe((res) => {
+                if (res) {
+                    this.isDepositSubmitted = true;
+                    this.outputParams.emit(true);
+                    this.goBack();
                 }
                 else {
-    
-                  this.isAdvanceSubmitted = true;
-                  this.isError = true;
-                  this.alertMessage = res.errorMessage;
-    
+                    this.isDepositSubmitted = true;
                 }
-    
-    
-            },
-            error => {
-              this.isAdvanceSubmitted = true;
-              this.isError = true;
-              this.alertMessage = "Some error occured";
-              });*/
+            }, error => {
+                this.isDepositSubmitted = true;
+            });
         }
     }
     ngOnInit() {
@@ -964,7 +942,7 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
-                text: 'Amount paid for bill',
+                text: 'Created aganist Bill Id',
                 datafield: 'billId_CreatedAgainst',
                 minwidth: 150,
                 cellsrenderer: cellsrenderer,
@@ -1396,6 +1374,9 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
         else {
             this.datagrid.clearfilters();
         }
+    }
+    getSecurityDepositParams() {
+        this.getSecurityDepositData();
     }
     addSecurityDeposit() {
         this.isEditDeposit = false;
