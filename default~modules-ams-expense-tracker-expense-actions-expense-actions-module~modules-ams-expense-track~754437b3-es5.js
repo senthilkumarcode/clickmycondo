@@ -102,6 +102,7 @@
         function PanelListComponent() {
           _classCallCheck(this, PanelListComponent);
 
+          this.filteredValues = [];
           this.selectedItem = [];
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
@@ -135,16 +136,22 @@
           }
         }, {
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            if (this.fieldList != undefined) {
+              this.filteredValues = this.fieldList;
+            }
+          }
         }, {
           key: "ngOnChanges",
           value: function ngOnChanges() {
             var _this2 = this;
 
-            this.filteredValues = this.fieldList;
-            this.selectedItem = this.filteredValues.filter(function (item) {
-              return item[_this2.fieldValue] == _this2.fieldModel;
-            });
+            if (this.fieldList != undefined) {
+              this.filteredValues = this.fieldList;
+              this.selectedItem = this.filteredValues.filter(function (item) {
+                return item[_this2.fieldValue] == _this2.fieldModel;
+              });
+            }
           }
         }]);
 

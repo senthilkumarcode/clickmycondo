@@ -47,8 +47,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"] },
-    { path: ':id/:type', component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"] },
-    { path: ':id/:invoiceid', component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"] }
+    { path: ':apartmentblockunitid/:type', component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"] },
+    { path: ':apartmentblockunitid/:invoiceid', component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"] }
 ];
 let IncomePostInvoiceRoutingModule = class IncomePostInvoiceRoutingModule {
 };
@@ -191,7 +191,8 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
     isTabIndexDisabled() {
         return this.isEditInvoice ? -1 : 0;
     }
-    onAccountChange(item, index) {
+    onAccountChange(event, index) {
+        var item = event[0];
         if (item != null) {
             this.invoiceGLAccountsData.glaccountName = item.glaccountName;
             this.invoiceGLAccountsData.glaccountId = parseInt(item.glaccountId);
@@ -318,7 +319,12 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
         }
     }
     ngOnInit() {
-        this.apartmentBlockUnitId = this.route.params['value'].id;
+        if (this.route.params['value'].id != undefined) {
+            this.apartmentBlockUnitId = this.route.params['value'].id;
+        }
+        else {
+            this.apartmentBlockUnitId = null;
+        }
         this.custInvoiceTaxData = {
             "custinvoiceTaxId": 0,
             "custInvoiceId": 0,
@@ -578,11 +584,19 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
     }
     submitIncomeMultiInvoiceForm(form) {
         this.isInvoiceSubmitted = false;
+        //remove invalid post invoice form
+        this.invoiceGLAccountsArray = this.invoiceGLAccountsArray.filter(item => {
+            return item.form;
+        });
+        //remove form property
         this.invoiceGLAccountsArray.map(item => {
             delete item.form;
             return item;
         });
         this.custInvoiceTaxArray.map(item => {
+            if (this.isGeneralInvoice) {
+                item.apartmentBlockUnitId = this.apartmentBlockUnitId;
+            }
             delete item.isAdded;
             return item;
         });
@@ -601,14 +615,14 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 "isEmailSent": false,
                 "isSmssent": false,
                 "custInvoiceStatusId": 1,
-                "postedBy": parseInt(this.sessionService.userId),
+                "postedBy": this.sessionService.userId,
                 "postedOn": new Date().toISOString(),
                 "billToPay": "",
                 "comments": this.invoice.comments || "",
                 "penaltyAmount": 0,
                 "penaltyComment": "",
                 "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
@@ -726,7 +740,6 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
         this.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
     }
     ngOnInit() {
-        this.apartmentBlockUnitId = this.route.params['value'].id;
         this.invoice = {};
         this.invoice.isTax = false;
         this.invoice.isDiscount = false;
@@ -853,7 +866,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
             this.isGeneralInvoice = false;
         }
         //for post multi invoice
-        if (this.route.params['value'].type != 'single' && this.route.params['value'].invoiceid == undefined) {
+        if (this.route.params['value'].type == 'multi' && this.route.params['value'].invoiceid == undefined) {
             this.isSingleInvoice = false;
             this.isEditInvoice = false;
             this.isGeneralInvoice = false;
@@ -901,15 +914,19 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 this.blocksData = res;
             });
         }
-        let accountListParams = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe((res) => {
-            this.accountDataList = res.filter(item => {
-                return item.apartmentBlockUnitId == this.route.params['value'].id;
+        //for post single and multi invoice
+        if (this.route.params['value'].apartmentblockunitid == undefined) {
+            this.apartmentBlockUnitId = this.route.params['value'].apartmentblockunitid;
+            let accountListParams = {
+                apartmentId: this.sessionService.apartmentId
+            };
+            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe((res) => {
+                this.accountDataList = res.filter(item => {
+                    return item.apartmentBlockUnitId == this.apartmentBlockUnitId;
+                });
+                this.isAccountDataLoaded = true;
             });
-            this.isAccountDataLoaded = true;
-        });
+        }
     }
 };
 IncomePostMultiInvoiceComponent.ctorParameters = () => [

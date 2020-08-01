@@ -760,10 +760,10 @@
                 "collectionId": null,
                 "transactionType": 0,
                 "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comments,
-                "comment2": this.advance.comments,
+                "comment": this.advance.comment,
+                "comment2": this.advance.comment2,
                 "active": true,
-                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -782,33 +782,28 @@
                   _this2.goBack();
                 } else {
                   _this2.isAdvanceSubmitted = true;
-                  _this2.isError = true;
-                  _this2.alertMessage = res.errorMessage;
                 }
               }, function (error) {
                 _this2.isAdvanceSubmitted = true;
-                _this2.isError = true;
-                _this2.alertMessage = "Some error occured";
               });
             } else {
-              console.log(this.advance);
               var _details = {
-                "id": this.advance.id,
+                "id": this.advance.transactionId,
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": this.advance.blockUnitUserId,
                 "advanceId": this.advance.custCreditNoteId,
-                "glaccountId": this.advance.glaccountId,
+                "glaccountId": this.advance.glAccountID,
                 "invoiceId": this.advance.invoiceId,
                 "collectionId": parseInt(this.advance.collectionId),
                 "transactionType": this.advance.transactionType,
-                "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comments,
-                "comment2": this.advance.comments,
+                "amount": parseInt(this.advance.creditAmount),
+                "comment": this.advance.comment,
+                "comment2": this.advance.comment,
                 "active": this.advance.active,
                 "insertedBy": this.advance.insertedBy,
                 "insertedOn": this.advance.insertedOn,
-                "updatedBy": parseInt(this.sessionService.userId),
+                "updatedBy": this.sessionService.userId,
                 "updatedOn": new Date().toISOString()
               };
               var _params = {
@@ -819,15 +814,15 @@
                   _this2.isAdvanceSubmitted = true;
 
                   _this2.sharedService.setAlertMessage("Customer Advance updated successfully");
+
+                  _this2.outputParams.emit(true);
+
+                  _this2.goBack();
                 } else {
                   _this2.isAdvanceSubmitted = true;
-                  _this2.isError = true;
-                  _this2.alertMessage = res.errorMessage;
                 }
               }, function (error) {
                 _this2.isAdvanceSubmitted = true;
-                _this2.isError = true;
-                _this2.alertMessage = "Some error occured";
               });
             }
           }
@@ -836,7 +831,6 @@
           value: function ngOnInit() {
             var _this3 = this;
 
-            this.advance.glaccountId = "";
             this.accountsService.getAllGlAccounts().subscribe(function (res) {
               _this3.glAccountsDataList = res.filter(function (item) {
                 return item.isActive && _this3.sessionService.apartmentId && item.indicator == _this3.glAccountIndicator;
@@ -846,9 +840,7 @@
           }
         }, {
           key: "ngOnChanges",
-          value: function ngOnChanges(changes) {
-            this.advance.collectionId = "";
-          }
+          value: function ngOnChanges(changes) {}
         }]);
 
         return IncomeAddCustomerAdvanceComponent;
@@ -1048,18 +1040,18 @@
               });
             } else {
               var _details2 = {
-                "id": this.deposit.id,
+                "id": this.deposit.transactionId,
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": this.deposit.blockUnitUserId,
                 "securityDepositId": this.deposit.custCreditNoteId,
-                "glaccountId": this.deposit.glaccountId,
+                "glaccountId": this.deposit.glAccountID,
                 "invoiceId": this.deposit.invoiceId,
                 "collectionId": parseInt(this.deposit.collectionId),
                 "transactionType": this.deposit.transactionType,
                 "amount": parseInt(this.deposit.amount),
-                "comment": this.deposit.comments,
-                "comment2": this.deposit.comments,
+                "comment": this.deposit.comment,
+                "comment2": this.deposit.comment2,
                 "active": this.deposit.active,
                 "insertedBy": this.deposit.insertedBy,
                 "insertedOn": this.deposit.insertedOn,
@@ -1069,7 +1061,6 @@
               var _params2 = {
                 custSecurity: _details2
               };
-              console.log(this.deposit);
               this.accountsService.updateSecurityDeposit(_params2).subscribe(function (res) {
                 if (res) {
                   _this4.isDepositSubmitted = true;
@@ -1351,8 +1342,8 @@
             });
           }
         }, {
-          key: "onCustomerAdvances",
-          value: function onCustomerAdvances(detail) {
+          key: "onEditCustomerAdvances",
+          value: function onEditCustomerAdvances(detail) {
             var _this8 = this;
 
             this.isEditAdvance = true;
@@ -1397,28 +1388,21 @@
             var _this9 = this;
 
             this.isAdvancesLoaded = false;
-            var blockUnitParams = {
-              apartmentBlockUnitId: this.apartmentBlockUnitId
+            var params = {
+              blockUnitId: this.apartmentBlockUnitId,
+              apartmentId: this.sessionService.apartmentId
             };
-            this.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(blockUnitParams).subscribe(function (res) {
-              _this9.apartmentBlockUnitUserId = res[0].apartmentBlockUnitUserId;
-              var params = {
-                blockUnitUserId: _this9.apartmentBlockUnitUserId,
-                apartmentId: _this9.sessionService.apartmentId
+            this.accountsService.getAdvanceByApartmentBlockUnitId(params).subscribe(function (res) {
+              var customerAdvancesDataList = res;
+              _this9.gridSourceData = {
+                localdata: customerAdvancesDataList,
+                datatype: "array"
               };
-
-              _this9.accountsService.getAdvanceByApartmentBlockUnitUserId(params).subscribe(function (res) {
-                var customerAdvancesDataList = res;
-                _this9.gridSourceData = {
-                  localdata: customerAdvancesDataList,
-                  datatype: "array"
-                };
-                _this9.customerAdvancesDataList = new jqx.dataAdapter(_this9.gridSourceData);
-                _this9.totalItems = customerAdvancesDataList.length;
-                _this9.isAdvancesLoaded = true;
-              }, function (error) {
-                console.log(error);
-              });
+              _this9.customerAdvancesDataList = new jqx.dataAdapter(_this9.gridSourceData);
+              _this9.totalItems = customerAdvancesDataList.length;
+              _this9.isAdvancesLoaded = true;
+            }, function (error) {
+              console.log(error);
             });
           }
         }, {
@@ -1449,7 +1433,7 @@
               renderer: columnrenderer
             }, {
               text: 'Comments',
-              datafield: 'comments',
+              datafield: 'comment',
               minwidth: 150,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
@@ -1522,9 +1506,9 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['addCustomerAdvancesElem']
         }],
-        onCustomerAdvances: [{
+        onEditCustomerAdvances: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onCustomerAdvances', ['$event.detail']]
+          args: ['window:onEditCustomerAdvances', ['$event.detail']]
         }]
       };
       IncomeCustomerAdvancesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1538,7 +1522,7 @@
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_4__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_8__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], IncomeCustomerAdvancesComponent);
 
       var editCustomerAdvancesEvent = function editCustomerAdvancesEvent(row) {
-        var event = new CustomEvent('onCustomerAdvances', {
+        var event = new CustomEvent('onEditCustomerAdvances', {
           detail: {
             rowId: row
           }
@@ -2198,7 +2182,7 @@
               renderer: columnrenderer
             }, {
               text: 'Deposit Reason',
-              datafield: 'comments',
+              datafield: 'comment',
               minwidth: 150,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
@@ -2210,7 +2194,7 @@
               renderer: columnrenderer
             }, {
               text: 'Reason for Deduction',
-              datafield: 'comments2',
+              datafield: 'comment2',
               minwidth: 150,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer

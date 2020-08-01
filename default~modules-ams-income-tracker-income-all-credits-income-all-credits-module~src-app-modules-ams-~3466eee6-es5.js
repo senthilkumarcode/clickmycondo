@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-add-credit-wrapper\">\n\t\t\t\n\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\n\t<ng-container *ngIf=\"isCreditSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Credit Note</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Credit Note</span>\n\t\t\t</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tfieldName=\"collectionId\"\n\t\t\t\t\t\tlabelText=\"Select Bill No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select No\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"billData\"\n\t\t\t\t\t\tfieldValue=\"collectionId\"\n\t\t\t\t\t\t(fieldParams)=\"getBillNo($event)\" \n                    ></condo-select>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-add-credit-wrapper\">\n\t\t\t\n\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\n\t<ng-container *ngIf=\"isCreditSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Credit Note</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Credit Note</span>\n\t\t\t</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tfieldName=\"blockNo\"\n\t\t\t\t\t\tlabelText=\"Block No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Block\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"blocksData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tfieldName=\"unitNo\"\n\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"unitData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t[isDisabled]=\"!isBlockSelected\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tfieldName=\"collectionId\"\n\t\t\t\t\t\tlabelText=\"Select Bill No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select No\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"billData\"\n\t\t\t\t\t\tfieldValue=\"collectionId\"\n\t\t\t\t\t\t(fieldParams)=\"getBillNo($event)\" \n                    ></condo-select>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n\t\n</div>";
       /***/
     },
 
@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-credit-list-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\n    <app-loader *ngIf=\"!isCreditNoteLoaded\"></app-loader>\n\n        <mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n                            [disableClose]=\"true\"\n                            #matDrawer>\n\n                      <router-outlet></router-outlet>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n                    <div class=\"main\">\n\n                        <condo-card *ngIf=\"isCreditNoteLoaded\">\n\n                            <div CondoCardHeader>\n                                <div class=\"d-flex\">\n                                    <div>\n                                        <h4>Credit Notes</h4>\n                                        <p>{{totalItems}} results</p>\n                                    </div>\n                                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n                                    </div>\n                                    <div class=\"mr-3\">\n                                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                                    </div>\n                                    <div>\n                                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n                                    </div>\n                                </div>\n                            </div>\n    \n                            <div CondoCardBody>\n                                <jqxGrid \n                                    [theme]=\"'material'\" \n                                    [width]=\"'100%'\"\n                                    [rowsheight]=\"48\"\n                                    [autoheight]=\"true\"\n                                    [pageable]=\"true\" \n                                    [filterable]=\"true\"\n                                    [sortable]=\"true\" \n                                    [source]=\"creditNoteDataList\"\n                                    [columns]=\"columnData\"\n                                    [columnsresize]=\"true\"\n                                    [enablehover]=\"false\"\n                                    #datagrid>\n                                    </jqxGrid> \n\n                            </div>\n    \n                        </condo-card>\n\n                    </div>\n\n                </mat-drawer-content>\n\n            </mat-drawer-container>\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"income-credit-list-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\n    <app-loader *ngIf=\"!isCreditNoteLoaded\"></app-loader>\n\n        <mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n                            [disableClose]=\"true\"\n                            #matDrawer>\n\n                      <router-outlet></router-outlet>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n                    <div class=\"main\">\n\n                        <div class=\"income-credit-filter-wrapper mb-3\" *ngIf=\"isCreditNoteLoaded\">\n                            <form #incomeCreditFilterForm = \"ngForm\" name=\"incomeCreditFilterForm\" (ngSubmit)=\"submitIncomeCreditFilterForm()\"  novalidate>\n\n                                <mat-accordion>\n\t\n                                    <mat-expansion-panel>\n                                \n                                        <mat-expansion-panel-header>\n                                            <mat-panel-title>\n                                                <div class=\"filter-box\">\n                                                    <h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n                                                </div>\n                                            </mat-panel-title>\n                                        </mat-expansion-panel-header>\n                            \n                                        <mat-panel-description>\n\n                                            <div class=\"row\">\n\t\t\t\t\t\t\n                                                <div class=\"col-sm-3\">\n                                                    <div class=\"select-box\">\n                                                        <label>Posted From</label>\n                                                        <input class=\"form-control\" name=\"PostStartDate\" [owlDateTime]=\"PostStartDate\" [owlDateTimeTrigger]=\"PostStartDate\" placeholder=\"Date\" [(ngModel)]=\"fromDate\">\n                                                        <owl-date-time #PostStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"PostStartDate\">\n                                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                        </div>\n                                                    </div>\n                                                </div> \n                                \n                                                <div class=\"col-sm-3\">\n                                                    <div class=\"select-box\">\n                                                        <label>Posted To</label>\n                                                        <input class=\"form-control\" name=\"PostEndDate\" [owlDateTime]=\"PostEndDate\" [owlDateTimeTrigger]=\"PostEndDate\" placeholder=\"Date\" [(ngModel)]=\"toDate\">\n                                                        <owl-date-time #PostEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"PostEndDate\">\n                                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                        </div>\n                                                    </div>\n                                                </div> \n\n                                            </div>\n\n                                            <div class=\"row\">\n                                                <div class=\"col-sm-12 text-right\">\n                                                    <button class=\"mr-3\" mat-flat-button [color]=\"'primary'\" [disabled]=\"incomeCreditFilterForm.invalid\">Apply Filter</button>\n                                                </div>\n                                            </div>\n\n                                        </mat-panel-description>\n\n                                    </mat-expansion-panel>\n\n                                </mat-accordion>\n\n                            </form>\n                        </div>\n\n                        <app-loader *ngIf=\"isCreditNoteLoaded && !isCreditNoteFilterTableLoaded\"></app-loader>\n\n                        <condo-card *ngIf=\"isCreditNoteLoaded && isCreditNoteFilterTableLoaded\">\n\n                            <div CondoCardHeader>\n                                <div class=\"d-flex\">\n                                    <div>\n                                        <h4>Credit Notes</h4>\n                                        <p>{{totalItems}} results</p>\n                                    </div>\n                                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n                                    </div>\n                                    <div class=\"mr-3\">\n                                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                                    </div>\n                                    <div>\n                                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n                                    </div>\n                                </div>\n                            </div>\n    \n                            <div CondoCardBody>\n                                <jqxGrid \n                                    [theme]=\"'material'\" \n                                    [width]=\"'100%'\"\n                                    [rowsheight]=\"48\"\n                                    [autoheight]=\"true\"\n                                    [pageable]=\"true\" \n                                    [filterable]=\"true\"\n                                    [sortable]=\"true\" \n                                    [source]=\"creditNoteDataList\"\n                                    [columns]=\"columnData\"\n                                    [columnsresize]=\"true\"\n                                    [enablehover]=\"false\"\n                                    #datagrid>\n                                    </jqxGrid> \n\n                            </div>\n    \n                        </condo-card>\n\n                    </div>\n\n                </mat-drawer-content>\n\n            </mat-drawer-container>\n\n\n</div>\n";
       /***/
     },
 
@@ -172,40 +172,69 @@
           this.alertMessage = "";
           this.isBlockSelected = false;
           this.isUnitSelected = false;
+          this.apartmentBlockId = null;
           this.apartmentBlockUnitId = null;
           this.isPageCredit = false;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
 
         _createClass(IncomeAddCreditComponent, [{
+          key: "getSelectedBlock",
+          value: function getSelectedBlock(event) {
+            this.apartmentBlockId = event[0].apartmentBlockId;
+            this.getUnits();
+          }
+        }, {
+          key: "getUnits",
+          value: function getUnits() {
+            var _this = this;
+
+            var params = {
+              apartmentBlockId: parseInt(this.apartmentBlockId)
+            };
+            this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
+              _this.isBlockSelected = true;
+              _this.unitData = res; //Mark for check
+
+              _this._changeDetectorRef.markForCheck();
+            }, function (error) {
+              console.log(error);
+            });
+          }
+        }, {
+          key: "getSelectedBlockUnit",
+          value: function getSelectedBlockUnit(event) {
+            this.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
+          }
+        }, {
           key: "getAllCollection",
           value: function getAllCollection() {
-            var _this = this;
+            var _this2 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getCollectionInvoicesByApartmentId(params).subscribe(function (res) {
-              _this.billData = res;
-              _this.isCreditSubmitted = true; //Mark for check
+              _this2.billData = res;
+              _this2.isCreditSubmitted = true; //Mark for check
 
-              _this._changeDetectorRef.markForCheck();
+              _this2._changeDetectorRef.markForCheck();
             });
           }
         }, {
           key: "getAllCollectionByApartmentBlockUnitId",
           value: function getAllCollectionByApartmentBlockUnitId() {
-            var _this2 = this;
+            var _this3 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
               apartmentBlockUnitId: this.apartmentBlockUnitId
             };
             this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe(function (res) {
-              _this2.billData = res;
-              _this2.isCreditSubmitted = true; //Mark for check
+              _this3.billData = res;
+              _this3.isCreditSubmitted = true; //Mark for check
 
-              _this2._changeDetectorRef.markForCheck();
+              _this3._changeDetectorRef.markForCheck();
             });
           }
         }, {
@@ -216,7 +245,7 @@
         }, {
           key: "getCredit",
           value: function getCredit(id) {
-            var _this3 = this;
+            var _this4 = this;
 
             this.isCreditSubmitted = false;
             var params = {
@@ -224,30 +253,30 @@
               creditNoteId: id
             };
             this.accountsService.getCreditNoteById(params).subscribe(function (res) {
-              _this3.isCreditSubmitted = true;
-              _this3.isEdit = true;
+              _this4.isCreditSubmitted = true;
+              _this4.isEdit = true;
 
               if (res === undefined || res.length == 0) {
-                _this3.credit = {};
+                _this4.credit = {};
               } else {
-                _this3.credit = res[0];
+                _this4.credit = res[0];
               }
 
-              _this3.apartmentBlockUnitId = parseInt(_this3.credit.apartmentBlockUnitId);
+              _this4.apartmentBlockUnitId = parseInt(_this4.credit.apartmentBlockUnitId);
 
-              _this3.getAllCollectionByApartmentBlockUnitId();
+              _this4.getAllCollectionByApartmentBlockUnitId();
             });
           }
         }, {
           key: "submitAddCreditNoteForm",
           value: function submitAddCreditNoteForm(form) {
-            var _this4 = this;
+            var _this5 = this;
 
             if (form.valid) {
               if (!this.isEdit) {
                 var details = {
                   "apartmentId": this.sessionService.apartmentId,
-                  "apartmentBlockUnitId": this.apartmentBlockUnitId,
+                  "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                   "blockUnitUserId": null,
                   "custCreditNoteId": null,
                   "glaccountId": null,
@@ -258,7 +287,7 @@
                   "comment": this.credit.comment,
                   "comment2": this.credit.comment,
                   "active": true,
-                  "insertedBy": parseInt(this.sessionService.userId),
+                  "insertedBy": this.sessionService.userId,
                   "insertedOn": new Date().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
@@ -268,63 +297,59 @@
                 };
                 this.accountsService.addCustCreditNotes(params).subscribe(function (res) {
                   if (res.error) {
-                    _this4.isCreditSubmitted = true;
-                    _this4.credit = {}; /// Go to the parent route
+                    _this5.isCreditSubmitted = true;
+                    _this5.credit = {}; /// Go to the parent route
 
-                    _this4.goBack(); //Mark for check
+                    _this5._incomeCreditListComponent.isCreditAdded();
+
+                    _this5.goBack(); //Mark for check
 
 
-                    _this4._changeDetectorRef.markForCheck();
+                    _this5._changeDetectorRef.markForCheck();
                   } else {
-                    _this4.isCreditSubmitted = true;
-                    _this4.isError = true;
-                    _this4.alertMessage = res.errorMessage;
+                    _this5.isCreditSubmitted = true;
                   }
                 }, function (error) {
-                  _this4.isCreditSubmitted = true;
-                  _this4.isError = true;
-                  _this4.alertMessage = "Some error occured";
+                  _this5.isCreditSubmitted = true;
                 });
               } else {
                 var _details = {
-                  "id": this.credit.creditNoteId,
+                  "id": this.credit.custCreditNoteId,
                   "apartmentId": this.sessionService.apartmentId,
-                  "apartmentBlockUnitId": this.apartmentBlockUnitId,
-                  "blockUnitUserId": this.credit.blockUnitUserId,
-                  "custCreditNoteId": this.credit.creditNoteId,
+                  "apartmentBlockUnitId": this.credit.apartmentBlockUnitId,
+                  "blockUnitUserId": null,
+                  "custCreditNoteId": this.credit.custCreditNoteId,
                   "glaccountId": this.credit.glaccountId,
                   "invoiceId": this.credit.invoiceId,
-                  "collectionId": parseInt(this.credit.collectionId),
+                  "collectionId": this.credit.collectionId,
                   "transactionType": 0,
                   "amount": parseInt(this.credit.amount),
                   "comment": this.credit.comment,
-                  "comment2": this.credit.comment,
+                  "comment2": this.credit.comment2,
                   "active": this.credit.active,
                   "insertedBy": this.credit.insertedBy,
                   "insertedOn": this.credit.insertedOn,
-                  "updatedBy": parseInt(this.sessionService.userId),
+                  "updatedBy": this.sessionService.userId,
                   "updatedOn": new Date().toISOString()
                 };
                 var _params = {
                   custCreditNote: _details
                 };
                 this.accountsService.updateCustCreditNotes(_params).subscribe(function (res) {
-                  if (res.error) {
-                    _this4.isCreditSubmitted = true;
+                  if (res.message) {
+                    _this5.isCreditSubmitted = true;
 
-                    _this4.sharedService.setAlertMessage("Credit Note updated successfully"); // Go to the parent route
+                    _this5.sharedService.setAlertMessage("Credit Note updated successfully"); // Go to the parent route
 
 
-                    _this4.goBack();
+                    _this5._incomeCreditListComponent.isCreditAdded();
+
+                    _this5.goBack();
                   } else {
-                    _this4.isCreditSubmitted = true;
-                    _this4.isError = true;
-                    _this4.alertMessage = res.errorMessage;
+                    _this5.isCreditSubmitted = true;
                   }
                 }, function (error) {
-                  _this4.isCreditSubmitted = true;
-                  _this4.isError = true;
-                  _this4.alertMessage = "Some error occured";
+                  _this5.isCreditSubmitted = true;
                 });
               }
             }
@@ -346,37 +371,40 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.getAllCollection(); //Open the drawer
 
             this.sharedService.matdraweridcast.subscribe(function (id) {
-              if (id != null && id == _this5._activatedRoute.params['value'].id) {
-                _this5._incomeCreditListComponent.matDrawer.open();
+              if (id != null && id == _this6._activatedRoute.params['value'].id) {
+                _this6._incomeCreditListComponent.matDrawer.open();
               } //Mark for check
 
 
-              _this5._changeDetectorRef.markForCheck();
+              _this6._changeDetectorRef.markForCheck();
             });
 
             if (this._activatedRoute.params['value'].type == 'new') {
+              this.isEdit = false;
               this.credit = {};
               this.credit.collectionId = "";
               this.isCreditSubmitted = true; //Mark for check
 
               this._changeDetectorRef.markForCheck();
-            } else {
-              this.getCredit(this._activatedRoute.params['value'].id);
             }
 
-            if (this._activatedRoute.params['value'].type != undefined) {
-              this.isPageCredit = true;
+            if (this._activatedRoute.params['value'].type == 'edit') {
+              this.isEdit = true;
+              this.credit = this._incomeCreditListComponent.credit;
             }
-          }
-        }, {
-          key: "ngOnChanges",
-          value: function ngOnChanges(changes) {
-            if (this.isEdit) {}
+
+            var params = {
+              apartmentId: this.sessionService.apartmentId
+            }; //get apartment blocks
+
+            this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
+              _this6.blocksData = res;
+            });
           }
         }]);
 
@@ -940,7 +968,17 @@
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
@@ -955,9 +993,9 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isCreditNoteLoaded = false;
+          this.isCreditNoteFilterTableLoaded = false;
           this.creditNoteData = "";
-          this.isEditCredit = false;
-          this.isGeneralCredit = true; // Set the private defaults
+          this.isEditCredit = false; // Set the private defaults
 
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         }
@@ -970,7 +1008,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this6 = this;
+            var _this7 = this;
 
             if (this.creditNoteData != "") {
               var filtergroup = new jqx.filter();
@@ -983,7 +1021,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this6.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this7.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -996,26 +1034,16 @@
           value: function onEditCreditNote(detail) {
             this.isEditCredit = true;
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            var id = dataRecord.creditNoteId;
+            this.credit = dataRecord;
+            var id = dataRecord.custCreditNoteId;
             this.sharedService.setMatDrawerId(id);
 
-            if (this._activatedRoute.params['value'].id != undefined) {
-              var apartmentBlockUnitId = this._activatedRoute.params['value'].id;
-              console.log(apartmentBlockUnitId);
+            this._router.navigate(['./all-creditnotes', 'edit', id], {
+              relativeTo: this._activatedRoute.parent
+            }); //Mark for check
 
-              this._router.navigate(['./all-creditnotes', apartmentBlockUnitId, 'edit', id], {
-                relativeTo: this._activatedRoute.parent
-              });
-            } else {
-              this._router.navigate(['./all-creditnotes', 'edit', id], {
-                relativeTo: this._activatedRoute.parent
-              });
-            }
-          }
-        }, {
-          key: "getCreditParams",
-          value: function getCreditParams(event) {
-            this.getCreditNotesData();
+
+            this._changeDetectorRef.markForCheck();
           }
         }, {
           key: "addCreditNote",
@@ -1030,17 +1058,17 @@
             var id = this.sharedService.guid();
             this.sharedService.setMatDrawerId(id);
 
-            if (this._activatedRoute.params['value'].id != undefined) {
-              var apartmentBlockUnitId = this._activatedRoute.params['value'].id;
-
-              this._router.navigate(['./all-creditnotes', apartmentBlockUnitId, 'new', id], {
-                relativeTo: this._activatedRoute.parent
-              });
-            } else {
-              this._router.navigate(['./all-creditnotes', 'new', id], {
-                relativeTo: this._activatedRoute.parent
-              });
-            } //Mark for check
+            this._router.navigate(['./all-creditnotes', 'new', id], {
+              relativeTo: this._activatedRoute.parent
+            });
+            /*if(this._activatedRoute.params['value'].id != undefined){
+             var apartmentBlockUnitId = this._activatedRoute.params['value'].id;
+             this._router.navigate(['./all-creditnotes', apartmentBlockUnitId ,'new', id], {relativeTo: this._activatedRoute.parent});
+            }
+            else {
+             this._router.navigate(['./all-creditnotes', 'new', id], {relativeTo: this._activatedRoute.parent});
+            }*/
+            //Mark for check
 
 
             this._changeDetectorRef.markForCheck();
@@ -1056,57 +1084,46 @@
             } // Go to the parent route
 
 
-            if (this._activatedRoute.params['value'].id != undefined) {
-              var apartmentBlockUnitId = this._activatedRoute.params['value'].id;
-
-              this._router.navigate(['./all-creditnotes/', apartmentBlockUnitId], {
-                relativeTo: this._activatedRoute.parent
-              });
-            } else {
-              this._router.navigate(['./'], {
-                relativeTo: this._activatedRoute.parent
-              });
-            }
+            this._router.navigate(['./'], {
+              relativeTo: this._activatedRoute.parent
+            });
 
             this.matDrawer.close(); // Mark for check
 
             this._changeDetectorRef.markForCheck();
           }
         }, {
-          key: "getCreditNotesData",
-          value: function getCreditNotesData() {
-            var _this7 = this;
+          key: "submitIncomeCreditFilterForm",
+          value: function submitIncomeCreditFilterForm() {
+            this.isCreditNoteFilterTableLoaded = false;
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format('YYYY-MM-DD');
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format('YYYY-MM-DD');
+            this.getCreditNotesData(fromDate, toDate); //Mark for check
 
-            this.isCreditNoteLoaded = false;
-            var params = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.accountsService.getCreditNotesByApartmentId(params).subscribe(function (res) {
-              var creditNoteDataList = res;
-              _this7.gridSourceData = {
-                localdata: creditNoteDataList,
-                datatype: "array"
-              };
-              _this7.creditNoteDataList = new jqx.dataAdapter(_this7.gridSourceData);
-              _this7.totalItems = creditNoteDataList.length;
-              _this7.isCreditNoteLoaded = true; // Mark for check
-
-              _this7._changeDetectorRef.markForCheck();
-            }, function (error) {
-              console.log(error);
-            });
+            this._changeDetectorRef.markForCheck();
           }
         }, {
-          key: "getCreditById",
-          value: function getCreditById(id) {
+          key: "isCreditAdded",
+          value: function isCreditAdded() {
+            this.isCreditNoteFilterTableLoaded = false;
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format('YYYY-MM-DD');
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format('YYYY-MM-DD');
+            this.getCreditNotesData(fromDate, toDate); //Mark for check
+
+            this._changeDetectorRef.markForCheck();
+          }
+        }, {
+          key: "getCreditNotesData",
+          value: function getCreditNotesData(fromDate, toDate) {
             var _this8 = this;
 
-            this.isCreditNoteLoaded = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId,
-              blockUnitId: parseInt(id)
+              ApartmentId: this.sessionService.apartmentId,
+              BlockID: null,
+              FromInsertDate: fromDate,
+              ToInsertDate: toDate
             };
-            this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe(function (res) {
+            this.accountsService.getAllCreditnoteAddedHistoryByBlockId(params).subscribe(function (res) {
               var creditNoteDataList = res;
               _this8.gridSourceData = {
                 localdata: creditNoteDataList,
@@ -1114,13 +1131,38 @@
               };
               _this8.creditNoteDataList = new jqx.dataAdapter(_this8.gridSourceData);
               _this8.totalItems = creditNoteDataList.length;
-              _this8.isCreditNoteLoaded = true; // Mark for check
+              _this8.isCreditNoteLoaded = true;
+              _this8.isCreditNoteFilterTableLoaded = true; // Mark for check
 
               _this8._changeDetectorRef.markForCheck();
             }, function (error) {
               console.log(error);
             });
           }
+          /*getCreditById(id){
+               this.isCreditNoteLoaded = false;
+               let params = {
+              apartmentId: this.sessionService.apartmentId,
+              blockUnitId: parseInt(id)
+            }
+               this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe((res:any) => {
+                 var creditNoteDataList = res;
+                 this.gridSourceData = {
+                localdata: creditNoteDataList,
+                datatype: "array"
+              }
+              
+              this.creditNoteDataList = new jqx.dataAdapter(this.gridSourceData);
+              this.totalItems = creditNoteDataList.length;
+                 this.isCreditNoteLoaded = true;
+                 // Mark for check
+              this._changeDetectorRef.markForCheck();
+              
+            }, error => {
+                console.log(error);
+            });
+             }*/
+
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
@@ -1135,6 +1177,8 @@
             var _this9 = this;
 
             this.credit = {};
+            this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(3, 'months').endOf('month').format('YYYY-MM-DD');
+            this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().format('YYYY-MM-DD');
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1145,26 +1189,32 @@
             };
 
             this.columnData = [{
-              text: 'Creditnote Id',
-              datafield: 'creditNoteId',
+              text: 'S.No',
+              datafield: 'custCreditNoteId',
               width: 120,
               pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Amount',
+              text: 'Tower & Unit',
+              datafield: 'blockUnit',
+              width: 150,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Credit Amount',
               datafield: 'amount',
               width: 150,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Invoice Id',
+              text: 'Invoice Reference',
               datafield: 'invoiceId',
               width: 120,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Collection Id',
+              text: 'Collection Reference',
               datafield: 'collectionId',
               width: 120,
               cellsrenderer: cellsrenderer,
@@ -1229,12 +1279,7 @@
               },
               renderer: columnrenderer
             }];
-
-            if (this._activatedRoute.params['value'].id != undefined) {
-              this.getCreditById(this._activatedRoute.params['value'].id);
-            } else {
-              this.getCreditNotesData();
-            }
+            this.getCreditNotesData(this.fromDate, this.toDate);
           }
         }]);
 

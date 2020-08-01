@@ -55,6 +55,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let PanelListComponent = class PanelListComponent {
     constructor() {
+        this.filteredValues = [];
         this.selectedItem = [];
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
@@ -76,10 +77,15 @@ let PanelListComponent = class PanelListComponent {
         });
     }
     ngOnInit() {
+        if (this.fieldList != undefined) {
+            this.filteredValues = this.fieldList;
+        }
     }
     ngOnChanges() {
-        this.filteredValues = this.fieldList;
-        this.selectedItem = this.filteredValues.filter(item => { return item[this.fieldValue] == this.fieldModel; });
+        if (this.fieldList != undefined) {
+            this.filteredValues = this.fieldList;
+            this.selectedItem = this.filteredValues.filter(item => { return item[this.fieldValue] == this.fieldModel; });
+        }
     }
 };
 PanelListComponent.ctorParameters = () => [];

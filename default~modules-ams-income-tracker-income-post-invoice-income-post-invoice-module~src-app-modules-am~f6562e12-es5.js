@@ -100,10 +100,10 @@
         path: '',
         component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"]
       }, {
-        path: ':id/:type',
+        path: ':apartmentblockunitid/:type',
         component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"]
       }, {
-        path: ':id/:invoiceid',
+        path: ':apartmentblockunitid/:invoiceid',
         component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"]
       }];
 
@@ -349,7 +349,9 @@
           }
         }, {
           key: "onAccountChange",
-          value: function onAccountChange(item, index) {
+          value: function onAccountChange(event, index) {
+            var item = event[0];
+
             if (item != null) {
               this.invoiceGLAccountsData.glaccountName = item.glaccountName;
               this.invoiceGLAccountsData.glaccountId = parseInt(item.glaccountId);
@@ -496,7 +498,12 @@
           value: function ngOnInit() {
             var _this = this;
 
-            this.apartmentBlockUnitId = this.route.params['value'].id;
+            if (this.route.params['value'].id != undefined) {
+              this.apartmentBlockUnitId = this.route.params['value'].id;
+            } else {
+              this.apartmentBlockUnitId = null;
+            }
+
             this.custInvoiceTaxData = {
               "custinvoiceTaxId": 0,
               "custInvoiceId": 0,
@@ -874,12 +881,21 @@
           value: function submitIncomeMultiInvoiceForm(form) {
             var _this3 = this;
 
-            this.isInvoiceSubmitted = false;
+            this.isInvoiceSubmitted = false; //remove invalid post invoice form
+
+            this.invoiceGLAccountsArray = this.invoiceGLAccountsArray.filter(function (item) {
+              return item.form;
+            }); //remove form property
+
             this.invoiceGLAccountsArray.map(function (item) {
               delete item.form;
               return item;
             });
             this.custInvoiceTaxArray.map(function (item) {
+              if (_this3.isGeneralInvoice) {
+                item.apartmentBlockUnitId = _this3.apartmentBlockUnitId;
+              }
+
               delete item.isAdded;
               return item;
             });
@@ -899,14 +915,14 @@
                 "isEmailSent": false,
                 "isSmssent": false,
                 "custInvoiceStatusId": 1,
-                "postedBy": parseInt(this.sessionService.userId),
+                "postedBy": this.sessionService.userId,
                 "postedOn": new Date().toISOString(),
                 "billToPay": "",
                 "comments": this.invoice.comments || "",
                 "penaltyAmount": 0,
                 "penaltyComment": "",
                 "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
@@ -1039,7 +1055,6 @@
           value: function ngOnInit() {
             var _this5 = this;
 
-            this.apartmentBlockUnitId = this.route.params['value'].id;
             this.invoice = {};
             this.invoice.isTax = false;
             this.invoice.isDiscount = false;
@@ -1164,7 +1179,7 @@
             } //for post multi invoice
 
 
-            if (this.route.params['value'].type != 'single' && this.route.params['value'].invoiceid == undefined) {
+            if (this.route.params['value'].type == 'multi' && this.route.params['value'].invoiceid == undefined) {
               this.isSingleInvoice = false;
               this.isEditInvoice = false;
               this.isGeneralInvoice = false;
@@ -1215,17 +1230,21 @@
               this.apartmentService.getApartmentBlockByApartmentId(_params2).subscribe(function (res) {
                 _this5.blocksData = res;
               });
-            }
+            } //for post single and multi invoice
 
-            var accountListParams = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
-              _this5.accountDataList = res.filter(function (item) {
-                return item.apartmentBlockUnitId == _this5.route.params['value'].id;
+
+            if (this.route.params['value'].apartmentblockunitid == undefined) {
+              this.apartmentBlockUnitId = this.route.params['value'].apartmentblockunitid;
+              var accountListParams = {
+                apartmentId: this.sessionService.apartmentId
+              };
+              this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
+                _this5.accountDataList = res.filter(function (item) {
+                  return item.apartmentBlockUnitId == _this5.apartmentBlockUnitId;
+                });
+                _this5.isAccountDataLoaded = true;
               });
-              _this5.isAccountDataLoaded = true;
-            });
+            }
           }
         }]);
 

@@ -427,10 +427,10 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 "collectionId": null,
                 "transactionType": 0,
                 "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comments,
-                "comment2": this.advance.comments,
+                "comment": this.advance.comment,
+                "comment2": this.advance.comment2,
                 "active": true,
-                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -447,34 +447,29 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 }
                 else {
                     this.isAdvanceSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
                 }
             }, error => {
                 this.isAdvanceSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
             });
         }
         else {
-            console.log(this.advance);
             let details = {
-                "id": this.advance.id,
+                "id": this.advance.transactionId,
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": this.advance.blockUnitUserId,
                 "advanceId": this.advance.custCreditNoteId,
-                "glaccountId": this.advance.glaccountId,
+                "glaccountId": this.advance.glAccountID,
                 "invoiceId": this.advance.invoiceId,
                 "collectionId": parseInt(this.advance.collectionId),
                 "transactionType": this.advance.transactionType,
-                "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comments,
-                "comment2": this.advance.comments,
+                "amount": parseInt(this.advance.creditAmount),
+                "comment": this.advance.comment,
+                "comment2": this.advance.comment,
                 "active": this.advance.active,
                 "insertedBy": this.advance.insertedBy,
                 "insertedOn": this.advance.insertedOn,
-                "updatedBy": parseInt(this.sessionService.userId),
+                "updatedBy": this.sessionService.userId,
                 "updatedOn": new Date().toISOString()
             };
             let params = {
@@ -484,21 +479,18 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 if (res) {
                     this.isAdvanceSubmitted = true;
                     this.sharedService.setAlertMessage("Customer Advance updated successfully");
+                    this.outputParams.emit(true);
+                    this.goBack();
                 }
                 else {
                     this.isAdvanceSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
                 }
             }, error => {
                 this.isAdvanceSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
             });
         }
     }
     ngOnInit() {
-        this.advance.glaccountId = "";
         this.accountsService.getAllGlAccounts().subscribe((res) => {
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && this.sessionService.apartmentId && item.indicator == this.glAccountIndicator;
@@ -507,7 +499,6 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
         });
     }
     ngOnChanges(changes) {
-        this.advance.collectionId = "";
     }
 };
 IncomeAddCustomerAdvanceComponent.ctorParameters = () => [
@@ -637,18 +628,18 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
         }
         else {
             let details = {
-                "id": this.deposit.id,
+                "id": this.deposit.transactionId,
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": this.deposit.blockUnitUserId,
                 "securityDepositId": this.deposit.custCreditNoteId,
-                "glaccountId": this.deposit.glaccountId,
+                "glaccountId": this.deposit.glAccountID,
                 "invoiceId": this.deposit.invoiceId,
                 "collectionId": parseInt(this.deposit.collectionId),
                 "transactionType": this.deposit.transactionType,
                 "amount": parseInt(this.deposit.amount),
-                "comment": this.deposit.comments,
-                "comment2": this.deposit.comments,
+                "comment": this.deposit.comment,
+                "comment2": this.deposit.comment2,
                 "active": this.deposit.active,
                 "insertedBy": this.deposit.insertedBy,
                 "insertedOn": this.deposit.insertedOn,
@@ -658,7 +649,6 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
             let params = {
                 custSecurity: details
             };
-            console.log(this.deposit);
             this.accountsService.updateSecurityDeposit(params).subscribe((res) => {
                 if (res) {
                     this.isDepositSubmitted = true;
@@ -847,7 +837,7 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
             }
         });
     }
-    onCustomerAdvances(detail) {
+    onEditCustomerAdvances(detail) {
         this.isEditAdvance = true;
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         let id = 'customerAdvances' + detail.rowId;
@@ -891,27 +881,21 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
     }
     getCustomerAdvancesData() {
         this.isAdvancesLoaded = false;
-        let blockUnitParams = {
-            apartmentBlockUnitId: this.apartmentBlockUnitId
+        let params = {
+            blockUnitId: this.apartmentBlockUnitId,
+            apartmentId: this.sessionService.apartmentId
         };
-        this.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(blockUnitParams).subscribe((res) => {
-            this.apartmentBlockUnitUserId = res[0].apartmentBlockUnitUserId;
-            let params = {
-                blockUnitUserId: this.apartmentBlockUnitUserId,
-                apartmentId: this.sessionService.apartmentId
+        this.accountsService.getAdvanceByApartmentBlockUnitId(params).subscribe((res) => {
+            var customerAdvancesDataList = res;
+            this.gridSourceData = {
+                localdata: customerAdvancesDataList,
+                datatype: "array"
             };
-            this.accountsService.getAdvanceByApartmentBlockUnitUserId(params).subscribe((res) => {
-                var customerAdvancesDataList = res;
-                this.gridSourceData = {
-                    localdata: customerAdvancesDataList,
-                    datatype: "array"
-                };
-                this.customerAdvancesDataList = new jqx.dataAdapter(this.gridSourceData);
-                this.totalItems = customerAdvancesDataList.length;
-                this.isAdvancesLoaded = true;
-            }, error => {
-                console.log(error);
-            });
+            this.customerAdvancesDataList = new jqx.dataAdapter(this.gridSourceData);
+            this.totalItems = customerAdvancesDataList.length;
+            this.isAdvancesLoaded = true;
+        }, error => {
+            console.log(error);
         });
     }
     ngOnInit() {
@@ -937,7 +921,7 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
                 renderer: columnrenderer
             }, {
                 text: 'Comments',
-                datafield: 'comments',
+                datafield: 'comment',
                 minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -986,7 +970,7 @@ IncomeCustomerAdvancesComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
     _addCustomerAdvancesPanel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addCustomerAdvancesPanel',] }],
     _addCustomerAdvancesElem: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addCustomerAdvancesElem',] }],
-    onCustomerAdvances: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCustomerAdvances', ['$event.detail'],] }]
+    onEditCustomerAdvances: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditCustomerAdvances', ['$event.detail'],] }]
 };
 IncomeCustomerAdvancesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1004,7 +988,7 @@ IncomeCustomerAdvancesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
 ], IncomeCustomerAdvancesComponent);
 
 let editCustomerAdvancesEvent = row => {
-    let event = new CustomEvent('onCustomerAdvances', {
+    let event = new CustomEvent('onEditCustomerAdvances', {
         detail: {
             rowId: row
         }
@@ -1501,7 +1485,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
                 renderer: columnrenderer
             }, {
                 text: 'Deposit Reason',
-                datafield: 'comments',
+                datafield: 'comment',
                 minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -1513,7 +1497,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
                 renderer: columnrenderer
             }, {
                 text: 'Reason for Deduction',
-                datafield: 'comments2',
+                datafield: 'comment2',
                 minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
