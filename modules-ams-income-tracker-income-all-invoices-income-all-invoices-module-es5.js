@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-view-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t\t<div class=\"legends\" *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t<div>\n\t\t\t\t<span class=\"squares bg-red-800 text-white mr-2\">R</span>Reversed\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isInvoiceDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Invoices</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\n\t\n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t</div>\n\n\n\t<ng-template #viewInvoiceDetailsRef let-invoice>\n\n\t\t<div class=\"invoice-info info-modal-box rel\">\n\t\t\t\n\t\t\t<div class=\"d-flex p-4\">\n\t\t\t\t<h4>Invoice Info</h4>\n\t\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t\t</div>\n\n\t\t\t<app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n\n\t\t\t<div id=\"InvoiceElement\" *ngIf=\"isInvoicePrintLoaded\">\n\n\t\t\t\t<div class=\"text-center bg-cool-gray-100 p-4\">\n\n\t\t\t\t\t<h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n\t\t\t\t\t<h6>{{apartmentDetails.address1}}</h6>\n\t\t\t\t\t<div class=\"mt-2\">\n\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card p-0 border-bottom\">\n\n\t\t\t\t\t<div class=\"d-flex pt-4 pb-4 border-bottom\">\n\t\t\t\t\t\t<div class=\"pl-4\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{invoice.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> </p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto pr-4\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{invoice.custInvoiceId}}</p>\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th>Income Accounts</th>\n\t\t\t\t\t\t\t\t<th>Rate</th>\n\t\t\t\t\t\t\t\t<th>Comments</th>\n\t\t\t\t\t\t\t\t<th>Discount</th>\n\t\t\t\t\t\t\t\t<th>Tax</th>\n\t\t\t\t\t\t\t\t<th>Amount</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr *ngFor=\"let item of invoice.invoiceGLAccounts; let i = index\">\n\t\t\t\t\t\t\t\t<td>{{item.glaccountName}}</td>\n\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t<td>{{item.comments}}</td>\n\t\t\t\t\t\t\t\t<td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n\t\t\t\t\t\t\t\t<td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n\t\t\t\t\t\t\t\t<td>{{item.lineItemTotal + item.vatamount}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td colspan=\"5\">Final Discount:</td>\n\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr class=\"total font-medium\">\n\t\t\t\t\t\t\t\t<td colspan=\"5\">Total Amount:</td>\n\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\n\t\t\t\t\t<div class=\"p-4 border-top\">\n\t\t\t\t\t\t<p class=\"text-secondary\">{{apartmentTerms[0].termsTemplate}}</p>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"text-center m-5\">\n\t\t\t\t\t<button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>\n\t\t\t\t\t\tPrint\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t\t\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-template>\n\n\t<ng-template #reversePanel>\n\t\t<app-income-invoice-reverse [invoice]=\"invoice\"></app-income-invoice-reverse>\n\t</ng-template>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-view-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t\t<div class=\"legends\" *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t<div>\n\t\t\t\t<span class=\"squares text-purple-100 bg-purple-500 mr-2\">R</span>Reversed\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isInvoiceDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Invoices</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\n\t\n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t</div>\n\n\n\t<ng-template #viewInvoiceDetailsRef let-invoice>\n\n\t\t<div class=\"invoice-info info-modal-box rel\">\n\t\t\t\n\t\t\t<div class=\"d-flex p-4\">\n\t\t\t\t<h4>Invoice Info</h4>\n\t\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t\t</div>\n\n\t\t\t<app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isInvoicePrintLoaded\">\n\n\t\t\t\t<div id=\"InvoiceElement\">\n\n\t\t\t\t\t<div class=\"text-center bg-cool-gray-100 p-4\">\n\t\n\t\t\t\t\t\t<h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n\t\t\t\t\t\t<h6>{{apartmentDetails.address1}}</h6>\n\t\t\t\t\t\t<div class=\"mt-2\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t\t<div class=\"bg-card p-0 border-bottom\">\n\t\n\t\t\t\t\t\t<div class=\"d-flex pt-4 pb-4 border-bottom\">\n\t\t\t\t\t\t\t<div class=\"pl-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{invoice.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> </p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto pr-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{invoice.custInvoiceId}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<th>Income Accounts</th>\n\t\t\t\t\t\t\t\t\t<th>Rate</th>\n\t\t\t\t\t\t\t\t\t<th>Comments</th>\n\t\t\t\t\t\t\t\t\t<th>Discount</th>\n\t\t\t\t\t\t\t\t\t<th>Tax</th>\n\t\t\t\t\t\t\t\t\t<th>Amount</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of invoice.invoiceGLAccounts; let i = index\">\n\t\t\t\t\t\t\t\t\t<td>{{item.glaccountName}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.comments}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n\t\t\t\t\t\t\t\t\t<td>{{item.lineItemTotal + item.vatamount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Final Discount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr class=\"total font-medium\">\n\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Total Amount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\n\t\t\t\t\t\t<div class=\"p-4 border-top\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{apartmentTerms[0].termsTemplate}}</p>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"text-center m-5\">\n\t\t\t\t\t<button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>\n\t\t\t\t\t\tPrint\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t</div>\n\n\t</ng-template>\n\n\t<ng-template #reversePanel>\n\t\t<app-income-invoice-reverse [invoice]=\"invoice\" (outputParams)=\"isReversed($event)\"></app-income-invoice-reverse>\n\t</ng-template>\n\n</div>";
       /***/
     },
 
@@ -196,92 +196,84 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Accounts */
       "./src/app/api/controllers/Accounts.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/shared/services/constants.service */
       "./src/app/shared/services/constants.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_15__);
+      var moment__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_14__);
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var html2canvas__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! html2canvas */
       "./node_modules/html2canvas/dist/html2canvas.js");
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_16__);
+      var html2canvas__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_15__);
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var jspdf__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! jspdf */
       "./node_modules/jspdf/dist/jspdf.min.js");
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_17__);
+      var jspdf__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_16__);
 
       var IncomeAllInvoicesComponent = /*#__PURE__*/function () {
-        function IncomeAllInvoicesComponent(_overlay, _viewContainerRef, dialog, router, route, userService, accountsService, apartmentService, lookupService, sharedService, constantsService, sessionService) {
+        function IncomeAllInvoicesComponent(_overlay, _viewContainerRef, dialog, router, accountsService, apartmentService, lookupService, sharedService, constantsService, sessionService) {
           _classCallCheck(this, IncomeAllInvoicesComponent);
 
           this._overlay = _overlay;
           this._viewContainerRef = _viewContainerRef;
           this.dialog = dialog;
           this.router = router;
-          this.route = route;
-          this.userService = userService;
           this.accountsService = accountsService;
           this.apartmentService = apartmentService;
           this.lookupService = lookupService;
@@ -297,7 +289,6 @@
           this.unitOrder = true;
           this.isMobile = false;
           this.glAccountIndicator = "Income";
-          this.submitFlag = true;
         }
 
         _createClass(IncomeAllInvoicesComponent, [{
@@ -313,7 +304,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_15__(date).format(this.constantsService.dateFormat);
+            return moment__WEBPACK_IMPORTED_MODULE_14__(date).format(this.constantsService.dateFormat);
           }
         }, {
           key: "isMobileView",
@@ -324,13 +315,13 @@
           key: "printInvoice",
           value: function printInvoice() {
             var data = document.getElementById('InvoiceElement');
-            html2canvas__WEBPACK_IMPORTED_MODULE_16___default()(data).then(function (canvas) {
+            html2canvas__WEBPACK_IMPORTED_MODULE_15___default()(data).then(function (canvas) {
               var imgWidth = 208;
               var pageHeight = 295;
               var imgHeight = canvas.height * imgWidth / canvas.width;
               var heightLeft = imgHeight;
               var contentDataURL = canvas.toDataURL('image/png');
-              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_17__('p', 'mm', 'a4'); // A4 size page of PDF  
+              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_16__('p', 'mm', 'a4'); // A4 size page of PDF  
 
               var position = 0;
               pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
@@ -441,6 +432,13 @@
             });
           }
         }, {
+          key: "isReversed",
+          value: function isReversed(event) {
+            if (event) {
+              this.getAllInvoicesData();
+            }
+          }
+        }, {
           key: "getVatType",
           value: function getVatType(custInvoiceItem) {
             var id = custInvoiceItem.invoiceTaxId;
@@ -523,21 +521,96 @@
             });
           }
         }, {
-          key: "onClose",
-          value: function onClose(event) {
-            this.submitFlag = true;
-            this.tableBindingdata();
-          }
-        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this5 = this;
 
-            this.popperDataSource = {
-              localdata: true,
-              datatype: "boolean"
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
             };
-            this.submitFlag = new jqx.dataAdapter(this.popperDataSource);
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.columnData = [{
+              text: 'Invoice Id',
+              datafield: 'custInvoiceId',
+              width: 120,
+              pinned: true,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell"><a href="javascript:void(0)" class="mr-2 t-decor" onClick="downloadInvoiceEvent(' + row + ')">' + value + '</a></div>';
+              },
+              renderer: columnrenderer
+            }, {
+              text: 'Invoice Date',
+              datafield: 'postedOn',
+              minwidth: 120,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).format(_this5.constantsService.dateFormat) + '</div>';
+              },
+              renderer: columnrenderer
+            }, {
+              text: 'Posted By',
+              datafield: 'postedByName',
+              minwidth: 120,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Tower Unit',
+              datafield: 'block_Unit',
+              minwidth: 120,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Due',
+              datafield: 'custInvoiceAmount',
+              minwidth: 150,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            },
+            /*{
+                text: 'Sent Email',
+                datafield: 'isEmailSent',
+                minwidth: 120,
+                cellsrenderer: (row: number, column: string, value: boolean): string => {
+                         var chkedProperty;
+                if(value){
+                  chkedProperty = 'checked="true"';
+                }
+                else {
+                  chkedProperty = '';
+                }
+                           return '<div class="jqx-custom-inner-cell">'
+                            + '<label class="switch float-left">'
+                              + '<input type="checkbox" id="invoiceEmail" name="invoiceEmail"'+ chkedProperty +'>'
+                              + '<div class="slider round" onClick="updateInvoiceEvent('+ row + ', \'email\')"></div>'
+                            + '</label>'
+                      + '</div>'
+                },
+                renderer: columnrenderer
+            },*/
+            {
+              text: 'Due Date',
+              datafield: 'dueDate',
+              minwidth: 120,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).format(_this5.constantsService.dateFormat) + '</div>';
+              },
+              renderer: columnrenderer
+            }, {
+              text: 'Actions',
+              cellsalign: 'center',
+              align: 'center',
+              minwidth: 120,
+              datafield: 'isReversed',
+              cellsrenderer: function cellsrenderer(row, coloumn, value) {
+                var elemId = 'invoiceReverse' + row;
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2 text-secondary" onClick="editInvoiceEvent(' + row + ')">' + '<i class="fa fa-pencil" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" class=" ' + isReverse(!value) + ' " id="' + elemId + '" onClick="editReverseEvent(' + row + ')">' + '<i class="fa fa-undo text-red-900" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" class="squares text-purple-100 bg-purple-500 no-link ' + isReverse(value) + '">R</a>' + '</div>';
+              },
+              renderer: columnrenderer
+            }];
+            this.getAllInvoicesData();
             var apartmentParams = {
               apartmentId: this.sessionService.apartmentId,
               active: 1
@@ -568,26 +641,23 @@
               _this5.glAccountListData = res.filter(function (item) {
                 return item.isActive && _this5.sessionService.apartmentId && item.indicator == _this5.glAccountIndicator;
               });
-            }); //BIND THE TABLE
-
-            this.tableBindingdata();
+            });
           }
         }, {
-          key: "tableBindingdata",
-          value: function tableBindingdata() {
+          key: "getAllInvoicesData",
+          value: function getAllInvoicesData() {
             var _this6 = this;
 
+            this.isInvoiceDataLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getCustInvoicesByApartmentId(params).subscribe(function (res) {
               var invoiceDataList = res;
-              underscore__WEBPACK_IMPORTED_MODULE_14__["each"](invoiceDataList, function (item) {
+              underscore__WEBPACK_IMPORTED_MODULE_13__["each"](invoiceDataList, function (item) {
                 item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
               });
               _this6.totalItems = invoiceDataList.length;
-              _this6.invoice = invoiceDataList[0];
-              _this6.reversePopOverSelector = '#' + _this6.invoice.custInvoiceId;
               _this6.gridSourceData = {
                 localdata: invoiceDataList,
                 datatype: "array"
@@ -598,97 +668,9 @@
                 return dataAdapter;
               }*/
 
-              var cellsrenderer = function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              };
-
-              var columnrenderer = function columnrenderer(value) {
-                return '<div style="padding: 14px">' + value + '</div>';
-              };
-
-              _this6.columnData = [{
-                text: 'Invoice Id',
-                datafield: 'custInvoiceId',
-                width: 120,
-                pinned: true,
-                cellsrenderer: function cellsrenderer(row, column, value) {
-                  return '<div class="jqx-custom-inner-cell"><a href="javascript:void(0)" class="mr-2 t-decor" onClick="downloadInvoiceEvent(' + row + ')">' + value + '</a></div>';
-                },
-                renderer: columnrenderer
-              }, {
-                text: 'Invoice Date',
-                datafield: 'postedOn',
-                minwidth: 120,
-                cellsrenderer: function cellsrenderer(row, column, value) {
-                  return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this6.constantsService.dateFormat) + '</div>';
-                },
-                renderer: columnrenderer
-              }, {
-                text: 'Posted By',
-                datafield: 'postedByName',
-                minwidth: 120,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Tower Unit',
-                datafield: 'block_Unit',
-                minwidth: 120,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Due',
-                datafield: 'custInvoiceAmount',
-                minwidth: 150,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              },
-              /*{
-                  text: 'Sent Email',
-                  datafield: 'isEmailSent',
-                  minwidth: 120,
-                  cellsrenderer: (row: number, column: string, value: boolean): string => {
-                             var chkedProperty;
-                  if(value){
-                    chkedProperty = 'checked="true"';
-                  }
-                  else {
-                    chkedProperty = '';
-                  }
-                               return '<div class="jqx-custom-inner-cell">'
-                              + '<label class="switch float-left">'
-                                + '<input type="checkbox" id="invoiceEmail" name="invoiceEmail"'+ chkedProperty +'>'
-                                + '<div class="slider round" onClick="updateInvoiceEvent('+ row + ', \'email\')"></div>'
-                              + '</label>'
-                        + '</div>'
-                  },
-                  renderer: columnrenderer
-              },*/
-              {
-                text: 'Due Date',
-                datafield: 'dueDate',
-                minwidth: 120,
-                cellsrenderer: function cellsrenderer(row, column, value) {
-                  return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_15__(value).format(_this6.constantsService.dateFormat) + '</div>';
-                },
-                renderer: columnrenderer
-              }, {
-                text: 'Actions',
-                cellsalign: 'center',
-                align: 'center',
-                minwidth: 120,
-                datafield: 'isReversed',
-                cellsrenderer: function cellsrenderer(row, coloumn, value) {
-                  var elemId = 'invoiceReverse' + row;
-                  return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2 text-secondary" onClick="editInvoiceEvent(' + row + ')">' + '<i class="fa fa-pencil" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" class=" ' + isReverse(!value) + ' " id="' + elemId + '" onClick="editReverseEvent(' + row + ')">' + '<i class="fa fa-undo text-red-900" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" class="text-secondary n-text no-link ' + isReverse(value) + '">R</a>' + '</div>';
-                },
-                renderer: columnrenderer
-              }];
               _this6.isInvoiceDataLoaded = true;
             });
           }
-        }, {
-          key: "ngAfterViewInit",
-          value: function ngAfterViewInit() {}
         }]);
 
         return IncomeAllInvoicesComponent;
@@ -704,21 +686,17 @@
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_8__["AccountsService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"]
+          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"]
-        }, {
-          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__["ConstantsService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"]
         }];
       };
 
@@ -765,7 +743,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-all-invoices.component.scss */
         "./src/app/modules/ams/income-tracker/income-all-invoices/income-all-invoices.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_8__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__["SessionService"]])], IncomeAllInvoicesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"]])], IncomeAllInvoicesComponent);
 
       var isReverse = function isReverse(value) {
         return value ? 'd-block' : 'd-none';
@@ -976,32 +954,25 @@
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_modules_ams_income_tracker_income_all_invoices_income_all_invoices_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_modules_ams_income_tracker_income_all_invoices_income_all_invoices_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/modules/ams/income-tracker/income-all-invoices/income-all-invoices.component */
       "./src/app/modules/ams/income-tracker/income-all-invoices/income-all-invoices.component.ts");
 
       var IncomeInvoiceReverseComponent = /*#__PURE__*/function () {
-        function IncomeInvoiceReverseComponent(_incomeAllInvoicesComponent, accountsService, sharedService, sessionService) {
+        function IncomeInvoiceReverseComponent(_incomeAllInvoicesComponent, accountsService, sessionService) {
           _classCallCheck(this, IncomeInvoiceReverseComponent);
 
           this._incomeAllInvoicesComponent = _incomeAllInvoicesComponent;
           this.accountsService = accountsService;
-          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isInvoiceSubmitted = true;
-          this.childEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
 
         _createClass(IncomeInvoiceReverseComponent, [{
@@ -1039,16 +1010,15 @@
               if (res.message) {
                 _this7.isInvoiceSubmitted = true;
 
-                _this7.sharedService.setAlertMessage("Invoice reversed successfully");
+                _this7.outputParams.emit(true);
+
+                _this7.goBack();
               } else {
                 _this7.isInvoiceSubmitted = true;
               }
-            }, function (error) {//this.isInvoiceSubmitted = true;
-            }, function () {
+            }, function (error) {
               _this7.isInvoiceSubmitted = true;
-
-              _this7.childEvent.emit(true);
-            });
+            }, function () {});
           }
         }, {
           key: "ngOnInit",
@@ -1060,13 +1030,11 @@
 
       IncomeInvoiceReverseComponent.ctorParameters = function () {
         return [{
-          type: src_app_modules_ams_income_tracker_income_all_invoices_income_all_invoices_component__WEBPACK_IMPORTED_MODULE_5__["IncomeAllInvoicesComponent"]
+          type: src_app_modules_ams_income_tracker_income_all_invoices_income_all_invoices_component__WEBPACK_IMPORTED_MODULE_4__["IncomeAllInvoicesComponent"]
         }, {
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
         }];
       };
 
@@ -1074,7 +1042,7 @@
         invoice: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
-        childEvent: [{
+        outputParams: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
         }]
       };
@@ -1086,7 +1054,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-invoice-reverse.component.scss */
         "./src/app/modules/ams/income-tracker/income-all-invoices/income-invoice-reverse/income-invoice-reverse.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_income_tracker_income_all_invoices_income_all_invoices_component__WEBPACK_IMPORTED_MODULE_5__["IncomeAllInvoicesComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], IncomeInvoiceReverseComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_income_tracker_income_all_invoices_income_all_invoices_component__WEBPACK_IMPORTED_MODULE_4__["IncomeAllInvoicesComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], IncomeInvoiceReverseComponent);
       /***/
     }
   }]);

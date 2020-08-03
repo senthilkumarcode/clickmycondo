@@ -360,11 +360,11 @@
           path: 'credits',
           loadChildren: function loadChildren() {
             return __webpack_require__.e(
-            /*! import() | src-app-modules-ams-income-tracker-income-all-credits-income-all-credits-module */
-            "default~modules-ams-income-tracker-income-all-credits-income-all-credits-module~src-app-modules-ams-~3466eee6").then(__webpack_require__.bind(null,
-            /*! src/app/modules/ams/income-tracker/income-all-credits/income-all-credits.module */
-            "./src/app/modules/ams/income-tracker/income-all-credits/income-all-credits.module.ts")).then(function (m) {
-              return m.IncomeAllCreditsModule;
+            /*! import() | src-app-modules-ams-income-tracker-income-actions-income-action-credits-income-action-credits-module */
+            "src-app-modules-ams-income-tracker-income-actions-income-action-credits-income-action-credits-module").then(__webpack_require__.bind(null,
+            /*! src/app/modules/ams/income-tracker/income-actions/income-action-credits/income-action-credits.module */
+            "./src/app/modules/ams/income-tracker/income-actions/income-action-credits/income-action-credits.module.ts")).then(function (m) {
+              return m.IncomeActionCreditsModule;
             });
           }
         }, {
