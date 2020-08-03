@@ -92,7 +92,7 @@ let IncomeActionAddCreditComponent = class IncomeActionAddCreditComponent {
     getCredit(id) {
         this.isCreditSubmitted = false;
         let params = {
-            apartmentId: this.sessionService.apartmentId,
+            ApartmentId: this.sessionService.apartmentId,
             creditnotetransactionID: id
         };
         this.accountsService.getcustcreditnotebyId(params).subscribe((res) => {
@@ -104,17 +104,6 @@ let IncomeActionAddCreditComponent = class IncomeActionAddCreditComponent {
                 this.credit = res[0];
             }
             this.getAllCollectionByApartmentBlockUnitId();
-        });
-    }
-    getAllCollection() {
-        let params = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.accountsService.getCollectionInvoicesByApartmentId(params).subscribe((res) => {
-            this.billData = res;
-            this.isCreditSubmitted = true;
-            //Mark for check
-            this._changeDetectorRef.markForCheck();
         });
     }
     getAllCollectionByApartmentBlockUnitId() {
@@ -175,10 +164,10 @@ let IncomeActionAddCreditComponent = class IncomeActionAddCreditComponent {
             }
             else {
                 let details = {
-                    "id": this.credit.transactionId,
+                    "id": this.credit.custCreditNoteTransactionId,
                     "apartmentId": this.sessionService.apartmentId,
                     "apartmentBlockUnitId": this.credit.apartmentBlockUnitId,
-                    "blockUnitUserId": null,
+                    "blockUnitUserId": this.credit.apartmentBlockUnitUserId,
                     "custCreditNoteId": this.credit.custCreditNoteId,
                     "glaccountId": this.credit.glaccountId,
                     "invoiceId": this.credit.invoiceId,
@@ -223,7 +212,6 @@ let IncomeActionAddCreditComponent = class IncomeActionAddCreditComponent {
         this._router.navigate(['.'], { relativeTo: this._activatedRoute.parent });
     }
     ngOnInit() {
-        this.getAllCollection();
         //Open the drawer
         this.sharedService.matdraweridcast.subscribe(id => {
             if (id != null && id == this._activatedRoute.params['value'].id) {
@@ -374,7 +362,7 @@ let IncomeActionCreditListComponent = class IncomeActionCreditListComponent {
         this.isEditCredit = true;
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         this.credit = dataRecord;
-        var id = dataRecord.sNo;
+        var id = dataRecord.transactionId;
         console.log(this.credit);
         this.sharedService.setMatDrawerId(id);
         this._router.navigate(['./all-creditnotes/', this.apartmentBlockUnitId, 'edit', id], { relativeTo: this._activatedRoute.parent });

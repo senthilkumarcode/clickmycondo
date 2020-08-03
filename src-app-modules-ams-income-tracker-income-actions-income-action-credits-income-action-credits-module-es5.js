@@ -171,7 +171,7 @@
 
             this.isCreditSubmitted = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId,
+              ApartmentId: this.sessionService.apartmentId,
               creditnotetransactionID: id
             };
             this.accountsService.getcustcreditnotebyId(params).subscribe(function (res) {
@@ -187,34 +187,19 @@
             });
           }
         }, {
-          key: "getAllCollection",
-          value: function getAllCollection() {
-            var _this2 = this;
-
-            var params = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.accountsService.getCollectionInvoicesByApartmentId(params).subscribe(function (res) {
-              _this2.billData = res;
-              _this2.isCreditSubmitted = true; //Mark for check
-
-              _this2._changeDetectorRef.markForCheck();
-            });
-          }
-        }, {
           key: "getAllCollectionByApartmentBlockUnitId",
           value: function getAllCollectionByApartmentBlockUnitId() {
-            var _this3 = this;
+            var _this2 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
               apartmentBlockUnitId: this.apartmentBlockUnitId
             };
             this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe(function (res) {
-              _this3.billData = res;
-              _this3.isCreditSubmitted = true; //Mark for check
+              _this2.billData = res;
+              _this2.isCreditSubmitted = true; //Mark for check
 
-              _this3._changeDetectorRef.markForCheck();
+              _this2._changeDetectorRef.markForCheck();
             });
           }
         }, {
@@ -225,7 +210,7 @@
         }, {
           key: "submitAddCreditNoteForm",
           value: function submitAddCreditNoteForm(form) {
-            var _this4 = this;
+            var _this3 = this;
 
             if (form.valid) {
               if (!this.isEdit) {
@@ -252,27 +237,27 @@
                 };
                 this.accountsService.addCustCreditNotes(params).subscribe(function (res) {
                   if (res.error) {
-                    _this4.isCreditSubmitted = true;
-                    _this4.credit = {}; /// Go to the parent route
+                    _this3.isCreditSubmitted = true;
+                    _this3.credit = {}; /// Go to the parent route
 
-                    _this4._incomeActionCreditListComponent.isCreditAdded();
+                    _this3._incomeActionCreditListComponent.isCreditAdded();
 
-                    _this4.goBack(); //Mark for check
+                    _this3.goBack(); //Mark for check
 
 
-                    _this4._changeDetectorRef.markForCheck();
+                    _this3._changeDetectorRef.markForCheck();
                   } else {
-                    _this4.isCreditSubmitted = true;
+                    _this3.isCreditSubmitted = true;
                   }
                 }, function (error) {
-                  _this4.isCreditSubmitted = true;
+                  _this3.isCreditSubmitted = true;
                 });
               } else {
                 var _details = {
-                  "id": this.credit.transactionId,
+                  "id": this.credit.custCreditNoteTransactionId,
                   "apartmentId": this.sessionService.apartmentId,
                   "apartmentBlockUnitId": this.credit.apartmentBlockUnitId,
-                  "blockUnitUserId": null,
+                  "blockUnitUserId": this.credit.apartmentBlockUnitUserId,
                   "custCreditNoteId": this.credit.custCreditNoteId,
                   "glaccountId": this.credit.glaccountId,
                   "invoiceId": this.credit.invoiceId,
@@ -292,20 +277,20 @@
                 };
                 this.accountsService.updateCustCreditNotes(_params).subscribe(function (res) {
                   if (res.message) {
-                    _this4.isCreditSubmitted = true;
-                    _this4.credit = {}; /// Go to the parent route
+                    _this3.isCreditSubmitted = true;
+                    _this3.credit = {}; /// Go to the parent route
 
-                    _this4._incomeActionCreditListComponent.isCreditAdded();
+                    _this3._incomeActionCreditListComponent.isCreditAdded();
 
-                    _this4.goBack(); //Mark for check
+                    _this3.goBack(); //Mark for check
 
 
-                    _this4._changeDetectorRef.markForCheck();
+                    _this3._changeDetectorRef.markForCheck();
                   } else {
-                    _this4.isCreditSubmitted = true;
+                    _this3.isCreditSubmitted = true;
                   }
                 }, function (error) {
-                  _this4.isCreditSubmitted = true;
+                  _this3.isCreditSubmitted = true;
                 });
               }
             }
@@ -327,17 +312,16 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this4 = this;
 
-            this.getAllCollection(); //Open the drawer
-
+            //Open the drawer
             this.sharedService.matdraweridcast.subscribe(function (id) {
-              if (id != null && id == _this5._activatedRoute.params['value'].id) {
-                _this5._incomeActionCreditListComponent.matDrawer.open();
+              if (id != null && id == _this4._activatedRoute.params['value'].id) {
+                _this4._incomeActionCreditListComponent.matDrawer.open();
               } //Mark for check
 
 
-              _this5._changeDetectorRef.markForCheck();
+              _this4._changeDetectorRef.markForCheck();
             });
 
             if (this._activatedRoute.params['value'].type == 'new') {
@@ -547,7 +531,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this6 = this;
+            var _this5 = this;
 
             if (this.creditNoteData != "") {
               var filtergroup = new jqx.filter();
@@ -560,7 +544,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this6.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this5.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -574,7 +558,7 @@
             this.isEditCredit = true;
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             this.credit = dataRecord;
-            var id = dataRecord.sNo;
+            var id = dataRecord.transactionId;
             console.log(this.credit);
             this.sharedService.setMatDrawerId(id);
 
@@ -634,7 +618,7 @@
         }, {
           key: "getCreditNotesData",
           value: function getCreditNotesData() {
-            var _this7 = this;
+            var _this6 = this;
 
             this.isCreditNoteLoaded = false;
             var params = {
@@ -643,15 +627,15 @@
             };
             this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe(function (res) {
               var creditNoteDataList = res;
-              _this7.gridSourceData = {
+              _this6.gridSourceData = {
                 localdata: creditNoteDataList,
                 datatype: "array"
               };
-              _this7.creditNoteDataList = new jqx.dataAdapter(_this7.gridSourceData);
-              _this7.totalItems = creditNoteDataList.length;
-              _this7.isCreditNoteLoaded = true; // Mark for check
+              _this6.creditNoteDataList = new jqx.dataAdapter(_this6.gridSourceData);
+              _this6.totalItems = creditNoteDataList.length;
+              _this6.isCreditNoteLoaded = true; // Mark for check
 
-              _this7._changeDetectorRef.markForCheck();
+              _this6._changeDetectorRef.markForCheck();
             }, function (error) {
               console.log(error);
             });
