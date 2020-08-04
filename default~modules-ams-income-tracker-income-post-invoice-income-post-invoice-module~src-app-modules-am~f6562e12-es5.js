@@ -498,6 +498,8 @@
           value: function ngOnInit() {
             var _this = this;
 
+            console.log(this.invoiceGLAccountsData);
+
             if (this.route.params['value'].id != undefined) {
               this.apartmentBlockUnitId = this.route.params['value'].id;
             } else {

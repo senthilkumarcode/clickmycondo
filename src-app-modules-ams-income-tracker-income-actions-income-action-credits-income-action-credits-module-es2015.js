@@ -97,13 +97,15 @@ let IncomeActionAddCreditComponent = class IncomeActionAddCreditComponent {
         };
         this.accountsService.getcustcreditnotebyId(params).subscribe((res) => {
             this.isEdit = true;
+            this.isCreditSubmitted = true;
             if (res === undefined || res.length == 0) {
                 this.credit = {};
             }
             else {
                 this.credit = res[0];
             }
-            this.getAllCollectionByApartmentBlockUnitId();
+            //Mark for check
+            this._changeDetectorRef.markForCheck();
         });
     }
     getAllCollectionByApartmentBlockUnitId() {
@@ -224,13 +226,11 @@ let IncomeActionAddCreditComponent = class IncomeActionAddCreditComponent {
             this.isEdit = false;
             this.credit = {};
             this.credit.collectionId = "";
-            this.isCreditSubmitted = true;
-            //Mark for check
-            this._changeDetectorRef.markForCheck();
+            this.apartmentBlockUnitId = this._activatedRoute.parent.params['value'].unitid;
+            this.getAllCollectionByApartmentBlockUnitId();
         }
         if (this._activatedRoute.params['value'].type == 'edit') {
             this.isEdit = true;
-            this.apartmentBlockUnitId = this._activatedRoute.params['value'].unitid;
             this.getCredit(this._activatedRoute.params['value'].id);
         }
     }

@@ -319,6 +319,7 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
         }
     }
     ngOnInit() {
+        console.log(this.invoiceGLAccountsData);
         if (this.route.params['value'].id != undefined) {
             this.apartmentBlockUnitId = this.route.params['value'].id;
         }

@@ -137,6 +137,9 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            console.log(this.fieldModel);
+            console.log(this.fieldList);
+
             if (this.fieldList != undefined) {
               this.filteredValues = this.fieldList;
             }
@@ -145,6 +148,9 @@
           key: "ngOnChanges",
           value: function ngOnChanges() {
             var _this2 = this;
+
+            console.log(this.fieldModel);
+            console.log(this.fieldList);
 
             if (this.fieldList != undefined) {
               this.filteredValues = this.fieldList;
@@ -260,7 +266,6 @@
           this._viewContainerRef = _viewContainerRef;
           this._element = _element;
           this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          this.fieldModel = null;
           this.selectedItem = [];
         }
 
@@ -334,6 +339,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {}
+        }, {
+          key: "ngOnChanges",
+          value: function ngOnChanges() {
+            var _this4 = this;
+
+            if (this.fieldModel != undefined) {
+              this.fieldModel = this.fieldList.filter(function (item) {
+                return item[_this4.fieldValue] == _this4.fieldModel;
+              });
+            }
+          }
         }]);
 
         return SelectComponent;
@@ -369,6 +385,9 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         isDisabled: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldModel: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         isLabel: [{

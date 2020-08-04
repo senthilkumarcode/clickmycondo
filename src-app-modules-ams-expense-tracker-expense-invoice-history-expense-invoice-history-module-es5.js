@@ -159,62 +159,39 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/api/controllers/Vendor */
       "./src/app/api/controllers/Vendor.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Accounts */
       "./src/app/api/controllers/Accounts.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-      /* harmony import */
-
-
-      var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
       var ExpenseInvoiceHistoryComponent = /*#__PURE__*/function () {
-        function ExpenseInvoiceHistoryComponent(route, userService, vendorService, accountsService, lookupService, sessionService, router) {
+        function ExpenseInvoiceHistoryComponent(route, vendorService, accountsService, lookupService, sessionService, router) {
           _classCallCheck(this, ExpenseInvoiceHistoryComponent);
 
           this.route = route;
-          this.userService = userService;
           this.vendorService = vendorService;
           this.accountsService = accountsService;
           this.lookupService = lookupService;
@@ -234,74 +211,25 @@
             apartmentId: this.sessionService.apartmentId
           };
         }
+        /*getCategoryName(id){
+          
+          var data = _.filter( this.vendorCategoryData, function( item ) {
+            if(item.lookupValueId === parseInt(id))
+              return item;
+          });
+             if(data === undefined || data.length == 0){
+            return '';
+          }
+          else {
+            return data[0].lookupValueName;
+          }
+           }*/
+
 
         _createClass(ExpenseInvoiceHistoryComponent, [{
-          key: "getIndexParams",
-          value: function getIndexParams(event) {
-            this.ItemStartIndex = event.ItemStartIndex;
-            this.ItemEndIndex = event.ItemEndIndex;
-            this.itemLimit = event.itemLimit;
-          }
-        }, {
-          key: "sortUnitData",
-          value: function sortUnitData(type) {
-            this.unitFieldType = type;
-            this.unitOrder = !this.unitOrder;
-          }
-        }, {
-          key: "getFieldOrderBy",
-          value: function getFieldOrderBy(type) {
-            if (this.unitFieldType == type) {
-              return this.unitOrder ? 'asc' : 'desc';
-            } else return '';
-          }
-        }, {
-          key: "getCategoryName",
-          value: function getCategoryName(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.vendorCategoryData, function (item) {
-              if (item.lookupValueId === parseInt(id)) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName;
-            }
-          }
-        }, {
-          key: "selectColInput",
-          value: function selectColInput(value) {
-            this.selectedInput = value;
-          }
-        }, {
-          key: "onDateChange",
-          value: function onDateChange(event, type) {
-            if (event != null) {
-              this.selectedInput = type;
-              this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_10__(event).format("DD/MM/YYYY");
-            } else {
-              this.columnField = {};
-            }
-          }
-        }, {
-          key: "getInvoiceDate",
-          value: function getInvoiceDate(invoice, date) {
-            this.invoiceDataList.map(function (obj) {
-              if (obj.vendorInvoiceNo == invoice.vendorInvoiceNo) {
-                obj.invoiceDateFormat = moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
-              }
-            });
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
-          }
-        }, {
           key: "isMobileView",
           value: function isMobileView() {
             return window.innerWidth <= 767 ? 'table-responsive' : '';
-          }
-        }, {
-          key: "isNoItemsAvailable",
-          value: function isNoItemsAvailable() {
-            return this.totalItems == 0 ? true : false;
           }
         }, {
           key: "onGlSearchFilter",
@@ -332,7 +260,7 @@
           value: function onEditInvoiceHist(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var voucherNo = dataRecord.voucherNo;
-            this.router.navigateByUrl('/ams/expense/edit-invoice/' + voucherNo);
+            this.router.navigateByUrl('/ams/expense/post-invoice/' + voucherNo);
           }
         }, {
           key: "ngOnInit",
@@ -410,14 +338,14 @@
             this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
               _this2.glAccountListData = res;
             });
-            var paymentParams = {
+            var params = {
               VendorID: this.route.params['value'].id
             };
-            this.accountsService.getVendorPaymenntHistoryById(paymentParams).subscribe(function (res) {
-              _this2.invoiceDataList = res;
-              _this2.totalItems = _this2.invoiceDataList.length;
+            this.accountsService.getVendorPaymenntHistoryById(params).subscribe(function (res) {
+              var invoiceDataList = res;
+              _this2.totalItems = invoiceDataList.length;
               _this2.gridSourceData = {
-                localdata: _this2.invoiceDataList,
+                localdata: invoiceDataList,
                 datatype: "array"
               };
               _this2.invoiceDataList = new jqx.dataAdapter(_this2.gridSourceData);
@@ -440,15 +368,13 @@
         return [{
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+          type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"]
         }, {
-          type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"]
+          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
         }, {
-          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }];
@@ -474,7 +400,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./expense-invoice-history.component.scss */
         "./src/app/modules/ams/expense-tracker/expense-invoice-history/expense-invoice-history.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], ExpenseInvoiceHistoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], ExpenseInvoiceHistoryComponent);
 
       function editTicketEvent(row) {
         var event = new CustomEvent('onEditInvoiceHist', {

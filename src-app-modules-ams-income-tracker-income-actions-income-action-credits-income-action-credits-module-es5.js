@@ -176,14 +176,16 @@
             };
             this.accountsService.getcustcreditnotebyId(params).subscribe(function (res) {
               _this.isEdit = true;
+              _this.isCreditSubmitted = true;
 
               if (res === undefined || res.length == 0) {
                 _this.credit = {};
               } else {
                 _this.credit = res[0];
-              }
+              } //Mark for check
 
-              _this.getAllCollectionByApartmentBlockUnitId();
+
+              _this._changeDetectorRef.markForCheck();
             });
           }
         }, {
@@ -328,14 +330,12 @@
               this.isEdit = false;
               this.credit = {};
               this.credit.collectionId = "";
-              this.isCreditSubmitted = true; //Mark for check
-
-              this._changeDetectorRef.markForCheck();
+              this.apartmentBlockUnitId = this._activatedRoute.parent.params['value'].unitid;
+              this.getAllCollectionByApartmentBlockUnitId();
             }
 
             if (this._activatedRoute.params['value'].type == 'edit') {
               this.isEdit = true;
-              this.apartmentBlockUnitId = this._activatedRoute.params['value'].unitid;
               this.getCredit(this._activatedRoute.params['value'].id);
             }
           }

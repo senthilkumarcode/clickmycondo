@@ -657,7 +657,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecaptchaV3Module", function() { return RecaptchaV3Module; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecaptchaValueAccessorDirective", function() { return RecaptchaValueAccessorDirective; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return RecaptchaCommonModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/ng-recaptcha/node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
@@ -1408,7 +1408,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"login-screen\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-lg-6 text-center\">\n\t\t\t\t<img class=\"img-fluid\" src=\"assets/images/login-cover.jpg\" alt=\"\">\n\t\t\t\t<h6 class=\"img-content\">The future of Condo living starts here !</h6>\n            </div>\n            <div class=\"col-lg-6 log-form\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"bdr-form-layout\">\n\t\t\t\t\t\t\t<form #loginform = \"ngForm\" name=\"loginform\" novalidate >\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<label for=\"loginFormEmail\">Email</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"email\" #loginFormEmail=\"ngModel\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\" class=\"form-control\" name=\"loginFormEmail\" [(ngModel)]=\"userEmailId\" placeholder=\"Enter email\" required [ngClass]=\"isInvalidLogin ? 'error' :''\">\n\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"isInvalidLogin\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-field-message error\">Invalid Credentials</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<label for=\"loginFormPassword\">Password</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"password\" #loginFormPassword=\"ngModel\" class=\"form-control\" name=\"loginFormPassword\" [(ngModel)]=\"userPassword\" placeholder=\"Password\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-check remember-check float-left\">\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" #loginFormChecker class=\"form-check-input\" id=\"loginFormChecker\" name=\"loginFormChecker\" >\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"loginFormChecker\">Remember me</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\t<a routerLink=\"/forgotpassword\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" class=\"forgot-password\" href=\"javascript:void(0);\">Forgot password ?</a>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"submit-box\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button (click)=\"login()\" [color]=\"'primary'\" [disabled]=\"loginform.invalid\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"font-medium text-md\">Login</span>\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n            </div>\n        </div>\n    </div>\n</section>\n\t\n\t\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"login-screen\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-lg-6 text-center\">\n\t\t\t\t<img class=\"img-fluid\" src=\"assets/images/login-cover.jpg\" alt=\"\">\n\t\t\t\t<h6 class=\"img-content\">The future of Condo living starts here !</h6>\n            </div>\n            <div class=\"col-lg-6 log-form\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"bdr-form-layout\">\n\t\t\t\t\t\t\t<form #loginform = \"ngForm\" name=\"loginform\" novalidate >\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<label for=\"loginFormEmail\">Email</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"email\" #loginFormEmail=\"ngModel\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\" class=\"form-control\" name=\"loginFormEmail\" [(ngModel)]=\"userEmailId\" placeholder=\"Enter email\" required [ngClass]=\"isInvalidLogin ? 'error' :''\">\n\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"isInvalidLogin\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-field-message error\">Invalid Credentials</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<label for=\"loginFormPassword\">Password</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"password\" #loginFormPassword=\"ngModel\" class=\"form-control\" name=\"loginFormPassword\" [(ngModel)]=\"userPassword\" placeholder=\"Password\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-check remember-check float-left\">\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" #loginFormChecker class=\"form-check-input\" id=\"loginFormChecker\" name=\"loginFormChecker\" >\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"loginFormChecker\">Remember me</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\t<a routerLink=\"/forgot-password\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" class=\"forgot-password\" href=\"javascript:void(0);\">Forgot password ?</a>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"submit-box\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button (click)=\"login()\" [color]=\"'primary'\" [disabled]=\"loginform.invalid\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"font-medium text-md\">Login</span>\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n            </div>\n        </div>\n    </div>\n</section>\n\t\n\t\n\n");
 
 /***/ }),
 
@@ -3788,86 +3788,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/auth.service */ "./src/app/core/auth/auth.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-
-
-
-
+/* harmony import */ var src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/auth/auth.service */ "./src/app/core/auth/auth.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
 
 let LoginComponent = class LoginComponent {
-    constructor(router, authService, apartmentService, userService, sharedService, sessionService) {
-        this.router = router;
+    constructor(authService, sessionService) {
         this.authService = authService;
-        this.apartmentService = apartmentService;
-        this.userService = userService;
-        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.userEmailId = "";
         this.userPassword = "";
         this.userType = "";
         this.isInvalidLogin = false;
     }
-    /*getUserDetails(id){
-  
-      let params = {
-        userid: id
-      }
-  
-      this.userService.getUserById(params).subscribe((res:any) => {
-        
-  
-        var user = res[0];
-        
-        if(user.resetPassword)
-        this.cookieService.set('isReset', 'yes');
-        else
-        this.cookieService.set('isReset', 'no');
-  
-        var userRoleType = this.sessionService.roleTypeName;
-  
-        var params = {
-          userId: id
-        }
-  
-        this.apartmentService.getAllApartmentsByUserId(params).subscribe((res:any) => {
-          
-          this.cookieService.set('apartmentId', res[0].apartmentId);
-  
-          if(user.resetPassword){
-            this.router.navigateByUrl('/profile/resetpassword/'+user.userId);
-          }
-          else if(userRoleType == 'Admin' || userRoleType == 'SuperAdmin' || userRoleType == 'Staff' || userRoleType == 'Security'){
-            this.router.navigate(['/ams']);
-          }
-          else if(userRoleType == 'Owner' || userRoleType == 'Tenant') {
-            this.router.navigateByUrl('/user');
-          }
-          else {
-    
-          }
-  
-  
-        },
-        error => {
-          console.log(error);
-        });
-  
-      },
-      error => {
-        console.log(error);
-      });
-  
-  
-    } */
     login() {
+        this.isInvalidLogin = false;
         var params = {
             password: this.userPassword,
             emailId: this.userEmailId
@@ -3882,12 +3819,8 @@ let LoginComponent = class LoginComponent {
     }
 };
 LoginComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
+    { type: src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
 ];
 LoginComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3896,12 +3829,8 @@ LoginComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./login.component.scss */ "./src/app/modules/public/components/login/login.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
 ], LoginComponent);
 
 

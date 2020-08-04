@@ -77,11 +77,15 @@ let PanelListComponent = class PanelListComponent {
         });
     }
     ngOnInit() {
+        console.log(this.fieldModel);
+        console.log(this.fieldList);
         if (this.fieldList != undefined) {
             this.filteredValues = this.fieldList;
         }
     }
     ngOnChanges() {
+        console.log(this.fieldModel);
+        console.log(this.fieldList);
         if (this.fieldList != undefined) {
             this.filteredValues = this.fieldList;
             this.selectedItem = this.filteredValues.filter(item => { return item[this.fieldValue] == this.fieldModel; });
@@ -145,7 +149,6 @@ let SelectComponent = class SelectComponent {
         this._viewContainerRef = _viewContainerRef;
         this._element = _element;
         this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.fieldModel = null;
         this.selectedItem = [];
     }
     isFieldRequired() {
@@ -209,6 +212,11 @@ let SelectComponent = class SelectComponent {
     }
     ngOnInit() {
     }
+    ngOnChanges() {
+        if (this.fieldModel != undefined) {
+            this.fieldModel = this.fieldList.filter(item => { return item[this.fieldValue] == this.fieldModel; });
+        }
+    }
 };
 SelectComponent.ctorParameters = () => [
     { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"] },
@@ -223,6 +231,7 @@ SelectComponent.propDecorators = {
     fieldList: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     fieldValue: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     isDisabled: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     isLabel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     fieldParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
     _tagsPanel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['selectPanel',] }]
