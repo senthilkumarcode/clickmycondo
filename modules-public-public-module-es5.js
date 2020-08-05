@@ -5859,7 +5859,6 @@
           value: function login() {
             var _this19 = this;
 
-            this.isInvalidLogin = false;
             var params = {
               password: this.userPassword,
               emailId: this.userEmailId

@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"all-facility-bookings-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isBookingDataLoaded\"></app-loader>\n\n\t<div class=\"card table-card\" *ngIf=\"isBookingDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Bookings <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"bookingData\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/user/facility-booking/create-booking\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Create Booking</span>\n    \t\t\t\t</a>\n\n    \t\t\t</li>\n\n    \t\t</ul>\n  \t\t</div>\n\n\n  \t\t<div class=\"card-body p-0\">\n  \t\t\t\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n  \t\t\t\n\t  \t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('facilityId')\">Booking ID <span [ngClass]=\"getFieldOrderBy('facilityId')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('facilityName')\">Facility Name <span [ngClass]=\"getFieldOrderBy('facilityName')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('facilityName')\">Facility Location <span [ngClass]=\"getFieldOrderBy('facilityName')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('slot')\">Slot<span [ngClass]=\"getFieldOrderBy('slot')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('date')\">Booked For <span [ngClass]=\"getFieldOrderBy('Date')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('cost')\">Cost <span [ngClass]=\"getFieldOrderBy('cost')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('facilityBookingStatus')\">Status<span  [ngClass]=\"getFieldOrderBy('facilityBookingStatus')\"></span>\n\t\t\n\t\t\t\t\t\t</th>\n\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\n\t\t\t\t<tbody>\n\t\t\t\t    <tr *ngFor=\"let booking of bookingListData | simpleSearch: bookingData | sort : unitFieldType: unitOrder | slice:ItemUserStartIndex:ItemUserEndIndex ; let i = index\">\n\t\t\t\t\t \n\t\t\t\t  \t  <td class=\"name\">{{booking.apartmentFacilityBookingId}}</td>\n\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t      {{getFacilityBookingName(booking.apartmentFacilityId)}}\n\t\t\t\t      <span class=\"badge small min text-capitalize\" [ngClass]=\"getBookingStatus(booking.facilityBookingStatusId)\">{{getBookingStatus(booking.facilityBookingStatusId)}}</span>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t{{getFacilityBookingName(booking.apartmentBlockID)}}\n\t\t\t\t\t\t\t<span class=\"badge small min text-capitalize\" [ngClass]=\"getBookingStatus(booking.apartmentBlockID)\">{{getBookingStatus(booking.apartmentBlockID)}}</span>\n\t\t\t\t\t\t\t  </td>\n\t\t\t\t      <td class=\"grey\">{{getFacilityBookingSlot(booking.slotId)}}</td>\n\t\t\t\t      <td class=\"grey\">{{getBookedDate(booking.bookedForDate)}}</td>\n\t\t\t\t      <td class=\"grey\">\n\t\t\t\t      \t<span *ngIf=\"booking.amount>0\">{{booking.amount}}</span>\n\t\t\t\t      \t<span *ngIf=\"booking.amount==0\">Free</span>\n\t\t\t\t\t  </td>\n\t\t\t\t\t  <td class=\"grey\"><span class=\"badge small min text-capitalize\" [ngClass]=\"getBookingStatus(booking, booking.facilityBookingStatusId)\">{{getBookingStatus(booking, booking.facilityBookingStatusId)}}</span></td>\n\t\t\t\t      <td>\n\t\t\t\t      \t<a href=\"javascript:void(0)\"\n\t\t\t\t      \tclass=\"mr-2\" \n\t\t\t\t      \tplacement=\"top\"\n\t\t\t\t      \trouterLink=\"/ams/facility/edit-booking/{{booking.apartmentFacilityBookingId}}\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" (click)=\"showConfirmModal(booking)\"><i class=\"fa fa-close\"></i></a>\n\t\t\t\t\t\t</td>\n\t\t\t\t    </tr>\n\t\t\t\t    <tr *ngIf=\"isNoItems\"><td colspan=\"6\" class=\"grey text-center\">\n\t\t\t\t    <p class=\"message\">No Items available</p>\n\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t    </tbody>\n\n  \t\t\t</table>\n\n  \t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n  \t\t</div>\n\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-facility-booking-list\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isBookingDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"isBookingDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Bookings</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"bookingSearch\" (ngModelChange)=\"searchData()\"  placeholder=\"Search...\" >\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/user/facility-booking/create-booking\" routerLinkActive=\"active\">Create Booking</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"bookingListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -65,17 +65,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-
-
+/* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
 
 
@@ -86,221 +82,267 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AllFacilityBookingsComponent = class AllFacilityBookingsComponent {
-    constructor(router, route, injector, userService, facilityService, lookupService, sharedService, sessionService) {
-        this.router = router;
-        this.route = route;
-        this.injector = injector;
-        this.userService = userService;
+    constructor(facilityService, sessionService, router, sharedService, dialog) {
         this.facilityService = facilityService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.router = router;
+        this.sharedService = sharedService;
+        this.dialog = dialog;
         this.isBookingDataLoaded = false;
-        this.unitFieldType = "unitno";
-        this.unitOrder = true;
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
-        this.bookingData = "";
-        this.staffData = "";
-        this.isNoItems = false;
-        this.selectedInput = "";
-        this.columnField = {};
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.totalItems = 0;
     }
-    getIndexParams(event) {
-        this.ItemStartIndex = event.ItemStartIndex;
-        this.ItemEndIndex = event.ItemEndIndex;
-        this.itemLimit = event.itemLimit;
+    editBooking(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.router.navigate(['user/facility/edit-booking', dataRecord.apartmentFacilityBookingId]);
     }
-    sortUnitData(type) {
-        this.unitFieldType = type;
-        this.unitOrder = !this.unitOrder;
+    viewBooking(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.router.navigate(['user/facility/view-booking', dataRecord.apartmentFacilityBookingId]);
     }
-    getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-        }
-        else
-            return '';
+    ondeleteSlot(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.modalService.showConfirmModal(dataRecord.apartmentFacilityBookingId);
     }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    getFacilityBookingName(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.facilityCategoryData, function (item) {
-            if (item.apartmentFacilityId === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
+    searchData() {
+        if (this.bookingSearch != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.bookingSearch;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
         }
         else {
-            return data[0].facilityName;
+            this.datagrid.clearfilters();
         }
     }
-    getFacilityBookingSlot(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.facilitySlotData, function (item) {
-            if (item.apartmentFacilitySlotId === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            var beginTime = moment__WEBPACK_IMPORTED_MODULE_10__(data[0].slotBeginTime, 'HH:mm:ss').toDate();
-            var slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_10__(beginTime).format('HH:mm A');
-            var EndTime = moment__WEBPACK_IMPORTED_MODULE_10__(data[0].slotEndTime, 'HH:mm:ss').toDate();
-            var slotEndTime = moment__WEBPACK_IMPORTED_MODULE_10__(EndTime).format('HH:mm A');
-            return slotBeginTime + " - " + slotEndTime;
-        }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'BookingList');
     }
-    getBookedDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
-    }
-    getUserName(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.userListData, function (item) {
-            if (item.userId === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].firstName;
-        }
-    }
-    getBookingStatus(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.statusTypeData, function (item) {
-            if (item.lookupValueId === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].lookupValueName.toLowerCase();
-        }
-    }
-    onSelectChange(event, type, name) {
-        if (!underscore__WEBPACK_IMPORTED_MODULE_9__["isEmpty"](event)) {
-            this.selectedInput = type;
-            this.columnField[type] = event[name];
-        }
-        else {
-            this.columnField = {};
-        }
-    }
-    showConfirmModal(index) {
-        this.modalService.showBookingCancelConfirmModal(index);
-    }
-    ngOnInit() {
+    getBookingList() {
         let params = {
-            apartmentId: this.sessionService.apartmentId
+            apartmentId: this.sessionService.apartmentId,
+            apartmentBlockUnitUserId: this.sessionService.apartmentBlockUnitUserId
         };
-        this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe((res) => {
-            this.facilityCategoryData = res.filter(item => {
-                return item.isActive;
-            });
-            console.log(this.facilityCategoryData);
-        }, error => {
-        });
-        let statusTypeParams = {
-            LookupTypeId: 40
-        };
-        //status 
-        this.lookupService.getLookupValueByLookupTypeId(statusTypeParams).subscribe((res) => {
-            this.statusTypeData = res.filter(item => {
-                return item.isActive;
-            });
-        }, error => {
-        });
-        let facilityParams = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.facilityService.getApartmentFacilitySlotsByApartmentId(facilityParams).subscribe((res) => {
-            this.facilitySlotData = res.filter(item => {
-                return item.isActive;
-            });
-        }, error => {
-        });
-        let userListParams = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.userService.getAllUsersByApartmentId(userListParams).subscribe((res) => {
-            this.userListData = res.filter(data => {
-                return data.isActive;
-            });
-        }, error => {
-        });
-        let bookingListParams = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.facilityService.getApartmentFacilityBookingsByApartmentId(bookingListParams).subscribe((res) => {
-            console.log(this.sessionService.apartmentId);
-            //filter active true items and booking related this user
-            this.bookingListData = res.filter(data => {
-                return data.isActive && (data.neededUserId == parseInt(this.sessionService.userId));
-            });
-            if (this.bookingListData.length == 0 || this.bookingListData == undefined) {
-                this.isNoItems = true;
-            }
-            this.totalItems = this.bookingListData.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
+        this.facilityService.getApartmentFacilityBookingsByBlockunituserId(params).subscribe((res) => {
+            if (res.length > 0) {
+                this.totalItems = res.length;
+                let facility = {
+                    localdata: res.reverse(),
+                    datatype: "array"
+                };
+                this.bookingListData = new jqx.dataAdapter(facility);
             }
             this.isBookingDataLoaded = true;
-        }, error => {
         });
-        // delete booking
-        this.sharedService.unitlistdeleteindexcast.subscribe(index => {
-            if (index != null) {
+    }
+    ngOnInit() {
+        this.getBookingList();
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.columnData = [{
+                text: 'Booking Id',
+                datafield: 'serialNo',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Facility Name',
+                datafield: 'apartmentFacilityName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Event Date',
+                datafield: 'bookedForDate',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_6__(value).format("DD-MM-YYYY") + '</div>';
+                },
+                minwidth: 80,
+                renderer: columnrenderer,
+            }, {
+                text: 'Event Time',
+                datafield: 'bookedFromTime',
+                cellsrenderer: (row, column, value) => {
+                    let time, fromTime, toTime = this.bookingListData.loadedData[row].bookedToTime;
+                    if (value && toTime) {
+                        fromTime = moment__WEBPACK_IMPORTED_MODULE_6__(value, 'HH:mm:ss').format('hh:mm A');
+                        toTime = moment__WEBPACK_IMPORTED_MODULE_6__(toTime, 'HH:mm:ss').format('hh:mm A');
+                        time = `${fromTime} - ${toTime}`;
+                    }
+                    else {
+                        time = '-';
+                    }
+                    return '<div class="jqx-custom-inner-cell">' + time + '</div>';
+                },
+                cellsalign: 'center',
+                align: 'center',
+                minwidth: 160,
+                renderer: columnrenderer
+            }, {
+                text: 'Total Hours',
+                datafield: 'bookedToTime',
+                cellsrenderer: (row, column, value) => {
+                    let time, toTime, fromTime = this.bookingListData.loadedData[row].bookedFromTime;
+                    if (fromTime && value) {
+                        fromTime = moment__WEBPACK_IMPORTED_MODULE_6__(fromTime, 'HH:mm:ss').format();
+                        toTime = moment__WEBPACK_IMPORTED_MODULE_6__(value, 'HH:mm:ss').format();
+                        time = moment__WEBPACK_IMPORTED_MODULE_6__["duration"](moment__WEBPACK_IMPORTED_MODULE_6__(toTime).diff(moment__WEBPACK_IMPORTED_MODULE_6__(fromTime)));
+                        if (time.minutes() == 0) {
+                            time = `${time.hours()}hrs`;
+                        }
+                        else {
+                            time = `${time.hours()}hrs ${time.minutes()}mins`;
+                        }
+                        if (time == '23hrs 58mins') {
+                            time = '24hrs';
+                        }
+                    }
+                    else {
+                        time = '-';
+                    }
+                    return '<div class="jqx-custom-inner-cell ml-4">' + time + '</div>';
+                },
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Rate Type',
+                datafield: 'rateBaseIdName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Cost',
+                datafield: 'amount',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Discount',
+                datafield: 'discount',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Final Bill',
+                datafield: 'totalBillAmount',
+                cellsalign: 'center',
+                align: 'center',
+                cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer,
+            }, {
+                text: 'Booked For',
+                datafield: 'isBookingforGuest',
+                cellsrenderer: (row, column, value) => {
+                    value = value ? 'Guest' : 'Unit User';
+                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+                },
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Status',
+                datafield: 'facilityBookingStatusId_Label',
+                cellsrenderer: (row, column, label) => {
+                    let className = label == 'Rejected' ? 'cancelled' : label.toLowerCase();
+                    return '<div class="jqx-custom-inner-cell"><span class="w-100 badge small min text-capitalize ' + className + '">' + label + '</span></div>';
+                },
+                cellsalign: 'center',
+                align: 'center',
+                minwidth: 100,
+                renderer: columnrenderer
+            }, {
+                text: 'Actions',
+                cellsalign: 'center',
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions">'
+                        + '<a href="javascript:void(0)" class="mr-3" onClick="editFacilityBooking(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
+                        + '<a href="javascript:void(0)" class="mr-2" onClick="showConfirmDelete(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>'
+                        + '</div>';
+                },
+                minwidth: 80,
+                renderer: columnrenderer
+            }];
+        //delete item
+        this.sharedService.unitlistdeleteindexcast.subscribe(item => {
+            if (item != null) {
                 var params = {
-                    apartmentFacilityBookingId: this.bookingListData[index].apartmentFacilityBookingId,
+                    apartmentFacilityBookingId: item,
                     deleteBy: parseInt(this.sessionService.userId)
                 };
-                this.isBookingDataLoaded = false;
                 this.facilityService.deleteApartmentFacilityBooking(params).subscribe((res) => {
-                    this.bookingListData.splice(index, 1);
-                    this.totalItems = this.bookingListData.length;
-                    this.isBookingDataLoaded = true;
                     this.sharedService.setUnitListDeleteIndex(null);
-                }, error => {
-                    console.log(error);
+                    this.getBookingList();
                 });
             }
         });
-        console.log(this.bookingListData);
     }
 };
 AllFacilityBookingsComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] }
 ];
+AllFacilityBookingsComponent.propDecorators = {
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    editBooking: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditFacilityBooking', ['$event.detail'],] }],
+    viewBooking: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onViewFacilityBooking', ['$event.detail'],] }],
+    ondeleteSlot: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:ondeleteMeeting', ['$event.detail'],] }]
+};
 AllFacilityBookingsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-all-facility-bookings',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./all-facility-bookings.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/facility-booking/components/all-facility-bookings/all-facility-bookings.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./all-facility-bookings.component.scss */ "./src/app/modules/user/facility-booking/components/all-facility-bookings/all-facility-bookings.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])
 ], AllFacilityBookingsComponent);
 
+function editFacilityBooking(row) {
+    var event = new CustomEvent('onEditFacilityBooking', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.editFacilityBooking = editFacilityBooking;
+function viewFacilityBooking(row) {
+    var event = new CustomEvent('onViewFacilityBooking', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.viewFacilityBooking = viewFacilityBooking;
+function showConfirmDelete(row) {
+    var event = new CustomEvent('ondeleteMeeting', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.showConfirmDelete = showConfirmDelete;
 
 
 /***/ }),
@@ -544,9 +586,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _facility_booking_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./facility-booking-routing.module */ "./src/app/modules/user/facility-booking/facility-booking-routing.module.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _facility_booking_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./facility-booking.component */ "./src/app/modules/user/facility-booking/facility-booking.component.ts");
-/* harmony import */ var _components_all_facility_bookings_all_facility_bookings_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/all-facility-bookings/all-facility-bookings.component */ "./src/app/modules/user/facility-booking/components/all-facility-bookings/all-facility-bookings.component.ts");
-/* harmony import */ var _components_user_facility_calendar_user_facility_calendar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/user-facility-calendar/user-facility-calendar.component */ "./src/app/modules/user/facility-booking/components/user-facility-calendar/user-facility-calendar.component.ts");
+/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var _facility_booking_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./facility-booking.component */ "./src/app/modules/user/facility-booking/facility-booking.component.ts");
+/* harmony import */ var _components_all_facility_bookings_all_facility_bookings_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/all-facility-bookings/all-facility-bookings.component */ "./src/app/modules/user/facility-booking/components/all-facility-bookings/all-facility-bookings.component.ts");
+/* harmony import */ var _components_user_facility_calendar_user_facility_calendar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/user-facility-calendar/user-facility-calendar.component */ "./src/app/modules/user/facility-booking/components/user-facility-calendar/user-facility-calendar.component.ts");
+
 
 
 
@@ -560,16 +604,17 @@ let FacilityBookingModule = class FacilityBookingModule {
 FacilityBookingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _facility_booking_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingComponent"],
-            _components_all_facility_bookings_all_facility_bookings_component__WEBPACK_IMPORTED_MODULE_6__["AllFacilityBookingsComponent"],
-            _components_user_facility_calendar_user_facility_calendar_component__WEBPACK_IMPORTED_MODULE_7__["UserFacilityCalendarComponent"]
+            _facility_booking_component__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingComponent"],
+            _components_all_facility_bookings_all_facility_bookings_component__WEBPACK_IMPORTED_MODULE_7__["AllFacilityBookingsComponent"],
+            _components_user_facility_calendar_user_facility_calendar_component__WEBPACK_IMPORTED_MODULE_8__["UserFacilityCalendarComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"],
             _facility_booking_routing_module__WEBPACK_IMPORTED_MODULE_3__["FacilityBookingRoutingModule"]
         ],
-        bootstrap: [_facility_booking_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingComponent"]]
+        bootstrap: [_facility_booking_component__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingComponent"]]
     })
 ], FacilityBookingModule);
 

@@ -2403,8 +2403,7 @@ let ParkingManageAllocatedSlotsComponent = class ParkingManageAllocatedSlotsComp
     oneditSlot(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         const dialogRef = this.dialog.open(_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_2__["AllocatedSlotConfirmationComponent"], {
-            width: '600px',
-            height: 'auto',
+            panelClass: 'material-dialog-medium',
             data: dataRecord
         });
         dialogRef.afterClosed().subscribe(result => {

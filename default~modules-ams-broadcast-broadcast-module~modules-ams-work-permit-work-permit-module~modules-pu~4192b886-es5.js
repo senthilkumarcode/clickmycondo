@@ -1,5 +1,5 @@
 (function () {
-  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-ams-broadcast-broadcast-module~modules-ams-helpdesk-helpdesk-module~modules-ams-work~35825221"], {
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-ams-broadcast-broadcast-module~modules-ams-work-permit-work-permit-module~modules-pu~4192b886"], {
     /***/
     "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js":
     /*!*************************************************************************!*\
@@ -605,4 +605,4 @@
     }
   }]);
 })();
-//# sourceMappingURL=default~modules-ams-broadcast-broadcast-module~modules-ams-helpdesk-helpdesk-module~modules-ams-work~35825221-es5.js.map
+//# sourceMappingURL=default~modules-ams-broadcast-broadcast-module~modules-ams-work-permit-work-permit-module~modules-pu~4192b886-es5.js.map

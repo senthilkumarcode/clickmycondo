@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-announcements-wrapper col-sm-10 col-offset-2 m-auto\">\n  <mat-tab-group dynamicHeight>\n                 <mat-tab label=\"BroadCast Group Based\">\n<div class=\"row\">\n<div class=\"col-3\"> \n    <angular2-multiselect [data]=\"filterGroupCategory.dropdownList\"\n     name=\"groupTypeDropDown\"\n    [(ngModel)]=\"filterGroupCategory.selectedItems\" \n    [settings]=\"groupCategorySetting\"  \n    (onSelect)=\"filterMessages($event,'broadcastGroup')\">\n</angular2-multiselect>\n</div>\n  \n</div>\n                    \n  <ngb-carousel  class=\"mt-5\" >\n      <ng-template ngbSlide *ngFor=\"let broadCastMessage of broadCastBased\">\n          \n        <div class=\"picsum-img-wrapper\">\n            \n          <img [src]=\"imagePath\" alt=\"Random first slide\">\n         \n        </div>\n        <div class=\"carousel-caption1\">\n          <h5> {{broadCastMessage.CategoryName}}</h5>\n        </div>\n        <div class=\"carousel-caption2\"> \n          <h5><b> {{broadCastMessage.subject}}</b> </h5>\n        </div>\n        <div class=\"carousel-caption3\">\n          <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n          </div>\n      </ng-template>\n     </ngb-carousel>\n</mat-tab>\n                          <mat-tab label=\"Interest Group Based \"> \n                              <div class=\"row\">\n                                  <div class=\"col-3 offset-3\"> \n                                 <angular2-multiselect  [data]=\"interestGroupCategory.dropdownList\" \n                                      name=\"interestGroupTypeDropDown\"\n                                      [(ngModel)]=\"interestGroupCategory.selectedItems\" \n                                      [settings]=\"interestGroupCategorySetting\"\n                                      (onSelect)=\"filterMessages($event,'interestGroup')\"\n                                      >\n                                  </angular2-multiselect>\n                                  </div>\n                                  </div>\n                              \n                            <ngb-carousel class=\"mt-5\" >\n                              \n                              <ng-template ngbSlide *ngFor=\"let broadCastMessage of interestGroupBased\">\n                                <div class=\"picsum-img-wrapper\">\n                                  <img [src]=\"imagePath\" alt=\"Random first slide\">\n                                 \n                                </div>\n                                <div class=\"carousel-caption1\">\n                                  <h5> {{broadCastMessage.CategoryName}}</h5>\n                                </div>\n                                <div class=\"carousel-caption2\"> \n                                  <h5><b> {{broadCastMessage.subject}}</b> </h5>\n                                </div>\n                                <div class=\"carousel-caption3\">\n                                  <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n                                  </div>\n                              </ng-template>\n                              \n                            </ngb-carousel> </mat-tab>\n                          \n                         </mat-tab-group> \n  </div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"user-announcements-wrapper col-sm-10 col-offset-2 m-auto\">\n  <mat-tab-group dynamicHeight>\n                 <mat-tab label=\"BroadCast Group Based\">\n<div class=\"row\">\n<div class=\"col-3\"> \n    <angular2-multiselect [data]=\"filterGroupCategory.dropdownList\"\n     name=\"groupTypeDropDown\"\n    [(ngModel)]=\"filterGroupCategory.selectedItems\" \n    [settings]=\"groupCategorySetting\"  \n    (onSelect)=\"filterMessages($event,'broadcastGroup')\">\n</angular2-multiselect>\n</div>\n  \n</div>\n                    \n  <ngb-carousel  class=\"mt-5\" >\n      <ng-template ngbSlide *ngFor=\"let broadCastMessage of broadCastBased\">\n          \n        <div class=\"picsum-img-wrapper\">\n            \n          <img [src]=\"imagePath\" alt=\"Random first slide\">\n         \n        </div>\n        <div class=\"carousel-caption1\">\n          <h5> {{broadCastMessage.CategoryName}}</h5>\n        </div>\n        <div class=\"carousel-caption2\"> \n          <h5><b> {{broadCastMessage.subject}}</b> </h5>\n        </div>\n        <div class=\"carousel-caption3\">\n          <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n          </div>\n      </ng-template>\n     </ngb-carousel>\n</mat-tab>\n                          <mat-tab label=\"Interest Group Based \"> \n                              <div class=\"row\">\n                                  <div class=\"col-3 offset-3\"> \n                                 <angular2-multiselect  [data]=\"interestGroupCategory.dropdownList\" \n                                      name=\"interestGroupTypeDropDown\"\n                                      [(ngModel)]=\"interestGroupCategory.selectedItems\" \n                                      [settings]=\"interestGroupCategorySetting\"\n                                      (onSelect)=\"filterMessages($event,'interestGroup')\"\n                                      >\n                                  </angular2-multiselect>\n                                  </div>\n                                  </div>\n                              \n                            <ngb-carousel class=\"mt-5\" >\n                              \n                              <ng-template ngbSlide *ngFor=\"let broadCastMessage of interestGroupBased\">\n                                <div class=\"picsum-img-wrapper\">\n                                  <img [src]=\"imagePath\" alt=\"Random first slide\">\n                                 \n                                </div>\n                                <div class=\"carousel-caption1\">\n                                  <h5> {{broadCastMessage.CategoryName}}</h5>\n                                </div>\n                                <div class=\"carousel-caption2\"> \n                                  <h5><b> {{broadCastMessage.subject}}</b> </h5>\n                                </div>\n                                <div class=\"carousel-caption3\">\n                                  <h5>Posted By: {{broadCastMessage.UserName}}</h5>\n                                  </div>\n                              </ng-template>\n                              \n                            </ngb-carousel> </mat-tab>\n                          \n                         </mat-tab-group> \n  </div>\n -->\n\n <div class=\"parking-mangae-allocated-slots-list-wrapper\">  \n  <div class=\"main\">\n    <h4 class=\"mb-4\">Announcements</h4>\n    <div class=\"bg-card shadow p-0\">\n      <nav mat-tab-nav-bar>\n        <a mat-tab-link \n        *ngFor=\"let link of navArray\" \n        [routerLink]=\"link.link\" \n        routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n        {{link.name}}\n        </a>\n      </nav>\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -32,8 +32,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _announcements_component__WEBPACK_IMPORTED_MODULE_3__["AnnouncementsComponent"] },
-    { path: 'announcement', component: _announcements_component__WEBPACK_IMPORTED_MODULE_3__["AnnouncementsComponent"] }
+    // { path: '', component: AnnouncementsComponent },
+    {
+        path: '', component: _announcements_component__WEBPACK_IMPORTED_MODULE_3__["AnnouncementsComponent"],
+        children: [
+            { path: 'user-group-based-announcement', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-user-announcements-user-group-announcement-user-group-announcement-module */ "src-app-modules-user-announcements-user-group-announcement-user-group-announcement-module").then(__webpack_require__.bind(null, /*! src/app/modules/user/announcements/user-group-announcement/user-group-announcement.module */ "./src/app/modules/user/announcements/user-group-announcement/user-group-announcement.module.ts")).then(m => m.UserGroupAnnouncementModule) },
+            { path: 'user-interest-based-announcement', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-user-announcements-user-interest-announcement-user-interest-announcement-module */ "src-app-modules-user-announcements-user-interest-announcement-user-interest-announcement-module").then(__webpack_require__.bind(null, /*! src/app/modules/user/announcements/user-interest-announcement/user-interest-announcement.module */ "./src/app/modules/user/announcements/user-interest-announcement/user-interest-announcement.module.ts")).then(m => m.UserInterestAnnouncementModule) },
+            { path: '**', redirectTo: 'user-group-based-announcement', pathMatch: 'full' }
+        ]
+    }
 ];
 let AnnouncementsRoutingModule = class AnnouncementsRoutingModule {
 };
@@ -73,181 +80,192 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnnouncementsComponent", function() { return AnnouncementsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-
-
-
-
-
 
 
 let AnnouncementsComponent = class AnnouncementsComponent {
-    constructor(broadcastService, sessionService, userService) {
-        this.broadcastService = broadcastService;
-        this.sessionService = sessionService;
-        this.userService = userService;
-        this.imagePath = "assets/images/announcement_background.jpeg";
-        this.filterGroupCategory = {
-            "dropdownList": [],
-            "selectedItems": []
-        };
-        this.interestGroupCategory = {
-            "dropdownList": [],
-            "selectedItems": []
-        };
-        //this.modalService = this.injector.get(ModalService);
-    }
+    //   imagePath="assets/images/announcement_background.jpeg";
+    //   modalService:any;
+    //   constructor(
+    //     public broadcastService: BroadcastService,
+    //     private sessionService:SessionService,
+    //     private userService:UserService,
+    //     //private injector: Injector,
+    //   ) { 
+    //     //this.modalService = this.injector.get(ModalService);
+    //   }
+    //   filterGroupCategory={
+    //     "dropdownList":[],
+    //     "selectedItems":[]
+    //   };
+    //   interestGroupCategory={
+    //     "dropdownList":[],
+    //     "selectedItems":[]
+    //   };
+    //   apartmentID:any;
+    //   loginUserId:any;
+    //   groupCategorySetting:any;
+    //   interestGroupCategorySetting:any;
+    //   ngOnInit(): void {
+    //     this.apartmentID=this.sessionService.apartmentId;
+    //     this.loginUserId=parseInt(this.sessionService.userId);
+    //     this.getAllCategory();
+    //     this.getAllGroupCategory();
+    //     this.getAllBroadcastMessage();
+    //      this.groupCategorySetting={
+    //       singleSelection: true, 
+    //       labelKey: 'name',
+    //       primaryKey: 'value',
+    //       enableFilterSelectAll: false,
+    //       autoPosition: false,
+    //       maxHeight:240
+    //     };
+    //     this.interestGroupCategorySetting={
+    //       singleSelection: true, 
+    //       labelKey: 'name',
+    //       primaryKey: 'value',
+    //       enableFilterSelectAll: false,
+    //       autoPosition: false,
+    //       maxHeight:240
+    //     };
+    //     this.filterGroupCategory.dropdownList=[{name:"today",value:0},{name:"yesterday",value:1},{name:"Past Week",value:7},{name:"Past 2 Week",value:14}];
+    //     this.interestGroupCategory.dropdownList=[{name:"today",value:0},{name:"yesterday",value:1},{name:"Past Week",value:7},{name:"Past 2 Week",value:14}];
+    //     this.filterGroupCategory.selectedItems=[{name:"today",value:0}];
+    //     this.interestGroupCategory.selectedItems=[{name:"today",value:0}];
+    //   }
+    //   broadCastMessages:any;
+    //   allUser:any;
+    //   allCategory:any;
+    //    //Get All Category
+    //    getAllCategory(){
+    //     let queryParamBase = {
+    //       apartmentId:this.sessionService.apartmentId
+    //     };
+    //     this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe((res:any) => {
+    //       this.allCategory = res;
+    //     })
+    //   }
+    //   broadCastGroupCategory:any;
+    //   getAllGroupCategory(){
+    //     let queryParamBase = {
+    //       apartmentId: this.apartmentID,
+    //     };
+    //     this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe((res:any) => {
+    //       this.broadCastGroupCategory= res; 
+    //       });
+    //   }
+    //   getGroupCategoryName(groupcategoryId){
+    //    let groupcategory= this.broadCastGroupCategory.filter(function(obj){
+    //     return obj.broadCastGroupCategoryId==groupcategoryId;
+    //     });
+    //   return  groupcategory[0].groupName;
+    //   }
+    //   getCategoryName(name){
+    //     var data = _.filter( this.allCategory, function( item ) {
+    //       if(item.broadCastMessageCategoryId === name)
+    //         return item;
+    //       } );
+    //       if(data === undefined || data === null || data.length == 0){
+    //         return '';
+    //       }
+    //       else {
+    //         return data[0].broadCastMessageCategory1;
+    //       }
+    //   }
+    //   getBroadcastGroupCategory(item){
+    //   }
+    //   getUserName(name){
+    //     var data = _.filter( this.allUser, function( item ) {
+    //       if(item.userId === name)
+    //         return item;
+    //       } );
+    //       if(data === undefined || data === null || data.length == 0){
+    //         return '';
+    //       }
+    //       else {
+    //         return data[0].firstName;
+    //       }
+    //   }
+    //   broadCastBased:any;
+    //   interestGroupBased:any;
+    //   getAllBroadcastMessage(){
+    //     var users$=this.userService.getAllUsers();
+    //   var allBroadCastmessages$= users$.pipe(
+    //      concatMap((users:any) =>{
+    //        this.allUser = users;
+    //        let queryParamBase = {
+    //         apartmentId:this.sessionService.apartmentId
+    //       };
+    //        return  this.broadcastService.getAllBroadcastMessages(queryParamBase);
+    //      } )
+    //     );
+    //      allBroadCastmessages$.subscribe(
+    //                  (res:any)=>{
+    //                      this.broadCastMessages=res;
+    //                      this.broadCastMessages.forEach(element => {
+    //                        if(element.broadCastGroupcategoryId==null)
+    //                        { 
+    //                          element.CategoryName=this.getCategoryName(element.broadcastMessageCategoryId);
+    //                        }else{
+    //                         element.CategoryName=this.getGroupCategoryName(element.broadCastGroupcategoryId);
+    //                        }
+    //                        element.UserName=this.getUserName(element.broadcastBy);
+    //                      });
+    //                      this.filterMessages({name:"today",value:0},"interestGroup");
+    //                      this.filterMessages({name:"today",value:0},"broadcastGroup");
+    //                 }
+    //      );
+    //    }
+    //    getDate(inDays) {
+    //     const today = new Date(); 
+    //     return new Date(today.getFullYear(),
+    //                     today.getMonth(),
+    //                     today.getDate() + (inDays * -1));
+    // }
+    //    filterMessages(item,messageType){
+    //      let numberOfDays=item.value
+    //     let current= new Date();
+    //     let previousDate=this.getDate(numberOfDays);
+    //     let loginUserId=this.loginUserId;
+    //       if(messageType=="interestGroup")
+    //       {
+    //         this.interestGroupBased=this.broadCastMessages.filter(function(obj){
+    //           return obj.broadCastGroupcategoryId!=null 
+    //           && current>new Date(Date.parse(obj.broadcastOn))
+    //           && previousDate<new Date(Date.parse(obj.broadcastOn))
+    //           && obj.userIds.split(',').includes(loginUserId.toString());
+    //         });
+    //         if(this.interestGroupBased.length==0){
+    //           this.interestGroupBased=[{}];
+    //           } 
+    //       }
+    //       if(messageType=="broadcastGroup"){
+    //         this.broadCastBased=this.broadCastMessages.filter(function(obj){
+    //           return obj.broadCastGroupcategoryId==null
+    //                 && current>new Date(Date.parse(obj.broadcastOn))
+    //                 && previousDate<new Date(Date.parse(obj.broadcastOn))
+    //                 && obj.userIds.split(',').includes(loginUserId.toString());
+    //         });
+    //         if(this.broadCastBased.length==0){
+    //           this.broadCastBased=[{}];
+    //         }   
+    //       }
+    // }
+    constructor() { }
     ngOnInit() {
-        this.apartmentID = this.sessionService.apartmentId;
-        this.loginUserId = parseInt(this.sessionService.userId);
-        this.getAllCategory();
-        this.getAllGroupCategory();
-        this.getAllBroadcastMessage();
-        this.groupCategorySetting = {
-            singleSelection: true,
-            labelKey: 'name',
-            primaryKey: 'value',
-            enableFilterSelectAll: false,
-            autoPosition: false,
-            maxHeight: 240
-        };
-        this.interestGroupCategorySetting = {
-            singleSelection: true,
-            labelKey: 'name',
-            primaryKey: 'value',
-            enableFilterSelectAll: false,
-            autoPosition: false,
-            maxHeight: 240
-        };
-        this.filterGroupCategory.dropdownList = [{ name: "today", value: 0 }, { name: "yesterday", value: 1 }, { name: "Past Week", value: 7 }, { name: "Past 2 Week", value: 14 }];
-        this.interestGroupCategory.dropdownList = [{ name: "today", value: 0 }, { name: "yesterday", value: 1 }, { name: "Past Week", value: 7 }, { name: "Past 2 Week", value: 14 }];
-        this.filterGroupCategory.selectedItems = [{ name: "today", value: 0 }];
-        this.interestGroupCategory.selectedItems = [{ name: "today", value: 0 }];
-    }
-    //Get All Category
-    getAllCategory() {
-        let queryParamBase = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe((res) => {
-            this.allCategory = res;
-        });
-    }
-    getAllGroupCategory() {
-        let queryParamBase = {
-            apartmentId: this.apartmentID,
-        };
-        this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe((res) => {
-            this.broadCastGroupCategory = res;
-        });
-    }
-    getGroupCategoryName(groupcategoryId) {
-        let groupcategory = this.broadCastGroupCategory.filter(function (obj) {
-            return obj.broadCastGroupCategoryId == groupcategoryId;
-        });
-        return groupcategory[0].groupName;
-    }
-    getCategoryName(name) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_5__["filter"](this.allCategory, function (item) {
-            if (item.broadCastMessageCategoryId === name)
-                return item;
-        });
-        if (data === undefined || data === null || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].broadCastMessageCategory1;
-        }
-    }
-    getBroadcastGroupCategory(item) {
-    }
-    getUserName(name) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_5__["filter"](this.allUser, function (item) {
-            if (item.userId === name)
-                return item;
-        });
-        if (data === undefined || data === null || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].firstName;
-        }
-    }
-    getAllBroadcastMessage() {
-        var users$ = this.userService.getAllUsers();
-        var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["concatMap"])((users) => {
-            this.allUser = users;
-            let queryParamBase = {
-                apartmentId: this.sessionService.apartmentId
-            };
-            return this.broadcastService.getAllBroadcastMessages(queryParamBase);
-        }));
-        allBroadCastmessages$.subscribe((res) => {
-            this.broadCastMessages = res;
-            this.broadCastMessages.forEach(element => {
-                if (element.broadCastGroupcategoryId == null) {
-                    element.CategoryName = this.getCategoryName(element.broadcastMessageCategoryId);
-                }
-                else {
-                    element.CategoryName = this.getGroupCategoryName(element.broadCastGroupcategoryId);
-                }
-                element.UserName = this.getUserName(element.broadcastBy);
-            });
-            this.filterMessages({ name: "today", value: 0 }, "interestGroup");
-            this.filterMessages({ name: "today", value: 0 }, "broadcastGroup");
-        });
-    }
-    getDate(inDays) {
-        const today = new Date();
-        return new Date(today.getFullYear(), today.getMonth(), today.getDate() + (inDays * -1));
-    }
-    filterMessages(item, messageType) {
-        let numberOfDays = item.value;
-        let current = new Date();
-        let previousDate = this.getDate(numberOfDays);
-        let loginUserId = this.loginUserId;
-        if (messageType == "interestGroup") {
-            this.interestGroupBased = this.broadCastMessages.filter(function (obj) {
-                return obj.broadCastGroupcategoryId != null
-                    && current > new Date(Date.parse(obj.broadcastOn))
-                    && previousDate < new Date(Date.parse(obj.broadcastOn))
-                    && obj.userIds.split(',').includes(loginUserId.toString());
-            });
-            if (this.interestGroupBased.length == 0) {
-                this.interestGroupBased = [{}];
-            }
-        }
-        if (messageType == "broadcastGroup") {
-            this.broadCastBased = this.broadCastMessages.filter(function (obj) {
-                return obj.broadCastGroupcategoryId == null
-                    && current > new Date(Date.parse(obj.broadcastOn))
-                    && previousDate < new Date(Date.parse(obj.broadcastOn))
-                    && obj.userIds.split(',').includes(loginUserId.toString());
-            });
-            if (this.broadCastBased.length == 0) {
-                this.broadCastBased = [{}];
-            }
-        }
+        this.navArray = [
+            { link: 'user-group-based-announcement/list', name: 'BroadCast Group Based' },
+            { link: 'user-interest-based-announcement/list', name: 'Interest Group Based' }
+        ];
     }
 };
-AnnouncementsComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] }
-];
+AnnouncementsComponent.ctorParameters = () => [];
 AnnouncementsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-announcements',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./announcements.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/announcements/announcements.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./announcements.component.scss */ "./src/app/modules/user/announcements/announcements.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
 ], AnnouncementsComponent);
 
 

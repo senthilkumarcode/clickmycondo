@@ -735,11 +735,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../meeting-edit-display/meeting-edit-display.component */ "./src/app/modules/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
+
 
 
 
@@ -750,14 +754,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MeetingsListComponent = class MeetingsListComponent {
-    constructor(router, meetingService, injector, sessionService, dialog) {
+    constructor(router, meetingService, injector, sessionService, sharedService, dialog) {
         this.router = router;
         this.meetingService = meetingService;
         this.injector = injector;
         this.sessionService = sessionService;
+        this.sharedService = sharedService;
         this.dialog = dialog;
         this.isMeetingDataLoaded = false;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
+    }
+    oneditMeeting(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let data = {
+            type: 'edit',
+            id: dataRecord.meetingId
+        };
+        const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_8__["MeetingEditDisplayComponent"], {
+            width: 'auto',
+            height: '700px',
+            data: data
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getMeetingList();
+            }
+        });
+    }
+    ondeleteSlot(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.modalService.showConfirmModal(dataRecord.meetingId);
     }
     searchData() {
         if (this.meetingFilter != "") {
@@ -783,9 +809,6 @@ let MeetingsListComponent = class MeetingsListComponent {
     addMeeting() {
         this.router.navigate(['ams/meetings/create']);
     }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
     getMeetingList() {
         let params = {
             apartmentId: this.sessionService.apartmentId
@@ -799,7 +822,6 @@ let MeetingsListComponent = class MeetingsListComponent {
                 };
                 this.lstMeetingData = new jqx.dataAdapter(this.gridSourceData);
             }
-            this.lstMeetingData = new jqx.dataAdapter(this.gridSourceData);
             this.isMeetingDataLoaded = true;
         }, error => {
             console.log(error);
@@ -819,15 +841,14 @@ let MeetingsListComponent = class MeetingsListComponent {
         this.columnData = [{
                 text: 'Date',
                 datafield: 'meetingDate',
-                width: 100,
                 cellsrenderer: (row, column, value) => {
                     return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("DD-MM-YYYY") + '</div>';
                 },
+                minwidth: 100,
                 renderer: columnrenderer
             }, {
                 text: 'Time',
                 datafield: 'fromTime',
-                minwidth: 160,
                 cellsrenderer: (row, column, value) => {
                     let time, fromTime, toTime = this.lstMeetingData.loadedData[row].toTime;
                     if (value && toTime) {
@@ -840,24 +861,19 @@ let MeetingsListComponent = class MeetingsListComponent {
                     }
                     return '<div class="jqx-custom-inner-cell">' + time + '</div>';
                 },
+                minwidth: 100,
                 renderer: columnrenderer,
             }, {
                 text: 'Type',
                 datafield: 'meetingTypeId',
                 cellsrenderer: cellsrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'Catgeory',
-                datafield: 'meetingCategoryName',
-                cellsrenderer: cellsrenderer,
-                minwidth: 100,
+                minwidth: 80,
                 renderer: columnrenderer
             }, {
                 text: 'Subject',
                 datafield: 'subject',
                 cellsrenderer: cellsrenderer,
-                minwidth: 150,
+                minwidth: 180,
                 renderer: columnrenderer
             }, {
                 text: 'Status',
@@ -877,19 +893,34 @@ let MeetingsListComponent = class MeetingsListComponent {
                 },
                 minwidth: 120,
                 renderer: columnrenderer
-            },
-        ];
+            }];
+        //delete item
+        this.sharedService.unitlistdeleteindexcast.subscribe(item => {
+            if (item != null) {
+                var params = {
+                    meetingId: item,
+                    deleteBy: this.sessionService.userId
+                };
+                this.meetingService.deleteMeeting(params).subscribe((res) => {
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    this.getMeetingList();
+                });
+            }
+        });
     }
 };
 MeetingsListComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"] },
+    { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
 ];
 MeetingsListComponent.propDecorators = {
-    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    oneditMeeting: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:oneditMeeting', ['$event.detail'],] }],
+    ondeleteSlot: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:ondeleteMeeting', ['$event.detail'],] }]
 };
 MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -898,12 +929,31 @@ MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./meetings-list.component.scss */ "./src/app/modules/ams/meetings/components/meetings-list/meetings-list.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"],
+        src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
 ], MeetingsListComponent);
 
+function editMeeting(row) {
+    var event = new CustomEvent('oneditMeeting', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.editMeeting = editMeeting;
+function showConfirmDelete(row) {
+    var event = new CustomEvent('ondeleteMeeting', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.showConfirmDelete = showConfirmDelete;
 
 
 /***/ }),
@@ -1017,8 +1067,9 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
         if (this.sessionService.roleTypeName == 'Admin') {
             let data = { id: info.event.extendedProps.meetingId, type: 'edit' };
             const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
+                panelClass: 'material-dialog-big',
+                height: 'inherit',
                 width: 'auto',
-                height: '700px',
                 data: data
             });
             dialogRef.afterClosed().subscribe(result => {
@@ -1032,8 +1083,9 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
         if (this.sessionService.roleTypeName == 'Admin') {
             let data = { type: 'create' };
             const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
+                panelClass: 'material-dialog-big',
+                height: 'inherit',
                 width: 'auto',
-                height: '700px',
                 data: data
             });
             dialogRef.afterClosed().subscribe(result => {

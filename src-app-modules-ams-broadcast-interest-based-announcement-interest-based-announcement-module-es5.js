@@ -177,24 +177,354 @@
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/api/controllers/Broadcast */
+      "./src/app/api/controllers/Broadcast.ts");
+      /* harmony import */
+
+
+      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ngx-cookie-service */
+      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/modal.service */
+      "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! rxjs/operators */
+      "./node_modules/rxjs/_esm2015/operators/index.js");
+      /* harmony import */
+
+
+      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! underscore */
+      "./node_modules/underscore/modules/index-all.js");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
 
       var IntrestGroupBasedAnnouncementComponent = /*#__PURE__*/function () {
-        function IntrestGroupBasedAnnouncementComponent() {
+        function IntrestGroupBasedAnnouncementComponent(broadcastService, cookieService, userService, injector, _changeDetectorRef, _activatedRoute, _router, sharedService) {
           _classCallCheck(this, IntrestGroupBasedAnnouncementComponent);
+
+          this.broadcastService = broadcastService;
+          this.cookieService = cookieService;
+          this.userService = userService;
+          this.injector = injector;
+          this._changeDetectorRef = _changeDetectorRef;
+          this._activatedRoute = _activatedRoute;
+          this._router = _router;
+          this.sharedService = sharedService;
+          this.imagePath = "assets/images/announcement_background.jpeg";
+          this.messageDate = new Date();
+          this.filterGroupCategory = {
+            "dropdownList": [],
+            "selectedItems": []
+          };
+          this.interestGroupCategory = {
+            "dropdownList": [],
+            "selectedItems": []
+          };
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
         _createClass(IntrestGroupBasedAnnouncementComponent, [{
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            this.apartmentID = parseInt(localStorage.getItem('apartmentId'));
+            this.getAllCategory();
+            this.getAllBroadcastMessage();
+            this.getAllGroupCategory();
+            this.groupCategorySetting = {
+              singleSelection: true,
+              labelKey: 'name',
+              primaryKey: 'value',
+              enableFilterSelectAll: false,
+              autoPosition: false,
+              maxHeight: 240,
+              classes: "myClass inputField"
+            };
+            this.interestGroupCategorySetting = {
+              singleSelection: true,
+              labelKey: 'name',
+              primaryKey: 'value',
+              enableFilterSelectAll: false,
+              autoPosition: false,
+              maxHeight: 240,
+              classes: "myClass inputField"
+            };
+            this.filterGroupCategory.dropdownList = [{
+              name: "today",
+              value: 0
+            }, {
+              name: "yesterday",
+              value: 1
+            }, {
+              name: "Past Week",
+              value: 7
+            }, {
+              name: "Past 2 Week",
+              value: 14
+            }];
+            this.interestGroupCategory.dropdownList = [{
+              name: "today",
+              value: 0
+            }, {
+              name: "yesterday",
+              value: 1
+            }, {
+              name: "Past Week",
+              value: 7
+            }, {
+              name: "Past 2 Week",
+              value: 14
+            }];
+            this.filterGroupCategory.selectedItems = [{
+              name: "today",
+              value: 0
+            }];
+            this.interestGroupCategory.selectedItems = [{
+              name: "today",
+              value: 0
+            }];
+          } //Get All Category
+
+        }, {
+          key: "getAllCategory",
+          value: function getAllCategory() {
+            var _this = this;
+
+            var queryParamBase = {
+              apartmentId: parseInt(localStorage.getItem('apartmentId'))
+            };
+            this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
+              _this.allCategory = res;
+            });
+          }
+        }, {
+          key: "getAllGroupCategory",
+          value: function getAllGroupCategory() {
+            var _this2 = this;
+
+            var queryParamBase = {
+              apartmentId: this.apartmentID
+            };
+            this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe(function (res) {
+              _this2.broadCastGroupCategory = res;
+            });
+          }
+        }, {
+          key: "getGroupCategoryName",
+          value: function getGroupCategoryName(groupcategoryId) {
+            var groupcategory = this.broadCastGroupCategory.filter(function (obj) {
+              return obj.broadCastGroupCategoryId == groupcategoryId;
+            });
+            return groupcategory[0].groupName;
+          }
+        }, {
+          key: "getCategoryName",
+          value: function getCategoryName(name) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.allCategory, function (item) {
+              if (item.broadCastMessageCategoryId === name) return item;
+            });
+
+            if (data === undefined || data === null || data.length == 0) {
+              return '';
+            } else {
+              return data[0].broadCastMessageCategory1;
+            }
+          }
+        }, {
+          key: "getBroadcastGroupCategory",
+          value: function getBroadcastGroupCategory(item) {}
+        }, {
+          key: "getUserName",
+          value: function getUserName(name) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.allUser, function (item) {
+              if (item.userId === name) return item;
+            });
+
+            if (data === undefined || data === null || data.length == 0) {
+              return '';
+            } else {
+              return data[0].firstName;
+            }
+          }
+        }, {
+          key: "getAllBroadcastMessage",
+          value: function getAllBroadcastMessage() {
+            var _this3 = this;
+
+            var users$ = this.userService.getAllUsers();
+            var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["concatMap"])(function (users) {
+              _this3.allUser = users;
+              var queryParamBase = {
+                apartmentId: parseInt(localStorage.getItem('apartmentId'))
+              };
+              return _this3.broadcastService.getAllBroadcastMessages(queryParamBase);
+            }));
+            allBroadCastmessages$.subscribe(function (res) {
+              _this3.broadCastMessages = res;
+
+              _this3.broadCastMessages.forEach(function (element) {
+                if (element.broadCastGroupcategoryId == null) {
+                  element.CategoryName = _this3.getCategoryName(element.broadcastMessageCategoryId);
+                } else {
+                  element.CategoryName = _this3.getGroupCategoryName(element.broadCastGroupcategoryId);
+                }
+
+                element.UserName = _this3.getUserName(element.broadcastBy);
+              });
+
+              _this3.filterMessages({
+                name: "today",
+                value: 0
+              }, "interestGroup");
+
+              _this3.filterMessages({
+                name: "today",
+                value: 0
+              }, "broadcastGroup");
+            });
+          }
+        }, {
+          key: "getDate",
+          value: function getDate(inDays) {
+            var today = new Date();
+            return new Date(today.getFullYear(), today.getMonth(), today.getDate() + inDays * -1);
+          }
+        }, {
+          key: "onTabChanged",
+          value: function onTabChanged($event) {
+            this.getAllBroadcastMessage();
+          }
+        }, {
+          key: "filterMessages",
+          value: function filterMessages(item, messageType) {
+            var numberOfDays = item.value;
+            var current = new Date();
+            var previousDate = this.getDate(numberOfDays);
+
+            if (messageType == "interestGroup") {
+              this.interestGroupBased = this.broadCastMessages.filter(function (obj) {
+                return obj.broadCastGroupcategoryId != null && current > new Date(Date.parse(obj.broadcastOn)) && previousDate < new Date(Date.parse(obj.broadcastOn));
+              });
+
+              if (this.interestGroupBased.length == 0) {
+                this.interestGroupBased = [{}];
+              }
+            }
+
+            if (messageType == "broadcastGroup") {
+              this.broadCastBased = this.broadCastMessages.filter(function (obj) {
+                return obj.broadCastGroupcategoryId == null && current > new Date(Date.parse(obj.broadcastOn)) && previousDate < new Date(Date.parse(obj.broadcastOn));
+              });
+
+              if (this.broadCastBased.length == 0) {
+                this.broadCastBased = [{}];
+              }
+            }
+          }
+        }, {
+          key: "openAnnouncement",
+          value: function openAnnouncement() {
+            var route = this._activatedRoute;
+
+            while (route.firstChild) {
+              route = route.firstChild;
+            }
+
+            var id = this.sharedService.guid();
+            this.sharedService.setMatDrawerId(id);
+
+            this._router.navigate([this._router.url + '/details/', id], {
+              relativeTo: route
+            }); //Mark for check
+
+
+            this._changeDetectorRef.markForCheck();
+          }
+        }, {
+          key: "onBackdropClicked",
+          value: function onBackdropClicked() {
+            // Get the current activated route
+            var route = this._activatedRoute;
+
+            while (route.firstChild) {
+              route = route.firstChild;
+            } // Go to the parent route
+
+
+            this._router.navigate(['./list'], {
+              relativeTo: this._activatedRoute.parent
+            });
+
+            this.matDrawer.close(); // Mark for check
+
+            this._changeDetectorRef.markForCheck();
+          }
         }]);
 
         return IntrestGroupBasedAnnouncementComponent;
       }();
 
       IntrestGroupBasedAnnouncementComponent.ctorParameters = function () {
-        return [];
+        return [{
+          type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+        }, {
+          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+        }, {
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]
+        }];
       };
 
+      IntrestGroupBasedAnnouncementComponent.propDecorators = {
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
+          }]
+        }]
+      };
       IntrestGroupBasedAnnouncementComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-intrest-group-based-announcement',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -203,7 +533,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./intrest-group-based-announcement.component.scss */
         "./src/app/modules/ams/broadcast/interest-based-announcement/intrest-group-based-announcement/intrest-group-based-announcement.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], IntrestGroupBasedAnnouncementComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]])], IntrestGroupBasedAnnouncementComponent);
       /***/
     }
   }]);

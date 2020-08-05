@@ -1031,51 +1031,91 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/core/session/session.service */
-      "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Meeting */
       "./src/app/api/controllers/Meeting.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! ../meeting-edit-display/meeting-edit-display.component */
+      "./src/app/modules/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var MeetingsListComponent = /*#__PURE__*/function () {
-        function MeetingsListComponent(router, meetingService, injector, sessionService, dialog) {
+        function MeetingsListComponent(router, meetingService, injector, sessionService, sharedService, dialog) {
           _classCallCheck(this, MeetingsListComponent);
 
           this.router = router;
           this.meetingService = meetingService;
           this.injector = injector;
           this.sessionService = sessionService;
+          this.sharedService = sharedService;
           this.dialog = dialog;
           this.isMeetingDataLoaded = false;
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
         _createClass(MeetingsListComponent, [{
+          key: "oneditMeeting",
+          value: function oneditMeeting(detail) {
+            var _this14 = this;
+
+            var dataRecord = this.datagrid.getrowdata(detail.rowId);
+            var data = {
+              type: 'edit',
+              id: dataRecord.meetingId
+            };
+            var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_8__["MeetingEditDisplayComponent"], {
+              width: 'auto',
+              height: '700px',
+              data: data
+            });
+            dialogRef.afterClosed().subscribe(function (result) {
+              if (result) {
+                _this14.getMeetingList();
+              }
+            });
+          }
+        }, {
+          key: "ondeleteSlot",
+          value: function ondeleteSlot(detail) {
+            var dataRecord = this.datagrid.getrowdata(detail.rowId);
+            this.modalService.showConfirmModal(dataRecord.meetingId);
+          }
+        }, {
           key: "searchData",
           value: function searchData() {
-            var _this14 = this;
+            var _this15 = this;
 
             if (this.meetingFilter != "") {
               var filtergroup = new jqx.filter();
@@ -1088,7 +1128,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this15.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1102,30 +1142,24 @@
             this.router.navigate(['ams/meetings/create']);
           }
         }, {
-          key: "isMobileView",
-          value: function isMobileView() {
-            return window.innerWidth <= 767 ? 'table-responsive' : '';
-          }
-        }, {
           key: "getMeetingList",
           value: function getMeetingList() {
-            var _this15 = this;
+            var _this16 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this15.totalItems = res.length;
-                _this15.gridSourceData = {
+                _this16.totalItems = res.length;
+                _this16.gridSourceData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this15.lstMeetingData = new jqx.dataAdapter(_this15.gridSourceData);
+                _this16.lstMeetingData = new jqx.dataAdapter(_this16.gridSourceData);
               }
 
-              _this15.lstMeetingData = new jqx.dataAdapter(_this15.gridSourceData);
-              _this15.isMeetingDataLoaded = true;
+              _this16.isMeetingDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -1138,7 +1172,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this16 = this;
+            var _this17 = this;
 
             this.getMeetingList();
 
@@ -1153,19 +1187,18 @@
             this.columnData = [{
               text: 'Date',
               datafield: 'meetingDate',
-              width: 100,
               cellsrenderer: function cellsrenderer(row, column, value) {
                 return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("DD-MM-YYYY") + '</div>';
               },
+              minwidth: 100,
               renderer: columnrenderer
             }, {
               text: 'Time',
               datafield: 'fromTime',
-              minwidth: 160,
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var time,
                     fromTime,
-                    toTime = _this16.lstMeetingData.loadedData[row].toTime;
+                    toTime = _this17.lstMeetingData.loadedData[row].toTime;
 
                 if (value && toTime) {
                   fromTime = moment__WEBPACK_IMPORTED_MODULE_3__(value, 'HH:mm:ss').format('hh:mm A');
@@ -1177,24 +1210,19 @@
 
                 return '<div class="jqx-custom-inner-cell">' + time + '</div>';
               },
+              minwidth: 100,
               renderer: columnrenderer
             }, {
               text: 'Type',
               datafield: 'meetingTypeId',
               cellsrenderer: cellsrenderer,
-              minwidth: 100,
-              renderer: columnrenderer
-            }, {
-              text: 'Catgeory',
-              datafield: 'meetingCategoryName',
-              cellsrenderer: cellsrenderer,
-              minwidth: 100,
+              minwidth: 80,
               renderer: columnrenderer
             }, {
               text: 'Subject',
               datafield: 'subject',
               cellsrenderer: cellsrenderer,
-              minwidth: 150,
+              minwidth: 180,
               renderer: columnrenderer
             }, {
               text: 'Status',
@@ -1211,7 +1239,22 @@
               },
               minwidth: 120,
               renderer: columnrenderer
-            }];
+            }]; //delete item
+
+            this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
+              if (item != null) {
+                var params = {
+                  meetingId: item,
+                  deleteBy: _this17.sessionService.userId
+                };
+
+                _this17.meetingService.deleteMeeting(params).subscribe(function (res) {
+                  _this17.sharedService.setUnitListDeleteIndex(null);
+
+                  _this17.getMeetingList();
+                });
+              }
+            });
           }
         }]);
 
@@ -1222,13 +1265,15 @@
         return [{
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
-          type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"]
+          type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
         }];
       };
 
@@ -1238,6 +1283,14 @@
           args: ['datagrid', {
             "static": false
           }]
+        }],
+        oneditMeeting: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+          args: ['window:oneditMeeting', ['$event.detail']]
+        }],
+        ondeleteSlot: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+          args: ['window:ondeleteMeeting', ['$event.detail']]
         }]
       };
       MeetingsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1248,7 +1301,29 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./meetings-list.component.scss */
         "./src/app/modules/ams/meetings/components/meetings-list/meetings-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])], MeetingsListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])], MeetingsListComponent);
+
+      function editMeeting(row) {
+        var event = new CustomEvent('oneditMeeting', {
+          detail: {
+            rowId: row
+          }
+        });
+        window.dispatchEvent(event);
+      }
+
+      window.editMeeting = editMeeting;
+
+      function showConfirmDelete(row) {
+        var event = new CustomEvent('ondeleteMeeting', {
+          detail: {
+            rowId: row
+          }
+        });
+        window.dispatchEvent(event);
+      }
+
+      window.showConfirmDelete = showConfirmDelete;
       /***/
     },
 
@@ -1446,7 +1521,7 @@
         _createClass(MeetingsScheduledListComponent, [{
           key: "appointmentClick",
           value: function appointmentClick(info) {
-            var _this17 = this;
+            var _this18 = this;
 
             if (this.sessionService.roleTypeName == 'Admin') {
               var data = {
@@ -1454,29 +1529,9 @@
                 type: 'edit'
               };
               var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
+                panelClass: 'material-dialog-big',
+                height: 'inherit',
                 width: 'auto',
-                height: '700px',
-                data: data
-              });
-              dialogRef.afterClosed().subscribe(function (result) {
-                if (result) {
-                  _this17.getMeetingList();
-                }
-              });
-            }
-          }
-        }, {
-          key: "appointmentAdd",
-          value: function appointmentAdd(event) {
-            var _this18 = this;
-
-            if (this.sessionService.roleTypeName == 'Admin') {
-              var data = {
-                type: 'create'
-              };
-              var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
-                width: 'auto',
-                height: '700px',
                 data: data
               });
               dialogRef.afterClosed().subscribe(function (result) {
@@ -1487,9 +1542,31 @@
             }
           }
         }, {
+          key: "appointmentAdd",
+          value: function appointmentAdd(event) {
+            var _this19 = this;
+
+            if (this.sessionService.roleTypeName == 'Admin') {
+              var data = {
+                type: 'create'
+              };
+              var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
+                panelClass: 'material-dialog-big',
+                height: 'inherit',
+                width: 'auto',
+                data: data
+              });
+              dialogRef.afterClosed().subscribe(function (result) {
+                if (result) {
+                  _this19.getMeetingList();
+                }
+              });
+            }
+          }
+        }, {
           key: "getMeetingList",
           value: function getMeetingList() {
-            var _this19 = this;
+            var _this20 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -1502,10 +1579,10 @@
                   data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_4__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.toTime);
                   data.color = 'red';
                 });
-                _this19.calendarOptions.events = res;
+                _this20.calendarOptions.events = res;
               }
 
-              _this19.loadingData = true;
+              _this20.loadingData = true;
             });
           }
         }, {
@@ -1654,7 +1731,7 @@
         }, {
           key: "submitMeetingCategoryForm",
           value: function submitMeetingCategoryForm() {
-            var _this20 = this;
+            var _this21 = this;
 
             if (this.clickMode == 'add') {
               var params = {
@@ -1672,11 +1749,11 @@
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
                 if (res.message) {
-                  _this20.sharedService.setAlertMessage("Meeting Type Created Successfully!");
+                  _this21.sharedService.setAlertMessage("Meeting Type Created Successfully!");
 
-                  _this20.clickMode = ''; //close input box
+                  _this21.clickMode = ''; //close input box
 
-                  _this20.getMeetingCategoryList();
+                  _this21.getMeetingCategoryList();
                 }
               });
             } else {
@@ -1696,11 +1773,11 @@
               };
               this.lookupService.updateLookupValue(_params3).subscribe(function (res) {
                 if (res.message) {
-                  _this20.getMeetingCategoryList();
+                  _this21.getMeetingCategoryList();
 
-                  _this20.clickMode = ''; //close input box
+                  _this21.clickMode = ''; //close input box
 
-                  _this20.sharedService.setAlertMessage("Meeting Type Updated Successfully!");
+                  _this21.sharedService.setAlertMessage("Meeting Type Updated Successfully!");
                 }
               });
             }
@@ -1708,40 +1785,40 @@
         }, {
           key: "getMeetingCategoryList",
           value: function getMeetingCategoryList() {
-            var _this21 = this;
+            var _this22 = this;
 
             var params = {
               LookupTypeId: 21
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this21.isMeetingCategoryLoaded = true;
-              _this21.meetingCategoryList = res;
-              _this21.totalItems = res.length;
+              _this22.isMeetingCategoryLoaded = true;
+              _this22.meetingCategoryList = res;
+              _this22.totalItems = res.length;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this22 = this;
+            var _this23 = this;
 
             this.getMeetingCategoryList(); //delete item
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this22.isMeetingCategoryLoaded = false;
+                _this23.isMeetingCategoryLoaded = false;
                 var params = {
                   lookupValueId: item.id,
-                  updateUserId: parseInt(_this22.sessionService.userId)
+                  updateUserId: parseInt(_this23.sessionService.userId)
                 };
 
-                _this22.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this22.meetingCategoryList.splice(item.index, 1);
+                _this23.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this23.meetingCategoryList.splice(item.index, 1);
 
-                  _this22.sharedService.setUnitListDeleteIndex(null);
+                  _this23.sharedService.setUnitListDeleteIndex(null);
 
-                  _this22.clickMode = ''; //close input box
+                  _this23.clickMode = ''; //close input box
 
-                  _this22.isMeetingCategoryLoaded = true;
+                  _this23.isMeetingCategoryLoaded = true;
                 });
               }
             });

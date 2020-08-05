@@ -3804,7 +3804,6 @@ let LoginComponent = class LoginComponent {
         this.isInvalidLogin = false;
     }
     login() {
-        this.isInvalidLogin = false;
         var params = {
             password: this.userPassword,
             emailId: this.userEmailId
