@@ -186,6 +186,12 @@
       var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! underscore */
+      "./node_modules/underscore/modules/index-all.js");
 
       var ExpenseInvoiceHistoryComponent = /*#__PURE__*/function () {
         function ExpenseInvoiceHistoryComponent(route, vendorService, accountsService, lookupService, sessionService, router) {
@@ -211,22 +217,21 @@
             apartmentId: this.sessionService.apartmentId
           };
         }
-        /*getCategoryName(id){
-          
-          var data = _.filter( this.vendorCategoryData, function( item ) {
-            if(item.lookupValueId === parseInt(id))
-              return item;
-          });
-             if(data === undefined || data.length == 0){
-            return '';
-          }
-          else {
-            return data[0].lookupValueName;
-          }
-           }*/
-
 
         _createClass(ExpenseInvoiceHistoryComponent, [{
+          key: "getCategoryName",
+          value: function getCategoryName(id) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.vendorCategoryData, function (item) {
+              if (item.lookupValueId === parseInt(id)) return item;
+            });
+
+            if (data === undefined || data.length == 0) {
+              return '';
+            } else {
+              return data[0].lookupValueName;
+            }
+          }
+        }, {
           key: "isMobileView",
           value: function isMobileView() {
             return window.innerWidth <= 767 ? 'table-responsive' : '';

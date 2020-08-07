@@ -81,6 +81,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+
 
 
 
@@ -111,21 +113,18 @@ let ExpenseInvoiceHistoryComponent = class ExpenseInvoiceHistoryComponent {
             apartmentId: this.sessionService.apartmentId
         };
     }
-    /*getCategoryName(id){
-      
-      var data = _.filter( this.vendorCategoryData, function( item ) {
-        if(item.lookupValueId === parseInt(id))
-          return item;
-      });
-  
-      if(data === undefined || data.length == 0){
-        return '';
-      }
-      else {
-        return data[0].lookupValueName;
-      }
-  
-    }*/
+    getCategoryName(id) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.vendorCategoryData, function (item) {
+            if (item.lookupValueId === parseInt(id))
+                return item;
+        });
+        if (data === undefined || data.length == 0) {
+            return '';
+        }
+        else {
+            return data[0].lookupValueName;
+        }
+    }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
