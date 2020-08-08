@@ -767,18 +767,18 @@
                 _this2.isAccountAdded = true;
 
                 if (res.code == 200) {
-                  _this2.sharedService.openSnackBar('Gl Account Updated', 'success');
+                  _this2.sharedService.openSnackBar('Gl Account Added', 'success');
 
                   _this2.sharedService.setGlAccountAdded(true);
-                } else {
-                  _this2.sharedService.openSnackBar(res.message, 'error');
-
-                  _this2.sharedService.setGlAccountAdded(false);
                 }
-              }, function (error) {
+              }, function (err) {
                 _this2.isAccountAdded = true;
 
-                _this2.sharedService.openSnackBar('Network error', 'error');
+                if (err.status == 0) {
+                  _this2.sharedService.openSnackBar('Network Error', 'error');
+                } else {
+                  _this2.sharedService.openSnackBar(err.error[0].message, 'error');
+                }
               });
             } else {
               var _details = {
@@ -808,15 +808,15 @@
                   _this2.sharedService.openSnackBar('Gl Account Updated', 'success');
 
                   _this2.sharedService.setGlAccountAdded(true);
-                } else {
-                  _this2.sharedService.openSnackBar(res.message, 'error');
-
-                  _this2.sharedService.setGlAccountAdded(false);
                 }
-              }, function (error) {
+              }, function (err) {
                 _this2.isAccountAdded = true;
 
-                _this2.sharedService.openSnackBar('Network error', 'error');
+                if (err.status == 0) {
+                  _this2.sharedService.openSnackBar('Network Error', 'error');
+                } else {
+                  _this2.sharedService.openSnackBar(err.error[0].message, 'error');
+                }
               });
             }
           }

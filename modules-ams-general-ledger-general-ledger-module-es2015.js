@@ -494,16 +494,17 @@ let AddGlAccountComponent = class AddGlAccountComponent {
             this.accountsService.addGlAccount(params).subscribe((res) => {
                 this.isAccountAdded = true;
                 if (res.code == 200) {
-                    this.sharedService.openSnackBar('Gl Account Updated', 'success');
+                    this.sharedService.openSnackBar('Gl Account Added', 'success');
                     this.sharedService.setGlAccountAdded(true);
                 }
-                else {
-                    this.sharedService.openSnackBar(res.message, 'error');
-                    this.sharedService.setGlAccountAdded(false);
-                }
-            }, error => {
+            }, err => {
                 this.isAccountAdded = true;
-                this.sharedService.openSnackBar('Network error', 'error');
+                if (err.status == 0) {
+                    this.sharedService.openSnackBar('Network Error', 'error');
+                }
+                else {
+                    this.sharedService.openSnackBar(err.error[0].message, 'error');
+                }
             });
         }
         else {
@@ -533,13 +534,14 @@ let AddGlAccountComponent = class AddGlAccountComponent {
                     this.sharedService.openSnackBar('Gl Account Updated', 'success');
                     this.sharedService.setGlAccountAdded(true);
                 }
-                else {
-                    this.sharedService.openSnackBar(res.message, 'error');
-                    this.sharedService.setGlAccountAdded(false);
-                }
-            }, error => {
+            }, err => {
                 this.isAccountAdded = true;
-                this.sharedService.openSnackBar('Network error', 'error');
+                if (err.status == 0) {
+                    this.sharedService.openSnackBar('Network Error', 'error');
+                }
+                else {
+                    this.sharedService.openSnackBar(err.error[0].message, 'error');
+                }
             });
         }
     }
