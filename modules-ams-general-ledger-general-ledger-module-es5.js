@@ -771,14 +771,14 @@
 
                   _this2.sharedService.setGlAccountAdded(true);
                 } else {
-                  _this2.sharedService.openSnackBar('Gl Account Updated', 'error');
+                  _this2.sharedService.openSnackBar(res.message, 'error');
 
                   _this2.sharedService.setGlAccountAdded(false);
                 }
               }, function (error) {
                 _this2.isAccountAdded = true;
 
-                _this2.sharedService.openSnackBar('Gl Account Updated', 'error');
+                _this2.sharedService.openSnackBar('Network error', 'error');
               });
             } else {
               var _details = {
@@ -809,14 +809,14 @@
 
                   _this2.sharedService.setGlAccountAdded(true);
                 } else {
-                  _this2.sharedService.openSnackBar('Gl Account Added', 'error');
+                  _this2.sharedService.openSnackBar(res.message, 'error');
 
                   _this2.sharedService.setGlAccountAdded(false);
                 }
               }, function (error) {
                 _this2.isAccountAdded = true;
 
-                _this2.sharedService.openSnackBar('Some error occured', 'error');
+                _this2.sharedService.openSnackBar('Network error', 'error');
               });
             }
           }

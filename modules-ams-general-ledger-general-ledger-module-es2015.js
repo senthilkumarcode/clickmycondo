@@ -498,12 +498,12 @@ let AddGlAccountComponent = class AddGlAccountComponent {
                     this.sharedService.setGlAccountAdded(true);
                 }
                 else {
-                    this.sharedService.openSnackBar('Gl Account Updated', 'error');
+                    this.sharedService.openSnackBar(res.message, 'error');
                     this.sharedService.setGlAccountAdded(false);
                 }
             }, error => {
                 this.isAccountAdded = true;
-                this.sharedService.openSnackBar('Gl Account Updated', 'error');
+                this.sharedService.openSnackBar('Network error', 'error');
             });
         }
         else {
@@ -534,12 +534,12 @@ let AddGlAccountComponent = class AddGlAccountComponent {
                     this.sharedService.setGlAccountAdded(true);
                 }
                 else {
-                    this.sharedService.openSnackBar('Gl Account Added', 'error');
+                    this.sharedService.openSnackBar(res.message, 'error');
                     this.sharedService.setGlAccountAdded(false);
                 }
             }, error => {
                 this.isAccountAdded = true;
-                this.sharedService.openSnackBar('Some error occured', 'error');
+                this.sharedService.openSnackBar('Network error', 'error');
             });
         }
     }
